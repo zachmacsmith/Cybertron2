@@ -42,7 +42,8 @@ VIEW_CLAUSE = " What you cannot see, you know as you last saw it."
 GRAMMAR = ("A standing rule says, in your words: where goods go; where something is kept, or how much is held back; what is eaten first; "
            "what is moved, hung, salted or tended, and by whom; what someone does with units left over. It may say \"when\" (a lot is "
            "done, a store is full or has room, something is seen) or \"unless\" (someone is starving, it is winter). Yours come before "
-           "the household's. Setting, changing or dropping one is free (\"rule\"), at any time or in the evening.")
+           "the household's. Setting, changing or dropping one is free (\"rule\"), at any time or in the evening, as "
+           "{\"do\": \"rule\", \"rule\": \"first\", \"goods\": \"fish\", \"words\": \"we eat the fresh fish first\"}.")   # W-102
 
 CLOSING = "Decide what to do. Reply with JSON only."               # u9 §1.4; steering F4 (was "Plan your day.")
 OLD_CLOSING = "Plan your day. Reply with JSON only."
