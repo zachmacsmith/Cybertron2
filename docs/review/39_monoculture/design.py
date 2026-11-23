@@ -195,6 +195,30 @@ WORLDS["M5"] = {
               R("Lowbury", "Wheatley", 1), R("Wheatley", "Southmere", 1), R("Hartsmoot", "Deepwood", 1), R("Hartsmoot", "Oakhurst", 1)],
 }
 
+# Cross-roads (Zach, 23 Nov: the first maps were trees from home, "this feels potentially unrealistic ... should be a purposeful design
+# choice"). Lowland and vale country is a mesh of lanes; fen and mountain stay sparse where the land is the reason. Each added road
+# keeps every place's distance from home as designed, and in World 5 keeps the homes 4 days apart.
+CROSS = {
+    "M1": [R("The Ford", "Southmead", 1), R("Thornheath", "Hartwood", 1), R("Thornheath", "Greenhythe", 1),
+           R("Upper Hollins", "Ashen Down", 1), R("Ashen Down", "Longmere", 2), R("Hartwood", "Stonebarrow", 1, True),
+           R("Wolfcombe", "Highbarrow", 2, True), R("Far Meadows", "Eastmarch", 1)],
+    "M2": [R("Reedmere", "Kingsford", 1), R("Ashcombe", "Upper Reach", 1), R("Fernhill", "Highreach", 1), R("Long Acre", "Barrow Down", 1),
+           R("Long Acre", "Coldstone", 1, True), R("Oakhanger", "Ashcombe", 1)],
+    "M3": [R("Mosslake", "Lowdale", 1), R("Oak Clough", "Lowdale", 1), R("Southmoss", "Fordham", 1), R("Wolf Scar", "Lower Fold", 1, True)],
+    "M4": [R("Coldharbour", "Highdown", 1), R("Highdown", "Longdown", 1), R("Longdown", "Hamwell", 1), R("Oakley", "Coldharbour", 1),
+           R("Fernbrook", "Westcot", 1), R("Marsh End", "Southwold", 1)],
+    "M5": [R("Cove", "Midwold", 1), R("Stonefell", "Midwold", 1, True), R("Coppermount", "Fernmoor", 1, True), R("Millbrook", "Fernmoor", 1),
+           R("Wheatley", "Marchmead", 1), R("Oakhurst", "Southfold", 1), R("Greyhaven", "Southfold", 1), R("Deepwood", "Southmere", 2)],
+}
+TREE_BY_DESIGN = {   # where a branch is left without a way round, and why
+    "M2": "Greyhythe stays the end of the shore road: an open coast two days out, with nothing beyond it",
+    "M3": "the heights are valley heads joined only by the pass: in winter the way round is through the lowland, 8 days",
+    "M5": "each country is reached from the middle by its gate, with one side door; the homes stay 4 days apart",
+}
+for _k, _r in CROSS.items():
+    WORLDS[_k]["tree_roads"] = list(WORLDS[_k]["roads"])
+    WORLDS[_k]["roads"] = WORLDS[_k]["roads"] + _r
+
 for _w in WORLDS.values():
     _w["fit_err_km"] = round(fit(_w), 1)
 

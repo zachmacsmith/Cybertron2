@@ -521,6 +521,33 @@ At lifespan 64 the acting people (youths, adults and elders) are about 70% of th
     systems).
   - *Default:* World 1.
 
+## Road networks: meshes by default, trees only by design
+
+Zach (23 Nov): "This feels a lot like a tree or things traveling away from a root node ... with no ways to travel between other nodes
+... Sometimes this can still be the case but should be a purposeful design choice". The first maps were close to trees: one or two
+loops in 15 to 18 places, 4 to 7 dead ends. The runs world under World 0, which the generator made, has 3 loops in 10 places.
+
+**The rule these worlds now follow.** Lowland and vale country is a mesh of lanes; a branch with no way round is left only where the
+land is the reason (a valley head, the end of a shore, a lake at a road's end), and it is named. Cross-roads keep every place's days
+from home as designed, and in World 5 keep the homes 4 days apart.
+
+| World | Roads | Loops | Dead ends | Farthest from home (days) | Left as a branch, by design |
+|---|---|---|---|---|---|
+| 1 Fallowmere | 19 → 27 | 2 → 10 | 6 → 0 | 4 | none: lowland |
+| 2 Eelmouth Reach | 16 → 22 | 1 → 7 | 7 → 2 | 4 | Greyhythe, the end of the shore road; Mere End, a lake at a road's end |
+| 3 Highfold | 16 → 20 | 2 → 6 | 4 → 2 | 5 | the heights: the valley heads join only by the pass, so in winter the way round is through the lowland, 8 days; the lowland is a mesh |
+| 4 Oldbury | 17 → 23 | 1 → 7 | 6 → 0 | 3 | none; Westcot is reached two ways (by Oakley and by Fernbrook), 3 days either way |
+| 5 The Scattering | 27 → 35 | 4 → 12 | 9 → 1 | 6 | each country is reached by its gate and one side door; the homes stay 4 days apart |
+
+Figures from `docs/review/39_monoculture/topology.py`; the roads added are design.py's `CROSS`.
+
+**Why it matters for what is tested:**
+- In a tree, the order places are found is fixed by depth from home, and every trip out and back retraces one road.
+- In a tree, any two groups that split are joined by one path, so one blocked place cuts them off.
+- In a tree, every inner place is a chokepoint by accident. Chokepoints should be chosen (scenario_design §1), not left over from
+  how the map was drawn.
+- A mesh lets a people reach the same place two ways, meet others coming from another side, and choose routes.
+
 ## Maps
 
 docs/review/39_monoculture/ (made by `world0_map.py` and `draw.py` from `design.py`):
@@ -540,6 +567,8 @@ docs/review/39_monoculture/ (made by `world0_map.py` and `draw.py` from `design.
 
 ## History
 
+- 23 Nov 2026 (later): Zach noted the maps were trees from home. Cross-roads added to every world (§Road networks); trees kept only
+  where the land is the reason, and named.
 - 23 Nov 2026 (later): maps drawn (§Maps). World 0's map found copper at w4, a day from Highpool; World 5's map drawn new
   (110 km) rather than on W5's roads, which put the wood a day from the coast.
 - 23 Nov 2026 (later): Zach asked that the first world be small, with two connected villages, fishing and farming, to test the
