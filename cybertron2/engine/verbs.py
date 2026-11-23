@@ -902,7 +902,8 @@ def _technique(here, mind, a, party, verb):
         return f"You fished the shallows of {place_name}{note} and took nothing.{suffix}" + after
     via = f" with your {tool}" if tool else (" with your bare hands" if t.get("tools") else "")
     dest = "" if out == here.hands else f" into {here.buildings()[out[len('stock:'):]]['name']}" if out.startswith("stock:") else f" to {party}"
-    return (f"You {verb}ed {show(got)} {gives}{extra_got} at {place_name}{note}{via}{dest}.{suffix}".replace("You gathered", "You took")
+    from cybertron2.engine.world import show_fine                            # a small yield shown, not "0" (W-104)
+    return (f"You {verb}ed {show_fine(got)} {gives}{extra_got} at {place_name}{note}{via}{dest}.{suffix}".replace("You gathered", "You took")
             .replace("You worked", "You got")) + after
 
 

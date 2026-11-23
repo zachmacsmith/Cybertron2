@@ -107,7 +107,8 @@ def _self(here, mind, a, full) -> str:
     fam = PR._family_lines(here, mind)
     if not full:                                                               # the standing instructions only at the opening
         fam = [x for x in fam if not x.startswith(("Looking after a child is work", "While caring for a child"))]
-    house = PR._house_lines(here, mind) if full else []
+    house = PR._house_lines(here, mind) if full else here.book_empty_lines()   # the book's lines are the house's at the opening;
+                                                                               # after, what gave nothing yesterday (W-104)
     return "## You\n" + "\n".join(you + fam + (PR._beast_lines(here, mind) if full else []) + house)
 
 

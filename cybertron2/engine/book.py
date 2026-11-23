@@ -1167,6 +1167,7 @@ class Day:
         self.w, self.budget, self.used, self.results = w, budget, used, results
         self.work = {n: float(w.s["people"][n].get("chore_carry") or 0.0) for n in names}
         self.fired = set()
+        self.empty = set()                                                     # (person, act) that gave nothing today (W-104)
         self.rec = {"fired": [], "partly": [], "missed": [], "against": [], "rest": {}}
 
     def spare(self, n) -> float:
@@ -1286,6 +1287,51 @@ def spare_units(w, names, order, budget, used, results, replies=None, skip=()) -
     return d.rec
 
 
+# ---------------------------------------------------------------------------------------------------------------------- an act that gives nothing
+QUIET_PRIMS = ("learn", "wear", "draw", "harm")                 # practice, a tool's wear, a stock drawn, the body: not what an act gives
+QUIET_TODAY = ("worked", "route", "book")                        # where one worked, one's walk, the book's own record
+
+
+class _Watch:
+    """What one act changed (W-104): the primitives it applied, and the day's record outside its bookkeeping. An act gave nothing when
+    it moved no goods, changed no thing but its doer, and left the day's record as it was."""
+
+    def __init__(self, w, name):
+        from cybertron2.engine.world import PRIMITIVES
+        self.w, self.name, self.calls, self.hooks = w, name, [], []
+        for p in PRIMITIVES:
+            fn = (lambda w_, call, out: self.calls.append((call["prim"], call["kw"], out)))
+            w.hooks.setdefault(("after", p), []).append(fn)
+            self.hooks.append((p, fn))
+        self.today = self._sig()
+
+    def _sig(self) -> dict:
+        import json
+        t = self.w.s.get("today") or {}
+        return {k: hash(json.dumps(v, sort_keys=True, default=str)) for k, v in t.items() if k not in QUIET_TODAY}
+
+    def close(self) -> bool:
+        """Stop watching; True if the act gave or changed something."""
+        for p, fn in self.hooks:
+            self.w.hooks[("after", p)].remove(fn)
+        for prim, kw, out in self.calls:
+            if prim in QUIET_PRIMS:
+                continue
+            if prim == "set" and tuple(kw.get("ref") or ()) == ("person", self.name):
+                continue
+            if prim in ("create", "transfer", "destroy"):
+                q = out if isinstance(out, (int, float)) else kw.get("qty")
+                if not q or float(q) <= 1e-6:
+                    continue
+            return True
+        return self._sig() != self.today
+
+
+def _act_key(a) -> str:
+    import json
+    return json.dumps(a, sort_keys=True, default=str)
+
+
 def _line(r, own, words) -> str:
     return (f"By your rule {r['n']}: " if own else f"By the household's rule {r['n']}: ") + words
 
@@ -1306,11 +1352,17 @@ def _run(w, d, r, n, own, fallback=False) -> bool:
             node = w.at(n)
             if node is None or not d.can(n) or not _applies(w, hh, node, r, n if own else head):
                 return did
+            if (n, _act_key(a)) in d.empty:                                    # it gave nothing today: not again (W-104)
+                continue
             here, mind = Here(w, n), Mind(w, n)
             c = V.cost(here, a)
             if c <= 0 or c > d.spare(n) + 1e-9 or str(a.get("do", "")).lower() in FREE_OR_TRAVEL:
                 continue
-            res = V.do(here, mind, a)
+            watch = _Watch(w, n)
+            try:
+                res = V.do(here, mind, a)
+            finally:
+                gave = watch.close()
             if res.startswith("Refused"):
                 if not did and (r.get("when") or r.get("unless")):
                     d.rec["missed"].append({"rule": r["n"], "person": n, "household": None if own else hh, "what": reading(w, r), "why": res})
@@ -1322,6 +1374,11 @@ def _run(w, d, r, n, own, fallback=False) -> bool:
                 line = res + f" (the household's rule {r['n']}: units left over)"
             else:
                 line = _line(r, own, res)
+            if not gave:                                                      # stopped for the day, and shown (W-104)
+                d.empty.add((n, _act_key(a)))
+                line += " It gave nothing, so it was not tried again today."
+                d.rec.setdefault("empty", []).append({"rule": r["n"], "person": n, "own": own, "household": None if own else hh,
+                                                      "fallback": standing, "act": _act_words(a)})
             d.results.setdefault(n, []).append(line)
             d.rec["fired"].append({"rule": r["n"], "person": n, "own": own, "units": c, "words": res, "fallback": standing or fallback})
             done = did = True
@@ -1382,9 +1439,9 @@ def morning_lines(w, name) -> list:
     return out
 
 
-def day_lines(w, rec, name) -> list:
-    """The head's and the person's lines of what the book did yesterday that they did not do themselves: what was missed, who went
-    against a rule (u6 §7, §9)."""
+def day_lines(w, rec, name, when="yesterday") -> list:
+    """The head's and the person's lines of what the book did yesterday (or today, at the evening) that they did not do themselves:
+    what was missed, who went against a rule (u6 §7, §9); and a chore or fallback that gave nothing and stopped after one try (W-104)."""
     if not rec:
         return []
     hh = w.household_of(name)
@@ -1392,8 +1449,22 @@ def day_lines(w, rec, name) -> list:
     out = []
     for m in rec.get("missed") or []:
         if (m.get("household") == hh and head) or m.get("person") == name:
-            out.append(f"Not done by the rules yesterday: {m['what']} ({m['why']}).")
+            out.append(f"Not done by the rules {when}: {m['what']} ({m['why']}).")
     for a in rec.get("against") or []:
         if head or a.get("by") == name:
             out.append(f"Against the household's rule {a.get('rule')}: {a['words']}.")
+    out += empty_lines(rec, name, hh if head else None, when)
+    return out
+
+
+def empty_lines(rec, name, head_of=None, when="yesterday") -> list:
+    """A chore or fallback that gave nothing (W-104), as a fact: one's own, and, for the head, the household's rules' for others."""
+    out = []
+    for e in (rec or {}).get("empty") or []:
+        mine = e.get("person") == name
+        if not mine and not (head_of and e.get("household") == head_of):
+            continue
+        what = ("your fallback" if e.get("fallback") else (f"your rule {e['rule']}" if e.get("own") else f"the household's rule {e['rule']}"))
+        whom = "" if mine else f" {e['person']}"
+        out.append(f"{what[:1].upper() + what[1:]}, {e['act']}, gave{whom} nothing {when}; it stopped after one try.")
     return out

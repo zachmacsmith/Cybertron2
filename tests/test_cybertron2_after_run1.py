@@ -79,3 +79,58 @@ def test_a_rule_or_the_book_cannot_be_attended_and_falls_back_as_any_unreadable_
         sub, label = PC.resolve_target(here, x)
         assert sub == "place" and "you could not find" in label, (x, sub, label)
     assert PC.resolve_target(here, "Marsh House")[0].startswith("building:")    # a building is still a building
+
+
+# ---------------------------------------------------------------------------------------------------------------------- W-104 item 5
+def _spare(w, who, free):
+    names = [n for n in w.living() if w.at(n) is not None]
+    budget = {n: w.units_for(n) for n in names}
+    used = {n: (budget[n] - free if n == who else budget[n]) for n in names}
+    results = {n: [] for n in names}
+    rec = BK.spare_units(w, names, sorted(names), budget, used, results)
+    return rec, results, used, budget
+
+
+def test_a_fallback_that_gives_nothing_stops_after_one_try_and_the_morning_says_so(monkeypatch):
+    from cybertron2.engine import verbs as V
+    w = eel()
+    BK.set_fallback(w, "Gunnild", [{"do": "twist cord", "at": "Eelmouth Fen"}])
+    real = V.do
+
+    def nothing(here, mind, a):                                               # the act runs and gives nothing
+        if a.get("do") == "twist cord":
+            return "You took 0 cord at Eelmouth Fen."
+        return real(here, mind, a)
+    monkeypatch.setattr(V, "do", nothing)
+    rec, results, used, budget = _spare(w, "Gunnild", 4)
+    tries = [x for x in results["Gunnild"] if x.startswith("You took 0 cord")]
+    assert len(tries) == 1 and tries[0].endswith("It gave nothing, so it was not tried again today."), results["Gunnild"]
+    assert rec["empty"] and rec["empty"][0]["person"] == "Gunnild" and rec["empty"][0]["fallback"]
+    lines = BK.day_lines(w, rec, "Gunnild")
+    assert "Your fallback, twist cord at Eelmouth Fen, gave nothing yesterday; it stopped after one try." in lines
+    assert BK.day_lines(w, rec, "Gunnild", when="today")[0].endswith("gave nothing today; it stopped after one try.")
+    w.s["log"].append({"day": w.d, "book": rec})                              # the morning after, in the beliefs view
+    w.s["day"] += 1
+    assert Here(w, "Gunnild").book_empty_lines() == [lines[0]]
+
+
+def test_a_chore_that_gives_even_a_little_goes_on_as_before():
+    w = eel()
+    BK.set_fallback(w, "Gunnild", [{"do": "twist cord", "at": "Eelmouth Fen"}])
+    rec, results, used, budget = _spare(w, "Gunnild", 3)
+    tries = [x for x in results["Gunnild"] if "cord" in x]
+    assert len(tries) == 3 and not rec.get("empty"), results["Gunnild"]
+    assert all("0.04 cord" in x or "0.03 cord" in x for x in tries), tries          # shown as taken, not "0" (show_fine)
+
+
+def test_a_household_chore_that_gives_nothing_is_told_to_its_doer_and_the_head(monkeypatch):
+    from cybertron2.engine import verbs as V
+    w = eel()
+    BK.act(Here(w, "Peter"), {"rule": "do", "who": "Nigel", "act": {"do": "twist cord", "at": "Eelmouth Fen"}})
+    real = V.do
+    monkeypatch.setattr(V, "do", lambda here, mind, a: "You took 0 cord at Eelmouth Fen." if "twist cord" in (a.get("do"), a.get("what"))
+                        else real(here, mind, a))
+    rec, results, *_ = _spare(w, "Nigel", 3)
+    assert len([x for x in results["Nigel"] if "0 cord" in x]) == 1
+    assert BK.day_lines(w, rec, "Nigel") == ["The household's rule 1, gather twist cord at Eelmouth Fen, gave nothing yesterday; it stopped after one try."]
+    assert "The household's rule 1, gather twist cord at Eelmouth Fen, gave Nigel nothing yesterday; it stopped after one try." in BK.day_lines(w, rec, "Peter")
