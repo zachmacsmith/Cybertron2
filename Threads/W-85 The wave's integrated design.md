@@ -9,7 +9,7 @@ updated: "2026-11-23"
 
 *active · 37.2 · touched 23 Nov (today)*
 
-> **Next:** build stage 1 (u0, the basis) on branch w85-s1-basis; then stages 2 to 4, live run 1 on Zach's go, stage 5, live run 2
+> **Next:** stages 1 to 4 built one after another without stopping (Zach 23 Nov: 'as the stage finish continue until first live run time is reached'): each reviewed by 37.2, merged to main, the next started; then live run 1 on Zach's go
 
 ## What it is
 Zach, 23 Nov: 'Has all of the design been written up into one complete spec? ... One outline the overall architecture and purpose shape of all the changes and how they fit together and maybe with the different sections or linked specs for the break down of specific implementation details, data etc'. In docs/cybertron2/proposals/w73_design/. The basis answered first ([[D2-288 Bulk goods are counted in handling units of a stated weight and every…|D2-288]] to [[D2-295 Each depth of cure is its own good|D2-295]]).
