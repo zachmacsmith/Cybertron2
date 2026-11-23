@@ -134,7 +134,7 @@ def spec(key: str, seed: int) -> dict:
         "generate": {
             "seed": seed, "size_km": float(w["size_km"]), "settlements": len(w["places"]), "spacing_km": 7.0, "household_size": 4,
             "wild_nodes": 0, "warn_only": ["capacity", "dependence"], "settled": "frontier",
-            "bounds": {"per_min": 3, "per_spread": 2, "children_max": 2}, "sim": {"start": -10},
+            "bounds": {"per_min": 1, "per_spread": 10, "children_max": 40}, "sim": {"start": -10},
             "roads": [[a, b] for a, b, _, _ in w["roads"]],
             "features": MP.features(key, w),
             "places": {p["name"]: pin(key, p) for p in w["places"]}}}
