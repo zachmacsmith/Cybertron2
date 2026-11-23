@@ -1,16 +1,16 @@
 ---
 id: D2-274
 kind: decision
-state: live
-updated: "2026-11-22"
+state: replaced
+updated: "2026-11-23"
 ---
 
 # One book of standing rules per household and per person covers both… (D2-274)
 
-*live · 22 Nov · spec: [[economy - goods|economy/goods]]*
+*replaced, by zach · 22 Nov · spec: [[economy - goods|economy/goods]]*
 
 ## The rule
-**One book of standing rules per household and per person covers both eating and stores (go, keep, hold back, first, eat, move) with store_management.md's grammar; a store built for a kind writes its own droppable rule (a granary for grain); there is no default for putting carried goods away at night: people set their own rule for what they put away; the labour rates for moving between buildings are provisional; chores are done from spare units only; a person may override their own defaults. Agents must see their rules plainly: their current rules, how to change them, what they can set, and each time something is moved or drawn by a rule; and chores a rule would have done but no one did are shown**
+**One book of standing rules per household and per person covers both eating and stores (go, keep, hold back, first, eat, move) with store_management.md's grammar; a store built for a kind writes its own droppable rule (a granary for grain); there is no default for putting carried goods away at night: people set their own rule for what they put away; the labour rates for moving between buildings are provisional; chores are done from spare units only; a person may override their own defaults. Agents must see their rules plainly: their current rules, how to change them, what they can set, and each time something is moved or drawn by a rule; and chores a rule would have done but no one did are shown** (replaced by [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|D2-337]])
 
 ## Where it came from
 conversation (22 Nov: "conversation (22 Nov, on store_management.md)")
@@ -25,6 +25,7 @@ conversation (22 Nov: "conversation (22 Nov, on store_management.md)")
 - [[D2-279 Stores, as answered|Stores, as answered (D2-279)]]
 - [[D2-296 Fallbacks are assignable by the household's standing rules|Fallbacks are assignable by the household's standing rules (D2-296)]]
 - [[D2-301 A person's own rules and standing fallback come before every…|A person's own rules and standing fallback come before every… (D2-301)]]
+- [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]]
 - [[Q-85 One book of standing rules per household and person for eating and…|One book of standing rules per household and person for eating and… (Q-85)]]
 - [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
