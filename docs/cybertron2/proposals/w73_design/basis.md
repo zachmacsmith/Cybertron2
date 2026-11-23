@@ -67,7 +67,7 @@ answered; the component writes on the default shown and says so); **calibrate** 
 | Gutting | in salting's and hanging's rates, never paid twice | default (audit C25) |
 | Base rates a night (D2-289's arithmetic) | fresh fish 0.17, fresh meat 0.13, hot smoke 0.11, keeping smoke 0.029, hard cure 0.011, salt 0.0085, dried 0.0069 | follows D2-289 (u4 §2) |
 | A lot in the smoke | base 0.03 a night while the fire is tended; the fresh rate when it dies | default, calibrate (u4) |
-| Hard cure | 3 nights after salting; hard-cured meat 0.85 of the salt meat's weight, 0.67 food a kg | default (u4); hard-cured meat corrected to 0.71 food a kg (keeps the salt meat's food) |
+| Hard cure | 3 nights after salting; hard-cured meat 0.85 of the salt meat's weight, 0.67 food a kg | default (u4); hard-cured meat 0.67 food a kg (keeps the salt meat's 0.57) |
 | Hanging salted or gutted fish; taking down | about 60 kg a unit; about 120 kg a unit | default, estimates (u4) |
 | The hearth rack | 1 night | default (u4; wave1 §2.4) |
 | The smokehouse's work floor | 1 space kept free in a hut room, 2 in any other room (a hut 1 set; a small room 4; a medium 10) | default (u4 §4) |

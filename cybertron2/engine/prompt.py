@@ -160,7 +160,7 @@ def _craft_note(tech) -> str:
             if f.get("holds"):
                 k, q = next(iter(f["holds"].items()))
                 bits.append(f"holds {q:g} {k}" + (" a space of the building's ground" if f.get("by") == "footprint" else
-                                                    " a space" if f.get("by") == "space" else ""))
+                                                    " a space" if f.get("by") == "space" else " a space of its floor" if f.get("by") == "floor" else ""))
             if f.get("heavy"):
                 bits.append("ground floor only")
         if tech in MONUMENTS:
@@ -258,8 +258,8 @@ REPLY_LINES = """Reply with JSON:
 - "why": a sentence or two on what you mean to do today and why.
 - "actions": today's plan, in order, each {"do": verb, ...}. Actions beyond your units are not done. "for": a person or your
   household, on work, gathering, making, building, giving and accepting: done on their behalf (the goods go into their store here).
-- "fallback": [actions] what to do with units left over if an act is refused or the plan runs out (say, gather firewood): done in
-  order, again and again, until your units are used or none of them can be done.
+- "fallback": [actions] for units left over, in order; they stand until you change them: done again and again, until your units
+  are used or none of them can be done (your own standing rules come first; units left are rest).
 - "tell": [{"to": a person here, "text"}] said to that person alone. They hear it before the day's work and may answer or change
   their plans. You have a set number of private messages a day (answers count too); shown each morning.
 - "say": [{"to": "everyone" or a building you have access to, "text"}] said to everyone here, or in a building (everyone who has
@@ -510,8 +510,7 @@ def system_prompt(here, mind) -> str:
                                                       for i, v in ITEMS.items() if v["food"] > 0 and PK.on(v))
               + ". Spoils fastest in your hands: " + ", ".join(i for i, v in sorted(((i, v) for i, v in ITEMS.items() if PK.on(v)), key=lambda kv: -kv[1]["spoil"])
                                                            if v["food"] > 0 and v["spoil"] >= 0.15)
-              + ("; under a roof it keeps as well as it can be kept, and faster spoils in the open, the wet and the warm." if p["house_spoil"] >= 1
-                 else f"; a store keeps food {1 / p['house_spoil']:.0f} times better."),
+              + "; under a roof it keeps as well as it can be kept, and faster spoils in the open, the wet and the warm.",
               "- Fuel, as heat: " + ", ".join(f"{i} {ITEMS[i]['heat']:g}" for i in p["heat"]["order"]) + " a unit (firewood is dead wood "
               f"gathered by hand, or young growth cut with a tool; timber is felled). A hearth needs {p['heat']['normal']:g} heat a night "
               f"to cook, {p['heat']['cold']:g} on a cold one, from its building's store, burning firewood first, then timber, then "
@@ -542,6 +541,8 @@ def system_prompt(here, mind) -> str:
                   f"{p['shelter']['unsheltered']:g} meals, {p['shelter_cold']['unsheltered']:g} in the cold, unless someone takes you in; "
                   f"on foot you carry at most {p['carry']['foot']:g} weight, more with a pack, more again with a cart on a road with a track; {weights_text()}):"] + _map_lines(mind)
     from cybertron2.wild import methods as MT
+                                                                                # the rules block (u6 §9; D2-274's visibility)
+    lines += [""] + here.rules_block()
     lines += ["", "What you know how to do:"] + KN.crafts_lines(mind, here) + [x for x in [MT.familiar_line(mind)] if x]   # D2-204 §7
     reply = REPLY_LINES
     if int((p.get("labour") or {}).get("over_units", 0) or 0):
@@ -593,7 +594,7 @@ def _cap(x) -> str:
 
 def house_known(here, bid, daily=False) -> list:
     """What anyone of the household in the house knows of it without a roll (brief 4c §6.4; the noticing rule stays for everything
-    else): its rack (drying, and how many nights are left; dry overnight, and whether it went into the store), goods left at its
+    else): its containers' lots (u4 §7: what waits and its nights, what is done and waiting to be taken down, a fire's state), goods left at its
     door and the food among them, a new building with no beds where no one can sleep yet; and, with `daily` (the belief-built
     message, which shows the house in full only at the opening), its fire and its cat. Lines in lower case, without a full stop."""
     b = here.buildings()[bid]
@@ -604,40 +605,11 @@ def house_known(here, bid, daily=False) -> list:
         out.append("a cat in the store")
     door = {}
     for cid, c in sorted(here.house_things(bid).items()):
-        rk = c.get("rack")
-        if not rk:
+        if not c.get("lot"):
             for i, q in c["goods"].items():
                 door[i] = door.get(i, 0.0) + float(q)
-            continue
-        house = bool(rk.get("smokehouse"))                                     # a smokehouse's racks (brief 5 §4a.5): below
-        at = "on the smoke racks" if house else "on the rack by the hearth" if c.get("in") == bid else "on the rack by the fire at its door"
-        dry = "smoked" if house else "dry"
-        if not rk.get("done") and house:
-            continue
-        if not rk.get("done"):
-            q = sum(float(v) for i, v in c["goods"].items() if ITEMS.get(i, {}).get("decay") == "drying meat")
-            if q > 1e-6:
-                left = max(1, int(rk["day"]) + int(rk["nights"]) - here.day)
-                out.append(f"{at}: {show(q)} meat drying, {left} night{'s' if left != 1 else ''} left")
-            continue
-        into, dried, stored = rk["into"], float(rk.get("dried", 0.0)), float(rk.get("stored", 0.0))
-        rest = float(c["goods"].get(into, 0.0))
-        if int(rk["done"]) == here.day - 1 and dried > 1e-6:
-            theirs = house and not here.hung_by_household(c, bid)
-            if rest <= 1e-6:
-                out.append(f"{dry} overnight: about {show(round(dried, 1))} {into}, put in the store")
-            elif theirs:
-                out.append(f"{dry} overnight: about {show(round(dried, 1))} {into}, {at} for {c['by']}, who hung it")
-            elif stored > 1e-6:
-                out.append(f"{dry} overnight: about {show(round(dried, 1))} {into}; {show(round(stored, 1))} put in the store, and "
-                           f"{show(round(rest, 1))} left {at}: the store is full")
-            else:
-                out.append(f"{dry} overnight: about {show(round(dried, 1))} {into}, left {at}: the store has no room for it")
-        elif rest > 1e-6:
-            out.append(f"{at}: {show(round(rest, 1))} {into}, {dry}, waiting to be taken")
-    if b["fittings"].get("smoke racks"):                                       # what cures, its fire and fuel (brief 5 §4a.5)
-        from cybertron2.engine import keeping as KP
-        out += KP.house_lines(here, bid)
+    from cybertron2.engine import process as PROC                              # its containers: what waits, what is done, the fire
+    out += PROC.house_lines(here, bid)                                         # and its fuel, the room (u4 §7)
     door = {i: q for i, q in door.items() if q > 0.05}
     if door:
         food = _meals(door)
@@ -681,7 +653,8 @@ def _house_lines(here, mind) -> list:
         b = here.buildings()[bid]
         st = here.stock(bid)
         who = [x for x in here.people(me=False) if bid in here.homes_here(x)]
-        stock = ", ".join(f"{show(q)} {i}" for i, q in sorted(st.items()) if q > 0.05) or "empty"
+        from cybertron2.engine import stores as SR                             # by portion: where each good lies (u5 §7)
+        stock = SR.store_line(b, st) or "empty"
         beds = int(b['fittings'].get('beds', 0))
         need = sum(float(here.p["beds"].get(here.person_stage(x), 1.0)) for x in [here.name] + who)
         from cybertron2.engine import buildings as BL
@@ -699,6 +672,7 @@ def _house_lines(here, mind) -> list:
                       f"{int(heat // max(_heat(here, b), 1e-9))} such nights" + (" with the woodpile at its door" if pile > 1e-9 else "")
                       if fire else "") + ").")                                   # fuel shown as food is (D4-97; OPEN L-60)
         out += [_cap(x) + "." for x in house_known(here, bid)]                   # known without a roll (brief 4c §6.4)
+    out += here.book_lines()                                                    # what waits by the book, what was missed (u6 §9)
     return out
 
 

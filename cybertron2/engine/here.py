@@ -430,18 +430,38 @@ class Here:
         return {cid: c for cid, c in self._w.s["containers"].items() if c.get("kind") == "pile" and c.get("node") == self.node
                 and not c.get("hidden") and (c.get("in") == bid or c.get("door") == bid)}
 
-    # the smokehouse and the brine spring (brief 5 §4a, §4b; keeping.py)
-    def rack_room(self, bid, tech) -> float:
-        from cybertron2.engine import keeping as KP
-        return KP.room(self._w, bid, tech)
+    def held_back(self, cid, item) -> float:
+        """What the household's book holds back of a good in a store, from this person's drawing (u6 §4)."""
+        if not self._w.s.get("books"):
+            return 0.0
+        from cybertron2.engine import book as BK
+        return BK.held(self._w, self.name, cid, item)
 
-    def rack_full(self, bid, tech) -> str:
-        from cybertron2.engine import keeping as KP
-        return KP.full_words(self._w, bid, tech)
+    def rules_block(self) -> list:
+        from cybertron2.engine import book as BK
+        return BK.rules_block(self._w, self.name)
 
-    def smoke_fuel_nights(self, bid) -> int:
-        from cybertron2.engine import keeping as KP
-        return KP.fuel_nights(self._w, bid)
+    def book_lines(self) -> list:
+        """What waits today by the book, and what was missed or gone against yesterday (u6 §9)."""
+        if not self._w.s.get("books"):
+            return []
+        from cybertron2.engine import book as BK
+        log = self._w.s.get("log") or []
+        return BK.morning_lines(self._w, self.name) + BK.day_lines(self._w, (log[-1].get("book") if log else None) or {}, self.name)
+
+    def take_down_units(self, bid, item=None, qty=None) -> int:
+        from cybertron2.engine import process as PROC
+        return PROC.take_down_units(self._w, bid, item, qty)
+
+    # the processing containers (u4; process.py) and the brine spring (brief 5 §4b; keeping.py)
+    def lot_room(self, bid, proc) -> float:
+        from cybertron2.engine import process as PROC
+        return PROC.room(self._w, bid, proc)
+
+    def smoke_fuel(self, bid) -> tuple:
+        """(heat tonight's fire wants, heat there)."""
+        from cybertron2.engine import process as PROC
+        return PROC.fuel_tonight(self._w, bid), PROC.fuel_have(self._w, bid)
 
     def river_parcel(self, pid) -> bool:
         """Whether a parcel here is water on a river (brief 5 §3)."""
@@ -563,9 +583,6 @@ class Here:
         from cybertron2.engine import keeping as KP
         return KP.near_spring(self._w, pid, kind)
 
-    def hung_by_household(self, c, bid) -> bool:
-        """A rack hung by one of the household that holds the building it hangs in."""
-        return c.get("by") in self._w.s["people"] and bid in self._w.homes(c["by"])
 
     def thing(self, cid) -> dict:
         c = self._w.s["containers"].get(cid)

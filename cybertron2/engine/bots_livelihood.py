@@ -131,9 +131,9 @@ class Day:
     def smokehouse(self):
         """The household's smoke racks here: its smokehouse, a building of its own apart from the houses (brief 5 §4a), else racks
         in the house itself (an older world); None without."""
-        from cybertron2.engine import keeping as KP
+        from cybertron2.engine import process as PROC
         own = [b for b in self.w.homes(self.name) if self.w.s["buildings"][b]["node"] == self.node
-               and KP.is_smokehouse(self.w.s["buildings"][b])]
+               and PROC.is_smokehouse(self.w.s["buildings"][b])]
         return sorted(own, key=lambda b: (b == self.home, b))[0] if own else None
 
     def knows(self, tech, who=None) -> bool:
@@ -166,15 +166,16 @@ class Plan:
     def __init__(self, day):
         self.day = day
         self.a, self.b, self.fallback = [], [], []
+        self.reserve = 0                                  # units left unplanned for the household's chores (u6 §5)
         self.a_len = {}                                   # phase a's length for each member of the household (to align b)
         self.cost = 0
         self.made = {}                                    # gear made earlier in the plan, to be laid later in it
 
     def left(self) -> int:
-        return self.day.units[self.day.name] - self.cost
+        return self.day.units[self.day.name] - self.cost - self.reserve
 
     def add(self, phase, act, units=0) -> bool:
-        if units and self.cost + units > self.day.units[self.day.name]:
+        if units and self.cost + units > self.day.units[self.day.name] - (self.reserve if phase == "b" else 0):
             return False
         getattr(self, phase).append(act)
         self.cost += units
@@ -219,7 +220,7 @@ def _store_moves(day, who, coming: dict, keep: float = 0.0) -> list:
 def _firewood_need(day) -> float:
     """Firewood the household wants in store: its hearths' nights (cold nights burn four times as much) and a smoke fire's."""
     nights = float(day.s["fuel_nights"])
-    smoke = 1.0 if day.smokehouse() else 0.0                               # carried to a smokehouse apart (`_smokehouse_fuel`)
+    smoke = 1.0 if day.smokehouse() else 0.0                               # carried to a smokehouse apart (the book's rule 4)
     return max(float(day.s["fuel_least"]), nights * (day.hearth_fuel() + smoke))
 
 
@@ -597,41 +598,39 @@ def _suppers(day) -> float:
 
 
 def _keeper(day, p, coming, season, flow, supper) -> None:
-    """The head: the house's racks (tend, smoke, dry), salting and boiling salt, a few traps of their own, firewood alone. `supper`:
-    the fish the store gives tonight (the night eats fresh fish first, night.eat_order); only what is over is kept."""
+    """The head: the household's keeping is set in its book (u6; `_book`): fish that comes in is hung on the smokehouse's racks while
+    they have room, the rest salted while there is salt; the fire tended while anything is smoking; a done lot taken down into the
+    house; firewood carried to the smokehouse when it runs low. The spare-units phase does that work after everyone's plans, so the
+    keeper leaves units unplanned for it (`reserve`). By hand still: drying at the hearth, boiling salt at the household's pan, a few
+    traps of their own, firewood alone."""
     s, w = day.s, day.w
     fish = float(day.store().get("fish", 0.0)) + float(day.here.carried().get("fish", 0.0)) + float(coming.get("fish", 0.0))
     meat = float(day.store().get("meat", 0.0)) + float(day.here.carried().get("meat", 0.0)) + float(coming.get("meat", 0.0))
     fish -= supper
     if day.home_b:
-        from cybertron2.engine import keeping as KP
+        from cybertron2.engine import process as PROC
         home = day.home
-        loaded = False
         sh = day.smokehouse()
+        _book(day, p, sh)
+        work = 0.0
         if sh:
-            _smokehouse_keep(day, p, sh)
-            room = KP.room(w, sh, "smoke fish")
-            load = fish >= float(s["smoke_least"]) and room >= float(s["smoke_least"]) and day.knows("smoke fish")
-            if (load or KP.active_racks(w, sh)) and sh != home:
-                _smokehouse_fuel(day, p, sh)
-            if load:
-                loaded = p.add("b", {"do": "make", "what": "smoke fish"}, 1)            # loading lights the fire for tonight
-                fish -= min(fish, room)
-            if not loaded and KP.active_racks(w, sh) and day.knows("tend the smoke"):
-                p.add("b", {"do": "work", "what": "tend the smoke", "at": day.bname(sh)}, 1)   # or the fire dies and the batch spoils
+            room = PROC.room(w, sh, "keeping smoke")
+            hang = min(max(0.0, fish), room)
+            work += hang / 30.0 + (1.0 if hang > 1e-6 or PROC.lots(w, sh, done=False) else 0.0)
+            work += sum(PROC.done_kg(c) for c in PROC.lots(w, sh, done=True).values()) / 120.0
+            fish -= hang
+        salt = day.reach("salt")
+        if fish >= float(s["salt_least"]) and salt >= 1:
+            work += min(fish, salt * 4) / 40.0
+            fish -= min(fish, salt * 4)
+        p.reserve = int(math.ceil(work - 1e-9))
         if day.fits("hearth"):
-            room = KP.room(w, home, "dry fish")
+            room = PROC.room(w, home, "hearth rack")
             if fish >= float(s["dry_least"]) and room >= float(s["dry_least"]) and day.knows("dry fish"):
                 p.add("b", {"do": "make", "what": "dry fish"}, 1)
                 fish -= min(fish, room)
-            elif meat >= float(s["dry_least"]) and KP.room(w, home, "dry meat") >= float(s["dry_least"]) and day.knows("dry meat"):
+            elif meat >= float(s["dry_least"]) and room >= float(s["dry_least"]) and day.knows("dry meat"):
                 p.add("b", {"do": "make", "what": "dry meat"}, 1)
-        salt = day.reach("salt")
-        n = int(min(fish // 4, salt, p.left()))
-        if fish >= float(s["salt_least"]) and n >= 1 and day.knows("salt fish"):
-            p.add("b", {"do": "make", "what": "salt fish", "qty": n}, n)
-            salt -= n
-            fish -= 4 * n
         if (season or fish > 0) and _pan(day) and day.knows("boil salt") and salt < float(s["salt_keep"]) \
                 and day.reach("firewood") >= float(s["boil_wood"]):
             p.add("b", {"do": "make", "what": "boil salt"}, 1)               # salt for the run's surplus, at the household's pan
@@ -644,29 +643,34 @@ def _keeper(day, p, coming, season, flow, supper) -> None:
 KEPT = ("smoked fish", "smoked meat")
 
 
-def _smokehouse_keep(day, p, sh) -> None:
-    """A batch done lies in the smokehouse's store (keeping.done_into_store): the keeper brings it to the house's store, out of the
-    fire's way (a take, then a move: brief 5 §4a; W-69)."""
-    if sh == day.home or not day.home_b:
-        return
-    g = day.w.goods(day.w.s["buildings"][sh]["stock"])
-    for item in KEPT:
-        q = float(g.get(item, 0.0))
-        if q > 1e-6 and p.add("b", {"do": "take", "item": item, "qty": round(q, 4), "from": day.bname(sh)}, 1):
-            p.add("b", {"do": "move", "item": item, "qty": round(q, 4), "to": "store", "at": day.bname(day.home)})
+def book_rules(day, sh) -> list:
+    """The keeper's household rules (u6 §10's worked sentences, as the bot keeps them); each rule's words are its key."""
+    house = day.bname(day.home)
+    out = []
+    if sh:
+        hut = day.bname(sh)
+        out += [{"rule": "go", "goods": "fish", "to": f"the racks in {hut}", "when": f"the racks in {hut} have room",
+                 "words": f"fish that comes in goes to the racks in {hut} when they have room"},
+                {"rule": "tend", "at": hut, "when": "while anything is smoking", "words": f"keep the fire in {hut} going while anything hangs"},
+                {"rule": "move", "goods": "smoked fish", "from": f"the racks in {hut}", "to": house, "when": "a lot is done",
+                 "words": f"when the fish are smoked, take them down into {house}"},
+                {"rule": "move", "goods": "firewood", "from": house, "to": hut, "qty": 25, "when": f"{hut} holds under 15",
+                 "words": f"carry firewood to {hut} when it runs low"}]
+    if day.knows("salt fish"):
+        out.append({"rule": "go", "goods": "fish", "to": "the salting tub", "when": f"the racks in {day.bname(sh)} are full" if sh else None,
+                    "words": "salt the fish the racks have no room for, while there is salt"})
+    return [{k: v for k, v in r.items() if v is not None} for r in out]
 
 
-def _smokehouse_fuel(day, p, sh) -> None:
-    """Firewood carried from the house's store to the smokehouse's while it holds under `smoke_fuel_nights` of fire (its fire burns
-    from its own store or the woodpile at its door: keeping.fuel_cids)."""
-    from cybertron2.engine import keeping as KP
-    want = int(day.s.get("smoke_fuel_nights", 3))
-    have = KP.fuel_nights(day.w, sh)
-    if have >= want or not day.home_b:
+def _book(day, p, sh) -> None:
+    """The head sets the household's rules once (a free act, u6 §2); a rule already in the book with the same words is left alone."""
+    from cybertron2.engine import book as BK
+    if day.role != 0 or not day.hh or day.w.head(day.hh) != day.name:
         return
-    q = min(float(day.store().get("firewood", 0.0)), float(want - have + 1))
-    if q >= 1 and p.add("b", {"do": "take", "item": "firewood", "qty": q, "from": day.bname(day.home)}, 1):
-        p.add("b", {"do": "move", "item": "firewood", "qty": q, "to": "store", "at": day.bname(sh)})
+    have = {r.get("words") for r in BK.household_rules(day.w, day.hh)}
+    for r in book_rules(day, sh):
+        if r["words"] not in have:
+            p.add("a", {"do": "rule", "for": "household", **r}, 0)
 
 
 def _fisher(day, p, season, run, flow) -> None:

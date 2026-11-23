@@ -6,7 +6,7 @@ import os
 
 import pytest
 
-from cybertron2.engine import bots_livelihood as BLV, keeping as KP, night as N, run as R, verbs as V, wild as WL
+from cybertron2.engine import book as BK, bots_livelihood as BLV, night as N, process as PROC, run as R, verbs as V, wild as WL
 from cybertron2.engine.here import Here, Mind
 from cybertron2.engine.world import World, load_spec
 
@@ -40,11 +40,19 @@ def plan(w, who):
     return R.bot_plan(w, who)["actions"]
 
 
-def play(w, names):
-    """The day's work as run.py plays it: everyone's first act, then everyone's second, ...; the fallback not played."""
+def play(w, names, chores=False):
+    """The day's work as run.py plays it: everyone's first act, then everyone's second, ...; with `chores`, then the spare-units phase
+    (u6 §5: the household's rules, W-99); the fallback not played."""
     plans = {n: plan(w, n) for n in names}
     used = {n: 0 for n in names}
     out = {n: [] for n in names}
+    _play(w, names, plans, used, out)
+    if chores:
+        BK.spare_units(w, names, list(names), {n: w.units_for(n) for n in names}, used, out)
+    return out
+
+
+def _play(w, names, plans, used, out):
     for i in range(max(len(p) for p in plans.values())):
         for n in names:
             if i < len(plans[n]):
@@ -55,7 +63,6 @@ def play(w, names):
                 if not r.startswith("Refused"):
                     used[n] += c
                 out[n].append(r)
-    return out
 
 
 def household(w, hh):
@@ -137,8 +144,9 @@ def test_the_night_eats_the_fresh_fish_before_the_larder():
 
 
 def test_a_surplus_is_smoked_at_the_racks_and_the_fire_tended_after(arms):
-    """The racks are in the household's smokehouse, apart from the houses (brief 5 §4a; W-69): the keeper carries it firewood from
-    the house, hangs the batch there and tends its fire."""
+    """The racks are in the household's smokehouse, apart from the houses (brief 5 §4a; W-69). Since u6 (W-99) the keeper sets the
+    household's book and leaves units for its chores: fish that comes in is hung on the racks while they have room, firewood carried
+    to the smokehouse when it runs low, the fire tended while anything is smoking, a done lot taken down."""
     w = at_day(arms["medium"], AUTUMN)
     head = w.head("Brook")
     home = w.dwellings(head)[0]
@@ -147,15 +155,16 @@ def test_a_surplus_is_smoked_at_the_racks_and_the_fire_tended_after(arms):
     put_fish(w, w.s["buildings"][home]["stock"], 30)
     w.s["containers"][w.s["buildings"][sh]["stock"]]["goods"]["firewood"] = 0.0
     acts = plan(w, head)
-    assert {"do": "make", "what": "smoke fish"} in acts
-    assert any(a.get("do") == "move" and a.get("item") == "firewood" and a.get("at") == w.s["buildings"][sh]["name"] for a in acts)
-    play(w, [head])
-    racks = KP.active_racks(w, sh)
-    assert racks and sum(KP.curing(c) for c in racks.values()) == pytest.approx(30, abs=0.5)
-    assert KP.fuel_nights(w, sh) >= 1
-    w = at_day(w, AUTUMN + 1)
-    assert {"do": "work", "what": "tend the smoke", "at": w.s["buildings"][sh]["name"]} in plan(w, head)
-    assert any("You tended the fire" in r for r in play(w, [head])[head])
+    assert sum(1 for a in acts if a.get("do") == "rule") == 5 and not any(a.get("what") == "smoke fish" for a in acts)
+    out = play(w, [head], chores=True)[head]
+    assert any(r.startswith("By the household's rule 1: You hung") for r in out), out
+    assert any(r.startswith("By the household's rule 4: You moved") and "firewood" in r for r in out), out
+    lots = PROC.lots(w, sh, done=False)
+    assert lots and sum(PROC.waiting_kg(c) for c in lots.values()) == pytest.approx(30, abs=0.5)
+    assert PROC.fuel_have(w, sh) >= PROC.fuel_tonight(w, sh)
+    w.s["buildings"][sh]["smoke"]["tended"] = -1                               # a day on: the fire wants tending again
+    out = play(w, [head], chores=True)[head]
+    assert any("By the household's rule 2: You tended the fire" in r for r in out), out
 
 
 def test_a_smokehouse_fire_reaches_no_house_and_its_smoked_fish_is_brought_home(arms):
@@ -166,14 +175,21 @@ def test_a_smokehouse_fire_reaches_no_house_and_its_smoked_fish_is_brought_home(
         assert w.s["buildings"][sh]["parcel"] not in houses
         for d in range(40):
             w.s["day"] = 100 + d
-            burnt = KP.catch(w, sh)["burnt"]
+            burnt = PROC.catch(w, sh)["burnt"]
             assert all(w.s["buildings"][x]["fittings"].get("smoke racks") for x in burnt)   # only smokehouses: never a house
     w = at_day(arms["high"], AUTUMN)
     head = w.head("Marsh")
-    w.apply("create", "Eelmouth", dst=w.s["buildings"]["marsh_smokehouse"]["stock"], item="smoked fish", qty=12.0, why="test")
-    play(w, [head])
-    assert w.goods(w.s["buildings"]["marsh_smokehouse"]["stock"]).get("smoked fish", 0.0) < 1e-6
-    assert w.goods(w.s["buildings"][w.dwellings(head)[0]]["stock"]).get("smoked fish", 0.0) == pytest.approx(12.0)
+    sh = "marsh_smokehouse"
+    w.s["containers"][w.s["buildings"][sh]["stock"]]["goods"]["firewood"] = 30.0
+    w.s["containers"][w.hands(head)]["goods"]["fish"] = 24.0
+    V.do(Here(w, head), Mind(w, head), {"do": "make", "what": "smoke fish"})
+    N.night(w)                                                                # done: it stays on the racks (u4 B8)
+    w = at_day(w, AUTUMN + 1)
+    done = sum(PROC.done_kg(c) for c in PROC.lots(w, sh, done=True).values())
+    assert done > 11.0
+    out = play(w, [head], chores=True)[head]                                   # the book's rule 3 takes it down into the house
+    assert any("rule 3: You took down" in r for r in out), out
+    assert w.goods(w.s["buildings"][w.dwellings(head)[0]]["stock"]).get("smoked fish", 0.0) == pytest.approx(done)
 
 
 def supper(w, head):
@@ -193,19 +209,21 @@ def test_with_no_racks_fish_are_dried_at_the_hearth(arms):
     bid = w.dwellings(head)[0]
     put_fish(w, w.s["buildings"][bid]["stock"], supper(w, head) + 6)
     assert {"do": "make", "what": "dry fish"} in plan(w, head)
-    assert any("drying fish" in r for r in play(w, [head])[head])
+    assert any("kg of fish on the rack in the smoke of the hearth" in r for r in play(w, [head])[head])
 
 
 def test_fish_beyond_the_racks_are_salted_with_the_salt_houses_salt(arms):
     w = at_day(arms["high"], AUTUMN)
     head = w.head("Marsh")
     bid = w.dwellings(head)[0]
-    put_fish(w, w.s["buildings"][bid]["stock"], supper(w, head) + 60)
-    acts = plan(w, head)
-    salt = next(a for a in acts if a.get("what") == "salt fish")
-    assert salt["qty"] >= 1
-    res = " ".join(play(w, [head])[head])
-    assert "smoking fish" in res and "drying fish" in res and "salt fish" in res
+    put_fish(w, w.s["buildings"][bid]["stock"], supper(w, head) + 300)          # more than the racks' 250 kg
+    w.s["containers"][w.s["buildings"]["marsh_smokehouse"]["stock"]]["goods"]["firewood"] = 60.0
+    for n in household(w, "Marsh"):
+        w.s["people"][n]["chore_carry"] = 0.0
+    names = household(w, "Marsh")
+    res = " ".join(x for n in names for x in play(w, names, chores=True)[n])
+    assert "rule 1: You hung" in res and "rule 5: You salted" in res, res
+    assert any(i == "salt fish" for c in [w.s["buildings"][bid]["stock"]] for i in w.goods(c)), w.goods(w.s["buildings"][bid]["stock"])
 
 
 def gap_acts(w, who):

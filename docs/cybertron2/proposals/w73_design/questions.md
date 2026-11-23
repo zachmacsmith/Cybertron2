@@ -2,7 +2,7 @@
 
 > **All answered, 23 Nov 2026.** Section A: D2-304 to D2-315 (A1 D2-304, A2 D2-305, A3 D2-314, A4 D2-306, A5 D2-309, A6 D2-310,
 > A7 a default for now with the space thread W-96, A8 D2-308, A9 D2-307, A10 D2-311, A11 D2-312, A12 D2-315). Section B: Zach's
-> changes are D2-316 to D2-329 and L-163 to L-172 (B1 deferred, B4 D2-316, B5 D2-317, B7 deferred D2-318, B10 corrected to 0.71,
+> changes are D2-316 to D2-329 and L-163 to L-172 (B1 deferred, B4 D2-316, B5 D2-317, B7 deferred D2-318, B10 corrected to 0.67,
 > B16 D2-319, B17 D2-321, B18 D2-320, B19 D2-322, B20 D2-323, B21 D2-324, B22 deferred, B23 D2-328, B25 D2-325, B28 D2-326, B30,
 > B36 and B37 to B39 deferred with tanning, D2-327 and D2-329); every other B row stands as its default, as Zach asked ("Answer
 > only those you'd change; the rest stand"). Section C: D2-330.

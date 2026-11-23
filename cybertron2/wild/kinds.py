@@ -555,6 +555,13 @@ EATEN_SIGNS = {
               R("knows", "sight", 0.7, (0, 1), "pigeons, hares and mice at the corn in {place}: the edges thinned, ears stripped")],
     "stores": [R("lay", "sight", 0.7, (0, 1), "droppings and gnawed sacks in the store of {place}"),
                R("knows", "sight", 0.8, (0, 1), "rats in the store of {place}: the sacks gnawed through at the bottom, runs along the wall")],
+    # where the loss was (u5 §5): a change (last night's take), for those of the household and anyone who looks in the store
+    "floor": [R("all", "sight", 0.8, (0, 1), "grain scattered and trodden into the floor of {place}, mouse droppings in it")],
+    "upper floor": [R("all", "sight", 0.8, (0, 1), "grain scattered and trodden into the floor of {place}, mouse droppings in it")],
+    "sack": [R("all", "sight", 0.8, (0, 1), "the sacks in {place} gnawed through at the bottom, grain run out on the floor")],
+    "chest": [R("all", "sight", 0.5, (0, 1), "fresh gnaw marks at a corner of the chest in {place}")],
+    "door": [R("all", "sight", 1.0, (0, 0), "the heap outside {place}'s door dug into and scattered in the night")],
+    "hung": [R("all", "sight", 0.7, (0, 1), "something has been at the fish hanging in {place}: tails chewed, droppings beneath")],
 }
 # the oaks' mast in its seasons, on a village's woods: a reading, and for the practised a lore of what follows
 MAST_SIGNS = {
@@ -806,9 +813,12 @@ BODY = {"voles and mice": {"gap": "tiny", "climbs": True}, "rats": {"gap": "tiny
         "brown bear": {"gap": "large", "climbs": True}, "woodpigeon": {"gap": "small", "climbs": True}}
 GAPS = {"structure": {"wattle": "small", "timber": "small", "stone": "tiny", "camp": "large"}, "damaged": 1}   # a building's own gaps
 # What stops which kinds in a store (brief 2 §4): each fitting cuts the share the kinds it stops eat there (keep), by their body
-STORE_STOPS = {"granary": {"keep": 0.3, "for": {"climbs": True, "gap": "tiny"}}, "bins": {"keep": 0.7, "for": {"gap": "tiny"}},
-               "dog": {"keep": 0.5, "for": {}}, "cat": {"keep": 0.4, "for": {"gap": "tiny"}, "in_store": True},
-               "owl": {"keep": 0.6, "for": {"gap": "tiny"}, "occupied": "nests"}}
+# what a store's beasts leave of a vermin kind's take, by kind (u5 §5; storage §6 from Elton 1953, est.): the granary and the bins are
+# in the stores' exposures now (stores.SPACES, CONTAINERS), so they are not counted twice
+STORE_KIND = {"rats": "rats", "voles and mice": "mice"}     # which column of the stores' exposures and stops a kind reads (u5 §2, §5)
+STORE_STOPS = {"dog": {"keep": {"rats": 0.5, "mice": 0.8, "other": 0.5}},
+               "cat": {"keep": {"rats": 0.7, "mice": 0.4, "other": 1.0}, "in_store": True},
+               "owl": {"keep": {"rats": 0.9, "mice": 0.6, "other": 1.0}, "occupied": "nests"}}
 # a cat comes by itself to a store with mice (D2-206): a chance each season (no dog), and leaves an empty store or a dog's house;
 # a barn owl takes an owl hole in spring with a chance if nobody sleeps in that building (calibrate)
 # The dead and what comes to them (brief 3 §3, calibrate): a carcass row's attraction is its attr times the most flesh at the node
@@ -836,7 +846,8 @@ CARCASS_PULL = {"ref": 33.0, "dig": 0.1, "spill_nights": 3, "spill_drive": 1.5}
 CAT = {"settle_p": 0.15, "fed_p": 0.4, "prey": "voles and mice", "prey_least": 50.0, "stray_p": 0.08, "item": "cat",
        "fed_days": 3}                         # cats.md §3 (brief 4 §4.1): fed lately (food left out at the house), it settles likelier
 # food left out at a house's door (D2-85 things there): what draws a cat, and the fox and rats too (brief 4 §4.1)
-LEFT_OUT = {"items": ["milk", "meat", "offal", "fresh fish", "rotting meat", "drying meat"], "record": "food_out"}   # a rack too
+LEFT_OUT = {"items": ["milk", "meat", "offal", "fresh fish", "rotting meat", "drying meat"], "record": "food_out",   # a rack too
+            "exposure": 1.5}                    # vermin at a door pile (u5 §2, §5): x1.5, dry goods too
 OWL = {"take_p": 0.4, "fitting": "owl hole", "season": "spring", "record": "nests"}
 
 # What a kind is like to those who hunt it (D2-204, methods_and_encounters.md §2; calibrate): the methods' needs and favours are read

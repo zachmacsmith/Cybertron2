@@ -39,15 +39,20 @@ def test_bins_take_one_action_and_a_cellar_three_counting_only_when_finished(): 
     w.apply("set", "combe", ref=("building", "hobb_house"), field="fittings", value={k: v for k, v in _fits(w).items() if k != "bins"})
     assert _build(w, "bins").startswith("You put bins into Hobb House") and _fits(w).get("bins") == 1
     stock = w.s["containers"][w.s["buildings"]["hobb_house"]["stock"]]
-    base = N.decay_rate(w, stock, "grain")[0]
+    w.calendar = lambda day=None: {"season": "summer", "day": 1, "left": 7, "year_day": 9}   # u5 (W-99): a cellar keeps the summer off fresh meat;
+    stock["goods"]["meat"] = 5.0                                               # it slows no food below its base (D2-272)
+    base = N.decay_rate(w, stock, "meat")[0]
     outs = [_build(w, "cellar") for _ in range(3)]
     assert all(not o.startswith("Refused") for o in outs), outs
     assert outs[0].startswith("You began a cellar") and outs[1].startswith("You worked on a cellar") and outs[2].startswith("You put a cellar")
     w2 = _w()
+    w2.calendar = lambda day=None: {"season": "summer", "day": 1, "left": 7, "year_day": 9}
+    st2 = w2.s["containers"][w2.s["buildings"]["hobb_house"]["stock"]]
+    st2["goods"]["meat"] = 5.0
     for _ in range(2):
         _build(w2, "cellar")
-    assert not _fits(w2).get("cellar") and N.decay_rate(w2, w2.s["containers"][w2.s["buildings"]["hobb_house"]["stock"]], "grain")[0] == base
-    assert _fits(w).get("cellar") == 1 and N.decay_rate(w, stock, "grain")[0] < base
+    assert not _fits(w2).get("cellar") and N.decay_rate(w2, st2, "meat")[0] == base
+    assert _fits(w).get("cellar") == 1 and N.decay_rate(w, stock, "meat")[0] < base
 
 
 def test_three_beds_take_two_actions_and_a_second_start_carries_on_without_more_materials():

@@ -101,7 +101,7 @@ def test_a_drying_batch_of_almost_nothing_is_refused_and_a_part_batch_is_rounded
     w = world()
     _hearth_meat(w, "Ralf", 2.9525)
     r = do(w, "Ralf", do="make", what="dry meat")
-    assert "2.9525" not in r and ("2.95 drying meat" in r or "failed" in r)
+    assert "2.9525" not in r and ("You hung 3 kg of meat" in r or "failed" in r), r            # u4's words, rounded (W-99)
 
 
 # ---------------------------------------------------------------------- 7. the killing frost names no ice
@@ -117,17 +117,18 @@ def test_the_killing_frost_sign_does_not_say_the_water_froze():
 def test_fish_go_on_the_hearth_rack_as_a_batch_and_dry_to_half():
     t = TECHNIQUES["dry fish"]
     assert t["at"]["fittings"] == ["hearth", "fire ring"] and t["inputs"] == {"fish": 8} and t["batch"]
-    assert t["rack"]["into"] == "dried fish" and t["rack"]["ratio"] == 0.5
+    from cybertron2.engine import process as PROC                              # the hearth rack's row (u4 §2, W-99)
+    assert t["process"] == "hearth rack" and PROC.PROCESSES["hearth rack"]["in"]["fish"] == ("drying fish", "dried fish", 0.5)
     w = world()
     b = house(w, "Marsh")
     w.s["containers"][w.hands("Ralf")]["goods"]["fish"] = 5.0
     r = do(w, "Ralf", do="make", what="dry fish")
-    assert "drying fish" in r or "failed" in r
-    if "drying fish" in r:                                                     # one rack of 8 at the hearth, fish and meat
-        assert "5 drying fish" in r and "hearth" in r                          # alike: the meat takes only the room left
+    assert "kg of fish on the rack" in r or "failed" in r, r
+    if "kg of fish on the rack" in r:                                          # one rack of 8 at the hearth, fish and meat
+        assert "5 kg of fish" in r and "hearth" in r                           # alike: the meat takes only the room left
         w.s["containers"][w.hands("Ralf")]["goods"]["meat"] = 4.0
         r2 = do(w, "Ralf", do="make", what="dry meat")
-        assert "3 drying meat" in r2 or "failed" in r2
+        assert "3 kg of meat" in r2 or "failed" in r2, r2
         w.s["containers"][w.hands("Ralf")]["goods"]["meat"] = 4.0
         r3 = do(w, "Ralf", do="make", what="dry meat")
         assert "full" in r3 or f"inside {w.s['buildings'][b]['name']}" not in r3   # Marsh House's rack is full: not there
@@ -198,7 +199,8 @@ def test_rain_on_meat_drying_outdoors_is_seen_at_its_parcel():
     from cybertron2.engine import signs as SG2
     w = world()
     cid = w.apply("new_thing", "Meresby", node="Meresby", parcel="Meresby_0", kind="pile", by="Ralf", door=house(w, "Marsh"),
-                  rack={"day": w.d, "nights": 3, "into": "dried meat", "ratio": 0.5, "smoke": False})
+                  lot={"process": "hearth rack", "item": "meat", "wait": "drying meat", "into": "dried meat", "ratio": 0.5, "by": "Ralf",
+                       "household": None, "day": w.d, "kg": 6.0, "nights": 1, "had": 0, "out": None, "done": None, "got": None})
     w.s["containers"][cid]["goods"]["drying meat"] = 6.0
     x = SG2.thing_context(w, w.s["containers"][cid])
     assert x.drying_out == "meat"

@@ -1105,10 +1105,12 @@ def building_context(here, bid):
     sp = b.get("spoilt") or {}
     x.going_off = " and ".join(i for i in (sp.get("items") or {}) if i in st and st.get(i, 0.0) > 0.05) \
         if sp.get("day") is not None and here.day - int(sp["day"]) == 0 else ""
-    from cybertron2.engine import keeping as KP                                # the smokehouse and the brine pan (brief 5 §4)
-    sm, rs = b.get("smoke") or {}, KP.active_racks(here._w, bid) if b["fittings"].get("smoke racks") else {}
-    what = " and ".join(sorted({i.replace("smoking ", "") for c in rs.values() for i, q in c["goods"].items() if q > 1e-9
-                                and ITEMS.get(i, {}).get("decay") == "drying meat"}))
+    from cybertron2.engine import process as PROC                              # the smokehouse (u4's lots) and the brine pan (5 §4)
+    sm = b.get("smoke") or {}                                                  # what waited in its smoke last night
+    rs = {k: c for k, c in PROC.lots(here._w, bid).items() if c["lot"].get("done") is None or int(c["lot"]["done"]) == here.day - 1} \
+        if b["fittings"].get("smoke racks") else {}
+    what = PROC.what_of([c for c in rs.values() if PROC.waiting_kg(c) + PROC.done_kg(c) > 1e-9]) if rs else ""
+    what = "" if what == "nothing" else what
     x.smoking = what if what and sm.get("night") == here.day - 1 and sm.get("lit") else ""
     x.smoke_out = what if what and sm.get("night") == here.day - 1 and not sm.get("lit") else ""
     x.salt_n = sum(1 for e in here.events() if e.get("kind") == "make" and f"building:{bid}" in (e.get("about") or [])
@@ -1768,7 +1770,7 @@ def thing_context(w, c):
     x.grave_left = max(0, __import__("math").ceil(round(TH.bury_need(w, c) * (1.0 - x.grave_done), 3) - 1e-6)) if x.grave_done else 0
     x.grave_idle = w.d - int(g.get("day", w.d)) if g else 0
     x.wet_now = EV.wet(w, at)
-    x.drying_out = "" if indoors or not c.get("rack") else " and ".join(           # a rack outside, not yet dry (signs pass)
+    x.drying_out = "" if indoors or not c.get("lot") else " and ".join(            # a rack outside, not yet dry (signs pass; u4 lots)
         i.replace("drying ", "") for i in sorted(items) if i.startswith("drying ") and ITEMS.get(i, {}).get("decay") == "drying meat")
     x.cairn_age = w.d - int(c["cairn_day"]) if c.get("cairn_day") is not None else 99
     x.set_line = c["kind"] == "set" and bool(c.get("set"))                    # a set snare line or traps (brief 4c §4)
@@ -2149,7 +2151,12 @@ def _wild_eaten(here, add) -> None:
                 _wild_emit(here, rows, x, [f"parcel:{pid}"], pid, add, "wildeat", dict(place=p["name"]), age)
         else:
             for bid, b in sorted(here.buildings().items()):
-                if b.get("stock") and WL._store_food(here._w, here.node) > 0 and any(
+                vm = b.get("vermin") or {}
+                if vm.get("day") is not None and int(vm["day"]) == int(rec["day"]) and EATEN_SIGNS.get(vm.get("where")):   # by where (u5 §5)
+                    x = event_context(here, b["name"], rec["day"])
+                    rows_b = [dict(r, own=r["own"] * scale) for r in EATEN_SIGNS[vm["where"]]]
+                    _wild_emit(here, rows_b, x, [f"building:{bid}"], b["parcel"], add, "wildeat", dict(place=b["name"]), age)
+                elif b.get("stock") and WL._store_food(here._w, here.node) > 0 and any(
                         it in WL.DRY_STORES and q > 0 for it, q in (here._w.s["containers"].get(b["stock"], {}).get("goods") or {}).items()):
                     x = event_context(here, b["name"], rec["day"])
                     _wild_emit(here, rows, x, [f"building:{bid}"], b["parcel"], add, "wildeat", dict(place=b["name"]), age)

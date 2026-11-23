@@ -477,7 +477,8 @@ def _old_age(w, out, where=None):
     for name in w.living():
         a = w.s["people"][name]
         if a["stage"] == "adult":
-            p = float(oa["adult"])
+            from cybertron2.engine import stores as SR                          # vermin raise it (u5 §6; G11, a first magnitude)
+            p = float(oa["adult"]) * SR.illness(w, name)
         elif a["stage"] == "elder":
             d, L = days_old(w, name), lifespan(w)
             into = max(0, (d if d is not None else elder_from(L)) - elder_from(L))
