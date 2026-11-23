@@ -604,8 +604,8 @@ TECHNIQUES = {
     "water mill": {"verb": "make", "label": "milling grain at a water mill", "aliases": ["water milling"], "basic": True,
                    "at": {"fittings": ["water wheel"]}, "inputs": {"grain": 200}, "units": 2, "gives": {"flour": 200}, "tags": ["food", "cooking"]},   # D4-97
     "dry fodder": {"pack": "farming", "verb": "make", "label": "drying a green crop into hay", "aliases": ["dry hay", "make hay of", "dry green crop"],
-                   "basic": True, "inputs": {"green crop": {"green grain": 10, "green rye": 10, "green beans": 10}}, "units": 1,
-                   "gives": {"hay": 8}, "tags": ["animals", "farming"]},                                  # D4-106 (calibrate)
+                   "basic": True, "inputs": {"green crop": {"green grain": 30, "green rye": 30, "green beans": 30}}, "units": 1,
+                   "gives": {"hay": 1}, "tags": ["animals", "farming"]},       # D4-106; 30 kg green dries to a 10 kg hay (u3 §2.4; was 10 to 8)
     "pack": {"verb": "make", "label": "making a pack", "aliases": ["backpack"], "basic": True, "inputs": {"hide": 1, "timber": 1},
              "units": 1, "gives": {"pack": 1}, "tags": ["travel"]},                                                    # recipes.md §2
     "handcart": {"verb": "make", "label": "making a handcart", "aliases": ["cart"], "inputs": {"timber": 6}, "tools": {"crude": 1.0, "copper": 1.0},
@@ -659,9 +659,9 @@ TECHNIQUES = {
                        "aliases": ["tend the smokehouse", "tend smokehouse", "tend the fire", "bank the fire", "tend smoke"], "basic": True,
                        "at": {"fittings": ["smoke racks"]}, "yield": {"kind": "smoke_tend"}, "units": 1, "gives": "", "tags": ["food", "fuel"]},
     "salt fish": {"pack": "water", "verb": "make", "label": "salting fish to keep", "aliases": ["salting", "salt the fish"], "basic": True,
-                  "inputs": {"fish": 4, "salt": 1}, "units": 1, "gives": {"salt fish": 4}, "tags": ["food", "cooking", "fishing"]},
+                  "inputs": {"fish": 40, "salt": 10}, "units": 1, "gives": {"salt fish": 40}, "tags": ["food", "cooking", "fishing"]},   # D2-283: 40 kg a unit, salt 1 to 4
     "salt meat": {"verb": "make", "label": "salting meat in a tub to keep", "aliases": ["salting meat", "salt the meat", "brine the meat"],
-                  "basic": True, "inputs": {"meat": 4, "salt": 1}, "units": 1, "gives": {"salt meat": 4}, "tags": ["food", "cooking"]},   # brief 4 §5.2
+                  "basic": True, "inputs": {"meat": 40, "salt": 5}, "units": 1, "gives": {"salt meat": 40}, "tags": ["food", "cooking"]},   # D2-283: 40 kg a unit, salt 1 to 8
     "dry meat": {"verb": "make", "label": "drying meat over a fire", "aliases": ["drying meat", "cure meat"], "basic": True,
                  "at": {"fittings": ["hearth", "fire ring"]}, "inputs": {"meat": 8}, "units": 1, "gives": {"drying meat": 8},
                  "batch": True,                                                 # whatever one has, up to the batch (brief 4c §6.1)
@@ -671,11 +671,11 @@ TECHNIQUES = {
                  "gives": {"drying fish": 8}, "batch": True,                   # fish on the hearth's rack as meat (D4-122): one batch a
                  "rack": {"nights": 3, "into": "dried fish", "ratio": 0.5}, "tags": ["food", "cooking", "fishing"]},   # rack, up to 8
     "cheese": {"pack": "farming", "verb": "make", "label": "making cheese", "aliases": ["cheesemaking"], "at": {"fittings": ["cellar"]},
-               "inputs": {"milk": 6, "salt": 0.2}, "units": 1, "gives": {"cheese": 1}, "tags": ["food", "animals"], "trade": "herder"},
+               "inputs": {"milk": 20, "salt": 0.6}, "units": 1, "gives": {"cheese": 3.3}, "tags": ["food", "animals"], "trade": "herder"},   # u3 §2.4
     # 6 milk (1.54 food) make a cheese of 1.61, 5% more than went in, for a unit and 0.2 salt: kept, within D2-259's 20% (a real hard
     # cheese takes about 10, 02zzu; 1.2 food a unit of the chain against 1.1 on the old values)
     "charcoal": {"verb": "make", "label": "burning charcoal", "aliases": ["charcoal burning"], "at": {"covers": ["forest"]},
-                 "inputs": {"timber": 5}, "units": 2, "gives": {"charcoal": 1}, "tags": ["timber", "craft"], "trade": "woodsman"},
+                 "inputs": {"timber": 5}, "units": 1, "gives": {"charcoal": 1}, "tags": ["timber", "craft"], "trade": "woodsman"},   # 125 kg to 20 (u3 §2.4)
     "wooden plough": {"pack": "farming", "verb": "make", "label": "making a plough", "aliases": ["make a plough"], "inputs": {"timber": 4, "copper": 1},
                       "tools": {"crude": 1.0, "copper": 1.0}, "units": 4, "gives": {"wooden plough": 1}, "tags": ["farming", "craft"],
                       "trade": "carpenter"},
@@ -739,6 +739,39 @@ TECHNIQUES.update({
 })
 MODIFIERS = {t for t, d in TECHNIQUES.items() if d.get("modifies")}
 
+# Gear's real hours a piece and its clock (u3 §2.2, wave1 §3.2; D2-276, D2-309: new things at the factor from the start): a piece
+# takes hours x factor / 2 units, at least 1; under a unit, one act of 1 unit makes up to its batch (clocks.batch_of; O-2).
+for _k, _h in {"fishing rod": 1.5, "crude tool": 7, "copper tool": 6, "crude weapon": 3, "bedroll": 3, "tent": 9,
+               "wooden plough": 36, "handcart": 50, "harness": 13.5}.items():
+    TECHNIQUES[_k].update(hours=_h, clock="capital")
+# The bulk processes take up to their batch for their units (O-2; D2-247; u3 §2.4): less is less worth it, never refused for it.
+for _k in ("grind", "mill", "water mill", "bread", "oven bread", "salt fish", "salt meat", "dry fodder", "leach acorns", "charcoal",
+           "cheese"):
+    TECHNIQUES[_k]["batch"] = True
+
+# Capital rows (D2-276, D2-309; u7 §1, §2): each lasting thing's class and its real hours a piece (the middle of u7 §2's ranges);
+# the classes in CAPITAL["hold"] keep their `units` until stage 5, read through clocks.capital_units. The weir's cost is set directly
+# (D2-302), with no hours.
+WORK_HOURS = {
+    "rooms": {"small room": {"wattle": 405, "timber": 585, "stone": 945}, "medium room": {"timber": 1035, "stone": 1665},
+              "hall": {"timber": 5850, "stone": 8100}},
+    "fittings": {"beds": 6.5, "hearth": 13.5, "fire ring": 2.5, "owl hole": 2.5, "bins": 13.5, "granary": 36, "hand mill": 31.5,
+                 "oven": 54, "anvil": 36, "cellar": 41, "millstones": 270, "water wheel": 3060, "stalls": 6.5, "woodshed": 27,
+                 "smoke racks": 8, "brine pan": 27, "vault": 1350},
+    "monuments": {"carved post": 31.5, "cairn": 9},
+}
+for _r, _d in ROOMS.items():
+    for _st, _h in WORK_HOURS["rooms"].get(_r, {}).items():
+        _d[_st].update(capital="rooms", hours=_h)
+for _f, _d in FITTINGS.items():
+    _d.update(capital="fittings", **({"hours": WORK_HOURS["fittings"][_f]} if _f in WORK_HOURS["fittings"] else {}))
+for _m, _d in MONUMENTS.items():
+    _d.update(capital="weir" if _m == "weir" else "monuments",
+              **({"hours": WORK_HOURS["monuments"][_m]} if _m in WORK_HOURS["monuments"] else {}))
+for _b, _d in BLUEPRINTS.items():
+    _d["capital"] = "rooms"
+BLUEPRINTS["camp"].update(clock="day", hours=4)                       # a camp lasts nights: the day clock, real hours / 2 (u7 §2.1)
+
 # Building and fitting are techniques too, for knowledge (basic or a trade), with their costs in BLUEPRINTS and FITTINGS.
 for _k, _b in list(BLUEPRINTS.items()) + list(FITTINGS.items()) + list(MONUMENTS.items()):
     TECHNIQUES.setdefault(_k, {"verb": "build", "label": "building " + _b["label"], "aliases": [], "basic": _b.get("basic", False),
@@ -761,6 +794,19 @@ SKILL = {"trade": [0.5, 2.0], "basic": [1.0, 1.5], "tau": 50.0,     # D2-52 (02n
          # beast a trip, so without it the master is held near the capable by meetings, not by the take)
          "hard": [1.0, 8.0], "top_hard": 50.0, "kill_hard": 1.5, "youth_hard": 2.0, "lead_hard": 2.0,
          "capable_hard": 3.0, "find_hard": 1.05}
+
+# The capital factor (D2-276, D2-281, D2-309; u7 §1): one named lever for every lasting thing, read only through clocks.py. A
+# capital row holds its real hours a piece (`hours`, the middle of the real range) and converts once: units = hours x factor / 2,
+# at least `floor`; a class in `hold` keeps its row's `units` as written today until its companions are in (D2-309; u7 stage 5).
+# "world" is the factor from the world's own numbers (units a year x 2 h / `real_year`: 1/7.03 in a 32-day world); a fraction
+# ("1/15") is a stage or a sensitivity arm; a world spec's `capital_factor` wins.
+CAPITAL = {
+    "factor": "1/15",          # the stage before the target (D2-281): "1/15", then "world"
+    "real_year": 2700,         # real working hours a year (D2-276)
+    "hold": ["rooms", "fittings", "monuments", "weir", "fences", "clearing", "works"],   # at today's units until stage 5 (D2-309)
+    "floor": 1,                # every act costs at least 1 unit (basis §1; O-2)
+    "night": 32 / 365,         # the calendar's factor for a life counted in nights (D2-310)
+}
 
 PHYSICS = {
     "units": {"summer": 7, "autumn": 6, "winter": 5, "spring": 6},      # agents/work.md (calibrate)
@@ -1142,6 +1188,16 @@ TECHNIQUES.update({
                   "key": "searching", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["travel", "animals"]},   # D2-125
 })
 MODIFIERS = {t for t, d in TECHNIQUES.items() if d.get("modifies")}
+
+# Gear's real hours a piece and its clock (u3 §2.2, wave1 §3.2; D2-276, D2-309: new things at the factor from the start): a piece
+# takes hours x factor / 2 units, at least 1; under a unit, one act of 1 unit makes up to its batch (clocks.batch_of; O-2).
+for _k, _h in {"fishing rod": 1.5, "crude tool": 7, "copper tool": 6, "crude weapon": 3, "bedroll": 3, "tent": 9,
+               "wooden plough": 36, "handcart": 50, "harness": 13.5}.items():
+    TECHNIQUES[_k].update(hours=_h, clock="capital")
+# The bulk processes take up to their batch for their units (O-2; D2-247; u3 §2.4): less is less worth it, never refused for it.
+for _k in ("grind", "mill", "water mill", "bread", "oven bread", "salt fish", "salt meat", "dry fodder", "leach acorns", "charcoal",
+           "cheese"):
+    TECHNIQUES[_k]["batch"] = True
 
 # ---------------------------------------------------------------------------------------------------------------- life (spec/life)
 # Birth and death (life/birth_and_death.md: D2-138 to D2-152; calibrate where the spec says so). Stages by days since birth (D2-139):

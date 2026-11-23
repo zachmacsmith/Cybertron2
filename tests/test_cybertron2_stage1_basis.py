@@ -201,3 +201,94 @@ def test_the_five_signs_that_directed_acts_are_observations():
                   "watch it or bring it in", "it must be cut tomorrow or lost"):
         assert order not in text
     assert "an eel night" in text and "unable to get up past it" in text and "a day or two more and it will be lost" in text
+
+
+# ---------------------------------------------------------------------- the clocks (u0 §4; u7 §1)
+from cybertron2.engine import clocks as CK                                                # noqa: E402
+
+
+def test_the_capital_factor_and_its_conversions():
+    class W:
+        def __init__(self, f=None):
+            self.spec = {"capital_factor": f} if f else {}
+
+        def year_days(self):
+            return 32
+    assert CK.capital_factor(W()) == pytest.approx(1 / 15)                         # the stage (D2-281)
+    assert 1 / CK.capital_factor(W("world")) == pytest.approx(7.03, abs=0.01)      # 192 units, 384 hours over 2,700
+    assert CK.capital_factor(W("1/40")) == pytest.approx(1 / 40)                   # a world spec's factor wins
+    from cybertron2.engine.data import FITTINGS, MONUMENTS, ROOMS
+    assert CK.capital_units(ROOMS["small room"]["wattle"], W()) == 6               # held at today's units (D2-309)
+    assert CK.capital_units(FITTINGS["oven"], W(), n=2) == 24 and CK.capital_units(MONUMENTS["weir"], W()) == 12
+    row = {"hours": 50, "capital": "gear"}
+    assert CK.capital_units(row, W()) == pytest.approx(1.7) and CK.capital_units(row, W("world")) == pytest.approx(3.6)
+    assert CK.capital_units({"hours": 1, "capital": "gear"}, W()) == 1              # the floor
+    assert CK.capital_life(300, W()) == 20 and CK.capital_life(1, W()) == 1
+    assert CK.night_life(365) == 32 and CK.night_life(3) == 1
+    assert CK.batch_of({"hours": 6}, W()) == 5 and CK.batch_of({"hours": 6}, W("world")) == 2   # the wicker trap (u3 §2.2)
+    assert CK.batch_of({"hours": 50}, W()) == 1
+
+
+def test_every_capital_row_names_its_hours_or_is_held():
+    from cybertron2.engine.data import BLUEPRINTS, FITTINGS, MONUMENTS, ROOMS
+    for d in list(FITTINGS.values()) + list(MONUMENTS.values()) + list(BLUEPRINTS.values()):
+        assert d.get("capital") and (d.get("hours") or CK.held(d))
+    for r in ROOMS.values():
+        for st in ("wattle", "timber", "stone"):
+            if st in r:
+                assert r[st]["capital"] == "rooms" and r[st]["hours"] > 0
+
+
+# ---------------------------------------------------------------------- the floor and the batches (u0 §5; O-2)
+def test_a_make_of_n_pieces_costs_units_by_its_batch_and_no_act_is_free(hamlet):
+    from cybertron2.engine.data import TECHNIQUES
+    w = copy.deepcopy(hamlet)
+    name = sorted(n for n, p in w.s["people"].items() if p.get("stage") == "adult")[0]
+    here = Here(w, name)
+    b = CK.batch_of(TECHNIQUES["crude tool"], w)
+    assert b == 4                                                                   # 7 real hours at 1/15
+    assert V.cost(here, {"do": "make", "what": "crude tool", "qty": 1}) == 1
+    assert V.cost(here, {"do": "make", "what": "crude tool", "qty": b}) == 1
+    assert V.cost(here, {"do": "make", "what": "crude tool", "qty": b + 1}) == 2
+    assert V.cost(here, {"do": "make", "what": "handcart"}) == 2                   # 50 hours at 1/15: 1.7, rounded
+    for tech, t in TECHNIQUES.items():
+        if t["verb"] in ("make", "gather") and not t.get("modifies") and float(t.get("units", 1)) > 0:
+            assert V.cost(here, {"do": t["verb"], "what": tech}) >= 1, tech
+
+
+def test_one_act_makes_up_to_its_batch_of_pieces(hamlet):
+    w = copy.deepcopy(hamlet)
+    name = sorted(n for n, p in w.s["people"].items() if p.get("stage") == "adult")[0]
+    w.s["know"].setdefault(name, {})["crude tool"] = {"level": "known", "skill": 1.0}
+    hands = w.s["containers"][Here(w, name).hands]["goods"]
+    hands.update(timber=10, stone=10)
+    hands.pop("crude tool", None)
+    r = V.do(Here(w, name), Mind(w, name), {"do": "make", "what": "crude tool", "qty": 3})
+    assert r.startswith("You made 3 crude tool"), r
+    assert hands.get("crude tool") == 3
+
+
+def test_the_bulk_processes_take_up_to_their_batch():
+    from cybertron2.engine.data import TECHNIQUES
+    for tech in ("grind", "mill", "water mill", "bread", "oven bread", "salt fish", "salt meat", "dry fodder", "leach acorns",
+                 "charcoal", "cheese"):
+        assert TECHNIQUES[tech].get("batch"), tech
+    assert TECHNIQUES["salt fish"]["inputs"] == {"fish": 40, "salt": 10}            # D2-283: 40 kg a unit
+
+
+# ---------------------------------------------------------------------- a build act costs what is left; practice for every act
+def test_a_build_act_costs_what_is_left_and_every_act_practises():
+    """D2-324 (u7 §5.4): a build act on a work with little left costs 1 unit, not a flat 2; u7 §5.2: each act practises."""
+    from tests.test_cybertron2_buildings import do as bdo, world as bworld
+    w = bworld()
+    r = bdo(w, "Ivo", do="build", what="small room", at="Combe Moor", name="Test Hut")
+    assert r.startswith("You began Test Hut"), r
+    bid = next(b for b, x in w.s["buildings"].items() if x["name"] == "Test Hut")
+    sk0 = float((w.s["know"]["Ivo"].get("small room") or {}).get("skill", 1.0))
+    assert V.cost(Here(w, "Ivo"), {"do": "build", "what": "small room", "at": "Test Hut"}) == 2
+    w.s["buildings"][bid]["unfinished"]["units_left"] = 0.6
+    assert V.cost(Here(w, "Ivo"), {"do": "build", "what": "small room", "at": "Test Hut"}) == 1
+    w.s["buildings"][bid]["unfinished"]["units_left"] = 4.0
+    bdo(w, "Ivo", do="build", what="small room", at="Test Hut")
+    sk1 = float(w.s["know"]["Ivo"]["small room"]["skill"])
+    assert sk1 > sk0                                                                 # practised on an act that did not finish it

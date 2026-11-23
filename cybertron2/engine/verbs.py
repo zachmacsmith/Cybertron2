@@ -11,6 +11,8 @@ from cybertron2.engine import renewal as RN, yields as YD
 from cybertron2.engine import buildings as BL, farm as FM, knowledge as KN, modifiers as MOD, perceive as PC, things as TH
 from cybertron2.engine.data import BLUEPRINTS, COVERS, FITTINGS, ITEMS, LINES, MONUMENTS, ROOMS, SPACE, TECHNIQUES, THINGS, TIERS, TRY
 from cybertron2.engine.here import Refused, show
+from cybertron2.engine import clocks as CK
+from cybertron2.engine.data import CAPITAL
 
 # The registry (cybertron 1's action_registry): arguments, cost (units, a physics path, or "craft"), the line in the manual, and
 # `when` (only in a world with roads). The prompt's verb list and the reply schema are generated from it.
@@ -128,6 +130,8 @@ def cost(here, a) -> int:
             return int(WATER_WORKS["weir" if WL.is_weir(b) else "mill"]["units"].get(to, 1))
         except Refused:
             return 0
+    if v == "build":                                                         # what is left of the work, 1 or 2 units (D2-324)
+        return _build_cost(here, a)
     n = verb_units(here.p, v)
     if n is not None:
         return n
@@ -139,7 +143,11 @@ def cost(here, a) -> int:
     if tech is None:
         return 1
     tech, a = _as_modified(tech, v, a)
-    n = int(TECHNIQUES[tech]["units"])
+    t_ = TECHNIQUES[tech]
+    u_ = float(t_["units"])
+    n = 0 if u_ <= 0 else max(int(CAPITAL["floor"]), int(round(u_)))         # no act under the floor is free (O-2; u3 §2.1)
+    if v == "make" and t_.get("hours"):                                     # a piece's real hours at the factor (u3 §2.1)
+        n = CK.act_units(t_, here._w)
     if TECHNIQUES[tech].get("units_by") == "bury":                            # by the ground and the cold (D2-96)
         cairn = str(a.get("method", "")).lower() == "cairn"
         cid = _thing_site(here, a.get("at"), graves=cairn, kinds=_dead_kinds(tech))
@@ -153,10 +161,67 @@ def cost(here, a) -> int:
             n = int(THINGS["carcass_sizes"][here.carcass_size(cid)]["burn"]["units"])
     elif v == "make":
         try:
-            n *= max(1, int(_qty(a.get("qty"), 1)))
+            q_ = max(1, int(_qty(a.get("qty"), 1)))                             # pieces wanted (with hours), else acts
+            n *= math.ceil(q_ / CK.batch_of(t_, here._w)) if t_.get("hours") else q_
         except Refused:                                                        # a bad qty is refused by the act itself, not by its cost
             pass
     return n + MOD.units(a, v, tech)
+
+
+def build_units(left, sk, ym=1.0) -> int:
+    """A build act's units (D2-324; u7 §5.4): what is left of the work at one's skill, at least 1 and at most 2."""
+    return max(1, min(2, math.ceil(float(left) / max(1e-9, float(sk) * float(ym)) - 1e-9)))
+
+
+def _build_left(here, a):
+    """(units left, technique whose skill builds it) of the work a build act would carry on, or None for a work begun now."""
+    what = str(a.get("what") or "").strip().lower()
+    what = MONUMENT_ALIAS.get(what, what)
+    if what not in BLUEPRINTS and what not in FITTINGS and what not in MONUMENTS:
+        from cybertron2.engine.data import FITTING_ALIAS
+        what = FITTING_ALIAS.get(what, what)
+    bid = here.building(a.get("at")) if a.get("at") else None
+    if what in WEIR_PARTS:
+        from cybertron2.engine import wild as WL
+        if bid is None:
+            bid = next((x for x, b in sorted(here.buildings().items()) if WL.is_weir(b) and not b.get("unfinished")), None)
+        wk = (here.buildings().get(bid) or {}).get("weir_work") if bid else None
+        return (float(wk["units_left"]), "weir") if wk else None
+    if what in FITTINGS:
+        if bid is None:
+            bid = (here.homes_here() or [None])[0]
+        u = ((here.buildings().get(bid) or {}).get("fitting_work") or {}).get(what) if bid else None
+        return (float(u["units_left"]), what) if u else None
+    if bid is None:
+        return None
+    b = here.buildings()[bid]
+    if b.get("unfinished"):
+        return float(b["unfinished"]["units_left"]), b["unfinished"]["blueprint"]
+    wk = b.get("works")
+    if wk:
+        return float(wk["units_left"]), wk.get("tech") or "small room"
+    return None
+
+
+def _build_cost(here, a) -> int:
+    try:
+        got = _build_left(here, a)
+    except Refused:
+        got = None
+    if got is None:
+        return 2
+    from cybertron2.engine.here import Mind
+    left, tech = got
+    return build_units(left, KN.skill(Mind(here._w, here.name), tech), here.yield_mult())
+
+
+def _build_act(here, mind, tech, left):
+    """One act on a work (D2-324, u7 §5.2): its units (what is left, 1 or 2), the work it puts in (units x skill), and its practice
+    (every act counts its units, not only the finishing one)."""
+    sk, ym = KN.skill(mind, tech), here.yield_mult()
+    n = build_units(left, sk, ym)
+    KN.tried(here, mind, tech, True, units=n)
+    return round(n * sk * ym, 2)
 
 
 def _as_modified(tech, verb, a):
@@ -780,7 +845,10 @@ def _make(here, mind, a, party):
     res = []
     from cybertron2.engine import wear as WE
     fits = WE.worked((t.get("at") or {}).get("fittings") or [])
-    for i in range(qty):
+    per = CK.batch_of(t, here._w) if t.get("hours") else 1                   # pieces an act makes, up to its batch (u3 §2.1)
+    acts = math.ceil(qty / per) if t.get("hours") else qty                   # `qty` is pieces for a row with hours, else acts
+    for i in range(acts):
+        k = min(per, qty - i * per) if t.get("hours") else 1
         sites = KN.where(here, tech)                                           # one's own house's fitting first, of those
         sites = [x for x in sites if not KN.ready(here, tech, x[0], x[1])] or sites   # ready (racks with room: brief 5 §4a)
         site = sorted(sites, key=lambda x: (x[0] != "building" or x[1] not in here.homes_here(),
@@ -792,6 +860,9 @@ def _make(here, mind, a, party):
             from cybertron2.engine import wild as WL
             fac *= here.mill_rate(b)
         mult = TRY[lvl]["inputs"] if fac == 1.0 else TRY[lvl]["inputs"] * fac
+        while k > 1 and KN.shortfall(here, mind, tech, mult * k, extra=extra):   # as many pieces as the materials to hand allow
+            k -= 1
+        mult *= k
         why = KN.shortfall(here, mind, tech, mult, extra=extra)
         if why:
             res.append(f"Refused: make {tech}: {why}")
@@ -809,10 +880,10 @@ def _make(here, mind, a, party):
         if b is not None and fits and WE.on(here.p):
             WE.use(here, site[1], fits, sum(v for v in (t.get("inputs") or {}).values() if isinstance(v, (int, float))) * fac * share)
         ok = here.rng("make", here.day, here.name, tech, i).random() < TRY[lvl]["chance"]
-        rose = KN.tried(here, mind, tech, ok, units=t["units"])
+        rose = KN.tried(here, mind, tech, ok, units=CK.act_units(t, here._w) if t.get("hours") else t["units"])
         if ok:
             full = ""
-            gives = {item: (q if fac == 1.0 else round(q * fac, 2)) for item, q in t["gives"].items()}
+            gives = {item: (q * k if fac == 1.0 else round(q * k * fac, 2)) for item, q in t["gives"].items()}
             if share < 1.0:
                 gives = {item: round(q * share, 4) for item, q in gives.items()}
             rk = t.get("rack")
@@ -1202,7 +1273,7 @@ def _weir_part(here, mind, a, party, part):
     elif wk["part"] != part:
         raise Refused(f"{b['name']} has {WEIR_PART_WORDS.get(wk['part'], 'a part')} under way: finish that first")
     _at_work(here, bid)
-    wk["units_left"] = round(max(0.0, float(wk["units_left"]) - 2 * KN.skill(mind, "weir") * here.yield_mult()), 2)
+    wk["units_left"] = round(max(0.0, float(wk["units_left"]) - _build_act(here, mind, "weir", wk["units_left"])), 2)
     what = WEIR_PART_WORDS[part]
     if wk["units_left"] > 1e-9:
         here.apply("set", ref=("building", bid), field="weir_work", value=wk)
@@ -1278,7 +1349,7 @@ def _works_progress(here, mind, bid, started=False):
     _at_work(here, bid)
     b = here.buildings()[bid]
     wk = dict(b["works"])
-    done = round(2 * KN.skill(mind, wk.get("tech") or "small room") * here.yield_mult(), 2)
+    done = _build_act(here, mind, wk.get("tech") or "small room", wk["units_left"])
     wk["units_left"] = round(max(0.0, float(wk["units_left"]) - done), 2)
     words = _works_words(wk)
     if wk["units_left"] > 1e-9:
@@ -1298,7 +1369,6 @@ def _works_progress(here, mind, bid, started=False):
     else:
         here.apply("set", ref=("building", bid), field="tier", value=wk["to"])
         out = f"You finished the work on {b['name']}: it is {TIERS[wk['to']]['words']} now."
-    KN.tried(here, mind, wk.get("tech") or "small room", True)
     here.event("build", f"{here.name} finished {words} at {b['name']}", actor=here.name, about=[f"building:{bid}"], salience=0.5,
                tags=["building"])
     return out
@@ -1357,8 +1427,8 @@ def _fitting(here, mind, a, party, what):
         _ground_check(here, b["parcel"], int(f.get("ground", 0)) + int(f.get("room", 0)) * n, f["label"])
     _consume(here, f["materials"], TRY[lvl]["inputs"] * n, b["stock"] if here.may_take(b["stock"]) else None)
     ok = here.rng("build", here.day, here.name, what).random() < TRY[lvl]["chance"]
-    KN.tried(here, mind, what, ok)
-    if not ok:
+    if not ok:                                                                 # a spoilt start is a try that failed (its practice)
+        KN.tried(here, mind, what, False)
         return f"Your try at {f['label']} went wrong; the materials are spoilt."
     under[what] = {"n": n, "units_left": float(f["units"]) * n}                  # its work charged over days, as a building's
     here.apply("set", ref=("building", bid), field="fitting_work", value=under)
@@ -1373,7 +1443,7 @@ def _fitting_work(here, mind, bid, what, lvl, started=False):
     b = here.buildings()[bid]
     under = dict(b.get("fitting_work") or {})
     u = dict(under[what])
-    done = round(2 * KN.skill(mind, what) * here.yield_mult(), 2)
+    done = _build_act(here, mind, what, u["units_left"])
     u["units_left"] = round(max(0.0, float(u["units_left"]) - done), 2)
     n = int(u["n"])
     words = f"{str(n) + ' ' if f.get('per') else ''}{f['label']}"
@@ -1400,7 +1470,7 @@ def _build_work(here, mind, bid, lvl, started=False):
     _at_work(here, bid)
     b = here.buildings()[bid]
     u = dict(b["unfinished"])
-    done = round(2 * KN.skill(mind, u["blueprint"]) * here.yield_mult(), 2)
+    done = _build_act(here, mind, u["blueprint"], u["units_left"])
     u["units_left"] = round(max(0.0, u["units_left"] - done), 2)
     here.record("build", u["blueprint"], None)
     if u["units_left"] > 1e-9:                                                 # heard and seen at work (signs.BUILDING)
@@ -1415,7 +1485,6 @@ def _build_work(here, mind, bid, lvl, started=False):
         if bp.get("lasts"):
             here.apply("set", ref=("building", bid), field="lasts_until", value=here.day + int(bp["lasts"]))
         here.event("build", f"{here.name} finished {b['name']}", actor=here.name, about=[f"building:{bid}"], salience=0.6, tags=["building", "shelter"])
-        KN.tried(here, mind, u["blueprint"], True)
         if bp.get("fittings"):
             return f"You made {b['name']}: shelter for {bp['size']} with a fire, for about {bp['lasts']} nights."
         if b.get("monument"):

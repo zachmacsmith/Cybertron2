@@ -196,7 +196,7 @@ def test_a_hand_mill_gives_meal_at_three_grain_a_unit_and_bread_needs_mill_flour
     for c in [w.hands("Ivo"), b["stock"]]:
         w.s["containers"][c]["goods"].pop("flour", None)
     r = do(w, "Ivo", do="make", what="bread")
-    assert r.startswith("Refused: make bread: it needs 10 flour"), r
+    assert r.startswith("Refused: make bread: it takes up to 10 flour"), r       # a bulk process up to its batch (O-2, W-97)
     w.apply("create", "combe", dst=w.hands("Ivo"), item="flour", qty=10, why="the mill")
     assert do(w, "Ivo", do="make", what="bread").startswith("You made 10 bread")
 
@@ -387,7 +387,8 @@ def test_tiers_multiply_materials_and_work_and_a_rich_building_is_named_on_arriv
     assert w.s["buildings"][bid]["tier"] == "fine"
     w.s["buildings"][bid]["unfinished"] = None
     r = do(w, "Ivo", do="build", what="upgrade", at="Fine Hut", how="rich")
-    assert r.startswith("You began work to make it richly built at Fine Hut: about 10 units"), r   # (4 - 2) x 6, less 2
+    assert r.startswith("You began work to make it richly built at Fine Hut: about 9.9 units"), r   # (4 - 2) x 6, less 2 at the
+    # skill the first act's practice gave (every build act practises: W-97, u7 §5.2)
     finish(w, "Ivo", do="build", what="upgrade", at="Fine Hut")
     assert w.s["buildings"][bid]["tier"] == "rich"
     from cybertron2.engine import layout as LY
