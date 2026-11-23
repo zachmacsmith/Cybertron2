@@ -257,6 +257,8 @@ class World:
             TH.remember(self, who, cid, "put")
         from cybertron2.engine import buildings as BL
         BL.install(self)                                                       # what does not fit in a store lies at its door (D2-155)
+        from cybertron2.engine import book as BK
+        BK.install(self)                                                       # goods arriving go by the household's book (u6 §4)
         from cybertron2.engine import waters as WA
         WA.seed(self, spec)                                                    # one fish stock a water body (D2-229)
         if "wild" in PK.of(self):                                              # the wild layer (wild_layer.md, D2-199): its land
@@ -1132,6 +1134,8 @@ PRIMITIVES = {
     "traces": (p_traces, lambda kw: []),                                   # at the road the party is on (checked by the caller)
     "set_wild": (p_set_wild, lambda kw: []),                               # the wild layer's state (D2-199), at the area's node
 }
+from cybertron2.engine import book as _BK                                      # noqa: E402  the household book written whole (u6)
+PRIMITIVES["book"] = (_BK.p_book, lambda kw: [])
 from cybertron2.engine import gear as _GE                                      # noqa: E402  gear laid and taken up, worn, rotted and
 PRIMITIVES.update({                                                            # mended (u2 §3, u3 §3; the gear unit, D2-244)
     "lay": (_GE.p_lay, _rc("src", "dst")),

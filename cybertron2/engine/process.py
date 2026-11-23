@@ -697,3 +697,45 @@ def states(w, household, bid) -> dict:
     sm = b.get("smoke") or {}
     return {"done": round(done, 4), "in process": round(wait, 4), "room": round(rm, 4), "full": bool(procs) and rm <= 1e-6,
             "fire out": bool(sm.get("night") == w.d - 1 and not sm.get("lit") and any(c["lot"].get("out") == w.d - 1 for c in on.values()))}
+
+
+# ---------------------------------------------------------------------------------------------------------------------- salting
+def salt(here, tech, bid, kg) -> str:
+    """Salting at once (u4 §2, §6; D2-283; Departure 7): fish or meat with salt at 1 to 4 (meat 1 to 8), gutting included, into the
+    building's store, where the sort puts it in a salting tub or a barrel if one has room (in brine), else packed in its salt on the
+    floor (u5: out of brine it keeps worse). As much as the salt to hand allows."""
+    from cybertron2.engine import knowledge as KN, stores as SR, verbs as V
+    from cybertron2.engine.data import TECHNIQUES as T
+    from cybertron2.engine.world import Refused
+    r = PROCESSES["salting"]
+    item = next(i for i in T[tech]["inputs"] if i != "salt")
+    into = r["in"][item][1]
+    per = float(r["salt"][item])
+    have_s, have_i = KN.available(here, "salt"), KN.available(here, item)
+    want = float(kg)
+    kg = round(min(want, have_i, have_s / per), 4)
+    if kg <= 1e-6:
+        raise Refused(f"there is no {item} to hand" if have_i <= 1e-9 else f"there is no salt to hand: it takes 1 kg of salt to {1 / per:g} of {item}")
+    b = here.buildings()[bid] if bid else None
+    start = V._drew_reset(here)
+    V._consume(here, {item: kg, "salt": round(kg * per, 4)}, 1.0, None)
+    dst = b["stock"] if b is not None else here.hands
+    here.apply("create", dst=dst, item=into, qty=kg, why=tech)
+    units = max(1, int(math.ceil(kg / float(r["load"]) - 1e-9)))
+    work = f"{units} unit{'s' if units != 1 else ''}" if not getattr(here, "_chore", False) else f"{round(kg / float(r['load']), 2):g} units of work"
+    short = f" with the {_n(kg * per)} kg of salt you had" if kg + 1e-6 < min(want, have_i) else f" with {_n(kg * per)} kg of salt"
+    head = f"You salted {_n(kg)} kg of {item}{short} ({work}): {_n(kg)} kg of {into}"
+    if b is None:
+        return head + ", in your hands, packed in its salt." + V._drew_words(here, start)
+    pt = SR.portions(b, here._w.goods(b["stock"]))
+    tub = sum(x["qty"] for x in pt["portions"] if x["item"] == into and x["kind"] in ("salting tub", "barrel"))
+    if tub > 1e-6:
+        cs = SR.containers_in(here._w.goods(b["stock"]))
+        cap = sum(SR.CONTAINERS[k]["holds"] * n for k, n in cs.items() if k in ("salting tub", "barrel"))
+        used = sum(x["qty"] * float(__import__("cybertron2.engine.data", fromlist=["ITEMS"]).ITEMS.get(x["item"], {}).get("weight", 1))
+                   for x in pt["portions"] if x["kind"] in ("salting tub", "barrel"))
+        where = f", in brine in the salting tub at {b['name']} (room there for {_n(max(0.0, cap - used))} kg more)"
+    else:
+        where = f", packed in its salt in {b['name']}'s store"
+    tail = f" It takes 1 kg of salt to {1 / per:g} of {item}." if "you had" in short else ""
+    return head + where + "." + tail + V._drew_words(here, start)

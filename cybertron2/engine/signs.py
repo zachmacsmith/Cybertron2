@@ -2149,7 +2149,12 @@ def _wild_eaten(here, add) -> None:
                 _wild_emit(here, rows, x, [f"parcel:{pid}"], pid, add, "wildeat", dict(place=p["name"]), age)
         else:
             for bid, b in sorted(here.buildings().items()):
-                if b.get("stock") and WL._store_food(here._w, here.node) > 0 and any(
+                vm = b.get("vermin") or {}
+                if vm.get("day") is not None and int(vm["day"]) == int(rec["day"]) and EATEN_SIGNS.get(vm.get("where")):   # by where (u5 §5)
+                    x = event_context(here, b["name"], rec["day"])
+                    rows_b = [dict(r, own=r["own"] * scale) for r in EATEN_SIGNS[vm["where"]]]
+                    _wild_emit(here, rows_b, x, [f"building:{bid}"], b["parcel"], add, "wildeat", dict(place=b["name"]), age)
+                elif b.get("stock") and WL._store_food(here._w, here.node) > 0 and any(
                         it in WL.DRY_STORES and q > 0 for it, q in (here._w.s["containers"].get(b["stock"], {}).get("goods") or {}).items()):
                     x = event_context(here, b["name"], rec["day"])
                     _wild_emit(here, rows, x, [f"building:{bid}"], b["parcel"], add, "wildeat", dict(place=b["name"]), age)

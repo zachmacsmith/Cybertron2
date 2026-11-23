@@ -108,15 +108,7 @@ def ground_free(pid, p, buildings) -> int:
     return ground_total(p) - ground_used(pid, p, buildings)
 
 
-# ---------------------------------------------------------------------- storage (D2-155)
-def _kind_items(kind):
-    if kind == "food":
-        return set(EDIBLE)
-    if kind == "weight":
-        return None                                                          # any good
-    return set(STORES["kinds"].get(kind, [kind]))
-
-
+# ---------------------------------------------------------------------- storage (D2-155; u5: stores.py)
 def _weight(item) -> float:
     return float(ITEMS.get(item, {}).get("weight", 1))
 
@@ -129,56 +121,34 @@ def _floor_weight(item) -> float:
 
 
 def stores(b) -> list:
-    """[(store, kind, capacity)] in the order goods are put away: a qty for a kind of good, or weight for any."""
+    """[(store, kind, capacity kg)] of a building's fitted stores (u5 §1: real capacities in kg, D2-279)."""
+    from cybertron2.engine import stores as SR
     if exempt(b):
         return []
     fit = b.get("fittings") or {}
-    out = []
-    for name in STORES["order"]:
-        n = int(fit.get(name, 0))
-        if not n:
-            continue
-        d = FITTINGS[name]
-        kind, q = next(iter(d["holds"].items()))
-        if d.get("by") == "footprint":
-            cap = float(q) * footprint(b)
-        elif d.get("by") == "space":
-            cap = float(q) * int(d.get("spaces", 1)) * n
-        else:
-            cap = float(q) * n
-        out.append((name, kind, cap))
-    return out
+    return [(name, "kg", SR._cap(name, b, int(fit[name]))) for name in SR.SPACE_ORDER if int(fit.get(name, 0) or 0) and name in FITTINGS]
 
 
-def alloc(b, goods) -> dict:
-    """Where its goods lie: {store: used} (a qty, or weight in a vault), and what is left on the floor (weight, and spaces)."""
-    left = {i: float(q) for i, q in goods.items() if q > 1e-9}
-    used = {}
-    for name, kind, cap in stores(b):
-        room = cap
-        allowed = _kind_items(kind)
-        for item in sorted(left):
-            if room <= 1e-9:
-                break
-            if allowed is not None and item not in allowed:
-                continue
-            if kind == "weight" or kind in STORES.get("by_weight", ()):          # held in kilograms (D2-288)
-                wt = _weight(item)
-                take = left[item] if wt <= 0 else min(left[item], room / wt)
-                room -= take * wt
-            else:
-                take = min(left[item], room)
-                room -= take
-            left[item] -= take
-            used[name] = used.get(name, 0.0) + (take * _weight(item) if kind == "weight" or kind in STORES.get("by_weight", ()) else take)
-        left = {i: q for i, q in left.items() if q > 1e-9}
-    weight = sum(q * _floor_weight(i) for i, q in left.items())
-    return {"stores": used, "floor_weight": round(weight, 6), "floor_spaces": int(math.ceil(weight / float(STORES["floor"]) - 1e-9)),
-            "on_floor": left}
+def alloc(b, goods, book=None) -> dict:
+    """Where its goods lie (u5 §4: stores.portions): {"stores": {store or container: kg}, "floor_weight": kg loose and what found no
+    room, "floor_spaces": the floor that takes (with the containers' own), "on_floor": {item: qty}, "portions": the sort}."""
+    from cybertron2.engine import stores as SR
+    pt = SR.portions(b, goods, book)
+    used = {k: v for k, v in pt["used"].items() if k not in ("floor", "upper floor")}
+    on = {}
+    for x in pt["portions"]:
+        if x["kind"] in ("floor", "upper floor"):
+            on[x["item"]] = on.get(x["item"], 0.0) + x["qty"]
+    for i, q in pt["left"].items():
+        on[i] = on.get(i, 0.0) + q
+    weight = pt["floor_kg"] + sum(q * _floor_weight(i) for i, q in pt["left"].items())
+    spaces = int(math.ceil(weight / float(STORES["floor"]) - 1e-9)) + int(math.ceil(SR.container_spaces(goods) - 1e-9))
+    return {"stores": used, "floor_weight": round(weight, 6), "floor_spaces": spaces, "on_floor": on, "portions": pt,
+            "left": pt["left"]}
 
 
 def free_floor(b, goods=None) -> int:
-    """Floor neither fitted nor taken by goods lying on it."""
+    """Floor neither fitted nor taken by goods lying on it (or by the containers they are kept in)."""
     if exempt(b):
         return 0
     return floor(b) - fitting_spaces(b) - (alloc(b, goods)["floor_spaces"] if goods else 0)
@@ -193,7 +163,7 @@ def fits(b, goods) -> bool:
         return camp_weight(goods) <= float(SPACE["camp_store"]) + 1e-6
     if exempt(b):
         return True
-    return alloc(b, goods)["floor_weight"] <= (floor(b) - fitting_spaces(b)) * float(STORES["floor"]) + 1e-6
+    return not alloc(b, goods)["left"]
 
 
 def room_for(b, goods, item) -> float:
@@ -219,23 +189,26 @@ def room_for(b, goods, item) -> float:
 
 
 def full_words(b, goods, item) -> str:
-    """What is full, for a refusal: "the bins hold 60 food; 58 are in them; the free floor (2 spaces) holds 60 weight; 55 lie on it"."""
+    """What is full, for a refusal: "the bins hold 300 kg; 298 are in them; the free floor (2 spaces) holds 60 kg; 55 lie on it"."""
     from cybertron2.engine.world import show
+    from cybertron2.engine import stores as SR
     if b.get("structure") == "camp":                                        # D4-84
         return f"a camp keeps {show(float(SPACE['camp_store']))} weight; {show(camp_weight(goods))} lie in it"
     a = alloc(b, goods)
     bits = []
     for name, kind, cap in stores(b):
-        allowed = _kind_items(kind)
-        if allowed is not None and item not in allowed:
+        if not SR.suits(SR.SPACES[name], item):
             continue
         say, where = STORES["words"][name]
-        unit = "weight" if kind in ("weight", *STORES.get("by_weight", ())) else ("food" if kind == "food" else kind)
-        bits.append(f"{say} {show(cap)} {unit}; {show(a['stores'].get(name, 0.0))} {where}")
-    open_ = floor(b) - fitting_spaces(b)
+        bits.append(f"{say} {show(cap)} kg; {show(round(a['stores'].get(name, 0.0), 1))} {where}")
+    for k, n in SR.containers_in(goods).items():
+        if SR.suits(SR.CONTAINERS[k], item):
+            bits.append(f"{n} {SR.WORDS[k][1] if n != 1 else k} hold{'s' if n == 1 else ''} {show(n * SR.CONTAINERS[k]['holds'])} kg; "
+                        f"{show(round(a['stores'].get(k, 0.0), 1))} in {'it' if n == 1 else 'them'}")
+    open_ = floor(b) - fitting_spaces(b) - int(math.ceil(SR.container_spaces(goods) - 1e-9))
     if open_ > 0:
-        bits.append(f"the free floor ({open_} space{'s' if open_ != 1 else ''}) holds {show(open_ * float(STORES['floor']))} weight; "
-                    f"{show(a['floor_weight'])} lie on it")
+        bits.append(f"the free floor ({open_} space{'s' if open_ != 1 else ''}) holds {show(open_ * float(STORES['floor']))} kg; "
+                    f"{show(round(a['floor_weight'], 1))} lie on it")
     else:
         bits.append("no floor is free: the fittings take it all")
     return "; ".join(bits)
@@ -518,23 +491,10 @@ def entered(w, name) -> set:
 
 def vaulted(b, goods) -> dict:
     """What lies in its vault: safe from fire (D2-49)."""
-    left = {i: float(q) for i, q in goods.items() if q > 1e-9}
     out = {}
-    for name, kind, cap in stores(b):
-        allowed = _kind_items(kind)
-        room = cap
-        for item in sorted(left):
-            if room <= 1e-9:
-                break
-            if allowed is not None and item not in allowed:
-                continue
-            wt = _weight(item) if kind == "weight" else 1.0
-            take = left[item] if wt <= 0 else min(left[item], room / wt)
-            room -= take * wt
-            left[item] -= take
-            if name == "vault":
-                out[item] = out.get(item, 0.0) + take
-        left = {i: q for i, q in left.items() if q > 1e-9}
+    for x in alloc(b, goods)["portions"]["portions"]:
+        if x["kind"] == "vault":
+            out[x["item"]] = out.get(x["item"], 0.0) + x["qty"]
     return out
 
 

@@ -17,7 +17,8 @@ from cybertron2.engine.here import Here, Mind
 from cybertron2.engine.world import Refused
 
 NIGHT_VERBS = ("sleep", "host", "grant", "revoke", "admit", "join", "leave_household", "found", "partner", "part", "try", "fire", "set",
-               "accept", "withdraw", "release", "give", "move", "name", "travel", "rest", "order", "claim", "meet")
+               "accept", "withdraw", "release", "give", "move", "name", "travel", "rest", "order", "claim", "meet", "rule")   # rules at the
+                                                                                  # evening talk (D2-319)
 MAX = 3
 
 
@@ -79,6 +80,12 @@ def prompt(w, n, results, left, place, others, arrived, saw=None) -> str:
     L.append("## Your day\n" + ("\n".join(f"- {x}" for x in did) if did else "You did nothing today."))
     if saw is not None:                                                        # what one noticed today (D4-82)
         L.append("## What you saw today\n" + ("\n".join(saw) if saw else "Nothing stood out today."))
+    from cybertron2.engine import book as BK                                   # the book, with what it did today (u6 §9; D2-319)
+    rl = [x for x in BK.rules_block(w, n) if x != BK.GRAMMAR]
+    did_b = BK.day_lines(w, (w.s.get("today") or {}).get("book"), n)
+    if BK.household_rules(w, w.household_of(n)) or BK.own_rules(w, n) or did_b:
+        L.append("## The standing rules\n" + "\n".join(rl + did_b) + "\nThe evening is a time to look at them again: \"rule\" sets, "
+                 "changes or drops one, and costs nothing.")
     req = _requests(w, n)
     if req:
         L.append("## Waiting on your answer\n" + "\n".join(f"- {x}" for x in req))
@@ -87,7 +94,7 @@ def prompt(w, n, results, left, place, others, arrived, saw=None) -> str:
              "nothing (to ask someone something, name them, and they may answer tonight); \"tell\" is a private word to one person at "
              "this place. In \"actions\" put only what settles the night, which takes no work: sleep, host, grant, admit, join, partner, "
              f"try (with units you kept back: you have {left} left today), fire, set the door, accept an offer, give or move goods, "
-             "name, travel (to set off at nightfall). Work, gathering and making wait for tomorrow. \"why\": what you make of the day and "
+             "name, travel (to set off at nightfall), rule (a standing rule set, changed or dropped). Work, gathering and making wait for tomorrow. \"why\": what you make of the day and "
              "what you mean to do tomorrow. Reply with JSON only.")
     return "\n\n".join(L)
 

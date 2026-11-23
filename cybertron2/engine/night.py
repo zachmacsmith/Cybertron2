@@ -21,7 +21,7 @@ def night(w) -> dict:
     s, p = w.s, w.p
     today = s.get("today") or {}
     cold = any(w.cold(nid) for nid in sorted(s["nodes"]))                      # the record's flag: a cold night somewhere (D4-111)
-    rec = {"day": w.d, "cold": cold, "ate": {}, "short": [], "missed": [], "deaths": [], "cold_falls": [], "breaks": [], "hearth": {},
+    rec = {"day": w.d, "book": dict(today.get("book") or {}), "cold": cold, "ate": {}, "short": [], "missed": [], "deaths": [], "cold_falls": [], "breaks": [], "hearth": {},
            "spoiled": {}, "fights": [], "departed": [], "slept": {}}
     from cybertron2.engine import climate as CL
     if CL.on(w):                                                                # the day's weather at each node: the truth (D4-109)
@@ -125,7 +125,9 @@ def night(w) -> dict:
         if state == "unsheltered" and name in fires:                          # at a fire in the open (D4-49, D2-159)
             hearth = True
         rawf = sorted({i for cid in stores for i, q in w.goods(cid).items() if q > 1e-9 and ITEMS.get(i, {}).get("cook")}) if not hearth else []
-        ate = _eat(w, place, stores, need, hearth)
+        from cybertron2.engine import book as BK                                # the book at the meal: what first, the rations,
+        bm = BK.meal(w, name) if w.s.get("books") else {"first": [], "ration": 1.0}   # what is held back (u6 §4 moment 4)
+        ate = _eat(w, place, stores, need * float(bm["ration"]), hearth, first=bm["first"], who=name)
         if rawf and ate + 1e-9 < need:                                         # food that wants a fire, eaten raw or not (D2-160)
             rec.setdefault("uncooked", {})[name] = rawf
         me = ("person", name)
@@ -174,6 +176,10 @@ def night(w) -> dict:
     rec["life"] = LF.night(w, today, rec, where)                              # conception, births, the young, old age (D2-138 to D2-150)
     rec["deaths"] += rec["life"]["deaths"] + rec["life"]["old_age"]
     off = {}
+    from cybertron2.engine import stores as SR                                  # each store's portions read once, before the loss
+    _RATES.clear()
+    _RATES.update({bid: SR.rates(w, bid) for bid, b in sorted(s["buildings"].items()) if b.get("stock") in s["containers"]})
+    _RATES["_day"] = (id(w), w.d)
     for cid, c in list(s["containers"].items()):                              # spoilage, by condition (D2-58, D2-87)
         if c["kind"] == "hands" and not s["people"][c["of"]]["alive"]:
             continue
@@ -200,6 +206,7 @@ def night(w) -> dict:
                     off.setdefault(c["of"], {})[item] = off.get(c["of"], {}).get(item, 0.0) + lost   # morning after (signs pass)
                 if becomes and lost > 1e-9:
                     w.apply("create", place, dst=cid, item=becomes, qty=lost, why="rot")
+    _RATES.clear()
     PROC.finish(w, rec)                                                         # lots done after their nights, in their containers (u4 §5)
     for bid, items in off.items():                                            # what went off, kept for its sign
         if bid in s["buildings"] and sum(items.values()) >= float(GOING_OFF_LEAST):
@@ -292,16 +299,12 @@ def decay_rate(w, c, item) -> tuple:
     from cybertron2.engine import environment as EV, things as TH
     node = TH.where(w, c)                                                     # where it lies (D4-111)
     season, cold = w.calendar()["season"], w.cold(node)
-    if c["kind"] == "stock":
-        bb = w.s["buildings"][c["of"]]
-        r = spoil_rate(w.p, item, "store", season, cold, fittings=[f_ for f_, n in bb["fittings"].items() if n])
-        if bb.get("level") is not None:                                         # damp in a gappy or holed store, the open in a
-            lv = int(bb["level"])                                               # failing one (brief 4 §3)
-            if lv <= 1:
-                r = spoil_rate(w.p, item, "open_wet" if EV.wet(w, node) else "open_dry", season, cold)
-            else:
-                r *= float(w.p["wear"]["damp"].get(str(lv), 1.0))
-        return r, None
+    if c["kind"] == "stock":                                                    # by portion: its space and container (u5 §3)
+        from cybertron2.engine import stores as SR
+        rr = (_RATES.get(c["of"]) if _RATES.get("_day") == (id(w), w.d) else None)
+        if rr is None:
+            rr = SR.rates(w, c["of"])
+        return rr.get(item, 0.0), None
     if c["kind"] in TH.KINDS:
         cond = "buried" if c.get("hidden") == "buried" or c.get("buried") is not None else ("open_wet" if EV.wet(w, node) else "open_dry")
         table = DECAY.get(ITEMS.get(item, {}).get("decay") or "default", DECAY["default"])
@@ -311,7 +314,11 @@ def decay_rate(w, c, item) -> tuple:
             if got is not None:
                 return got
         return spoil_rate(w.p, item, cond, season, cold), table.get("becomes")
-    return spoil_rate(w.p, item, "hand", season, cold), None
+    from cybertron2.engine import stores as SR                                  # in hand: fresh foods x1.5 without a creel (u5 §3)
+    return SR.in_hand_rate(w, c["of"], item, season, cold) if c["kind"] == "hands" else spoil_rate(w.p, item, "hand", season, cold), None
+
+
+_RATES = {}                                                                     # a night's store rates, read once a store (u5)
 
 
 def spoil_rate(p, item, where, season, cold, fittings=()) -> float:
@@ -320,14 +327,13 @@ def spoil_rate(p, item, where, season, cold, fittings=()) -> float:
     base = float(ITEMS.get(item, {}).get("spoil", 0.0))
     table = DECAY.get(ITEMS.get(item, {}).get("decay") or "default", DECAY["default"])
     s = float(table.get("frozen", 1.0)) if cold else (float(table.get("warm", 1.0)) if season == "summer" else 1.0)
-    if where == "store":
-        keep = min([1.0] + [float(FITTINGS[f_].get("spoil", 1.0)) for f_ in fittings if f_ in FITTINGS])
-        return base * float(p["house_spoil"]) * keep * s * float(table.get("store", 1.0))   # fresh fish x2 (D2-212)
+    if where in ("store", "hand"):                                             # well kept: the base (D2-272); a store's portions are
+        return base * s                                                         # stores.rate's, in hand the creel's (u5 §3)
     if where == "hand":
         return base * s
     if base <= 0:
         return float((table.get("abs") or {}).get(where, 0.0))
-    return base * float(p["house_spoil"]) * float(table.get(where, 1.0)) * s
+    return base * float(table.get(where, 1.0)) * s
 
 
 def _gear(w, name, where, tents):
@@ -484,18 +490,23 @@ def eat_order(items, hearth=True) -> list:
     return sorted(items, key=lambda i: (eaten_worth(i, hearth) < ITEMS[i]["food"], -ITEMS[i]["spoil"]))
 
 
-def _eat(w, place, stores, need, hearth=True) -> float:
+def _eat(w, place, stores, need, hearth=True, first=(), who=None) -> float:
     """Up to `need` in food value, from the stores in order, most perishable first; what is better cooked is eaten raw, for less,
-    without a lit fire (D2-160: grain 0.2, flour 0.5, beans nothing, fresh meat 0.8), after what needs no fire."""
+    without a lit fire (D2-160: grain 0.2, flour 0.5, beans nothing, fresh meat 0.8), after what needs no fire. The book's `first`
+    goes before (u6 §4), and what it holds back is not eaten."""
     got = 0.0
+    order = [i for i in first if i in EDIBLE] + [i for i in eat_order(EDIBLE, hearth) if i not in first]
+    from cybertron2.engine import book as BK
+    books = bool(w.s.get("books")) and who is not None
     for cid in stores:
         g = w.goods(cid)
-        for item in eat_order(EDIBLE, hearth):
+        for item in order:
             v = eaten_worth(item, hearth)
             if v <= 0:
                 continue
-            if got + 1e-9 < need and g.get(item, 0.0) > 1e-9:
-                q = min(g[item], (need - got) / v)
+            have = g.get(item, 0.0) - (BK.held(w, who, cid, item) if books else 0.0)
+            if got + 1e-9 < need and have > 1e-9:
+                q = min(have, (need - got) / v)
                 got += w.apply("destroy", place, src=cid, item=item, qty=q, why="eaten") * v
     return round(got, 6)
 

@@ -306,7 +306,8 @@ def ready(here, tech, kind, key, a=None) -> str:
 def available(here, item, who=None, extra=None) -> float:
     """How much of a good one can use here: what one carries and the stores here one may take from (and a party's, acting for it)."""
     cids = here.takeable(who) + ([extra] if extra and extra not in here.takeable(who) else [])
-    return sum(here.contents(cid).get(item, 0.0) for cid in cids)          # whose ever they are: hands of `who`, or stores
+    held = here.held_back if here._w.s.get("books") else (lambda cid, item: 0.0)   # what the household's book holds back (u6 §4)
+    return sum(max(0.0, here.contents(cid).get(item, 0.0) - held(cid, item)) for cid in cids)   # whose ever they are
 
 
 def pick_inputs(here, needs: dict, mult=1.0, extra=None) -> dict:

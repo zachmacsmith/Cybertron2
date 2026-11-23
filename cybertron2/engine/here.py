@@ -430,6 +430,11 @@ class Here:
         return {cid: c for cid, c in self._w.s["containers"].items() if c.get("kind") == "pile" and c.get("node") == self.node
                 and not c.get("hidden") and (c.get("in") == bid or c.get("door") == bid)}
 
+    def held_back(self, cid, item) -> float:
+        """What the household's book holds back of a good in a store, from this person's drawing (u6 §4)."""
+        from cybertron2.engine import book as BK
+        return BK.held(self._w, self.name, cid, item)
+
     # the processing containers (u4; process.py) and the brine spring (brief 5 §4b; keeping.py)
     def lot_room(self, bid, proc) -> float:
         from cybertron2.engine import process as PROC

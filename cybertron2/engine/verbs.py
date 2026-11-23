@@ -97,6 +97,8 @@ VERB = {
     "erase": {"args": '{"at": a building or monument here, "line": which place}', "cost": "write",
               "doc": "scratch out a line written there: the work it took to write, 1 more if it is another's; it is seen being done"},
     "rest": {"args": "", "cost": 0, "doc": ""},
+    "rule": {"args": '{"rule": go | keep | hold back | first | eat | move | tend | chore | drop, "for"?: household | me, "goods"?, "to"? | "in"? | "from"?: a building or a container (the racks, the salting tub, the chest), "qty"?, "before"?, "who"?, "by"?: a person or whoever has time, "acts"?: [actions] (a chore), "when"?, "unless"?, "words"?: your sentence, "n"?: a rule\'s number to change or drop}', "cost": 0,
+             "doc": "set, change or drop a standing rule of your household's book (the head's; yours are proposals) or your own"},
 }
 VERBS = tuple(VERB)
 FM_KINDS = ("sow", "break", "tend", "manure", "crop", "herd", "milk", "slaughter", "works", "select", "fence", "gate", "pull", "dig_strip")
@@ -480,7 +482,9 @@ def _consume(here, needs: dict, mult=1.0, extra=None):
         for cid in order:
             if left <= 1e-9:
                 break
-            have = here.contents(cid).get(item, 0.0)                         # hands, a store, or what lies at its door (D4-89)
+            have = here.contents(cid).get(item, 0.0)                         # hands, a store, or what lies at its door (D4-89),
+            if here._w.s.get("books"):                                         # less what the book holds back (u6 §4 moment 3)
+                have = max(0.0, have - here.held_back(cid, item))
             take = min(have, left)
             if take > 1e-9:
                 here.apply("destroy", src=cid, item=item, qty=take, why="used")
@@ -971,7 +975,7 @@ def _load_lot(here, mind, a, party, tech, lvl):
         raise Refused(f"{KN.label(tech)} is done in still water or on the grass")
     item, need = next(iter(t["inputs"].items()))
     have = KN.available(here, item, extra=extra)
-    kg = min(float(need) * units, have)
+    kg = min(float(need) * units, have, float(a.get("_kg") or 1e12))         # a chore's load: as much as its spare work (u6 §5)
     if site[0] == "building":
         kg = min(kg, PROC.room(here._w, site[1], proc))
     if kg < float(BATCH_LEAST) - 1e-9:
@@ -996,7 +1000,8 @@ def _load_lot(here, mind, a, party, tech, lvl):
     cid, head, tail = PROC.load(here, tech, site[1], gives, site[2])
     rest = max(0.0, min(float(need) * units, have) - kg)
     more = (f" The rest ({_n1(rest)} kg) is still to hand: the racks have no more room." if rest > 1e-6 and PROC.room(here._w, site[1], proc) <= 1e-6 else "")
-    return (f"You hung {head} ({used_units} unit{'s' if used_units != 1 else ''}){tail}" + _drew_words(here, start) + more
+    work = (f"{round(kg / float(need), 2):g} units of work" if a.get("_kg") else f"{used_units} unit{'s' if used_units != 1 else ''}")
+    return (f"You hung {head} ({work}){tail}" + _drew_words(here, start) + more
             + (f" (You are now {rose} at it.)" if rose else ""))
 
 
@@ -1016,6 +1021,19 @@ def _make(here, mind, a, party):
     t = TECHNIQUES[tech]
     if t.get("process") and PROC.PROCESSES[t["process"]].get("lot"):          # a loading of a processing container (u4 §6)
         return _load_lot(here, mind, a, party, tech, lvl)
+    if t.get("process") == "salting":                                         # salting at once, into a tub or the store (u4 §6)
+        out = _out(here, party)
+        bid = out[len("stock:"):] if out.startswith("stock:") else next(iter(here.homes_here()), None)
+        if bid is not None and not here.may_take(here.buildings()[bid]["stock"]):
+            bid = None
+        units = max(1, int(_qty(a.get("qty"), 1)))
+        kg = min(float(PROC.PROCESSES["salting"]["load"]) * units, float(a.get("_kg") or 1e12))
+        res = PROC.salt(here, tech, bid, kg)
+        KN.tried(here, mind, tech, True, units=units)
+        here.event("make", f"{here.name} was {KN.label(tech)}", actor=here.name, about=[f"building:{bid}"] if bid else [], salience=0.2,
+                   tags=t["tags"], tech=tech)
+        here.record("make", tech, party)
+        return res
     out = _out(here, party)
     extra = _src(here, party, out)
     qty = max(1, int(_qty(a.get("qty"), 1)))
@@ -2843,5 +2861,6 @@ HANDLERS = {"gather": _gather, "work": _work, "make": _make, "build": _build, "m
             "leave_household": _leave_household, "found": _found, "claim": _claim, "sleep": _sleep, "set": _set, "travel": _travel,
             "watch": _watch, "teach": _teach, "learn": _learn, "attack": _attack, "guard": _guard, "fire": _fire, "rest": _rest,
             "drive": lambda here, mind, a, party: FM.drive(here, a, party), "partner": _partner, "part": _part, "try": _try,
-            "name": _name, "order": _order, "meet": _meet, "come": _come, "write": _write, "erase": _erase, "tend": _tend}
+            "name": _name, "order": _order, "meet": _meet, "come": _come, "write": _write, "erase": _erase, "tend": _tend,
+            "rule": lambda here, mind, a, party: __import__("cybertron2.engine.book", fromlist=["act"]).act(here, a)}
 assert set(HANDLERS) == set(VERB)

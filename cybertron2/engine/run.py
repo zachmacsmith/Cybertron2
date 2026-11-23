@@ -1032,29 +1032,9 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                     else:
                         results[n].append(res)
                         refused_sig[n][sig] = res
-            for n in order:                                                  # units left over: one's own fallback, in order (D4-76)
-                fb = [x for x in (replies[n].get("fallback") or []) if isinstance(x, dict)][:3]
-                if not fb or not w.s["people"][n]["alive"] or n in today["travel"] or n in heavy or n in today.get("travel_morning", {}):
-                    continue
-                for _ in range(budget[n] + 1):
-                    if used[n] >= budget[n]:
-                        break
-                    done = False
-                    for a in fb:
-                        here, mind = Here(w, n), Mind(w, n)
-                        c = V.cost(here, a)
-                        if c <= 0 or used[n] + c > budget[n] or str(a.get("do", "")).lower() == "travel":
-                            continue
-                        res = V.do(here, mind, a)
-                        if res.startswith("Refused"):
-                            continue
-                        used[n] += c
-                        results[n].append(res + " (your fallback)")
-                        done = True
-                        if used[n] >= budget[n]:
-                            break
-                    if not done:
-                        break
+            from cybertron2.engine import book as BK                         # units left over, after every plan (u6 §5; D2-301): one's
+            BK.spare_units(w, names, order, budget, used, results, replies,   # own rules and standing fallback, then the household's
+                           skip={n for n in names if n in today["travel"] or n in heavy or n in today.get("travel_morning", {})})   # chores
             if heavy:                                                        # too heavy to set off: what to leave, and with whom (D4-32)
                 texts = {n: PR.lighten_prompt(Here(w, n), Mind(w, n), heavy[n], results[n]) for n in heavy}
                 lr, lm, le = _parallel(lambda n: decide(w, n, texts[n], openings[n] + "\n\n" + texts[n], systems[n], backend, conv,
@@ -1074,8 +1054,9 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
             for n in names:
                 results[n] = [(f"{x} (listed {rep[n][x]} times; tried once, not again)" if x.startswith("Refused") else f"{x} (x{rep[n][x]})")
                               if x in rep[n] else x for x in results[n]]
-                if used[n] < budget[n]:
-                    results[n].append(f"You left {budget[n] - used[n]} of your {budget[n]} units unused.")
+                if used[n] < budget[n]:                                          # units left are rest (D2-301)
+                    k = budget[n] - used[n]
+                    results[n].append(f"You rested {k} unit{'s' if k != 1 else ''}.")
                 elif used[n] > budget[n]:
                     results[n].append(f"You pushed on {used[n] - budget[n]} unit{'s' if used[n] - budget[n] != 1 else ''} past your strength: "
                                       "it costs double food tonight, and you will be tired tomorrow.")

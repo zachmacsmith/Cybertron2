@@ -130,6 +130,8 @@ from cybertron2.engine import gear as _GEAR                             # noqa: 
 _GEAR.register_items(ITEMS)
 from cybertron2.engine import process as _PROC_I                        # noqa: E402
 _PROC_I.register_items(ITEMS)
+from cybertron2.engine import stores as _STORES_I                      # noqa: E402
+_STORES_I.register_items(ITEMS)
 # The keeping curve (D2-289; basis §3; wave1 §2.2): a food that keeps d real days well kept loses about a quarter by
 # nights = min(d, 2) + (d - 2) / 11.4, so its base rate a night (`spoil`: well kept, D2-272) is 1 - 0.75 ** (1 / nights). The real
 # days are wave1 §2.2's. A lot in the smoke or at the hearth spoils at 0.12 out of it, 0.03 in it (DECAY smoke 0.25; basis §3).
@@ -302,12 +304,12 @@ FITTINGS = {
                "does": "warmth (burns timber), porridge and baking"},
     "owl hole": {"label": "an owl hole (a gap left high in a barn's gable)", "materials": {"timber": 0.1}, "units": 1, "basic": True,
                  "spaces": 0, "pack": "wild", "does": "a way in for a barn owl, which keeps the mice in the store down"},   # brief 2 K1
-    "bins": {"label": "bins", "materials": {"timber": 3}, "units": 1, "basic": True, "does": "a store for food (60)", "spoil": 0.5,
+    "bins": {"label": "bins", "materials": {"timber": 3}, "units": 1, "basic": True, "does": "a store for dry goods (300 kg), off the damp floor",
              "spaces": 1, "holds": {"food": 60}},
     "hand mill": {"label": "a hand mill", "materials": {"stone": 2}, "units": 2, "basic": True, "spaces": 1,
                   "does": "grinding grain by hand into meal (porridge, not bread)", "aliases": ["quern"]},          # D2-61, D2-167
-    "granary": {"label": "a granary floor", "materials": {"timber": 20}, "units": 4, "basic": True, "spoil": 0.2, "spaces": 3,
-                "holds": {"grain": 300}, "does": "grain keeps longest, raised and dry (300)"},                         # D2-58, D2-155
+    "granary": {"label": "a granary floor", "materials": {"timber": 20}, "units": 4, "basic": True, "spaces": 3,
+                "holds": {"grain": 300}, "does": "grain, rye and beans raised and dry, off the damp (400 kg a space)"},                         # D2-58, D2-155
     "fire ring": {"label": "a fire ring", "materials": {"stone": 4}, "units": 1, "basic": True, "fire": True, "spaces": 1,
                   "does": "a fire in the open for warmth and cooking (burns timber)"},                              # D2-68: a camp's fire
     "oven": {"label": "a stone oven", "materials": {"stone": 60, "timber": 0.4}, "units": 12, "basic": False, "trade": "mason", "spaces": 2,
@@ -316,9 +318,9 @@ FITTINGS = {
              "does": "baking bread in batches"},                                                             # D2-60
     "anvil": {"label": "an anvil and bellows", "materials": {"stone": 4, "hide": 2, "timber": 0.4}, "units": 4, "needs": "hearth",
               "basic": False, "trade": "smith", "spaces": 2, "heavy": True, "does": "a smithy: smelting and smithing"},
-    "cellar": {"label": "a cellar", "materials": {"timber": 9}, "units": 6, "basic": False, "trade": "mason", "spoil": 0.25, "spaces": 0,
+    "cellar": {"label": "a cellar", "materials": {"timber": 9}, "units": 6, "basic": False, "trade": "mason", "spaces": 0,
                "heavy": True, "holds": {"food": 40}, "by": "footprint",
-               "does": "food keeps at a quarter of the house rate (40 a space of the building's ground)"},          # D2-45, D2-155
+               "does": "food kept cool below the floor, out of the summer's heat and the frost (30 kg a space of the building's ground); grain, meal and salt take its damp"},          # D2-45, D2-155
     "millstones": {"label": "dressed millstones", "materials": {"stone": 60}, "units": 10, "basic": False, "trade": "mason", "spaces": 3,
                    "heavy": True, "wear": {"life": 2000, "count": "inputs", "mend": "dress millstones"},  # grain ground, by an ox or the river (D4-105)
                    "does": "an ox mill: an ox turns them (D2-61)"},
@@ -344,7 +346,7 @@ FITTINGS = {
                   "does": "boiling brine from the spring beside it into salt (about 1 firewood a salt)"},
     "vault": {"label": "a vault", "materials": {"stone": 3000}, "units": 30, "basic": False, "trade": "mason", "spaces": 4, "room": 4,
               "heavy": True, "holds": {"weight": 30}, "by": "space", "fireproof": True,
-              "does": "a stone room of its own on the ground floor: 30 weight a space kept, safe from fire (D2-49)"},
+              "does": "a stone room of its own on the ground floor: 30 kg a space kept, safe from fire (D2-49)"},
 }
 FITTING_ALIAS = {a: f for f, d in FITTINGS.items() for a in d.get("aliases", [])}
 # Rooms by structure (spec/economy/buildings.md "Rooms and structures"; D2-154 floors, D2-166 the large and stone ones; calibrate).
@@ -396,7 +398,7 @@ STORES = {
     "stack": {"timber": 300, "firewood": 300, "charcoal": 300, "hay": 1000, "straw": 1000, "stone": 1000},
     "words": {"granary": ("the granary floor holds", "are on it"), "cellar": ("the cellar holds", "are in it"),
               "bins": ("the bins hold", "are in them"), "woodshed": ("the woodshed holds", "are in it"),
-              "vault": ("the vault holds", "are in it")},
+              "vault": ("the vault holds", "are in it"), "smoke loft": ("the smoke loft holds", "hang in it")},
 }
 # Monuments: a building with no room (building_lines.md §2; proposed): a description and 3 lines.
 MONUMENTS = {
@@ -905,8 +907,6 @@ PHYSICS = {
                          "snow": {"fuel": 1.25, "out": 0.0}},
              "snow_lying_fuel": 1.15, "ring_keeps": 0.8},   # D2-157, D2-159     # D4-49: a camp's fire 1 a night; a fire in the open 2 (calibrate)
     "land_blind": 0.25,                                                  # D4-50: share with no eye for how bare a place is (calibrate)
-    "house_spoil": 1.0,                 # the base rate is the well-kept rate (D2-272, D2-289); stores' own penalties: u5 (stage 3)
-    "cellar_spoil": 0.25,                                                # D2-45: a quarter of the house rate
     "breaks": {"p": 0.02, "cold": 0.08, "structure": {"wattle": 1.5, "timber": 1.0, "stone": 0.4, "camp": 1.0}},   # D2-168 (proposed)
     # shelter in levels (brief 4 §3; shelter_damage.md §1 to §4; calibrate), in worlds with the wild pack or `shelter_levels`:
     # 5 sound, 4 worn, 3 gappy, 2 holed, 1 failing, 0 ruined (a camp: 5 standing, 2 damaged, 0 down). Two chances a night by
@@ -1296,6 +1296,10 @@ _GEAR.register_techniques(TECHNIQUES)
 from cybertron2.engine import process as _PROC                          # noqa: E402
 _PROC.register_techniques(TECHNIQUES)
 _PROC.register_fittings(FITTINGS)
+# Stores and containers (u5; engine/stores.py, D2-244): the spaces' real capacities, the containers, the vermin goods
+from cybertron2.engine import stores as _STORES                         # noqa: E402
+_STORES.register_fittings(FITTINGS)
+_STORES.register_techniques(TECHNIQUES)
 # The wild methods (D2-204, cybertron2/wild/methods.py): general rows whose take tables are generated from the kinds' traits.
 from cybertron2.wild import methods as _WILD_METHODS                   # noqa: E402
 _WILD_METHODS.build(TECHNIQUES, RESOURCES)

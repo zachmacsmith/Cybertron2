@@ -21,7 +21,7 @@ from cybertron2.engine import packs as PK
 from cybertron2.wild import switches as SW
 
 KG_PER_FOOD = 10.0             # an engine food (365/Y real person-days, node_ecology.md) as kg of grain or forage (calibrate)
-DRY_STORES = ("grain", "rye", "oats", "beans", "meal", "flour")   # what wild kinds get at in a store (calibrate)
+from cybertron2.engine.stores import VERMIN as DRY_STORES             # what wild kinds get at in a store: ITEMS `vermin` (u5 §5)
 EGG_KG = 0.045                  # an egg in shell, kg (a medieval hen's small egg): the egg good is a kg of eggs (D2-258), so an egg is
                                 # 0.027 food at its 0.6 a kg (was EGG_FOOD 0.02 an egg on a 0.1-weight good of 0.6 food)
 HENS_A_HOUSE = 6                # hens a household keeps, seeded with the wild pack (calibrate)
@@ -2844,8 +2844,15 @@ def _crop_food(w, node) -> float:
 
 
 def _store_food(w, node) -> float:
-    return sum(float(q) for b in w.s["buildings"].values() if b["node"] == node and b.get("stock")
-               for item, q in (w.s["containers"].get(b["stock"], {}).get("goods") or {}).items() if item in DRY_STORES)
+    """The exposed store the ecology reads (u5 §5): each building's vermin goods by where they lie, and what is left at the doors
+    (x1.5): grain heaped on floors and at doors feeds and draws the rats; a village of chests starves them down."""
+    from cybertron2.engine import stores as SR
+    from cybertron2.wild.kinds import LEFT_OUT
+    out = sum(SR.exposed(w, bid) for bid, b in sorted(w.s["buildings"].items()) if b["node"] == node and b.get("stock")
+              and b.get("stock") in w.s["containers"] and not b.get("monument"))
+    out += sum(float(q) * float(LEFT_OUT["exposure"]) for _, c in _left_out(w, node, vermin=True)
+               for item, q in (c.get("goods") or {}).items() if item in DRY_STORES)
+    return out
 
 
 def _crop_food_qty(w, node) -> float:
@@ -2875,11 +2882,11 @@ def _crops(w, node, share) -> float:
 
 
 def _stops(b, kind, w=None) -> float:
-    """What a building's fittings leave of a kind's take from its store (STORE_STOPS: a granary against what climbs and is tiny, bins
-    against the tiny, a dog against all, a cat against the tiny), by the kind's body (brief 2 §4)."""
-    from cybertron2.engine.data import RESOURCES
+    """What a building's beasts leave of a kind's take from its store (u5 §5; STORE_STOPS, storage §6 from Elton 1953, est.): a cat
+    mice x0.4 and rats x0.7, a barn owl in its hole mice x0.6 and rats x0.9, a dog rats x0.5 and mice x0.8 (what the granary and the
+    bins stop is in their exposure now, so it is not counted twice)."""
     from cybertron2.wild.kinds import STORE_STOPS
-    body = (RESOURCES.get(kind) or {}).get("body") or {}
+    col = "mice" if "mice" in str(kind) else "rats" if "rat" in str(kind) else "other"
     keep = 1.0
     for f_, row in STORE_STOPS.items():
         if row.get("in_store"):                                            # a cat: a beast in the store, not a fitting (D2-206)
@@ -2888,18 +2895,20 @@ def _stops(b, kind, w=None) -> float:
             have = w is not None and ((w.s["wild"].get(row["occupied"]) or {}).get(b.get("_id")) is not None)
         else:
             have = bool((b.get("fittings") or {}).get(f_))
-        if have and (kind is None or all(body.get(t) == v for t, v in (row.get("for") or {}).items())):
-            keep *= float(row["keep"])
+        if have:
+            keep *= float(row["keep"].get(col, row["keep"].get("other", 1.0)) if kind is not None else min(row["keep"].values()))
     return keep
 
 
-def _left_out(w, node) -> list:
-    """Food lying at the doors of a node's houses (D2-85 things there, D4-89): [(thing id, thing)] (brief 4 §4.1)."""
+def _left_out(w, node, vermin=False) -> list:
+    """Food lying at the doors of a node's houses (D2-85 things there, D4-89): [(thing id, thing)] (brief 4 §4.1); with `vermin`, the
+    piles of the goods vermin take (u5 §5: dry goods at a door too)."""
     from cybertron2.wild.kinds import LEFT_OUT
+    items = DRY_STORES if vermin else LEFT_OUT["items"]
     out = []
     for cid, c in sorted(w.s["containers"].items()):
         if c.get("kind") == "pile" and c.get("node") == node and c.get("door") in w.s["buildings"] and not c.get("hidden") \
-                and any(float((c.get("goods") or {}).get(i, 0.0)) > 1e-9 for i in LEFT_OUT["items"]):
+                and not c.get("lot") and any(float((c.get("goods") or {}).get(i, 0.0)) > 1e-9 for i in items):
             out.append((cid, c))
     return out
 
@@ -2967,38 +2976,50 @@ def _store_beasts(w, m, st) -> dict:
 
 
 def _stores(w, node, share) -> float:
-    """Destroy a share of the grain and other dry food in the node's stores: what wild kinds took there, kind by kind ({kind: share})."""
+    """What wild kinds took tonight from a node's stores (u5 §5), kind by kind ({kind: share}): from each portion of each building's
+    vermin goods, q x share x its exposure (where it lies: loose 1.0, sacks 0.8 and 0.7, a chest 0.2 and 0.15, hung 0.3; the space's
+    factor with it) x what its beasts stop x a plague; at the doors x1.5, dry goods too. Each building keeps where it lost most, for
+    its signs (`vermin`)."""
+    from cybertron2.engine import stores as SR
+    from cybertron2.wild.kinds import LEFT_OUT
     shares = share if isinstance(share, dict) else {None: share}
     total = 0.0
+    plague = 1.0 + sum(float(r.get("stores", 0.0)) for name, r in REGIMES_ON(w, node).items())
     for bid, b in sorted(w.s["buildings"].items()):
-        if b["node"] != node or not b.get("stock"):
+        if b["node"] != node or not b.get("stock") or b.get("stock") not in w.s["containers"] or b.get("monument"):
             continue
         cid = b["stock"]
-        keep = sum(sh * _stops(dict(b, _id=bid), k, w) for k, sh in shares.items()) / max(1e-12, sum(shares.values()))   # what this store's fittings let
-        share = sum(shares.values())                                         # through, kind by kind
-        plague = 1.0 + sum(float(r.get("stores", 0.0)) for name, r in REGIMES_ON(w, node).items())
-        for item, q in sorted((w.s["containers"].get(cid, {}).get("goods") or {}).items()):
-            if item in DRY_STORES and q > 0:
-                take = round(float(q) * share * keep * plague, 4)
-                if take > 1e-6:
-                    w.apply("destroy", node, src=cid, item=item, qty=take, why="eaten in store by wild kinds")
-                    total += take
-        from cybertron2.wild.kinds import LEFT_OUT                          # a rack inside: at the store's rate (brief 4c §6.2)
-        for rid, c in [(r, c) for r, c in _racks_in(w, node) if c["in"] == bid]:
-            for item in LEFT_OUT["items"]:
-                q = float((c.get("goods") or {}).get(item, 0.0))
-                take = round(q * share * keep * plague, 4)
-                if take > 1e-6:
-                    w.apply("destroy", node, src=rid, item=item, qty=take, why="eaten on the rack by wild kinds")
-                    total += take
-    from cybertron2.wild.kinds import LEFT_OUT                              # and what is left out at the doors, in the open: as much
-    for pid_, c in _left_out(w, node):                                    # again, nothing stopping them (brief 4 §4.1)
-        for item in LEFT_OUT["items"]:
+        lost_by = {}
+        racks = {r: c for r, c in _racks_in(w, node) if c["in"] == bid}
+        for item, q, kind in SR.vermin_portions(w, bid):
+            f = sum(sh * SR.exposure(kind, k) * _stops(dict(b, _id=bid), k, w) for k, sh in shares.items())
+            take = round(float(q) * f * plague, 4)
+            if take <= 1e-6:
+                continue
+            src = cid
+            if kind == "smoke loft" and item not in w.goods(cid):              # hung in a lot inside (u4)
+                src = next((r for r, c in racks.items() if float(c["goods"].get(item, 0.0)) > 1e-9), None)
+                if src is None:
+                    continue
+            take = min(take, float(w.goods(src).get(item, 0.0)))
+            if take > 1e-6:
+                w.apply("destroy", node, src=src, item=item, qty=take, why="eaten in store by wild kinds")
+                total += take
+                key = "hung" if kind == "smoke loft" else kind
+                lost_by[key] = lost_by.get(key, 0.0) + take
+        if lost_by:
+            w.apply("set", node, ref=("building", bid), field="vermin", value={"day": w.d, "where": max(sorted(lost_by), key=lambda k: lost_by[k]),
+                                                                              "lost": round(sum(lost_by.values()), 4)})
+    door = float(LEFT_OUT["exposure"])
+    for pid_, c in _left_out(w, node, vermin=True) + [x for x in _left_out(w, node) if x not in _left_out(w, node, vermin=True)]:
+        for item in sorted(set(LEFT_OUT["items"]) | set(DRY_STORES)):
             q = float((c.get("goods") or {}).get(item, 0.0))
-            take = round(q * min(1.0, 2.0 * sum(shares.values())), 4)
+            take = round(q * min(1.0, door * sum(shares.values())), 4)
             if take > 1e-6:
                 w.apply("destroy", node, src=pid_, item=item, qty=take, why="eaten by vermin at the door")
                 total += take
+                if c.get("door") in w.s["buildings"]:
+                    w.apply("set", node, ref=("building", c["door"]), field="vermin", value={"day": w.d, "where": "door", "lost": round(take, 4)})
     return total
 
 
