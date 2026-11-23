@@ -1904,7 +1904,7 @@ def _from_store(here, a):
         return None
     kinds = ("smoke racks", "hearth", "fire ring")
     if any((here.buildings()[bid].get("fittings") or {}).get(f) for f in kinds):
-        done = PROC.lots(here._w, bid, done=True)
+        done = here.done_lots(bid)
         it = str(a.get("item") or "").strip().lower()
         if done and (it in ("", "all", "everything", "it") or any(float((c.get("goods") or {}).get(it, 0.0)) > 1e-9 for c in done.values())):
             return None                                                         # a done lot there of that good: taken down
