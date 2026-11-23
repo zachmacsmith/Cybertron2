@@ -38,11 +38,8 @@ EVENING_CLAUSE = " In the evening you are with those under your roof: you talk f
 CHILDREN_OFF = "People are born, grow up, grow old and die."
 VIEW_CLAUSE = " What you cannot see, you know as you last saw it."
 
-# the rules block's grammar (u9 §2.5, from u6's book words: book.GRAMMAR), shortened to the core's budget (about 79 words)
-GRAMMAR = ("A standing rule says, in your words: where goods go; where something is kept, or how much is held back; what is eaten first; "
-           "what is moved, hung, salted or tended, and by whom; what someone does with units left over. It may say \"when\" (a lot is "
-           "done, a store is full or has room, something is seen) or \"unless\" (someone is starving, it is winter). Yours come before "
-           "the household's. Setting, changing or dropping one is free (\"rule\"), at any time or in the evening.")
+# the rules block's grammar: book.GRAMMAR, the one statement of D2-339's kinds, fields and conditions
+from cybertron2.engine.book import GRAMMAR  # noqa: E402
 
 CLOSING = "Decide what to do. Reply with JSON only."               # u9 §1.4; steering F4 (was "Plan your day.")
 OLD_CLOSING = "Plan your day. Reply with JSON only."
@@ -103,6 +100,7 @@ def reply_text(here, mind, first=()) -> str:
               '- "offers": [{"to": a person or "anyone", "give", "get"}], as "<n> <good>", "<n> <good> by day <d>" or "work <n> days"; '
               'done when accepted, both ways or not at all.',
               '- "attend": what or whom you look at closely (free).',
+              '- "rules": [standing rules, as above] to set, change or drop (free).',
               '- "note": [{"title", "text"}], "pin", "open", "forget": your notes (up to 8).',
               '- "memory", "keep", "drop": only when asked for.']
     return "\n".join(lines)

@@ -45,6 +45,11 @@ SCHEMA = {
         "forget": {"type": "array", "items": {"type": "string"}},
         "open": {"type": "array", "items": {"type": "string"}},
         "look_up": {"type": "array", "items": {"type": "string"}},
+        "rules": {"type": "array", "items": {"type": "object", "properties": {          # standing rules, records in their own
+            "rule": {"type": "string"}, "name": {"type": "string"}, "people": {}, "goods": {}, "places": {}, "in": {"type": "string"},
+            "at least": {}, "order": {}, "who": {"type": "string"}, "qty": {}, "act": {"type": "object"}, "when": {"type": "object"},
+            "unless": {"type": "object"}, "for": {"type": "string"}, "words": {"type": "string"}, "n": {"type": "number"}},
+            "required": ["rule"]}},                                                  # field (D2-339)
         "memory": {"type": "string"},
         "keep": {"type": "array", "items": {"type": "string"}},
         "drop": {"type": "array", "items": {"type": "integer"}},

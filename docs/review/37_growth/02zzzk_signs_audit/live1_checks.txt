@@ -1,0 +1,33 @@
+## 1. Ambient lines shown, against the state
+live1_A_pre: herds in the state 0; days anyone quarried []; 'cattle lowing' 10, 'dung and trodden grass' 7, 'ring of picks' 0, 'voices and work about the houses' 4, 'water running over stones' 7, 'nothing out of the ordinary' 17
+live1_A_old: herds in the state 0; days anyone quarried []; 'cattle lowing' 22, 'dung and trodden grass' 8, 'ring of picks' 9, 'voices and work about the houses' 5, 'water running over stones' 7, 'nothing out of the ordinary' 21
+live1_A_new: herds in the state 0; days anyone quarried []; 'cattle lowing' 35, 'dung and trodden grass' 19, 'ring of picks' 10, 'voices and work about the houses' 12, 'water running over stones' 12, 'nothing out of the ordinary' 2
+live1_B_pre: herds in the state 0; days anyone quarried []; 'cattle lowing' 31, 'dung and trodden grass' 10, 'ring of picks' 0, 'voices and work about the houses' 8, 'water running over stones' 15, 'nothing out of the ordinary' 45
+live1_B_new: herds in the state 0; days anyone quarried [36]; 'cattle lowing' 88, 'dung and trodden grass' 40, 'ring of picks' 40, 'voices and work about the houses' 29, 'water running over stones' 46, 'nothing out of the ordinary' 15
+
+## 2. Gear's remaining life in the morning prompts
+live1_A_pre: 0 lines
+live1_A_old: 0 lines
+live1_A_new: 0 lines
+live1_B_pre: 0 lines
+live1_B_new: 0 lines
+
+## 3. Book firings that yielded nothing
+live1_A_pre: none
+live1_A_old: 'You took 0 cord' x19
+live1_A_new: 'You took 0 cord' x44, 'You took 0 fish' x2
+live1_B_pre: none
+live1_B_new: 'You took 0 cord' x130
+
+## 4. Fresh fish spoiled by night (kg), and the smokehouses with a lot that night
+live1_A_pre: no night over 10 kg
+live1_A_old: day 9 85.4 kg (food 39.3); smoking: ['marsh_smokehouse', 'shepherd_smokehouse']; day 10 13.0 kg (food 6.0); smoking: ['marsh_smokehouse', 'shepherd_smokehouse']
+live1_A_new: day 9 47.3 kg (food 21.8); smoking: ['marsh_smokehouse']; day 11 18.4 kg (food 8.5); smoking: ['marsh_smokehouse', 'shepherd_smokehouse']; day 12 49.4 kg (food 22.7); smoking: ['marsh_smokehouse', 'shepherd_smokehouse']
+live1_B_pre: no night over 10 kg
+live1_B_new: day 10 52.6 kg (food 24.2); smoking: ['marsh_smokehouse']; day 11 44.7 kg (food 20.6); smoking: ['marsh_smokehouse']; day 12 61.1 kg (food 28.1); smoking: ['marsh_smokehouse']
+
+## 5. Set B new, night of day 2: what Brook House's sleepers ate
+sleepers ['Oliver', 'Margery', 'Basilia', 'Katherine', 'Petronel']; ate 4.72 food = 17.9 roots at 0.263 a root (data.py roots); roots spoiled that night, both houses: 4.06
+
+## 6. The river's rows
+DAWN keys 17; DAY rows 33

@@ -435,7 +435,7 @@ def day_signs(here, add) -> None:
         return
     x = day_context(w, here.node)
     names = {"water": here.parcels()[water]["name"], "fen": here.parcels()[fen]["name"] if fen else ""}
-    doers = [n for n in here.people() if water in (here.today()["worked"].get(n) or [])]
+    doers = [n for n in here.people() if water in _was_at(w, here.today(), n)]
     for j, r in enumerate(DAY):
         try:
             ok = r["when"](x)
@@ -456,6 +456,17 @@ def day_signs(here, add) -> None:
                      only=doers if r["who"] == "doer" else None, **_knows(r["read"]))
 
 
+def _was_at(w, today, who) -> list:
+    """The parcels one worked at or tended set gear on today (W-102: a weir or traps emptied is a day at the water; a building one
+    worked in stands on its parcel)."""
+    out = []
+    for k in list(today["worked"].get(who) or []) + list((today.get("tended") or {}).get(who) or []):
+        pid = k if k in w.s["parcels"] else (w.s["buildings"].get(k) or {}).get("parcel")
+        if pid and pid not in out:
+            out.append(pid)
+    return out
+
+
 def carried(here, add) -> None:
     """The catch carried home (u8 §2.4; questions B24): one who worked today on a water or fen parcel and holds 5 kg or more of fresh
     fish at evening is seen with it at their house's ground (a presentation choice: the engine does not place a person in the evening;
@@ -469,7 +480,7 @@ def carried(here, add) -> None:
     for who in here.people():
         if w.s["people"][who]["stage"] not in ("youth", "adult", "elder"):
             continue
-        worked = here.today()["worked"].get(who) or []
+        worked = _was_at(w, here.today(), who)
         hands = w.s["containers"][w.hands(who)]["goods"]
         fish = sum(float(hands.get(i, 0.0)) * float(ITEMS[i].get("weight", 1.0)) for i in FRESH_FISH if i in ITEMS)
         meat = sum(float(hands.get(i, 0.0)) * float(ITEMS[i].get("weight", 1.0)) for i in FRESH_MEAT if i in ITEMS)

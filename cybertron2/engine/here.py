@@ -458,6 +458,11 @@ class Here:
         from cybertron2.engine import process as PROC
         return PROC.room(self._w, bid, proc)
 
+    def done_lots(self, bid) -> dict:
+        """The done lots in or at a building here (u4): {thing id: thing} (W-102: a `move` from it takes one down)."""
+        from cybertron2.engine import process as PROC
+        return PROC.lots(self._w, bid, done=True)
+
     def smoke_fuel(self, bid) -> tuple:
         """(heat tonight's fire wants, heat there)."""
         from cybertron2.engine import process as PROC

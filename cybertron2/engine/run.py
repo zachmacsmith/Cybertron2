@@ -938,6 +938,9 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
             results = {n: ([f"(Your reply could not be used, so you did nothing: {errors[n][:160]})"] if n in errors else []) for n in names}
             for n in names:
                 results[n] += PC.apply_notes(Mind(w, n), replies[n])
+                if (replies[n] or {}).get("rules"):                            # the reply's rules, free (D2-339)
+                    from cybertron2.engine import book as BK
+                    results[n] += BK.apply_rules(Here(w, n), replies[n]["rules"])
             J.commit(w.s, _runner(J, cost, conv, locals()))
             J.open_step(day, "talk.0")
             woken = talk(w, names, replies, results)
@@ -965,6 +968,9 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                         continue
                     replies[n] = {**replies[n], **{k: v for k, v in r2.items() if v not in (None, "", [])}, "actions": r2["actions"]}
                     results[n] += PC.apply_notes(Mind(w, n), {k: r2.get(k) for k in ("note", "pin", "forget")})
+                    if r2.get("rules"):                                         # the reply's rules, free (D2-339)
+                        from cybertron2.engine import book as BK
+                        results[n] += BK.apply_rules(Here(w, n), r2["rules"])
                     late[n] = {k: r2.get(k) for k in ("say", "tell", "explain", "offers")}
                 if not late:
                     break

@@ -116,6 +116,9 @@ def apply(w, n, reply, gather, names, results, left, box) -> int:
     """One evening reply: speech to the hearth (free), private words, the night's acts. Returns units spent (trying for a child)."""
     here, mind = Here(w, n), Mind(w, n)
     results.extend(PC.apply_notes(mind, {k: reply.get(k) for k in ("note", "pin", "forget")}))
+    if reply.get("rules"):                                                     # the evening is a time to set rules (D2-319, D2-339)
+        from cybertron2.engine import book as BK
+        results.extend(BK.apply_rules(here, reply["rules"]))
     hearth = [m for m in names if m != n and gather.get(m) == gather.get(n)]
     for x in [x for x in (reply.get("say") or []) if isinstance(x, dict) and str(x.get("text", "")).strip()][:MAX]:
         text = str(x["text"])[:600]
@@ -138,9 +141,16 @@ def apply(w, n, reply, gather, names, results, left, box) -> int:
         PC.store(w, to)["today"]["heard"].append(f"{PC.DIRECT}{n} told you in the evening: {text}")
         results.append(f"You told {to}: {text}")
     spent = 0
+    from cybertron2.engine import shapes as SH
     for a in [a for a in (reply.get("actions") or []) if isinstance(a, dict)][:8]:
+        if SH.on(here):                                                         # the shapes: a free act is read before it is judged
+            try:                                                                # (W-102: "change" a door, a rule, "put" were refused
+                a = SH.normalize(here, mind, a)                                 # as work by their shape's word)
+            except Refused as e:
+                results.append(f"Refused: {str(a.get('do') or 'action').strip()}: {e}")
+                continue
         verb = str(a.get("do", "")).lower()
-        if verb not in NIGHT_VERBS:
+        if verb not in NIGHT_VERBS and verb not in V.FREE:                       # a free act runs whatever the units (W-102)
             results.append(f"Refused: {verb}: the day's work is done; that waits for tomorrow")
             continue
         if verb == "travel" and str(a.get("when") or "").lower() == "morning":

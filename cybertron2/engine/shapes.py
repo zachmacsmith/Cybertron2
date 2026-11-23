@@ -21,8 +21,9 @@ from cybertron2.engine.here import Refused
 # Each shape: its arguments, the grammar line, the registry handlers its faces map to (face word -> verb), and which technique verbs
 # sit under it (u9 §3.1). The order is the prompt's.
 SHAPES = {
-    "go": {"args": '{"to": a place or a way, "when"?: morning | nightfall, "on trouble"?: go round | push on | turn back | wait}',
-           "line": 'travel; "sleep" at a place; "come" to a meeting called here; a "fire" on the road',
+    "go": {"args": '{"to": another place or a way, "when"?: morning | nightfall, "on trouble"?: go round | push on | turn back | wait}',
+           "line": 'travel to another place along a road (a part of this place you do not go to: name it as "at" in the act done '
+                   'there); "sleep" at a building; "come" to a meeting called here; a "fire" on the road',
            "faces": {"travel": "travel", "go": "travel", "sleep": "sleep", "sleep at": "sleep", "come": "come", "fire": "fire"}},
     "gather": {"args": '{"do", "at": a place here}', "line": "take from the land and water into your hands", "techs": ("gather",)},
     "set": {"args": '{"do": gear you carry, "at": a place, "qty"?}',
@@ -111,34 +112,221 @@ def _nearest(mind, word) -> str:
     return ", ".join(KN.label(t) for t in (near or mine)[:8])
 
 
+# the words a reply may put first in "do" before the craft or what it acts on ("learn boil salt", "make wicker trap", "set the
+# door"): a shape, a face or a kept verb (fault 5 of live run 1, W-102)
+RULE_DO = {"first": "first", "eat first": "first", "hold back": "hold back", "keep back": "hold back", "fallback": "fallback"}
+BOOK_KINDS = ("go", "keep", "hold back", "first", "eat", "move", "tend", "chore", "drop", "fallback", "eat first")   # book.KINDS
+PEOPLE_KEYS = ("with", "person", "to", "from", "target", "who")
+CRAFT_KEYS = ("what", "craft", "line", "thing", "technique", "skill", "describe", "description", "text")
+DOOR_TO = {"shut": "barred", "closed": "barred", "close": "barred", "set shut": "barred", "locked": "barred", "lock": "barred",
+           "bar": "barred", "bolted": "barred", "barred": "barred", "open": "open", "opened": "open", "unbarred": "open"}
+
+
+def _first_word(do):
+    """A leading shape, face or verb word in "do" and the rest ("learn boil salt" -> ("learn", "boil salt")), else None."""
+    from cybertron2.engine import verbs as V
+    if " " not in do:
+        return None
+    for w0 in sorted({*SHAPES, *FACE, *KEEP, *V.VERB}, key=len, reverse=True):
+        if do.startswith(w0 + " ") and len(do) > len(w0) + 1:
+            return w0, do[len(w0) + 1:].strip().removeprefix("the ").removeprefix("a ").strip()
+    return None
+
+
+def craft_in(mind, text, verb=None) -> str | None:
+    """A craft named in a reply's words (u9 §3.2): the words as a craft, else without a leading verb word ("teach cut withies",
+    "how to make wicker traps"), else the longest craft name, alias or label inside them, one the person knows first."""
+    from cybertron2.engine import knowledge as KN, packs as PK
+    from cybertron2.engine.data import TECHNIQUES
+    x = str(text or "").strip().lower().rstrip(".")
+    if not x:
+        return None
+    for pre in ("me to ", "me ", "you to ", "you ", "how to ", "to ", "the ", "a ", "my ", "our ", "your "):
+        x = x.removeprefix(pre)
+    t = resolve(mind, x, verb) or resolve(mind, x)
+    if t:
+        return t
+    fw = _first_word(x)
+    if fw:
+        t = craft_in(mind, fw[1], verb)
+        if t:
+            return t
+    hits = []
+    for t in PK.techniques():
+        d = TECHNIQUES[t]
+        if d.get("modifies") or d["verb"] == "modifier":
+            continue
+        for nm in [t, d["label"].lower(), KN.label(t).lower(), *[y.lower() for y in d.get("aliases", [])]]:
+            if len(nm) > 3 and f" {nm} " in f" {x} ":
+                hits.append((len(nm), t))
+    if not hits:
+        return None
+    best = max(n for n, _ in hits)
+    return _known_first(mind, [t for n, t in hits if n == best])
+
+
+def _lesson(here, mind, a, face) -> dict:
+    """A lesson (the agree shape's teach or learn, u9 §3.1): the other person from "with", "person", "to", "from" or "target", the
+    craft from "what", "line", "craft", "thing" or the words (fault 4 of live run 1, W-102); a craft named without "teach" or
+    "learn" is taught if one knows it, else learnt."""
+    from cybertron2.engine import knowledge as KN
+    who = next((str(a[k]) for k in PEOPLE_KEYS if a.get(k) and here.person(a.get(k)) and here.person(a.get(k)) != here.name), None)
+    words = [str(a.get(k) or "") for k in CRAFT_KEYS if a.get(k)]
+    if face is None:
+        low = " ".join(words).lower()
+        face = "learn" if ("teach me" in low or "learn" in low) else "teach" if "teach" in low else None
+    tech = next((t for t in (craft_in(mind, x) for x in words) if t), None)
+    if face is None and tech:
+        face = "teach" if KN.level(mind, tech) == "known" else "learn"
+    if face is None:
+        raise Refused('say the lesson: {"do": "agree", "what": "teach" or "learn", "with": a person here, "line": the craft}')
+    rest = {k: v for k, v in a.items() if k not in PEOPLE_KEYS + CRAFT_KEYS}
+    out = {**rest, "do": face, ("to" if face == "teach" else "from"): who or a.get("with") or a.get("person") or a.get("to")
+           or a.get("from")}
+    out["what"] = tech or next((x for x in words if x.lower() not in ("teach", "learn")), None)
+    return out
+
+
+def _door(a) -> dict:
+    """A door set (the change shape's face; "set the door"): "to" in the reply's words (shut, closed, set shut: barred)."""
+    to = str(a.get("to") or "").strip().lower()
+    if to not in DOOR_TO and str(a.get("thing") or "").strip().lower() in DOOR_TO:
+        to = str(a.get("thing")).strip().lower()
+    return {**{k: v for k, v in a.items() if k not in ("what",)}, "do": "set", "thing": "door", "to": DOOR_TO.get(to, to)}
+
+
+def _place_here(here, x):
+    """A parcel or a building at one's own place named as where to go: ("parcel" | "building", id), else None."""
+    if here.road_to(x) is not None:
+        return None
+    from cybertron2.engine import verbs as V
+    pid = here.parcel(x) if x else None
+    if pid is None and x:
+        pid = V._parcel_named(here, x) if here.building(x) is None else None
+    if pid is not None:
+        return ("parcel", pid)
+    bid = here.building(x) if x else None
+    return ("building", bid) if bid is not None else None
+
+
+def _go(here, a) -> dict:
+    """The go shape: travel along a road; to a part of this place, the act stays a travel that the travel handler reads as no move
+    at all (fault 3, W-102: the day's acts take one where they name with "at"); a building here at nightfall is where one sleeps."""
+    to = a.get("to") or a.get("at") or a.get("thing")
+    spot = _place_here(here, to) if to else None
+    if spot and spot[0] == "building" and str(a.get("when") or "").strip().lower() in ("nightfall", "night", "evening", "tonight"):
+        return {**{k: v for k, v in a.items() if k not in ("to", "when", "thing")}, "do": "sleep", "at": to}
+    if spot:
+        return {**{k: v for k, v in a.items() if k not in ("when", "at", "thing")}, "do": "travel", "to": to}
+    return {**a, "do": "travel"}
+
+
+def _sleep(a) -> dict:
+    """Sleep at a building: "at", or "to", "thing" or "where" (fault 4, W-102)."""
+    at = a.get("at") or a.get("to") or a.get("thing") or a.get("where") or a.get("building")
+    return {**a, "do": "sleep", "at": at}
+
+
+def _rule(a, kind=None) -> dict:
+    """A standing rule (the change shape's face, or a rule's kind put in "do"): the act passes to book.act, which reads its fields in
+    the stated grammar (D2-337)."""
+    out = {**a, "do": "rule"}
+    if kind and not out.get("rule"):
+        out["rule"] = kind
+    return out
+
+
+def _set_gear(here, a) -> dict:
+    """`set` with no gear named, at a place: the one kind of set gear one holds (the set shape's own reading)."""
+    from cybertron2.engine import gear as GE
+    held = [tech for tech, item in (getattr(GE, "SET_GEAR", {}) or {}).items() if here.sound_held(item) > 0]
+    if len(held) == 1 and a.get("at") and not a.get("thing") and here.building(a.get("at")) is None:
+        return {**a, "do": "set", "what": held[0]}
+    return {**a, "do": "set"}
+
+
+def _keys(a) -> dict:
+    """The act with its keys trimmed ({"do ": "angle"} is "do"); a second "do" under a shape is what the shape acts on."""
+    out = {}
+    for k, v in dict(a or {}).items():
+        k2 = str(k).strip()
+        if k2 in out and k2 == "do":
+            if str(out["do"]).strip().lower() in SHAPES:                     # {"do": "gather", "do ": "angle"}
+                out.setdefault("what", v) if str(out["do"]).strip().lower() not in ("move", "change", "agree", "force", "go") \
+                    else out.update({"what": v})
+            continue
+        if k2 in out and k != k2:
+            continue
+        out[k2] = v
+    return out
+
+
 def normalize(here, mind, a) -> dict:
     """A free act (u9 §3.2) as a registry act: {"do": verb, ...}. Old verbs pass as they are; a shape word reads its face or craft
-    from "what"; a craft named alone takes its handler's verb (a set technique named alone: by what stands, through the gather
-    handler, placed.named_alone). Raises Refused for a word that is neither, naming the person's nearest crafts."""
+    from "what" (or "thing", "as"); a craft named alone takes its handler's verb (a set technique named alone: by what stands,
+    through the gather handler, placed.named_alone); a shape or verb word put first in "do" is read as the shape with the rest as
+    what it acts on. Raises Refused for a word that is none of these, naming the person's nearest crafts."""
     from cybertron2.engine import placed as PL
     from cybertron2.engine.data import TECHNIQUES
-    a = dict(a or {})
+    a = _keys(a)
     do = str(a.get("do") or "").strip().lower()
     if not do:
         raise Refused('name the craft or the act in "do"')
+    if do in SHAPES and do in ("gather", "make", "work", "build") and not a.get("what"):   # the craft in another field ("thing")
+        x = next((a[k] for k in ("thing", "craft", "line", "technique") if a.get(k) and craft_in(mind, a[k])), None)
+        if x is not None:
+            a["what"] = x
     what = str(a.get("what") or "").strip().lower()
+    if do == "accept" and not a.get("offer"):                                 # the offer named in "what" or "thing"
+        x = a.get("what") or a.get("thing") or a.get("id")
+        if x:
+            return {**{k: v for k, v in a.items() if k not in ("what", "thing", "id")}, "offer": x}
+    if do in RULE_DO:                                                        # a rule's kind put in "do" ({"do": "first", ...})
+        return _rule(a, RULE_DO[do])
+    if do in ("sleep", "sleep at"):
+        return _sleep(a)
+    if do in ("teach", "learn"):
+        return _lesson(here, mind, a, do)
+    if do == "rule":
+        return _rule(a)
     if do in SHAPES:                                                         # a shape named: its face, else its craft, in "what"
+        if do == "set" and str(a.get("thing") or "").strip().lower() in ("door", "the door"):
+            return _door(a)
         if do == "set" and a.get("thing"):
             return {**a, "do": "set"}
         if do == "tend":
             return {**a, "do": "tend"}
         if do == "set":
-            return {**a, "do": "set"}
-        if what in FACE and FACE[what] in ("travel", "sleep", "come", "fire") and do != "go":
-            pass
-        if what and what in (SHAPES[do].get("faces") or {}):
-            v = SHAPES[do]["faces"][what]
-            rest = {k: x for k, x in a.items() if k != "what"}
-            if v == "set" and what in ("door", "gap"):
-                rest.setdefault("thing", what)
-            return {**rest, "do": v}
+            return _set_gear(here, a) if not a.get("what") else {**a, "do": "set"}
+        faces = SHAPES[do].get("faces") or {}
+        for key in ("what", "thing", "as"):                                  # the face in "what", else "thing" or "as"
+            f = str(a.get(key) or "").strip().lower()
+            if do == "change" and (f in ("rule", "a rule", "the rule", "rules", "a standing rule") or f in BOOK_KINDS):   # the rule
+                # face (or a rule's kind named in its place): the rule's own fields
+                return _rule({k: x for k, x in a.items() if k != key})               # are read by book.read (D2-337)
+            if do == "change" and f in ("heir", "the heir") and a.get("heir"):
+                return {**{k: x for k, x in a.items() if k != key}, "do": "name"}
+            if f and f in faces:
+                v = faces[f]
+                rest = {k: x for k, x in a.items() if k != key}
+                if v == "set" and f in ("door", "gap"):
+                    return _door(rest) if f == "door" else {**rest, "do": "set", "thing": f}
+                if v in ("teach", "learn"):
+                    return _lesson(here, mind, rest, v)
+                if v == "sleep":
+                    return _sleep(rest)
+                if v == "travel":
+                    return _go(here, rest)
+                return {**rest, "do": v}
+            if key == "what" and f and _first_word(f) and _first_word(f)[0] in faces:   # "teach cut withies" in "what"
+                f0, more = _first_word(f)
+                v = faces[f0]
+                if v in ("teach", "learn"):
+                    return _lesson(here, mind, {**a, "what": more}, v)
+        if do == "agree":
+            return _lesson(here, mind, a, None)
         if do == "go":
-            return {**a, "do": "sleep" if a.get("at") and not a.get("to") else "travel"}
+            return _sleep(a) if a.get("at") and not a.get("to") and here.building(a.get("at")) else _go(here, a)
         if do == "move":
             return {**a, "do": "move"}
         if do == "force":
@@ -148,27 +336,48 @@ def normalize(here, mind, a) -> dict:
             t = resolve(mind, what, verbs[0]) if verbs else None
             if t is None and verbs and verbs[0] == "gather":
                 t = PL.method_of(what)
+            if t is None and verbs:
+                t = craft_in(mind, what, verbs[0])
             if t is None:
                 raise Refused(f"you know no way to {do} called {a.get('what')!r}. Yours: {_nearest(mind, what) or 'none yet'}")
             return {**a, "do": TECHNIQUES[t]["verb"], "what": t}
         raise Refused(f'say what to {do} in "what" (a craft you know)')
+    if do in ("door", "gap"):
+        return _door(a) if do == "door" else {**a, "do": "set", "thing": do}
     if do in FACE and do not in KEEP:                                        # a face word on its own: lift, check, lay, put ...
-        v = FACE[do]
-        out = {**a, "do": v}
-        if v == "set" and do in ("door", "gap"):
-            out.setdefault("thing", do)
-        return out
+        return {**a, "do": FACE[do]}
     if do in KEEP:
+        if do == "travel":
+            return _go(here, a)
         return a
     from cybertron2.engine import verbs as V
     if do in V.VERB:                                                         # the old registry verbs: as they were
         return a
     m = PL.method_of(do)                                                     # a set technique named alone: by what stands
     if m is not None:
+        mk = resolve(mind, do, "make")                                       # "wicker trap" at a house: the making of it
+        if mk and TECHNIQUES[mk]["verb"] == "make" and a.get("at") and here.building(a.get("at")) is not None:
+            return {**a, "do": "make", "what": mk}
         return {**a, "do": "gather", "what": m}
     t = resolve(mind, do)
     if t is None:
-        raise Refused(f"you know no craft called {a.get('do')!r}. Your crafts: {_nearest(mind, do) or 'none yet'}")
+        fw = _first_word(do)                                                 # a shape or verb word first: "learn boil salt"
+        if fw and fw[0] in ("go", "travel") and here.road_to(fw[1]) is None and _place_here(here, fw[1]) is None:
+            fw = None                                                        # "go eeling": no place, so a craft word, refused below
+        if fw:
+            w0, more = fw
+            key = "thing" if (w0 in ("set", "change") and more in ("door", "gap")) else "to" if w0 in ("go", "travel") else "what"
+            b = {**a, "do": w0}
+            if key == "thing" and a.get("thing") and not a.get("to"):
+                b["to"] = a["thing"]
+            if key == "what" and a.get("what"):                              # "make" with its own "what" too: keep that
+                key = "line"
+            b[key] = more
+            return normalize(here, mind, b)
+        rest = do.split(" ", 1)[1] if " " in do else ""                      # a word of one's own first: "cut firewood"
+        t = resolve(mind, rest) if rest else None
+        if t is None:
+            raise Refused(f"you know no craft called {a.get('do')!r}. Your crafts: {_nearest(mind, do) or 'none yet'}")
     v = TECHNIQUES[t]["verb"]
     if v == "modifier":
         raise Refused(f"{a.get('do')!r} is a way of doing another craft: name the craft, with this as its way")
