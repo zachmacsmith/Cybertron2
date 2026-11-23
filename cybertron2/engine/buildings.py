@@ -407,6 +407,20 @@ def overflow(w, cid, item) -> float:
     out = round(float(c["goods"].get(item, 0.0)) - keep, 6)
     if out <= 1e-6:
         return 0.0
+    hh = next((cl["claimant"] for cl in w.claims_on(("building", c["of"])) if cl["claimant"] in w.s["institutions"]
+               and "withdrawal" in cl["rights"]), None)
+    for oid, o in sorted(w.s["buildings"].items()):                          # the household's next store at the place, then the
+        if out <= 1e-6 or not hh or oid == c["of"] or o["node"] != b["node"] or o.get("unfinished") or exempt(o):   # door (u5 §4;
+            continue                                                                                           # store_rules D3)
+        if not o.get("stock") or o["stock"] not in w.s["containers"] or not any(
+                cl["claimant"] == hh and "withdrawal" in cl["rights"] for cl in w.claims_on(("building", oid))):
+            continue
+        k = round(min(out, room_for(o, w.goods(o["stock"]), item)), 6)
+        if k > 1e-6:
+            w.apply("transfer", b["node"], src=cid, dst=o["stock"], item=item, qty=k)
+            out = round(out - k, 6)
+    if out <= 1e-6:
+        return 0.0
     pile = next((k for k, x in w.s["containers"].items() if x.get("kind") == "pile" and x.get("door") == c["of"] and not x.get("hidden")
                  and x.get("day") == w.d and not x.get("lot")), None)                 # not onto a rack's lot (u4)
     if pile is None:

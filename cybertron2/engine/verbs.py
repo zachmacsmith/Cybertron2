@@ -450,7 +450,8 @@ def _full_note(here, out, item, q) -> str:
     room = BL.room_for(b, here.stock(bid), item)
     if room + 1e-9 >= q:
         return ""
-    return f" ({show(room)} {item} went into {b['name']}; it is full ({BL.full_words(b, here.stock(bid), item)}), and the rest lies outside its door)"
+    return (f" ({show(room)} {item} went into {b['name']}; it is full ({BL.full_words(b, here.stock(bid), item)}), and the rest goes into "
+            "the household's next store here with room, else lies outside its door)")                    # u5 §4; store_rules D3
 
 
 def _src(here, party, out):
