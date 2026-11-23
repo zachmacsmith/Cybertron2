@@ -94,6 +94,9 @@ def seed(w, name) -> None:
     a = w.s["people"][name]
     if a.get("stage") in LF.MINOR:
         return
+    if w.spec.get("skills") and any(isinstance(x, dict) and x.get("source") in ("family lore", "a holding")
+                                    for x in ((w.spec.get("agents") or {}).get(name) or {}).get("kept") or []):
+        return                                                            # a filled founder: the farmer's FA1, FA2 carry it (W-105)
     holders = None
     from cybertron2.engine import packs as PK
     for key, row in LORE.items():
