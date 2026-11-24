@@ -21,6 +21,12 @@ def label(tech) -> str:
     return TECHNIQUES[tech]["label"].split(" (")[0]
 
 
+def doing(tech) -> str:
+    """What doing a craft does, as both prompts show it (W-109; wave_regressions finding 3): the registry's `does`, else its whole
+    label with its working hint ("a drive (beaters and spears; others with you; dangerous)")."""
+    return str(TECHNIQUES[tech].get("does") or TECHNIQUES[tech]["label"])
+
+
 def resolve(x, verb=None):
     """A technique from what an agent wrote: its name, an alias, or a word of its label (one done by `verb` first); only those of
     the world's packs (D4-103)."""
@@ -455,8 +461,9 @@ def craft_line(tech, lvl, rec=None, w=None, iface=False) -> str:
     interface (`iface`, W-109) leaves the season out (D5-2: seasons are the world's) and "anywhere", and lists places with commas."""
     from cybertron2.engine import clocks as CK, gear as GE
     t = TECHNIQUES[tech]
-    lab = label(tech)
+    lab = doing(tech)
     rec = rec or {}
+    src = f"{rec['source']}; " if rec.get("source") and lvl in ("rough", "capable") else ""   # whom to ask (finding 3)
     if lvl == "aware":
         return f"{lab} ({rec.get('source') or 'you know of it'})"
     ins = t.get("inputs") or {}
@@ -470,7 +477,7 @@ def craft_line(tech, lvl, rec=None, w=None, iface=False) -> str:
         season = f"best in {best}"
     if lvl == "rough":
         body = _ins_words(ins) or "no materials"
-        return f"{lab} (a rough idea: {body}" + (f", {place}" if place != "anywhere" or (ins and not iface) else "") + ")"
+        return f"{lab} ({src}a rough idea: {body}" + (f", {place}" if place != "anywhere" or (ins and not iface) else "") + ")"
     if hours and isinstance(t.get("gives"), dict) and len(t["gives"]) == 1:
         item = next(iter(t["gives"]))
         b = CK.batch_of(t, w)
@@ -496,7 +503,7 @@ def craft_line(tech, lvl, rec=None, w=None, iface=False) -> str:
     if lvl == "capable":
         bits.append(f"works about {int(round(TRY['capable']['chance'] * 4))} times in 4, with about "
                     f"{'a third' if abs(TRY['capable']['inputs'] - 1.3) < 0.05 else str(round((TRY['capable']['inputs'] - 1) * 100)) + '%'} more materials")
-    return f"{lab} ({head}" + (": " + "; ".join(bits) if bits else "") + ")"
+    return f"{lab} ({src}{head}" + (": " + "; ".join(bits) if bits else "") + ")"
 
 
 def crafts_lines(mind, here=None) -> list:

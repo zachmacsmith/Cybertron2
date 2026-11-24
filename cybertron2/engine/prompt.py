@@ -210,8 +210,8 @@ def evening(w) -> bool:
 def verb_lines(here, mind) -> str:
     out = []
     for v, d in V.VERB.items():
-        if not V.verb_here(here, v):
-            continue
+        if not V.verb_here(here, v) or any(f.get("retired") for f in d.get("iface") or []):   # a retired face (the old rule act's
+            continue                                                           # kinds: the rules block's grammar instead, W-109)
         crafts = [_craft_note(t) for t in TECHNIQUES if TECHNIQUES[t]["verb"] == v and KN.level(mind, t) is not None]
         if "{crafts}" in d["doc"] and not crafts:
             continue
@@ -772,9 +772,8 @@ def turn_prompt(here, mind, opening=True) -> str:
            + (f" (weight {show(here.load())} of the {here.capacity():g} you can travel with"
               + (f", {here.capacity(True):g} on a road with a track" if here.capacity(True) > here.capacity() else "") + ")" if here.roads() else "") + "."]
     you += here.meal_lines()                                                   # what one ate last night, and how well (D2-342)
-    worn = here.gear_words()                                                   # one's own gear and its state (u3 §3.5: shown, not sensed)
-    if worn:
-        you.append("Of your gear: " + "; ".join(worn) + ".")
+    if here.gear_line():                                                       # one's own gear and its state (u3 §3.5: shown, not sensed)
+        you.append(here.gear_line())
     if here.age_line():                                                        # one's age and what lies ahead (D4-69)
         you.append(here.age_line())
     beasts = [f"Leading: {nm} ({'it carries ' + format(HERDS['pack_ox']['carry'], 'g') + ' for you on the road; ' if ox else ''}it stays "

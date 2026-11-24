@@ -268,7 +268,7 @@ def craft_line(here, mind, tech, lvl, uni) -> str:
     args = t.get("args") or []
     if lvl == "rough":
         cl = KN.craft_line(tech, "rough", mind.know.get(tech), here, iface=True)
-        inner = cl[cl.index("(a rough idea") + 1:-1]
+        inner = cl[len(KN.doing(tech)) + 2:-1]
         need = _needs_words(t)
         a = args_words(here, args, required_only=True)
         return (f"- {name}{' ' + a if a else ''}: {does} ({inner}" + (f", needs {need}" if need else "")
@@ -283,8 +283,7 @@ def craft_line(here, mind, tech, lvl, uni) -> str:
         body = "; ".join(x for x in (head, inner) if x)
         return f"- {name}: {does}" + (f" ({body})" if body else "")
     cl = KN.craft_line(tech, "capable" if lvl == "capable" else "known", rec, here, iface=True)
-    lab = KN.label(tech)
-    inner = cl[len(lab) + 2:-1] if cl.startswith(lab + " (") and cl.endswith(")") else cl
+    inner = cl[len(KN.doing(tech)) + 2:-1]
     if uni and not rec:
         inner = inner.replace("known: ", "", 1).replace("known", "", 1).strip(" :") or ""
     extra = [x for x in (_needs_words(t), _tools_words(t)) if x]

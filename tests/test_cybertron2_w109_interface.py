@@ -258,3 +258,48 @@ def test_the_build_shapes_upgrade_face_is_read_from_the_registry(w0b):
     a = SH.normalize(here, mind, {"do": "build", "what": "upgrade", "at": "Field House", "to": "timber"})
     assert a == {"do": "build", "what": "upgrade", "at": "Field House", "to": "timber"}
     assert '- upgrade {"do": "build", "what": upgrade, "at": a building here' in PR.system_prompt(here, mind)
+
+
+# ---------------------------------------------------------------------- the wave's regressions (wave_regressions.md 2, 3, 10, 11)
+def test_the_gear_line_reaches_the_beliefs_view_from_the_one_source():
+    from cybertron2.engine import gear as GE, view as VW
+    eel = build(EEL)
+    c = eel.s["containers"][eel.hands("Peter")]
+    for _ in range(400):                                                       # wear pieces down to broken (wave_regressions probe)
+        GE.wear(eel, c, "wicker trap", 1.0)
+        if "broken" in " ".join(Here(eel, "Peter").gear_words()):
+            break
+    here, mind = Here(eel, "Peter"), Mind(eel, "Peter")
+    line = here.gear_line()
+    assert line.startswith("Of your gear: ") and "wicker trap" in line, line
+    assert line in VW.turn(here, mind, opening=True)
+    assert line in VW.turn(Here(eel, "Peter"), Mind(eel, "Peter"), opening=False)
+    assert line in PR.turn_prompt(Here(eel, "Peter"), Mind(eel, "Peter"), True)
+
+
+def test_craft_lines_keep_their_working_hint_and_where_they_came_from():
+    milk = KN.craft_line("milk", "rough", {"source": "from your upbringing"})
+    assert milk.startswith("milking (a cow in milk) (") and "from your upbringing" in milk
+    assert KN.craft_line("drive", "known", {}).startswith(KN.doing("drive"))
+    assert "Brook" in KN.craft_line("stalk", "capable", {"source": "taught by Hamon Brook"})
+    old = build("cybertron2/specs/nutrition/eelmouth_old.yaml")
+    sp = PR.system_prompt(Here(old, "Peter"), Mind(old, "Peter"))
+    assert "(from your upbringing; a rough idea" in sp
+
+
+def test_waiting_today_is_shown_each_morning_in_a_beliefs_world(eel, monkeypatch):
+    from cybertron2.engine import view as VW
+    from cybertron2.engine.here import Here as H
+    monkeypatch.setattr(H, "book_waiting_lines", lambda self: ["Waiting today: tend the Smokehouse (rule 1)."])
+    VW.turn(Here(eel, "Nichola"), Mind(eel, "Nichola"), opening=True)
+    m = eel.s["mind"]["Nichola"]
+    m["view"] = m.pop("view_next")                                             # the morning's snapshot made current (perceive.py)
+    later = VW.turn(Here(eel, "Nichola"), Mind(eel, "Nichola"), opening=False)
+    assert "Waiting today: tend the Smokehouse (rule 1)." in later
+
+
+def test_the_old_prompt_shows_one_grammar_for_rules():
+    old = build("cybertron2/specs/nutrition/eelmouth_old.yaml")
+    sp = PR.system_prompt(Here(old, "Peter"), Mind(old, "Peter"))
+    assert '"rules": [...]' in sp or "Standing rules go in" in sp
+    assert "\n- rule {" not in sp and "hold back | first | eat | move | tend | chore | drop" not in sp

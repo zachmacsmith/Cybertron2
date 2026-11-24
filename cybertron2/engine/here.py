@@ -451,6 +451,18 @@ class Here:
         hh = self._w.household_of(self.name)
         return BK.empty_lines(rec, self.name, hh if hh and self._w.head(hh) == self.name else None)
 
+    def book_waiting_lines(self) -> list:
+        """What waits today by the book (u6 §9), each morning (W-109: wave_regressions finding 10)."""
+        if not self._w.s.get("books"):
+            return []
+        from cybertron2.engine import book as BK
+        return BK.morning_lines(self._w, self.name)
+
+    def gear_line(self) -> str:
+        """'Of your gear: ...': one's own gear in hand and its state (u3 §3.5: shown, not sensed), one line for every turn's "You"."""
+        worn = self.gear_words()
+        return ("Of your gear: " + "; ".join(worn) + ".") if worn else ""
+
     def meal_lines(self) -> list:
         """What one ate last night and what one's household's stores gave the meal (D2-342): one's own body and house, known."""
         from cybertron2.engine import night as N
