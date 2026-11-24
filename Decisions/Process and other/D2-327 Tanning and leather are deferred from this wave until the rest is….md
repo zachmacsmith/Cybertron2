@@ -29,6 +29,8 @@ conversation (23 Nov: "on leather: I think it has a one way dependnecy where it 
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
+- [[Brief the founders' seeded lines for every built livelihood (thread…|Brief: the founders' seeded lines for every built livelihood (thread…]]
+- [[Report the founders' seeded lines for every built livelihood (thread…|Report: the founders' seeded lines for every built livelihood (thread…]]
 - [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]
 - [[Stage 2 of the fishing, hunting and materials wave taking and making…|Stage 2 of the fishing, hunting and materials wave: taking and making…]]
 - [[Brief build stage 3, taking and making (thread W-99)|Brief: build stage 3, taking and making (thread W-99)]]

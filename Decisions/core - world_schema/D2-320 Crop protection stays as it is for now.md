@@ -26,6 +26,7 @@ conversation (23 Nov: "tbh let's put off the dead hedge ... Maybe cop protection
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
 - [[The world record's shape and its version|The world record's shape and its version]]
+- [[Report the founders' seeded lines for every built livelihood (thread…|Report: the founders' seeded lines for every built livelihood (thread…]]
 - [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]
 - [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]
 - *and 3 index or audit notes*

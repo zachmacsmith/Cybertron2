@@ -25,5 +25,7 @@ conversation (23 Nov: "8. That's fair. Let's just go for now but we can flag tha
 - [[Knowledge in their own words a purposeful core, knowledge that…|Knowledge in their own words: a purposeful core, knowledge that…]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
+- [[Brief the founders' seeded lines for every built livelihood (thread…|Brief: the founders' seeded lines for every built livelihood (thread…]]
+- [[Report the founders' seeded lines for every built livelihood (thread…|Report: the founders' seeded lines for every built livelihood (thread…]]
 - [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]
 - *and 2 index or audit notes*

@@ -35,4 +35,6 @@ started
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
 - [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]
+- [[Brief the founders' seeded lines for every built livelihood (thread…|Brief: the founders' seeded lines for every built livelihood (thread…]]
+- [[Report the founders' seeded lines for every built livelihood (thread…|Report: the founders' seeded lines for every built livelihood (thread…]]
 - *and 1 index or audit notes*

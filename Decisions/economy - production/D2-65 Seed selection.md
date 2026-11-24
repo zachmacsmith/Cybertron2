@@ -22,3 +22,4 @@ farming.md
 - [[Proposal farming|Proposal: farming]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[02 Farming, herding and food, from the first fields to the global…|02: Farming, herding and food, from the first fields to the global…]]
+- [[Report the founders' seeded lines for every built livelihood (thread…|Report: the founders' seeded lines for every built livelihood (thread…]]
