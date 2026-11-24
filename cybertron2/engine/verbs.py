@@ -1083,8 +1083,9 @@ def _technique(here, mind, a, party, verb):
     if y["kind"] == "stock" and KN.draws_at(here, tech, key) == "shallows":     # the edge's own words (u2 §4.6)
         food = got * float(ITEMS[gives]["food"]) if gives in ITEMS else 0.0
         if got > 0:
-            return (f"You took small fish from the shallows of {place_name}{note}, about {show(got)} kg (food worth about "
-                    f"{max(1, round(food))} meal{'s' if round(food) > 1 else ''}).{suffix}") + after
+            from cybertron2.engine.placed import meals
+            return (f"You took small fish from the shallows of {place_name}{note}, about {show(got)} kg (food worth "
+                    f"{meals(food)}).{suffix}") + after
         return f"You fished the shallows of {place_name}{note} and took nothing.{suffix}" + after
     via = f" with your {tool}" if tool else (" with your bare hands" if t.get("tools") else "")
     dest = "" if out == here.hands else f" into {here.buildings()[out[len('stock:'):]]['name']}" if out.startswith("stock:") else f" to {party}"

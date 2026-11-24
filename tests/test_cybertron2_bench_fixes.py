@@ -37,3 +37,10 @@ def test_a_households_rules_read_through_its_eldest_while_no_head(eel):
     assert eel.head("Marsh") is None
     alive = [m for m in eel.members("Marsh") if eel.s["people"][m].get("alive", True)]
     assert BK._voice(eel, "Marsh") == min(alive, key=lambda m: eel.s["people"][m].get("born", 0))
+
+
+def test_food_in_meals_is_said_as_it_is():
+    """L-179 (W-111): a small take is a mouthful or a part of a meal, never 'about 1 meal' at the least."""
+    from cybertron2.engine.placed import meals
+    assert meals(0.02) == "hardly a mouthful" and meals(0.2) == "about a quarter of a meal"
+    assert meals(0.5) == "about half a meal" and meals(1.2) == "about 1 meal" and meals(3.6) == "about 4 meals"

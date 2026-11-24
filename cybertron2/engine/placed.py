@@ -119,6 +119,20 @@ def _iced_words(here, pid, tech) -> str:
     return f"The edges of {name} are ice: {noun(tech, 1)} set there now would take nothing until the thaw."
 
 
+def meals(food) -> str:
+    """Food in meals, as people say it: a mouthful, a quarter or half a meal, else about n meals (L-179, W-111: at least "1 meal"
+    had read 0.1 kg of small fish as a meal)."""
+    f = float(food)
+    if f < 0.1:
+        return "hardly a mouthful"
+    if f < 0.375:
+        return "about a quarter of a meal"
+    if f < 0.75:
+        return "about half a meal"
+    n = max(1, round(f))
+    return f"about {n} meal{'s' if n != 1 else ''}"
+
+
 # ---------------------------------------------------------------------------------------------------------------------- set
 def lay(here, mind, tech, key, place_name, qty=None) -> str:
     """Set: lay gear one holds at a place (u2 §3; fault 12). Refused with none in hand, naming one's gear standing."""
@@ -221,8 +235,8 @@ def tend_one(here, mind, cid, up=False, to=None, theft=False) -> str:
         here.apply("transfer", src=cid, dst=here.hands, item=it, qty=q)
     here.apply("set_thing", cid=cid, field="catch", value=[])
     here.apply("set_thing", cid=cid, field="caught", value=0)
-    got = (f"{catch}, " if catch else "") + (f"about {show(kg)} kg of {'fish' if tech in WATER else 'meat'} (food worth about "
-                                              f"{max(1, round(food))} meal{'s' if max(1, round(food)) != 1 else ''})" if kg > 0 else
+    got = (f"{catch}, " if catch else "") + (f"about {show(kg)} kg of {'fish' if tech in WATER else 'meat'} (food worth "
+                                              f"{meals(food)})" if kg > 0 else
                                               ", ".join(f"{show(q)} {i}" for i, q in sorted(goods.items())) or "")
     if theft:
         owner = c.get("by") or "another"
@@ -371,7 +385,7 @@ def tend_weir(here, mind, cid) -> str:
     if not goods:
         return f"You emptied the weir's traps at {name}" + (f" ({tag})" if tag else "") + ": nothing was in them."
     return (f"You emptied the weir's traps at {name}" + (f" ({tag})" if tag else "") + f": about {show(_kg(goods))} kg of fish"
-            + (f", {catch}" if catch else "") + f" (food worth about {max(1, round(_food(goods)))} meal{'s' if max(1, round(_food(goods))) != 1 else ''}).")
+            + (f", {catch}" if catch else "") + f" (food worth {meals(_food(goods))}).")
 
 
 # ---------------------------------------------------------------------------------------------------------------------- named alone
