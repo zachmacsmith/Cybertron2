@@ -117,7 +117,8 @@
 ## Queued and paused (19)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy, [[W-86 Households generalised into institutions and laws|W-86]] Households generalised into institutions and laws, [[W-87 Health, fatigue and illness|W-87]] Health, fatigue and illness, [[W-88 The coast and the sea|W-88]] The coast and the sea, [[W-89 Trade between villages markets, carriage, what flows where|W-89]] Trade between villages: markets, carriage, what flows where, [[W-90 Textiles and clothing|W-90]] Textiles and clothing, [[W-91 Pottery and clay crocks, ovens, daub, bricks|W-91]] Pottery and clay: crocks, ovens, daub, bricks, [[W-92 Boats, barrels and the cooper|W-92]] Boats, barrels and the cooper, [[W-93 Demography and growth|W-93]] Demography and growth, [[W-94 Timed actions|W-94]] Timed actions, [[W-95 Stone and quarrying|W-95]] Stone and quarrying, [[W-96 Space unified everywhere|W-96]] Space unified everywhere
 
-## Decided this week (135)
+## Decided this week (136)
+- [[D2-350 Every act and every technique a person can take is registered with…|Every act and every technique a person can take is registered with… (D2-350)]]
 - [[D2-349 Founders' seeded lines about other households follow where they live…|Founders' seeded lines about other households follow where they live… (D2-349)]]
 - [[D2-348 A water-only village is made able to last the year by|A water-only village is made able to last the year by (D2-348)]]
 - [[D2-347 A water-only village should be able to last the year|A water-only village should be able to last the year (D2-347)]]
@@ -132,7 +133,6 @@
 - [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]]
 - [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]]
 - [[D2-336 A shelf life is stated one of two ways|A shelf life is stated one of two ways (D2-336)]]
-- [[D2-335 Live run 1 is a set of small runs, not one big run|Live run 1 is a set of small runs, not one big run (D2-335)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]

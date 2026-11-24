@@ -20,3 +20,8 @@ started
 
 ## Linked
 - parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
+- under it: [[D2-350 Every act and every technique a person can take is registered with…|Every act and every technique a person can take is registered with… (D2-350)]] (live)
+
+
+## Mentioned by
+- [[D2-350 Every act and every technique a person can take is registered with…|Every act and every technique a person can take is registered with… (D2-350)]]
