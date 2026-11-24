@@ -1,0 +1,2828 @@
+{
+ "made by": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/make_worlds.py",
+ "rows": [
+  {
+   "id": "cfg_basin_in_a_ring_of_hills_s1",
+   "family": "cfg",
+   "kind": "basin in a ring of hills",
+   "configuration": "basin in a ring of hills",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/cfg_basin_in_a_ring_of_hills_s1.yaml",
+   "spec": {
+    "name": "sweep_cfg_basin_in_a_ring_of_hills",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "basin in a ring of hills",
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "seed": 1
+    }
+   },
+   "warnings": [],
+   "seconds": 20.7
+  },
+  {
+   "id": "cfg_confluence_plain_s1",
+   "family": "cfg",
+   "kind": "confluence plain",
+   "configuration": "confluence plain",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/cfg_confluence_plain_s1.yaml",
+   "spec": {
+    "name": "sweep_cfg_confluence_plain",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "confluence plain",
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "seed": 1
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 19.9
+  },
+  {
+   "id": "cfg_gated_valley_s1",
+   "family": "cfg",
+   "kind": "gated valley",
+   "configuration": "gated valley",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/cfg_gated_valley_s1.yaml",
+   "spec": {
+    "name": "sweep_cfg_gated_valley",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "gated valley",
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "seed": 1
+    }
+   },
+   "warnings": [],
+   "seconds": 23.7
+  },
+  {
+   "id": "cfg_river_through_a_range_s1",
+   "family": "cfg",
+   "kind": "river through a range",
+   "configuration": "river through a range",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/cfg_river_through_a_range_s1.yaml",
+   "spec": {
+    "name": "sweep_cfg_river_through_a_range",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "river through a range",
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "seed": 1
+    }
+   },
+   "warnings": [],
+   "seconds": 21.3
+  },
+  {
+   "id": "cfg_settled_lowland_and_frontier_s1",
+   "family": "cfg",
+   "kind": "settled lowland and frontier",
+   "configuration": "settled lowland and frontier",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/cfg_settled_lowland_and_frontier_s1.yaml",
+   "spec": {
+    "name": "sweep_cfg_settled_lowland_and_frontier",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "settled lowland and frontier",
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "seed": 1
+    }
+   },
+   "warnings": [],
+   "seconds": 16.9
+  },
+  {
+   "id": "cfg_two_valleys_over_a_pass_s1",
+   "family": "cfg",
+   "kind": "two valleys over a pass",
+   "configuration": "two valleys over a pass",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/cfg_two_valleys_over_a_pass_s1.yaml",
+   "spec": {
+    "name": "sweep_cfg_two_valleys_over_a_pass",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "two valleys over a pass",
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "seed": 1
+    }
+   },
+   "warnings": [],
+   "seconds": 20.7
+  },
+  {
+   "id": "cfg_watershed_divide_s1",
+   "family": "cfg",
+   "kind": "watershed divide",
+   "configuration": "watershed divide",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/cfg_watershed_divide_s1.yaml",
+   "spec": {
+    "name": "sweep_cfg_watershed_divide",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "watershed divide",
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "seed": 1
+    }
+   },
+   "warnings": [],
+   "seconds": 20.8
+  },
+  {
+   "id": "laid_large_dry_s5",
+   "family": "laid",
+   "kind": "laid large river",
+   "configuration": null,
+   "flow": "large",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/laid_large_dry_s5.yaml",
+   "spec": {
+    "name": "sweep_laid_large_dry_s5",
+    "seed": 5,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "seed": 5,
+     "spacing_km": 11.0,
+     "rain_mm": 500.0,
+     "temperature_c": 10.0,
+     "features": [
+      {
+       "kind": "river",
+       "name": "the_river",
+       "through": [
+        [
+         0.46,
+         1.0
+        ],
+        [
+         0.5,
+         0.82
+        ],
+        [
+         0.5,
+         0.5
+        ],
+        [
+         0.52,
+         0.18
+        ],
+        [
+         0.5,
+         0.0
+        ]
+       ],
+       "flow": "large"
+      },
+      {
+       "kind": "system",
+       "name": "fells",
+       "system": "upland",
+       "box": [
+        0.15,
+        0.78,
+        0.85,
+        1.0
+       ]
+      },
+      {
+       "kind": "massif",
+       "name": "north_fells",
+       "at": [
+        0.5,
+        0.95
+       ],
+       "r": 0.2,
+       "height": 380
+      },
+      {
+       "kind": "wild",
+       "name": "upper_waters",
+       "box": [
+        0.2,
+        0.8,
+        0.8,
+        1.0
+       ]
+      }
+     ],
+     "places": {
+      "Highpool": {
+       "households": 3,
+       "on": "big river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "at": [
+        25.64,
+        36.04
+       ]
+      },
+      "Middleham": {
+       "households": 3,
+       "on": "big river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "has": [
+        "mill site"
+       ],
+       "at": [
+        21.29,
+        24.16
+       ]
+      },
+      "Lowstrand": {
+       "households": 3,
+       "on": "big river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "at": [
+        7.5,
+        12.04
+       ]
+      }
+     }
+    }
+   },
+   "warnings": [],
+   "seconds": 32.5
+  },
+  {
+   "id": "laid_large_s5",
+   "family": "laid",
+   "kind": "laid large river",
+   "configuration": null,
+   "flow": "large",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/laid_large_s5.yaml",
+   "spec": {
+    "name": "sweep_laid_large_s5",
+    "seed": 5,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "seed": 5,
+     "spacing_km": 11.0,
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "features": [
+      {
+       "kind": "river",
+       "name": "the_river",
+       "through": [
+        [
+         0.46,
+         1.0
+        ],
+        [
+         0.5,
+         0.82
+        ],
+        [
+         0.5,
+         0.5
+        ],
+        [
+         0.52,
+         0.18
+        ],
+        [
+         0.5,
+         0.0
+        ]
+       ],
+       "flow": "large"
+      },
+      {
+       "kind": "system",
+       "name": "fells",
+       "system": "upland",
+       "box": [
+        0.15,
+        0.78,
+        0.85,
+        1.0
+       ]
+      },
+      {
+       "kind": "massif",
+       "name": "north_fells",
+       "at": [
+        0.5,
+        0.95
+       ],
+       "r": 0.2,
+       "height": 380
+      },
+      {
+       "kind": "wild",
+       "name": "upper_waters",
+       "box": [
+        0.2,
+        0.8,
+        0.8,
+        1.0
+       ]
+      }
+     ],
+     "places": {
+      "Highpool": {
+       "households": 3,
+       "on": "big river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "at": [
+        25.64,
+        36.04
+       ]
+      },
+      "Middleham": {
+       "households": 3,
+       "on": "big river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "has": [
+        "mill site"
+       ],
+       "at": [
+        21.29,
+        24.16
+       ]
+      },
+      "Lowstrand": {
+       "households": 3,
+       "on": "big river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "at": [
+        7.5,
+        12.04
+       ]
+      }
+     }
+    }
+   },
+   "warnings": [],
+   "seconds": 28.8
+  },
+  {
+   "id": "laid_large_s7",
+   "family": "laid",
+   "kind": "laid large river",
+   "configuration": null,
+   "flow": "large",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/laid_large_s7.yaml",
+   "spec": {
+    "name": "sweep_laid_large_s7",
+    "seed": 7,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "seed": 7,
+     "spacing_km": 11.0,
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "features": [
+      {
+       "kind": "river",
+       "name": "the_river",
+       "through": [
+        [
+         0.46,
+         1.0
+        ],
+        [
+         0.5,
+         0.82
+        ],
+        [
+         0.5,
+         0.5
+        ],
+        [
+         0.52,
+         0.18
+        ],
+        [
+         0.5,
+         0.0
+        ]
+       ],
+       "flow": "large"
+      },
+      {
+       "kind": "system",
+       "name": "fells",
+       "system": "upland",
+       "box": [
+        0.15,
+        0.78,
+        0.85,
+        1.0
+       ]
+      },
+      {
+       "kind": "massif",
+       "name": "north_fells",
+       "at": [
+        0.5,
+        0.95
+       ],
+       "r": 0.2,
+       "height": 380
+      },
+      {
+       "kind": "wild",
+       "name": "upper_waters",
+       "box": [
+        0.2,
+        0.8,
+        0.8,
+        1.0
+       ]
+      }
+     ],
+     "places": {
+      "Highpool": {
+       "households": 3,
+       "on": "big river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "at": [
+        2.07,
+        37.91
+       ]
+      },
+      "Middleham": {
+       "households": 3,
+       "on": "big river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "has": [
+        "mill site"
+       ],
+       "at": [
+        27.89,
+        24.03
+       ]
+      },
+      "Lowstrand": {
+       "households": 3,
+       "on": "big river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "at": [
+        26.06,
+        12.01
+       ]
+      }
+     }
+    }
+   },
+   "warnings": [],
+   "seconds": 48.7
+  },
+  {
+   "id": "laid_large_wet_s5",
+   "family": "laid",
+   "kind": "laid large river",
+   "configuration": null,
+   "flow": "large",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/laid_large_wet_s5.yaml",
+   "spec": {
+    "name": "sweep_laid_large_wet_s5",
+    "seed": 5,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "seed": 5,
+     "spacing_km": 11.0,
+     "rain_mm": 1400.0,
+     "temperature_c": 9.0,
+     "features": [
+      {
+       "kind": "river",
+       "name": "the_river",
+       "through": [
+        [
+         0.46,
+         1.0
+        ],
+        [
+         0.5,
+         0.82
+        ],
+        [
+         0.5,
+         0.5
+        ],
+        [
+         0.52,
+         0.18
+        ],
+        [
+         0.5,
+         0.0
+        ]
+       ],
+       "flow": "large"
+      },
+      {
+       "kind": "system",
+       "name": "fells",
+       "system": "upland",
+       "box": [
+        0.15,
+        0.78,
+        0.85,
+        1.0
+       ]
+      },
+      {
+       "kind": "massif",
+       "name": "north_fells",
+       "at": [
+        0.5,
+        0.95
+       ],
+       "r": 0.2,
+       "height": 380
+      },
+      {
+       "kind": "wild",
+       "name": "upper_waters",
+       "box": [
+        0.2,
+        0.8,
+        0.8,
+        1.0
+       ]
+      }
+     ],
+     "places": {
+      "Highpool": {
+       "households": 3,
+       "on": "big river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "at": [
+        25.64,
+        36.04
+       ]
+      },
+      "Middleham": {
+       "households": 3,
+       "on": "big river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "has": [
+        "mill site"
+       ],
+       "at": [
+        21.29,
+        24.16
+       ]
+      },
+      "Lowstrand": {
+       "households": 3,
+       "on": "big river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "at": [
+        7.5,
+        12.04
+       ]
+      }
+     }
+    }
+   },
+   "warnings": [],
+   "seconds": 25.5
+  },
+  {
+   "id": "laid_medium_s5",
+   "family": "laid",
+   "kind": "laid medium river",
+   "configuration": null,
+   "flow": "medium",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/laid_medium_s5.yaml",
+   "spec": {
+    "name": "sweep_laid_medium_s5",
+    "seed": 5,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "seed": 5,
+     "spacing_km": 11.0,
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "features": [
+      {
+       "kind": "river",
+       "name": "the_river",
+       "through": [
+        [
+         0.46,
+         1.0
+        ],
+        [
+         0.5,
+         0.82
+        ],
+        [
+         0.5,
+         0.5
+        ],
+        [
+         0.52,
+         0.18
+        ],
+        [
+         0.5,
+         0.0
+        ]
+       ],
+       "flow": "medium"
+      },
+      {
+       "kind": "system",
+       "name": "fells",
+       "system": "upland",
+       "box": [
+        0.15,
+        0.78,
+        0.85,
+        1.0
+       ]
+      },
+      {
+       "kind": "massif",
+       "name": "north_fells",
+       "at": [
+        0.5,
+        0.95
+       ],
+       "r": 0.2,
+       "height": 380
+      },
+      {
+       "kind": "wild",
+       "name": "upper_waters",
+       "box": [
+        0.2,
+        0.8,
+        0.8,
+        1.0
+       ]
+      }
+     ],
+     "places": {
+      "Highpool": {
+       "households": 3,
+       "on": "river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "at": [
+        42.8,
+        36.18
+       ]
+      },
+      "Middleham": {
+       "households": 3,
+       "on": "river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "has": [
+        "mill site"
+       ],
+       "at": [
+        18.01,
+        24.19
+       ]
+      },
+      "Lowstrand": {
+       "households": 3,
+       "on": "river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "at": [
+        7.5,
+        12.04
+       ]
+      }
+     }
+    }
+   },
+   "warnings": [],
+   "seconds": 22.5
+  },
+  {
+   "id": "laid_medium_s7",
+   "family": "laid",
+   "kind": "laid medium river",
+   "configuration": null,
+   "flow": "medium",
+   "ok": false,
+   "refused": "refused: Middleham: no site meets its pins {'households': 3, 'on': 'river', 'within': 1.5, 'food_share': 0.6, 'has': ['mill site'], 'at': [27.89, 24.03]} at least 11.0 km from the others",
+   "seconds": 17.3
+  },
+  {
+   "id": "laid_river_dry_s7",
+   "family": "laid",
+   "kind": "laid river river",
+   "configuration": null,
+   "flow": "river",
+   "ok": false,
+   "refused": "refused: Middleham: no site meets its pins {'households': 3, 'on': 'river', 'within': 1.5, 'food_share': 0.6, 'has': ['mill site'], 'at': [27.89, 24.03]} at least 11.0 km from the others",
+   "seconds": 15.0
+  },
+  {
+   "id": "laid_river_s5",
+   "family": "laid",
+   "kind": "laid river river",
+   "configuration": null,
+   "flow": "river",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/laid_river_s5.yaml",
+   "spec": {
+    "name": "sweep_laid_river_s5",
+    "seed": 5,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "seed": 5,
+     "spacing_km": 11.0,
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "features": [
+      {
+       "kind": "river",
+       "name": "the_river",
+       "through": [
+        [
+         0.46,
+         1.0
+        ],
+        [
+         0.5,
+         0.82
+        ],
+        [
+         0.5,
+         0.5
+        ],
+        [
+         0.52,
+         0.18
+        ],
+        [
+         0.5,
+         0.0
+        ]
+       ],
+       "flow": "river"
+      },
+      {
+       "kind": "system",
+       "name": "fells",
+       "system": "upland",
+       "box": [
+        0.15,
+        0.78,
+        0.85,
+        1.0
+       ]
+      },
+      {
+       "kind": "massif",
+       "name": "north_fells",
+       "at": [
+        0.5,
+        0.95
+       ],
+       "r": 0.2,
+       "height": 380
+      },
+      {
+       "kind": "wild",
+       "name": "upper_waters",
+       "box": [
+        0.2,
+        0.8,
+        0.8,
+        1.0
+       ]
+      }
+     ],
+     "places": {
+      "Highpool": {
+       "households": 3,
+       "on": "river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "at": [
+        42.8,
+        36.18
+       ]
+      },
+      "Middleham": {
+       "households": 3,
+       "on": "river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "has": [
+        "mill site"
+       ],
+       "at": [
+        18.01,
+        24.19
+       ]
+      },
+      "Lowstrand": {
+       "households": 3,
+       "on": "river",
+       "within": 1.5,
+       "food_share": 0.6,
+       "at": [
+        7.5,
+        12.04
+       ]
+      }
+     }
+    }
+   },
+   "warnings": [],
+   "seconds": 23.0
+  },
+  {
+   "id": "lake_meresby_s3",
+   "family": "lake",
+   "kind": "laid mere (Meresby)",
+   "configuration": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/lake_meresby_s3.yaml",
+   "spec": {
+    "name": "sweep_lake",
+    "seed": 3,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "seed": 3,
+     "settlements": 1,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "bounds": {
+      "per_min": 2,
+      "per_spread": 3,
+      "children_max": 4
+     },
+     "sim": {
+      "start": -26
+     },
+     "features": [
+      {
+       "kind": "lake",
+       "name": "the_mere",
+       "at": [
+        0.5,
+        0.5
+       ],
+       "r": 0.07
+      },
+      {
+       "kind": "river",
+       "name": "the_brook",
+       "through": [
+        [
+         0.5,
+         0.9
+        ],
+        [
+         0.5,
+         0.56
+        ]
+       ],
+       "flow": "medium"
+      },
+      {
+       "kind": "river",
+       "name": "the_outflow",
+       "through": [
+        [
+         0.5,
+         0.44
+        ],
+        [
+         0.5,
+         0.0
+        ]
+       ],
+       "flow": "medium"
+      },
+      {
+       "kind": "system",
+       "name": "carr",
+       "system": "fen",
+       "at": [
+        0.5,
+        0.5
+       ],
+       "r": 0.12
+      }
+     ],
+     "places": {
+      "Meresby": {
+       "households": 3,
+       "on": "lake",
+       "lake_km2": 2.0,
+       "at": [
+        25.0,
+        21.0
+       ],
+       "within": 6.0,
+       "food_share": 0.6
+      }
+     }
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 8.2
+  },
+  {
+   "id": "w01_lowland_s1",
+   "family": "cal",
+   "kind": "Lowland river country",
+   "configuration": "plain",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w01_lowland_s1.yaml",
+   "spec": {
+    "name": "sweep_w01_s1",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "plain",
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "seed": 1
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 18.2
+  },
+  {
+   "id": "w01_lowland_s2",
+   "family": "cal",
+   "kind": "Lowland river country",
+   "configuration": "plain",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w01_lowland_s2.yaml",
+   "spec": {
+    "name": "sweep_w01_s2",
+    "seed": 2,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "plain",
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "seed": 2
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 23.8
+  },
+  {
+   "id": "w01_lowland_s3",
+   "family": "cal",
+   "kind": "Lowland river country",
+   "configuration": "plain",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w01_lowland_s3.yaml",
+   "spec": {
+    "name": "sweep_w01_s3",
+    "seed": 3,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "plain",
+     "rain_mm": 900.0,
+     "temperature_c": 9.0,
+     "seed": 3
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 26.4
+  },
+  {
+   "id": "w02_dry_east_s1",
+   "family": "cal",
+   "kind": "Dry east",
+   "configuration": "plain",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w02_dry_east_s1.yaml",
+   "spec": {
+    "name": "sweep_w02_s1",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "plain",
+     "rain_mm": 500.0,
+     "temperature_c": 10.0,
+     "wind": "east",
+     "seed": 1
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 25.4
+  },
+  {
+   "id": "w02_dry_east_s2",
+   "family": "cal",
+   "kind": "Dry east",
+   "configuration": "plain",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w02_dry_east_s2.yaml",
+   "spec": {
+    "name": "sweep_w02_s2",
+    "seed": 2,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "plain",
+     "rain_mm": 500.0,
+     "temperature_c": 10.0,
+     "wind": "east",
+     "seed": 2
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 21.1
+  },
+  {
+   "id": "w02_dry_east_s3",
+   "family": "cal",
+   "kind": "Dry east",
+   "configuration": "plain",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w02_dry_east_s3.yaml",
+   "spec": {
+    "name": "sweep_w02_s3",
+    "seed": 3,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "plain",
+     "rain_mm": 500.0,
+     "temperature_c": 10.0,
+     "wind": "east",
+     "seed": 3
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 23.1
+  },
+  {
+   "id": "w03_wet_west_s1",
+   "family": "cal",
+   "kind": "Wet west, maritime",
+   "configuration": "coast",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w03_wet_west_s1.yaml",
+   "spec": {
+    "name": "sweep_w03_s1",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "coast",
+     "rain_mm": 1400.0,
+     "temperature_c": 10.0,
+     "wild_shore": true,
+     "seed": 1
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 25.7
+  },
+  {
+   "id": "w03_wet_west_s2",
+   "family": "cal",
+   "kind": "Wet west, maritime",
+   "configuration": "coast",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w03_wet_west_s2.yaml",
+   "spec": {
+    "name": "sweep_w03_s2",
+    "seed": 2,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "coast",
+     "rain_mm": 1400.0,
+     "temperature_c": 10.0,
+     "wild_shore": true,
+     "seed": 2
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 24.7
+  },
+  {
+   "id": "w03_wet_west_s3",
+   "family": "cal",
+   "kind": "Wet west, maritime",
+   "configuration": "coast",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w03_wet_west_s3.yaml",
+   "spec": {
+    "name": "sweep_w03_s3",
+    "seed": 3,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "coast",
+     "rain_mm": 1400.0,
+     "temperature_c": 10.0,
+     "wild_shore": true,
+     "seed": 3
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 19.4
+  },
+  {
+   "id": "w04_coast_mountains_s1",
+   "family": "cal",
+   "kind": "Coast under mountains",
+   "configuration": "coastal strip under mountains",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w04_coast_mountains_s1.yaml",
+   "spec": {
+    "name": "sweep_w04_s1",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "coastal strip under mountains",
+     "rain_mm": 1200.0,
+     "temperature_c": 9.0,
+     "wild_shore": true,
+     "seed": 1
+    }
+   },
+   "warnings": [],
+   "seconds": 21.8
+  },
+  {
+   "id": "w04_coast_mountains_s2",
+   "family": "cal",
+   "kind": "Coast under mountains",
+   "configuration": "coastal strip under mountains",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w04_coast_mountains_s2.yaml",
+   "spec": {
+    "name": "sweep_w04_s2",
+    "seed": 2,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "coastal strip under mountains",
+     "rain_mm": 1200.0,
+     "temperature_c": 9.0,
+     "wild_shore": true,
+     "seed": 2
+    }
+   },
+   "warnings": [],
+   "seconds": 28.0
+  },
+  {
+   "id": "w04_coast_mountains_s3",
+   "family": "cal",
+   "kind": "Coast under mountains",
+   "configuration": "coastal strip under mountains",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w04_coast_mountains_s3.yaml",
+   "spec": {
+    "name": "sweep_w04_s3",
+    "seed": 3,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "coastal strip under mountains",
+     "rain_mm": 1200.0,
+     "temperature_c": 9.0,
+     "wild_shore": true,
+     "seed": 3
+    }
+   },
+   "warnings": [],
+   "seconds": 26.0
+  },
+  {
+   "id": "w05_upland_moor_s1",
+   "family": "cal",
+   "kind": "Upland and moor",
+   "configuration": "upland and moor",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w05_upland_moor_s1.yaml",
+   "spec": {
+    "name": "sweep_w05_s1",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "upland and moor",
+     "rain_mm": 950.0,
+     "temperature_c": 9.0,
+     "seed": 1
+    }
+   },
+   "warnings": [],
+   "seconds": 25.1
+  },
+  {
+   "id": "w05_upland_moor_s2",
+   "family": "cal",
+   "kind": "Upland and moor",
+   "configuration": "upland and moor",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w05_upland_moor_s2.yaml",
+   "spec": {
+    "name": "sweep_w05_s2",
+    "seed": 2,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "upland and moor",
+     "rain_mm": 950.0,
+     "temperature_c": 9.0,
+     "seed": 2
+    }
+   },
+   "warnings": [],
+   "seconds": 20.2
+  },
+  {
+   "id": "w05_upland_moor_s3",
+   "family": "cal",
+   "kind": "Upland and moor",
+   "configuration": "upland and moor",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w05_upland_moor_s3.yaml",
+   "spec": {
+    "name": "sweep_w05_s3",
+    "seed": 3,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "upland and moor",
+     "rain_mm": 950.0,
+     "temperature_c": 9.0,
+     "seed": 3
+    }
+   },
+   "warnings": [],
+   "seconds": 22.6
+  },
+  {
+   "id": "w06_high_mountains_s1",
+   "family": "cal",
+   "kind": "High mountains",
+   "configuration": "upland and moor",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w06_high_mountains_s1.yaml",
+   "spec": {
+    "name": "sweep_w06_s1",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "upland and moor",
+     "configuration_params": {
+      "moor": {
+       "height": 900.0
+      }
+     },
+     "features": [
+      {
+       "kind": "massif",
+       "name": "summit",
+       "at": [
+        0.78,
+        0.78
+       ],
+       "r": 0.12,
+       "height": 300.0
+      }
+     ],
+     "rain_mm": 1100.0,
+     "temperature_c": 8.5,
+     "seed": 1
+    }
+   },
+   "warnings": [],
+   "seconds": 24.3
+  },
+  {
+   "id": "w06_high_mountains_s2",
+   "family": "cal",
+   "kind": "High mountains",
+   "configuration": "upland and moor",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w06_high_mountains_s2.yaml",
+   "spec": {
+    "name": "sweep_w06_s2",
+    "seed": 2,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "upland and moor",
+     "configuration_params": {
+      "moor": {
+       "height": 900.0
+      }
+     },
+     "features": [
+      {
+       "kind": "massif",
+       "name": "summit",
+       "at": [
+        0.78,
+        0.78
+       ],
+       "r": 0.12,
+       "height": 300.0
+      }
+     ],
+     "rain_mm": 1100.0,
+     "temperature_c": 8.5,
+     "seed": 2
+    }
+   },
+   "warnings": [],
+   "seconds": 20.3
+  },
+  {
+   "id": "w06_high_mountains_s3",
+   "family": "cal",
+   "kind": "High mountains",
+   "configuration": "upland and moor",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w06_high_mountains_s3.yaml",
+   "spec": {
+    "name": "sweep_w06_s3",
+    "seed": 3,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "upland and moor",
+     "configuration_params": {
+      "moor": {
+       "height": 900.0
+      }
+     },
+     "features": [
+      {
+       "kind": "massif",
+       "name": "summit",
+       "at": [
+        0.78,
+        0.78
+       ],
+       "r": 0.12,
+       "height": 300.0
+      }
+     ],
+     "rain_mm": 1100.0,
+     "temperature_c": 8.5,
+     "seed": 3
+    }
+   },
+   "warnings": [],
+   "seconds": 21.1
+  },
+  {
+   "id": "w07_cold_north_s1",
+   "family": "cal",
+   "kind": "Cold north",
+   "configuration": "plain",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w07_cold_north_s1.yaml",
+   "spec": {
+    "name": "sweep_w07_s1",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "plain",
+     "temperature_c": 6.0,
+     "rain_mm": 800.0,
+     "seed": 1
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 19.1
+  },
+  {
+   "id": "w07_cold_north_s2",
+   "family": "cal",
+   "kind": "Cold north",
+   "configuration": "plain",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w07_cold_north_s2.yaml",
+   "spec": {
+    "name": "sweep_w07_s2",
+    "seed": 2,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "plain",
+     "temperature_c": 6.0,
+     "rain_mm": 800.0,
+     "seed": 2
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 25.0
+  },
+  {
+   "id": "w07_cold_north_s3",
+   "family": "cal",
+   "kind": "Cold north",
+   "configuration": "plain",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w07_cold_north_s3.yaml",
+   "spec": {
+    "name": "sweep_w07_s3",
+    "seed": 3,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "plain",
+     "temperature_c": 6.0,
+     "rain_mm": 800.0,
+     "seed": 3
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 17.9
+  },
+  {
+   "id": "w08_fen_s1",
+   "family": "cal",
+   "kind": "Fen basin",
+   "configuration": "fen with islands",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w08_fen_s1.yaml",
+   "spec": {
+    "name": "sweep_w08_s1",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "fen with islands",
+     "rain_mm": 600.0,
+     "temperature_c": 10.0,
+     "seed": 1
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 19.5
+  },
+  {
+   "id": "w08_fen_s2",
+   "family": "cal",
+   "kind": "Fen basin",
+   "configuration": "fen with islands",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w08_fen_s2.yaml",
+   "spec": {
+    "name": "sweep_w08_s2",
+    "seed": 2,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "fen with islands",
+     "rain_mm": 600.0,
+     "temperature_c": 10.0,
+     "seed": 2
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 20.3
+  },
+  {
+   "id": "w08_fen_s3",
+   "family": "cal",
+   "kind": "Fen basin",
+   "configuration": "fen with islands",
+   "require_lake": null,
+   "ok": false,
+   "refused": "refused by checks: laid rivers run where laid"
+  },
+  {
+   "id": "w08_fen_s4",
+   "family": "cal",
+   "kind": "Fen basin",
+   "configuration": "fen with islands",
+   "require_lake": null,
+   "spare_for": "w08_fen_s3",
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w08_fen_s4.yaml",
+   "spec": {
+    "name": "sweep_w08_s1",
+    "seed": 4,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "fen with islands",
+     "rain_mm": 600.0,
+     "temperature_c": 10.0,
+     "seed": 4
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 12.3
+  },
+  {
+   "id": "w09_estuary_s1",
+   "family": "cal",
+   "kind": "Estuary and saltmarsh",
+   "configuration": "estuary and fens",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w09_estuary_s1.yaml",
+   "spec": {
+    "name": "sweep_w09_s1",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "estuary and fens",
+     "rain_mm": 750.0,
+     "temperature_c": 10.0,
+     "wild_shore": true,
+     "seed": 1
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 18.3
+  },
+  {
+   "id": "w09_estuary_s2",
+   "family": "cal",
+   "kind": "Estuary and saltmarsh",
+   "configuration": "estuary and fens",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w09_estuary_s2.yaml",
+   "spec": {
+    "name": "sweep_w09_s2",
+    "seed": 2,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "estuary and fens",
+     "rain_mm": 750.0,
+     "temperature_c": 10.0,
+     "wild_shore": true,
+     "seed": 2
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 25.1
+  },
+  {
+   "id": "w09_estuary_s3",
+   "family": "cal",
+   "kind": "Estuary and saltmarsh",
+   "configuration": "estuary and fens",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w09_estuary_s3.yaml",
+   "spec": {
+    "name": "sweep_w09_s3",
+    "seed": 3,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "estuary and fens",
+     "rain_mm": 750.0,
+     "temperature_c": 10.0,
+     "wild_shore": true,
+     "seed": 3
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 22.6
+  },
+  {
+   "id": "w10_chalk_clay_s1",
+   "family": "cal",
+   "kind": "Chalk and clay",
+   "configuration": "scarp and vale",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w10_chalk_clay_s1.yaml",
+   "spec": {
+    "name": "sweep_w10_s1",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "scarp and vale",
+     "rain_mm": 800.0,
+     "temperature_c": 10.0,
+     "seed": 1
+    }
+   },
+   "warnings": [
+    "dependence"
+   ],
+   "seconds": 20.2
+  },
+  {
+   "id": "w10_chalk_clay_s2",
+   "family": "cal",
+   "kind": "Chalk and clay",
+   "configuration": "scarp and vale",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w10_chalk_clay_s2.yaml",
+   "spec": {
+    "name": "sweep_w10_s2",
+    "seed": 2,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "scarp and vale",
+     "rain_mm": 800.0,
+     "temperature_c": 10.0,
+     "seed": 2
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 20.7
+  },
+  {
+   "id": "w10_chalk_clay_s3",
+   "family": "cal",
+   "kind": "Chalk and clay",
+   "configuration": "scarp and vale",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w10_chalk_clay_s3.yaml",
+   "spec": {
+    "name": "sweep_w10_s3",
+    "seed": 3,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "scarp and vale",
+     "rain_mm": 800.0,
+     "temperature_c": 10.0,
+     "seed": 3
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 20.7
+  },
+  {
+   "id": "w11_sand_heath_s1",
+   "family": "cal",
+   "kind": "Sand and heath",
+   "configuration": "sand country",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w11_sand_heath_s1.yaml",
+   "spec": {
+    "name": "sweep_w11_s1",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "sand country",
+     "rain_mm": 650.0,
+     "temperature_c": 10.0,
+     "seed": 1
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 25.7
+  },
+  {
+   "id": "w11_sand_heath_s2",
+   "family": "cal",
+   "kind": "Sand and heath",
+   "configuration": "sand country",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w11_sand_heath_s2.yaml",
+   "spec": {
+    "name": "sweep_w11_s2",
+    "seed": 2,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "sand country",
+     "rain_mm": 650.0,
+     "temperature_c": 10.0,
+     "seed": 2
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 22.0
+  },
+  {
+   "id": "w11_sand_heath_s3",
+   "family": "cal",
+   "kind": "Sand and heath",
+   "configuration": "sand country",
+   "require_lake": null,
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w11_sand_heath_s3.yaml",
+   "spec": {
+    "name": "sweep_w11_s3",
+    "seed": 3,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "sand country",
+     "rain_mm": 650.0,
+     "temperature_c": 10.0,
+     "seed": 3
+    }
+   },
+   "warnings": [
+    "dependence",
+    "chokepoint"
+   ],
+   "seconds": 21.3
+  },
+  {
+   "id": "w12_lake_country_s1",
+   "family": "cal",
+   "kind": "Lake country",
+   "configuration": "upland and moor",
+   "require_lake": {
+    "at": [
+     0.22,
+     0.45
+    ],
+    "km": 5.0,
+    "km2": 1.0
+   },
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w12_lake_country_s1.yaml",
+   "spec": {
+    "name": "sweep_w12_s1",
+    "seed": 1,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "upland and moor",
+     "configuration_params": {
+      "moor": {
+       "height": 560.0
+      }
+     },
+     "features": [
+      {
+       "kind": "lake",
+       "name": "the_mere",
+       "at": [
+        0.22,
+        0.45
+       ],
+       "r": 0.06
+      }
+     ],
+     "rain_mm": 1400.0,
+     "temperature_c": 9.0,
+     "lake_min_km2": 0.1,
+     "seed": 1
+    }
+   },
+   "warnings": [],
+   "seconds": 25.0
+  },
+  {
+   "id": "w12_lake_country_s2",
+   "family": "cal",
+   "kind": "Lake country",
+   "configuration": "upland and moor",
+   "require_lake": {
+    "at": [
+     0.22,
+     0.45
+    ],
+    "km": 5.0,
+    "km2": 1.0
+   },
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w12_lake_country_s2.yaml",
+   "spec": {
+    "name": "sweep_w12_s2",
+    "seed": 2,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "upland and moor",
+     "configuration_params": {
+      "moor": {
+       "height": 560.0
+      }
+     },
+     "features": [
+      {
+       "kind": "lake",
+       "name": "the_mere",
+       "at": [
+        0.22,
+        0.45
+       ],
+       "r": 0.06
+      }
+     ],
+     "rain_mm": 1400.0,
+     "temperature_c": 9.0,
+     "lake_min_km2": 0.1,
+     "seed": 2
+    }
+   },
+   "warnings": [],
+   "seconds": 18.0
+  },
+  {
+   "id": "w12_lake_country_s3",
+   "family": "cal",
+   "kind": "Lake country",
+   "configuration": "upland and moor",
+   "require_lake": {
+    "at": [
+     0.22,
+     0.45
+    ],
+    "km": 5.0,
+    "km2": 1.0
+   },
+   "ok": true,
+   "path": "docs/review/37_growth/02zzzl_waters_calib/a_sweep/worlds/w12_lake_country_s3.yaml",
+   "spec": {
+    "name": "sweep_w12_s3",
+    "seed": 3,
+    "days": 32,
+    "calendar": {
+     "season_days": 8
+    },
+    "climate": {
+     "era": "steady"
+    },
+    "packs": [
+     "wild",
+     "water"
+    ],
+    "generate": {
+     "settlements": 3,
+     "household_size": 3,
+     "warn_only": [
+      "capacity",
+      "dependence",
+      "chokepoint"
+     ],
+     "configuration": "upland and moor",
+     "configuration_params": {
+      "moor": {
+       "height": 560.0
+      }
+     },
+     "features": [
+      {
+       "kind": "lake",
+       "name": "the_mere",
+       "at": [
+        0.22,
+        0.45
+       ],
+       "r": 0.06
+      }
+     ],
+     "rain_mm": 1400.0,
+     "temperature_c": 9.0,
+     "lake_min_km2": 0.1,
+     "seed": 3
+    }
+   },
+   "warnings": [],
+   "seconds": 16.4
+  }
+ ]
+}
