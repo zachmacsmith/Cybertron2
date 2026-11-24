@@ -200,10 +200,10 @@ _IFACE = {
     "watch": [{"shape": "agree", "word": "watch", "does": "spend the day working beside them: you see how they do things, and get a "
                "rough idea of their crafts", "needs": "them here", "args": [_a("person", "a person here", True)], "who": []}],
     "teach": [{"shape": "agree", "word": "teach", "does": "one session, if they set aside time to learn from you the same day",
-               "needs": "them here, learning the same day", "args": [_a("to", "a person here", True), _a("what", "a craft you know", True)],
+               "needs": "", "args": [_a("to", "a person here", True), _a("what", "a craft you know", True)],
                "who": []}],
     "learn": [{"shape": "agree", "word": "learn", "does": "one session, if they set aside time to teach you the same day",
-               "needs": "them here, teaching the same day", "args": [_a("from", "a person here", True), _a("what", "the craft", True)],
+               "needs": "", "args": [_a("from", "a person here", True), _a("what", "the craft", True)],
                "who": []}],
     "attack": [{"shape": "force", "word": "attack", "does": "settled tonight", "needs": "",
                 "args": [_a("target", "a person or a building", True),
@@ -218,10 +218,10 @@ _IFACE = {
     "fire": [{"shape": "go", "word": "fire", "does": "light a fire in the open tonight if you sleep out (on the road, or with no bed); "
               "say it before you set off", "needs": "fuel in your hands", "args": [], "who": []}],
     "partner": [{"shape": "agree", "word": "partner", "does": "become partners with someone here, if they choose it too today",
-                 "needs": "them here, choosing it the same day", "args": [_a("with", "a person here", True)], "who": ["grown"]}],
+                 "needs": "", "args": [_a("with", "a person here", True)], "who": ["grown"]}],
     "part": [{"shape": "change", "word": "part", "does": "end your partnership", "needs": "", "args": [], "who": ["grown"]}],
     "try": [{"shape": "agree", "word": "try", "does": "try for a child with them, if they try with you today and you both sleep in one "
-             "place tonight: the more units, the better the chance, less with each one more", "needs": "them here, trying the same day",
+             "place tonight: the more units, the better the chance, less with each one more", "needs": "",
              "args": [_a("with", "a person of the other sex here", True), _a("units", "1 or more", True)],
              "cost": "the units you give it", "who": ["grown", "children"]}],
     "name": [{"shape": "change", "word": "name", "does": "as head, name who heads the household after you; when a head has died, each "
@@ -3188,3 +3188,8 @@ HANDLERS = {"gather": _gather, "work": _work, "make": _make, "build": _build, "m
             "name": _name, "order": _order, "meet": _meet, "come": _come, "write": _write, "erase": _erase, "tend": _tend,
             "rule": lambda here, mind, a, party: __import__("cybertron2.engine.book", fromlist=["act"]).act(here, a)}
 assert set(HANDLERS) == set(VERB)
+
+
+# Every act, craft and way carries its interface (D2-350): one without it is a build error, raised here at load (W-109).
+from cybertron2.engine import iface as _IFC  # noqa: E402
+_IFC.check(VERB)

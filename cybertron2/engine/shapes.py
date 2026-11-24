@@ -21,46 +21,40 @@ from cybertron2.engine.here import Refused
 # Each shape: its arguments, the grammar line, the registry handlers its faces map to (face word -> verb), and which technique verbs
 # sit under it (u9 §3.1). The order is the prompt's.
 SHAPES = {
-    "go": {"args": '{"to": another place or a way, "when"?: morning | nightfall, "on trouble"?: go round | push on | turn back | wait}',
-           "line": 'travel to another place along a road (a part of this place you do not go to: name it as "at" in the act done '
-                   'there); "sleep" at a building; "come" to a meeting called here; a "fire" on the road',
-           "faces": {"travel": "travel", "go": "travel", "sleep": "sleep", "sleep at": "sleep", "come": "come", "fire": "fire"}},
-    "gather": {"args": '{"do", "at": a place here}', "line": "take from the land and water into your hands", "techs": ("gather",)},
-    "set": {"args": '{"do": gear you carry, "at": a place, "qty"?}',
+    "go": {"args": '{"do": an act below}', "line": "travel to another place along a road, sleep, and meet",
+           "faces": {"travel": "travel", "go": "travel", "sleep": "sleep", "sleep at": "sleep", "come": "come", "fire": "fire",
+                     "meet": "meet"}},
+    "gather": {"args": '{"do": a craft, "at": a place here}', "line": "take from the land and water into your hands", "techs": ("gather",)},
+    "set": {"args": '{"do": gear you carry, "at": a place, "qty"?: how many}',
             "line": "lay gear from your hands where it catches by night; it stays, yours, until you take it up (1 unit; up to 6 traps "
                     "or 25 snares)", "faces": {"set": "set", "lay": "set"}},
-    "tend": {"args": '{"thing"?: a tag, "at"?: a place, "up"?: true}',
-             "line": 'go back to your gear: take what it caught and set again what was sprung; "up" brings it home. Unnamed, all of '
-                     'yours of that kind at the place, 1 unit a place; or keep a smokehouse\'s fire for tonight',
+    "tend": {"args": '{"do": an act below}', "line": "go back to what you set, or keep a fire going",
              "faces": {"tend": "tend", "lift": "tend", "check": "tend", "empty": "tend", "walk": "tend", "collect": "tend"}},
-    "make": {"args": '{"do", "qty"?}',
+    "make": {"args": '{"do": a craft, "qty"?: how many times}',
              "line": "goods into goods, from your hands, then stores here you may use; or a lot laid in a container that becomes the "
                      "next good over nights", "techs": ("make",)},
-    "work": {"args": '{"do", "at"?: a thing or a place}', "line": "labour on what stays where it is", "techs": ("work",),
-             "faces": {"write": "write", "erase": "erase"}},
-    "build": {"args": '{"do", "at", "structure"?: wattle | timber | stone}', "line": "its materials at the start, the work over days",
-              "techs": ("build",)},
-    "move": {"args": '{"do": take | give | put | drive, "item", "qty", "from" | "to"}',
-             "line": 'goods between your hands, stores, people and places, or left in the open ("hidden": buried | under brush); a done '
-                     'lot taken down; beasts driven. Taking from a store not yours is theft',
+    "work": {"args": '{"do": a craft or an act below, "at"?: a thing or a place}', "line": "labour on what stays where it is",
+             "techs": ("work",), "faces": {"write": "write", "erase": "erase", "rest": "rest"}},
+    "build": {"args": '{"do": a room, a fitting or a monument, "at": a place on built ground or scrub (a new building or a monument; a '
+                      'camp: any place here but water), or a building here (a room added, a fitting), "structure"?: wattle | timber | '
+                      'stone, "storey"?: 2 | 3 (stone only), "qty"?: beds or stalls, "name"?, "describe"?: a sentence in your words}',
+              "line": "its materials at the start, the work over days; a room added to a building costs a quarter less, an upper storey "
+                      "1.5 or 2 times a room alone and no ground", "techs": ("build",)},
+    "move": {"args": '{"do": an act below}',
+             "line": "goods between your hands, stores, people and places, or left in the open; beasts driven",
              "faces": {"take": "take", "give": "give", "put": "move", "move": "move", "drive": "drive", "leave": "leave",
                        "hide": "hide", "bury": "bury", "put down": "put down"}},
-    "change": {"args": '{"do", "thing"?, "to"?}',
-               "line": 'what you control: a door or a weir\'s gap ("set", "thing", "to"); who may sleep or eat at a house you may let '
-                       'people into (host, grant, revoke); a claim; a name, the heir; your household (leave, found), a partnership '
-                       '(part), a debt (release); a standing rule (rule)',
+    "change": {"args": '{"do": an act below}',
+               "line": 'what you control: doors and gaps, who may use a house, claims, names, your household, a partnership, your '
+                       'offers and debts. Standing rules are written in "rules" (above), not here',
                "faces": {"host": "host", "grant": "grant", "revoke": "revoke", "claim": "claim", "name": "name", "order": "order",
                          "leave": "leave_household", "leave household": "leave_household", "leave_household": "leave_household",
                          "found": "found", "part": "part", "release": "release", "rule": "rule", "withdraw": "withdraw",
                          "door": "set", "gap": "set"}},
-    "agree": {"args": '{"do", "with"?}',
-              "line": "what both must choose: an offer accepted, a lesson (teach or learn, the same day, 2 units each), partnering, "
-                      "joining a household or admitting someone, trying for a child",
+    "agree": {"args": '{"do": an act below}', "line": "with others: what both must choose, and learning from them",
               "faces": {"accept": "accept", "teach": "teach", "learn": "learn", "partner": "partner", "join": "join", "admit": "admit",
-                        "try": "try"}},
-    "force": {"args": '{"do": attack | guard, "target"?, "aim"?: rob | hurt, "at"?, "when"?: day | night}',
-              "line": 'settled tonight: attack (rob, hurt); guard a building, a field or a herd, by night (the default) or by day '
-                      '("when": "day": you spend the units you give it watching there)',
+                        "try": "try", "watch": "watch"}},
+    "force": {"args": '{"do": an act below}', "line": "settled tonight",
               "faces": {"attack": "attack", "guard": "guard", "watch over": "guard", "keep watch": "guard"}},
 }
 FACE = {f: v for s in SHAPES.values() for f, v in (s.get("faces") or {}).items()}
@@ -281,6 +275,8 @@ def normalize(here, mind, a) -> dict:
         x = a.get("what") or a.get("thing") or a.get("id")
         if x:
             return {**{k: v for k, v in a.items() if k not in ("what", "thing", "id")}, "offer": x}
+    if do == "upgrade":                                                       # {"do": "upgrade", "at", "to"}: the build's face
+        return {**a, "do": "build", "what": "upgrade"}
     if do in RULE_DO:                                                        # a rule's kind put in "do" ({"do": "first", ...})
         return _rule(a, RULE_DO[do])
     if do in ("sleep", "sleep at"):
@@ -332,6 +328,8 @@ def normalize(here, mind, a) -> dict:
         if do == "force":
             return {**a, "do": "guard" if not a.get("target") else "attack"}
         verbs = SHAPES[do].get("techs") or ()
+        if do == "build" and what in ("upgrade", "rebuild"):                    # the build shape's upgrade face (W-109)
+            return {**a, "do": "build", "what": what}
         if what:
             t = resolve(mind, what, verbs[0]) if verbs else None
             if t is None and verbs and verbs[0] == "gather":
@@ -455,44 +453,9 @@ def crafts_by_shape(here, mind, first=()) -> dict:
 
 
 def lines(here, mind, first=()) -> list:
-    """The "What you can do" section (u9 §2.3): one entry per shape the person has something to do with, its grammar line and the
-    crafts under it at their level (D2-263); the free shapes always."""
-    from cybertron2.engine import knowledge as KN
-    by = crafts_by_shape(here, mind, first)
-    stage = (mind.person or {}).get("stage", "adult")
-    head = here.head(here.household()) == here.name if here.household() else False
-    out = ['What you can do. Name the craft or the act in "do", and what it acts on:']
-    for sh, row in SHAPES.items():
-        xs = by.get(sh) or []
-        if sh in ("gather", "make", "work", "build") and not xs:
-            continue
-        if sh == "set" and not xs:
-            continue
-        if sh == "tend" and not (by.get("set") or _containers(here)):
-            continue
-        yours = []
-        named = []
-        for t, lvl, uni in xs:
-            if uni:
-                if not KN.where(here, t):                                      # a universal craft with nowhere to do it here
-                    continue
-                season = KN.craft_line(t, "known", None, here).split("best in ", 1)
-                named.append(t + (f" (best in {season[1].split(';')[0].rstrip(')')})" if len(season) > 1 else ""))
-            else:
-                line_ = KN.craft_line(t, lvl, mind.know.get(t), here)
-                lab = KN.label(t)
-                from cybertron2.engine import placed as PL
-                name = PL.NOUN[t][1] if sh == "set" and t in PL.NOUN else t
-                yours.append(name + line_[len(lab):] if line_.startswith(lab) else line_)
-        line = f"- {sh} {row['args']}: {row['line']}."
-        if sh == "change" and head:
-            line = line[:-1] + "; as head, the household's rules and chores, your heir (name), the children's work (order)."
-        if sh == "force" and stage == "youth":
-            line = f"- {sh} " + '{"do": "guard", "at"?, "when"?: day | night}' + ": guard a building, a field or a herd, by night or by day."
-        if yours or named:
-            line += " Yours: " + "; ".join(yours + named) + "."
-        out.append(line)
-    return out
+    """The "What you can do" section: the registry's renderer (iface.lines; W-109, D2-350 to D2-352)."""
+    from cybertron2.engine import iface as IF
+    return IF.lines(here, mind, first)
 
 
 def _containers(here) -> bool:

@@ -162,6 +162,33 @@ METHODS.update({
              "note": "shut up your house, store and hens for the night against whatever comes"},
 })
 
+# What doing each does, in interface terms (W-109; D2-350, D5-2): what happens when one does it, never what the land holds or when
+# (the `note` stays for the old prompt); the set ones take how many one act lays ("qty").
+for _k, _v in {
+    "hunt the wild": "go out after whatever game the place holds, and take what you meet",
+    "stalk": "go quietly after a beast that keeps to its paths, and take it with a weapon",
+    "drive": "beat a wood with others to drive beasts onto waiting spears: it needs others with you (a party you lead, or another's "
+             "you join with \"with\")",
+    "snare": "set a line of nooses from your hands; it stays where you set it and catches by night for a few nights: come back (tend) "
+             "and take what is in them, or it rots there or another finds it",
+    "net": "spread nets and decoys where birds come down, and take what you net",
+    "trap in water": "set wicker traps from your hands in the water; they stay and fish by night: come back (tend) and take what is in "
+                     "them, or it rots there or another finds it",
+    "gill net": "set a gill net from your hands across open water at dusk; it fishes by night and stays until you take it up (tend)",
+    "set line": "set a line of baited hooks from your hands in the water at dusk; it fishes by night and stays until you take it up "
+                "(tend)",
+    "den work": "dig out a beast's den, or trap at a lodge, where you know one to be",
+    "gather young": "take the young from the nests of a colony",
+    "pest work": "go over a crop and take off what is eating it; name the pest with \"looking for\", else the worst there",
+    "break a dam": "pull open a dam that floods a meadow",
+    "guard the field": "sit up by a field all night to scare beasts off, with a fire, clappers, a horn or the dog; you lose the "
+                       "night's sleep",
+    "shut": "shut up your house, store and hens for the night",
+}.items():
+    METHODS[_k]["does"] = _v
+for _k in SETS:
+    METHODS[_k]["args"] = [{"key": "qty", "is": "how many", "req": False, "opts": {}, "who": []}]
+
 LOAD_NAMES = {"moles": ("moles", "mole", "molehills"), "leatherjackets": ("leatherjackets", "the rooks' grubs", "root grubs"),
               "slugs": ("slugs", "slug", "snails"), "aphids": ("aphids", "fly", "blackfly", "greenfly", "the fly", "bean fly"),
               "ladybirds": ("grubs", "the grubs", "spiny grubs", "grey grubs", "ladybirds", "ladybird grubs")}   # a pest's names (§7)

@@ -118,6 +118,21 @@ TECHNIQUES = {
                  "manual": "pulled flax laid in still water for a night, or spread on the grass for 3, until the stems part from the fibre: "
                            "up to 50 kg a unit, 8 kg retted from 10; a spate on the river washes half away; lift it with a take"},
 }
+# What doing each does, in interface terms (W-109; D2-350): the world's figures (keeping times, firewood a kg) stay in `manual` for
+# the old prompt and in the engine's own results ("the fire ... wants about 0.6 bundles of firewood"), never in the interface.
+_KS_DOES = ("hang it on the racks of a smokehouse: done after 1 night of a tended fire (tend it daily; it burns firewood from the "
+            "smokehouse's store or the woodpile at its door); a lot that misses its fire waits; take the done lot down with move")
+_HC_DOES = ("hang salted goods in a timber or stone smokehouse: done after 3 nights of a tended fire; take the done lot down with move")
+for _k, _v in {"smoke fish": _KS_DOES, "smoke meat": _KS_DOES, "hard cure fish": _HC_DOES, "hard cure meat": _HC_DOES,
+               "hot smoke fish": "smoke it over a fire in one go: done in the act, cooked",
+               "hot smoke meat": "smoke it over a fire in one go: done in the act, cooked",
+               "dry meat": "hang it on the rack at a hearth or a fire ring: dry after a night of the fire (outside, a dry night), at half "
+                           "the weight",
+               "dry fish": "hang it on the rack at a hearth or a fire ring: dry after a night of the fire (outside, a dry night), at half "
+                           "the weight",
+               "ret flax": "lay pulled flax in still water for a night, or spread on the grass for 3, until the stems part from the "
+                           "fibre; lift it with a take"}.items():
+    TECHNIQUES[_k]["does"] = _v
 # the containers (u4 §4; D2-284, D2-291): a set of racks holds 250 kg on 1 space; the building caps the sets (`per`, `work floor`)
 FITTINGS = {
     "smoke racks": {"process": ["keeping smoke", "hard cure"], "holds_kg": 250, "spaces": 1, "per": "set", "racks": None,

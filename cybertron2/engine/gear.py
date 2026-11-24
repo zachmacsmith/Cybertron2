@@ -152,7 +152,11 @@ def register_techniques(techniques) -> None:
         techniques[k] = row
     techniques["mend gear"] = {"verb": "make", "label": "mending gear (traps, nets, lines)", "basic": True,
                                "aliases": ["mend", "mend traps", "mend the traps", "mend nets", "mend the net", "mend the nets", "mend lines"],
-                               "mend_gear": True, "units": 1, "gives": "", "inputs": {}, "tags": ["craft", "fishing"]}
+                               "mend_gear": True, "units": 1, "gives": "", "inputs": {}, "tags": ["craft", "fishing"],
+                               "does": "mend the worn gear in your hands, one kind an act: half its full uses back, a tenth of its "
+                                       "materials a piece",
+                               "args": [{"key": "item", "is": "the gear to mend (else the most worn in your hands)", "req": False,
+                                         "opts": {}, "who": []}]}
 
 
 def craft_of(item) -> str | None:

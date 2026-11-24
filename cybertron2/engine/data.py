@@ -1271,6 +1271,40 @@ for _k in ("grind", "mill", "water mill", "bread", "oven bread", "salt fish", "s
            "cheese"):
     TECHNIQUES[_k]["batch"] = True
 
+# The crafts' interface where the label does not say it all (W-109; D2-350, D2-352): `does`, what doing it does in interface terms
+# (never what the world yields); `args`, what the craft takes beyond its shape's ("req": it must be said; "opts": each option and
+# what it does); `who`, the conditions (iface.WHO) under which it is shown. Each feature unit writes its own rows' (gear, process,
+# the wild methods); iface.check refuses a set, processed, crew or noted craft without `does`.
+def _arg(key, what=None, req=False, opts=None) -> dict:
+    return {"key": key, "is": what, "req": req, "opts": opts or {}, "who": []}
+
+
+for _k, _v in {
+    "sow": {"args": [_arg("item", "the seed to sow, always said", True, {s_: "" for s_ in SEED_CROP}),
+                     _arg("plots", "how many plots to sow at most"),
+                     _arg("on", "in a field held in shares, whose plots (a household or person; else your own, then the unclaimed)")]},
+    "slaughter": {"args": [_arg("item", "the beast (else the young first)", False, {"cow": "", "ox": "", "bull": "", "calf": ""})]},
+    "care": {"args": [_arg("at", "the child", True), _arg("item", "food from your hands to give it tonight"), _arg("qty", "how much"),
+                      _arg("pass", "a sentence for the child to keep")], "who": ["children"]},
+    "bury": {"args": [_arg("at", "the body", True)]},
+    "burn": {"args": [_arg("at", "the dead beast", True)]},
+    "ditch": {"does": "ditch and bank wet ground: crew work, anyone may dig, led by one who knows how"},
+    "terrace": {"does": "terrace hill ground: crew work, anyone may dig, led by one who knows how"},
+    "wall": {"does": "wall a parcel round in dry stone: crew work, anyone may work on it, led by one who knows how"},
+    "boil salt": {"does": "boil brine drawn from the spring beside a brine pan dry over a fire; the pan burns through with use and is "
+                          "mended"},
+    "weir": {"args": [_arg("with", "one or more people here: the crew who build it with you", True)]},
+    "salt fish": {"does": "pack it in salt in the act, in a salting tub where there is one: up to 40 kg a unit"},
+    "salt meat": {"does": "pack it in salt in the act, in a salting tub where there is one: up to 40 kg a unit"},
+}.items():
+    TECHNIQUES[_k].update(_v)
+# A way that takes any value says what it takes (W-109): what the reply writes after its key.
+for _k, _v in {"hunt alone": "true", "hunt only with": "[the people you take]", "hunt with": "who leads",
+               "lead on the hunt": "the ox", "looking for": "a kind or a sort", "stop at": "a good place you know on the way",
+               "searching": "a herd or a person lost on that road", "gather on the way": "true",
+               "lead": "a herd of yours here with an ox"}.items():
+    TECHNIQUES[_k]["takes"] = _v
+
 # ---------------------------------------------------------------------------------------------------------------- life (spec/life)
 # Birth and death (life/birth_and_death.md: D2-138 to D2-152; calibrate where the spec says so). Stages by days since birth (D2-139):
 # infant 2, child 4, youth 12, adult 50, then elder. A world sets `children: {on: true, dial: low | high}`; off, nobody conceives.
