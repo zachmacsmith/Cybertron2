@@ -30,5 +30,6 @@ started
 - [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]]
 - [[W-110 The engine's design patterns surveyed against the whole engine and…|The engine's design patterns surveyed against the whole engine and… (W-110)]]
 - [[L-190 The interface rebuild's Not done|The interface rebuild's Not done (L-190)]]
+- [[L-191 The shallows' richness|The shallows' richness (L-191)]]
 - [[The engine's architecture overhauled general mechanisms over typed…|The engine's architecture overhauled: general mechanisms over typed…]]
 - [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]

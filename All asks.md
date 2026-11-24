@@ -1,6 +1,8 @@
 # All asks
 
 ## Open
+- [[Q-106 The lamprey's second fault|The lamprey's second fault (Q-106)]] (open)
+- [[Q-105 Whether World 0b is reworked before it is the benchmark world|Whether World 0b is reworked before it is the benchmark world (Q-105)]] (open)
 - [[Q-103 The interface rebuild's defaults|The interface rebuild's defaults (Q-103)]] (open)
 - [[Q-102 The interface's size|The interface's size (Q-102)]] (open)
 - [[Q-101 The two priority threads' scope|The two priority threads' scope (Q-101)]] (open)
@@ -53,7 +55,8 @@
 - [[Q-RR3 The human player's first interface|The human player's first interface (Q-RR3)]] (open)
 - [[Q-RR5 A replay test with shuffled completion order of model calls|A replay test with shuffled completion order of model calls (Q-RR5)]] (open)
 
-## Closed (61)
+## Closed (62)
+- [[Q-104 Merging this thread's fixes to main|Merging this thread's fixes to main (Q-104)]]
 - [[Q-98 One clock for the water's food before anything is sized|One clock for the water's food before anything is sized (Q-98)]]
 - [[Q-91 How a water-only village is made able to last the year|How a water-only village is made able to last the year (Q-91)]]
 - [[Q-89 Whether a water-only village should last the year, or the spring gap…|Whether a water-only village should last the year, or the spring gap… (Q-89)]]

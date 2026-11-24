@@ -25,6 +25,7 @@ conversation (22 Nov: "conversation (22 Nov: "make principled distinctions betwe
 - [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]]
 - [[Q-98 One clock for the water's food before anything is sized|One clock for the water's food before anything is sized (Q-98)]]
 - [[L-148 The wild's clock|The wild's clock (L-148)]]
+- [[L-191 The shallows' richness|The shallows' richness (L-191)]]
 - [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]
 - [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]

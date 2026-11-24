@@ -5,13 +5,13 @@ updated: "2026-11-24"
 ---
 # A stable engine for comparative runs: everything built so far tidied, usable and pinned
 
-*proposal · discussion (24 Nov 2026), opened at Zach's ask; scope and acceptance for him to  · `docs/cybertron2/proposals/stable_engine_for_runs.md`*
+*proposal · discussion (24 Nov); scope settled by Zach (Q-101, Q-100); being built on W-111 · `docs/cybertron2/proposals/stable_engine_for_runs.md`*
 
-> Zach (24 Nov): "Everything that has been built so far needs to be tidied up and usable so that I can run experiments on the current engine version as desired." The fishing, hunting and materials wave ([[W-73 Fishing, hunting and their materials developed together|W-73]]) left the engine with an interface that hid acts, regressions in old worlds, half-built decisi
+> the engine as it stands tidied, usable and pinned for comparative runs between models: faults fixed with module tests, no silent failure, other sessions' fixes merged, the records reconciled, a tag
 
 
-**Status:** discussion (24 Nov 2026), opened at Zach's ask; scope and acceptance for him to confirm.
-**Owner:** to be assigned (a new session takes it; 37.2 hands over). **Thread:** [[W-111 Priority thread a|W-111]] (priority thread a).
+**Status:** discussion (24 Nov 2026), opened at Zach's ask; scope settled by Zach ([[Q-101 The two priority threads' scope|Q-101]], [[Q-100 Old water worlds|Q-100]]); acceptance for him to confirm.
+**Owner:** session stable (from 24 Nov; 37.2 handed over). **Thread:** [[W-111 Priority thread a|W-111]] (priority thread a).
 **Runs it serves:** comparative, longer-term monoculture runs between models (session bench's World 0b, W-201 to W-203, and others).
 
 ## Start here (for the agent taking this thread)
@@ -98,11 +98,15 @@ some models' agents. Today it does both.
 
 ## Open questions for Zach
 
-1. Which worlds are the experiment worlds (World 0b only, or also Eelmouth and others)?
-2. Is the freeze on new content right, including stage 5 and live run 2?
-3. Old water worlds: seed them, or refuse them ([[Q-100 Old water worlds|Q-100]])?
-4. The waters' faults: fix the lamprey and the clock now (small), or leave the waters as they are and keep water-heavy worlds out
-   of the experiments until [[W-112 Priority thread b|W-112]]?
+Answered 24 Nov ([[Q-101 The two priority threads' scope|Q-101]], [[Q-100 Old water worlds|Q-100]]):
+1. The experiment worlds are World 0b (its arms) and Eelmouth.
+2. The freeze as written: stage 5, stage 5b's feature parts and live run 2 wait.
+3. Old water worlds: both: their trappers seeded with traps and the craft as Eelmouth's fill does, and `World()` refuses what
+   the gate check refuses (default taken: the recommended option chosen).
+4. The waters: the lamprey is fixed here; the shallows' richness is benched: Zach doubts the figure ("I can't believe the
+   shallows are 11.4 times too rich so maybe bench that"), so the claim is checked before any fix ([[L-191 The shallows' richness|L-191]]).
+
+Still open: the acceptance list below.
 
 ## Affects
 
@@ -113,6 +117,13 @@ The engine's interface (`prompt.py`, `core.py`, `shapes.py`, `view.py`, `verbs.p
 ## History
 
 - **24 Nov 2026:** opened by 37.2 at Zach's ask, from the week's audits, as one of two priority threads (with [[W-112 Priority thread b|W-112]]).
+- **24 Nov 2026:** taken by session stable. Zach settled the scope: World 0b and Eelmouth are the experiment worlds; the freeze
+  as written; old water worlds seeded and gate-refused worlds refused by `World()`; the lamprey fixed, the shallows benched ([[L-191 The shallows' richness|L-191]]).
+- **24 Nov 2026:** built on [[W-111 Priority thread a|W-111]] (branch `claude/busy-turing-v54rhu`): the gate at a run's start, where anyone acts by a model,
+  with waivers and `--ungated` said in the first line (default taken: at the run's start, not in `World()`, [[Q-100 Old water worlds|Q-100]]); the old water
+  worlds' traps; the lamprey's spawners kept at the history's end; the founders' lines by the runs and by village ([[D2-349 Founders' seeded lines about other households follow where they live…|D2-349]]); the
+  signs' bug fixes ([[D2-346 The signs design|D2-346]]); M7 firing; the engine tag in the run record (§6). The fault table checked:
+  `docs/review/40_stable_engine/fault_table.md`; a first acceptance pass: `acceptance.md` there.
 
 ## Sources
 

@@ -1,13 +1,13 @@
 ---
 id: L-178
 kind: deferred
-state: open
+state: closed
 updated: "2026-11-24"
 ---
 
 # Wording bugs (L-178)
 
-*open · 37.2*
+*closed, by agent (provisional) · 37.2*
 
 ## Later
 

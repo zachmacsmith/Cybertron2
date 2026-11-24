@@ -1,6 +1,7 @@
 # All offers
 
 ## Open
+- [[O-5 Reconcile the audits into the records|Reconcile the audits into the records (O-5)]] (open)
 - [[O-4 Bridge the backward family-tree build into world generation as an…|Bridge the backward family-tree build into world generation as an… (O-4)]] (open)
 - [[O-1 A first wiki generated from the spec as it stands, as a private page…|A first wiki generated from the spec as it stands, as a private page… (O-1)]] (open)
 

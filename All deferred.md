@@ -1,8 +1,8 @@
 # All deferred
 
 ## Open
+- [[L-191 The shallows' richness|The shallows' richness (L-191)]] (open)
 - [[L-190 The interface rebuild's Not done|The interface rebuild's Not done (L-190)]] (open)
-- [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]] (open)
 - [[L-188 Smaller regressions from the wave|Smaller regressions from the wave (L-188)]] (open)
 - [[L-187 Regressions from the wave for stage 5b|Regressions from the wave for stage 5b (L-187)]] (open)
 - [[L-186 A cairn costs nothing since the wave|A cairn costs nothing since the wave (L-186)]] (open)
@@ -12,8 +12,6 @@
 - [[L-182 The elders' line|The elders' line (L-182)]] (open)
 - [[L-181 Designed but sent later by the design itself|Designed but sent later by the design itself (L-181)]] (open)
 - [[L-180 Signs to design before building|Signs to design before building (L-180)]] (open)
-- [[L-179 Every take's line says 'food worth about 1 meal' at the least|Every take's line says 'food worth about 1 meal' at the least (L-179)]] (open)
-- [[L-178 Wording bugs|Wording bugs (L-178)]] (open)
 - [[L-177 AB prompt replay|A/B prompt replay (L-177)]] (open)
 - [[L-176 Noticing in parts of the day, so what is seen at mid-morning can…|Noticing in parts of the day, so what is seen at mid-morning can… (L-176)]] (open)
 - [[L-174 Remove the engine's automatic detection and telling of breaches and…|Remove the engine's automatic detection and telling of breaches and… (L-174)]] (open)
@@ -156,7 +154,10 @@
 - [[L-2 Scavengers, with wild animals that attack herds and hunters and are…|Scavengers, with wild animals that attack herds and hunters and are… (L-2)]] (open)
 - [[L-1 Signs of slow change on long journeys|Signs of slow change on long journeys (L-1)]] (open)
 
-## Closed (3)
+## Closed (6)
+- [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]]
+- [[L-179 Every take's line says 'food worth about 1 meal' at the least|Every take's line says 'food worth about 1 meal' at the least (L-179)]]
+- [[L-178 Wording bugs|Wording bugs (L-178)]]
 - [[L-175 Teaching, partnerships and joins settled before the evening, so a…|Teaching, partnerships and joins settled before the evening, so a… (L-175)]]
 - [[L-148 The wild's clock|The wild's clock (L-148)]]
 - [[L-137 Stores may be too strong against preserving|Stores may be too strong against preserving (L-137)]]

@@ -19,6 +19,9 @@
 - [[Q-42 The peoples benchmark's design before any run|The peoples benchmark's design before any run (Q-42)]]
 
 ## To confirm or revisit
+- [[L-178 Wording bugs|Wording bugs (L-178)]]: closed by agent
+- [[L-179 Every take's line says 'food worth about 1 meal' at the least|Every take's line says 'food worth about 1 meal' at the least (L-179)]]: closed by agent
+- [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]]: closed by agent
 - [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]]: closed by agent
 - [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]: revisit: kept open on purpose with W-39 (Zach, 20 Nov)
 - [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]]: closed by agent
@@ -28,9 +31,6 @@
 - [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]: closed by agent
 - [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]: closed by agent
 - [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]]: closed by agent
-- [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]: closed by agent
-- [[W-39 The economy's web of dependence and how far it should reach|The economy's web of dependence and how far it should reach (W-39)]]: revisit: kept open on purpose (Zach, 20 Nov: 'this should be another thread of its own purposefully kept open')
-- [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]: closed by agent
 
 ## Active threads (22)
 
@@ -59,8 +59,6 @@
   next: both reads done (sweep.md, generality.md); the proposal waters_general.md with Zach (Q-98, Q-99); then 5b…
 - [[W-110 The engine's design patterns surveyed against the whole engine and…|The engine's design patterns surveyed against the whole engine and… (W-110)]]  
   next: four survey agents by area; then 37.2 synthesises a proposal
-- [[W-111 Priority thread a|Priority thread a (W-111)]]  
-  next: a new session takes it (proposals/stable_engine_for_runs.md, Start here); 37.2 finishes and merges W-109…
 - [[W-112 Priority thread b|Priority thread b (W-112)]]  
   next: a new session takes it (proposals/architecture_overhaul.md, Start here): finish surveys A and B, then the…
 
@@ -80,6 +78,10 @@
   next: Zach's merge; 37.2's LAKE_FISH from the whole lake; report 38.76
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]  
   next: merge (Zach), a bot run to measure the new rows' chances, item 9 after W-56
+
+**stable**
+- [[W-111 Priority thread a|Priority thread a (W-111)]]  
+  next: Zach: merge to main (Q-104); the live check (one model, a few days) on his go; then the replay of live run 1…
 
 ## Waiting threads (12)
 

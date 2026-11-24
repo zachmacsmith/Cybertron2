@@ -1,13 +1,13 @@
 ---
 id: L-179
 kind: deferred
-state: open
+state: closed
 updated: "2026-11-24"
 ---
 
 # Every take's line says 'food worth about 1 meal' at the least (L-179)
 
-*open · 37.2*
+*closed, by agent (provisional) · 37.2*
 
 ## Later
 

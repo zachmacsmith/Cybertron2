@@ -23,7 +23,8 @@ done 24 Nov: merged c64c16f9: the interface read from one registry (acts, techni
 
 
 ## Mentioned by
-- [[W-111 Priority thread a|Priority thread a (W-111)]]
+- [[Q-104 Merging this thread's fixes to main|Merging this thread's fixes to main (Q-104)]]
+- [[L-187 Regressions from the wave for stage 5b|Regressions from the wave for stage 5b (L-187)]]
 - [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]]
 - [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]
 - [[Brief the interface from one registry (thread W-109)|Brief: the interface from one registry (thread W-109)]]
