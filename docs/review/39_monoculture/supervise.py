@@ -91,6 +91,10 @@ def main():
             log(f"{name}: published")
             return
         w = windows()
+        if not w:                                                       # the check is itself a call: at the limit it fails, and
+            log(f"{name}: at day {done}, waiting: the usage check failed (a usage limit, most likely)")   # a failed check
+            time.sleep(POLL)                                            # means wait, never go (it read as 0% and relaunched
+            continue                                                    # every 2 minutes into the limit, 24 Nov)
         week, five = w.get("seven_day", 0.0), w.get("five_hour", 0.0)
         if week >= STOP_WEEK:
             log(f"{name}: stopped at day {done}: the weekly window is {week:.0%} used; not resuming")

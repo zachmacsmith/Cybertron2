@@ -153,6 +153,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-210 | **Whether to keep World 0's Haiku 4.5 arm running: it costs about 13 times Haiku 5.5 a day (its fixed thinking budget), about 5.5 minutes a day against 1.4, so 200 days is about 18 hours and a large share of the weekly window** | | bench |
 | Q-211 | **World 0 is hard: the eel run reaches Highpool on day 5 but days 6 to 10 are spate and flood (traps wrecked), winter starts on day 13, and Highpool's stores last 5 to 7 days; keep it as the hard world, or add a gentler World 0b (start in spring, stores to the first harvest and catch through a bad run) for the next arms** | | bench |
 | Q-214 | **Ids collide between sessions on separate branches (main has reused W-202, W-203, W-108, O-201 since my last merge): give session bench its own range (W-500 up, and the same for Q, L, O), or renumber at each merge** | | bench |
+| Q-215 | **The usage budget fits two of World 0b's five arms to 200 days this week: Haiku 5.5 (about $0.09 a day) and Sonnet 5.5 ($0.75) run on; Haiku 4.5 ($1.18), Sonnet 4.5 ($2.15) and Sonnet 5 ($3.04) are paused at days 3, 3 and 2. Stop them, run them to about day 25 later, or carry them on next week** | | bench |
 
 ## Offers and promises
 
