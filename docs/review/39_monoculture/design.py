@@ -1,4 +1,4 @@
-"""The five designed worlds moved to cybertron2/specs/mono_design.py (W-107); this name kept for draw.py and topology.py."""
+"""The five designed worlds moved to cybertron2/specs/mono_design.py (W-203); this name kept for draw.py and topology.py."""
 import os
 import sys
 

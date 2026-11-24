@@ -1,4 +1,4 @@
-"""Keep one World 0 arm going to its last day (W-106): while its engine process is alive, wait; when it has stopped short of the
+"""Keep one World 0 arm going to its last day (W-202): while its engine process is alive, wait; when it has stopped short of the
 world's days (the weekly stop, or a day abandoned when the five-hour window ran out), wait until both usage windows have room, then
 `resume --from-last`; when it has finished, publish it (D2-332). Stops for good when the weekly window passes STOP_WEEK.
 

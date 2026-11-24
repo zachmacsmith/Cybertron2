@@ -1,4 +1,4 @@
-"""The monoculture worlds as generated worlds (W-107): Fallowmere (M1) and the Scattering (M5) from mono_design.py
+"""The monoculture worlds as generated worlds (W-203): Fallowmere (M1) and the Scattering (M5) from mono_design.py
 (proposals/monoculture_five_worlds.md §2 and §6), realised with the land generator the way make_peoples.py realises the peoples
 worlds (every place and road pinned; the design's features; fish and salt stocked), then:
 - **the founders** of the design, in place of the generator's people: names, sexes, ages (mixed: founders turn elder from about day
@@ -291,7 +291,7 @@ def seed_lines(world: dict, key: str) -> dict:
                     a["aware_of"].pop(c, None)
     keeper_of = {b.get("keeper"): b for b in world["buildings"].values() if b.get("keeper")}
     for n, b in keeper_of.items():                                          # a holding's keeper line where founders.py has no template
-        a = world["agents"].get(n)                                          # (smith, miller, farmer: L-179)
+        a = world["agents"].get(n)                                          # (smith, miller, farmer: L-201)
         if a is None or any(k.get("source") == "a holding" for k in a.get("kept") or []):
             continue
         kind = next((k for k in KEEPER_LINE if k in b["name"].lower() or (b.get("fittings") or {}).get(k)), None)

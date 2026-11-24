@@ -1,4 +1,4 @@
-"""World 0, Highpool and Middleham: the first monoculture world (proposals/monoculture_five_worlds.md §1a; W-105, W-106).
+"""World 0, Highpool and Middleham: the first monoculture world (proposals/monoculture_five_worlds.md §1a; W-201, W-202).
 
 Made from the runs world (`specs/water/runs.yaml`, seed 5) on the rebuilt engine, the way make_eelmouth.py remade Eelmouth:
 - **two villages, a day apart on one river:** Highpool fishes and boils salt (Brook: the Salt House, the forge; Marsh: fishing),
@@ -48,7 +48,7 @@ SKILLS = {
                    "Fletcher": {"livelihoods": ["miller", "farmer"], "experts": ["the_mill"]}},
     "couple": {"capital_knowledge": True, "livelihood_land": True, "crafts_capital": True, "gates": True},
 }
-BUFFER = {"marsh_house": {"smoked fish": 60}, "brook_house": {"smoked fish": 40}}   # World 0b (W-106, Q-99): Highpool's stores
+BUFFER = {"marsh_house": {"smoked fish": 60}, "brook_house": {"smoked fish": 40}}   # World 0b (W-202, Q-211): Highpool's stores
 # carry it through a run lost to spate (the first world 0's run came in a week of flood, and its 5 to 7 days of food did not)
 MILL_LINE = ("I keep Middleham Mill: it grinds grain to flour on the river's water. Its stones want dressing and its leat clearing "
              "now and then, or it grinds slow.")
@@ -113,7 +113,7 @@ def remake(src=SRC) -> tuple:
             a.pop("memories", None)                                     # the seeded lines are kept lines (as make_eelmouth.arms)
         a["kept"] = [{"text": GOAL, "fixed": True}] + [k for k in (a.get("kept") or []) if k.get("text") != GOAL]
         if a is w["agents"].get("Hamo"):                                # founders.py has no miller, farmer or herder templates yet,
-            a["kept"].insert(1, {"text": MILL_LINE, "source": "a holding"})  # so the mill's keeper line is written here (L-179)
+            a["kept"].insert(1, {"text": MILL_LINE, "source": "a holding"})  # so the mill's keeper line is written here (L-201)
         while len(a["kept"]) > CAP:                                     # the goal is inside the founders' 20 (D2-311): the last seeded
             a["kept"].pop()                                             # line goes, as U9's drop order takes the last first
     report["skipped"].append("the gone households: " + ", ".join(sorted(gone_hh)) + f" ({len(gone)} people)")

@@ -3,7 +3,7 @@
 **Status:** exploration (23 Nov 2026). Nothing decided or built.
 **Owner:** bench (session "monoculture worlds"). The generator and the wild are 37.2's; the life rules and runs 37.4's; this file
 proposes worlds on them and names every engine gap it would need, for those owners.
-**Thread:** monocultural benchmark worlds (W-105); relates the peoples benchmark (W-34), demography and growth (W-93), the deferred
+**Thread:** monocultural benchmark worlds (W-201); relates the peoples benchmark (W-34), demography and growth (W-93), the deferred
 descendants benchmark (L-104).
 
 ## Summary
@@ -90,9 +90,9 @@ living in your household, and in any household its members go on to found, at th
 2. **The run discriminates.** Under one aim, the same land and the same start, households went from 0 to 11. That is the signal a
    monoculture world is built to read, at the level of a whole society.
 3. **Boom and bust is the shape to expect,** as Zach intended (10 Nov: "they can only reproduce as fast as their society can actually
-   support"). The area under the curve and the end count read it differently (the Brooks: peak 10, end 5), which bears on Q-101.
+   support"). The area under the curve and the end count read it differently (the Brooks: peak 10, end 5), which bears on Q-213.
 4. **The graded wording worked** where the in-world wording of pw1 did not visibly, though the two runs differ in more than the
-   wording. It is open against the rule that aims are in-world, never scoring proxies (conflict C-12; Q-100).
+   wording. It is open against the rule that aims are in-world, never scoring proxies (conflict C-12; Q-212).
 5. It was not a monoculture (a model to each household, three a village) and n = 1; 30 days of a planned 200.
 
 ## 3. The axes a world can vary
@@ -252,7 +252,7 @@ docs/scenario_design.md §2; the senses guide if G5 is taken.
 ## History
 
 - 23 Nov 2026 (later): Zach decided the graded goal line for monoculture runs (D5-1). Five concrete worlds designed at his request in
-  proposals/monoculture_five_worlds.md; §5's grid is kept for pairwise comparisons (Q-89).
+  proposals/monoculture_five_worlds.md; §5's grid is kept for pairwise comparisons (Q-201).
 - 23 Nov 2026: accepted in part: D5-1 (Monoculture benchmark runs seed the graded goal line, in the same wording as the).
 - 23 Nov 2026 (later): Zach pointed to the 30-day runs world with a model to each household. Read from its data (days 0 to 29):
   §2's new subsection; principle 7 (partners outside the household) added; pw1 no longer read as the general case.

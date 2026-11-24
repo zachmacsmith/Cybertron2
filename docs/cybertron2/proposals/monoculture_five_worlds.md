@@ -2,7 +2,7 @@
 
 **Status:** discussion (23 Nov 2026). Designs only: nothing generated or built.
 **Owner:** bench. Generation and the wild are 37.2's; the life rules are 37.4's.
-**Thread:** monocultural benchmark worlds (W-105); the frame is proposals/monoculture_worlds.md; the aim is D5-1.
+**Thread:** monocultural benchmark worlds (W-201); the frame is proposals/monoculture_worlds.md; the aim is D5-1.
 
 ## Summary
 
@@ -476,7 +476,7 @@ group and in all.
 
 **Gaps:**
 - **G5, a sign that carries between places** (smoke on the horizon). Without it first contact comes only by searching or by luck on
-  the road, which may be the right test, but should be chosen (monoculture_worlds.md Q-91);
+  the road, which may be the right test, but should be chosen (monoculture_worlds.md Q-203);
 - the kin rule (Q-b);
 - the generator at 140 km (§1 Size);
 - coast villages in the generator (W-54);
@@ -509,14 +509,14 @@ At lifespan 64 the acting people (youths, adults and elders) are about 70% of th
 
 ## 9. Questions for Zach
 
-- **Q-a (Q-93): the aim for those born in the run.** D5-1 gives the line to founders; children get it only if someone passes it (70 of 134
+- **Q-a (Q-205): the aim for those born in the run.** D5-1 gives the line to founders; children get it only if someone passes it (70 of 134
   lines passed in the runs world were the goal, founders_knowledge.md).
   - *Recommend:* give it to each youth at coming of age as well, so the score measures growth, not whether the aim was handed on.
   - *Default:* founders only, as the runs world did.
-- **Q-b (Q-94): a kin rule.** No partnering or trying between parent and child or siblings. It is not in the engine, and World 5 rests on it.
+- **Q-b (Q-206): a kin rule.** No partnering or trying between parent and child or siblings. It is not in the engine, and World 5 rests on it.
   - *Recommend:* yes, a small rule.
   - *Default:* none (the models' own norms).
-- **Q-c (Q-95): which first.**
+- **Q-c (Q-207): which first.**
   - *Recommend:* World 1 first, to prove the 200-day machinery; then World 5 (the most distinct test) or World 2 (the wave's own
     systems).
   - *Default:* World 1.
@@ -566,7 +566,7 @@ What this changes:
   winter. That is the intent (descendants_benchmark.md §3: the headroom is reached by practice).
 - A people can grow by filling one rich place, not only by scattering over many small ones. Whether they concentrate or spread is
   now their choice.
-- **The open cost** (Q-97): a place of room 12 to 14 could hold 60 or more people at one node. The engine's proposed limit is about
+- **The open cost** (Q-209): a place of room 12 to 14 could hold 60 or more people at one node. The engine's proposed limit is about
   15 to 20 people a node (spec/world/places.md), not enforced, and talk at a node grows with the square of those present.
 - The capacity figures in §2 to §6 ("the whole map holds about 130") were guessed on the draft's room. They are to be redone with
   the capacity ladder before any run.
@@ -610,7 +610,7 @@ docs/review/39_monoculture/ (made by `world0_map.py` and `draw.py` from `design.
 ## Alternatives considered
 
 - **The grid of monoculture_worlds.md §5** (one land, four starts; one start, eight lands): it reads one axis at a time. Zach asked
-  for worlds that each vary several axes, at several levels of complexity. The grid is kept open (Q-89) for when a pairwise
+  for worlds that each vary several axes, at several levels of complexity. The grid is kept open (Q-201) for when a pairwise
   comparison is wanted.
 - **Generated worlds without hand-designed maps:** the generator would choose the vacant places, but would not make the specific
   levers each world tests (the rumour, the feral herd, the empty hamlets, the four countries).
@@ -624,7 +624,7 @@ docs/review/39_monoculture/ (made by `world0_map.py` and `draw.py` from `design.
 - 23 Nov 2026 (later): maps drawn (§Maps). World 0's map found copper at w4, a day from Highpool; World 5's map drawn new
   (110 km) rather than on W5's roads, which put the wood a day from the coast.
 - 23 Nov 2026 (later): Zach asked that the first world be small, with two connected villages, fishing and farming, to test the
-  dependencies (Q-95 answered). World 0, Highpool and Middleham, added in §1a, on the runs world's land.
+  dependencies (Q-207 answered). World 0, Highpool and Middleham, added in §1a, on the runs world's land.
 - 23 Nov 2026: written by session bench at Zach's request; five worlds, after D5-1 (the graded line).
 
 ## Sources

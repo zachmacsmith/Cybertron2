@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# World 0's live runs (W-106): run one arm, then keep it at once by publishing it to the dataset (as live run 1, D2-332).
+# World 0's live runs (W-202): run one arm, then keep it at once by publishing it to the dataset (as live run 1, D2-332).
 #   run_arm.sh <world yaml> <out name> <days> [--bots ...]
 # Outputs go to /home/user/mono1/<out name>; a line per start, end and publish in /home/user/mono1/log.txt.
 set -u
