@@ -33,6 +33,8 @@ conversation (22 Nov: "conversation (22 Nov: "I agree with your 3. Recipes shown
 - [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
 - [[U8. Signs and senses the river's signs with their leads, keeping's…|U8. Signs and senses: the river's signs with their leads, keeping's…]]
+- [[What the rebuilt prompt no longer shows (24 Nov 2026, session bench…|What the rebuilt prompt no longer shows (24 Nov 2026, session bench…]]
+- [[The new prompt against the old, act by act (37.2, 24 Nov 2026)|The new prompt against the old, act by act (37.2, 24 Nov 2026)]]
 - [[spec_agents_brief.md|spec_agents_brief.md]]
 - [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]
 - [[Stage 2 of the fishing, hunting and materials wave taking and making…|Stage 2 of the fishing, hunting and materials wave: taking and making…]]

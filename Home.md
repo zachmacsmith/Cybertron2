@@ -32,7 +32,7 @@
 - [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]: closed by agent
 - [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]: closed by agent
 
-## Active threads (20)
+## Active threads (21)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -59,6 +59,8 @@
   next: the stage 5 brief and builder (branch w85-s5-works)
 - [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]]  
   next: both reads done (sweep.md, generality.md); the proposal waters_general.md with Zach (Q-98, Q-99); then 5b…
+- [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]  
+  next: builder on branch w109-interface in /home/user/c2-iface; then 37.2 reviews, replays real replies and merges
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  

@@ -28,6 +28,7 @@ conversation (22 Nov: "Your own rule should overrun chores. They just by default
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U6. The household book where goods go, what is kept, first, eaten…|U6. The household book: where goods go, what is kept, first, eaten…]]
 - [[The world record's shape and its version|The world record's shape and its version]]
+- [[The new prompt against the old, act by act (37.2, 24 Nov 2026)|The new prompt against the old, act by act (37.2, 24 Nov 2026)]]
 - [[Brief build stage 3, taking and making (thread W-99)|Brief: build stage 3, taking and making (thread W-99)]]
 - [[Stage 3 of the fishing, hunting and materials wave keeping, stores…|Stage 3 of the fishing, hunting and materials wave: keeping, stores…]]
 - [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]

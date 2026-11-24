@@ -28,6 +28,7 @@ conversation (22 Nov: "the 10 things you could do list should have been removed 
 - [[U2. Taking set and tend on one's own placed gear, every act of…|U2. Taking: set and tend on one's own placed gear, every act of…]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[The morning of 23 Nov what the overnight design wave found, and the…|The morning of 23 Nov: what the overnight design wave found, and the…]]
+- [[The new prompt against the old, act by act (37.2, 24 Nov 2026)|The new prompt against the old, act by act (37.2, 24 Nov 2026)]]
 - [[Stage 1 of the fishing, hunting and materials wave the basis in code…|Stage 1 of the fishing, hunting and materials wave: the basis in code…]]
 - [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
