@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/proposals/w73_design/build_plan.md
 kind: proposal
-updated: "2026-11-23"
+updated: "2026-11-24"
 ---
 # The build plan
 
@@ -59,7 +59,7 @@ run after stage 5 merges; parts 1 to 3 touch different files and may run side by
    (G64); a member's proposed household rule shown to the head at the evening, with an act to take or refuse it (G35).
 3. **Worlds** (`w85-s5b-worlds`): u11's generator steps 3, 5 and 7 (unpinned households drawn by `village_mix`, the tree carrying
    livelihoods, what spouses and fosterlings carry, neighbours a day away: G65, G68, G69, with [[O-4 Bridge the backward family-tree build into world generation as an…|O-4]]'s bridge); the gate check run at
-   world build, a report for every world, P4 and P9 (G70, G71); the founders' skipped ids reported, never silent (G66).
+   world build, a report for every world, P4 and P9 (G70, G71); the founders' skipped ids reported, never silent (G66). Founders' lines about other households by where they live and what is known ([[D2-349 Founders' seeded lines about other households follow where they live…|D2-349]]): one's own village's households get the neighbour lines; another village one's household knows of gets lines of its own kind; a village not known of gets none (today `founders.wanted` gives a neighbour line for every household in the world, `founders.py:1938-1940`).
 4. **The water's year and the wording** (`w85-s5b-water`): the spring gap closed ([[D2-347 A water-only village should be able to last the year|D2-347]]; [[Q-91 How a water-only village is made able to last the year|Q-91]]: a spring lamprey run, coarse fish
    spawning in the shallows in spring, resident fish and shallows sized to about a quarter of the village at their best); the
    signs design's bug fixes ([[D2-346 The signs design|D2-346]]: the covers' false background lines removed, an attend finding what it names or showing

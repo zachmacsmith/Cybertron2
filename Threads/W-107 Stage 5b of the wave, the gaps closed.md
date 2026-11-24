@@ -21,6 +21,7 @@ started
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - under it: [[D2-348 A water-only village is made able to last the year by|A water-only village is made able to last the year by (D2-348)]] (live)
+- under it: [[D2-349 Founders' seeded lines about other households follow where they live…|Founders' seeded lines about other households follow where they live… (D2-349)]] (live)
 - under it: [[L-178 Wording bugs|Wording bugs (L-178)]] (open)
 - under it: [[L-179 Every take's line says 'food worth about 1 meal' at the least|Every take's line says 'food worth about 1 meal' at the least (L-179)]] (open)
 - under it: [[L-182 The elders' line|The elders' line (L-182)]] (open)
@@ -32,6 +33,7 @@ started
 
 ## Mentioned by
 - [[D2-348 A water-only village is made able to last the year by|A water-only village is made able to last the year by (D2-348)]]
+- [[D2-349 Founders' seeded lines about other households follow where they live…|Founders' seeded lines about other households follow where they live… (D2-349)]]
 - [[Q-91 How a water-only village is made able to last the year|How a water-only village is made able to last the year (Q-91)]]
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]]
