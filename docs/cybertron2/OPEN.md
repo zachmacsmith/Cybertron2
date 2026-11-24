@@ -147,6 +147,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-103 | **Whether a condition another system reads (the book reading signs, the founders' lines, pulses, landmark trouble) must be written in one condition grammar of registered predicates, with lambdas kept only for a package's own rows (target.md §2)** | | arch |
 | Q-104 | **The replay policy: when a mechanism is promoted, may old runs stop replaying under the new code, provided each is recorded with the last commit that replays it (target.md §7, question 3)** | | arch |
 | Q-105 | **Whether new content waits only for the promotion it needs (works before stage 5) after the registry load check and the named-branch guard, rather than for the whole first build (target.md §8, question 4)** | | arch |
+| Q-106 | **Whether documentation becomes required data (target.md §12): each registry names its required doc fields, checked at load; pages generated from the registries into the vault; an engineer-facing doc field kept apart from the agent-facing descriptions (D2-350); every registration citing the decisions it builds, so unbuilt decisions and undecided code are a query; and the fixed feature-folder layout with private local/ mechanisms (§11)** | | arch |
 
 ## Offers and promises
 

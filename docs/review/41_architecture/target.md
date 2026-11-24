@@ -223,6 +223,91 @@ In small merges to `main`, after W-111's tag, each checked against golden journa
    book's fixes; keeping and draws with 5b.
 6. **Folders move when a feature is next touched** (feature_packages §9's strangler path), not as a phase of their own.
 
+## 11. A feature's folder (exploration, from Zach's question, 24 Nov)
+
+Zach: "what [does] the structure of [a] feature folder look like? Would it be good to make them all require things [written] up in
+a certain way, like they have any registered data and then X folder with private mechanisms etc?"
+
+Yes: a fixed layout of **known names, each optional**. The loader reads a package only from these names, so where a thing lives
+says what it is. A package without local mechanisms simply has no `local/`.
+
+```
+cybertron2/packages/water/
+  __init__.py      the manifest: name, requires, optional, standard; its summary and the decisions it builds (§12)
+  schema.py        fields it adds to other registries' rows (`in_water` on gear), and the schemas of registries it owns
+  rows/            its data, one file per registry it adds to: items.py, techniques.py, gear.py, covers.py, signs.py, lines.py
+  behaviours/      what it registers into shared registries: yields.py, renewal.py, phases.py, seed.py, context.py (its sign
+                   namespace and walker), conditions.py (predicates it adds: `spate`, `iced`)
+  local/           its private mechanisms, each one module in the registry form, each declared in the manifest as local, with
+                   what it does and which shared mechanism it resembles; no other package may import from here
+  with_wild.py     registrations that need another package too (`requires: [water, wild]`)
+  tests/           its tests and fixtures
+```
+
+Three rules make it hold:
+1. **A package imports only the core, the shared mechanisms, and the packages it declares.** A test enforces it (feature_packages P1).
+2. **Nothing outside a package imports its `local/`.** A second package that wants a local mechanism fails that test. That
+   failure is the promotion signal (§4), made mechanical.
+3. **Rows never hold code beyond a behaviour's name and parameters**, except a package's own sign and line conditions where Q-103
+   allows lambdas.
+
+The shared mechanisms have the same layout under `cybertron2/mechanisms/<name>/`, without `with_*`. The core has its own folders
+(feature_packages §3).
+
+## 12. Documentation as data (exploration, from Zach's idea, 24 Nov)
+
+Zach: "working in the documentation into part of the data as requirements ... a thing's type can also declare certain types of
+required documentation to accompany [it]. This means we [can] do the whole wiki generated from the current code because any private
+mechanism or thing etc has the required descriptions, and these must match how things actually work, and this also bridges the
+translation of spec / proposal into code ... completion audits could compare all of this."
+
+It extends a rule he has already decided for acts. D2-350: every act and technique has required descriptions, and "an act or
+technique without them is a build error". The registry form (§2) is the place for it: each registry's schema names its required
+documentation fields, and the load check enforces them.
+
+**How it would work.** A page has two parts. The first is **generated from what the engine uses**, so it cannot drift. The second
+is **written**, kept short, and required:
+
+| On every... | Generated (true by construction) | Written (required) |
+|---|---|---|
+| registry | its schema, behaviours, and the rows in it; who owns it | `doc`: what it is for, in a few lines |
+| row | its fields, its links both ways (what it names; what names it), `requires`/`unless`, its package | `doc` for kinds whose rows are not self-explaining (a process, a set method, a work kind); none for a plain good |
+| behaviour (shared or local) | the context it declares it reads (enforced: reading outside it fails the declaration test, feature_packages §5), the result it returns, which rows choose it, its phase and order | `doc`: what it does and the rule it follows (a formula, a threshold) |
+| package | its registrations by registry, its local mechanisms, lines of code beside rows of data (P8) | `summary` |
+| all of them | `decided: [D2-210, ...]`: the decisions it builds | |
+
+**The bridge to the spec.** `decided` gives a trace in both directions, which `records.py` can check:
+- **a live decision that nothing cites** is unbuilt, or built and not marked;
+- **a registration that cites nothing** was built without a decision (the retrospective-proposal rule, README 3a);
+- **a citation of a replaced decision** is stale code, or a stale citation.
+
+That is the completion audit that build_gaps.md did by hand ("designed against built"), as a query.
+
+**The wiki.** A generator walks the registries after load (with every package on) and writes one page per registry, row kind,
+behaviour and package, with the links. It writes into the Obsidian vault (D2-240), beside the spec and the records, so a page about
+the weir links to D2-210's spec text and back.
+
+**What could go wrong:**
+- **Written text drifts.** The prose can be wrong, and no check can read prose against code. Mitigations:
+  - keep the written part small, and make the generated part carry the facts: what a behaviour reads and changes, its parameters
+    with their units and clocks;
+  - review each `doc` with its code (step 5's checklist);
+  - let the generated "reads, writes, chosen by" sit next to the prose on every page, so a reader sees a mismatch.
+- **Boilerplate.** Required fields filled with "This does X". Required prose is limited to kinds that need it (above), never on
+  every row.
+- **Stimulus leak.** D2-350's descriptions are shown to agents. Engineers' documentation must be a **separate field**. Otherwise
+  engine terms reach the prompt, or editing a doc changes the experiment. Proposed: `does` and `args` are agent-facing, in the
+  world's words; `doc` is engineer-facing, never rendered into a prompt (a test checks no `doc` text appears in prompt snapshots).
+- **Backfill cost.** 96 items, 161 techniques, 40 acts, 536 sign rows, plus every behaviour. The generated half costs nothing. The
+  written half is required for new registrations at once, and reported (not failed) for old ones until each is next touched.
+- **False completeness.** A cited decision proves intent, not behaviour. Behaviour is still proven by tests and golden journals.
+  The trace shows where to look, not that it is right.
+
+**Assessment.** A good idea, and cheap once the registry form exists: most of a page is the registry's own data. Its strongest
+part is the `decided` trace, which turns the spec-to-code audit into a query. Its weakest is the prose, and it is safe only if the
+written part stays small and separate from agent-facing text. It belongs in phase 1 of the migration (the registry form and its
+load check), at about 1 to 2 more builder-days for the generator and the trace check.
+
 ## 9. Open questions for Zach
 
 1. **The shape.** Is the target right: one registry form, three layers, the lifecycle with promotion at the second user, folders

@@ -147,6 +147,12 @@ The whole engine; `feature_packages.md` (to be revised or replaced by this); `sp
   phases 0 (golden journals, prompt snapshots, the diagnostics table: none exist in `tests/` today) to 2 change no behaviour and
   stop the growth (9 to 15 builder-days); the promotions (35 to 52) are paced by the content that waits on each; in all 44 to 67,
   against feature_packages.md's 26 to 39 on an engine then 20,400 lines (now 36,293 in `engine/`).
+- **24 Nov 2026 (later): two explorations from Zach** (target.md §11, §12; D2-277). A feature's folder: a fixed layout of known
+  names (manifest, schema, rows, behaviours, `local/` for private mechanisms, `with_*` integrations, tests); nothing outside a package
+  imports its `local/`, which makes promotion mechanical. Documentation as data: each registry's schema names its required
+  documentation; pages generated from the registries (the generated half cannot drift), a short written `doc` kept apart from the
+  agent-facing `does` (D2-350), and `decided: [...]` on every registration, so decisions with no code and code with no decision are
+  a query. Ask Q-106.
 
 ## Sources
 
