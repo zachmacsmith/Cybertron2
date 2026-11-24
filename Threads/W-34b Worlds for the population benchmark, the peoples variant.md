@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Worlds for the population benchmark, the peoples variant (W-34b)
 
-*active · 37.4 · touched 13 Nov (10 days ago)*
+*active · 37.4 · touched 13 Nov (11 days ago)*
 
 ## What it is
 Worlds for the population benchmark, the peoples variant (Zach, 13 Nov: "their goal is the total population of the same model type, minus the population of any other model types"; OPEN [[L-104 MAJOR the descendants benchmark|L-104]], proposals/descendants_benchmark.md): design, generator, dry runs

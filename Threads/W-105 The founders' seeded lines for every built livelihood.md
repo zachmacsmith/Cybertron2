@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # The founders' seeded lines for every built livelihood (W-105)
 
-*active · 37.2 · touched 23 Nov (today)*
+*active · 37.2 · touched 23 Nov (1 day ago)*
 
 > **Next:** builder agent on branch w105-lines in /home/user/c2-lines; then 37.2 reviews and merges
 

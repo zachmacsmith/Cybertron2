@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # The waters calibrated across many generated environments (W-108)
 
-*active · 37.2 · touched 23 Nov (today)*
+*active · 37.2 · touched 23 Nov (1 day ago)*
 
 > **Next:** two agents: the calibration sweep, and an independent read of the code's generality; then 37.2 brings Zach the findings and a design for 5b part 4
 
@@ -28,3 +28,4 @@ started
 - [[L-116 The wild layer's fish and a water body, two ways|The wild layer's fish and a water body, two ways (L-116)]]
 - [[L-150 Environmental effects on fishing refined after the rest works|Environmental effects on fishing refined after the rest works (L-150)]]
 - [[Brief the waters calibrated across many generated environments…|Brief: the waters calibrated across many generated environments…]]
+- [[The waters' mechanisms general, or fitted to the test worlds…|The waters' mechanisms: general, or fitted to the test worlds?…]]

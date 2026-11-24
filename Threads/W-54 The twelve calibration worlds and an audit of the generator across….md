@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # The twelve calibration worlds and an audit of the generator across… (W-54)
 
-*active · 37.2 · touched 20 Nov (3 days ago)*
+*active · 37.2 · touched 20 Nov (4 days ago)*
 
 > **Next:** Zach on the audit's faults (which to fix, each remakes every world); climate from the land ([[Q-56 How the weather should follow each place's climate from the generated…|Q-56]]); then rerun the suite
 

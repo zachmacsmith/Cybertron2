@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # Stage 5 of the wave, works (W-106)
 
-*waiting · 37.2 · touched 23 Nov (today)*
+*waiting · 37.2 · touched 23 Nov (1 day ago)*
 
 > **Next:** after [[W-105 The founders' seeded lines for every built livelihood|W-105]] merges: the stage 5 brief, with the audit's additions (G24, G45 to G49); then stage 5b ([[W-107 Stage 5b of the wave, the gaps closed|W-107]])
 

@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # Live run 1: two sets of small runs (W-101)
 
-*waiting · 37.2 · touched 23 Nov (today)*
+*waiting · 37.2 · touched 23 Nov (1 day ago)*
 
 > **Next:** Zach: whether a water-only village should last the year or the spring gap is the point; then the after-runs list ([[D2-340 Passing on through care|D2-340]], chores that yield nothing, a conditional rule example, [[L-175 Teaching, partnerships and joins settled before the evening, so a…|L-175]], [[W-103 Signs and what people can know of the state of things|W-103]]'s signs design)
 

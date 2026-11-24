@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # Stage 5b of the wave, the gaps closed (W-107)
 
-*waiting · 37.2 · touched 23 Nov (today)*
+*waiting · 37.2 · touched 23 Nov (1 day ago)*
 
 > **Next:** after stage 5 ([[W-106 Stage 5 of the wave, works|W-106]]) merges: a brief and builder for each part
 

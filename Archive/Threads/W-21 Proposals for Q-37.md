@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Proposals for Q-37 (W-21)
 
-*deferred, by zach · 37.2 (session "Thicker economy exploration") · touched 9 Nov (14 days ago)*
+*deferred, by zach · 37.2 (session "Thicker economy exploration") · touched 9 Nov (15 days ago)*
 
 ## What it is
 Proposals for [[Q-37 Brief 2 as built, and what its gate found|Q-37]] (a) and (d): graded damage to houses and camps by structure and weather, camps' shelter, growth and animals (proposals/shelter_damage.md); cats that choose where to live (proposals/cats.md)

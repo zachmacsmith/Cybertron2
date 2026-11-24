@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Food, weight and work on one basis (W-64)
 
-*active · 37.2 · touched 22 Nov (1 day ago)*
+*active · 37.2 · touched 22 Nov (2 days ago)*
 
 > **Next:** the data change merged (49d6d49c); left: salting rate ([[Q-73 Whether salting fish and meat stays at 4 kg a unit of work|Q-73]]), the unit of work in hours ([[Q-69 The basis for food and work|Q-69]], default taken: 2 hours, to decide), hens laying clock ([[L-138 Hens lay on the old clock|L-138]]), a killed hen gives its meat ([[L-139 A hen killed in a raid gives its meat|L-139]])
 
@@ -67,4 +67,5 @@ done 20 Nov: the six-part analysis (02zzu_shared_units.md); the USDA lookup (02z
 - [[02zzx how fast fish and meat were salted by hand|02zzx: how fast fish and meat were salted by hand]]
 - [[The inside view hunting, fowling, fishing and their materials as the…|The inside view: hunting, fowling, fishing and their materials as the…]]
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
+- [[The waters' mechanisms general, or fitted to the test worlds…|The waters' mechanisms: general, or fitted to the test worlds?…]]
 - *and 1 index or audit notes*

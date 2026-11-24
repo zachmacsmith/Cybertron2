@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # Build stage 2, taking and making (W-98)
 
-*done, by agent (provisional) · 37.2 · touched 23 Nov (today)*
+*done, by agent (provisional) · 37.2 · touched 23 Nov (1 day ago)*
 
 > **Next:** build on the branch; tests; review by 37.2; merge
 
@@ -30,3 +30,4 @@ done 23 Nov: built and merged: u1, u2, u3; 784 passed, 2 skipped; report stage2_
 ## Mentioned by
 - [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]
 - [[Stage 2 of the fishing, hunting and materials wave taking and making…|Stage 2 of the fishing, hunting and materials wave: taking and making…]]
+- [[The waters' mechanisms general, or fitted to the test worlds…|The waters' mechanisms: general, or fitted to the test worlds?…]]

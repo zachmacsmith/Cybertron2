@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # Design wave part 3b, taking (W-81)
 
-*done, by agent (provisional) · 37.2 · touched 22 Nov (1 day ago)*
+*done, by agent (provisional) · 37.2 · touched 22 Nov (2 days ago)*
 
 > **Next:** Zach: the note's 14 questions (§8), chiefly set and tend as two acts on held gear, [[Q-80 Whether acts on owned things default to one's own|Q-80]] recorded as a decision, a run's fish learning no wariness, own livelihood's crafts first in 'Today you could', the fen dyke in flood and freeze; 17 conflicts in §7
 

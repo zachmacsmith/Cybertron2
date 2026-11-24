@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # The crafts and techniques design evaluated (W-74)
 
-*done · 37.2 · touched 22 Nov (1 day ago)*
+*done · 37.2 · touched 22 Nov (2 days ago)*
 
 ## What it is
 Zach, 22 Nov: evaluate overall what the intent was for the generalized and theoretically extensible design of crafts and techniques, how well it has held up, where it fails, and whether that points to new design choices; how well things have actually worked; the 28-day river run especially (asked of 37.4: water_runs_models_r1_d23 has gone from the dataset). An agent reads the design records, the code and the published runs; note 02zzzh_hunt_fish/crafts_evaluation.md.
