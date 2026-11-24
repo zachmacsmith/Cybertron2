@@ -77,3 +77,12 @@ generality.md (the waters), build_gaps.md. The wave's baseline is commit f728a3b
 `<letter>_<area>.md`: a summary first (mechanisms counted by fit; the named branches counted; what does not fit; the verdict on the
 hypothesis for the area); then the table of mechanisms; the table of branches with the property each becomes; the misfits with a
 proposed pattern; the restructuring's cost for the area. Every claim from the code with file:line. Report back with the summary.
+
+## Added 24 Nov (Zach: "what are all the different types of things, the different types of properties, and the different types of mechanisms or families of mechanisms or processes ... that could be generalised ... and how have things been built in over time? ... What processes can we follow to ensure this does happen?")
+
+5. **A taxonomy for the area:** every type of thing (categories and kinds of row or record); every type of property rows carry or code
+   reads off them, grouped (quantities; rates and clocks; conditions; capabilities; links to other rows; words); every family of
+   mechanisms or processes that could be generalised (its members today, what they share, what a general version would read).
+6. **History:** from git log on the area's files (dates, threads, sessions), whether each mechanism came as a new ad hoc system,
+   was built into an existing general one, or generalised and extended one; dated examples of each; whether the trend is improving.
+7. **What in the process let ad hoc systems in** (briefs, reviews, missing checks), with evidence.
