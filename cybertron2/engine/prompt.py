@@ -116,9 +116,9 @@ def schema_for(here, mind) -> dict:
         a["when"] = {"type": "string", "enum": ["morning", "nightfall"]}
     from cybertron2.engine import core as CORE
     if CORE.on(here):                                                          # u9 §1.3: "do" free (a craft or an act, the shapes
-        for k in ("do", "what"):                                               # resolve it); look_up gone; on trouble in the alphabet's
-            a[k].pop("enum", None)                                             # order; rule a free act
-        s["properties"].pop("look_up", None)
+        for k in ("do", "what"):                                               # resolve it); on trouble in the alphabet's order; rule
+            a[k].pop("enum", None)                                             # a free act; look_up back in the reply (W-109)
+        s["properties"]["look_up"]["items"].pop("enum", None)
         a["on trouble"]["enum"] = sorted(a["on trouble"]["enum"])
         s["properties"]["fallback"] = copy.deepcopy(s["properties"]["actions"])
     _drop_empty_enums(s)                                                       # one who knows nobody: the name is free text

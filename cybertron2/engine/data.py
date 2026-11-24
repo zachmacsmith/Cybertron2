@@ -1294,8 +1294,8 @@ for _k, _v in {
     "boil salt": {"does": "boil brine drawn from the spring beside a brine pan dry over a fire; the pan burns through with use and is "
                           "mended"},
     "weir": {"args": [_arg("with", "one or more people here: the crew who build it with you", True)]},
-    "salt fish": {"does": "pack it in salt in the act, in a salting tub where there is one: up to 40 kg a unit"},
-    "salt meat": {"does": "pack it in salt in the act, in a salting tub where there is one: up to 40 kg a unit"},
+    "salt fish": {"does": "pack it in salt in the act, in a salting tub where there is one"},
+    "salt meat": {"does": "pack it in salt in the act, in a salting tub where there is one"},
 }.items():
     TECHNIQUES[_k].update(_v)
 # A way that takes any value says what it takes (W-109): what the reply writes after its key.
