@@ -17,5 +17,6 @@ conversation (24 Nov: "building new things should be disciplined within these pa
 
 
 ## Mentioned by
+- [[D2-354 The architecture is a healthy balance, not a strict one|The architecture is a healthy balance, not a strict one (D2-354)]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
 - [[Brief the engine's design patterns surveyed (thread W-110)|Brief: the engine's design patterns surveyed (thread W-110)]]

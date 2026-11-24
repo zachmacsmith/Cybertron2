@@ -4,7 +4,7 @@
 
 > Every rule Zach has set about how the work is done, in one place (D2-253): how things are recorded and tracked, how he is asked and shown things, how code, commits and branches go, what may be built or run without him, where documents go. Each line cites its decision, or the rule it was first writte
 
-## Decided (21)
+## Decided (22)
 - [[D2-232 The records as items|The records as items (D2-232)]]
 - [[D2-233 One tool for the records|One tool for the records (D2-233)]]
 - [[D2-234 Documents in the web|Documents in the web (D2-234)]]
@@ -26,6 +26,7 @@
 - [[D2-300 Every item Zach defers or flags is tagged with the prospective…|Every item Zach defers or flags is tagged with the prospective… (D2-300)]]
 - [[D2-313 For this wave|For this wave (D2-313)]]
 - [[D2-353 Everything new in the engine is built within the agreed architecture…|Everything new in the engine is built within the agreed architecture… (D2-353)]]
+- [[D2-354 The architecture is a healthy balance, not a strict one|The architecture is a healthy balance, not a strict one (D2-354)]]
 
 ## Open here
 - [[Q-67 Confirm three rules the sessions follow without your own words behind…|Confirm three rules the sessions follow without your own words behind… (Q-67)]] (open)
