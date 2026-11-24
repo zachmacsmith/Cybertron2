@@ -1,6 +1,7 @@
 # All threads
 
 ## Open
+- [[W-110 The engine's design patterns surveyed against the whole engine and…|The engine's design patterns surveyed against the whole engine and… (W-110)]] (active)
 - [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]] (active)
 - [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]] (active)
 - [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]] (waiting)

@@ -1,7 +1,7 @@
 ---
 id: docs/cybertron2/spec/process/how_we_work.md
 kind: spec
-updated: "2026-11-23"
+updated: "2026-11-24"
 ---
 # How we work: the process and its mechanisms
 
@@ -54,6 +54,7 @@ decision, or the rule it was first written in. A new process decision is added h
 - [[D2-298 Bot runs test interfaces and basic functioning only|D2-298]]: Bot runs test interfaces and basic functioning only; they make no decisions except those built into them, so they are not read as evidence of behaviour or of whether a world is too rich or too poor. Live runs carry that signal (starving included).
 - [[D2-300 Every item Zach defers or flags is tagged with the prospective…|D2-300]]: Every item Zach defers or flags is tagged with the prospective threads it most likely bears on (benched threads kept for that purpose), so that when work on a thread begins, every past item put off for it surfaces with one tool call.
 - [[D2-313 For this wave|D2-313]]: For this wave ([[W-73 Fishing, hunting and their materials developed together|W-73]], [[W-85 The wave's integrated design|W-85]]), 37.2 owns every engine file its design changes, including those 37.4 owns (verbs and their registry, the standing rules, the prompt core, clocks, spoilage, buildings and their cost code, senses); 37.4 is told on the board.
+- [[D2-353 Everything new in the engine is built within the agreed architecture…|D2-353]]: Everything new in the engine is built within the agreed architecture without being asked each time: features are data on the core's general mechanisms (feature_packages.md P3), behaviour attaches to declared properties of rows and never to a thing's name, interface and signs are rendered from data, and every registry is checked when it loads. Every brief states it, every review checks it (named branches, hand-written text, word lists, silent skips, maker patches), and a guard test fails on new branches on a named thing.
 
 ## Sources
 

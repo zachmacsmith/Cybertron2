@@ -88,6 +88,7 @@ started
 - under it: [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]] (done)
 - under it: [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]] (waiting)
 - under it: [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]] (active)
+- under it: [[W-110 The engine's design patterns surveyed against the whole engine and…|The engine's design patterns surveyed against the whole engine and… (W-110)]] (active)
 
 
 ## Mentioned by
@@ -131,5 +132,5 @@ started
 - [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]]
 - [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]]
 - [[D2-339 The household book's grammar|The household book's grammar (D2-339)]]
-- … and 51 more
+- … and 52 more
 - *and 4 index or audit notes*
