@@ -231,6 +231,9 @@ class Here:
                 return bid
         if self.own_word(raw) == "home":                                      # "home", "my house": one's own house here (L-189)
             return (self.homes_here() or [None])[0]
+        for tail in ("'s store", " store"):                                   # "Marsh House store": that building's store
+            if raw.endswith(tail) and raw[: -len(tail)].strip():
+                return self.building(raw[: -len(tail)])
         if any(x in (p["name"].lower(), p["name"].lower().removeprefix("the ")) for p in self.parcels().values()):
             return None                                                       # a place's own name is the place (u2 §6 bug 5)
         hh = {iid: h for iid, h in self._w.s["institutions"].items() if h["kind"] == "household"}

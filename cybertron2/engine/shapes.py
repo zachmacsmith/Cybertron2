@@ -43,7 +43,8 @@ SHAPES = {
     "move": {"args": '{"do": an act below}',
              "line": "goods between your hands, stores, people and places, or left in the open; beasts driven",
              "faces": {"take": "take", "give": "give", "put": "move", "move": "move", "drive": "drive", "leave": "leave",
-                       "hide": "hide", "bury": "bury", "put down": "put down"}},
+                       "hide": "hide", "put down": "put down"}},       # burying goods: give, "hidden": "buried"; "bury" is the
+    # craft of burying the dead (L-189: the face named no act, so "bury" was no act at all)
     "change": {"args": '{"do": an act below}',
                "line": 'what you control: doors and gaps, who may use a house, claims, names, your household, a partnership, your '
                        'offers and debts. Standing rules are written in "rules" (above), not here',
@@ -172,8 +173,10 @@ def _lesson(here, mind, a, face) -> dict:
     tech = next((t for t in (craft_in(mind, x) for x in words) if t), None)
     if face is None and tech:
         face = "teach" if KN.level(mind, tech) == "known" else "learn"
-    if face is None:
-        raise Refused('say the lesson: {"do": "agree", "what": "teach" or "learn", "with": a person here, "line": the craft}')
+    if face is None:                                                         # the two faces as the prompt says them (L-189)
+        from cybertron2.engine import iface as IF, verbs as V
+        said = [IF.args_words(here, f["args"], do=f["word"]) for v in ("teach", "learn") for f in V.VERB[v]["iface"] if f.get("word")]
+        raise Refused("say the lesson as " + " or ".join(said))
     rest = {k: v for k, v in a.items() if k not in PEOPLE_KEYS + CRAFT_KEYS}
     out = {**rest, "do": face, ("to" if face == "teach" else "from"): who or a.get("with") or a.get("person") or a.get("to")
            or a.get("from")}
@@ -357,6 +360,8 @@ def normalize(here, mind, a) -> dict:
     from cybertron2.engine import verbs as V
     if do in V.VERB:                                                         # the old registry verbs: as they were
         return a
+    if do in V.ALIASES and V.ALIASES[do](a) is not None:                     # a word read as giving, with the field it needs
+        return a
     m = PL.method_of(do)                                                     # a set technique named alone: by what stands
     if m is not None:
         mk = resolve(mind, do, "make")                                       # "wicker trap" at a house: the making of it
@@ -490,3 +495,43 @@ def example(here, mind, first=()) -> str:
             return '{"do": "%s"}' % name
     wood = next((s for s in KN.where(here, "firewood") if s[0] == "parcel"), None) if "firewood" in KN.TECHNIQUES else None
     return '{"do": "firewood", "at": "%s"}' % (wood[2] if wood else "a wood you know")
+
+
+# ---------------------------------------------------------------------- a reply field put among the acts (L-189)
+MEMORY_FIELDS = ("memory", "keep", "drop")            # the reply's fields for the end of a stretch, asked for only then: never an act's
+def reply_fields(reply) -> tuple:
+    """(reply, notes): acts whose "do" names a field of the reply format rather than an act ({"do": "say", "to": "everyone",
+    "text": ...}; World 0b's "say" among the actions, L-189) moved into that field, read from the reply schema (prompt.SCHEMA):
+    its item's properties from the act's fields, a field the act left out from its one other word; the notes say what was moved."""
+    from cybertron2.engine import verbs as V
+    from cybertron2.engine.prompt import SCHEMA
+    if not isinstance(reply, dict) or not isinstance(reply.get("actions"), list):
+        return reply, []
+    props = {k: v for k, v in SCHEMA["properties"].items() if k not in ("why", "actions") + MEMORY_FIELDS}
+    keep, notes, out = [], [], dict(reply)
+    for a in reply["actions"]:
+        do = str(a.get("do") or "").strip().lower().replace(" ", "_") if isinstance(a, dict) else ""
+        field = next((k for k in (do, do + "s") if k in props), None) \
+            if do and do not in V.VERB and do not in V.ALIASES and do not in FACE else None
+        if field is None:
+            keep.append(a)
+            continue
+        spec = props[field]
+        rest = {k: v for k, v in a.items() if k != "do"}
+        if spec.get("type") == "array" and (spec.get("items") or {}).get("type") == "object":
+            names = list(spec["items"].get("properties") or {})
+            item = {k: rest.pop(k) for k in names if k in rest}
+            for k in names:                                                   # a field left out: the act's one other word
+                if k not in item and len([v for v in rest.values() if isinstance(v, str)]) == 1:
+                    item[k] = next(v for v in rest.values() if isinstance(v, str))
+                    rest = {}
+            out[field] = list(out.get(field) or []) + [item]
+        else:
+            val = next((v for v in rest.values() if isinstance(v, str)), None)
+            if val is None:
+                keep.append(a)
+                continue
+            out[field] = list(out.get(field) or []) + [val] if spec.get("type") == "array" else val
+        notes.append(f'(Your "{a.get("do")}" among the actions was read as the reply\'s "{field}": put it there, not in "actions".)')
+    out["actions"] = keep
+    return out, notes

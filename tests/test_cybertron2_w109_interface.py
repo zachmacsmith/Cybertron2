@@ -334,3 +334,94 @@ def test_a_techniques_name_needs_hints_and_world_are_fields_rendered_together(w0
     from cybertron2.engine import prompt as P2
     assert "smoke racks (hurdles over a smouldering fire)" in P2._craft_note("smoke fish")      # a fitting's name and what it is
     assert P2.craft_note_words("cairn").startswith("3 units of work")
+
+
+# ---------------------------------------------------------------------- World 0b's refusals (session bench, L-189)
+def _did(w, name, act):
+    return V.do(Here(w, name), Mind(w, name), dict(act))
+
+
+def test_sleep_with_no_building_named_is_sleep_at_home_and_home_is_ones_house():
+    w = build(W0B)
+    home = Here(w, "Osric").buildings()[Here(w, "Osric").homes_here()[0]]["name"]
+    for act in ({"do": "sleep"}, {"do": "go", "what": "sleep"}, {"do": "sleep", "at": "home"}, {"do": "sleep", "at": "my house"}):
+        r = _did(w, "Osric", act)
+        assert r.startswith(f"You mean to sleep at {home}"), (act, r)
+    assert "None" not in _did(build(W0B), "Alice", {"do": "sleep", "at": None})
+    line = IF.act_line(Here(w, "Osric"), Mind(w, "Osric"), "sleep", V.VERB["sleep"]["iface"][0])
+    assert '"at"?: a building here (else your home here)' in line
+
+
+def test_goods_moved_to_my_hands_or_me_go_to_the_hands_never_racks():
+    for to in ("my hands", "me", "hands", "inventory", "myself"):
+        w = build(W0B)
+        here = Here(w, "Osric")
+        store = here.buildings()[here.homes_here()[0]]["name"]
+        before = here.carried().get("grain", 0.0)
+        r = _did(w, "Osric", {"do": "move", "item": "grain", "qty": 1, "from": store, "to": to})
+        assert r.startswith("You took 1 grain"), (to, r)
+        assert Here(w, "Osric").carried().get("grain", 0.0) == pytest.approx(before + 1)
+        assert "racks" not in r and "no building called" not in r
+
+
+def test_foraged_greens_and_mushrooms_are_stored_as_wild_food():
+    w = build(W0B)
+    here = Here(w, "Osric")
+    for g, q in (("greens", 2.0), ("mushrooms", 1.5)):
+        w.apply("create", here.node, dst=here.hands, item=g, qty=q, why="test")
+    r = _did(w, "Osric", {"do": "move", "item": "wild food", "to": "store"})
+    assert "2 greens" in r and "1.5 mushrooms" in r, r
+    assert Here(w, "Osric").carried().get("greens", 0.0) == 0 and Here(w, "Osric").carried().get("mushrooms", 0.0) == 0
+    w.apply("create", here.node, dst=here.hands, item="greens", qty=1.0, why="test")
+    assert V.item_of("greens") == "greens"                                    # a good of the world is itself, never "wild food"
+    assert _did(w, "Osric", {"do": "move", "item": "greens", "to": "store"}).startswith("You put 1 greens")
+
+
+def test_a_rules_for_my_household_or_the_households_name_is_read():
+    from cybertron2.engine import book as BK
+    w = build(W0B)
+    for f, whose in (("my household", "the household"), ("the Fields", "the household"), ("me", "yours"), ("myself", "yours")):
+        r = BK.apply_rules(Here(w, "Osric"), [{"rule": "keep", "goods": "grain", "in": "Field House", "at least": 5, "for": f}])
+        assert r and f"({whose})" in r[0], (f, r)
+
+
+def test_bury_is_the_craft_of_burying_the_dead_and_every_face_names_an_act(w0b):
+    a = SH.normalize(Here(w0b, "Osric"), Mind(w0b, "Osric"), {"do": "bury", "at": "the body"})
+    assert a["do"] == "work" and a["what"] == "bury"
+    for sh, row in SH.SHAPES.items():
+        for f, v in (row.get("faces") or {}).items():
+            assert v in V.VERB or v in V.ALIASES, (sh, f, v)
+    shapes = copy.deepcopy(SH.SHAPES)
+    shapes["move"]["faces"]["inter"] = "inter"                                # a face naming no act cannot be built
+    with pytest.raises(IF.RegistryError, match="inter"):
+        IF.check(None, None, shapes)
+    w = build(W0B)                                                            # with goods named, burying is hiding them
+    here = Here(w, "Osric")
+    w.apply("create", here.node, dst=here.hands, item="mushrooms", qty=1.0, why="test")
+    r = _did(w, "Osric", {"do": "bury", "item": "mushrooms", "qty": 1, "at": here.parcels()[next(iter(here.parcels()))]["name"]})
+    assert "hidden" in r or "buried" in r or "bury" in r.lower(), r
+    assert not r.startswith("Refused"), r
+    sp = PR.system_prompt(Here(w0b, "Osric"), Mind(w0b, "Osric"))
+    assert line_of(sp, "bury").startswith('- bury {"at": the body}')
+
+
+def test_say_and_other_reply_fields_put_among_the_actions_are_read_as_those_fields():
+    reply = {"actions": [{"do": "say", "to": "everyone", "message": "the barley is in"}, {"do": "gather", "what": "firewood"},
+                         {"do": "tell", "to": "Orabel", "text": "come home early"}, {"do": "look up", "what": "mine"},
+                         {"do": "drop", "item": "coin", "qty": 1}]}
+    out, notes = SH.reply_fields(reply)
+    assert out["say"] == [{"to": "everyone", "text": "the barley is in"}]
+    assert out["tell"] == [{"to": "Orabel", "text": "come home early"}] and out["look_up"] == ["mine"]
+    assert out["actions"] == [{"do": "gather", "what": "firewood"}, {"do": "drop", "item": "coin", "qty": 1}]   # an alias stays
+    assert len(notes) == 3 and all('not in "actions"' in x for x in notes)
+
+
+def test_a_lesson_or_an_act_without_its_fields_is_told_them_from_the_registry(w0b):
+    with pytest.raises(Exception) as e:
+        SH.normalize(Here(w0b, "Osric"), Mind(w0b, "Osric"), {"do": "agree", "with": "Orabel", "what": "fishing"})
+    assert '{"do": "teach", "to": a person here, "what": a craft you know}' in str(e.value)
+    assert '{"do": "learn", "from": a person here, "what": the craft}' in str(e.value)
+    w = build(W0B)
+    assert _did(w, "Osric", {"do": "teach", "to": "Drew"}) == 'Refused: teach: say a craft you know in "what"'
+    assert _did(w, "Osric", {"do": "watch"}) == 'Refused: watch: say a person here in "person"'
+    assert "None" not in _did(w, "Osric", {"do": "learn", "from": "Orabel"})

@@ -891,6 +891,7 @@ SELF_NAMES = {
              "our household", "household", "the household"),
     "store": ("store", "the store", "our store", "my store", "its store", "household store", "the household store",
               "our household store"),
+    "self": ("me", "myself", "i", "mine", "my own", "just me", "only me", "for me"),
 }
 
 PHYSICS = {

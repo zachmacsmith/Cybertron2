@@ -174,7 +174,7 @@ _IFACE = {
                                                                                    "all": "the default"}),
                         _a("qty", "how many"), _a("to", "a place here", True)], "who": ["herds"]}],
     "sleep": [{"shape": "go", "word": "sleep", "does": "sleep there tonight, if you can get in and a bed is free; you sleep at home "
-               "unless you say otherwise", "needs": "", "args": [_a("at", "a building here", True)], "who": []}],
+               "unless you say otherwise", "needs": "", "args": [_a("at", "a building here (else your home here)")], "who": []}],
     "set": [{"shape": "set", "via": "techniques"},
             {"shape": "change", "word": "set", "does": "open or bar the door of a building you manage", "needs": "",
              "args": [_a("thing", None, True, {"door": ""}), _a("to", None, True, {"open": "", "barred": "only those it lets in get in"}),
@@ -556,7 +556,7 @@ def do(here, mind, a) -> str:
         except Refused as e:
             return f"Refused: {str((a or {}).get('do') or 'action').strip()}: {e}"
     v = str((a or {}).get("do", "")).lower().strip()
-    if v in ALIASES:                                                          # leaving, putting down and hiding are giving (D2-111)
+    if v in ALIASES and ALIASES[v](a) is not None:                            # leaving, putting down and hiding are giving (D2-111)
         a = ALIASES[v](a)
         v = "give"
     if v in LIFT or (v in ("gather", "work") and str((a or {}).get("what") or "").strip().lower() in LIFT - {"lift", "check"}):
@@ -572,7 +572,24 @@ def do(here, mind, a) -> str:
             out = HANDLERS[v](here, mind, a, party)
         return out + _drew_words(here, drew)                                   # what it took from the stores (D4-96)
     except Refused as e:
-        return f"Refused: {v or 'action'}: {e}"
+        miss = _missing(here, v, a) if "None" in str(e) else None              # the gap read as a value: say what is missing
+        return f"Refused: {v or 'action'}: {miss or e}"
+
+
+def _missing(here, v, a):
+    """In the interface's worlds (the shapes on), a refused act that left out an argument its registry face requires is told so,
+    from the face ('say a craft you know in "what"'), never as the handler read the gap ("nobody called None": L-189); None when
+    nothing required is missing or the act has more than one face."""
+    from cybertron2.engine import shapes as SH
+    if v not in VERB or not SH.on(here):
+        return None
+    faces = [f for f in VERB[v].get("iface") or [] if f.get("word") and not f.get("via") and not f.get("retired")]
+    if len(faces) != 1:
+        return None
+    gone = [x for x in faces[0]["args"] if x["req"] and (a or {}).get(x["key"]) in (None, "", [], {})]
+    if not gone:
+        return None
+    return "say " + " and ".join(f'{x.get("is") or " | ".join(x["opts"])} in "{x["key"]}"' for x in gone)
 
 
 # ---------------------------------------------------------------------- helpers
@@ -589,10 +606,12 @@ def _qty(x, default=1.0) -> float:
 
 
 def item_of(x) -> str:
-    i = str(x or "").strip().lower()
-    i = {"loaves": "bread", "loaf": "bread", "greens": "wild food", "food": "wild food", "weapon": "crude weapon", "tool": "crude tool",
-         "tools": "crude tool", "wood": "timber", "ore": "copper ore", "hides": "hide", "stones": "stone"}.get(i, i)
     from cybertron2.engine import packs as PK
+    i = str(x or "").strip().lower()
+    if i not in ITEMS or not PK.on(ITEMS[i]):                                 # a good of the world's is itself (L-189: "greens" was read
+        i = {"loaves": "bread", "loaf": "bread", "greens": "wild food", "food": "wild food", "weapon": "crude weapon",   # as "wild food")
+             "tool": "crude tool", "tools": "crude tool", "wood": "timber", "ore": "copper ore", "hides": "hide",
+             "stones": "stone"}.get(i, i)
     if i not in ITEMS or not PK.on(ITEMS[i]):
         raise Refused(f"there is no such thing as {x!r} (goods: {', '.join(PK.items())})")
     return i
@@ -602,7 +621,7 @@ def _party(here, x):
     """Whom an act is done for (D2-37): a person here, or a household (its own name, or 'my household')."""
     s = str(x or "").strip()
     low = s.lower()
-    if low in ("my household", "our household", "household", "home", "my house", "the house"):
+    if low in SELF_NAMES["home"]:                                             # one's own words for it (data.SELF_NAMES)
         hh = here.household()
         if not hh:
             raise Refused("you belong to no household")
@@ -2131,7 +2150,34 @@ def move_from(here, a):
     return ("store", sb) if sb is not None else ("racks", a)
 
 
+def _of_kind(here, a, fn, mind, party):
+    """An act on goods that names a kind of them ("wild food" for the greens and mushrooms one gathered; book.KIND_GOODS, L-189)
+    when the hands hold none of a good of that name but some of the kind: the act done for each good of the kind held, all of it
+    (or "qty" in all, the first first); None when the word is not such a kind."""
+    from cybertron2.engine import book as BK
+    word = str(a.get("item") or "").strip().lower()
+    goods = [g for g in BK._goods(word) if g != "*"] if word else []
+    if len(goods) < 2 or a.get("from") or here.own_word(a.get("to")) == "hands" or here.carried().get(word, 0.0) > 1e-9:
+        return None
+    held = [g for g in goods if here.carried().get(g, 0.0) > 1e-9]
+    if not held:
+        return None
+    left = None if a.get("qty") in (None, "", "all") else _qty(a.get("qty"))
+    out = []
+    for g in held:
+        q = here.carried()[g] if left is None else min(left, here.carried()[g])
+        if q <= 1e-9:
+            break
+        out.append(fn(here, mind, {**a, "item": g, "qty": round(q, 6)}, party))
+        if left is not None:
+            left -= q
+    return " ".join(out)
+
+
 def _move(here, mind, a, party):
+    kind = _of_kind(here, a, _move, mind, party)
+    if kind is not None:
+        return kind
     mf = move_from(here, a)
     if mf and mf[0] == "thing":
         return _take(here, mind, {"item": a.get("item"), "qty": a.get("qty"), "from": mf[1]}, party)
@@ -2355,6 +2401,9 @@ def _give(here, mind, a, party):
     """Giving (D2-111, world/things_in_places.md): to a person here, into their hands; to a household or a building one may use, into
     its store; to a building one may not use, or someone not here, at its door, in the open; to a place, left there (hidden, with the
     `hidden` modifier)."""
+    kind = _of_kind(here, a, _give, mind, party)
+    if kind is not None:
+        return kind
     to_raw = a.get("to") or a.get("at")
     to = here.person(to_raw)
     item, q = item_of(a.get("item")), _qty(a.get("qty"))
@@ -2447,8 +2496,12 @@ def _put_down(here, mind, a, item, q, pid, door=None):
     return out + "."
 
 
-def _alias_give(hidden=None):
+def _alias_give(hidden=None, needs=None):
+    """A word read as giving (leave, put, drop, hide, put down; bury with goods named): the act as a give, or None when it lacks
+    the field the alias needs (`needs`: "bury" with no "item" is the craft of burying the dead, L-189)."""
     def f(a):
+        if needs and (a or {}).get(needs) in (None, ""):
+            return None
         b = {**a, "to": a.get("to") or a.get("at")}
         if hidden and not b.get("hidden"):
             b["hidden"] = hidden
@@ -2456,7 +2509,9 @@ def _alias_give(hidden=None):
     return f
 
 
-ALIASES = {"leave": _alias_give(), "put": _alias_give(), "drop": _alias_give(), "hide": _alias_give("under brush")}
+ALIASES = {"leave": _alias_give(), "put": _alias_give(), "drop": _alias_give(), "hide": _alias_give("under brush"),
+           "put down": _alias_give(),                                         # the move shape's face (W-109: it named no act)
+           "bury": _alias_give("buried", needs="item")}                       # goods buried: hidden in the ground (D2-111)
 # lifting or checking one's snares or traps is taking what is in them (brief 4c §4.4): as a verb, or as the way of work named
 LIFT = {f"{v} {o}".strip() for v in ("lift", "check", "empty", "walk", "collect") for o in
         ("", "the snares", "snares", "my snares", "the snare line", "the snare", "the traps", "traps", "my traps", "the eel traps",
@@ -2649,7 +2704,14 @@ def _claim_plots(here, key, claimant, plots) -> str:
 
 
 def _sleep(here, mind, a, party):
-    bid = here.building(a.get("at"))
+    """Sleep at a building here; with none named, at one's home here (the prompt's "you sleep at home unless you say otherwise":
+    L-189, World 0b's "no building called None")."""
+    if a.get("at") in (None, ""):
+        bid = (here.homes_here() or [None])[0]
+        if bid is None:
+            raise Refused('say where in "at": a building here (you have no home here)')
+    else:
+        bid = here.building(a.get("at"))
     if bid is None:
         raise Refused(f"there is no building called {a.get('at')!r} here")
     if not here.can_enter(bid):

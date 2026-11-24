@@ -94,9 +94,13 @@ def check(verbs=None, techniques=None, shapes=None) -> None:
         from cybertron2.engine.data import TECHNIQUES as techniques
     if shapes is None:
         from cybertron2.engine.shapes import SHAPES as shapes
+    from cybertron2.engine.verbs import ALIASES
     for sh, row in shapes.items():
         if not row.get("args") or not row.get("line"):
             raise RegistryError(f"shape {sh!r}: no grammar line")
+        for f, v in (row.get("faces") or {}).items():                         # a face names an act (L-189: "bury" named none)
+            if v not in verbs and v not in ALIASES:
+                raise RegistryError(f"shape {sh!r}: its face {f!r} names no act ({v!r})")
     for v, d in verbs.items():
         faces = d.get("iface")
         if not faces:

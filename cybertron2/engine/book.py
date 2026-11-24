@@ -50,7 +50,10 @@ KIND_GOODS = {"fish": ("fish",), "meat": ("meat",), "grain": ("grain", "rye", "b
               "fresh food": ("fish", "meat", "milk", "greens", "berries", "mushrooms", "watercress"),
               "keeping food": ("smoked fish", "smoked meat", "salt fish", "salt meat", "dried fish", "dried meat", "hard-cured fish",
                                "hard-cured meat"),
-              "fodder": ("hay", "straw")}
+              "fodder": ("hay", "straw"),
+              "wild food": ("wild food",) + tuple(dict.fromkeys(p["item"] for p in __import__("cybertron2.wild.plants",
+                                                                                              fromlist=["PLANTS"]).PLANTS.values()))}
+# "wild food" (L-189): what gathering wild food gives (the plants' goods, wild/plants.py) with the old worlds' own good of that name
 PEOPLE_SETS = ("everyone", "adults", "children", "elders", "the head", "whoever has time")
 GOOD_SYNONYMS = {"fresh fish": "fish", "fresh meat": "meat", "eggs": "egg", "hens": "hen", "root": "roots", "salted fish": "salt fish",
                  "salted meat": "salt meat", "dry fish": "dried fish", "dry meat": "dried meat", "eels": "fish", "eel": "fish",
@@ -561,6 +564,21 @@ def _act_field(here, act, a):
     return {k: val for k, val in x.items() if not str(k).startswith("_")}
 
 
+def _whose(here, x):
+    """A rule's "for" in the person's words: "me" for themselves, "household" for their household (its words or its name)."""
+    from cybertron2.engine import verbs as V
+    t = str(x or "").strip().lower()
+    if t in SELF_NAMES["self"] or t == here.name.lower():
+        return "me"
+    if t in SELF_NAMES["home"]:
+        return "household"
+    try:
+        who = V._party(here, t)
+    except Exception:                                                         # noqa: BLE001  (not a party: left as written)
+        return x
+    return "household" if who == here.household() else "me" if who == here.name else x
+
+
 def read(here, a) -> dict:
     """A rule as the book's record (D2-337, D2-339): its kind in "rule", each field read from its own field, a value mapped to its
     canonical name; an old kind converted. Raises Refused naming the field, its form and what was written."""
@@ -584,6 +602,8 @@ def read(here, a) -> dict:
     for f in ("for", "words", "n", "standing"):
         if a.get(f) not in (None, ""):
             r[f] = a[f]
+    if r.get("for") not in (None, "household", "me"):                         # one's own words for them (data.SELF_NAMES; the
+        r["for"] = _whose(here, r["for"])                                       # household's name; L-189: "my household")
     if r.get("for") not in (None, "household", "me"):
         raise Refused(f"could not read \"for\": {r['for']!r} (household or me)")
     if kind == "set":
