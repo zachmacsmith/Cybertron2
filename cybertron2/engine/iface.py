@@ -16,6 +16,8 @@ batch, what a tool does to it, the ways learnt). No list of what one could do to
 """
 from __future__ import annotations
 
+import re
+
 LEVEL_ORDER = {"known": 0, "capable": 1, "rough": 2, "aware": 3}
 
 
@@ -172,6 +174,14 @@ def _way_value(d) -> str:
     return d["takes"]
 
 
+def way_shown(mind, m) -> bool:
+    """A way is shown to one who knows it (a rough idea or more; everyone's are known) or who may try it untaught."""
+    from cybertron2.engine import knowledge as KN
+    from cybertron2.engine.data import TECHNIQUES
+    d = TECHNIQUES[m]
+    return not d.get("shown_in") and (KN.level(mind, m) in ("rough", "capable", "known") or d.get("untaught") == "tryable")
+
+
 def ways_words(here, mind, mods) -> list:
     """The ways one knows, grouped by their key: '"range"?: near (on the village's own land) | far (a long day, 3 units more)'."""
     from cybertron2.engine import knowledge as KN
@@ -180,13 +190,13 @@ def ways_words(here, mind, mods) -> list:
     for m in mods:
         d = TECHNIQUES[m]
         lvl = KN.level(mind, m)
-        if d.get("shown_in") or (lvl not in ("rough", "capable", "known") and d.get("untaught") != "tryable"):
+        if not way_shown(mind, m):
             continue
         u = int((d.get("changes") or {}).get("units", 0) or 0)
         extra = f", {u} unit{'s' if u != 1 else ''} more" if u else ""
         if lvl in (None, "aware", "rough") and d.get("untaught") == "tryable" and not KN.basic(m):
             extra += "; untaught, done worse until learnt"
-        by.setdefault(d["key"], []).append(f"{_way_value(d)} ({d['label']}{extra})")
+        by.setdefault(d["key"], []).append(f"{_way_value(d)} ({d.get('does') or d['label']}{extra})")
     return [f'"{k}"?: ' + " | ".join(dict.fromkeys(v)) for k, v in by.items()]
 
 
@@ -257,7 +267,7 @@ def craft_line(here, mind, tech, lvl, uni) -> str:
     does = str(t.get("does") or t["label"])
     args = t.get("args") or []
     if lvl == "rough":
-        cl = KN.craft_line(tech, "rough", mind.know.get(tech), here)
+        cl = KN.craft_line(tech, "rough", mind.know.get(tech), here, iface=True)
         inner = cl[cl.index("(a rough idea") + 1:-1]
         need = _needs_words(t)
         a = args_words(here, args, required_only=True)
@@ -272,7 +282,7 @@ def craft_line(here, mind, tech, lvl, uni) -> str:
         inner = (note[len(tech) + 2:-1] if note.startswith(tech + " (") else "").lstrip(", ")
         body = "; ".join(x for x in (head, inner) if x)
         return f"- {name}: {does}" + (f" ({body})" if body else "")
-    cl = KN.craft_line(tech, "capable" if lvl == "capable" else "known", rec, here)
+    cl = KN.craft_line(tech, "capable" if lvl == "capable" else "known", rec, here, iface=True)
     lab = KN.label(tech)
     inner = cl[len(lab) + 2:-1] if cl.startswith(lab + " (") and cl.endswith(")") else cl
     if uni and not rec:
@@ -301,24 +311,31 @@ def ways_for(targets) -> list:
     return [m for m in sorted(MODIFIERS) if set(TECHNIQUES[m]["modifies"]) & set(targets)]
 
 
-def _craft_ways(here, mind, sh, full) -> list:
-    """The ways one knows for the crafts one does in full (known, capable or everyone's), each group naming its crafts."""
-    from cybertron2.engine import modifiers as MOD
+def _craft_ways(here, mind, full, stated) -> list:
+    """The ways one knows for the crafts one does in full (known, capable or everyone's): one line for the shape, each way's key
+    once with the crafts it is said on; a key stated under an earlier shape is named, not said again (`stated`: key -> shape)."""
     from cybertron2.engine.data import TECHNIQUES
-    groups = {}
+    keys = {}
     for t in full:
-        for m in MOD.available(TECHNIQUES[t]["verb"], t):
-            if not TECHNIQUES[m].get("shown_in") and set(TECHNIQUES[m]["modifies"]) & {f"{TECHNIQUES[t]['verb']}:{t}"}:
-                groups.setdefault(m, []).append(t)
-    by_set = {}
-    for m, ts in groups.items():
-        by_set.setdefault(tuple(ts), []).append(m)
-    out = []
-    for ts, ms in by_set.items():
-        w = ways_words(here, mind, sorted(ms))
-        if w:
-            out.append(f"  ways, with {', '.join(craft_name(t) for t in ts)}: " + "; ".join(w))
-    return out
+        tag = f"{TECHNIQUES[t]['verb']}:{t}"
+        for m in ways_for([tag]):
+            if way_shown(mind, m):
+                keys.setdefault(TECHNIQUES[m]["key"], {"mods": [], "crafts": []})
+                if m not in keys[TECHNIQUES[m]["key"]]["mods"]:
+                    keys[TECHNIQUES[m]["key"]]["mods"].append(m)
+                if t not in keys[TECHNIQUES[m]["key"]]["crafts"]:
+                    keys[TECHNIQUES[m]["key"]]["crafts"].append(t)
+    bits = []
+    for k, g in keys.items():
+        w = ways_words(here, mind, sorted(g["mods"]))
+        if not w:
+            continue
+        on = ", ".join(craft_name(t) for t in g["crafts"])
+        if k in stated:
+            bits.append(f'"{k}"?: as under {stated[k]} (with {on})')
+        else:
+            bits.append(f"{w[0]} (with {on})")
+    return bits
 
 
 # ---------------------------------------------------------------------- the acts
@@ -368,6 +385,7 @@ def lines(here, mind, first=()) -> list:
     from cybertron2.engine import knowledge as KN, shapes as SH
     from cybertron2.engine.data import MODIFIERS, TECHNIQUES
     by = familiar(here, mind)
+    stated = {}
     out = ['What you can do. Name the craft or the act in "do", and what it acts on ("?": you may leave it out):']
     for sh, row in SH.SHAPES.items():
         xs = by.get(sh) or []
@@ -377,9 +395,13 @@ def lines(here, mind, first=()) -> list:
         body = [act_line(here, mind, v, f) for v, f in acts]
         body += [craft_line(here, mind, t, lvl, uni) for t, lvl, uni in doable]
         full = [t for t, lvl, uni in doable if lvl in ("known", "capable")]
-        body += _craft_ways(here, mind, sh, full)
+        ways = _craft_ways(here, mind, full, stated)
         if full and row.get("ways"):                                          # the shape's own ways (build: how fine)
-            body += [f"  ways: " + "; ".join(w) for w in [ways_words(here, mind, ways_for(row["ways"]))] if w]
+            ways += ways_words(here, mind, ways_for(row["ways"]))
+        for k in re.findall(r'^"([^"]+)"\?: ', "\n".join(ways), flags=re.M):
+            stated.setdefault(k, sh)
+        if ways:
+            body.append("  ways: " + "; ".join(ways))
         verb = (row.get("techs") or (None,))[0]
         mods_aware = [m for m in MODIFIERS if KN.level(mind, m) == "aware" and verb
                       and any(x.split(":")[0] == verb for x in TECHNIQUES[m]["modifies"])]

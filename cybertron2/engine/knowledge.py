@@ -414,19 +414,25 @@ def card(here, mind, tech) -> str:
     return line
 
 
-def _place_words(t) -> str:
-    """Where a craft is done, from the data (u3 §4.1): 'at a smoke racks', 'at a house', 'on water or fen', 'anywhere'."""
+def _or(xs, commas=False) -> str:
+    xs = list(xs)
+    return ", ".join(xs[:-1]) + " or " + xs[-1] if commas and len(xs) > 2 else " or ".join(xs)
+
+
+def _place_words(t, commas=False) -> str:
+    """Where a craft is done, from the data (u3 §4.1): 'at a smoke racks', 'at a house', 'on water or fen', 'anywhere'; `commas`:
+    'on water, fen or meadow' (the interface's, W-109)."""
     at = t.get("at") or {}
     if at.get("fittings"):
         labs = [FITTINGS.get(f, {}).get("label", f).split(" (")[0].removeprefix("a ").removeprefix("an ").removeprefix("the ")
                 for f in at["fittings"]]
-        return "at " + " or ".join(("an " if x[:1] in "aeiou" else "a ") + x for x in labs)
+        return "at " + _or((("an " if x[:1] in "aeiou" else "a ") + x for x in labs), commas)
     if at.get("building"):
         return "at a house"
     if at.get("covers"):
-        return "on " + " or ".join(at["covers"])
+        return "on " + _or(at["covers"], commas)
     if at.get("things"):
-        return "at " + " or ".join(at["things"])
+        return "at " + _or(at["things"], commas)
     return "anywhere"
 
 
@@ -442,10 +448,11 @@ def _gives_words(t) -> str:
     return g if isinstance(g, str) else " and ".join(f"{q:g} {i}" for i, q in g.items())
 
 
-def craft_line(tech, lvl, rec=None, w=None) -> str:
+def craft_line(tech, lvl, rec=None, w=None, iface=False) -> str:
     """A craft as one at `lvl` is shown it (D2-263; u3 §4): at known and capable its inputs with their batch, what it gives, its units
     and where; at known also its life and its season (D2-251); at capable the odds and the extra materials; at rough its inputs as
-    the card has them; aware, its name and where one heard of it. Numbers come from the data at the world's factor (`w`)."""
+    the card has them; aware, its name and where one heard of it. Numbers come from the data at the world's factor (`w`). The
+    interface (`iface`, W-109) leaves the season out (D5-2: seasons are the world's) and "anywhere", and lists places with commas."""
     from cybertron2.engine import clocks as CK, gear as GE
     t = TECHNIQUES[tech]
     lab = label(tech)
@@ -453,7 +460,7 @@ def craft_line(tech, lvl, rec=None, w=None) -> str:
     if lvl == "aware":
         return f"{lab} ({rec.get('source') or 'you know of it'})"
     ins = t.get("inputs") or {}
-    place = _place_words(t)
+    place = _place_words(t, commas=iface)
     gives = _gives_words(t)
     hours = bool(t.get("hours"))
     units = CK.act_units(t, w) if hours else int(t.get("units", 1) or 0)
@@ -463,7 +470,7 @@ def craft_line(tech, lvl, rec=None, w=None) -> str:
         season = f"best in {best}"
     if lvl == "rough":
         body = _ins_words(ins) or "no materials"
-        return f"{lab} (a rough idea: {body}" + (f", {place}" if place != "anywhere" or ins else "") + ")"
+        return f"{lab} (a rough idea: {body}" + (f", {place}" if place != "anywhere" or (ins and not iface) else "") + ")"
     if hours and isinstance(t.get("gives"), dict) and len(t["gives"]) == 1:
         item = next(iter(t["gives"]))
         b = CK.batch_of(t, w)
@@ -481,7 +488,8 @@ def craft_line(tech, lvl, rec=None, w=None) -> str:
     else:
         body = f"{units} unit{'s' if units != 1 else ''}" if units else ""
         life = ""
-    bits = [x for x in (body, place if place != "anywhere" or ins else "", life, season if lvl == "known" else "") if x]
+    bits = [x for x in (body, place if place != "anywhere" or (ins and not iface) else "", life,
+                        season if lvl == "known" and not iface else "") if x]
     head = "known" if lvl == "known" else "capable"
     if lvl == "known" and rec.get("skill") is not None:
         head += f", {skill_word(float(rec['skill']), tech, w)}"

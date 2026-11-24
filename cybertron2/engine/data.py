@@ -1295,6 +1295,9 @@ for _k, _v in {
                           "mended"},
     "weir": {"args": [_arg("with", "one or more people here: the crew who build it with you", True)]},
     "salt fish": {"does": "pack it in salt in the act, in a salting tub where there is one"},
+    "gather wild food": {"does": "gathering the wild food there is where you are"},          # the label's season and kinds: world
+    "forage": {"does": "foraging for wild food"},
+    "looking for": {"does": "looking for one thing in particular"},   # the label's kinds: world
     "salt meat": {"does": "pack it in salt in the act, in a salting tub where there is one"},
 }.items():
     TECHNIQUES[_k].update(_v)
@@ -1304,6 +1307,21 @@ for _k, _v in {"hunt alone": "true", "hunt only with": "[the people you take]", 
                "searching": "a herd or a person lost on that road", "gather on the way": "true",
                "lead": "a herd of yours here with an ox"}.items():
     TECHNIQUES[_k]["takes"] = _v
+# What each way does, in the interface's words (W-109): its key and value are said beside it, so the label's restatement of them
+# is left out; the label stays for the old prompt.
+for _k, _v in {"range: far": "far out into the wild land beyond, a long day", "range: near": "on the village's own land",
+               "range: the wood around": "out through the woods and wastes around (about 2.5 km)",
+               "hunt alone": "no one joins your hunt (others may, unless you say so)", "hunt only with": "only those you name join your party",
+               "hunt with": "in another's party: you go their way, to their place and range, after what they are after",
+               "lead on the hunt": "a pack ox carries the kill home (an ox here, a harness in hand)",
+               "gather on the way": "gathering at good places you pass", "lead": "a pack ox of your household's, with a harness",
+               "meeting": "whether to stop for others met on the road", "on trouble": "what to do if the road gives trouble",
+               "searching": "searching the road", "stop at": "stopping there on the way",
+               "how: fine": "materials x1.5, work x2; seen from next door", "how: rich": "materials x2.5, work x4; named to all who come",
+               "how: grand": "materials x4, work x8; seen from the road coming in", "method: cairn": "a cairn of stones over the dead",
+               "method: shallow": "half the digging; beasts may dig it up", "method: dibble": "set by hand, seed by seed",
+               "hidden: buried": "hidden in the ground", "hidden: under brush": "hidden under brush"}.items():
+    TECHNIQUES[_k]["does"] = _v
 TECHNIQUES["for"]["shown_in"] = "reply"          # said on any act in the reply's format ("for": a person or your household)
 
 # ---------------------------------------------------------------------------------------------------------------- life (spec/life)

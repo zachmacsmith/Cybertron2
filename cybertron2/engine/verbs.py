@@ -248,7 +248,7 @@ _IFACE = {
                         _a("line", "which place (its number, or where it is: \"over the door\"), to replace a line"),
                         _a("how", None, False, {"paint": "2 units", "carve": "4 units, 6 in stone; with a tool, and in stone a mason's"}),
                         _a("description", "text in place of \"text\", to replace its description")],
-               "cost": "painting 2 units, carving 4 (6 in stone); changing another's words 1 more", "who": []}],
+               "cost": "by \"how\"; changing another's words 1 more", "who": []}],
     "erase": [{"shape": "work", "word": "erase", "does": "scratch out a line written there; it is seen being done", "needs": "",
                "args": [_a("at", "a building or monument here", True), _a("line", "which place", True)],
                "cost": "the work it took to write, 1 more if it is another's", "who": []}],
