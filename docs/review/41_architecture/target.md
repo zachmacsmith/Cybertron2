@@ -303,6 +303,26 @@ the weir links to D2-210's spec text and back.
 - **False completeness.** A cited decision proves intent, not behaviour. Behaviour is still proven by tests and golden journals.
   The trace shows where to look, not that it is right.
 
+**Refined with Zach (24 Nov):** "I think prose is important for different mechanisms etc for what they actually do, probably more
+so than eg a cow? But it means eg you could click into the water section of the wiki and it shows all the water tool or creatures
+etc, and you can see a generated changelog of how things were updated."
+- **Prose where the behaviour is.** Written documentation is required, and substantive, on every behaviour and mechanism, shared
+  or local: what it does, the rule it follows (the formula, the thresholds), what it is for, its edge cases. On rows it is
+  optional except for kinds that are themselves mechanisms in miniature (a process, a set method, a work kind). Two checks keep
+  mechanism prose honest. The first is a **reference check**: every field, context key or row a `doc` names in backticks must exist
+  in the behaviour's declared context or schema, so a renamed field fails the load. The second is a **staleness mark**: each `doc`
+  stores the hash of its behaviour's source when it was last written or confirmed. When the code changes and the doc does not, the
+  page shows "doc older than code" and hygiene lists it.
+- **Browsing by feature.** The manifest gives every registration its package. So the wiki has two ways in: by package (water: its
+  gear, kinds, processes, signs, local mechanisms, conditions) and by registry (all gear, whatever package). Rows from `with_wild.py`
+  show under both packages.
+- **A generated changelog.** A text diff of `rows/` is noise. The changelog is instead a **diff of registry snapshots**: at each merge
+  to `main`, the loaded registries (rows, schemas, each behaviour's source hash) are written as one JSON. Two snapshots compared give,
+  per row or behaviour: added, removed, field changed from and to, behaviour's code changed. Each change carries its commit, date,
+  thread and decisions from the commit's trailers (D2-235). Stable names (P6) make this work; a rename carries `renamed_from`. The
+  journal already stores the data tables each run read (`journal.py`, the `data` table), so a run's page can say which version of
+  each mechanism it ran on, and a mechanism's page which runs used each version.
+
 **Assessment.** A good idea, and cheap once the registry form exists: most of a page is the registry's own data. Its strongest
 part is the `decided` trace, which turns the spec-to-code audit into a query. Its weakest is the prose, and it is safe only if the
 written part stays small and separate from agent-facing text. It belongs in phase 1 of the migration (the registry form and its
