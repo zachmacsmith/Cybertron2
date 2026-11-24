@@ -97,3 +97,26 @@ a rough recipe; known or capable: the full recipe, batch, tool effects, the ways
 full. The rest of D2-351 stands (shown only once familiar; the everyone-knows set defined as data). The test "an aware craft shows
 its full interface" becomes: an aware craft shows its name only; a rough one its minimum interface; a known one its full line. Kept
 lean: the prompt is not inflated beyond what each level needs.
+
+## Resume (24 Nov, after the first builder was stopped by an interrupt)
+
+Done on the branch so far (read the commits, 767c3ccc to 0397179f): the acts' interface in the registry and the set everyone knows;
+the renderer reading the registry with the loader check; look_up back; the renderer by properties; the interface tests and World 0b
+as a fixture; lean by level (D2-352); the wave's regressions 2, 3, 10 and 11 (wave_regressions.md). 0397179f holds tests and
+fixtures that were mid-writing: check them first.
+
+New binding rules since the brief:
+- **D2-353** (process): build within the architecture: properties on rows, never a branch on a name; data, not hand-written text;
+  no word lists; no silent skips.
+- **D2-355** (process): run only the tests of the modules you touch as you go (and a short bot smoke run where the interface
+  changed); the full suite once, at the end, before the report.
+- **D2-356:** a technique's name, what it does, what it needs and its working hints are separate fields of its row, rendered
+  together; retire the "name (hint)" label and every split on " (" (`knowledge.py:21`, `:421`, and any other); move each bracketed
+  hint into its field, deciding per technique whether it is interface (needs: "others with you", "a cow in milk"), know-how shown by
+  familiarity ("spades and a dog help"), or world (to seeded lines); list each in the report.
+
+Still to do: D2-356; the faults from session bench's World 0b refusals (L-189), each with a test where it is interface or parse:
+"sleep: there is no building called None here" made with no sleep in the reply; move "to": "my hands" or "me" read as racks;
+foraged greens and mushrooms refused when stored as "wild food"; a rule's "for": "my household" not read; burial not shown and
+"bury" not reachable; "say" put among the actions; a lesson without its fields; the replay of live run 1's replies (Build 6); the
+size report per section and per person; the full suite once; the report.
