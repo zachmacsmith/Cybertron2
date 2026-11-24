@@ -40,7 +40,7 @@ evidence ranks them.
 
 ## The proposal
 
-1. **One clock for the water's food** (asked first, Q-98): the runs' clock (x32/365, D2-259's compression), and D2-348's quarter
+1. **One clock for the water's food** (D2-273 already decides it; Q-98 answered): the runs' clock (x32/365, D2-259's compression), and D2-348's quarter
    reached through one named lever written beside the data (`WATER_RICHNESS`, about 3 to 13 times real productivity by the
    sweep's experiment d), so the fitting is in one visible place instead of three makers.
 2. **Resident fish seeded by the engine from the land** at world build: each body's area by the engine's water widths, times
@@ -90,6 +90,8 @@ sits in one lever Zach can see.
 `wild/water.py` (shallows), `landgen/settle.py` (village water), `engine/founders.py` (FI6, FI7), the three makers; u1_water.md.
 
 ## History
+
+- **24 Nov 2026:** 37.2's ecosystems and calibration (docs/review/37_growth/02zzzl_waters_calib/c_ecosystems/ecosystems.md): the clock is already decided (D2-273: all food on the year clock, real quantities x 32/365); the shallows' rates were u1's misreading (a real year in 32 nights, 11.4 times too rich) and come onto it; resident fish by ecosystem from the land (a Huet-style zonation, nine ecosystems); D2-348's quarter needs a lever of median 2.8 over real productivity; water-only worlds only on big run rivers or meres; fens as water bodies.
 
 - **24 Nov 2026:** written by 37.2 from the sweep and the generality read (W-108), at Zach's ask for a calibration across generated
   waterways and a read of how general the system is (23 Nov).
