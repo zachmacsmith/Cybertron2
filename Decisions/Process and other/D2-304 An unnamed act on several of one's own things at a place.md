@@ -24,6 +24,7 @@ conversation (23 Nov: "several should depend on if reversible or obvious. Tendin
 ## Mentioned by
 - [[D2-305 Acts on held things take the thing as their target, by tag or a known…|Acts on held things take the thing as their target, by tag or a known… (D2-305)]]
 - [[Q-80 Whether acts on owned things default to one's own|Whether acts on owned things default to one's own (Q-80)]]
+- [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]]
 - [[Acts on held things take the thing as their target, and default to…|Acts on held things take the thing as their target, and default to…]]
 - [[The build plan|The build plan]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]

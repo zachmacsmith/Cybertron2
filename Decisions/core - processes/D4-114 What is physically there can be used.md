@@ -22,6 +22,7 @@ conversation (Zach: "fix the ox lending, fences, lore and Green, then rerun"; "t
 ## Mentioned by
 - [[Q-30 livestock.md's fence upkeep (D2-130) and D4-114|livestock.md's fence upkeep (D2-130) and D4-114 (Q-30)]]
 - [[W-13 Brookend survival world, rerun p2|Brookend survival world, rerun p2 (W-13)]]
+- [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]]
 - [[Proposal ecology designed from the node outward|Proposal: ecology designed from the node outward]]
 - [[Proposal what is physically possible is possible; the consequences…|Proposal: what is physically possible is possible; the consequences…]]
 - [[Raiders, displacement and set works what every village meets|Raiders, displacement and set works: what every village meets]]
