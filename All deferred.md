@@ -1,6 +1,7 @@
 # All deferred
 
 ## Open
+- [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]] (open)
 - [[L-188 Smaller regressions from the wave|Smaller regressions from the wave (L-188)]] (open)
 - [[L-187 Regressions from the wave for stage 5b|Regressions from the wave for stage 5b (L-187)]] (open)
 - [[L-186 A cairn costs nothing since the wave|A cairn costs nothing since the wave (L-186)]] (open)
