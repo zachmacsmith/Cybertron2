@@ -156,6 +156,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | ~~Q-215~~ | **(Closed 24 Nov: all five resumed; the weekly stop at 90% still applies.)** **The usage budget fits two of World 0b's five arms to 200 days this week: Haiku 5.5 (about $0.09 a day) and Sonnet 5.5 ($0.75) run on; Haiku 4.5 ($1.18), Sonnet 4.5 ($2.15) and Sonnet 5 ($3.04) are paused at days 3, 3 and 2. Stop them, run them to about day 25 later, or carry them on next week** | | bench |
 | ~~Q-216~~ | **(Closed 24 Nov: D5-2.)** **Trying for a child as its own act shape again (it was its own verb before the rebuild; D2-314 folded it into 'agree', where it is the last phrase of the line), with 'with' defaulting to one's partner: amends D2-314** | | bench |
 | Q-217 | **World 0's trade between the villages never happened (offers are seen only where posted; the salt-holders posted at Highpool, the grain was at Middleham): add a market place or a carrier to the world, or leave it as the test** | | bench |
+| Q-218 | **Ploughing works anyone's oxen when one has none here (D4-114: 'any beast that is here can be worked, as any land can; a claim does not stop it, it makes it seen'), against D2-305's 'unnamed, an act touches only one's own; another's only when named': which holds for working another's beasts unasked** | | bench |
 
 ## Offers and promises
 
