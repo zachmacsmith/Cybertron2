@@ -195,7 +195,7 @@ def stretch_ice(w, node, day):
     return "open"
 
 
-def runs(w, years, cued=True, stops=None, run_rows=None, ice=True):
+def runs(w, years, cued=True, stops=None, run_rows=None, ice=True, reseed=False):
     """The runs over `years` years from the world's first day; returns per village and night what passed, and the starts' causes."""
     from cybertron2.engine import wild as WL
     from cybertron2.engine.data import WATER_WORKS
@@ -212,6 +212,14 @@ def runs(w, years, cued=True, stops=None, run_rows=None, ice=True):
         nt = RU.net(m)
         st = copy.deepcopy(w.s["wild"]["state"])
         R = RU.state(st)
+        if reseed:                                                          # the fix arm: an up-run's spawning stretches that the build
+            for k, r in RU.runners_of(m).items():                           # left empty (the history's end drops the pulses still in
+                if r["dir"] != "up":                                        # flight) get the build's own seed, seed_km a km
+                    continue
+                sp = R["spawned"].setdefault(k, {})
+                for g in nt.spawns(r.get("where", "river"), r.get("spawn")):
+                    if float(sp.get(g, 0.0)) <= 1e-6:
+                        sp[g] = round(float(r["return"]["seed_km"]) * nt.km[g], 4)
         Y = w.year_days()
         nodes = sorted(set(m.nodes))
         land = w.s["wild"]["land"]
@@ -225,6 +233,8 @@ def runs(w, years, cued=True, stops=None, run_rows=None, ice=True):
         starts = []                                                         # [d1, kind, stretch, heads, cause]
         cond = {n: [] for n in villages}                                    # [day, rain ratio at its catchment, temp, flow, ice]
         mouth_cue = []                                                      # [d1, kind, mouth, inside, last, cued]
+        village_cue = []                                                    # [d1, kind, village, cued, iced]: a down-run's own stretch
+        rain_sum = {n: 0.0 for n in villages}                               # the engine's rain at each village's catchment, mm a day
         wx_next = WL.weather(w, nodes, 0)
         for d in range(years * Y):
             eday = WL.eco_day(w, d)
@@ -243,6 +253,7 @@ def runs(w, years, cued=True, stops=None, run_rows=None, ice=True):
             for n in villages:
                 g = f"v:{n}"
                 rr = RU.catch_rain(nt, g, mem, 0) / RU.RAIN_MEAN
+                rain_sum[n] += RU.catch_rain(nt, g, mem, 0)
                 fl = RU.flow(nt, g, mem, WATER_WORKS["weir"]["wear"]["flow_at"])
                 cond[n].append([d, round(rr, 3), round(float(wx[nt.node[g]]["temp"]), 2), fl, iced.get(g, "open")])
                 for p in RU.today(m, st, eday):
@@ -269,6 +280,8 @@ def runs(w, years, cued=True, stops=None, run_rows=None, ice=True):
                     for g in nt.members:
                         c = RU.cued(nt, g, r["cue"], cue_mem) if cued else cal
                         pre[(k, g)] = ("cue" if cued else "set night") if c else None
+                        if g.startswith("v:") and g[2:] in passed:
+                            village_cue.append([d + 1, k, g[2:], bool(c), bool(g in iced)])
             pool = {}
             for k, r in K.items():                                          # what each stretch has still to run tonight, before it starts
                 inside, first, last = RU._window(m, d1, r["seasons"])
@@ -313,7 +326,8 @@ def runs(w, years, cued=True, stops=None, run_rows=None, ice=True):
                 for key, n_ in sorted(by.items()):
                     starts.append([d + 1, k, key, round(n_, 3), pre.get((k, key)) or "?"])
         return {"active": True, "years": years, "Y": Y, "villages": villages, "lag_from_mouth": lagm, "passed": passed, "cond": cond,
-                "starts": starts, "mouth_cue": mouth_cue, "kinds": {k: {"dir": r["dir"], "seasons": r["seasons"]} for k, r in K.items()},
+                "starts": starts, "mouth_cue": mouth_cue, "village_cue": village_cue,
+                "catch_rain_mean": {n: round(x / (years * Y), 3) for n, x in rain_sum.items()}, "kinds": {k: {"dir": r["dir"], "seasons": r["seasons"]} for k, r in K.items()},
                 "eco_day0": WL.eco_day(w, 0)}
     finally:
         if saved is not None:
@@ -359,6 +373,9 @@ def one(wid, years=6) -> dict:
         out["runs_cue"] = runs(w, years, cued=True)
         out["seconds"]["runs_cue"] = round(time.time() - t0, 1)
         out["runs_set"] = runs(w, 2, cued=False)
+        out["runs_fix"] = runs(w, years, cued=True, reseed=True)
+        R0 = w.s["wild"]["state"]["runs"]
+        out["spawned_at_build"] = {k: {g: round(float(x), 2) for g, x in (R0["spawned"].get(k) or {}).items()} for k in R0["spawned"]}
         from cybertron2.engine import wild as WL
         st_ = mill_stops(w, WL.model(w))
         if st_:
