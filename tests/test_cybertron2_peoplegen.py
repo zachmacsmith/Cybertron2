@@ -178,3 +178,25 @@ def test_the_engine_runs_it(generated, tmp_path):
     p = tmp_path / "w.yaml"
     yaml.safe_dump(w, open(p, "w"), sort_keys=False, allow_unicode=True)
     R.run(str(p), str(tmp_path / "out"), days=2, bots=True)
+
+
+def test_a_craft_brought_by_marriage_warns_at_the_making_check_and_never_refuses(generated):
+    """D2-350: smelting known only by a wife born into another house, with no ore within a day, warns; the same craft known by one
+    born into the house refuses as before."""
+    from cybertron2.engine.world import World
+    from cybertron2.landgen import gates as G
+    w = copy.deepcopy(generated[0])
+    A = w["agents"]
+    wife = next((n for n, a in A.items() if a.get("born_line") and a["born_line"] != a["household"] and a["stage"] == "adult"), None)
+    if wife is None:
+        pytest.skip("no spouse married in from another house in this world")
+    hh = A[wife]["household"]
+    A[wife].setdefault("knows", {})["smelt"] = {"level": "known", "skill": 1.0}
+    world = World(copy.deepcopy(w))
+    m1 = [f for f in G.making_gates(world) if f.check == "M1" and f.household == hh and "smelt" in f.text.lower()]
+    assert m1 and all(f.level == "warn" and "brought by marriage" in f.text for f in m1)
+    native = next(n for n, a in A.items() if a["household"] == hh and (a.get("born_line") or hh) == hh and a["stage"] == "adult")
+    A[native].setdefault("knows", {})["smelt"] = {"level": "known", "skill": 1.0}
+    world = World(copy.deepcopy(w))
+    m1 = [f for f in G.making_gates(world) if f.check == "M1" and f.household == hh and "smelt" in f.text.lower()]
+    assert m1 and all(f.level == "refuse" for f in m1)

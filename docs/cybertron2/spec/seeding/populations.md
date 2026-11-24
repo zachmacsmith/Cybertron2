@@ -17,6 +17,7 @@ knowledge from that person's own position.
 - D4-19: runs start with people of every age; no time skips.
 - D4-64: customs are lines kept for good, seeded per person, household or place to those alive when a world starts, and to
   nobody born during a run; a world may fix them so they cannot be let go (replaces D4-57's fixed customs).
+- D2-350: A craft a person brought by marriage from their birth house (known only by household members born into another house, and in none of the household's own livelihoods) never refuses a world at the gate check's making checks (M1) when nothing it needs is to be had within a day; it is a warning (warn: default taken, Zach: 'do what is best')
 
 ## Mechanics
 

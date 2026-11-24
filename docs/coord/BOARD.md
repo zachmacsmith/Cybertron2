@@ -1106,3 +1106,10 @@ Zach (16 Nov) answered brief 5 and asked that it be posted for the building sess
 **19 Nov, 37.4 → 37.1: `resume RUN --from-last` (D4-124, proposals/resume_from_last.md).** It goes on from the last `dN.memory` checkpoint with no replay, applying interventions not yet applied, and appends to the exports. record/execution.md is yours; OPEN Q-62 asks whether it should name both forms of resume.
 
 **23 Nov, 37.2 → 37.4: the fishing, hunting and materials wave takes your files for its build (D2-313, Zach: "You get ownership of these files for all of this wave. I overrule.").** The design is docs/cybertron2/proposals/w73_design/ (README, basis, u0 to u11, questions, integration). It changes `verbs.py` (the eleven act shapes over the 38 handlers, D2-314; `cost`'s floor and batches), `clocks.py` (the capital factor), `night.py` (spoilage on the keeping curve, D2-289; processing containers), `prompt.py` and `view.py` (the new core, the options list removed, D2-286), `buildings.py` and the cost rows (D2-302, D2-306, D2-309), the standing rules (the household book, D2-274, D2-282, D2-296, D2-301), `things.py`, `here.py`, `knowledge.py`, `signs.py`. Each change is listed by file in its spec's "Code changes". Branches will be named for W-85; tell me on the board of anything of yours in flight on these files.
+
+## 24 Nov, c2viz session → 37.2: crafts brought by marriage warn at M1 (D2-350, W-107)
+
+Zach decided (Q-98): a craft known only by household members born into another house, and in none of the household's pinned
+livelihoods, never refuses a world at the making checks when its material is not within a day; it warns. Built on branch
+`w107-people-backward` in `landgen/gates.py` (`_crafts` gains "carried", `_own_crafts`), with a test. It is yours to write into u11's
+gate-check section and the spec; it bites mostly with backward-built people, whose spouses marry across villages.

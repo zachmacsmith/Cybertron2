@@ -165,14 +165,35 @@ def _households(w) -> list:
     return out
 
 
-def _crafts(w, ms) -> dict:
-    """{technique: "core" | "secondary"}: what the household's members know (core: at `known` by one of them)."""
+def _own_crafts(w, iid) -> set:
+    """The crafts of the livelihoods a world pins to a household (u11; livelihoods.ROWS): broad, capable and the specialisms'."""
+    from cybertron2.engine import livelihoods as LV
+    pin = (((w.spec.get("skills") or {}).get("households") or {}).get(iid) or {}) if iid else {}
+    out = set()
+    for lv in pin.get("livelihoods") or []:
+        row = LV.ROWS.get(lv) or {}
+        out |= set(row.get("broad") or []) | set(row.get("capable") or [])
+        for d in (row.get("specialisms") or {}).values():
+            out |= set(d.get("crafts") or [])
+    return out
+
+
+def _crafts(w, ms, iid=None) -> dict:
+    """{technique: "core" | "secondary" | "carried"}: what the household's members know (core: at `known` by one of them). A craft
+    known only by members born into another house, and in none of the household's own livelihoods, was brought by marriage:
+    "carried" (D2-350: it warns at M1, never refuses)."""
     from cybertron2.engine import knowledge as KN
-    out = {}
+    out, native = {}, {}
+    own = _own_crafts(w, iid)
     for m in ms:
+        home = (w.s["people"].get(m) or {}).get("born_line") or iid
         for t, r in (w.s["know"].get(m) or {}).items():
             if t in TECHNIQUES and r.get("level") in LEVELS and not KN.basic(t) and TECHNIQUES[t].get("verb") in ("make", "gather", "work"):
                 out[t] = "core" if r["level"] == "known" or out.get(t) == "core" else "secondary"
+                native[t] = native.get(t, False) or iid is None or home == iid
+    for t in out:
+        if not native[t] and t not in own:
+            out[t] = "carried"
     return out
 
 
@@ -247,14 +268,15 @@ def making_gates(w, spec=None) -> list:
         village = w.s["nodes"][node]["name"]
         name = h.get("name", iid)
         nodes = reach.get(node, {node})
-        crafts = _crafts(w, ms)
+        crafts = _crafts(w, ms, iid)
         for tech, core in sorted(crafts.items()):                                                      # M1
             t = TECHNIQUES[tech]
             for good, q in sorted((t.get("inputs") or {}).items()):
                 alts = list(q) if isinstance(q, dict) else [good]
                 if on("M1") and not any(_source_within(w, nodes, ms, g) for g in alts):
+                    carried = " (a craft brought by marriage)" if core == "carried" else ""      # D2-350: warns, never refuses
                     out.append(Finding("M1", "refuse" if core == "core" else "warn", village, iid,
-                                       f"{name}: {KN.label(tech)} needs {' or '.join(alts)}, and none is to be had within a day"))
+                                       f"{name}: {KN.label(tech)} needs {' or '.join(alts)}, and none is to be had within a day{carried}"))
         if on("M2") and "dress and spin" in crafts and not _source_within(w, nodes, ms, "flax seed"):         # M2
             out.append(Finding("M2", "refuse", village, iid, f"{name} spin flax, and there is no flax seed within a day"))
         first = _first_run_day(w)
