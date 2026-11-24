@@ -143,6 +143,10 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-99 | **How much of the waters made general comes before live run 2 (proposals/waters_general.md 1 to 7: one clock, resident fish from the land, the lamprey's faults, runs on conditions, the spring river, signs and lore from the rows, water where the land has it)** | | 37.2 |
 | Q-100 | **Old water worlds (water/river, water/lake, water/runs) can no longer set traps: setting now takes wicker traps from the hands and nobody there holds or can make one, so trapping is refused for the whole run (wave_regressions.md finding 1, W-98); the gate check refuses these worlds but World() runs them anyway** | | 37.2 |
 | Q-101 | **The two priority threads' scope (stable_engine_for_runs.md, architecture_overhaul.md): which worlds are the experiment worlds; the freeze on new content (stage 5, 5b, live run 2) until the stable engine is tagged; whether the waters' small faults (the lamprey, the shallows' clock) are fixed in thread a or water-heavy worlds kept out of the experiments** | | 37.2 |
+| Q-102 | **Whether the target architecture's shape is right: one registry form checked at load, three layers (core, shared mechanisms, features), a feature's own mechanism promoted to the shared layer at its second user, folders moved only when a feature is touched (docs/review/41_architecture/target.md)** | | arch |
+| Q-103 | **Whether a condition another system reads (the book reading signs, the founders' lines, pulses, landmark trouble) must be written in one condition grammar of registered predicates, with lambdas kept only for a package's own rows (target.md §2)** | | arch |
+| Q-104 | **The replay policy: when a mechanism is promoted, may old runs stop replaying under the new code, provided each is recorded with the last commit that replays it (target.md §7, question 3)** | | arch |
+| Q-105 | **Whether new content waits only for the promotion it needs (works before stage 5) after the registry load check and the named-branch guard, rather than for the whole first build (target.md §8, question 4)** | | arch |
 
 ## Offers and promises
 

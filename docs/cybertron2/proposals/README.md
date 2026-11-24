@@ -164,6 +164,7 @@ Rebuilt from the files on 5 Nov (status and owner as each file states them; 37.2
 | [wild_systems.md](wild_systems.md) | wild systems, layered kinds that people can learn to read | 37.2 | partly accepted: D2-197 (lead times in engine days), D2-198 (answers to scares by kind); the rest discussion (8 Nov). Nothing built. |
 | [wild_layer.md](wild_layer.md) | the wild layer, one general system for ecosystems and wildlife, built from the generated land into the engine | 37.2 | accepted to build on the `ecology` branch: D2-199 (9 Nov); open questions 2 to 7 still open. Nothing on main. |
 | [feature_packages.md](feature_packages.md) | the engine as a small core and one folder per feature, each registering its data, kinds, primitives, phases, verbs, signs and prompt lines in a manifest; the object model (six categories); `requires` on every registration; the work estimated | lead session, for 37.4 | ready for a decision (16 Nov). Nothing decided, nothing built. |
+| [architecture_overhaul.md](architecture_overhaul.md) | the engine's architecture overhauled: one registry form checked at load, core, shared mechanisms and features, a feature's own mechanism promoted at its second user; built on feature_packages.md and engine_overhaul.md (W-112) | arch (from 37.2) | discussion (24 Nov); target draft 1 with Zach (Q-102 to Q-105). Nothing decided, nothing built. |
 
 ## Log of ideas and their outcomes
 

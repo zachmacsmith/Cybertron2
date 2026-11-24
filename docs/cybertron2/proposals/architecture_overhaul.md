@@ -71,7 +71,9 @@ Several of these are feature_packages.md's object model (records, layers, popula
 ## The proposal (the work of this thread)
 
 1. **Finish the survey:** areas A and B to the brief's end (mechanisms, branches, misfits, taxonomy, history, process).
-2. **The target architecture**, reconciling the surveys with feature_packages.md: the categories of thing (its six, revised), the
+2. **The target architecture** (draft 1, 24 Nov, for Zach: [41_architecture/target.md](../../review/41_architecture/target.md): one registry
+   form checked at load, three layers (core, shared mechanisms, features), and a lifecycle in which a feature's own mechanism is
+   promoted to the shared layer at its second user), reconciling the surveys with feature_packages.md: the categories of thing (its six, revised), the
    general mechanisms and what each reads, the shared core every mechanism uses (one registry schema with required fields checked
    at load, one condition grammar, one name resolver, the phase list, stable sign names), the extension points each mechanism offers
    so a feature extends it instead of bypassing it, and what a system may own as its specifics and where they live (D2-354).
@@ -129,6 +131,11 @@ The whole engine; `feature_packages.md` (to be revised or replaced by this); `sp
   missing patterns are candidates to promote, not a list to build); mechanisms stay code with declared extension points and rows
   carry properties, not logic (no rule interpreter: D2-354's rigid end); and the architecture fixes only the half of the ad hoc code
   that went ad hoc because the primitives could not be extended (A §7.3): the other half needs the guards and the review rules.
+
+- **24 Nov 2026 (later): target architecture, draft 1** (session arch, `docs/review/41_architecture/target.md`), from the code
+  (the chokepoint, the act hub, the sign walker, the night, process rows, packs, renewal) and the four surveys. Its questions for
+  Zach: the shape; conditions in one grammar where another system reads them; the replay policy; content waiting only for the
+  promotion it needs. Not yet done: the map (step 3), the migration and its estimates (step 4) against today's 36,293 engine lines.
 
 ## Sources
 
