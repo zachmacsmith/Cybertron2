@@ -1,13 +1,13 @@
 ---
 id: W-109
 kind: thread
-state: active
+state: done
 updated: "2026-11-24"
 ---
 
 # The prompt's interface restored (W-109)
 
-*active · 37.2 · touched 24 Nov (today)*
+*done, by agent (provisional) · 37.2 · touched 24 Nov (today)*
 
 > **Next:** the registry and renderer builder on w109-interface (brief iface_brief.md); a regression audit of the wave (wave_regressions.md); then 37.2 reviews, replays and merges
 
@@ -15,22 +15,14 @@ updated: "2026-11-24"
 The prompt's interface restored (D5-2, Zach 24 Nov: 'interface is not world'): every act shown with what it does and its options, every technique of the person's with what it does, the eleven shapes' grammar kept; from session bench's audit of what the rebuilt core ([[W-100 Build stage 4, signs, people and worlds|W-100]]) dropped
 
 ## Done so far, and what is left
-started
+done 24 Nov: merged c64c16f9: the interface read from one registry (acts, techniques, ways), the set everyone knows, levels per [[D2-352 Familiarity and the interface|D2-352]], [[D2-356 A technique's name, what it does, what it needs and its working hints…|D2-356]]'s fields, World 0b's faults, the wave's regressions 2, 3, 10, 11; coverage test; replay of 2,509 live run 1 acts: none refused that was accepted before; suite 881 passed, 2 skipped; its asks [[Q-102 The interface's size|Q-102]], [[Q-103 The interface rebuild's defaults|Q-103]] and Not done [[L-190 The interface rebuild's Not done|L-190]] under [[W-111 Priority thread a|W-111]]
 
 
 ## Linked
 - parent: [[W-111 Priority thread a|Priority thread a (W-111)]]
-- under it: [[D2-350 Every act and every technique a person can take is registered with…|Every act and every technique a person can take is registered with… (D2-350)]] (live)
-- under it: [[D2-351 What a person is shown follows what they have learnt|What a person is shown follows what they have learnt (D2-351)]] (live)
-- under it: [[D2-352 Familiarity and the interface|Familiarity and the interface (D2-352)]] (live)
-- under it: [[D2-356 A technique's name, what it does, what it needs and its working hints…|A technique's name, what it does, what it needs and its working hints… (D2-356)]] (live)
 
 
 ## Mentioned by
-- [[D2-350 Every act and every technique a person can take is registered with…|Every act and every technique a person can take is registered with… (D2-350)]]
-- [[D2-351 What a person is shown follows what they have learnt|What a person is shown follows what they have learnt (D2-351)]]
-- [[D2-352 Familiarity and the interface|Familiarity and the interface (D2-352)]]
-- [[D2-356 A technique's name, what it does, what it needs and its working hints…|A technique's name, what it does, what it needs and its working hints… (D2-356)]]
 - [[W-111 Priority thread a|Priority thread a (W-111)]]
 - [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]]
 - [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]

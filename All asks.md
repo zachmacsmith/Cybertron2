@@ -1,6 +1,8 @@
 # All asks
 
 ## Open
+- [[Q-103 The interface rebuild's defaults|The interface rebuild's defaults (Q-103)]] (open)
+- [[Q-102 The interface's size|The interface's size (Q-102)]] (open)
 - [[Q-101 The two priority threads' scope|The two priority threads' scope (Q-101)]] (open)
 - [[Q-100 Old water worlds|Old water worlds (Q-100)]] (open)
 - [[Q-99 How much of the waters made general comes before live run 2|How much of the waters made general comes before live run 2 (Q-99)]] (open)

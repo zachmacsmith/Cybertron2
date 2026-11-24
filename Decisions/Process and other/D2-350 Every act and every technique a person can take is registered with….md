@@ -17,7 +17,7 @@ conversation (24 Nov: "we should add new actions, and each action should require
 
 
 ## Linked
-- parent: [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]
+- parent: [[W-111 Priority thread a|Priority thread a (W-111)]]
 
 
 ## Mentioned by

@@ -4,7 +4,6 @@
 - [[W-112 Priority thread b|Priority thread b (W-112)]] (active)
 - [[W-111 Priority thread a|Priority thread a (W-111)]] (active)
 - [[W-110 The engine's design patterns surveyed against the whole engine and…|The engine's design patterns surveyed against the whole engine and… (W-110)]] (active)
-- [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]] (active)
 - [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]] (active)
 - [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]] (paused)
 - [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]] (paused)
@@ -58,7 +57,8 @@
 - [[W-12 Forays trips out into the land and back, with what is found and told|Forays: trips out into the land and back, with what is found and told (W-12)]] (queued)
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]] (active)
 
-## Closed (60)
+## Closed (61)
+- [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]
 - [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]]
 - [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]
 - [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]

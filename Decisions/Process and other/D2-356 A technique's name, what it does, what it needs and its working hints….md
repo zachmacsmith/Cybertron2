@@ -17,10 +17,11 @@ conversation (24 Nov: "Yes this seems like separate data why the hell would you 
 
 
 ## Linked
-- parent: [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]
+- parent: [[W-111 Priority thread a|Priority thread a (W-111)]]
 
 
 ## Mentioned by
+- [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]
 - [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]
 - [[Brief the interface from one registry (thread W-109)|Brief: the interface from one registry (thread W-109)]]
 - [[W-109 the interface from one registry report (24 Nov 2026, session…|W-109: the interface from one registry: report (24 Nov 2026, session…]]

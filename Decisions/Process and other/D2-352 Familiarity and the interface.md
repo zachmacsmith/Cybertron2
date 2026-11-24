@@ -20,12 +20,14 @@ conversation (24 Nov: "Ok maybe aware doesn't need the full interface you took t
 
 
 ## Linked
-- parent: [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]
+- parent: [[W-111 Priority thread a|Priority thread a (W-111)]]
 - replaces: [[D2-351 What a person is shown follows what they have learnt|What a person is shown follows what they have learnt (D2-351)]]
 
 
 ## Mentioned by
 - [[D2-351 What a person is shown follows what they have learnt|What a person is shown follows what they have learnt (D2-351)]]
+- [[Q-102 The interface's size|The interface's size (Q-102)]]
+- [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]
 - [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]
 - [[Brief the interface from one registry (thread W-109)|Brief: the interface from one registry (thread W-109)]]
 - [[W-109 the interface from one registry report (24 Nov 2026, session…|W-109: the interface from one registry: report (24 Nov 2026, session…]]

@@ -28,11 +28,11 @@
 - [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]: closed by agent
 - [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]: closed by agent
 - [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]]: closed by agent
+- [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]: closed by agent
 - [[W-39 The economy's web of dependence and how far it should reach|The economy's web of dependence and how far it should reach (W-39)]]: revisit: kept open on purpose (Zach, 20 Nov: 'this should be another thread of its own purposefully kept open')
 - [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]: closed by agent
-- [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]: closed by agent
 
-## Active threads (23)
+## Active threads (22)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -57,8 +57,6 @@
   next: survey and design written (c101c75d); 37.2 reviewed the counts; eight design questions and seven survey…
 - [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]]  
   next: both reads done (sweep.md, generality.md); the proposal waters_general.md with Zach (Q-98, Q-99); then 5b…
-- [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]  
-  next: the registry and renderer builder on w109-interface (brief iface_brief.md); a regression audit of the wave…
 - [[W-110 The engine's design patterns surveyed against the whole engine and…|The engine's design patterns surveyed against the whole engine and… (W-110)]]  
   next: four survey agents by area; then 37.2 synthesises a proposal
 - [[W-111 Priority thread a|Priority thread a (W-111)]]  
