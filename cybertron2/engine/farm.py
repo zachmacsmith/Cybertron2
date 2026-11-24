@@ -808,6 +808,10 @@ def act(here, mind, tech, key, place_name, out, m, tm, a) -> tuple:
 
 
 def _herd_on(here, key, a, role=None, consume=False):
+    """The herd an act on beasts is done to (D2-304, D2-305): named ("thing": its tag or name), any herd here, another's too, and
+    called what it is; unnamed, a kill (slaughter) is refused, listing the herds and tags, since it uses a beast up (D2-304);
+    unnamed, herding and milking touch only one's own or one's household's, never another's (D2-305). W-202: the fallback to
+    anyone's herd killed a neighbour's calf in World 0b."""
     hs = [hid for hid, h in here.herds().items() if h["parcel"] == key and head(h) > 0 and (role is None or int(h.get(role, 0)) > 0)]
     want = str(a.get("thing") or "").strip().lower()
     pick = next((hid for hid in hs if want and (want in (hid.lower(), here.herds()[hid]["name"].lower())
@@ -816,16 +820,15 @@ def _herd_on(here, key, a, role=None, consume=False):
         raise Refused("there are no beasts there")
     if pick:
         return pick
-    mine = here.household()                                                   # unnamed: one's own household's beasts first (38.75)
+    def listed(ids):
+        return ", ".join(here.herds()[x]["name"] + (f" ({here.herds()[x]['tag']})" if here.herds()[x].get("tag") else "") for x in ids)
+    if consume:
+        raise Refused("say which herd (\"thing\": its tag or name): " + listed(hs))
+    mine = here.household()
     own = [hid for hid in hs if any(c["claimant"] in (here.name, mine) for c in here.claims(("herd", hid)))]
-    if consume and len(own) > 1:                                              # a kill on several of one's own needs its target (D2-304)
-        raise Refused("you have more than one herd here: say which (\"thing\"): "
-                      + ", ".join(here.herds()[x]["name"] for x in own))
-    if consume and not own:                                                   # an unnamed kill never falls to another's beasts (W-202:
-        raise Refused("none of the beasts here are yours: "                   # "slaughter" at a field took a neighbour's calf when the
-                      + ", ".join(here.herds()[x]["name"] for x in hs)         # killer meant his own dead bull)
-                      + "; name one (\"thing\") to kill another's")
-    return (own or hs)[0]
+    if not own:
+        raise Refused("none of the beasts here are yours: " + listed(hs) + "; name one (\"thing\") if you mean another's")
+    return own[0]
 
 
 def ground_mult(p, par) -> float:
