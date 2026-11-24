@@ -111,7 +111,7 @@ def remake(src=SRC) -> tuple:
     for a in w["agents"].values():
         if a.get("kept"):
             a.pop("memories", None)                                     # the seeded lines are kept lines (as make_eelmouth.arms)
-        a["kept"] = [{"text": GOAL, "fixed": True}] + [k for k in (a.get("kept") or []) if k.get("text") != GOAL]
+        a["kept"] = [{"text": GOAL, "fixed": True, "tag": "goal"}] + [k for k in (a.get("kept") or []) if k.get("text") != GOAL]
         if a is w["agents"].get("Hamo") and not any(k.get("source") == "a holding" for k in a["kept"]):   # only if the
                                                                         # templates (MI3, built since) gave the mill's keeper no line;
             a["kept"].insert(1, {"text": MILL_LINE, "source": "a holding"})  # so the mill's keeper line is written here (L-201)

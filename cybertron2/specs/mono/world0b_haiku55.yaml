@@ -5936,6 +5936,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -6106,6 +6107,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -6269,6 +6271,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -6395,6 +6398,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -6527,6 +6531,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -6629,6 +6634,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -6707,6 +6713,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: A kilo of salt keeps four of fish or eight of meat for about a year. Every house that kills, fishes or makes cheese needs it, and few can make it.
       source: family lore
     - text: We hold the Salt House on the Brine Meadow, where Lambert boils salt, and Brook's Forge, where Mabel works copper. The pan wants copper when it wears through; it burns charcoal.
@@ -6764,6 +6771,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: The eels go down to the sea in autumn, on the dark nights of the season. The Brook can look empty all summer and still run thick then.
       source: family lore
   Letice:
@@ -6819,6 +6827,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: The eels go down to the sea in autumn, on the dark nights of the season. The Brook can look empty all summer and still run thick then.
       source: family lore
   Everard:
@@ -6874,6 +6883,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: The eels go down to the sea in autumn, on the dark nights of the season. The Brook can look empty all summer and still run thick then.
       source: family lore
   Gunnild:
@@ -6931,6 +6941,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
   Matilda:
     household: Brook
     born: -2
@@ -6993,6 +7004,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
   Osric:
     household: Field
     born: -40
@@ -7127,6 +7139,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -7298,6 +7311,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -7473,6 +7487,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -7646,6 +7661,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -7795,6 +7811,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -7904,6 +7921,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -8011,6 +8029,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -8092,6 +8111,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: Barley does best sown in spring, and well early in summer or late in winter; sown at other times it comes up poor or not at all.
       source: family lore
     - text: We hold Middleham Field, which Orabel sees to, the ox team and plough, which Osric keeps, and 6 beasts on South Pasture, which Osric herds. Seed must be kept back for them; they want hay through
@@ -8157,6 +8177,7 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+      tag: goal
     - text: Grain ground to flour feeds about half as far again as boiled grain, and bread further still; flour keeps about a season, grain more than a year, and bread goes off in a night or two.
       source: family lore
     - text: We hold Middleham Mill on Middleham Green, which Hamo keeps, North Field Lower, which Annora sees to, and 3 beasts on South Pasture, which Hamo herds. It grinds the grain brought to it; its

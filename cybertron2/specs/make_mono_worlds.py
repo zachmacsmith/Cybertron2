@@ -300,7 +300,7 @@ def seed_lines(world: dict, key: str) -> dict:
     for n, a in world["agents"].items():
         a.pop("memories", None)
         extra = [{"text": RUMOUR[key][n], "source": "family lore"}] if n in RUMOUR.get(key, {}) else []
-        a["kept"] = [{"text": GOAL, "fixed": True}] + extra + [k for k in (a.get("kept") or []) if k.get("text") != GOAL]
+        a["kept"] = [{"text": GOAL, "fixed": True, "tag": "goal"}] + extra + [k for k in (a.get("kept") or []) if k.get("text") != GOAL]
         while len(a["kept"]) > CAP:
             a["kept"].pop()
     return report

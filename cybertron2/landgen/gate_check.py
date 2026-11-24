@@ -18,6 +18,12 @@ import sys
 PRICE = re.compile(r"\b(graded|grade|score|points|scoring)\b|\b\d+\s*(coin|coins|pence|shillings)\b", re.I)
 
 
+
+def pinned(line) -> bool:
+    """A kept line pinned and tagged (fixed, with a tag saying what it is, e.g. the graded goal): put in on purpose, so exempt
+    from the seeded-line checks on length (P6) and on naming a price, a score or a grade (P20) (D5-3, Zach 24 Nov)."""
+    return isinstance(line, dict) and bool(line.get("fixed")) and bool(str(line.get("tag") or "").strip())
+
 def _f(out, check, level, text, who=None):
     out.append({"check": check, "level": level, "who": who, "text": text})
 
@@ -92,9 +98,13 @@ def people_checks(world: dict) -> list:
             if len(kept) > 20:
                 _f(out, "P5", "refuse", f"{n}: {len(kept)} seeded lines, over the cap of 20", n)
             for x in kept:
+                if pinned(x):                                                  # a pinned, tagged line: put in on purpose (D5-3)
+                    continue
                 if len(str(x.get("text")).split()) > 40:
                     _f(out, "P6", "refuse", f"{n}: a line of {len(str(x['text']).split())} words: {x['text'][:60]}", n)
         for x in kept + [{"text": c} for c in world.get("customs") or []]:
+            if pinned(x):                                                      # D5-3
+                continue
             if PRICE.search(str(x.get("text") or "")):
                 _f(out, "P20", "refuse", f"{n}: a seeded line names a price, a score or a grade: {str(x.get('text'))[:80]}", n)
         if a.get("role") == "head" and lines_on and kept:                      # P14 (D2-279): the head's management lines
