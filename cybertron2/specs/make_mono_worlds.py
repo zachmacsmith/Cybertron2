@@ -230,8 +230,8 @@ def founders(world: dict, key: str) -> dict:
     for n, a in agents.items():                                             # the Holt's food in hand: no house to keep it in, and
         if a["household"] in NO_HOUSE:                                      # their place is their home (no house to place them by)
             a["at"] = everyone[n][0]
-            if a["stage"] not in ("infant", "child"):
-                a["holdings"]["dried meat"] = FIRST
+            if a["stage"] != "infant":                                       # every one past infancy carries a share: a child
+                a["holdings"]["dried meat"] = FIRST                             # comes of age soon and then eats from its own hands
     for home, hhs in FOUNDERS[key].items():                                 # the salters' shore: a saltmarsh parcel if the land gave none
         if not any("salter" in (SKILLS[key].get(hh) or {}).get("livelihoods", []) for hh in hhs):
             continue

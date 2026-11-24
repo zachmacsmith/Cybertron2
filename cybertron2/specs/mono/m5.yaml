@@ -20686,6 +20686,7 @@ agents:
     aware_of: {}
     holdings:
       crude tool: 1
+      dried meat: 16
     concerns:
     - food
     - family
