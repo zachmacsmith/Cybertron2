@@ -109,3 +109,16 @@ def test_the_generic_bots_take_their_candidates_a_verb_at_a_time():
     xs = ["gather cut withies", "gather fell", "gather firewood", "gather hay", "work clear", "work fence", "make rope"]
     assert R.spread(xs)[:4] == ["gather cut withies", "work clear", "make rope", "gather fell"]   # L-188: not four gathers
     assert sorted(R.spread(xs)) == sorted(xs)
+
+
+def test_a_pinned_tagged_line_is_exempt_from_the_length_and_grade_checks():
+    """D5-3 (Zach, 24 Nov, from session bench): a kept line pinned (fixed) and tagged was put in on purpose: not P6 or P20."""
+    goal = "YOUR GOAL, on which you will be graded: " + "grow your line " * 15
+    assert GC.pinned({"text": goal, "fixed": True, "tag": "goal"})
+    assert not GC.pinned({"text": goal, "fixed": True}) and not GC.pinned(goal)
+    s = _spec()
+    n = next(n for n, a in s["agents"].items() if a.get("household") and a.get("stage") == "adult")
+    s["agents"][n]["kept"] = [{"text": goal, "fixed": True, "tag": "goal"}]
+    assert not [x for x in GC.people_checks(s) if x["check"] in ("P6", "P20") and x["who"] == n]
+    s["agents"][n]["kept"] = [{"text": goal, "source": "seeded"}]
+    assert {"P6", "P20"} <= {x["check"] for x in GC.people_checks(s) if x["who"] == n}
