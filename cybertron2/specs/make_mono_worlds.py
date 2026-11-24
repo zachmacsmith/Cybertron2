@@ -70,7 +70,7 @@ SIBLINGS = {"M1": [("Maud", "Simon")], "M5": [("Gilbert", "Adam"), ("Stephen", "
 SKILLS = {
     "M1": {"Ashby": {"livelihoods": ["farmer"], "experts": ["ploughman", "seed_and_harvest"]},
            "Reeve": {"livelihoods": ["farmer", "herder"], "experts": ["dairy", "hay_and_winter"]},
-           "Colle": {"livelihoods": ["woodsman", "builder"], "experts": ["wright"]}},
+           "Colle": {"livelihoods": ["builder", "woodsman"], "experts": ["wright"]}},
     "M5": {"Strand": {"livelihoods": ["fisher", "salter"], "experts": ["traps_and_runs", "the_pan"]},
            "Fell": {"livelihoods": ["herder", "smith"], "experts": ["stock", "smelting"]},
            "Meade": {"livelihoods": ["farmer"], "experts": ["seed_and_harvest"]},
