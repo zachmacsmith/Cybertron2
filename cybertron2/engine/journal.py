@@ -63,7 +63,8 @@ def provenance(root=None) -> dict:
     diff = git("diff", "HEAD") if status.strip() else ""
     mods = {str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest()[:16]
             for p in sorted((root / "cybertron2").rglob("*.py"))}
-    return {"git": head, "dirty": bool(status.strip()), "diff_sha": sha(diff) if diff else None, "modules": mods,
+    tag = git("describe", "--tags", "--match", "engine-runs-*").strip() or None   # the pinned engine (W-111 §6)
+    return {"git": head, "tag": tag, "dirty": bool(status.strip()), "diff_sha": sha(diff) if diff else None, "modules": mods,
             "code_sha": sha(dumps(mods)), "python": platform.python_version()}
 
 

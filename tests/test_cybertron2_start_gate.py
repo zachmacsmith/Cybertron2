@@ -78,3 +78,9 @@ def test_gear_wanted_in_hand_is_a_shut_gate_unless_it_can_be_had():
     res = {"gates": {"a": {"trap in water": {"result": "Refused: gather: You have no wicker traps in hand."},
                            "angle": {"result": "You took 1.2 fish at the Mere."}}}, "roads": []}
     assert G.summary(res)["shut everywhere"] == ["trap in water"]
+
+
+def test_the_run_record_names_the_engine_tag():
+    from cybertron2.engine import journal as J
+    p = J.provenance()
+    assert "tag" in p and (p["tag"] is None or p["tag"].startswith("engine-runs-"))   # W-111 §6: the pinned engine, or none yet
