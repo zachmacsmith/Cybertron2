@@ -77,7 +77,8 @@ Several of these are feature_packages.md's object model (records, layers, popula
    general mechanisms and what each reads, the shared core every mechanism uses (one registry schema with required fields checked
    at load, one condition grammar, one name resolver, the phase list, stable sign names), the extension points each mechanism offers
    so a feature extends it instead of bypassing it, and what a system may own as its specifics and where they live (D2-354).
-3. **The map:** every mechanism the surveys list (about 390) to its home in the target, and every named branch and side table to the
+3. **The map** (first pass, 24 Nov: [41_architecture/map.md](../../review/41_architecture/map.md), generated table beside it):
+   every mechanism the surveys list (about 390) to its home in the target, and every named branch and side table to the
    property it becomes; what stays legitimately by name.
 4. **The migration:** phases on `main` in small merges (feature_packages §9.1), each against golden journals and prompt
    snapshots; the replay policy (when an old path may go, and which old runs it ends); the order (the shared core first: registry
@@ -136,6 +137,11 @@ The whole engine; `feature_packages.md` (to be revised or replaced by this); `sp
   (the chokepoint, the act hub, the sign walker, the night, process rows, packs, renewal) and the four surveys. Its questions for
   Zach: the shape; conditions in one grammar where another system reads them; the replay policy; content waiting only for the
   promotion it needs. Not yet done: the map (step 3), the migration and its estimates (step 4) against today's 36,293 engine lines.
+- **24 Nov 2026 (later): the map, first pass** (session arch, `docs/review/41_architecture/map.md`): the surveys' 395 rows placed
+  in the target by their own pattern labels (36 by hand): about 68 core, 290 shared mechanisms, 38 owned by features. Signs (57)
+  and acts (35) are the largest jobs; set gear fits worst (13 of 16 need work) and is proposed as the acceptance test; the
+  migration's main move is pulling features' specifics out of the shared paths into their rows, not moving folders. Named
+  branches: about 1,600 sites, about 800 to become properties, about 300 legitimate, about 350 side-table entries.
 
 ## Sources
 
