@@ -526,7 +526,7 @@ def evening(w, attend: dict, today: dict, skip=None) -> dict:
                     att.append(f)
                     texts.add(f["text"])
         if nothing and skip is None:                                           # a target not found: one's own act, no lines (D2-346)
-            t["attended"] = {"target": label, "lines": ["you found nothing by that name here to look at closely"], "found": False}
+            t["attended"] = {"target": label, "lines": [], "found": False}
         elif (subject or place) and skip is None:                              # the day's attention: shown at the hearth (D4-82)
             t["attended"] = {"target": label, "lines": [f["text"] for f in att] or ["nothing out of the ordinary"]}
         seen |= {f["id"] for f in att}

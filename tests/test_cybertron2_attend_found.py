@@ -60,3 +60,12 @@ def test_what_hangs_is_named_not_assumed_fish():
     assert "{what}" in EATEN_SIGNS["hung"][0]["text"] and "fish" not in EATEN_SIGNS["hung"][0]["text"]
     smell = [r for r in SG.BUILDING if r.get("sense") == "smell" and "smoke and" in inspect.getsource(r["text"])]
     assert smell and "'fish' if" not in inspect.getsource(smell[0]["text"])
+
+
+def test_an_attend_that_finds_nothing_says_so_in_ones_own_words(eel):
+    from cybertron2.engine import prompt as PR
+    from cybertron2.engine.here import Mind
+    m = Mind(eel, "Peter")
+    t = m.store["today"]
+    t["attended"] = {"target": "the crack in the wall", "lines": [], "found": False}
+    assert "You looked for the crack in the wall and found nothing there to look at closely." in PR.saw_lines(m)

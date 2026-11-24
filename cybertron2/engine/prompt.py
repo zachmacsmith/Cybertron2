@@ -721,7 +721,9 @@ def saw_lines(mind) -> list:
         y += ["What concerned you:"] + [f"- {x}" for x in t["concerned"]]
     if t["notice"]:
         y += ["What stood out:"] + [f"- {x}" for x in t["notice"]]
-    if t["attended"]:
+    if t["attended"] and t["attended"].get("found") is False:                  # nothing by that name (D2-346): one's own act
+        y += [f"You looked for {t['attended']['target']} and found nothing there to look at closely."]
+    elif t["attended"]:
         y += [f"You paid close attention to {t['attended']['target']}:"] + [f"- {x}" for x in t["attended"]["lines"]]
     if t["glimpse"]:
         y += ["In passing: " + "; ".join(t["glimpse"]) + "."]
