@@ -463,7 +463,9 @@ def test_one_who_dies_on_the_road_leaves_what_they_carried_on_the_road():
 
 # ---------------------------------------------------------------------- a kill's target (D2-304, D2-305; W-202)
 def _held_by(w, hid, claimant):
-    w._claim(("herd", hid), claimant, ["access", "use", "withdrawal"], "test")
+    for cid in [k for k, c in w.s["claims"].items() if tuple(c["thing"]) == ("herd", hid)]:   # held by this claimant alone
+        del w.s["claims"][cid]
+    w._claim(("herd", hid), claimant, ["access", "withdrawal", "management", "exclusion", "alienation"], "test")
 
 
 def test_an_unnamed_kill_is_refused_even_on_ones_own_single_herd():
