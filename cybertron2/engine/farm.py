@@ -821,13 +821,22 @@ def _herd_on(here, key, a, role=None, consume=False):
     if pick:
         return pick
     def listed(ids):
-        return ", ".join(here.herds()[x]["name"] + (f" ({here.herds()[x]['tag']})" if here.herds()[x].get("tag") else "") for x in ids)
-    if consume:
-        raise Refused("say which herd (\"thing\": its tag or name): " + listed(hs))
+        out = []
+        for x in ids:
+            nm, tg = here.herds()[x]["name"], here.herds()[x].get("tag")
+            out.append(nm if not tg or f"({tg})" in nm else f"{nm} ({tg})")
+        return ", ".join(out)
     mine = here.household()
-    own = [hid for hid in hs if any(c["claimant"] in (here.name, mine) for c in here.claims(("herd", hid)))]
+    own = [hid for hid in hs if any(c["claimant"] in (here.name, mine) for c in here.claims(("herd", hid)))
+           or not here.claims(("herd", hid))]                              # one's own, or nobody's: never another's (D2-305)
+    if consume:                                                            # a kill names its target (D2-304, Zach: "Killing herds
+        beast = ROLE_OF.get(str(a.get("item") or "").lower().strip()) or ROLE_OF.get(want)   # ... should need target"): the herd,
+        if not beast:                                                      # or the beast (cow, ox, bull, calf) from one's own herd
+            raise Refused("say which beast (\"item\": cow, ox, bull or calf) or which herd (\"thing\"): " + listed(hs))
+        if len(own) > 1:
+            raise Refused("you have more than one herd here: say which (\"thing\"): " + listed(own))
     if not own:
-        raise Refused("none of the beasts here are yours: " + listed(hs) + "; name one (\"thing\") if you mean another's")
+        raise Refused("none of the beasts here are yours: " + listed(hs) + "; name the herd (\"thing\") if you mean another's")
     return own[0]
 
 

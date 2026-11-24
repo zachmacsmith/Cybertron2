@@ -459,3 +459,31 @@ def test_one_who_dies_on_the_road_leaves_what_they_carried_on_the_road():
     w.apply("die", road, person="Warin", cause="starvation")
     rem = [c for c in w.s["containers"].values() if c["kind"] == "remains" and c["of"] == "Warin"]
     assert rem and rem[0]["on_road"] and rem[0]["node"] == road and abs(rem[0]["goods"]["firewood"] - 0.4) < 1e-9
+
+
+# ---------------------------------------------------------------------- a kill's target (D2-304, D2-305; W-202)
+def _held_by(w, hid, claimant):
+    w._claim(("herd", hid), claimant, ["access", "use", "withdrawal"], "test")
+
+
+def test_an_unnamed_kill_is_refused_even_on_ones_own_single_herd():
+    """D2-304 (Zach: "Killing herds shouldn't and should need target"): a slaughter naming neither the beast nor the herd is refused,
+    listing the herds, though only one's own stands there."""
+    w = world()
+    _held_by(w, "cattle", w.household_of("Edric"))
+    r = do(w, "Edric", do="work", what="slaughter", at=w.s["parcels"]["mb_pasture"]["name"])
+    assert r.startswith("Refused") and "say which beast" in r and "the Millbrook cattle" in r, r
+    assert w.s["herds"]["cattle"]["oxen"] == 2 and w.s["herds"]["cattle"]["cows"] == 4
+
+
+def test_a_kill_never_falls_to_another_households_beasts_unless_named():
+    """D2-305: unnamed (or naming only the beast), a kill takes one's own; with none of one's own there it is refused, and another's
+    herd is killed only when named. World 0b: 'slaughter' at a field took a neighbour's calf."""
+    w = world()
+    _held_by(w, "cattle", "Someone Else")
+    at = w.s["parcels"]["mb_pasture"]["name"]
+    r = do(w, "Edric", do="work", what="slaughter", at=at, item="ox")
+    assert r.startswith("Refused") and "none of the beasts here are yours" in r, r
+    assert w.s["herds"]["cattle"]["oxen"] == 2
+    r = do(w, "Edric", do="work", what="slaughter", at=at, item="ox", thing="the Millbrook cattle")
+    assert "meat" in r and w.s["herds"]["cattle"]["oxen"] == 1, r
