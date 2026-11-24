@@ -11,6 +11,8 @@ said in the world's own nights and seasons from the keeping curve read as a quar
 """
 from __future__ import annotations
 
+import re
+
 CAP_LINES = 20                                    # B9-2; D2-308
 CAP_WORDS = 800
 LINE_WORDS = 40                                   # D2-266
@@ -303,7 +305,7 @@ def HH10(c):
     water = c.water()
     fisher = "fisher" in ((c.h or {}).get("livelihoods") or [])
     bits = []
-    if water and fisher:
+    if water and fisher and _runs_here(c, "eel"):
         bits.append(f"when the eels run in {water}")
     elif water:
         bits.append(f"where we fish on {water}")
@@ -332,7 +334,7 @@ def _eel_season(c):
 
 def FI1(c):
     river = c.water()
-    if not river:
+    if not river or not _runs_here(c, "eel"):
         return None
     cue = ("on the dark nights of the season" if c.world.get("runs_set_nights") else "on dark wet nights, most on the first rain after dry days")
     return f"The eels go down to the sea in {_eel_season(c)}, {cue}. {river[:1].upper() + river[1:]} can look empty all summer and still run thick then."
@@ -340,6 +342,8 @@ def FI1(c):
 
 def FI2(c):
     from cybertron2.engine.data import WATER_WORKS
+    if not _runs_here(c, "eel"):
+        return None
     return (f"One wicker trap takes a few eels on a run night and holds no more than about {WATER_WORKS['trap']['hold']:g} kilos. A house "
             "that means to eat from the run sets many before the nights come, and tends every one each morning.")
 
@@ -358,8 +362,10 @@ def FI4(c):
     from cybertron2.engine.data import WATER_WORKS
     w = WATER_WORKS["trap"]["wreck"]
     half = "about half" if 0.4 <= float(w["spate"]) <= 0.6 else f"about {round(float(w['spate']) * 10)} in 10"
+    from cybertron2.wild.kinds import RUNS
+    run = any(_runs_here(c, k) for k in RUNS)
     return (f"A spate smashes {half} the traps in the water, and a flood nearly all; an otter that finds full traps comes back each night. "
-            "When the water drops, set again: the run is not over.")
+            "When the water drops, set again" + (": the run is not over." if run else "."))
 
 
 def FI5(c):
@@ -378,15 +384,48 @@ def FI6(c):
             "young come back as a run in later years.")
 
 
+_NETS = {}
+
+
+def _run_net(land):
+    """The world's river as the runs read it (wild.runs.Net from the land summary), built once a land."""
+    from cybertron2.wild import ecology as EC, runs as RU
+    k = id(land)
+    if k not in _NETS:
+        _NETS[k] = (land, RU.Net(land, EC.features(land)[0]))
+    return _NETS[k][1]
+
+
+def _runs_at(world, node, kind) -> bool:
+    """Whether a kind's run passes a village's water, read as the engine runs it (wild.runs; W-111, wave_regressions finding 8): the
+    world has the wild land, the kind runs there (not switched off), and the village's stretch is on its river: a down-run anywhere
+    on a river, an up-run where the village lies below one of its spawning stretches (salmon only up a big river)."""
+    from cybertron2.wild import kinds as WK, switches as SW
+    land = (world.get("wild") or {}).get("land")
+    r = WK.RUNS.get(kind)
+    if not land or not r or node is None or kind not in WK.KINDS or kind in SW.runs_off(world) or kind in SW.kinds_off(world):
+        return False
+    ps = ((world["nodes"].get(node) or {}).get("parcels") or {}).values()     # a water parcel on the river, where a run is reached
+    if not any(p.get("cover") == "water" and (p.get("land") or {}).get("river") not in (None, "none") for p in ps):
+        return False                                                       # (wild.water.run_reach; a lake's water is not)
+    nt = _run_net(land)
+    g = f"v:{node}"
+    if g not in nt.members:
+        return False
+    if r["dir"] == "down":
+        return True
+    return any(g in nt.path_up(x) for x in nt.spawns(r.get("where", "river"), r.get("spawn")))
+
+
+def _up_run_here(c):
+    """Whether any run going up passes the founder's village (the mill's hatches hold the fish going up)."""
+    from cybertron2.wild.kinds import RUNS
+    return any(_runs_here(c, k) for k, r in RUNS.items() if r["dir"] == "up")
+
+
 def _runs_here(c, kind):
-    """Whether a run passes the village (read from the world's land: the river class; salmon only on a big river)."""
-    p = next((p for p in c.parcels.values() if p["cover"] == "water"), None)
-    land = (p or {}).get("land") or {}
-    if kind == "salmon":
-        return land.get("river_class") in ("large", "big") or land.get("river") == "big river"
-    if kind == "lamprey":
-        return bool(c.world.get("lampreys"))
-    return True
+    """Whether a kind's run passes the founder's village (`_runs_at`)."""
+    return bool(c.water()) and _runs_at(c.world, c.node, kind)
 
 
 def FI7(c):
@@ -1260,7 +1299,7 @@ def MI4(c):
     """The water wheel's gap (WATER_WORKS mill: shut, full and half a run going up held; open, `open_rate`), on a river a run passes."""
     from cybertron2.engine.data import WATER_WORKS
     bid = _mill_kept(c)
-    if not bid or not (c.world["buildings"][bid].get("fittings") or {}).get("water wheel") or not c.water() or not _runs_here(c, "eel"):
+    if not bid or not (c.world["buildings"][bid].get("fittings") or {}).get("water wheel") or not c.water() or not _up_run_here(c):
         return None
     m = WATER_WORKS["mill"]
     return (f"Shut, the hatches hold the river: the wheel turns full, and {_share_words(m['stop'])} the fish going up are held below. "
@@ -1671,7 +1710,7 @@ def _busy_season(c, lv, hh):
         by = T["hay"]["by_season"]
         return max(SEASON_NAMES, key=lambda s: float(by.get(s, 0)))
     if lv == "fisher":
-        return _eel_season(c) if _water_of(c, hh) else None
+        return _eel_season(c) if _water_of(c, hh) and _runs_at(c.world, _hh_node(c, hh), "eel") else None
     return None
 
 
@@ -1766,7 +1805,38 @@ def _nb_trader(c, hh):
             "made here.")
 
 
-NB = {"fisher": lambda c, hh: f"The {c.line_name(hh)} live by {c.water() or 'the water'}: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.",
+def _nb_fisher(c, hh):
+    """A fisher neighbour: their own water, and the eel run only where it passes them (`_runs_at`)."""
+    water = _water_of(c, hh) or "the water"
+    if _runs_at(c.world, _hh_node(c, hh), "eel"):
+        return (f"The {c.line_name(hh)} live by {water}: they know when the eels run, and dry and salt the catch; in "
+                f"late {_eel_season(c)} they have fish to spare.")
+    return f"The {c.line_name(hh)} live by {water}: they fish it, and dry and salt the catch."
+
+
+def _knows_village(c, nid) -> bool:
+    """Whether the founder's household knows of a place (D4-47, as World.knows_place): it is not unexplored, or one of the household
+    has it among their places."""
+    if not (c.world["nodes"].get(nid) or {}).get("unexplored"):
+        return True
+    return any(nid in (c.world["agents"][m].get("places") or []) for m in c.members())
+
+
+def NV(c, lv, hh):
+    """D2-349: a household in another village one's household knows of: that village, how far, and what they live by; only for a
+    living that gives others something (its row's `depends.gives`), since that is why a household far off is worth knowing."""
+    from cybertron2.engine.livelihoods import ROWS
+    r = ROWS.get(lv) or {}
+    on = _hh_node(c, hh)
+    if not (r.get("depends") or {}).get("gives") or on is None:
+        return None
+    d = (_road_days(c.world).get(c.node) or {}).get(on)
+    away = "" if d is None else (", a day away" if d <= 1 else f", {d:g} days away")
+    lives = re.sub(r"\byour\b", "their", r["words"]["lives"])            # the row's words are the person's own ("your garden")
+    return f"In {_node_name(c, on)}{away}, the {c.line_name(hh)} live by {lives}."
+
+
+NB = {"fisher": _nb_fisher,
       "salter": lambda c, hh: f"The {c.line_name(hh)} boil salt at the spring; they want firewood for the pan.",
       "farmer": _nb_farmer,
       "herder": _nb_herder,
@@ -1845,10 +1915,11 @@ def HL(c):
 PREFIXES = ("BS", "PE", "HH", "FI", "SA", "FA", "HE", "HU", "SM", "MI", "BU", "WO", "BA", "CO", "TR", "CT")   # FO, TA deferred
 TEMPLATES = {k: v for k, v in globals().items() if k[:2] in PREFIXES and callable(v) and k[2:].isdigit()}
 TEMPLATES["HL"] = HL
-SOURCE = {**{p: "family lore" for p in PREFIXES}, "NB": "family lore", "HL": "a holding"}
+SOURCE = {**{p: "family lore" for p in PREFIXES}, "NB": "family lore", "NV": "family lore", "HL": "a holding"}
 KEEPER = {"FI12", "FI17", "SA4", "FA7", "FA9", "HE7", "SM4", "MI3", "MI5", "BA5"}     # each holding's keeper line (livelihoods.HOLDINGS)
 # u9 §5.2's drop order: each step taken whole, stopping as soon as the set fits
-DROP = [("neighbours beyond one", lambda ids: [i for i in ids if i.startswith("NB")][1:]),
+DROP = [("other villages' households", lambda ids: [i for i in ids if i.startswith("NV")]),     # D2-349: before any neighbour
+        ("neighbours beyond one", lambda ids: [i for i in ids if i.startswith("NB")][1:]),
         ("PE2", lambda ids: [i for i in ids if i == "PE2"]),
         ("HH5", lambda ids: [i for i in ids if i == "HH5"]),
         ("HH4", lambda ids: [i for i in ids if i == "HH4"]),                 # W-105 default: the stores line goes with the book's (Q)
@@ -1935,9 +2006,15 @@ def wanted(world, name, rep) -> list:
         if name in (hr.get("second_hands") or []):
             ids += ROWS[lv]["lines"].get("second") or []
     ids.append("HL")
-    for oh, orep in rep["households"].items():
-        if oh != hh and orep.get("livelihoods"):
-            ids.append(f"NB-{orep['livelihoods'][0]}:{oh}")
+    c = Ctx(world, name, rep, rep["households"].get(hh) or {})
+    for oh, orep in rep["households"].items():                            # D2-349: by where the other household lives
+        if oh == hh or not orep.get("livelihoods"):
+            continue
+        on = _hh_node(c, oh)
+        if on == c.node:
+            ids.append(f"NB-{orep['livelihoods'][0]}:{oh}")                # a neighbour, in one's own village
+        elif on is not None and _knows_village(c, on) and ((ROWS.get(orep["livelihoods"][0]) or {}).get("depends") or {}).get("gives"):
+            ids.append(f"NV-{orep['livelihoods'][0]}:{oh}")                # in another village the household knows of
     return list(dict.fromkeys(ids))
 
 
@@ -1951,6 +2028,9 @@ def render(world, name, rep, ids=None) -> dict:
             lv, _, hh = i[3:].partition(":")
             f = NB.get(lv)
             t = f(c, hh) if f else None
+        elif i.startswith("NV-"):
+            lv, _, hh = i[3:].partition(":")
+            t = NV(c, lv, hh)
         elif i in TEMPLATES:
             t = TEMPLATES[i](c)
         else:

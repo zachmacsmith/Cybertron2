@@ -210,6 +210,8 @@ def test_every_id_wanted_can_produce_has_a_template(filled):
             for i in FD.wanted(world, n, r):
                 if i.startswith("NB-"):
                     assert i[3:].split(":")[0] in FD.NB, (n, i)
+                elif i.startswith("NV-"):                                      # D2-349: another village's household
+                    assert i[3:].split(":")[0] in LV.ROWS, (n, i)
                 else:
                     assert i in FD.TEMPLATES, (n, i)
     import inspect
@@ -260,6 +262,7 @@ def test_every_built_template_fires_on_the_fixture(filled):
         fired |= {i.split("-")[0] if i.startswith("NB-") else i for i in r["lines"]}
         fired |= {f"NB-{i[3:].split(':')[0]}" for i in r["lines"] if i.startswith("NB-")}
     waits = {"FI13", "FI14", "HU8", "BU5", "WO3", "WO4", "BA2", "BA4", "BA5", "CO3"}     # [built: x] the engine lacks
+    waits |= {"MI4"}                                    # a run going up past the mill: the fixture has no wild land (W-111; below)
     mine = {i for i in FD.TEMPLATES if i[:2] in ("FA", "HE", "HU", "SM", "MI", "BU", "WO", "BA", "CO", "TR", "CT")} | {"SA6", "SA7"}
     assert sorted(mine - waits - fired) == []
     assert sorted(f"NB-{lv}" for lv in BUILT if f"NB-{lv}" not in fired) == []
@@ -353,7 +356,7 @@ def test_the_smiths_lines_state_the_engines_figures(filled):
     assert "The Brooks' pan" in sm6 and "the Hobbs' plough" in sm6 and "the Millers' mill wheel" in sm6 and "the fishers' hooks" in sm6
 
 
-def test_the_millers_lines_state_the_engines_figures(filled):
+def test_the_millers_lines_state_the_engines_figures(filled, monkeypatch):
     w, rep = filled
     mi1 = line(w, rep, "William", "MI1")
     assert "about half as far again" in mi1 and f"flour keeps {FD._keep('flour')}, grain {FD._keep('grain')}" in mi1
@@ -361,6 +364,8 @@ def test_the_millers_lines_state_the_engines_figures(filled):
     mi3 = line(w, rep, keeper_of(rep, "Miller", "mill"), "MI3")
     assert f"up to {T['water mill']['inputs']['grain']:g} kilos" in mi3 and "once a year" in mi3
     assert f"after about {FITTINGS['millstones']['wear']['life']:g} kilos ground" in mi3
+    assert line(w, rep, keeper_of(rep, "Miller", "mill"), "MI4") is None     # no run passes a world without the wild land (W-111)
+    monkeypatch.setattr(FD, "_runs_at", lambda world, node, kind: True)         # with a run going up past the mill
     mi4 = line(w, rep, keeper_of(rep, "Miller", "mill"), "MI4")
     assert WATER_WORKS["mill"]["stop"] == 0.5 and "half the fish going up are held below" in mi4 and "turns at half" in mi4
     mi5 = line(w, rep, keeper_of(rep, "Miller", "oven"), "MI5")
