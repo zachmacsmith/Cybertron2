@@ -84,3 +84,22 @@ def test_the_run_record_names_the_engine_tag():
     from cybertron2.engine import journal as J
     p = J.provenance()
     assert "tag" in p and (p["tag"] is None or p["tag"].startswith("engine-runs-"))   # W-111 §6: the pinned engine, or none yet
+
+
+def test_m7_reads_the_weirs_withies_from_the_data():
+    import copy as _c
+    from cybertron2.engine.data import WATER_WORKS
+    from cybertron2.engine.world import World
+    from cybertron2.landgen import gates as G
+    with contextlib.redirect_stdout(io.StringIO()):
+        w = World(load_spec("cybertron2/specs/nutrition/eelmouth.yaml"))
+    weirs = [b for b in w.s["buildings"].values() if b.get("monument") == "weir"]
+    assert weirs, "Eelmouth's weir"
+    weirs[0]["sections"] = [{"m": "wattle", "level": 5}, {"m": "wattle", "level": 5}, {"m": "timber", "level": 5}]
+    for par in w.s["parcels"].values():                                     # no willow: the check speaks
+        par["res"].pop("willow", None)
+    n = sum(1 for sc in weirs[0]["sections"] if sc.get("m") == "wattle")
+    c = WATER_WORKS["weir"]["cost"]
+    want = G.WEIR_UPKEEP * (c["first"]["wattle"]["materials"]["withies"] + c["added"]["wattle"]["materials"]["withies"] * max(0, n - 1))
+    m7 = [f.text for f in G.making_gates(w, {"gates": {c_: False for c_ in ("M1", "M2", "M3", "M4", "M5", "M6", "M8")}}) if f.check == "M7"]
+    assert any(f"about {want:g} bundles" in t for t in m7), m7

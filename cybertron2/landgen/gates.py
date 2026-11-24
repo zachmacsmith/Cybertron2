@@ -19,7 +19,7 @@ import math
 import sys
 
 from cybertron2.engine import run as R, verbs as V
-from cybertron2.engine.data import ITEMS, TECHNIQUES
+from cybertron2.engine.data import ITEMS, TECHNIQUES, WATER_WORKS
 from cybertron2.engine.here import Here, Mind
 from cybertron2.engine.world import World, load_spec
 
@@ -151,6 +151,7 @@ class Finding:
 
 LEVELS = ("rough", "capable", "known")
 GEAR_OF = {"trap in water": "wicker trap", "gill net": "gill net", "set line": "set line", "snare": "snare"}
+WEIR_UPKEEP = 0.25                          # a weir's yearly upkeep, a share of its build (D2-302's quarter to a third; the low end)
 SEASON_GEAR = {"trap in water": 6}          # pieces a setter wants by the first run night (D2-330's C5: six a setter)
 
 
@@ -308,12 +309,15 @@ def making_gates(w, spec=None) -> list:
                 out.append(Finding("M6", "refuse" if crafts[tech] == "core" else "warn", village, iid,
                                    f"{name}: no one capable of {KN.label(craft)} in the house or within a day, for {KN.label(tech)}"))
         for bid, b in sorted(w.s["buildings"].items()):                                                # M7: a wattle weir's withies
-            if not on("M7") or b.get("monument") != "weir" or b.get("household") != iid:
-                continue
+            if not on("M7") or b.get("monument") != "weir" or not any(c.get("claimant") == iid for c in w.claims_on(("building", bid))):
+                continue                                                       # held by a claim in the state (it never read before: W-111)
             wattle = sum(1 for sc in (b.get("sections") or []) if sc.get("m") == "wattle")
             if not wattle:
                 continue
-            need = 10 * 0.25 + 5 * 0.25 * max(0, wattle - 1)                  # a quarter of the build a year (D2-302)
+            cost = WATER_WORKS["weir"]["cost"]                                 # the sections' withies, read from the data (W-111)
+            first = float(cost["first"]["wattle"]["materials"].get("withies", 0.0))
+            added = float(cost["added"]["wattle"]["materials"].get("withies", 0.0))
+            need = WEIR_UPKEEP * (first + added * max(0, wattle - 1))
             have = sum(float(par["res"]["willow"]["K"]) for par in w.s["parcels"].values() if par["node"] in nodes and "willow" in par["res"])
             if have < need:
                 out.append(Finding("M7", "warn", village, iid, f"{name}: the weir's wattle wants about {need:g} bundles of withies a year; "
