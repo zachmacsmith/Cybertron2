@@ -115,7 +115,8 @@
 ## Queued and paused (20)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy, [[W-86 Households generalised into institutions and laws|W-86]] Households generalised into institutions and laws, [[W-87 Health, fatigue and illness|W-87]] Health, fatigue and illness, [[W-88 The coast and the sea|W-88]] The coast and the sea, [[W-89 Trade between villages markets, carriage, what flows where|W-89]] Trade between villages: markets, carriage, what flows where, [[W-90 Textiles and clothing|W-90]] Textiles and clothing, [[W-91 Pottery and clay crocks, ovens, daub, bricks|W-91]] Pottery and clay: crocks, ovens, daub, bricks, [[W-92 Boats, barrels and the cooper|W-92]] Boats, barrels and the cooper, [[W-93 Demography and growth|W-93]] Demography and growth, [[W-94 Timed actions|W-94]] Timed actions, [[W-95 Stone and quarrying|W-95]] Stone and quarrying, [[W-96 Space unified everywhere|W-96]] Space unified everywhere, [[W-106 Stage 5 of the wave, works|W-106]] Stage 5 of the wave, works
 
-## Decided this week (137)
+## Decided this week (138)
+- [[D2-352 Familiarity and the interface|Familiarity and the interface (D2-352)]]
 - [[D2-351 What a person is shown follows what they have learnt|What a person is shown follows what they have learnt (D2-351)]]
 - [[D2-350 Every act and every technique a person can take is registered with…|Every act and every technique a person can take is registered with… (D2-350)]]
 - [[D2-349 Founders' seeded lines about other households follow where they live…|Founders' seeded lines about other households follow where they live… (D2-349)]]
@@ -130,7 +131,6 @@
 - [[D2-340 Passing on through care|Passing on through care (D2-340)]]
 - [[D2-339 The household book's grammar|The household book's grammar (D2-339)]]
 - [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]]
-- [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]]
 
 ## The world, by area
 - **agents**: [[agents - actions|actions]], [[agents - aims|aims]], [[agents - models|models]], [[agents - modifiers|modifiers]], [[agents - standing_orders|standing_orders]], [[agents - work|work]]
