@@ -225,6 +225,23 @@ def seed(m, st) -> None:
         R["spawned"][k] = {g: round(float(ret["seed_km"]) * nt.km[g], 4) for g in nt.spawns(r.get("where", "river"), r.get("spawn"))}
 
 
+def land_in_flight(st) -> dict:
+    """At the history's end (wild.seed): each up-run's pulses still travelling are counted as spawned where they were bound, as their
+    arrival would have done, so the run's first nights start with no run under way and the head waters keep their spawners; the
+    down-runs in flight go to the sea. (Dropping them left the long rivers' lampreys with no spawners for good: sweep.md §7 bug 1;
+    W-111.) Returns {kind: heads landed}."""
+    R = state(st)
+    out = {}
+    for p in R["pulses"]:
+        if p.get("dir") != "up" or not p.get("to") or float(p.get("n", 0.0)) <= 1e-9:
+            continue
+        sp = R["spawned"].setdefault(p["k"], {})
+        sp[p["to"]] = round(float(sp.get(p["to"], 0.0)) + float(p["n"]), 4)
+        out[p["k"]] = round(out.get(p["k"], 0.0) + float(p["n"]), 4)
+    R["pulses"] = []
+    return out
+
+
 def today(m, st, day) -> list:
     """The pulses at a stretch on this ecology day."""
     return [p for p in (st.get("runs") or {}).get("pulses") or [] if int(p["d"]) == int(day) and float(p["n"]) > 1e-9]

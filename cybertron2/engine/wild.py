@@ -108,8 +108,9 @@ def seed(w) -> None:
         EC.step(m, st, k0 + d, wx, draws(w, k0 + d, "history"), history=True)
         if rivers:
             RU.advance(m, st, k0 + d, wx, wx_next, weather=_runs_cued(w))
-    if rivers:                                                            # the run's own nights start with no run under way
-        st["runs"]["pulses"], st["runs"]["rain"], st["runs"]["tally"] = [], {}, {}
+    if rivers:                                                            # the run's own nights start with no run under way: the
+        RU.land_in_flight(st)                                             # up-runs in flight spawn where bound (W-111)
+        st["runs"]["rain"], st["runs"]["tally"] = {}, {}
     st["day"] = -1
     st["mast"]["years"] = {}                                              # the trees' budget carries over; the run's years are its own
     w.s["wild"]["state"] = st
