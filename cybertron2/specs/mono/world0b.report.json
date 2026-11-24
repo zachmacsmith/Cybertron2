@@ -1,0 +1,1152 @@
+{
+ "fill": {
+  "households": {
+   "Brook": {
+    "livelihoods": [
+     "salter",
+     "fisher"
+    ],
+    "experts": {
+     "the_pan": "Lambert"
+    },
+    "bands": {
+     "Lambert": "expert",
+     "Mabel": "capable",
+     "Saer": "broad"
+    },
+    "apprentices": {},
+    "keepers": {
+     "brook_salthouse": "Lambert",
+     "brook_forge": "Mabel"
+    },
+    "holds": {
+     "salt house": [
+      "brook_salthouse"
+     ],
+     "forge": [
+      "brook_forge"
+     ]
+    },
+    "second_hands": [
+     "Mabel",
+     "Lambert"
+    ]
+   },
+   "Field": {
+    "livelihoods": [
+     "farmer",
+     "herder"
+    ],
+    "experts": {
+     "ploughman": "Osric"
+    },
+    "bands": {
+     "Osric": "expert",
+     "Orabel": "capable",
+     "Hawise": "broad"
+    },
+    "apprentices": {},
+    "keepers": {
+     "oxen:field_cattle": "Osric",
+     "field:Middleham_1": "Orabel",
+     "herd:field_cattle": "Osric"
+    },
+    "holds": {
+     "fields": [
+      "field:Middleham_1"
+     ],
+     "ox pair": [
+      "oxen:field_cattle"
+     ],
+     "herd": [
+      "herd:field_cattle"
+     ]
+    },
+    "second_hands": [
+     "Orabel",
+     "Osric"
+    ]
+   },
+   "Fletcher": {
+    "livelihoods": [
+     "miller",
+     "farmer"
+    ],
+    "experts": {
+     "the_mill": "Hamo"
+    },
+    "bands": {
+     "Hamo": "expert",
+     "Annora": "capable",
+     "Piers": "broad",
+     "Alard": "broad"
+    },
+    "apprentices": {},
+    "keepers": {
+     "Middleham_mill": "Hamo",
+     "field:Middleham_10": "Annora",
+     "herd:fletcher_cattle": "Hamo"
+    },
+    "holds": {
+     "mill": [
+      "Middleham_mill"
+     ],
+     "fields": [
+      "field:Middleham_10"
+     ],
+     "herd": [
+      "herd:fletcher_cattle"
+     ]
+    },
+    "second_hands": [
+     "Annora",
+     "Hamo"
+    ]
+   },
+   "Marsh": {
+    "livelihoods": [
+     "fisher"
+    ],
+    "experts": {
+     "weir_and_nets": "Jocelin"
+    },
+    "bands": {
+     "Jocelin": "expert",
+     "Alice": "broad",
+     "Wymarc": "broad"
+    },
+    "apprentices": {},
+    "keepers": {},
+    "holds": {},
+    "second_hands": []
+   }
+  },
+  "people": {},
+  "skipped": [
+   "Brook: Mabel raised to capable to keep the forge (u11 \u00a72.3)",
+   "Field: Orabel raised to capable to keep the fields (u11 \u00a72.3)",
+   "Field: herd herd:field_cattle kept by Osric, its only able hand",
+   "Fletcher: Annora raised to capable to keep the herd (u11 \u00a72.3)",
+   "Fletcher: herd herd:fletcher_cattle kept by Hamo, its only able hand",
+   "the gone households: Cotter, Hart, Shepherd, Wood, Wright (24 people)"
+  ],
+  "refused": [],
+  "capital": {},
+  "lines": {
+   "Alard": {
+    "wanted": 8,
+    "rendered": 8,
+    "skipped": [],
+    "steps": [],
+    "seeded": 8,
+    "words": 272,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS5",
+     "BS8",
+     "PE1",
+     "MI1",
+     "HL"
+    ]
+   },
+   "Alice": {
+    "wanted": 21,
+    "rendered": 19,
+    "skipped": [
+     "PE2",
+     "HL"
+    ],
+    "steps": [],
+    "seeded": 19,
+    "words": 570,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS7",
+     "BS8",
+     "BS9",
+     "PE1",
+     "HH1",
+     "HH3",
+     "HH10",
+     "FI1",
+     "FI2",
+     "FI3",
+     "NB-salter:Brook",
+     "NB-farmer:Field",
+     "NB-miller:Fletcher"
+    ]
+   },
+   "Annora": {
+    "wanted": 24,
+    "rendered": 22,
+    "skipped": [
+     "PE2",
+     "MI3"
+    ],
+    "steps": [
+     "neighbours beyond one"
+    ],
+    "seeded": 20,
+    "words": 599,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS7",
+     "BS8",
+     "BS9",
+     "PE1",
+     "HH1",
+     "HH3",
+     "HH10",
+     "MI1",
+     "MI2",
+     "FA9",
+     "FA1",
+     "FA3",
+     "HL",
+     "NB-salter:Brook"
+    ]
+   },
+   "Drew": {
+    "wanted": 2,
+    "rendered": 2,
+    "skipped": [],
+    "steps": [],
+    "seeded": 2,
+    "words": 65,
+    "over": false,
+    "long": [],
+    "ids": [
+     "FA1",
+     "HL"
+    ]
+   },
+   "Everard": {
+    "wanted": 2,
+    "rendered": 1,
+    "skipped": [
+     "HL"
+    ],
+    "steps": [],
+    "seeded": 1,
+    "words": 28,
+    "over": false,
+    "long": [],
+    "ids": [
+     "FI1"
+    ]
+   },
+   "Gunnild": {
+    "wanted": 0,
+    "rendered": 0,
+    "skipped": [],
+    "steps": [],
+    "seeded": 0,
+    "words": 0,
+    "over": false,
+    "long": [],
+    "ids": []
+   },
+   "Hamo": {
+    "wanted": 31,
+    "rendered": 31,
+    "skipped": [],
+    "steps": [
+     "neighbours beyond one",
+     "PE2",
+     "HH5",
+     "HH4",
+     "HH8",
+     "capable lines a specialism repeats",
+     "BS9",
+     "BS7",
+     "BS6",
+     "the last neighbour line"
+    ],
+    "seeded": 20,
+    "words": 650,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS8",
+     "PE1",
+     "HH1",
+     "HH2",
+     "HH3",
+     "HH6",
+     "HH7",
+     "HH9",
+     "HH10",
+     "MI1",
+     "MI3",
+     "MI4",
+     "HE7",
+     "FA1",
+     "HL"
+    ]
+   },
+   "Hawise": {
+    "wanted": 9,
+    "rendered": 9,
+    "skipped": [],
+    "steps": [],
+    "seeded": 9,
+    "words": 295,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS5",
+     "BS8",
+     "PE1",
+     "FA1",
+     "FA2",
+     "HL"
+    ]
+   },
+   "Jocelin": {
+    "wanted": 32,
+    "rendered": 28,
+    "skipped": [
+     "PE2",
+     "HH2",
+     "FI12",
+     "HL"
+    ],
+    "steps": [
+     "neighbours beyond one",
+     "HH5",
+     "HH4",
+     "HH8",
+     "BS9",
+     "BS7",
+     "BS6"
+    ],
+    "seeded": 20,
+    "words": 657,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS8",
+     "PE1",
+     "HH1",
+     "HH3",
+     "HH6",
+     "HH7",
+     "HH9",
+     "HH10",
+     "FI1",
+     "FI2",
+     "FI3",
+     "FI9",
+     "FI10",
+     "FI11",
+     "NB-salter:Brook"
+    ]
+   },
+   "Lambert": {
+    "wanted": 34,
+    "rendered": 32,
+    "skipped": [
+     "HH2",
+     "SA7"
+    ],
+    "steps": [
+     "neighbours beyond one",
+     "PE2",
+     "HH5",
+     "HH4",
+     "HH8",
+     "broad lines of a second living beyond its first",
+     "BS9",
+     "BS7",
+     "BS6"
+    ],
+    "seeded": 20,
+    "words": 615,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS8",
+     "PE1",
+     "HH1",
+     "HH3",
+     "HH6",
+     "HH7",
+     "HH9",
+     "HH10",
+     "SA1",
+     "SA2",
+     "SA3",
+     "SA4",
+     "FI1",
+     "HL",
+     "NB-farmer:Field"
+    ]
+   },
+   "Letice": {
+    "wanted": 2,
+    "rendered": 1,
+    "skipped": [
+     "HL"
+    ],
+    "steps": [],
+    "seeded": 1,
+    "words": 28,
+    "over": false,
+    "long": [],
+    "ids": [
+     "FI1"
+    ]
+   },
+   "Lettice": {
+    "wanted": 2,
+    "rendered": 1,
+    "skipped": [
+     "HL"
+    ],
+    "steps": [],
+    "seeded": 1,
+    "words": 28,
+    "over": false,
+    "long": [],
+    "ids": [
+     "FI1"
+    ]
+   },
+   "Lucas": {
+    "wanted": 2,
+    "rendered": 2,
+    "skipped": [],
+    "steps": [],
+    "seeded": 2,
+    "words": 75,
+    "over": false,
+    "long": [],
+    "ids": [
+     "MI1",
+     "HL"
+    ]
+   },
+   "Mabel": {
+    "wanted": 26,
+    "rendered": 24,
+    "skipped": [
+     "PE2",
+     "SA7"
+    ],
+    "steps": [
+     "neighbours beyond one",
+     "broad lines of a second living beyond its first"
+    ],
+    "seeded": 19,
+    "words": 573,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS7",
+     "BS8",
+     "BS9",
+     "PE1",
+     "HH1",
+     "HH3",
+     "HH10",
+     "SA1",
+     "SA2",
+     "SM4",
+     "FI1",
+     "HL",
+     "NB-farmer:Field"
+    ]
+   },
+   "Matilda": {
+    "wanted": 0,
+    "rendered": 0,
+    "skipped": [],
+    "steps": [],
+    "seeded": 0,
+    "words": 0,
+    "over": false,
+    "long": [],
+    "ids": []
+   },
+   "Orabel": {
+    "wanted": 27,
+    "rendered": 26,
+    "skipped": [
+     "PE2"
+    ],
+    "steps": [
+     "neighbours beyond one",
+     "broad lines of a second living beyond its first",
+     "BS9",
+     "BS7",
+     "BS6"
+    ],
+    "seeded": 20,
+    "words": 633,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS8",
+     "PE1",
+     "HH1",
+     "HH3",
+     "HH10",
+     "FA1",
+     "FA2",
+     "FA3",
+     "FA4",
+     "FA5",
+     "FA6",
+     "FA9",
+     "HE1",
+     "HL",
+     "NB-salter:Brook"
+    ]
+   },
+   "Osric": {
+    "wanted": 33,
+    "rendered": 32,
+    "skipped": [
+     "PE2"
+    ],
+    "steps": [
+     "neighbours beyond one",
+     "HH5",
+     "HH4",
+     "HH8",
+     "capable lines a specialism repeats",
+     "broad lines of a second living beyond its first",
+     "BS9",
+     "BS7",
+     "BS6",
+     "the last neighbour line",
+     "BS8, when HH10 is held"
+    ],
+    "seeded": 20,
+    "words": 660,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "PE1",
+     "HH1",
+     "HH2",
+     "HH3",
+     "HH6",
+     "HH7",
+     "HH9",
+     "HH10",
+     "FA1",
+     "FA2",
+     "FA6",
+     "FA7",
+     "HE7",
+     "HE1",
+     "HL"
+    ]
+   },
+   "Peter": {
+    "wanted": 2,
+    "rendered": 2,
+    "skipped": [],
+    "steps": [],
+    "seeded": 2,
+    "words": 62,
+    "over": false,
+    "long": [],
+    "ids": [
+     "SA1",
+     "HL"
+    ]
+   },
+   "Piers": {
+    "wanted": 8,
+    "rendered": 8,
+    "skipped": [],
+    "steps": [],
+    "seeded": 8,
+    "words": 272,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS5",
+     "BS8",
+     "PE1",
+     "MI1",
+     "HL"
+    ]
+   },
+   "Saer": {
+    "wanted": 8,
+    "rendered": 8,
+    "skipped": [],
+    "steps": [],
+    "seeded": 8,
+    "words": 255,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS5",
+     "BS8",
+     "PE1",
+     "SA1",
+     "HL"
+    ]
+   },
+   "Wymarc": {
+    "wanted": 9,
+    "rendered": 8,
+    "skipped": [
+     "HL"
+    ],
+    "steps": [],
+    "seeded": 8,
+    "words": 261,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS5",
+     "BS8",
+     "PE1",
+     "FI1",
+     "FI2"
+    ]
+   }
+  }
+ },
+ "gate": {
+  "refuse": [
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Alard",
+    "text": "Alard: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Alard",
+    "text": "Alard: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Alice",
+    "text": "Alice: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Alice",
+    "text": "Alice: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Annora",
+    "text": "Annora: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Annora",
+    "text": "Annora: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Drew",
+    "text": "Drew: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Drew",
+    "text": "Drew: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Everard",
+    "text": "Everard: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Everard",
+    "text": "Everard: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Hamo",
+    "text": "Hamo: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Hamo",
+    "text": "Hamo: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Hawise",
+    "text": "Hawise: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Hawise",
+    "text": "Hawise: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Jocelin",
+    "text": "Jocelin: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Jocelin",
+    "text": "Jocelin: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Lambert",
+    "text": "Lambert: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Lambert",
+    "text": "Lambert: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Letice",
+    "text": "Letice: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Letice",
+    "text": "Letice: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Lettice",
+    "text": "Lettice: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Lettice",
+    "text": "Lettice: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Lucas",
+    "text": "Lucas: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Lucas",
+    "text": "Lucas: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Mabel",
+    "text": "Mabel: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Mabel",
+    "text": "Mabel: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Orabel",
+    "text": "Orabel: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Orabel",
+    "text": "Orabel: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Osric",
+    "text": "Osric: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Osric",
+    "text": "Osric: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Peter",
+    "text": "Peter: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Peter",
+    "text": "Peter: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Piers",
+    "text": "Piers: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Piers",
+    "text": "Piers: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Saer",
+    "text": "Saer: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Saer",
+    "text": "Saer: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Wymarc",
+    "text": "Wymarc: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Wymarc",
+    "text": "Wymarc: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   }
+  ],
+  "warn": [
+   {
+    "check": "P10",
+    "level": "warn",
+    "who": null,
+    "text": "the Salt House: the brine pan wears and wants copper to mend; no smith in reach"
+   },
+   {
+    "check": "P11",
+    "level": "warn",
+    "who": null,
+    "text": "copper: needed by a living here and made by none in reach (a designed scarcity, or not)"
+   },
+   {
+    "check": "P7",
+    "level": "warn",
+    "who": null,
+    "text": "crafts held at capable or above with no lesson rows (their failures say only \"your hands\"): boil salt, coin, copper tool, gill net, gill nets, medium room, milk, mine, plough, quarry, select seed, smelt, trap in water, weir, wicker trap"
+   }
+  ],
+  "report": [
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "break a dam: shut everywhere in the dry probe"
+   }
+  ],
+  "verdict": "refuse",
+  "probe": {
+   "works": {
+    "Highpool": [
+     "angle",
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "fence",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "gather young",
+     "gill net",
+     "guard the field",
+     "hay",
+     "hunt the wild",
+     "pest work",
+     "shut",
+     "stalk",
+     "trap in water",
+     "twist cord"
+    ],
+    "Middleham": [
+     "burn the stubble",
+     "clear",
+     "clear for building",
+     "clear the leat",
+     "cut",
+     "cut withies",
+     "den work",
+     "dress millstones",
+     "fell",
+     "fence",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "gather young",
+     "guard the field",
+     "hay",
+     "hoe",
+     "hunt the wild",
+     "milk",
+     "pest work",
+     "plough",
+     "reap",
+     "shut",
+     "slaughter",
+     "sow",
+     "stalk",
+     "twist cord",
+     "weed"
+    ],
+    "Lowstrand": [
+     "burn the stubble",
+     "clear",
+     "clear for building",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "gather young",
+     "hay",
+     "hoe",
+     "hunt the wild",
+     "pest work",
+     "reap",
+     "shut",
+     "stalk",
+     "twist cord",
+     "weed"
+    ],
+    "Stanwood": [
+     "clear",
+     "clear for building",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "gather young",
+     "hay",
+     "hunt the wild",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Hartcliffe": [
+     "clear",
+     "clear for building",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "gather young",
+     "hay",
+     "hunt the wild",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Thornholt": [
+     "clear",
+     "clear for building",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "gather young",
+     "hay",
+     "hunt the wild",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Oakhurst": [
+     "clear",
+     "clear for building",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "gather wild food",
+     "gather young",
+     "hay",
+     "hunt the wild",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Cragton": [
+     "clear",
+     "clear for building",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "gather wild food",
+     "gather young",
+     "hay",
+     "hunt the wild",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Ashurst": [
+     "clear",
+     "clear for building",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "gather wild food",
+     "gather young",
+     "hay",
+     "hunt the wild",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Scarlow": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "firewood",
+     "gather wild food",
+     "gather young",
+     "hunt the wild",
+     "mine",
+     "stalk",
+     "twist cord"
+    ]
+   },
+   "shut everywhere": [
+    "break a dam"
+   ],
+   "only the moment or inputs": [
+    "burn",
+    "bury",
+    "dig a strip",
+    "ditch",
+    "drive",
+    "dung",
+    "manure",
+    "mend the brine pan",
+    "net",
+    "open the gate",
+    "pull flax",
+    "quarry",
+    "reline oven",
+    "repair",
+    "salt pan",
+    "select seed",
+    "set line",
+    "shut the gate",
+    "snare",
+    "tend the smoke",
+    "terrace",
+    "wall"
+   ],
+   "crashes": [],
+   "roads refused": []
+  }
+ }
+}
