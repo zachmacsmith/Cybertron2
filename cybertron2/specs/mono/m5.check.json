@@ -4,18 +4,6 @@
  "gate": {
   "refuse": [
    {
-    "check": "P2",
-    "level": "refuse",
-    "who": "Fell",
-    "text": "Fell: hale_forge has no keeper line to its keeper (Ralph)"
-   },
-   {
-    "check": "P3",
-    "level": "refuse",
-    "who": "Strand",
-    "text": "Strand: salter does not fit the land here"
-   },
-   {
     "check": "P6",
     "level": "refuse",
     "who": "Adam",
@@ -206,18 +194,6 @@
     "level": "refuse",
     "who": "Stephen",
     "text": "Stephen: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
-   },
-   {
-    "check": "M6",
-    "level": "refuse",
-    "who": "Holt",
-    "text": "the Holts: no one capable of making wicker traps in the house or within a day, for setting wicker traps in the water overnight"
-   },
-   {
-    "check": "M6",
-    "level": "refuse",
-    "who": "Meade",
-    "text": "the Meades: no one capable of making wicker traps in the house or within a day, for setting wicker traps in the water overnight"
    }
   ],
   "warn": [
@@ -234,10 +210,28 @@
     "text": "crafts held at capable or above with no lesson rows (their failures say only \"your hands\"): boil salt, charcoal, copper tool, den work, drive, hearth, milk, mine, plough, stalk, trap in water, wicker trap"
    },
    {
+    "check": "M3",
+    "level": "warn",
+    "who": "Fell",
+    "text": "the Fells: 18 wicker traps needed by the first run in 0 days; about 45 units to make them, the spring rods at 0.75 bundles a unit"
+   },
+   {
+    "check": "M3",
+    "level": "warn",
+    "who": "Holt",
+    "text": "the Holts: 18 wicker traps needed by the first run in 0 days; about 45 units to make them, the spring rods at 0.75 bundles a unit"
+   },
+   {
     "check": "M4",
     "level": "warn",
     "who": "Holt",
     "text": "the Holts: no stone within a day: crude tools cannot be remade once these wear out"
+   },
+   {
+    "check": "M3",
+    "level": "warn",
+    "who": "Meade",
+    "text": "the Meades: 12 wicker traps needed by the first run in 0 days; about 31 units to make them, the spring rods at 0.75 bundles a unit"
    },
    {
     "check": "M4",
@@ -444,6 +438,7 @@
      "net",
      "pest work",
      "reap",
+     "salt pan",
      "shut",
      "slaughter",
      "stalk",
@@ -745,7 +740,6 @@
     "quarry",
     "reline oven",
     "repair",
-    "salt pan",
     "select seed",
     "set line",
     "shut the gate",
@@ -1305,35 +1299,35 @@
   }
  },
  "capacity": {
-  "Threeways": {
-   "people": 4,
-   "standing": 0.0,
-   "worked": 0.0,
-   "best": 0.0
-  },
   "Holtmouth": {
    "people": 4,
    "standing": 2.3,
    "worked": 11.3,
-   "best": 18.7
+   "best": 18.6
   },
   "Highcairn": {
    "people": 4,
-   "standing": 3.6,
-   "worked": 12.0,
-   "best": 18.3
+   "standing": 7.5,
+   "worked": 14.2,
+   "best": 19.4
   },
   "Lowbury": {
    "people": 4,
-   "standing": 7.3,
+   "standing": 10.7,
    "worked": 31.2,
-   "best": 48.9
+   "best": 48.8
+  },
+  "Hartsmoot": {
+   "people": 4,
+   "standing": 8.4,
+   "worked": 17.3,
+   "best": 24.6
   },
   "(region)": {
    "people": 16,
-   "standing": 35.6,
-   "worked": 90.7,
-   "best": 135.0
+   "standing": 54.6,
+   "worked": 99.2,
+   "best": 136.4
   }
  },
  "roads_off": [],
@@ -1666,7 +1660,7 @@
     "covers": {
      "built": 2,
      "field": 2,
-     "meadow": 1,
+     "saltmarsh": 1,
      "pasture": 2,
      "forest": 1,
      "fen": 2
@@ -1676,6 +1670,7 @@
      "game",
      "grass",
      "plants",
+     "salt",
      "wood"
     ]
    },

@@ -136,6 +136,9 @@ def spec(key: str, seed: int) -> dict:
         "view": "beliefs", "evening": True, "tags": True, "ages": True,
         "prompt": "core", "learning": "record",
         "llm": {"week_stop": 0.9}, "cold_days": [], "incidents": [], "customs": [],
+        "gates": {"M6": False},             # everyone is raised to set a wicker trap; only fishers make them. A house that can set but
+                                            # not make one is a dependence these worlds test (the Scattering: traps come from the coast),
+                                            # not a fault (u3 §7's M6, off by the world's own setting, D2-270)
         "generate": {
             "seed": seed, "size_km": float(w["size_km"]), "settlements": len(w["places"]), "spacing_km": 7.0, "household_size": 4,
             "wild_nodes": 0, "warn_only": ["capacity", "dependence", "laid rivers run where laid"], "settled": "frontier",

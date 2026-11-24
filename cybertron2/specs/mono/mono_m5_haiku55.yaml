@@ -1336,7 +1336,7 @@ nodes:
           drain_rate: 0.25
           depth: 1.15
           base_fertility: 1.025
-          position: slope
+          position: hollow
           rain_factor: 1.01
           sea_km: 99.0
           river: none
@@ -2588,7 +2588,7 @@ nodes:
           drain_rate: 0.08
           depth: 1.1
           base_fertility: 1.05
-          position: slope
+          position: hollow
           rain_factor: 0.98
           sea_km: 1.2
           river: none
@@ -2600,11 +2600,11 @@ nodes:
             ripe_day: 5
       Holtmouth_2:
         name: Holtmouth Meadow
-        cover: meadow
+        cover: saltmarsh
         size: 1
         side: south
         height: 0
-        text: hay meadow, on heavy clay, low by the water
+        text: saltmarsh by the shore, its pools crusted white in summer
         adj:
         - Holtmouth_5
         state:
@@ -2616,9 +2616,13 @@ nodes:
             K: 27.0
             S: 27.0
             r: 0.32
-        terrain: clay vale
+          salt:
+            K: 1000
+            S: 1000
+            r: 0.0
+        terrain: saltmarsh
         soil: clay
-        ecosystem: wet grassland
+        ecosystem: saltmarsh
         land:
           elevation: 14.6
           exposure: 0.26
@@ -2736,7 +2740,7 @@ nodes:
           drain_rate: 0.25
           depth: 1.02
           base_fertility: 1.025
-          position: slope
+          position: hollow
           rain_factor: 1.24
           sea_km: 0.9
           river: none
@@ -3520,7 +3524,7 @@ nodes:
           drain_rate: 0.5
           depth: 1.18
           base_fertility: 0.8
-          position: slope
+          position: hollow
           rain_factor: 0.978
           sea_km: 99.0
           river: none
@@ -5709,7 +5713,7 @@ nodes:
           drain_rate: 0.25
           depth: 1.14
           base_fertility: 1.0
-          position: slope
+          position: hollow
           rain_factor: 0.933
           sea_km: 99.0
           river: none
@@ -19224,8 +19228,7 @@ agents:
       cut:
         level: known
         skill: 1.163
-    aware_of:
-      milk: you have seen the Fells at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
       wicker trap: 6
@@ -19294,21 +19297,13 @@ agents:
       source: family lore
     - text: 'What is made wears: gear with use, fittings with work, houses with the weather. Mended in time it costs a little; left, it costs the whole.'
       source: family lore
-    - text: Our line's founders, Stephen and Margery Strand, came to Holtmouth and built the first Strand house.
-      source: family lore
     - text: One wicker trap takes a few eels on a run night and holds no more than about 10 kilos. A house that means to eat from the run sets many before the nights come, and tends every one each morning.
       source: family lore
     - text: Fresh fish goes off in a night or two in the hand. Dry it at the hearth, up to 8 kilos at a time, or salt it the day it is caught, a kilo of salt to four of fish.
       source: family lore
     - text: 'A spate smashes about half the traps in the water, and a flood nearly all; an otter that finds full traps comes back each night. When the water drops, set again: the run is not over.'
       source: family lore
-    - text: A trap wants willow rods cut in winter and soaked supple; cut in summer they give a third as much. Make and mend the traps before the runs; the nearest willow is at Holtmouth Fen.
-      source: family lore
     - text: A kilo of salt keeps four of fish or eight of meat for about a year. Every house that kills, fishes or makes cheese needs it, and few can make it.
-      source: family lore
-    - text: The Fells keep the cattle on the common; they have milk in summer and oxen to lend for the plough.
-      source: family lore
-    - text: The Meades sow and reap the big field; they have grain after harvest and want hands at reaping.
       source: family lore
   Margery:
     household: Strand
@@ -19359,8 +19354,7 @@ agents:
       salt pan:
         level: capable
         skill: 0.885
-    aware_of:
-      milk: you have seen the Fells at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
       hand line: 1
@@ -19423,17 +19417,11 @@ agents:
       source: family lore
     - text: 'What is made wears: gear with use, fittings with work, houses with the weather. Mended in time it costs a little; left, it costs the whole.'
       source: family lore
-    - text: Our line's founders, Stephen and Margery Strand, came to Holtmouth and built the first Strand house.
-      source: family lore
     - text: One wicker trap takes a few eels on a run night and holds no more than about 10 kilos. A house that means to eat from the run sets many before the nights come, and tends every one each morning.
       source: family lore
     - text: Fresh fish goes off in a night or two in the hand. Dry it at the hearth, up to 8 kilos at a time, or salt it the day it is caught, a kilo of salt to four of fish.
       source: family lore
     - text: A kilo of salt keeps four of fish or eight of meat for about a year. Every house that kills, fishes or makes cheese needs it, and few can make it.
-      source: family lore
-    - text: The Fells keep the cattle on the common; they have milk in summer and oxen to lend for the plough.
-      source: family lore
-    - text: The Meades sow and reap the big field; they have grain after harvest and want hands at reaping.
       source: family lore
   Nicholas:
     household: Strand
@@ -19469,8 +19457,7 @@ agents:
       cut withies:
         level: rough
         skill: 0.802
-    aware_of:
-      milk: you have seen the Fells at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
     concerns:
@@ -19526,8 +19513,6 @@ agents:
       source: family lore
     - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone.
       source: family lore
-    - text: My parents, Stephen and Margery, built our house at Holtmouth, and I was born in it.
-      source: family lore
     - text: One wicker trap takes a few eels on a run night and holds no more than about 10 kilos. A house that means to eat from the run sets many before the nights come, and tends every one each morning.
       source: family lore
     - text: 'A spate smashes about half the traps in the water, and a flood nearly all; an otter that finds full traps comes back each night. When the water drops, set again: the run is not over.'
@@ -19560,8 +19545,7 @@ agents:
       dry fish:
         level: known
         skill: 0.924
-    aware_of:
-      milk: you have seen the Fells at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
     concerns:
@@ -19614,8 +19598,6 @@ agents:
       source: family lore
     - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone.
       source: family lore
-    - text: My parents, Stephen and Margery, built our house at Holtmouth, and I was born in it.
-      source: family lore
     - text: One wicker trap takes a few eels on a run night and holds no more than about 10 kilos. A house that means to eat from the run sets many before the nights come, and tends every one each morning.
       source: family lore
   Avice:
@@ -19653,8 +19635,7 @@ agents:
       dry fodder:
         level: known
         skill: 1.237
-    aware_of:
-      trap in water: you have seen the Strands at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
     concerns:
@@ -19720,10 +19701,6 @@ agents:
       source: family lore
     - text: We hold Hale's Forge, which Ralph keeps.
       source: a holding
-    - text: The Meades sow and reap the big field; they have grain after harvest and want hands at reaping.
-      source: family lore
-    - text: 'The Strands live by the Ouse: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
-      source: family lore
   Ralph:
     household: Fell
     born: -26
@@ -19770,8 +19747,7 @@ agents:
       copper tool:
         level: capable
         skill: 1.01
-    aware_of:
-      trap in water: you have seen the Strands at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
     concerns:
@@ -19807,6 +19783,8 @@ agents:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
+    - text: 'I keep Hale''s Forge: copper ore smelted with charcoal here makes the tools that wear; the hearth and bellows want mending now and then.'
+      source: a holding
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -19829,10 +19807,6 @@ agents:
     - text: 'What is made wears: gear with use, fittings with work, houses with the weather. Mended in time it costs a little; left, it costs the whole.'
       source: family lore
     - text: Our line's founders, Avice and Ralph Fell, came to Highcairn and built the first Fell house.
-      source: family lore
-    - text: The Meades sow and reap the big field; they have grain after harvest and want hands at reaping.
-      source: family lore
-    - text: 'The Strands live by the Ouse: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
       source: family lore
   Beatrice:
     household: Fell
@@ -19868,8 +19842,7 @@ agents:
       firewood:
         level: known
         skill: 0.909
-    aware_of:
-      trap in water: you have seen the Strands at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
     concerns:
@@ -19928,10 +19901,6 @@ agents:
       source: family lore
     - text: We hold Hale's Forge, which Ralph keeps.
       source: a holding
-    - text: The Meades sow and reap the big field; they have grain after harvest and want hands at reaping.
-      source: family lore
-    - text: 'The Strands live by the Ouse: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
-      source: family lore
   Hob:
     household: Fell
     born: -13
@@ -19960,8 +19929,7 @@ agents:
       dung:
         level: known
         skill: 0.846
-    aware_of:
-      trap in water: you have seen the Strands at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
     concerns:
@@ -20063,9 +20031,7 @@ agents:
       bread:
         level: known
         skill: 1.176
-    aware_of:
-      milk: you have seen the Fells at it all your life
-      trap in water: you have seen the Strands at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
     concerns:
@@ -20128,10 +20094,6 @@ agents:
       source: family lore
     - text: Our line's founders, Henry and Cecily Meade, came to Lowbury and built the first Meade house.
       source: family lore
-    - text: The Fells keep the cattle on the common; they have milk in summer and oxen to lend for the plough.
-      source: family lore
-    - text: 'The Strands live by Lowbury Water: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
-      source: family lore
   Cecily:
     household: Meade
     born: -36
@@ -20172,9 +20134,7 @@ agents:
       guard the field:
         level: known
         skill: 0.922
-    aware_of:
-      milk: you have seen the Fells at it all your life
-      trap in water: you have seen the Strands at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
     concerns:
@@ -20233,10 +20193,6 @@ agents:
       source: family lore
     - text: Our line's founders, Henry and Cecily Meade, came to Lowbury and built the first Meade house.
       source: family lore
-    - text: The Fells keep the cattle on the common; they have milk in summer and oxen to lend for the plough.
-      source: family lore
-    - text: 'The Strands live by Lowbury Water: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
-      source: family lore
   John:
     household: Meade
     born: -20
@@ -20277,9 +20233,7 @@ agents:
       guard the field:
         level: known
         skill: 0.867
-    aware_of:
-      milk: you have seen the Fells at it all your life
-      trap in water: you have seen the Strands at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
     concerns:
@@ -20423,9 +20377,7 @@ agents:
       drive:
         level: known
         skill: 1.197
-    aware_of:
-      milk: you have seen the Fells at it all your life
-      trap in water: you have seen the Strands at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
       tent: 1
@@ -20437,6 +20389,7 @@ agents:
     born_line: Holt
     trade: ''
     aim: ''
+    at: Hartsmoot
     places:
     - Border Wood
     - Deepwood
@@ -20493,12 +20446,6 @@ agents:
     - text: 'What is made wears: gear with use, fittings with work, houses with the weather. Mended in time it costs a little; left, it costs the whole.'
       source: family lore
     - text: Our line's founders, Gilbert and Adam Holt, came to Threeways and built the first Holt house.
-      source: family lore
-    - text: The Fells keep the cattle on the common; they have milk in summer and oxen to lend for the plough.
-      source: family lore
-    - text: The Meades sow and reap the big field; they have grain after harvest and want hands at reaping.
-      source: family lore
-    - text: 'The Strands live by the Brook: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
       source: family lore
   Adam:
     household: Holt
@@ -20561,9 +20508,7 @@ agents:
       cut withies:
         level: capable
         skill: 1.007
-    aware_of:
-      milk: you have seen the Fells at it all your life
-      trap in water: you have seen the Strands at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
       bedroll: 1
@@ -20575,6 +20520,7 @@ agents:
     born_line: Holt
     trade: ''
     aim: ''
+    at: Hartsmoot
     places:
     - Border Wood
     - Deepwood
@@ -20627,12 +20573,6 @@ agents:
       source: family lore
     - text: Our line's founders, Gilbert and Adam Holt, came to Threeways and built the first Holt house.
       source: family lore
-    - text: The Fells keep the cattle on the common; they have milk in summer and oxen to lend for the plough.
-      source: family lore
-    - text: The Meades sow and reap the big field; they have grain after harvest and want hands at reaping.
-      source: family lore
-    - text: 'The Strands live by the Brook: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
-      source: family lore
   Sabina:
     household: Holt
     born: -30
@@ -20667,9 +20607,7 @@ agents:
       firewood:
         level: known
         skill: 0.887
-    aware_of:
-      milk: you have seen the Fells at it all your life
-      trap in water: you have seen the Strands at it all your life
+    aware_of: {}
     holdings:
       crude tool: 1
       bedroll: 1
@@ -20681,6 +20619,7 @@ agents:
     born_line: Holt
     trade: ''
     aim: ''
+    at: Hartsmoot
     places:
     - Border Wood
     - Deepwood
@@ -20731,12 +20670,6 @@ agents:
       source: family lore
     - text: 'What is made wears: gear with use, fittings with work, houses with the weather. Mended in time it costs a little; left, it costs the whole.'
       source: family lore
-    - text: The Fells keep the cattle on the common; they have milk in summer and oxen to lend for the plough.
-      source: family lore
-    - text: The Meades sow and reap the big field; they have grain after harvest and want hands at reaping.
-      source: family lore
-    - text: 'The Strands live by the Brook: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
-      source: family lore
   Lucy:
     household: Holt
     born: -10
@@ -20760,6 +20693,7 @@ agents:
     born_line: Holt
     trade: ''
     aim: ''
+    at: Hartsmoot
     places:
     - Border Wood
     - Deepwood
@@ -20999,6 +20933,8 @@ history:
   - Gilbert
   - Adam
   day: -20
+made_by_maker:
+- 'Holtmouth: Holtmouth_2 made saltmarsh (the generator gave the salters'' shore none)'
 skills:
   depth: full
   households:
@@ -21043,3 +20979,5 @@ cast:
   middle: claude-haiku-5-5
   rest: claude-haiku-5-5
   youth: claude-haiku-5-5
+gates:
+  M6: false
