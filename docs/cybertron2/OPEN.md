@@ -169,6 +169,7 @@ unanswered is neither lost nor re-asked. Written by `python3 tools/records.py ne
 | ~~O-201~~ | **(Closed 23 Nov: taken up as W-202.)** **Build World 0's maker (Highpool and Middleham from the runs world), its checks and a 200-day bot arm, with the farming acts checked on the rebuilt engine** | wait for Zach's go | 2026-11-30 | bench |
 | ~~O-202~~ | **(Closed 23 Nov: the lines to the other agent; the two worlds in W-203.)** **Build the farmer, herder and miller seeded lines (u9 §5.5.2, 5.5.3, 5.5.8) in founders.py, then World 0b's five arms; after them, build Fallowmere (World 1) as the next monoculture world, then the Scattering** | do it | 2026-11-24 | bench |
 | O-203 | **A pre-generation check in the monoculture maker: the founders' data against founders.py's templates (two founders a line, two parents) and the gate's rules (keepers' lines, crafts with their makers, fits), before any generation** | do it | 2026-11-24 | bench |
+| O-204 | **Read World 0b's agents' own reasoning on days they could have tried for a child and did not: food pressure, the prompt's placement of try, or the goal not turning into acts** | do it | 2026-11-24 | bench |
 
 ## Flagged for later (deferred)
 
