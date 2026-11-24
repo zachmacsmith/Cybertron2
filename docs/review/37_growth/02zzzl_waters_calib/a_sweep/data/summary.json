@@ -1,0 +1,1723 @@
+{
+ "bodies_generated_with_fish": 1,
+ "bodies_maker_with_fish": 109,
+ "bodies_by_type_K": {
+  "big river": {
+   "n": 32,
+   "median": 35.2,
+   "min": 8.8,
+   "max": 35.2
+  },
+  "lake": {
+   "n": 1,
+   "median": 21178.6,
+   "min": 21178.6,
+   "max": 21178.6
+  },
+  "river": {
+   "n": 76,
+   "median": 35.2,
+   "min": 17.6,
+   "max": 24874.0
+  }
+ },
+ "bodies_by_type_food_night": {
+  "big river": {
+   "n": 32,
+   "median": 1.297,
+   "min": 0.324,
+   "max": 1.297
+  },
+  "lake": {
+   "n": 1,
+   "median": 10.668,
+   "min": 10.668,
+   "max": 10.668
+  },
+  "river": {
+   "n": 76,
+   "median": 1.297,
+   "min": 0.648,
+   "max": 12.529
+  }
+ },
+ "bodies_by_type_river_km": {
+  "big river": {
+   "n": 32,
+   "median": 6.6,
+   "min": 3.9,
+   "max": 10.2
+  },
+  "river": {
+   "n": 76,
+   "median": 6.525,
+   "min": 3.75,
+   "max": 9.75
+  }
+ },
+ "bodies_by_type_units": {
+  "big river": {
+   "n": 32,
+   "median": 2.0,
+   "min": 2,
+   "max": 2
+  },
+  "lake": {
+   "n": 1,
+   "median": 2.0,
+   "min": 2,
+   "max": 2
+  },
+  "river": {
+   "n": 76,
+   "median": 2.0,
+   "min": 1,
+   "max": 2
+  }
+ },
+ "bodies_by_type_web_K": {
+  "big river": {
+   "n": 32,
+   "median": 19005.0,
+   "min": 9131.1,
+   "max": 26170.1
+  },
+  "lake": {
+   "n": 1,
+   "median": 1976255.4,
+   "min": 1976255.4,
+   "max": 1976255.4
+  },
+  "river": {
+   "n": 76,
+   "median": 7885.95,
+   "min": 5461.2,
+   "max": 80083.0
+  }
+ },
+ "parcels_by_type_shallows_K": {
+  "big river": {
+   "n": 40,
+   "median": 4.0,
+   "min": 2.0,
+   "max": 4.0
+  },
+  "fen": {
+   "n": 167,
+   "median": 21.0,
+   "min": 7.0,
+   "max": 21.0
+  },
+  "lake": {
+   "n": 2,
+   "median": 2.0,
+   "min": 2.0,
+   "max": 2.0
+  },
+  "river": {
+   "n": 88,
+   "median": 8.0,
+   "min": 4.0,
+   "max": 8.0
+  }
+ },
+ "parcels_by_type_size": {
+  "big river": {
+   "n": 40,
+   "median": 2.0,
+   "min": 1,
+   "max": 2
+  },
+  "fen": {
+   "n": 167,
+   "median": 3.0,
+   "min": 1,
+   "max": 3
+  },
+  "lake": {
+   "n": 2,
+   "median": 1.0,
+   "min": 1,
+   "max": 1
+  },
+  "river": {
+   "n": 88,
+   "median": 2.0,
+   "min": 1,
+   "max": 2
+  }
+ },
+ "parcels_by_type_shallows_food_summer": {
+  "big river": {
+   "n": 40,
+   "median": 0.064,
+   "min": 0.032,
+   "max": 0.064
+  },
+  "fen": {
+   "n": 167,
+   "median": 0.338,
+   "min": 0.113,
+   "max": 0.338
+  },
+  "lake": {
+   "n": 2,
+   "median": 0.032,
+   "min": 0.032,
+   "max": 0.032
+  },
+  "river": {
+   "n": 88,
+   "median": 0.129,
+   "min": 0.064,
+   "max": 0.129
+  }
+ },
+ "timing_by_kind": {
+  "eel": {
+   "village stretches it reaches": 162,
+   "of": 167,
+   "village-years": 810,
+   "village-years with no run": 437,
+   "village-years all on one night (>=90%)": 187,
+   "first night's sd across years, median over villages": 1.22,
+   "sd max": 3.54,
+   "first night with a tenth of the year's run, after the window opens, over all village-years": {
+    "min": 0,
+    "p10": 0.0,
+    "median": 3.0,
+    "p90": 5.0,
+    "max": 10
+   },
+   "share of a year's heads from the window's last day: median, max": [
+    null,
+    null
+   ],
+   "village-years with more than half from the last day": 0,
+   "heads cv across years, median": 1.227
+  },
+  "salmon": {
+   "village stretches it reaches": 139,
+   "of": 167,
+   "village-years": 695,
+   "village-years with no run": 0,
+   "village-years all on one night (>=90%)": 81,
+   "first night's sd across years, median over villages": 3.93,
+   "sd max": 5.64,
+   "first night with a tenth of the year's run, after the window opens, over all village-years": {
+    "min": 1,
+    "p10": 3.0,
+    "median": 7.0,
+    "p90": 15.0,
+    "max": 22
+   },
+   "share of a year's heads from the window's last day: median, max": [
+    0.116,
+    1.0
+   ],
+   "village-years with more than half from the last day": 109,
+   "heads cv across years, median": 0.0
+  },
+  "lamprey": {
+   "village stretches it reaches": 40,
+   "of": 167,
+   "village-years": 200,
+   "village-years with no run": 8,
+   "village-years all on one night (>=90%)": 57,
+   "first night's sd across years, median over villages": 2.67,
+   "sd max": 3.01,
+   "first night with a tenth of the year's run, after the window opens, over all village-years": {
+    "min": 1,
+    "p10": 2.0,
+    "median": 5.0,
+    "p90": 10.0,
+    "max": 13
+   },
+   "share of a year's heads from the window's last day: median, max": [
+    0.0,
+    1.0
+   ],
+   "village-years with more than half from the last day": 67,
+   "heads cv across years, median": 0.2
+  }
+ },
+ "cue_freq": {
+  "lamprey at mouth": {
+   "cue nights": 5553,
+   "window nights": 23952,
+   "p": 0.232
+  },
+  "salmon at mouth": {
+   "cue nights": 2880,
+   "window nights": 11520,
+   "p": 0.25
+  }
+ },
+ "eel_cue_by_rain": {
+  "500 mm": {
+   "eel start nights at the village's own stretch": 39,
+   "window nights": 672,
+   "p": 0.058
+  },
+  "600 mm": {
+   "eel start nights at the village's own stretch": 39,
+   "window nights": 672,
+   "p": 0.058
+  },
+  "650 mm": {
+   "eel start nights at the village's own stretch": 38,
+   "window nights": 720,
+   "p": 0.053
+  },
+  "750 mm": {
+   "eel start nights at the village's own stretch": 37,
+   "window nights": 720,
+   "p": 0.051
+  },
+  "800 mm": {
+   "eel start nights at the village's own stretch": 67,
+   "window nights": 1104,
+   "p": 0.061
+  },
+  "900 mm": {
+   "eel start nights at the village's own stretch": 205,
+   "window nights": 2928,
+   "p": 0.07
+  },
+  "950 mm": {
+   "eel start nights at the village's own stretch": 40,
+   "window nights": 672,
+   "p": 0.06
+  },
+  "1100 mm": {
+   "eel start nights at the village's own stretch": 30,
+   "window nights": 576,
+   "p": 0.052
+  },
+  "1200 mm": {
+   "eel start nights at the village's own stretch": 36,
+   "window nights": 672,
+   "p": 0.054
+  },
+  "1400 mm": {
+   "eel start nights at the village's own stretch": 110,
+   "window nights": 1872,
+   "p": 0.059
+  }
+ },
+ "timing_by_kind_set_nights": {
+  "eel": {
+   "village stretches it reaches": 167,
+   "of": 167,
+   "village-years": 167,
+   "village-years with no run": 0,
+   "village-years all on one night (>=90%)": 0,
+   "first night's sd across years, median over villages": null,
+   "sd max": null,
+   "first night with a tenth of the year's run, after the window opens, over all village-years": {
+    "min": 1,
+    "p10": 1.0,
+    "median": 1.0,
+    "p90": 2.0,
+    "max": 3
+   },
+   "share of a year's heads from the window's last day: median, max": [
+    null,
+    null
+   ],
+   "village-years with more than half from the last day": 0,
+   "heads cv across years, median": 0.0
+  },
+  "salmon": {
+   "village stretches it reaches": 139,
+   "of": 167,
+   "village-years": 139,
+   "village-years with no run": 0,
+   "village-years all on one night (>=90%)": 0,
+   "first night's sd across years, median over villages": null,
+   "sd max": null,
+   "first night with a tenth of the year's run, after the window opens, over all village-years": {
+    "min": 2,
+    "p10": 2.0,
+    "median": 5.0,
+    "p90": 9.200000000000003,
+    "max": 15
+   },
+   "share of a year's heads from the window's last day: median, max": [
+    0.422,
+    0.423
+   ],
+   "village-years with more than half from the last day": 0,
+   "heads cv across years, median": 0.0
+  },
+  "lamprey": {
+   "village stretches it reaches": 38,
+   "of": 167,
+   "village-years": 38,
+   "village-years with no run": 0,
+   "village-years all on one night (>=90%)": 0,
+   "first night's sd across years, median over villages": null,
+   "sd max": null,
+   "first night with a tenth of the year's run, after the window opens, over all village-years": {
+    "min": 1,
+    "p10": 2.0,
+    "median": 3.0,
+    "p90": 5.0,
+    "max": 7
+   },
+   "share of a year's heads from the window's last day: median, max": [
+    0.423,
+    0.423
+   ],
+   "village-years with more than half from the last day": 0,
+   "heads cv across years, median": 0.0
+  }
+ },
+ "cue_per_world": {
+  "cfg_basin_in_a_ring_of_hills_s1": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 757.0,
+   "engine rain a day, mean at the villages' catchments": 2.17,
+   "over RAIN_MEAN": 0.64,
+   "eel": {
+    "cue nights a window, mean": 0.58,
+    "window-years with none": 0.42,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 3,
+    "window-years with none": 0.33,
+    "window-years": 6
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.73,
+    "window-years with none": 0.44,
+    "window-years": 66
+   }
+  },
+  "cfg_confluence_plain_s1": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 718.0,
+   "engine rain a day, mean at the villages' catchments": 2.15,
+   "over RAIN_MEAN": 0.63,
+   "eel": {
+    "cue nights a window, mean": 0.61,
+    "window-years with none": 0.39,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.83,
+    "window-years with none": 0.28,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.44,
+    "window-years with none": 0.56,
+    "window-years": 48
+   }
+  },
+  "cfg_gated_valley_s1": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 742.0,
+   "engine rain a day, mean at the villages' catchments": 2.33,
+   "over RAIN_MEAN": 0.69,
+   "eel": {
+    "cue nights a window, mean": 0.71,
+    "window-years with none": 0.29,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.33,
+    "window-years with none": 0.17,
+    "window-years": 6
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.92,
+    "window-years with none": 0.45,
+    "window-years": 84
+   }
+  },
+  "cfg_river_through_a_range_s1": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 721.0,
+   "engine rain a day, mean at the villages' catchments": 2.19,
+   "over RAIN_MEAN": 0.64,
+   "eel": {
+    "cue nights a window, mean": 0.56,
+    "window-years with none": 0.44,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.12,
+    "window-years with none": 0.12,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.71,
+    "window-years with none": 0.44,
+    "window-years": 48
+   }
+  },
+  "cfg_settled_lowland_and_frontier_s1": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 812.0,
+   "engine rain a day, mean at the villages' catchments": 2.24,
+   "over RAIN_MEAN": 0.66,
+   "eel": {
+    "cue nights a window, mean": 0.61,
+    "window-years with none": 0.39,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.08,
+    "window-years with none": 0.12,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.95,
+    "window-years with none": 0.42,
+    "window-years": 60
+   }
+  },
+  "cfg_two_valleys_over_a_pass_s1": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 731.0,
+   "engine rain a day, mean at the villages' catchments": 2.17,
+   "over RAIN_MEAN": 0.64,
+   "eel": {
+    "cue nights a window, mean": 0.56,
+    "window-years with none": 0.44,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.17,
+    "window-years with none": 0.11,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.62,
+    "window-years with none": 0.5,
+    "window-years": 42
+   }
+  },
+  "cfg_watershed_divide_s1": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 795.0,
+   "engine rain a day, mean at the villages' catchments": 2.21,
+   "over RAIN_MEAN": 0.65,
+   "eel": {
+    "cue nights a window, mean": 0.56,
+    "window-years with none": 0.44,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.08,
+    "window-years with none": 0.17,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.69,
+    "window-years with none": 0.5,
+    "window-years": 48
+   }
+  },
+  "eelmouth": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 752.0,
+   "engine rain a day, mean at the villages' catchments": 3.19,
+   "over RAIN_MEAN": 0.94,
+   "eel": {
+    "cue nights a window, mean": 0.5,
+    "window-years with none": 0.5,
+    "window-years": 6
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.56,
+    "window-years with none": 0.0,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 1.52,
+    "window-years with none": 0.29,
+    "window-years": 66
+   }
+  },
+  "laid_large_dry_s5": {
+   "rain_mm (generator)": 500.0,
+   "village node rain_mm (generator)": 440.0,
+   "engine rain a day, mean at the villages' catchments": 3.24,
+   "over RAIN_MEAN": 0.95,
+   "eel": {
+    "cue nights a window, mean": 0.56,
+    "window-years with none": 0.44,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.78,
+    "window-years with none": 0.0,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 2.03,
+    "window-years with none": 0.05,
+    "window-years": 60
+   }
+  },
+  "laid_large_s5": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 823.0,
+   "engine rain a day, mean at the villages' catchments": 3.35,
+   "over RAIN_MEAN": 0.99,
+   "eel": {
+    "cue nights a window, mean": 0.56,
+    "window-years with none": 0.44,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.72,
+    "window-years with none": 0.0,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 2.08,
+    "window-years with none": 0.03,
+    "window-years": 66
+   }
+  },
+  "laid_large_s7": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 956.0,
+   "engine rain a day, mean at the villages' catchments": 3.65,
+   "over RAIN_MEAN": 1.07,
+   "eel": {
+    "cue nights a window, mean": 0.56,
+    "window-years with none": 0.44,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.75,
+    "window-years with none": 0.11,
+    "window-years": 36
+   },
+   "lamprey": {
+    "cue nights a window, mean": 2.59,
+    "window-years with none": 0.3,
+    "window-years": 66
+   }
+  },
+  "laid_large_wet_s5": {
+   "rain_mm (generator)": 1400.0,
+   "village node rain_mm (generator)": 1207.0,
+   "engine rain a day, mean at the villages' catchments": 3.28,
+   "over RAIN_MEAN": 0.97,
+   "eel": {
+    "cue nights a window, mean": 0.56,
+    "window-years with none": 0.44,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.78,
+    "window-years with none": 0.0,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 1.89,
+    "window-years with none": 0.08,
+    "window-years": 72
+   }
+  },
+  "laid_medium_s5": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 797.0,
+   "engine rain a day, mean at the villages' catchments": 3.2,
+   "over RAIN_MEAN": 0.94,
+   "eel": {
+    "cue nights a window, mean": 0.61,
+    "window-years with none": 0.5,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.61,
+    "window-years with none": 0.0,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 1.83,
+    "window-years with none": 0.14,
+    "window-years": 66
+   }
+  },
+  "laid_river_s5": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 797.0,
+   "engine rain a day, mean at the villages' catchments": 3.23,
+   "over RAIN_MEAN": 0.95,
+   "eel": {
+    "cue nights a window, mean": 0.61,
+    "window-years with none": 0.5,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.61,
+    "window-years with none": 0.0,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 1.82,
+    "window-years with none": 0.14,
+    "window-years": 66
+   }
+  },
+  "lake_meresby_s3": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 736.0,
+   "engine rain a day, mean at the villages' catchments": 3.73,
+   "over RAIN_MEAN": 1.1,
+   "eel": {
+    "cue nights a window, mean": 0.17,
+    "window-years with none": 0.83,
+    "window-years": 6
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.83,
+    "window-years with none": 0.12,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 3.7,
+    "window-years with none": 0.17,
+    "window-years": 60
+   }
+  },
+  "w01_lowland_s1": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 748.0,
+   "engine rain a day, mean at the villages' catchments": 2.12,
+   "over RAIN_MEAN": 0.62,
+   "eel": {
+    "cue nights a window, mean": 0.61,
+    "window-years with none": 0.39,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.04,
+    "window-years with none": 0.17,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.8,
+    "window-years with none": 0.39,
+    "window-years": 54
+   }
+  },
+  "w01_lowland_s2": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 734.0,
+   "engine rain a day, mean at the villages' catchments": 3.42,
+   "over RAIN_MEAN": 1.0,
+   "eel": {
+    "cue nights a window, mean": 0.42,
+    "window-years with none": 0.67,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.42,
+    "window-years with none": 0.17,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 2.02,
+    "window-years with none": 0.33,
+    "window-years": 60
+   }
+  },
+  "w01_lowland_s3": {
+   "rain_mm (generator)": 900.0,
+   "village node rain_mm (generator)": 710.0,
+   "engine rain a day, mean at the villages' catchments": 3.6,
+   "over RAIN_MEAN": 1.06,
+   "eel": {
+    "cue nights a window, mean": 0.33,
+    "window-years with none": 0.67,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.67,
+    "window-years with none": 0.0,
+    "window-years": 12
+   },
+   "lamprey": {
+    "cue nights a window, mean": 3.3,
+    "window-years with none": 0.19,
+    "window-years": 54
+   }
+  },
+  "w02_dry_east_s1": {
+   "rain_mm (generator)": 500.0,
+   "village node rain_mm (generator)": 400.0,
+   "engine rain a day, mean at the villages' catchments": 2.17,
+   "over RAIN_MEAN": 0.64,
+   "eel": {
+    "cue nights a window, mean": 0.61,
+    "window-years with none": 0.39,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3,
+    "window-years with none": 0.33,
+    "window-years": 12
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.55,
+    "window-years with none": 0.52,
+    "window-years": 60
+   }
+  },
+  "w02_dry_east_s2": {
+   "rain_mm (generator)": 500.0,
+   "village node rain_mm (generator)": 438.0,
+   "engine rain a day, mean at the villages' catchments": 3.28,
+   "over RAIN_MEAN": 0.96,
+   "eel": {
+    "cue nights a window, mean": 0.29,
+    "window-years with none": 0.75,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.42,
+    "window-years with none": 0.17,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 1.77,
+    "window-years with none": 0.35,
+    "window-years": 48
+   }
+  },
+  "w02_dry_east_s3": {
+   "rain_mm (generator)": 500.0,
+   "village node rain_mm (generator)": 418.0,
+   "engine rain a day, mean at the villages' catchments": 3.55,
+   "over RAIN_MEAN": 1.05,
+   "eel": {
+    "cue nights a window, mean": 0.44,
+    "window-years with none": 0.56,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.92,
+    "window-years with none": 0.08,
+    "window-years": 12
+   },
+   "lamprey": {
+    "cue nights a window, mean": 3.44,
+    "window-years with none": 0.19,
+    "window-years": 54
+   }
+  },
+  "w03_wet_west_s1": {
+   "rain_mm (generator)": 1400.0,
+   "village node rain_mm (generator)": 1208.0,
+   "engine rain a day, mean at the villages' catchments": 2.22,
+   "over RAIN_MEAN": 0.65,
+   "eel": {
+    "cue nights a window, mean": 0.5,
+    "window-years with none": 0.5,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.11,
+    "window-years with none": 0.17,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.72,
+    "window-years with none": 0.48,
+    "window-years": 60
+   }
+  },
+  "w03_wet_west_s2": {
+   "rain_mm (generator)": 1400.0,
+   "village node rain_mm (generator)": 1112.0,
+   "engine rain a day, mean at the villages' catchments": 3.37,
+   "over RAIN_MEAN": 0.99,
+   "eel": {
+    "cue nights a window, mean": 0.39,
+    "window-years with none": 0.67,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.46,
+    "window-years with none": 0.17,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 1.87,
+    "window-years with none": 0.35,
+    "window-years": 60
+   }
+  },
+  "w03_wet_west_s3": {
+   "rain_mm (generator)": 1400.0,
+   "village node rain_mm (generator)": 1204.0,
+   "engine rain a day, mean at the villages' catchments": 3.67,
+   "over RAIN_MEAN": 1.08,
+   "eel": {
+    "cue nights a window, mean": 0.44,
+    "window-years with none": 0.56,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.17,
+    "window-years with none": 0.0,
+    "window-years": 12
+   },
+   "lamprey": {
+    "cue nights a window, mean": 3.37,
+    "window-years with none": 0.18,
+    "window-years": 60
+   }
+  },
+  "w04_coast_mountains_s1": {
+   "rain_mm (generator)": 1200.0,
+   "village node rain_mm (generator)": 965.0,
+   "engine rain a day, mean at the villages' catchments": 2.14,
+   "over RAIN_MEAN": 0.63,
+   "eel": {
+    "cue nights a window, mean": 0.56,
+    "window-years with none": 0.44,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.28,
+    "window-years with none": 0.11,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.79,
+    "window-years with none": 0.42,
+    "window-years": 66
+   }
+  },
+  "w04_coast_mountains_s2": {
+   "rain_mm (generator)": 1200.0,
+   "village node rain_mm (generator)": 1032.0,
+   "engine rain a day, mean at the villages' catchments": 3.38,
+   "over RAIN_MEAN": 1.0,
+   "eel": {
+    "cue nights a window, mean": 0.44,
+    "window-years with none": 0.67,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.42,
+    "window-years with none": 0.17,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 2.15,
+    "window-years with none": 0.25,
+    "window-years": 60
+   }
+  },
+  "w04_coast_mountains_s3": {
+   "rain_mm (generator)": 1200.0,
+   "village node rain_mm (generator)": 1026.0,
+   "engine rain a day, mean at the villages' catchments": 3.66,
+   "over RAIN_MEAN": 1.08,
+   "eel": {
+    "cue nights a window, mean": 0.33,
+    "window-years with none": 0.67,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.11,
+    "window-years with none": 0.0,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 3.3,
+    "window-years with none": 0.17,
+    "window-years": 60
+   }
+  },
+  "w05_upland_moor_s1": {
+   "rain_mm (generator)": 950.0,
+   "village node rain_mm (generator)": 787.0,
+   "engine rain a day, mean at the villages' catchments": 2.23,
+   "over RAIN_MEAN": 0.66,
+   "eel": {
+    "cue nights a window, mean": 0.54,
+    "window-years with none": 0.46,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.11,
+    "window-years with none": 0.22,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.76,
+    "window-years with none": 0.49,
+    "window-years": 72
+   }
+  },
+  "w05_upland_moor_s2": {
+   "rain_mm (generator)": 950.0,
+   "village node rain_mm (generator)": 1068.0,
+   "engine rain a day, mean at the villages' catchments": 3.39,
+   "over RAIN_MEAN": 1.0,
+   "eel": {
+    "cue nights a window, mean": 0.42,
+    "window-years with none": 0.67,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.73,
+    "window-years with none": 0.17,
+    "window-years": 30
+   },
+   "lamprey": {
+    "cue nights a window, mean": 2.01,
+    "window-years with none": 0.31,
+    "window-years": 78
+   }
+  },
+  "w05_upland_moor_s3": {
+   "rain_mm (generator)": 950.0,
+   "village node rain_mm (generator)": 809.0,
+   "engine rain a day, mean at the villages' catchments": 3.71,
+   "over RAIN_MEAN": 1.09,
+   "eel": {
+    "cue nights a window, mean": 0.44,
+    "window-years with none": 0.56,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.25,
+    "window-years with none": 0.0,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 3.67,
+    "window-years with none": 0.17,
+    "window-years": 60
+   }
+  },
+  "w06_high_mountains_s1": {
+   "rain_mm (generator)": 1100.0,
+   "village node rain_mm (generator)": 898.0,
+   "engine rain a day, mean at the villages' catchments": 2.18,
+   "over RAIN_MEAN": 0.64,
+   "eel": {
+    "cue nights a window, mean": 0.61,
+    "window-years with none": 0.39,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.17,
+    "window-years with none": 0.17,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.79,
+    "window-years with none": 0.43,
+    "window-years": 72
+   }
+  },
+  "w06_high_mountains_s2": {
+   "rain_mm (generator)": 1100.0,
+   "village node rain_mm (generator)": 930.0,
+   "engine rain a day, mean at the villages' catchments": 3.31,
+   "over RAIN_MEAN": 0.97,
+   "eel": {
+    "cue nights a window, mean": 0.33,
+    "window-years with none": 0.71,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.43,
+    "window-years with none": 0.17,
+    "window-years": 30
+   },
+   "lamprey": {
+    "cue nights a window, mean": 1.96,
+    "window-years with none": 0.21,
+    "window-years": 90
+   }
+  },
+  "w06_high_mountains_s3": {
+   "rain_mm (generator)": 1100.0,
+   "village node rain_mm (generator)": 1066.0,
+   "engine rain a day, mean at the villages' catchments": 3.75,
+   "over RAIN_MEAN": 1.1,
+   "eel": {
+    "cue nights a window, mean": 0.33,
+    "window-years with none": 0.67,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.29,
+    "window-years with none": 0.08,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 3.47,
+    "window-years with none": 0.24,
+    "window-years": 72
+   }
+  },
+  "w07_cold_north_s1": {
+   "rain_mm (generator)": 800.0,
+   "village node rain_mm (generator)": 773.0,
+   "engine rain a day, mean at the villages' catchments": 2.11,
+   "over RAIN_MEAN": 0.62,
+   "eel": {
+    "cue nights a window, mean": 0.61,
+    "window-years with none": 0.39,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.04,
+    "window-years with none": 0.17,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.69,
+    "window-years with none": 0.46,
+    "window-years": 54
+   }
+  },
+  "w07_cold_north_s2": {
+   "rain_mm (generator)": 800.0,
+   "village node rain_mm (generator)": 661.0,
+   "engine rain a day, mean at the villages' catchments": 3.35,
+   "over RAIN_MEAN": 0.99,
+   "eel": {
+    "cue nights a window, mean": 0.39,
+    "window-years with none": 0.67,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.42,
+    "window-years with none": 0.17,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 1.95,
+    "window-years with none": 0.3,
+    "window-years": 60
+   }
+  },
+  "w07_cold_north_s3": {
+   "rain_mm (generator)": 800.0,
+   "village node rain_mm (generator)": 642.0,
+   "engine rain a day, mean at the villages' catchments": 3.58,
+   "over RAIN_MEAN": 1.05,
+   "eel": {
+    "cue nights a window, mean": 0.39,
+    "window-years with none": 0.61,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.33,
+    "window-years with none": 0.0,
+    "window-years": 12
+   },
+   "lamprey": {
+    "cue nights a window, mean": 3.33,
+    "window-years with none": 0.17,
+    "window-years": 54
+   }
+  },
+  "w08_fen_s1": {
+   "rain_mm (generator)": 600.0,
+   "village node rain_mm (generator)": 492.0,
+   "engine rain a day, mean at the villages' catchments": 2.12,
+   "over RAIN_MEAN": 0.62,
+   "eel": {
+    "cue nights a window, mean": 0.54,
+    "window-years with none": 0.46,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.25,
+    "window-years with none": 0.08,
+    "window-years": 12
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.62,
+    "window-years with none": 0.48,
+    "window-years": 42
+   }
+  },
+  "w08_fen_s2": {
+   "rain_mm (generator)": 600.0,
+   "village node rain_mm (generator)": 481.0,
+   "engine rain a day, mean at the villages' catchments": 3.18,
+   "over RAIN_MEAN": 0.94,
+   "eel": {
+    "cue nights a window, mean": 0.44,
+    "window-years with none": 0.61,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 2,
+    "window-years with none": 0.17,
+    "window-years": 6
+   },
+   "lamprey": {
+    "cue nights a window, mean": 2.17,
+    "window-years with none": 0.33,
+    "window-years": 18
+   }
+  },
+  "w08_fen_s4": {
+   "rain_mm (generator)": 600.0,
+   "village node rain_mm (generator)": 492.0,
+   "engine rain a day, mean at the villages' catchments": 3.03,
+   "over RAIN_MEAN": 0.89,
+   "eel": {
+    "cue nights a window, mean": 0.46,
+    "window-years with none": 0.54,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.5,
+    "window-years with none": 0.0,
+    "window-years": 6
+   },
+   "lamprey": {
+    "cue nights a window, mean": 2.14,
+    "window-years with none": 0.19,
+    "window-years": 42
+   }
+  },
+  "w09_estuary_s1": {
+   "rain_mm (generator)": 750.0,
+   "village node rain_mm (generator)": 667.0,
+   "engine rain a day, mean at the villages' catchments": 2.03,
+   "over RAIN_MEAN": 0.6,
+   "eel": {
+    "cue nights a window, mean": 0.67,
+    "window-years with none": 0.39,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3,
+    "window-years with none": 0.17,
+    "window-years": 6
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.73,
+    "window-years with none": 0.47,
+    "window-years": 30
+   }
+  },
+  "w09_estuary_s2": {
+   "rain_mm (generator)": 750.0,
+   "village node rain_mm (generator)": 620.0,
+   "engine rain a day, mean at the villages' catchments": 3.33,
+   "over RAIN_MEAN": 0.98,
+   "eel": {
+    "cue nights a window, mean": 0.33,
+    "window-years with none": 0.71,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.17,
+    "window-years with none": 0.17,
+    "window-years": 6
+   },
+   "lamprey": {
+    "cue nights a window, mean": 1.78,
+    "window-years with none": 0.33,
+    "window-years": 36
+   }
+  },
+  "w09_estuary_s3": {
+   "rain_mm (generator)": 750.0,
+   "village node rain_mm (generator)": 634.0,
+   "engine rain a day, mean at the villages' catchments": 3.58,
+   "over RAIN_MEAN": 1.05,
+   "eel": {
+    "cue nights a window, mean": 0.29,
+    "window-years with none": 0.71,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 3,
+    "window-years with none": 0.06,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 3.28,
+    "window-years with none": 0.19,
+    "window-years": 36
+   }
+  },
+  "w10_chalk_clay_s1": {
+   "rain_mm (generator)": 800.0,
+   "village node rain_mm (generator)": 762.0,
+   "engine rain a day, mean at the villages' catchments": 2.28,
+   "over RAIN_MEAN": 0.67,
+   "eel": {
+    "cue nights a window, mean": 0.61,
+    "window-years with none": 0.39,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.33,
+    "window-years with none": 0.11,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.78,
+    "window-years with none": 0.5,
+    "window-years": 54
+   }
+  },
+  "w10_chalk_clay_s2": {
+   "rain_mm (generator)": 800.0,
+   "village node rain_mm (generator)": 682.0,
+   "engine rain a day, mean at the villages' catchments": 3.39,
+   "over RAIN_MEAN": 1.0,
+   "eel": {
+    "cue nights a window, mean": 0.44,
+    "window-years with none": 0.67,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.5,
+    "window-years with none": 0.17,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 1.93,
+    "window-years with none": 0.33,
+    "window-years": 60
+   }
+  },
+  "w10_chalk_clay_s3": {
+   "rain_mm (generator)": 800.0,
+   "village node rain_mm (generator)": 767.0,
+   "engine rain a day, mean at the villages' catchments": 3.65,
+   "over RAIN_MEAN": 1.07,
+   "eel": {
+    "cue nights a window, mean": 0.44,
+    "window-years with none": 0.56,
+    "window-years": 18
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.58,
+    "window-years with none": 0.0,
+    "window-years": 12
+   },
+   "lamprey": {
+    "cue nights a window, mean": 3.45,
+    "window-years with none": 0.17,
+    "window-years": 60
+   }
+  },
+  "w11_sand_heath_s1": {
+   "rain_mm (generator)": 650.0,
+   "village node rain_mm (generator)": 516.0,
+   "engine rain a day, mean at the villages' catchments": 2.31,
+   "over RAIN_MEAN": 0.68,
+   "eel": {
+    "cue nights a window, mean": 0.54,
+    "window-years with none": 0.46,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.28,
+    "window-years with none": 0.06,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.73,
+    "window-years with none": 0.53,
+    "window-years": 60
+   }
+  },
+  "w11_sand_heath_s2": {
+   "rain_mm (generator)": 650.0,
+   "village node rain_mm (generator)": 538.0,
+   "engine rain a day, mean at the villages' catchments": 3.29,
+   "over RAIN_MEAN": 0.97,
+   "eel": {
+    "cue nights a window, mean": 0.33,
+    "window-years with none": 0.71,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.46,
+    "window-years with none": 0.17,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 1.93,
+    "window-years with none": 0.3,
+    "window-years": 54
+   }
+  },
+  "w11_sand_heath_s3": {
+   "rain_mm (generator)": 650.0,
+   "village node rain_mm (generator)": 541.0,
+   "engine rain a day, mean at the villages' catchments": 3.6,
+   "over RAIN_MEAN": 1.06,
+   "eel": {
+    "cue nights a window, mean": 0.21,
+    "window-years with none": 0.79,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.22,
+    "window-years with none": 0.06,
+    "window-years": 18
+   },
+   "lamprey": {
+    "cue nights a window, mean": 3.38,
+    "window-years with none": 0.18,
+    "window-years": 60
+   }
+  },
+  "w12_lake_country_s1": {
+   "rain_mm (generator)": 1400.0,
+   "village node rain_mm (generator)": 1172.0,
+   "engine rain a day, mean at the villages' catchments": 2.23,
+   "over RAIN_MEAN": 0.66,
+   "eel": {
+    "cue nights a window, mean": 0.54,
+    "window-years with none": 0.46,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.17,
+    "window-years with none": 0.12,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 0.79,
+    "window-years with none": 0.49,
+    "window-years": 72
+   }
+  },
+  "w12_lake_country_s2": {
+   "rain_mm (generator)": 1400.0,
+   "village node rain_mm (generator)": 1227.0,
+   "engine rain a day, mean at the villages' catchments": 3.36,
+   "over RAIN_MEAN": 0.99,
+   "eel": {
+    "cue nights a window, mean": 0.33,
+    "window-years with none": 0.71,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 2.63,
+    "window-years with none": 0.17,
+    "window-years": 30
+   },
+   "lamprey": {
+    "cue nights a window, mean": 1.99,
+    "window-years with none": 0.32,
+    "window-years": 84
+   }
+  },
+  "w12_lake_country_s3": {
+   "rain_mm (generator)": 1400.0,
+   "village node rain_mm (generator)": 1567.0,
+   "engine rain a day, mean at the villages' catchments": 3.58,
+   "over RAIN_MEAN": 1.05,
+   "eel": {
+    "cue nights a window, mean": 0.29,
+    "window-years with none": 0.71,
+    "window-years": 24
+   },
+   "salmon": {
+    "cue nights a window, mean": 3.42,
+    "window-years with none": 0.08,
+    "window-years": 24
+   },
+   "lamprey": {
+    "cue nights a window, mean": 3.3,
+    "window-years with none": 0.22,
+    "window-years": 60
+   }
+  }
+ },
+ "arms": {
+  "runs_cue": {
+   "eel": {
+    "village stretches it reaches": 162,
+    "of": 167,
+    "village-years": 810,
+    "village-years with no run": 437,
+    "village-years all on one night (>=90%)": 187,
+    "first night's sd across years, median over villages": 1.22,
+    "sd max": 3.54,
+    "first night with a tenth of the year's run, after the window opens, over all village-years": {
+     "min": 0,
+     "p10": 0.0,
+     "median": 3.0,
+     "p90": 5.0,
+     "max": 10
+    },
+    "share of a year's heads from the window's last day: median, max": [
+     null,
+     null
+    ],
+    "village-years with more than half from the last day": 0,
+    "heads cv across years, median": 1.227
+   },
+   "salmon": {
+    "village stretches it reaches": 139,
+    "of": 167,
+    "village-years": 695,
+    "village-years with no run": 0,
+    "village-years all on one night (>=90%)": 81,
+    "first night's sd across years, median over villages": 3.93,
+    "sd max": 5.64,
+    "first night with a tenth of the year's run, after the window opens, over all village-years": {
+     "min": 1,
+     "p10": 3.0,
+     "median": 7.0,
+     "p90": 15.0,
+     "max": 22
+    },
+    "share of a year's heads from the window's last day: median, max": [
+     0.116,
+     1.0
+    ],
+    "village-years with more than half from the last day": 109,
+    "heads cv across years, median": 0.0
+   },
+   "lamprey": {
+    "village stretches it reaches": 40,
+    "of": 167,
+    "village-years": 200,
+    "village-years with no run": 8,
+    "village-years all on one night (>=90%)": 57,
+    "first night's sd across years, median over villages": 2.67,
+    "sd max": 3.01,
+    "first night with a tenth of the year's run, after the window opens, over all village-years": {
+     "min": 1,
+     "p10": 2.0,
+     "median": 5.0,
+     "p90": 10.0,
+     "max": 13
+    },
+    "share of a year's heads from the window's last day: median, max": [
+     0.0,
+     1.0
+    ],
+    "village-years with more than half from the last day": 67,
+    "heads cv across years, median": 0.2
+   }
+  },
+  "runs_fix": {
+   "eel": {
+    "village stretches it reaches": 162,
+    "of": 167,
+    "village-years": 810,
+    "village-years with no run": 437,
+    "village-years all on one night (>=90%)": 187,
+    "first night's sd across years, median over villages": 1.22,
+    "sd max": 3.54,
+    "first night with a tenth of the year's run, after the window opens, over all village-years": {
+     "min": 0,
+     "p10": 0.0,
+     "median": 3.0,
+     "p90": 5.0,
+     "max": 10
+    },
+    "share of a year's heads from the window's last day: median, max": [
+     null,
+     null
+    ],
+    "village-years with more than half from the last day": 0,
+    "heads cv across years, median": 1.227
+   },
+   "salmon": {
+    "village stretches it reaches": 139,
+    "of": 167,
+    "village-years": 695,
+    "village-years with no run": 0,
+    "village-years all on one night (>=90%)": 81,
+    "first night's sd across years, median over villages": 3.93,
+    "sd max": 5.64,
+    "first night with a tenth of the year's run, after the window opens, over all village-years": {
+     "min": 1,
+     "p10": 3.0,
+     "median": 7.0,
+     "p90": 15.0,
+     "max": 22
+    },
+    "share of a year's heads from the window's last day: median, max": [
+     0.116,
+     1.0
+    ],
+    "village-years with more than half from the last day": 109,
+    "heads cv across years, median": 0.0
+   },
+   "lamprey": {
+    "village stretches it reaches": 167,
+    "of": 167,
+    "village-years": 835,
+    "village-years with no run": 8,
+    "village-years all on one night (>=90%)": 295,
+    "first night's sd across years, median over villages": 2.48,
+    "sd max": 3.43,
+    "first night with a tenth of the year's run, after the window opens, over all village-years": {
+     "min": 1,
+     "p10": 3.0,
+     "median": 8.0,
+     "p90": 13.0,
+     "max": 19
+    },
+    "share of a year's heads from the window's last day: median, max": [
+     0.179,
+     1.0
+    ],
+    "village-years with more than half from the last day": 324,
+    "heads cv across years, median": 0.073
+   }
+  },
+  "runs_set": {
+   "eel": {
+    "village stretches it reaches": 167,
+    "of": 167,
+    "village-years": 167,
+    "village-years with no run": 0,
+    "village-years all on one night (>=90%)": 0,
+    "first night's sd across years, median over villages": null,
+    "sd max": null,
+    "first night with a tenth of the year's run, after the window opens, over all village-years": {
+     "min": 1,
+     "p10": 1.0,
+     "median": 1.0,
+     "p90": 2.0,
+     "max": 3
+    },
+    "share of a year's heads from the window's last day: median, max": [
+     null,
+     null
+    ],
+    "village-years with more than half from the last day": 0,
+    "heads cv across years, median": 0.0
+   },
+   "salmon": {
+    "village stretches it reaches": 139,
+    "of": 167,
+    "village-years": 139,
+    "village-years with no run": 0,
+    "village-years all on one night (>=90%)": 0,
+    "first night's sd across years, median over villages": null,
+    "sd max": null,
+    "first night with a tenth of the year's run, after the window opens, over all village-years": {
+     "min": 2,
+     "p10": 2.0,
+     "median": 5.0,
+     "p90": 9.200000000000003,
+     "max": 15
+    },
+    "share of a year's heads from the window's last day: median, max": [
+     0.422,
+     0.423
+    ],
+    "village-years with more than half from the last day": 0,
+    "heads cv across years, median": 0.0
+   },
+   "lamprey": {
+    "village stretches it reaches": 38,
+    "of": 167,
+    "village-years": 38,
+    "village-years with no run": 0,
+    "village-years all on one night (>=90%)": 0,
+    "first night's sd across years, median over villages": null,
+    "sd max": null,
+    "first night with a tenth of the year's run, after the window opens, over all village-years": {
+     "min": 1,
+     "p10": 2.0,
+     "median": 3.0,
+     "p90": 5.0,
+     "max": 7
+    },
+    "share of a year's heads from the window's last day: median, max": [
+     0.423,
+     0.423
+    ],
+    "village-years with more than half from the last day": 0,
+    "heads cv across years, median": 0.0
+   }
+  },
+  "runs_dam": {
+   "eel": {
+    "village stretches it reaches": 9,
+    "of": 9,
+    "village-years": 45,
+    "village-years with no run": 17,
+    "village-years all on one night (>=90%)": 7,
+    "first night's sd across years, median over villages": 0.5,
+    "sd max": 3.08,
+    "first night with a tenth of the year's run, after the window opens, over all village-years": {
+     "min": 0,
+     "p10": 0.0,
+     "median": 1.5,
+     "p90": 6.5000000000000036,
+     "max": 10
+    },
+    "share of a year's heads from the window's last day: median, max": [
+     null,
+     null
+    ],
+    "village-years with more than half from the last day": 0,
+    "heads cv across years, median": 0.961
+   },
+   "salmon": {
+    "village stretches it reaches": 9,
+    "of": 9,
+    "village-years": 45,
+    "village-years with no run": 0,
+    "village-years all on one night (>=90%)": 0,
+    "first night's sd across years, median over villages": 0.8,
+    "sd max": 2.23,
+    "first night with a tenth of the year's run, after the window opens, over all village-years": {
+     "min": 1,
+     "p10": 1.0,
+     "median": 6.0,
+     "p90": 10.0,
+     "max": 14
+    },
+    "share of a year's heads from the window's last day: median, max": [
+     0.179,
+     0.474
+    ],
+    "village-years with more than half from the last day": 0,
+    "heads cv across years, median": 0.395
+   },
+   "lamprey": {
+    "village stretches it reaches": 0,
+    "of": 9,
+    "village-years": 0,
+    "village-years with no run": 0,
+    "village-years all on one night (>=90%)": 0,
+    "first night's sd across years, median over villages": null,
+    "sd max": null,
+    "first night with a tenth of the year's run, after the window opens, over all village-years": {
+     "min": null,
+     "p10": null,
+     "median": null,
+     "p90": null,
+     "max": null
+    },
+    "share of a year's heads from the window's last day: median, max": [
+     null,
+     null
+    ],
+    "village-years with more than half from the last day": 0,
+    "heads cv across years, median": null
+   }
+  }
+ }
+}

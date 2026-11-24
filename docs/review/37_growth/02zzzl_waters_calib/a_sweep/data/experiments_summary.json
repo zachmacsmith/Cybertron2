@@ -1,0 +1,950 @@
+{
+ "hazard": {
+  "eel": {
+   "village-years": 810,
+   "with no night of a head or more": 20,
+   "with under half the year's run gone": 154,
+   "all on one night (>=90%)": 0,
+   "first night with a tenth of the year's run, after the season opens": {
+    "p10": 0.0,
+    "median": 6.0,
+    "p90": 11.0
+   },
+   "first night's sd across years, median over villages": 3.2,
+   "nights a year, median": 8.0,
+   "share on the season's last night (up-runs), median": 0.027,
+   "share of the run that goes, median": 0.791
+  },
+  "lamprey": {
+   "village-years": 835,
+   "with no night of a head or more": 6,
+   "with under half the year's run gone": 0,
+   "all on one night (>=90%)": 46,
+   "first night with a tenth of the year's run, after the season opens": {
+    "p10": 3.0,
+    "median": 5.0,
+    "p90": 11.0
+   },
+   "first night's sd across years, median over villages": 2.8,
+   "nights a year, median": 6.0,
+   "share on the season's last night (up-runs), median": 0.311,
+   "share of the run that goes, median": 1.0
+  },
+  "salmon": {
+   "village-years": 695,
+   "with no night of a head or more": 0,
+   "with under half the year's run gone": 0,
+   "all on one night (>=90%)": 0,
+   "first night with a tenth of the year's run, after the season opens": {
+    "p10": 0.0,
+    "median": 2.0,
+    "p90": 9.0
+   },
+   "first night's sd across years, median over villages": 3.187,
+   "nights a year, median": 10.0,
+   "share on the season's last night (up-runs), median": 0.097,
+   "share of the run that goes, median": 1.0
+  }
+ },
+ "rows_variants": {
+  "base": {
+   "timing": {
+    "eel": {
+     "village stretches it reaches": 162,
+     "of": 167,
+     "village-years": 810,
+     "village-years with no run": 437,
+     "village-years all on one night (>=90%)": 187,
+     "first night's sd across years, median over villages": 1.22,
+     "sd max": 3.54,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 0,
+      "p10": 0.0,
+      "median": 3.0,
+      "p90": 5.0,
+      "max": 10
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      null,
+      null
+     ],
+     "village-years with more than half from the last day": 0,
+     "heads cv across years, median": 1.227
+    },
+    "salmon": {
+     "village stretches it reaches": 139,
+     "of": 167,
+     "village-years": 695,
+     "village-years with no run": 0,
+     "village-years all on one night (>=90%)": 81,
+     "first night's sd across years, median over villages": 3.93,
+     "sd max": 5.64,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 1,
+      "p10": 3.0,
+      "median": 7.0,
+      "p90": 15.0,
+      "max": 22
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      0.116,
+      1.0
+     ],
+     "village-years with more than half from the last day": 109,
+     "heads cv across years, median": 0.0
+    },
+    "lamprey": {
+     "village stretches it reaches": 167,
+     "of": 167,
+     "village-years": 835,
+     "village-years with no run": 8,
+     "village-years all on one night (>=90%)": 295,
+     "first night's sd across years, median over villages": 2.48,
+     "sd max": 3.43,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 1,
+      "p10": 3.0,
+      "median": 8.0,
+      "p90": 13.0,
+      "max": 19
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      0.179,
+      1.0
+     ],
+     "village-years with more than half from the last day": 324,
+     "heads cv across years, median": 0.073
+    }
+   },
+   "food a season, mean over village-years": {
+    "eel": {
+     "spring": 0.1,
+     "summer": 0.0,
+     "autumn": 29.88,
+     "winter": 5.1
+    },
+    "lamprey": {
+     "spring": 1.22,
+     "summer": 2.92,
+     "autumn": 0.15,
+     "winter": 0.0
+    },
+    "salmon": {
+     "spring": 13.92,
+     "summer": 0.0,
+     "autumn": 59.82,
+     "winter": 65.92
+    }
+   }
+  },
+  "eel_dry1": {
+   "timing": {
+    "eel": {
+     "village stretches it reaches": 167,
+     "of": 167,
+     "village-years": 835,
+     "village-years with no run": 341,
+     "village-years all on one night (>=90%)": 201,
+     "first night's sd across years, median over villages": 1.25,
+     "sd max": 2.86,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 0,
+      "p10": 0.0,
+      "median": 3.0,
+      "p90": 6.0,
+      "max": 9
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      null,
+      null
+     ],
+     "village-years with more than half from the last day": 0,
+     "heads cv across years, median": 0.897
+    },
+    "salmon": {
+     "village stretches it reaches": 139,
+     "of": 167,
+     "village-years": 695,
+     "village-years with no run": 0,
+     "village-years all on one night (>=90%)": 81,
+     "first night's sd across years, median over villages": 3.93,
+     "sd max": 5.64,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 1,
+      "p10": 3.0,
+      "median": 7.0,
+      "p90": 15.0,
+      "max": 22
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      0.116,
+      1.0
+     ],
+     "village-years with more than half from the last day": 109,
+     "heads cv across years, median": 0.0
+    },
+    "lamprey": {
+     "village stretches it reaches": 167,
+     "of": 167,
+     "village-years": 835,
+     "village-years with no run": 8,
+     "village-years all on one night (>=90%)": 295,
+     "first night's sd across years, median over villages": 2.48,
+     "sd max": 3.43,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 1,
+      "p10": 3.0,
+      "median": 8.0,
+      "p90": 13.0,
+      "max": 19
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      0.179,
+      1.0
+     ],
+     "village-years with more than half from the last day": 324,
+     "heads cv across years, median": 0.073
+    }
+   },
+   "food a season, mean over village-years": {
+    "eel": {
+     "spring": 0.22,
+     "summer": 0.0,
+     "autumn": 38.9,
+     "winter": 11.98
+    },
+    "lamprey": {
+     "spring": 1.22,
+     "summer": 2.92,
+     "autumn": 0.15,
+     "winter": 0.0
+    },
+    "salmon": {
+     "spring": 13.92,
+     "summer": 0.0,
+     "autumn": 59.82,
+     "winter": 65.92
+    }
+   }
+  },
+  "eel_spate": {
+   "timing": {
+    "eel": {
+     "village stretches it reaches": 167,
+     "of": 167,
+     "village-years": 835,
+     "village-years with no run": 167,
+     "village-years all on one night (>=90%)": 49,
+     "first night's sd across years, median over villages": 1.48,
+     "sd max": 2.77,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 0,
+      "p10": 0.0,
+      "median": 1.0,
+      "p90": 5.0,
+      "max": 8
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      null,
+      null
+     ],
+     "village-years with more than half from the last day": 0,
+     "heads cv across years, median": 0.57
+    },
+    "salmon": {
+     "village stretches it reaches": 139,
+     "of": 167,
+     "village-years": 695,
+     "village-years with no run": 0,
+     "village-years all on one night (>=90%)": 81,
+     "first night's sd across years, median over villages": 3.93,
+     "sd max": 5.64,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 1,
+      "p10": 3.0,
+      "median": 7.0,
+      "p90": 15.0,
+      "max": 22
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      0.116,
+      1.0
+     ],
+     "village-years with more than half from the last day": 109,
+     "heads cv across years, median": 0.0
+    },
+    "lamprey": {
+     "village stretches it reaches": 167,
+     "of": 167,
+     "village-years": 835,
+     "village-years with no run": 8,
+     "village-years all on one night (>=90%)": 295,
+     "first night's sd across years, median over villages": 2.48,
+     "sd max": 3.43,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 1,
+      "p10": 3.0,
+      "median": 8.0,
+      "p90": 13.0,
+      "max": 19
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      0.179,
+      1.0
+     ],
+     "village-years with more than half from the last day": 324,
+     "heads cv across years, median": 0.073
+    }
+   },
+   "food a season, mean over village-years": {
+    "eel": {
+     "spring": 0.68,
+     "summer": 0.0,
+     "autumn": 72.98,
+     "winter": 13.4
+    },
+    "lamprey": {
+     "spring": 1.22,
+     "summer": 2.92,
+     "autumn": 0.15,
+     "winter": 0.0
+    },
+    "salmon": {
+     "spring": 13.92,
+     "summer": 0.0,
+     "autumn": 59.82,
+     "winter": 65.92
+    }
+   }
+  },
+  "eel_wide": {
+   "timing": {
+    "eel": {
+     "village stretches it reaches": 167,
+     "of": 167,
+     "village-years": 835,
+     "village-years with no run": 356,
+     "village-years all on one night (>=90%)": 227,
+     "first night's sd across years, median over villages": 1.7,
+     "sd max": 5.31,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 0,
+      "p10": 0.0,
+      "median": 3.0,
+      "p90": 9.0,
+      "max": 15
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      null,
+      null
+     ],
+     "village-years with more than half from the last day": 0,
+     "heads cv across years, median": 0.844
+    },
+    "salmon": {
+     "village stretches it reaches": 139,
+     "of": 167,
+     "village-years": 695,
+     "village-years with no run": 0,
+     "village-years all on one night (>=90%)": 81,
+     "first night's sd across years, median over villages": 3.93,
+     "sd max": 5.64,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 1,
+      "p10": 3.0,
+      "median": 7.0,
+      "p90": 15.0,
+      "max": 22
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      0.116,
+      1.0
+     ],
+     "village-years with more than half from the last day": 109,
+     "heads cv across years, median": 0.0
+    },
+    "lamprey": {
+     "village stretches it reaches": 167,
+     "of": 167,
+     "village-years": 835,
+     "village-years with no run": 8,
+     "village-years all on one night (>=90%)": 295,
+     "first night's sd across years, median over villages": 2.48,
+     "sd max": 3.43,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 1,
+      "p10": 3.0,
+      "median": 8.0,
+      "p90": 13.0,
+      "max": 19
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      0.179,
+      1.0
+     ],
+     "village-years with more than half from the last day": 324,
+     "heads cv across years, median": 0.073
+    }
+   },
+   "food a season, mean over village-years": {
+    "eel": {
+     "spring": 0.88,
+     "summer": 0.0,
+     "autumn": 29.22,
+     "winter": 15.05
+    },
+    "lamprey": {
+     "spring": 1.22,
+     "summer": 2.92,
+     "autumn": 0.15,
+     "winter": 0.0
+    },
+    "salmon": {
+     "spring": 13.92,
+     "summer": 0.0,
+     "autumn": 59.82,
+     "winter": 65.92
+    }
+   }
+  },
+  "lamprey_river": {
+   "timing": {
+    "eel": {
+     "village stretches it reaches": 162,
+     "of": 167,
+     "village-years": 810,
+     "village-years with no run": 437,
+     "village-years all on one night (>=90%)": 187,
+     "first night's sd across years, median over villages": 1.22,
+     "sd max": 3.54,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 0,
+      "p10": 0.0,
+      "median": 3.0,
+      "p90": 5.0,
+      "max": 10
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      null,
+      null
+     ],
+     "village-years with more than half from the last day": 0,
+     "heads cv across years, median": 1.227
+    },
+    "salmon": {
+     "village stretches it reaches": 139,
+     "of": 167,
+     "village-years": 695,
+     "village-years with no run": 0,
+     "village-years all on one night (>=90%)": 81,
+     "first night's sd across years, median over villages": 3.93,
+     "sd max": 5.64,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 1,
+      "p10": 3.0,
+      "median": 7.0,
+      "p90": 15.0,
+      "max": 22
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      0.116,
+      1.0
+     ],
+     "village-years with more than half from the last day": 109,
+     "heads cv across years, median": 0.0
+    },
+    "lamprey": {
+     "village stretches it reaches": 167,
+     "of": 167,
+     "village-years": 835,
+     "village-years with no run": 0,
+     "village-years all on one night (>=90%)": 295,
+     "first night's sd across years, median over villages": 2.48,
+     "sd max": 3.43,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 1,
+      "p10": 3.0,
+      "median": 8.0,
+      "p90": 13.0,
+      "max": 19
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      0.179,
+      1.0
+     ],
+     "village-years with more than half from the last day": 324,
+     "heads cv across years, median": 0.073
+    }
+   },
+   "food a season, mean over village-years": {
+    "eel": {
+     "spring": 0.1,
+     "summer": 0.0,
+     "autumn": 29.88,
+     "winter": 5.1
+    },
+    "lamprey": {
+     "spring": 4.53,
+     "summer": 7.72,
+     "autumn": 0.37,
+     "winter": 0.0
+    },
+    "salmon": {
+     "spring": 13.92,
+     "summer": 0.0,
+     "autumn": 59.82,
+     "winter": 65.92
+    }
+   }
+  },
+  "set_nights": {
+   "timing": {
+    "eel": {
+     "village stretches it reaches": 167,
+     "of": 167,
+     "village-years": 835,
+     "village-years with no run": 0,
+     "village-years all on one night (>=90%)": 0,
+     "first night's sd across years, median over villages": 0.0,
+     "sd max": 0.8,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 1,
+      "p10": 1.0,
+      "median": 1.0,
+      "p90": 2.0,
+      "max": 4
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      null,
+      null
+     ],
+     "village-years with more than half from the last day": 0,
+     "heads cv across years, median": 0.135
+    },
+    "salmon": {
+     "village stretches it reaches": 139,
+     "of": 167,
+     "village-years": 695,
+     "village-years with no run": 0,
+     "village-years all on one night (>=90%)": 0,
+     "first night's sd across years, median over villages": 0.0,
+     "sd max": 2.0,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 2,
+      "p10": 2.0,
+      "median": 5.0,
+      "p90": 9.600000000000023,
+      "max": 16
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      0.422,
+      0.423
+     ],
+     "village-years with more than half from the last day": 0,
+     "heads cv across years, median": 0.0
+    },
+    "lamprey": {
+     "village stretches it reaches": 167,
+     "of": 167,
+     "village-years": 835,
+     "village-years with no run": 6,
+     "village-years all on one night (>=90%)": 0,
+     "first night's sd across years, median over villages": 0.0,
+     "sd max": 0.0,
+     "first night with a tenth of the year's run, after the window opens, over all village-years": {
+      "min": 1,
+      "p10": 2.0,
+      "median": 4.0,
+      "p90": 9.0,
+      "max": 13
+     },
+     "share of a year's heads from the window's last day: median, max": [
+      0.423,
+      0.423
+     ],
+     "village-years with more than half from the last day": 0,
+     "heads cv across years, median": 0.073
+    }
+   },
+   "food a season, mean over village-years": {
+    "eel": {
+     "spring": 0.52,
+     "summer": 0.0,
+     "autumn": 86.88,
+     "winter": 9.61
+    },
+    "lamprey": {
+     "spring": 1.89,
+     "summer": 2.29,
+     "autumn": 0.11,
+     "winter": 0.0
+    },
+    "salmon": {
+     "spring": 15.28,
+     "summer": 0.0,
+     "autumn": 65.88,
+     "winter": 58.49
+    }
+   }
+  }
+ },
+ "other_runs": {
+  "summary": {
+   "river lamprey (sized as real)": {
+    "villages it reaches": 167,
+    "of": 167,
+    "food a year, median (lo)": 0.2,
+    "food a year, median (hi)": 0.7,
+    "max (hi)": 38.0,
+    "spring food, median (mid)": 0.2
+   },
+   "elvers and glass eels": {
+    "villages it reaches": 120,
+    "of": 167,
+    "food a year, median (lo)": 0.6,
+    "food a year, median (hi)": 2.4,
+    "max (hi)": 126.7,
+    "spring food, median (mid)": 1.5
+   },
+   "sea trout": {
+    "villages it reaches": 167,
+    "of": 167,
+    "food a year, median (lo)": 3.2,
+    "food a year, median (hi)": 12.6,
+    "max (hi)": 671.4,
+    "spring food, median (mid)": 0.0
+   },
+   "sea lamprey": {
+    "villages it reaches": 139,
+    "of": 167,
+    "food a year, median (lo)": 0.1,
+    "food a year, median (hi)": 0.4,
+    "max (hi)": 22.4,
+    "spring food, median (mid)": 0.1
+   },
+   "twaite shad": {
+    "villages it reaches": 94,
+    "of": 167,
+    "food a year, median (lo)": 6.9,
+    "food a year, median (hi)": 20.6,
+    "max (hi)": 302.1,
+    "spring food, median (mid)": 5.9
+   },
+   "smelt": {
+    "villages it reaches": 6,
+    "of": 167,
+    "food a year, median (lo)": 1.1,
+    "food a year, median (hi)": 4.45,
+    "max (hi)": 34.8,
+    "spring food, median (mid)": 1.2
+   }
+  },
+  "check": {
+   "eel heads a km2 of catchment a world year (engine, fix arm), median": 1.18,
+   "against Burrishoole's 20 to 50 x 32/365": [
+    1.75,
+    4.38
+   ],
+   "salmon heads a km2 (engine), median over salmon rivers": 1.03,
+   "against a real river's 5 to 20 x 32/365": [
+    0.44,
+    1.75
+   ],
+   "lamprey heads a km2 (engine), median": 0.975,
+   "against the river lamprey row's 5 to 20 x 32/365 (est.)": [
+    0.44,
+    1.75
+   ]
+  }
+ },
+ "resident": {
+  "big river": {
+   "villages": 32,
+   "maker food a night, median": 1.3,
+   "productivity, compressed: median lo, hi": [
+    0.405,
+    1.025
+   ],
+   "productivity, year clock: median lo, hi": [
+    4.6,
+    11.675
+   ],
+   "shallows (summer), median": 0.4,
+   "K units: productivity median, maker median": [
+    3101.5,
+    35.2
+   ]
+  },
+  "fen only": {
+   "villages": 40,
+   "maker food a night, median": 0.0,
+   "productivity, compressed: median lo, hi": [
+    0.165,
+    0.345
+   ],
+   "productivity, year clock: median lo, hi": [
+    1.905,
+    3.91
+   ],
+   "shallows (summer), median": 0.34,
+   "K units: productivity median, maker median": [
+    1087.5,
+    0.0
+   ]
+  },
+  "lake": {
+   "villages": 1,
+   "maker food a night, median": 10.67,
+   "productivity, compressed: median lo, hi": [
+    25.43,
+    126.93
+   ],
+   "productivity, year clock: median lo, hi": [
+    290.04,
+    1447.74
+   ],
+   "shallows (summer), median": 0.4,
+   "K units: productivity median, maker median": [
+    352557.0,
+    21178.6
+   ]
+  },
+  "no water parcel": {
+   "villages": 18,
+   "maker food a night, median": 0.0,
+   "productivity, compressed: median lo, hi": [
+    0.12,
+    0.24
+   ],
+   "productivity, year clock: median lo, hi": [
+    1.36,
+    2.73
+   ],
+   "shallows (summer), median": 0.0,
+   "K units: productivity median, maker median": [
+    758.5,
+    0.0
+   ]
+  },
+  "river": {
+   "villages": 76,
+   "maker food a night, median": 1.3,
+   "productivity, compressed: median lo, hi": [
+    0.205,
+    0.415
+   ],
+   "productivity, year clock: median lo, hi": [
+    2.315,
+    4.73
+   ],
+   "shallows (summer), median": 0.47,
+   "K units: productivity median, maker median": [
+    1316.5,
+    35.2
+   ]
+  }
+ },
+ "inputs": {
+  "HAZARD": {
+   "eel": {
+    "season": [
+     12,
+     27
+    ],
+    "dir": "down"
+   },
+   "salmon": {
+    "season": [
+     12,
+     31
+    ],
+    "dir": "up"
+   },
+   "lamprey": {
+    "season": [
+     0,
+     12
+    ],
+    "dir": "up"
+   }
+  },
+  "RUNS_REAL": {
+   "river lamprey (sized as real)": {
+    "per_km2": [
+     5,
+     20
+    ],
+    "kg": 0.06,
+    "units": "small",
+    "days": [
+     26,
+     27,
+     28,
+     29,
+     30,
+     31,
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "where": "any",
+    "src": "est.: no run size found; the Yorkshire Ouse's commercial fishery is the named case (Masters et al. 2006, Aquatic Conservation; Hull's 2018-20 telemetry); up in late autumn and winter, spawning in spring"
+   },
+   "sea lamprey": {
+    "per_km2": [
+     0.2,
+     1.0
+    ],
+    "kg": 1.0,
+    "units": "large",
+    "days": [
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11
+    ],
+    "where": "salmon river",
+    "src": "est.; up in May and June to spawn (Severn, Wye: Unlocking the Severn's telemetry, Yeldham et al. 2025)"
+   },
+   "elvers and glass eels": {
+    "kg_km2": [
+     1.0,
+     4.0
+    ],
+    "units": "small",
+    "days": [
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "where": "below 4 stretches from the mouth",
+    "src": "the Severn's glass eel fishery: about 40 t a year in the late 1970s, about 10 t now (Cefas); the run 25 t (2020) to 76 t (2023 trial) by mark and recapture (glasseel.com), over 11,420 km2: 0.9 to 3.5 kg a km2 caught, 2 to 7 standing; April and May"
+   },
+   "twaite shad": {
+    "per_km2": [
+     10,
+     30
+    ],
+    "kg": 0.45,
+    "units": "large",
+    "days": [
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11
+    ],
+    "where": "salmon river, below 4 stretches from the mouth",
+    "src": "the Severn's run 'hundreds of thousands' before the weirs (Unlocking the Severn), 7,000 to 14,000 past Tewkesbury 2017-18, 1,541 in 2022 (Environment Agency counts), over 11,420 km2; late April to June; the fish about 0.3 to 0.6 kg (est.)"
+   },
+   "sea trout": {
+    "per_km2": [
+     5,
+     20
+    ],
+    "kg": 1.5,
+    "units": "large",
+    "days": [
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15,
+     16
+    ],
+    "where": "any",
+    "src": "est. (the Welsh sea trout rivers, Tywi and Teifi, as the named case; no figure checked here); June to August"
+   },
+   "smelt": {
+    "kg_km2": [
+     0.5,
+     2.0
+    ],
+    "units": "small",
+    "days": [
+     28,
+     29,
+     30,
+     31,
+     0,
+     1,
+     2
+    ],
+    "where": "at the mouth",
+    "src": "est.; the tidal reaches only (the Thames', the Cree's), February to April"
+   }
+  },
+  "PRODUCTIVITY": {
+   "brook": {
+    "P": [
+     20,
+     170
+    ],
+    "B": [
+     100,
+     200
+    ],
+    "src": "u1 section 2 / fishing_ladder section 1: trout streams 20 to 168 kg a ha a year, 100 to 200 standing"
+   },
+   "river": {
+    "P": [
+     50,
+     100
+    ],
+    "B": [
+     150,
+     250
+    ],
+    "src": "the River Eden (Kent), chub 54 + dace 17 kg a ha a year, 191 + 43 kg a ha standing (Mann's school, 1982); Welcomme 1985 (FAO 262): floodplain rivers' catch 5 to 143 kg a ha a year"
+   },
+   "big river": {
+    "P": [
+     30,
+     80
+    ],
+    "B": [
+     100,
+     200
+    ],
+    "src": "est.: a deep channel lower a hectare than the river's margins"
+   },
+   "lake": {
+    "P": [
+     20,
+     100
+    ],
+    "B": [
+     50,
+     300
+    ],
+    "src": "Downing and Plante 1993 (CJFAS 50: 100 populations in 38 lakes); make_water_worlds' 'a real lake's 50 to 300' kg a ha standing"
+   },
+   "fen": {
+    "P": [
+     30,
+     100
+    ],
+    "B": [
+     100,
+     300
+    ],
+    "src": "est.: eels and coarse fish of fen dykes and pools"
+   }
+  },
+  "TAKE": 0.5,
+  "FEN_WATER": 0.1,
+  "COMPRESS": 0.08767123287671233
+ }
+}

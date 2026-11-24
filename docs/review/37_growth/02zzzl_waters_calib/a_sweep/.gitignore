@@ -1,3 +1,7 @@
 worlds/
 __pycache__/
 data/worlds/
+data/exp_rows/
+data/tables.json
+data/run_years.json
+data/experiments.json

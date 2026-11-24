@@ -1,0 +1,52 @@
+world	family	kind	rain_mm	villages	on a river	water types at villages	bodies by kind	engine rain/RAIN_MEAN	eel cue nights a window	eel none	salmon cue nights	salmon none	lamprey cue nights	lamprey none
+cfg_basin_in_a_ring_of_hills_s1	cfg	basin in a ring of hills	900.0	4	4	fen,river	{"reach": 3}	0.64	0.58	0.42	3	0.33	0.73	0.44
+cfg_confluence_plain_s1	cfg	confluence plain	900.0	3	3	big river,fen,river	{"reach": 2}	0.63	0.61	0.39	2.83	0.28	0.44	0.56
+cfg_gated_valley_s1	cfg	gated valley	900.0	4	4	fen,river	{"reach": 2}	0.69	0.71	0.29	3.33	0.17	0.92	0.45
+cfg_river_through_a_range_s1	cfg	river through a range	900.0	3	3	big river,fen,river	{"reach": 2}	0.64	0.56	0.44	3.12	0.12	0.71	0.44
+cfg_settled_lowland_and_frontier_s1	cfg	settled lowland and frontier	900.0	3	3	fen,river	{"reach": 2}	0.66	0.61	0.39	3.08	0.12	0.95	0.42
+cfg_two_valleys_over_a_pass_s1	cfg	two valleys over a pass	900.0	4	3	big river,fen,river	{"reach": 3}	0.64	0.56	0.44	3.17	0.11	0.62	0.5
+cfg_watershed_divide_s1	cfg	watershed divide	900.0	4	3	big river,fen,river	{"reach": 3}	0.65	0.56	0.44	3.08	0.17	0.69	0.5
+eelmouth	eelmouth	Eelmouth (live run 1's world)	900.0	1	1	big river,fen	{"reach": 1}	0.94	0.5	0.5	3.56	0.0	1.52	0.29
+laid_large_dry_s5	laid	laid large river	500.0	3	3	big river,fen	{"reach": 3}	0.95	0.56	0.44	3.78	0.0	2.03	0.05
+laid_large_s5	laid	laid large river	900.0	3	3	big river,fen	{"reach": 3}	0.99	0.56	0.44	3.72	0.0	2.08	0.03
+laid_large_s7	laid	laid large river	900.0	3	3	big river,fen	{"reach": 3}	1.07	0.56	0.44	2.75	0.11	2.59	0.3
+laid_large_wet_s5	laid	laid large river	1400.0	3	3	big river,fen	{"reach": 3}	0.97	0.56	0.44	3.78	0.0	1.89	0.08
+laid_medium_s5	laid	laid medium river	900.0	3	3	big river,fen	{"reach": 1}	0.94	0.61	0.5	3.61	0.0	1.83	0.14
+laid_river_s5	laid	laid river river	900.0	3	3	big river,fen	{"reach": 1}	0.95	0.61	0.5	3.61	0.0	1.82	0.14
+lake_meresby_s3	lake	laid mere (Meresby)	900.0	1	1	fen,lake	{"lake": 1}	1.1	0.17	0.83	2.83	0.12	3.7	0.17
+w01_lowland_s1	cal	Lowland river country	900.0	3	3	fen,river	{"reach": 2}	0.62	0.61	0.39	3.04	0.17	0.8	0.39
+w01_lowland_s2	cal	Lowland river country	900.0	5	4	fen,river	{"reach": 3}	1.0	0.42	0.67	2.42	0.17	2.02	0.33
+w01_lowland_s3	cal	Lowland river country	900.0	3	3	fen,river	{"reach": 1}	1.06	0.33	0.67	2.67	0.0	3.3	0.19
+w02_dry_east_s1	cal	Dry east	500.0	3	3	fen,river	{"reach": 2}	0.64	0.61	0.39	3	0.33	0.55	0.52
+w02_dry_east_s2	cal	Dry east	500.0	4	4	fen,river	{"reach": 2}	0.96	0.29	0.75	2.42	0.17	1.77	0.35
+w02_dry_east_s3	cal	Dry east	500.0	3	3	big river,fen,river	{"reach": 3}	1.05	0.44	0.56	2.92	0.08	3.44	0.19
+w03_wet_west_s1	cal	Wet west, maritime	1400.0	4	4	fen,river	{"reach": 2}	0.65	0.5	0.5	3.11	0.17	0.72	0.48
+w03_wet_west_s2	cal	Wet west, maritime	1400.0	3	3	big river,fen,river	{"reach": 3}	0.99	0.39	0.67	2.46	0.17	1.87	0.35
+w03_wet_west_s3	cal	Wet west, maritime	1400.0	3	3	big river,fen,river	{"reach": 2}	1.08	0.44	0.56	3.17	0.0	3.37	0.18
+w04_coast_mountains_s1	cal	Coast under mountains	1200.0	4	3	fen,river	{"reach": 3}	0.63	0.56	0.44	3.28	0.11	0.79	0.42
+w04_coast_mountains_s2	cal	Coast under mountains	1200.0	4	3	big river,fen,river	{"reach": 3}	1.0	0.44	0.67	2.42	0.17	2.15	0.25
+w04_coast_mountains_s3	cal	Coast under mountains	1200.0	4	3	fen,river	{"reach": 1}	1.08	0.33	0.67	3.11	0.0	3.3	0.17
+w05_upland_moor_s1	cal	Upland and moor	950.0	4	4	fen,river	{"reach": 2}	0.66	0.54	0.46	3.11	0.22	0.76	0.49
+w05_upland_moor_s2	cal	Upland and moor	950.0	4	4	fen,river	{"reach": 2}	1.0	0.42	0.67	2.73	0.17	2.01	0.31
+w05_upland_moor_s3	cal	Upland and moor	950.0	3	3	fen,river	{"reach": 2}	1.09	0.44	0.56	3.25	0.0	3.67	0.17
+w06_high_mountains_s1	cal	High mountains	1100.0	3	3	big river,fen,river	{"reach": 3}	0.64	0.61	0.39	3.17	0.17	0.79	0.43
+w06_high_mountains_s2	cal	High mountains	1100.0	4	4	big river,fen,river	{"reach": 2}	0.97	0.33	0.71	2.43	0.17	1.96	0.21
+w06_high_mountains_s3	cal	High mountains	1100.0	3	3	fen,river	{"reach": 3}	1.1	0.33	0.67	3.29	0.08	3.47	0.24
+w07_cold_north_s1	cal	Cold north	800.0	3	3	big river,fen	{"reach": 1}	0.62	0.61	0.39	3.04	0.17	0.69	0.46
+w07_cold_north_s2	cal	Cold north	800.0	4	3	fen,river	{"reach": 2}	0.99	0.39	0.67	2.42	0.17	1.95	0.3
+w07_cold_north_s3	cal	Cold north	800.0	3	3	fen,river	{"reach": 1}	1.05	0.39	0.61	3.33	0.0	3.33	0.17
+w08_fen_s1	cal	Fen basin	600.0	4	4	fen,river	{"reach": 2}	0.62	0.54	0.46	3.25	0.08	0.62	0.48
+w08_fen_s2	cal	Fen basin	600.0	3	3	fen,river	{"reach": 2}	0.94	0.44	0.61	2	0.17	2.17	0.33
+w08_fen_s4	cal	Fen basin	600.0	4	4	fen,river	{"reach": 1}	0.89	0.46	0.54	3.5	0.0	2.14	0.19
+w09_estuary_s1	cal	Estuary and saltmarsh	750.0	3	3	fen,river	{"reach": 3}	0.6	0.67	0.39	3	0.17	0.73	0.47
+w09_estuary_s2	cal	Estuary and saltmarsh	750.0	5	4	fen,river	{"reach": 2}	0.98	0.33	0.71	2.17	0.17	1.78	0.33
+w09_estuary_s3	cal	Estuary and saltmarsh	750.0	4	4	fen,river	{"reach": 3}	1.05	0.29	0.71	3	0.06	3.28	0.19
+w10_chalk_clay_s1	cal	Chalk and clay	800.0	3	3	big river,fen,river	{"reach": 3}	0.67	0.61	0.39	3.33	0.11	0.78	0.5
+w10_chalk_clay_s2	cal	Chalk and clay	800.0	3	3	big river,fen,river	{"reach": 3}	1.0	0.44	0.67	2.5	0.17	1.93	0.33
+w10_chalk_clay_s3	cal	Chalk and clay	800.0	3	3	big river,fen,river	{"reach": 2}	1.07	0.44	0.56	3.58	0.0	3.45	0.17
+w11_sand_heath_s1	cal	Sand and heath	650.0	4	4	fen,river	{"reach": 1}	0.68	0.54	0.46	3.28	0.06	0.73	0.53
+w11_sand_heath_s2	cal	Sand and heath	650.0	4	4	fen,river	{"reach": 2}	0.97	0.33	0.71	2.46	0.17	1.93	0.3
+w11_sand_heath_s3	cal	Sand and heath	650.0	4	4	big river,fen,river	{"reach": 2}	1.06	0.21	0.79	3.22	0.06	3.38	0.18
+w12_lake_country_s1	cal	Lake country	1400.0	4	4	fen,river	{"reach": 2}	0.66	0.54	0.46	3.17	0.12	0.79	0.49
+w12_lake_country_s2	cal	Lake country	1400.0	4	4	fen,river	{"reach": 1}	0.99	0.33	0.71	2.63	0.17	1.99	0.32
+w12_lake_country_s3	cal	Lake country	1400.0	4	4	fen,river	{"reach": 2}	1.05	0.29	0.71	3.42	0.08	3.3	0.22

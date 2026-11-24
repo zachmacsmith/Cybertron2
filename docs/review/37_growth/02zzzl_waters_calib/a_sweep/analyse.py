@@ -170,6 +170,7 @@ def run_years(d, arm="runs_cue"):
                 rec = {"heads": round(tot, 1), "kg": round(tot * KG[k], 1), "food": round(tot * KG[k] * FOOD_KG, 1),
                        "nights": len(ran), "first": (min(ran) - WS[k] - yr * Y) if ran else None, "last": (max(ran) - WS[k] - yr * Y) if ran else None,
                        "first_doy": (min(ran) % Y) if ran else None,
+                       "first_main": (min(dd for dd, h in ns.items() if h >= 0.1 * tot) - WS[k] - yr * Y) if tot >= 1 else None,
                        "top_share": round(max(ns.values()) / tot, 3) if tot > 0 else None,
                        "by_season": {s: round(sum(h for dd, h in ns.items() if (dd % Y) // S == i) * KG[k] * FOOD_KG, 2) for i, s in enumerate(SEASONS)},
                        "food_by_day": {int(dd % Y): round(h * KG[k] * FOOD_KG, 2) for dd, h in ns.items()}}
@@ -241,7 +242,7 @@ def timing_stats(rows):
     per = {}
     for key, rs in g.items():
         ran = [r for r in rs if r["heads"] >= 1]
-        firsts = [r["first"] for r in ran if r["first"] is not None]
+        firsts = [r["first_main"] for r in ran if r.get("first_main") is not None]
         per[key] = {"years": len(rs), "years ran": sum(1 for r in rs if r["nights"] > 0), "firsts": firsts,
                     "first sd": round(stt.pstdev(firsts), 2) if len(firsts) > 1 else None,
                     "first range": (min(firsts), max(firsts)) if firsts else None,
@@ -260,7 +261,7 @@ def timing_stats(rows):
                          "village-years": yrs, "village-years with no run": sum(v["years"] - v["years ran"] for v in any_.values()),
                          "village-years all on one night (>=90%)": sum(v["one night years"] for v in any_.values()),
                          "first night's sd across years, median over villages": med(sds), "sd max": max(sds) if sds else None,
-                         "first night (day of year) over all village-years": {"min": min(allf) if allf else None, "p10": q(allf, .1),
+                         "first night with a tenth of the year's run, after the window opens, over all village-years": {"min": min(allf) if allf else None, "p10": q(allf, .1),
                                                                              "median": q(allf, .5), "p90": q(allf, .9), "max": max(allf) if allf else None},
                          "share of a year's heads from the window's last day: median, max": [med(lds), max(lds) if lds else None],
                          "village-years with more than half from the last day": sum(1 for x in lds if x > 0.5),
@@ -424,6 +425,30 @@ def main():
         json.dump(T, f, indent=1, default=str)
     with open(os.path.join(DATA, "run_years.json"), "w") as f:
         json.dump(rs, f, separators=(",", ":"))
+    small = {k: T[k] for k in T if k not in ("villages", "food", "food_fix", "worlds")}     # into git: the summaries and small tables
+    with open(os.path.join(DATA, "summary.json"), "w") as f:
+        json.dump(small, f, indent=1, default=str)
+    cols = ["world", "village", "wild", "types", "elevation", "stretch_km", "big_km", "upstream_river_km", "catchment_km2", "stretches_to_mouth",
+            "salmon_river", "lake_km2", "fish_K_generated", "fish_K_maker", "shallows_K", "web_fish_K_kg"]
+    with open(os.path.join(DATA, "villages.tsv"), "w") as f:
+        f.write("\t".join(cols + ["fish_food_night_maker_summer", "shallows_food_night_summer", "shallows_food_night_winter"]) + "\n")
+        for v in V:
+            f.write("\t".join(str(v.get(c) if c != "types" else ",".join(v["types"])) for c in cols)
+                    + f"\t{v['fish_food_night_maker']['summer']}\t{v['shallows_food_night']['summer']}\t{v['shallows_food_night']['winter']}\n")
+    with open(os.path.join(DATA, "food.tsv"), "w") as f:
+        f.write("arm\tworld\tvillage\tclass\tupstream_km\tto_mouth\tsource\tspring\tsummer\tautumn\twinter\n")
+        for arm in ("food", "food_fix"):
+            for r in T[arm]:
+                for src, x in r["sources"].items():
+                    f.write(f"{'as built' if arm == 'food' else 'fix'}\t{r['world']}\t{r['village']}\t{water_class(r)}\t{r['upstream_km']}\t{r['to_mouth']}\t{src}\t"
+                            + "\t".join(str(x[s]) for s in SEASONS) + "\n")
+    with open(os.path.join(DATA, "worlds.tsv"), "w") as f:
+        f.write("world\tfamily\tkind\train_mm\tvillages\ton a river\twater types at villages\tbodies by kind\tengine rain/RAIN_MEAN\teel cue nights a window\teel none\tsalmon cue nights\tsalmon none\tlamprey cue nights\tlamprey none\n")
+        for r in T["worlds"]:
+            c = T["cue_per_world"].get(r["world"]) or {}
+            f.write(f"{r['world']}\t{r['family']}\t{r['kind']}\t{r['rain_mm']}\t{r['villages']}\t{r['on a river']}\t{','.join(r['water types at villages'])}\t"
+                    f"{json.dumps(r['bodies by kind'])}\t{c.get('over RAIN_MEAN')}\t"
+                    + "\t".join(f"{(c.get(k) or {}).get('cue nights a window, mean')}\t{(c.get(k) or {}).get('window-years with none')}" for k in ("eel", "salmon", "lamprey")) + "\n")
     print(json.dumps({k: T[k] for k in T if k not in ("villages", "food", "worlds")}, indent=1, default=str))
 
 
