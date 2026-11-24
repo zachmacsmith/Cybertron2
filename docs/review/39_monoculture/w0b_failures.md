@@ -7,6 +7,21 @@ Data: the five arms as stopped (Sonnet 5.5 18 days, Haiku 5.5 23, Haiku 4.5 6, S
 turns.jsonl, days.jsonl and run.db (changes, events). Scripts in the session's scratchpad (metrics.py). All on the interface audited
 in prompt_audit.md, before D5-2.
 
+## Corrections (24 Nov, later, after Zach's questions)
+- **Refusals**: the first table counted refusals of every reply field (tell, sleep, notes, fire) against actions alone. Actions
+  refused, of actions: Sonnet 5.5 309 of 1,930 (16%), Haiku 5.5 335 of 1,237 (27%), Haiku 4.5 110 of 293 (38%), Sonnet 4.5 78 of
+  432 (18%), Sonnet 5 19 of 150 (13%). Besides these, other fields: Haiku 4.5 176 (tell over the 3-a-day limit 59; "sleep: no building
+  called None" 52, which the engine made itself: those replies had no sleep at all; notes over 8, 33), Haiku 5.5 193 (fire with no
+  fuel 117, tell 63).
+- **Engine faults among the refusals**: moving goods "to my hands" read as racks called 'my hands' (16 in Haiku 4.5); "wild food"
+  when the hands hold mushrooms or greens; "for": "my household" not read; the engine's own sleep with no building. For Haiku 4.5 the
+  engine is a large share of what went wrong.
+- **The calf** was an engine fault: an unnamed slaughter at a field with none of one's own beasts fell to a neighbour's herd
+  (farm._herd_on); Drew meant his household's dead bull. Fixed (W-202): it now refuses and names the herds there.
+- **Food**: "the world gives too little" overstates it. Sonnet 5.5 made 459 meals against 397 person-nights; Haiku 5.5 made 260
+  against 446. The land could feed them (capacity: about 8 times the founders farmed well); what the capacity check does not see is
+  the season (a late-summer start, winter by day 13), the fishery (not counted at all) and the first weeks' food against stores.
+
 ## The figures
 
 | | Sonnet 5.5 | Haiku 5.5 | Haiku 4.5 | Sonnet 4.5 | Sonnet 5 |

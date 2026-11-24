@@ -821,6 +821,10 @@ def _herd_on(here, key, a, role=None, consume=False):
     if consume and len(own) > 1:                                              # a kill on several of one's own needs its target (D2-304)
         raise Refused("you have more than one herd here: say which (\"thing\"): "
                       + ", ".join(here.herds()[x]["name"] for x in own))
+    if consume and not own:                                                   # an unnamed kill never falls to another's beasts (W-202:
+        raise Refused("none of the beasts here are yours: "                   # "slaughter" at a field took a neighbour's calf when the
+                      + ", ".join(here.herds()[x]["name"] for x in hs)         # killer meant his own dead bull)
+                      + "; name one (\"thing\") to kill another's")
     return (own or hs)[0]
 
 
