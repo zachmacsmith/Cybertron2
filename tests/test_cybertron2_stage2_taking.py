@@ -143,7 +143,7 @@ def test_a_kill_on_several_of_ones_own_needs_its_target():
     w.apply("claim", h["node"], thing=("herd", new), claimant=holder, rights="all", grounds="seeded")
     w.s["people"][who]["at"] = h["node"]
     r = V.do(Here(w, who), Mind(w, who), {"do": "work", "what": "slaughter", "at": w.s["parcels"][h["parcel"]]["name"]})
-    assert r.startswith("Refused") and "more than one herd" in r, r
+    assert r.startswith("Refused") and ("more than one herd" in r or "say which" in r), r   # unnamed: refused, listing them (D2-304)
 
 
 # ---------------------------------------------------------------------- two lives and mending (u3 §3; D2-310, D2-329)

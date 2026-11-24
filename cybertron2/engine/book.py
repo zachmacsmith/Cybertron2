@@ -995,7 +995,7 @@ def _arrive(w, cid, item, q) -> None:
         hh = cl["claimant"]
         if hh not in w.s["institutions"] or "withdrawal" not in cl["rights"]:
             continue
-        head = w.head(hh)
+        head = _voice(w, hh)
         for r in _ranked(w, household_rules(w, hh)):
             if r["rule"] != "keep" or not r.get("in"):
                 continue
@@ -1020,7 +1020,7 @@ def keeps(w, bid) -> list:
         hh = c["claimant"]
         if hh not in w.s["institutions"]:
             continue
-        head = w.head(hh)
+        head = _voice(w, hh)
         for r in household_rules(w, hh):
             if r["rule"] != "keep" or not r.get("in"):
                 continue
@@ -1050,7 +1050,7 @@ def held(w, name, cid, item) -> float:
     for r in household_rules(w, hh):
         if r["rule"] != "keep" or r.get("at least") in (None, ""):
             continue
-        gs = goods_of(w, w.head(hh), r.get("goods"))
+        gs = goods_of(w, _voice(w, hh), r.get("goods")) if _voice(w, hh) else []
         if not (item in gs or "*" in gs):
             continue
         if r.get("in"):
@@ -1122,6 +1122,16 @@ def meal(w, name) -> dict:
     return {"first": first, "ration": ration, "skip": [i for i in skip if i not in first], "rules": used}
 
 
+def _voice(w, hh):
+    """Whose sets a household rule is read through: its head, or while the head's office is empty (the head dead, none named yet) its
+    eldest living member; None when nobody is left (W-106: a dead head crashed the night's meal)."""
+    h = w.head(hh)
+    if h:
+        return h
+    alive = [m for m in w.members(hh) if w.s["people"].get(m, {}).get("alive", True)]
+    return min(alive, key=lambda m: w.s["people"][m].get("born", 0)) if alive else None
+
+
 def meal_order(w, people) -> list:
     """The order the night's meal goes in (D2-339 share's "order": fed first when food is short): those a household's share rule
     orders, in that order, before the rest; otherwise as given."""
@@ -1131,7 +1141,8 @@ def meal_order(w, people) -> list:
     for hh in sorted({w.household_of(n) for n in people if w.household_of(n)}):
         for r in _ranked(w, household_rules(w, hh)):
             if r["rule"] == "share" and r.get("order"):
-                order = people_of(w, w.head(hh), r["order"]) or []
+                voice = _voice(w, hh)
+                order = (people_of(w, voice, r["order"]) or []) if voice else []
                 for i, m in enumerate(order):
                     rank.setdefault(m, i)
                 break
@@ -1268,7 +1279,7 @@ def spare_units(w, names, order, budget, used, results, replies=None, skip=()) -
                 _run(w, d, r, n, own=True)
     for hh in sorted({w.household_of(n) for n in live if w.household_of(n)}):   # 2: the household's
         members = [n for n in live if w.household_of(n) == hh]
-        head = w.head(hh)
+        head = _voice(w, hh)
         hr = [r for r in _ranked(w, household_rules(w, hh)) if r["rule"] == "do"]
         missed = {}
         for _ in range(ROUNDS):                                               # one rule's work can make another's hold (cascades)
@@ -1412,7 +1423,7 @@ def _run(w, d, r, n, own, fallback=False) -> bool:
 # ---------------------------------------------------------------------------------------------------------------------- what each sees
 GRAMMAR = ('Standing rules go in "rules": [...], free, at any time or in the evening, each {"rule": a kind, its fields, "words"?: your '
            'sentence, "for"?: household | me, "n"?: a rule\'s number to change}: set {"name", "people"?, "goods"?, "places"?}; keep '
-           '{"goods", "in"?, "at least"?}; first {"goods": [in order]}; share {"order"?: [fed first when short], "who"?, "qty"?: full | '
+           '{"goods", "in"?: where it is stored, "at least"?: an amount never eaten or used}; first {"goods": [in order]}; share {"order"?: [fed first when short], "who"?, "qty"?: full | '
            'half | a fraction, "goods"?}; do {"who"?, "act": an act, "when"?, "unless"?} (with no condition, a fallback); drop {"n"}. '
            'A condition is {"goods"?, "in"?, "under" | "over": n | "full" | "room": true}, {"in", "state": done | in process | fire '
            'out}, {"arrives": goods}, {"season"}, {"seen": the run | frost | rats}, {"starving": who} or {"home": who}. Yours come '

@@ -3096,7 +3096,14 @@ def _part(here, mind, a, party):
 
 
 def _try(here, mind, a, party):
-    who = _here_person(here, a.get("with") or a.get("person"))
+    x = a.get("with") or a.get("person") or a.get("target")              # "target", as the other acts name a person (W-202)
+    if not x:                                                               # "with" left out: one's partner, if here (W-202: the
+        mate = here.body(here.name).get("partner")                          # shape marks "with" optional, and the one try in 14
+        if mate and mate in here.people(me=False):                          # days of a run was refused as "nobody called None")
+            x = mate
+        else:
+            raise Refused('say who with: "with": a grown person of the other sex here' + (f" (your partner {mate} is not here)" if mate else ""))
+    who = _here_person(here, x)
     me, them = here.body(here.name), here.body(who)
     if not me["sex"] or me["sex"] == them["sex"]:
         raise Refused("a child needs a man and a woman")

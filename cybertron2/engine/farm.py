@@ -808,6 +808,10 @@ def act(here, mind, tech, key, place_name, out, m, tm, a) -> tuple:
 
 
 def _herd_on(here, key, a, role=None, consume=False):
+    """The herd an act on beasts is done to (D2-304, D2-305): named ("thing": its tag or name), any herd here, another's too, and
+    called what it is; unnamed, a kill (slaughter) is refused, listing the herds and tags, since it uses a beast up (D2-304);
+    unnamed, herding and milking touch only one's own or one's household's, never another's (D2-305). W-202: the fallback to
+    anyone's herd killed a neighbour's calf in World 0b."""
     hs = [hid for hid, h in here.herds().items() if h["parcel"] == key and head(h) > 0 and (role is None or int(h.get(role, 0)) > 0)]
     want = str(a.get("thing") or "").strip().lower()
     pick = next((hid for hid in hs if want and (want in (hid.lower(), here.herds()[hid]["name"].lower())
@@ -816,12 +820,24 @@ def _herd_on(here, key, a, role=None, consume=False):
         raise Refused("there are no beasts there")
     if pick:
         return pick
-    mine = here.household()                                                   # unnamed: one's own household's beasts first (38.75)
-    own = [hid for hid in hs if any(c["claimant"] in (here.name, mine) for c in here.claims(("herd", hid)))]
-    if consume and len(own) > 1:                                              # a kill on several of one's own needs its target (D2-304)
-        raise Refused("you have more than one herd here: say which (\"thing\"): "
-                      + ", ".join(here.herds()[x]["name"] for x in own))
-    return (own or hs)[0]
+    def listed(ids):
+        out = []
+        for x in ids:
+            nm, tg = here.herds()[x]["name"], here.herds()[x].get("tag")
+            out.append(nm if not tg or f"({tg})" in nm else f"{nm} ({tg})")
+        return ", ".join(out)
+    mine = here.household()
+    own = [hid for hid in hs if any(c["claimant"] in (here.name, mine) for c in here.claims(("herd", hid)))
+           or not here.claims(("herd", hid))]                              # one's own, or nobody's: never another's (D2-305)
+    if consume:                                                            # a kill names its target (D2-304, Zach: "Killing herds
+        beast = ROLE_OF.get(str(a.get("item") or "").lower().strip()) or ROLE_OF.get(want)   # ... should need target"): the herd,
+        if not beast:                                                      # or the beast (cow, ox, bull, calf) from one's own herd
+            raise Refused("say which beast (\"item\": cow, ox, bull or calf) or which herd (\"thing\"): " + listed(hs))
+        if len(own) > 1:
+            raise Refused("you have more than one herd here: say which (\"thing\"): " + listed(own))
+    if not own:
+        raise Refused("none of the beasts here are yours: " + listed(hs) + "; name the herd (\"thing\") if you mean another's")
+    return own[0]
 
 
 def ground_mult(p, par) -> float:

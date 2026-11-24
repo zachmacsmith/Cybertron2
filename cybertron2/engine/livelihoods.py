@@ -365,13 +365,13 @@ def fill(world: dict, skills: dict | None = None, seed=None, lines=True) -> dict
                     for t in r["capable"]:
                         k[t] = level_for(t, b, "capable")
                 for s, who in experts.items():
-                    if who == n:
-                        for t in r["specialisms"][s]["crafts"]:
+                    if who == n and s in r["specialisms"]:                 # a specialism is its own living's (two core livings:
+                        for t in r["specialisms"][s]["crafts"]:          # a wright is the builder's, not the woodsman's; W-107)
                             k[t] = "known"
-                if n in helps:
+                if n in helps and helps[n] in r["specialisms"]:
                     for t in r["specialisms"][helps[n]]["crafts"]:
                         k.setdefault(t, "rough")
-                if n in appr:
+                if n in appr and appr[n] in r["specialisms"]:
                     for t in r["specialisms"][appr[n]]["crafts"]:
                         k.setdefault(t, "rough")
             for lv in second:
