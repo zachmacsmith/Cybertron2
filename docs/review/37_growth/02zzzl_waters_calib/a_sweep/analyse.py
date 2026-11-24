@@ -333,6 +333,50 @@ def water_class(r):
     return "no water parcel"
 
 
+def cue_per_world(D):
+    """Per world: the engine's mean rain a day at its villages' catchments (against runs.RAIN_MEAN 3.4) and the generator's rain_mm;
+    per kind, the cue nights a window (eels: at each settled village's own stretch; up-runs: at each mouth), and the share of
+    window-years with none."""
+    from cybertron2.wild import runs as RU
+    out = {}
+    for wid, d in D.items():
+        r = d.get("runs_cue") or {}
+        if not r.get("active"):
+            out[wid] = {"active": False}
+            continue
+        e0 = int(r["eco_day0"])
+        settled = {v["node"] for v in d["census_maker"]["villages"].values() if not v.get("wild")}
+        rm = [x for n, x in r["catch_rain_mean"].items() if n in settled] or list(r["catch_rain_mean"].values())
+        rec = {"rain_mm (generator)": rain_of(d), "village node rain_mm (generator)": None,
+               "engine rain a day, mean at the villages' catchments": round(stt.mean(rm), 2), "over RAIN_MEAN": round(stt.mean(rm) / RU.RAIN_MEAN, 2)}
+        cnt = defaultdict(lambda: defaultdict(int))
+        for d1, k, n, c, ic in r.get("village_cue") or []:
+            if n not in settled:
+                continue
+            yr = (e0 + d1 - 16) // Y
+            cnt[("eel", n)][yr] += int(c and not ic)
+        for d1, k, mo, inside, last, c in r["mouth_cue"]:
+            ws = 16 if k == "salmon" else 0
+            yr = (e0 + d1 - ws) // Y
+            cnt[(k, mo)][yr] += int(c)
+        for kind in ("eel", "salmon", "lamprey"):
+            ys = [v for (k, _), yrs in cnt.items() if k == kind for v in yrs.values()]
+            if ys:
+                rec[kind] = {"cue nights a window, mean": round(stt.mean(ys), 2), "window-years with none": round(sum(1 for x in ys if x == 0) / len(ys), 2),
+                             "window-years": len(ys)}
+        out[wid] = rec
+    return out
+
+
+def arms_compare(D):
+    """The same villages under the arms: as built (cue), the fix (spawners reseeded), set nights, and the dam (laid worlds)."""
+    out = {}
+    for arm in ("runs_cue", "runs_fix", "runs_set", "runs_dam"):
+        rs = runs_summary({k: v for k, v in D.items() if v.get(arm)}, arm)
+        out[arm] = timing_stats(rs)[1]
+    return out
+
+
 def main():
     D = load_all()
     T = {"worlds": worlds_table(D)}
@@ -361,6 +405,9 @@ def main():
     T["timing_by_kind_set_nights"] = timing_stats(rs_set)[1]
     F = food_year(D)
     T["food"] = F
+    T["food_fix"] = food_year(D, "runs_fix")
+    T["cue_per_world"] = cue_per_world(D)
+    T["arms"] = arms_compare(D)
     with open(os.path.join(DATA, "tables.json"), "w") as f:
         json.dump(T, f, indent=1, default=str)
     with open(os.path.join(DATA, "run_years.json"), "w") as f:
