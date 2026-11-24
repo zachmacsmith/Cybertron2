@@ -27,4 +27,5 @@ conversation ("slaughter and related should have some pretty visceral senses for
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Signs|Signs]]
 - [[02zu chains, capital and actions; decay and scavenging (9 Nov)|02zu: chains, capital and actions; decay and scavenging (9 Nov)]]
+- [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]
 - [[38.43 what shows itself, and what does not (a sign audit)|38.43: what shows itself, and what does not (a sign audit)]]

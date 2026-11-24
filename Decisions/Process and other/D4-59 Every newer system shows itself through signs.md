@@ -25,4 +25,5 @@ those systems mostly unseen except by their events
 - [[Proposal what an agent is shown each round, attention, and…|Proposal: what an agent is shown each round, attention, and…]]
 - [[Proposal the senses across every system|Proposal: the senses across every system]]
 - [[02zc the systems of cybertron2 as they stand|02zc: the systems of cybertron2 as they stand]]
+- [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]
 - [[38.40 The agent's interface a taxonomy of what it knows, how each…|38.40: The agent's interface: a taxonomy of what it knows, how each…]]

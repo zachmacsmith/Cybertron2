@@ -39,6 +39,7 @@ the older bundles (crops, fields, pastures, wild land, herds, buildings, people,
 - [[15 Knowledge-making discovery, instruments, records and the…|15: Knowledge-making: discovery, instruments, records and the…]]
 - [[What more people could be shown when they observe a thing a design|What more people could be shown when they observe a thing: a design]]
 - [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]
+- [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]
 - [[Review 38.25 Package C built and run (37.2's brief 02s) the parcel…|Review 38.25: Package C built and run (37.2's brief 02s): the parcel…]]
 - [[38.37 Everything an agent is shown inventory, origins, what it does…|38.37: Everything an agent is shown: inventory, origins, what it does…]]
 - [[38.40 The agent's interface a taxonomy of what it knows, how each…|38.40: The agent's interface: a taxonomy of what it knows, how each…]]

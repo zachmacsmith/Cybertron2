@@ -23,3 +23,4 @@ a live list of one's household's beasts and a hint to lead the ox (built and wit
 - [[Knowing one's beasts memory and noticing, not a list|Knowing one's beasts: memory and noticing, not a list]]
 - [[A beast one leads stays with one until let go|A beast one leads stays with one until let go]]
 - [[Proposal livestock|Proposal: livestock]]
+- [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]

@@ -35,3 +35,4 @@ done 23 Nov: built and merged: u8, u9, u11, Eelmouth remade and small; 835 passe
 - [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]
 - [[What else the wave broke an audit against the engine before it…|What else the wave broke: an audit against the engine before it…]]
 - [[The waters' mechanisms general, or fitted to the test worlds…|The waters' mechanisms: general, or fitted to the test worlds?…]]
+- [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]

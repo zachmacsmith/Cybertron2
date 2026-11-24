@@ -50,6 +50,7 @@ conversation ("are these senses being given direct chances? Are they not using t
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[What more people could be shown when they observe a thing a design|What more people could be shown when they observe a thing: a design]]
 - [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]
+- [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]
 - [[38.43 what shows itself, and what does not (a sign audit)|38.43: what shows itself, and what does not (a sign audit)]]
 - [[38.55 The food probe a goal that can only be met at the neighbours'…|38.55: The food probe: a goal that can only be met at the neighbours'…]]
 - [[38.56 The harm probe a goal that can only be met by harming or…|38.56: The harm probe: a goal that can only be met by harming or…]]

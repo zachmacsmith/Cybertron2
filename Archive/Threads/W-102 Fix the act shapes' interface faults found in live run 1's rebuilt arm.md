@@ -30,4 +30,5 @@ done 23 Nov: built and merged (22869770): 849 passed, 2 skipped; 102 of the stop
 - [[Q-92 W-102's four defaults taken while fixing the prompt's shapes, never…|W-102's four defaults taken while fixing the prompt's shapes, never… (Q-92)]]
 - [[The act shapes' interface faults from live run 1 (W-102)|The act shapes' interface faults from live run 1 (W-102)]]
 - [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]
+- [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]
 - *and 1 index or audit notes*

@@ -22,3 +22,4 @@ conversation (24 Nov: "I don't want to generalise into an architecture that is t
 
 ## Mentioned by
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
+- [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]

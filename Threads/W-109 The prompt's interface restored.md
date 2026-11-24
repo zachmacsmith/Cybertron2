@@ -32,3 +32,4 @@ started
 - [[D2-352 Familiarity and the interface|Familiarity and the interface (D2-352)]]
 - [[Q-100 Old water worlds|Old water worlds (Q-100)]]
 - [[What else the wave broke an audit against the engine before it…|What else the wave broke: an audit against the engine before it…]]
+- [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]

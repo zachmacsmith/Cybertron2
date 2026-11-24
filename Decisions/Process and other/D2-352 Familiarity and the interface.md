@@ -26,4 +26,5 @@ conversation (24 Nov: "Ok maybe aware doesn't need the full interface you took t
 
 ## Mentioned by
 - [[D2-351 What a person is shown follows what they have learnt|What a person is shown follows what they have learnt (D2-351)]]
+- [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]
 - [[Brief the engine's design patterns surveyed (thread W-110)|Brief: the engine's design patterns surveyed (thread W-110)]]
