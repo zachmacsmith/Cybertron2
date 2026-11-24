@@ -1,5 +1,6 @@
 # Made by cybertron2/specs/make_runs_models.py from specs/water/runs.yaml (37.2's): a model to each household, the goal
 # graded on descendants kept for good by everyone, 100 days, a pack ox at Highpool (Zach, 17 Nov; proposals/model_households.md). Do not edit.
+# Wicker traps and their making seeded by cybertron2/specs/seed_water_traps.py (Q-100, W-111, 24 Nov 2026).
 name: water_runs_models
 seed: 5
 days: 100
@@ -5931,6 +5932,9 @@ agents:
       boil salt:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       quarry: you have seen the Marshs at it all your life
       medium room: you have seen the Woods at it all your life
@@ -5938,6 +5942,7 @@ agents:
     holdings:
       crude tool: 1
       coin: 2
+      wicker trap: 6
     concerns:
     - craft
     - smithing
@@ -6031,11 +6036,15 @@ agents:
       boil salt:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       quarry: you have seen the Marshs at it all your life
       medium room: you have seen the Woods at it all your life
       mill: you have seen the Fletchers at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
     concerns:
     - craft
     - smithing
@@ -6116,6 +6125,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       mine: you have seen the Brooks at it all your life
       smelt: you have seen the Brooks at it all your life
@@ -6126,6 +6138,7 @@ agents:
     holdings:
       crude tool: 1
       coin: 2
+      wicker trap: 6
     concerns:
     - farming
     - food
@@ -6207,6 +6220,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       mine: you have seen the Brooks at it all your life
       smelt: you have seen the Brooks at it all your life
@@ -6214,7 +6230,8 @@ agents:
       coin: you have seen the Brooks at it all your life
       medium room: you have seen the Woods at it all your life
       mill: you have seen the Fletchers at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
     concerns:
     - farming
     - food
@@ -6295,6 +6312,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       mine: you have seen the Brooks at it all your life
       smelt: you have seen the Brooks at it all your life
@@ -6305,6 +6325,7 @@ agents:
     holdings:
       crude tool: 1
       coin: 2
+      wicker trap: 6
     concerns:
     - farming
     - building
@@ -6384,6 +6405,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       mine: you have seen the Brooks at it all your life
       smelt: you have seen the Brooks at it all your life
@@ -6391,7 +6415,8 @@ agents:
       coin: you have seen the Brooks at it all your life
       quarry: you have seen the Marshs at it all your life
       mill: you have seen the Fletchers at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
     concerns:
     - farming
     - building
@@ -7354,6 +7379,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       mine: you have seen the Brooks at it all your life
       smelt: you have seen the Brooks at it all your life
@@ -7364,6 +7392,7 @@ agents:
     holdings:
       crude tool: 1
       coin: 2
+      wicker trap: 6
     concerns:
     - farming
     - building
@@ -7464,6 +7493,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       mine: you have seen the Brooks at it all your life
       smelt: you have seen the Brooks at it all your life
@@ -7471,7 +7503,8 @@ agents:
       coin: you have seen the Brooks at it all your life
       quarry: you have seen the Marshs at it all your life
       mill: you have seen the Fletchers at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
     concerns:
     - farming
     - building
@@ -7569,6 +7602,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Cotters at it all your life
       mine: you have seen the Brooks at it all your life
@@ -7580,6 +7616,7 @@ agents:
     holdings:
       crude tool: 1
       coin: 2
+      wicker trap: 6
     concerns:
     - farming
     - food
@@ -7677,6 +7714,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Cotters at it all your life
       mine: you have seen the Brooks at it all your life
@@ -7685,7 +7725,8 @@ agents:
       coin: you have seen the Brooks at it all your life
       quarry: you have seen the Marshs at it all your life
       medium room: you have seen the Woods at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
     concerns:
     - farming
     - food
@@ -7779,6 +7820,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Cotters at it all your life
       mine: you have seen the Brooks at it all your life
@@ -7791,6 +7835,7 @@ agents:
     holdings:
       crude tool: 1
       coin: 2
+      wicker trap: 6
     concerns:
     - farming
     - food
@@ -7886,6 +7931,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       plough: you have seen the Cotters at it all your life
       mine: you have seen the Brooks at it all your life
@@ -7895,7 +7943,8 @@ agents:
       quarry: you have seen the Marshs at it all your life
       medium room: you have seen the Woods at it all your life
       mill: you have seen the Fletchers at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
     concerns:
     - farming
     - food
@@ -8593,6 +8642,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       mine: you have seen the Brooks at it all your life
       smelt: you have seen the Brooks at it all your life
@@ -8603,6 +8655,7 @@ agents:
     holdings:
       crude tool: 1
       coin: 2
+      wicker trap: 6
     concerns:
     - farming
     - building
@@ -8703,6 +8756,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       mine: you have seen the Brooks at it all your life
       smelt: you have seen the Brooks at it all your life
@@ -8710,7 +8766,8 @@ agents:
       coin: you have seen the Brooks at it all your life
       quarry: you have seen the Marshs at it all your life
       mill: you have seen the Fletchers at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
     concerns:
     - farming
     - building
@@ -8807,6 +8864,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       mine: you have seen the Brooks at it all your life
       smelt: you have seen the Brooks at it all your life
@@ -8818,6 +8878,7 @@ agents:
     holdings:
       crude tool: 1
       coin: 2
+      wicker trap: 6
     concerns:
     - farming
     - food
@@ -8915,6 +8976,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       mine: you have seen the Brooks at it all your life
       smelt: you have seen the Brooks at it all your life
@@ -8923,7 +8987,8 @@ agents:
       quarry: you have seen the Marshs at it all your life
       medium room: you have seen the Woods at it all your life
       mill: you have seen the Fletchers at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
     concerns:
     - farming
     - food
@@ -9020,6 +9085,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       mine: you have seen the Brooks at it all your life
       smelt: you have seen the Brooks at it all your life
@@ -9031,6 +9099,7 @@ agents:
     holdings:
       crude tool: 1
       coin: 2
+      wicker trap: 6
     concerns:
     - farming
     - food
@@ -9128,6 +9197,9 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       mine: you have seen the Brooks at it all your life
       smelt: you have seen the Brooks at it all your life
@@ -9136,7 +9208,8 @@ agents:
       quarry: you have seen the Marshs at it all your life
       medium room: you have seen the Woods at it all your life
       mill: you have seen the Fletchers at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
     concerns:
     - farming
     - food

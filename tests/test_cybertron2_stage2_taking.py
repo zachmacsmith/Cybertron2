@@ -29,6 +29,9 @@ def _setter(river_w, traps=6):
     node = "Saltwell"
     who = adults(w, node)[0]
     _knows(w, who, "trap in water")
+    h = w.s["containers"][w.s["people"][who]["hands"]]                             # the world seeds six (Q-100): start from none
+    h["goods"].pop("wicker trap", None)
+    (h.get("pieces") or {}).pop("wicker trap", None)
     if traps:
         _give(w, who, "wicker trap", traps)
     return w, node, who, water(w, node), w.s["parcels"][water(w, node)]["name"]
