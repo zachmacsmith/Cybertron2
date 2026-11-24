@@ -26,4 +26,5 @@ grain never spoiling (the engine as built)
 - [[Goods|Goods]]
 - [[Production foraging, farming and tools|Production: foraging, farming and tools]]
 - [[Storage what each store held and cost, and how the engine should…|Storage: what each store held and cost, and how the engine should…]]
+- [[Survey B making, taking and keeping (W-110, agent B)|Survey B: making, taking and keeping (W-110, agent B)]]
 - *and 1 index or audit notes*

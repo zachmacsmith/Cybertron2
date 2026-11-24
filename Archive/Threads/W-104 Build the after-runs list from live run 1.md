@@ -30,5 +30,6 @@ done 23 Nov: merged 034e61ea: [[D2-340 Passing on through care|D2-340]] care's p
 - [[After live run 1 the build (W-104)|After live run 1: the build (W-104)]]
 - [[What else the wave broke an audit against the engine before it…|What else the wave broke: an audit against the engine before it…]]
 - [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]
+- [[Survey B making, taking and keeping (W-110, agent B)|Survey B: making, taking and keeping (W-110, agent B)]]
 - [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]
 - *and 1 index or audit notes*
