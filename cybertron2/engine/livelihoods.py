@@ -41,7 +41,7 @@ ROWS = {
                                     "lines": ["SA2", "SA3", "SA4"]},
                         "salting": {"words": "salting for keeping", "crafts": ["salt fish", "salt meat"], "lines": ["SA5"]},
                         "carrying": {"words": "carrying salt", "crafts": [], "lines": ["SA6"]}},
-        "lines": {"broad": ["SA1"], "capable": ["SA2"], "youth": ["SA1"], "second": ["SA1"]},
+        "lines": {"broad": ["SA1", "SA7"], "capable": ["SA2"], "youth": ["SA1"], "second": ["SA1"]},
         "capital": {"likely": ["salt house"], "sometimes": []}, "keeper_lines": {"salt house": "SA4"},
         "depends": {"needs": ["copper", "firewood"], "gives": ["salt"]}, "neighbour_line": "NB-SA", "apprentice": True},
     "farmer": {"status": "built", "fits": {"covers": ["field"]}, "words": {"lives": "the land"},
@@ -63,7 +63,8 @@ ROWS = {
     "hunter": {"status": "built", "fits": {"covers": ["forest", "scrub", "heath"]}, "words": {"lives": "hunting and trapping"},
                "broad": ["hunt the wild", "snare", "dry meat", "crude weapon"], "capable": ["stalk", "den work", "salt meat", "tent", "bedroll", "snares"],
                "specialisms": {"stalking": {"words": "stalking and drives", "crafts": ["stalk", "drive"], "lines": ["HU5", "HU6"]},
-                               "snares": {"words": "snares and small game", "crafts": ["snare", "snares"], "lines": ["HU7"]}},
+                               "snares": {"words": "snares and small game", "crafts": ["snare", "snares"], "lines": ["HU7"]},
+                               "dressing": {"words": "dressing the kill", "crafts": [], "lines": ["HU8"], "built": False}},   # u3's dressing
                "lines": {"broad": ["HU1", "HU2"], "capable": ["HU3", "HU4"], "youth": ["HU1"], "second": ["HU1", "HU2"]},
                "capital": {"likely": ["crude weapon", "snares"], "sometimes": ["tent"]}, "keeper_lines": {},
                "depends": {"needs": ["salt"], "gives": ["meat", "hide"]}, "neighbour_line": "NB-HU"},
@@ -73,7 +74,9 @@ ROWS = {
     "smith": {"status": "built", "fits": {"covers": ["rock"]}, "words": {"lives": "copper work at the forge"},
               "broad": ["charcoal", "firewood"], "capable": ["mine", "copper tool"],
               "specialisms": {"smelting": {"words": "smelting and tools", "crafts": ["smelt", "copper tool", "copper hook"], "capital": ["forge"],
-                                           "lines": ["SM3", "SM4"]}},
+                                           "lines": ["SM3", "SM4"]},
+                              "mining_and_charcoal": {"words": "mining and charcoal", "crafts": ["mine", "charcoal"], "lines": ["SM5"]},
+                              "fittings": {"words": "copper work for others", "crafts": ["copper tool", "copper hook"], "lines": ["SM6"]}},
               "lines": {"broad": ["SM1"], "capable": ["SM2"], "youth": ["SM1"], "second": ["SM1"]},
               "capital": {"likely": ["forge"], "sometimes": []}, "keeper_lines": {"forge": "SM4"},
               "depends": {"needs": ["charcoal"], "gives": ["copper"]}, "neighbour_line": "NB-SM"},
@@ -90,24 +93,29 @@ ROWS = {
                 "capable": ["medium room", "granary", "hearth", "smoke racks"],
                 "specialisms": {"wright": {"words": "the wright's work", "crafts": ["medium room", "hall"], "lines": ["BU5", "BU6"]},
                                 "mason": {"words": "the mason's work", "crafts": ["quarry", "hearth", "wall"], "lines": ["BU7", "BU8"]}},
-                "lines": {"broad": ["BU1", "BU2"], "capable": ["BU3"], "youth": ["BU1"], "second": ["BU1"]},
+                "lines": {"broad": ["BU1", "BU2"], "capable": ["BU3", "BU4"], "youth": ["BU1"], "second": ["BU1"]},
                 "capital": {"likely": ["timber", "woodshed"], "sometimes": []}, "keeper_lines": {},
                 "depends": {"needs": ["timber", "stone"], "gives": ["rooms", "hearths"]}, "neighbour_line": "NB-BU"},
     "woodsman": {"status": "built", "fits": {"covers": ["forest"]}, "words": {"lives": "the wood"},
                  "broad": ["fell", "cut", "firewood"], "capable": ["charcoal", "cut withies"],
-                 "specialisms": {"charcoal": {"words": "charcoal", "crafts": ["charcoal"], "lines": ["WO2"]}},
-                 "lines": {"broad": ["WO1"], "capable": ["WO2"], "youth": ["WO1"], "second": ["WO1"]},
+                 "specialisms": {"charcoal": {"words": "charcoal", "crafts": ["charcoal"], "lines": ["WO2", "WO3"]},
+                                 "coppice": {"words": "the coppice", "crafts": ["cut"], "lines": ["WO4"], "built": False}},   # W-76
+                 "lines": {"broad": ["WO1", "WO5"], "capable": ["WO2"], "youth": ["WO1"], "second": ["WO1"]},
                  "capital": {"likely": [], "sometimes": []}, "keeper_lines": {}, "depends": {"needs": [], "gives": ["charcoal", "firewood"]},
                  "neighbour_line": "NB-WO"},
     "basket maker": {"status": "built", "fits": {"covers": ["fen"]}, "words": {"lives": "the willow"},
-                     "broad": ["cut withies", "hurdle"], "capable": ["wicker trap", "creel", "pack basket"],
-                     "specialisms": {"traps_and_creels": {"words": "traps and creels", "crafts": ["wicker trap", "creel"], "lines": ["BA3"]}},
+                     "broad": ["cut withies", "hurdle"], "capable": ["wicker trap", "creel", "pack"],        # `pack`: the pack basket
+                     "specialisms": {"traps_and_creels": {"words": "traps and creels", "crafts": ["wicker trap", "creel"], "lines": ["BA3"]},
+                                     "the_withy_bed": {"words": "the withy bed", "crafts": ["cut withies"], "capital": ["withy bed"],
+                                                       "lines": ["BA4", "BA5"], "built": False}},              # U7, stage 5
                      "lines": {"broad": ["BA1", "BA2"], "capable": ["BA3"], "youth": ["BA1"], "second": ["BA1"]},
                      "capital": {"likely": [], "sometimes": ["withy bed"]}, "keeper_lines": {"withy bed": "BA5"},
                      "depends": {"needs": [], "gives": ["traps", "creels", "hurdles"]}, "neighbour_line": "NB-BA"},
     "cord and nets": {"status": "built", "fits": {"covers": ["field", "meadow"]}, "words": {"lives": "cord and nets"},
                       "broad": ["twist cord"], "capable": ["pull flax", "ret flax", "dress and spin"],
-                      "specialisms": {"nets": {"words": "nets", "crafts": ["gill nets", "dip net"], "lines": ["CO5"]}},
+                      "specialisms": {"flax_and_linen": {"words": "flax and linen", "crafts": ["pull flax", "ret flax", "dress and spin"],
+                                                         "lines": ["CO3", "CO4"]},
+                                      "nets": {"words": "nets", "crafts": ["gill nets", "dip net"], "lines": ["CO5"]}},
                       "lines": {"broad": ["CO1"], "capable": ["CO2"], "youth": ["CO1"], "second": ["CO1"]},
                       "capital": {"likely": [], "sometimes": ["flax close"]}, "keeper_lines": {},
                       "depends": {"needs": [], "gives": ["cord", "nets"]}, "neighbour_line": "NB-CO"},
@@ -115,11 +123,13 @@ ROWS = {
                "specialisms": {}, "lines": {}, "capital": {}, "keeper_lines": {"tan pits": "TA5"},
                "depends": {"needs": ["hides", "bark"], "gives": ["leather"]}, "neighbour_line": "NB-TA"},   # D2-327: deferred
     "trader": {"status": "built", "fits": {"track": True}, "words": {"lives": "carrying between villages"},
-               "broad": [], "capable": [], "specialisms": {}, "lines": {"broad": ["TR1"], "capable": ["TR2"], "second": ["TR1"]},
+               "broad": [], "capable": [], "specialisms": {"the_road": {"words": "the road", "crafts": [], "lines": ["TR3"]},
+                                                           "the_market": {"words": "the market", "crafts": [], "lines": ["TR4"]}},
+               "lines": {"broad": ["TR1"], "capable": ["TR2"], "second": ["TR1"]},
                "capital": {"likely": [], "sometimes": ["handcart"]}, "keeper_lines": {}, "depends": {"needs": [], "gives": ["carrying"]},
                "neighbour_line": "NB-TR"},
     "cottager": {"status": "built", "fits": {}, "words": {"lives": "work for others and your garden"}, "broad": ["gather wild food", "firewood"],
-                 "capable": [], "specialisms": {}, "lines": {"broad": ["CT1", "CT2"], "capable": ["CT3"], "youth": ["CT1"]},
+                 "capable": [], "specialisms": {}, "lines": {"broad": ["CT1", "CT2"], "capable": ["CT3", "CT4"], "youth": ["CT1"]},
                  "capital": {"likely": [], "sometimes": []}, "keeper_lines": {}, "depends": {"needs": [], "gives": ["labour"]},
                  "neighbour_line": "NB-CT"},
 }
@@ -137,7 +147,59 @@ HOLDINGS = {
              "of": lambda b: bool((b.get("fittings") or {}).get("oven"))},
     "forge": {"working": ["smelt", "copper tool"], "band": "smelting", "mending": "repair", "keeper_line": "SM4", "chokepoint": True,
               "of": lambda b: bool((b.get("fittings") or {}).get("anvil"))},
+    # holdings that are not buildings (u11 §2.1; W-105): found by `find` on the world as written, each named by a reference
+    # ("field:<parcel>", "oxen:<herd>", "herd:<herd>"); `of` is false for every building so the building checks pass them by
+    "fields": {"working": ["sow", "reap"], "band": "seed_and_harvest", "mending": "manure", "keeper_line": "FA9", "chokepoint": False,
+               "of": lambda b: False, "find": lambda w, hh: [f"field:{pid}" for pid, _ in _held_parcels(w, hh, "field")]},
+    "ox pair": {"working": ["plough"], "band": "ploughman", "mending": None, "keeper_line": "FA7", "chokepoint": False,
+                "of": lambda b: False, "find": lambda w, hh: [f"oxen:{hid}" for hid in _ox_pairs(w, hh)]},
+    "herd": {"working": ["herd", "milk"], "band": "stock", "mending": "hay", "keeper_line": "HE7", "chokepoint": False,
+             "of": lambda b: False, "find": lambda w, hh: [f"herd:{hid}" for hid, h in sorted((w.get("herds") or {}).items())
+                                                           if h.get("holder") == hh and any(int(h.get(k, 0)) for k in
+                                                                                            ("cows", "bulls", "young"))]},
+    # (a herd of oxen alone is a plough team: the ox pair's, not a herd to keep; W-105)
 }
+
+
+def _held_parcels(world, hh, cover) -> list:
+    """The parcels of a cover a household holds (their `holder`, or a parcel claim), anywhere: [(pid, parcel)]."""
+    claims = {}
+    for x in world.get("claims") or []:
+        t = x.get("thing")
+        t = tuple(t) if isinstance(t, list) else tuple(str(t or "").split(":", 1))
+        claims[t] = x.get("claimant")
+    return [(pid, p) for n in world["nodes"].values() for pid, p in sorted((n.get("parcels") or {}).items())
+            if p.get("cover") == cover and (p.get("holder") == hh or claims.get(("parcel", pid)) == hh)]
+
+
+def _ox_pairs(world, hh) -> list:
+    """A household's herds that make a plough team (`plough`'s oxen), with a plough and its harness held by the household."""
+    from cybertron2.engine.data import TECHNIQUES
+    t = TECHNIQUES.get("plough") or {}
+    need = int((t.get("animals") or {}).get("oxen", 2))
+    held = {}
+    for b in (world.get("buildings") or {}).values():
+        if b.get("household") == hh:
+            for k, q in (b.get("stock") or {}).items():
+                held[k] = held.get(k, 0) + float(q)
+    for a in (world.get("agents") or {}).values():
+        if a.get("household") == hh:
+            for k, q in (a.get("holdings") or {}).items():
+                held[k] = held.get(k, 0) + float(q) if isinstance(q, (int, float)) else held.get(k, 0)
+    if any(held.get(k, 0) < float(q) for k, q in (t.get("uses") or {}).items()):
+        return []
+    return [hid for hid, h in sorted((world.get("herds") or {}).items()) if h.get("holder") == hh and int(h.get("oxen", 0)) >= need]
+
+
+def holdings_of(world, hh) -> dict:
+    """{kind: [reference]} for a household: its buildings by `of`, the rest by `find` (u11 §2.1)."""
+    holds = {}
+    for kind, r in HOLDINGS.items():
+        refs = r["find"](world, hh) if r.get("find") else [bid for bid, b in (world.get("buildings") or {}).items()
+                                                           if b.get("household") == hh and r["of"](b)]
+        if refs:
+            holds[kind] = refs
+    return holds
 SIZE_RULE = ((5, 2), (2, 1))          # D2-270: two experts for 5 or more working members, one for 2 to 4
 CAPABLE_SHARE = 1.0 / 3.0             # u11 §3.1 (B11-3)
 APPRENTICE = 0.5                      # D2-270, B11-2: a keyed draw
@@ -223,21 +285,19 @@ def fill(world: dict, skills: dict | None = None, seed=None, lines=True) -> dict
         members = sorted(hhs[hh], key=lambda n: (_age(agents[n]) * -1, n))
         working = [n for n in members if agents[n].get("stage") in ("youth", "adult", "elder")]
         prime = [n for n in working if agents[n].get("stage") in ("adult", "elder")]
-        holds = {kind: [bid for bid, b in (world.get("buildings") or {}).items() if b.get("household") == hh and r["of"](b)]
-                 for kind, r in HOLDINGS.items()}
-        holds = {k: v for k, v in holds.items() if v}
+        holds = holdings_of(world, hh)
         n_exp = int(pin.get("experts_n") or experts_for(len(working)))
         specs = list(pin.get("experts") or [])
         row = ROWS[core[0]] if core else None
         if row and len(specs) < n_exp:                                        # the specialism working its most valuable holding
             for kind in sorted(holds, key=lambda k: (not HOLDINGS[k]["chokepoint"], k)):
-                sp = next((s for s, d in row["specialisms"].items() if kind in (d.get("capital") or [])), None)
+                sp = next((s for s, d in row["specialisms"].items() if kind in (d.get("capital") or []) and d.get("built", True)), None)
                 if sp and sp not in specs:
                     specs.append(sp)
-            for s in row["specialisms"]:
+            for s, d in row["specialisms"].items():                              # a specialism waiting on a build is never drawn
                 if len(specs) >= n_exp:
                     break
-                if s not in specs:
+                if s not in specs and d.get("built", True):
                     specs.append(s)
         specs = specs[:n_exp]
         bands = {}
@@ -362,8 +422,8 @@ def fill(world: dict, skills: dict | None = None, seed=None, lines=True) -> dict
                         report["skipped"].append(f"{hh}: {kind} {bid} kept by {who}, its only able hand")
                 if who:
                     keepers[bid] = who
-                    (world["buildings"][bid]).setdefault("keeper", who)
-                    world["buildings"][bid]["keeper"] = who
+                    if bid in (world.get("buildings") or {}):                 # a building records its keeper; a field or a herd is
+                        world["buildings"][bid]["keeper"] = who               # kept in the report (u11 §2.3)
         # gear (u11 §2.2, B11-4; D2-330 C5): six traps a capable or expert setter, a gill net to the weir's expert, a hand line to each
         # who fishes by line, copper hooks to mend them (stage 2's gate: nothing gives bone)
         for n in working:
@@ -442,6 +502,16 @@ def livelihood_line(world, hh, n, livs, bands, experts, keepers, appr, second_ha
         out += f", and you are best at {ROWS[livs[0]]['specialisms'][sp]['words']}"
     kept = [bid for bid, who in keepers.items() if who == n]
     for bid in kept[:1]:
+        if bid not in (world.get("buildings") or {}):                        # a field, an ox team or a herd (u11 §2.1)
+            kind, _, ref = bid.partition(":")
+            if kind == "field":
+                pname = next((p["name"] for nd in world["nodes"].values() for pid, p in (nd.get("parcels") or {}).items() if pid == ref), ref)
+                out += f", and you see to {pname}"
+            elif kind == "oxen":
+                out += ", and you keep the ox team"
+            else:
+                out += f", and you keep {((world.get('herds') or {}).get(ref) or {}).get('name') or 'the herd'}"
+            continue
         b = world["buildings"][bid]
         name = b.get("name") or bid
         if b.get("monument") == "weir":
