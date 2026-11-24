@@ -25,4 +25,5 @@ started
 
 ## Mentioned by
 - [[D2-354 The architecture is a healthy balance, not a strict one|The architecture is a healthy balance, not a strict one (D2-354)]]
+- [[Survey A the world's physics against the patterns (W-110)|Survey A: the world's physics against the patterns (W-110)]]
 - [[Brief the engine's design patterns surveyed (thread W-110)|Brief: the engine's design patterns surveyed (thread W-110)]]
