@@ -2,14 +2,14 @@
 id: W-108
 kind: thread
 state: active
-updated: "2026-11-23"
+updated: "2026-11-24"
 ---
 
 # The waters calibrated across many generated environments (W-108)
 
-*active · 37.2 · touched 23 Nov (1 day ago)*
+*active · 37.2 · touched 24 Nov (today)*
 
-> **Next:** two agents: the calibration sweep, and an independent read of the code's generality; then 37.2 brings Zach the findings and a design for 5b part 4
+> **Next:** agent B's generality read done (generality.md, 48f852c2); agent A's sweep running; then 37.2 reads both and brings Zach a design for 5b part 4
 
 ## What it is
 The waters calibrated across many generated environments: resident fish and shallows by a water's size, shape and kind; which fish live where; when runs happen and on what conditions (probabilities, not windows alone); other runs; the food that passes in a year; and how general the waters' mechanisms are against fitted to the test worlds

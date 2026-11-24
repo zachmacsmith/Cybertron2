@@ -21,9 +21,11 @@ started
 ## Linked
 - parent: [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - under it: [[L-153 Clearing a plot at a time|Clearing a plot at a time (L-153)]] (open)
+- under it: [[Q-97 Hollinford without leather|Hollinford without leather (Q-97)]] (open)
 
 
 ## Mentioned by
+- [[Q-97 Hollinford without leather|Hollinford without leather (Q-97)]]
 - [[W-73 Fishing, hunting and their materials developed together|Fishing, hunting and their materials developed together (W-73)]]
 - [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]]
 - [[L-153 Clearing a plot at a time|Clearing a plot at a time (L-153)]]

@@ -58,7 +58,7 @@
 - [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]  
   next: the stage 5 brief and builder (branch w85-s5-works)
 - [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]]  
-  next: two agents: the calibration sweep, and an independent read of the code's generality; then 37.2 brings Zach…
+  next: agent B's generality read done (generality.md, 48f852c2); agent A's sweep running; then 37.2 reads both and…
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  
