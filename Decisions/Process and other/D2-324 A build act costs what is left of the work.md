@@ -21,7 +21,6 @@ conversation (23 Nov: "B21: Yes")
 
 
 ## Mentioned by
-- [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[The build plan|The build plan]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]

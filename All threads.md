@@ -1,10 +1,12 @@
 # All threads
 
 ## Open
+- [[W-112 Priority thread b|Priority thread b (W-112)]] (active)
+- [[W-111 Priority thread a|Priority thread a (W-111)]] (active)
 - [[W-110 The engine's design patterns surveyed against the whole engine and…|The engine's design patterns surveyed against the whole engine and… (W-110)]] (active)
 - [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]] (active)
 - [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]] (active)
-- [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]] (waiting)
+- [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]] (paused)
 - [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]] (paused)
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]] (active)
 - [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]] (waiting)

@@ -80,7 +80,6 @@ started
 - under it: [[L-171 Tanning and leather|Tanning and leather (L-171)]] (open)
 - under it: [[L-172 Limestone and lime|Limestone and lime (L-172)]] (open)
 - under it: [[L-177 AB prompt replay|A/B prompt replay (L-177)]] (open)
-- under it: [[L-188 Smaller regressions from the wave|Smaller regressions from the wave (L-188)]] (open)
 - under it: [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]] (closed)
 - under it: [[Q-92 W-102's four defaults taken while fixing the prompt's shapes, never…|W-102's four defaults taken while fixing the prompt's shapes, never… (Q-92)]] (open)
 - under it: [[W-97 Build stage 1, the basis in code|Build stage 1, the basis in code (W-97)]] (done)
@@ -88,8 +87,6 @@ started
 - under it: [[W-99 Build stage 3, keeping, stores and the household book|Build stage 3, keeping, stores and the household book (W-99)]] (done)
 - under it: [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]] (done)
 - under it: [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]] (waiting)
-- under it: [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]] (active)
-- under it: [[W-110 The engine's design patterns surveyed against the whole engine and…|The engine's design patterns surveyed against the whole engine and… (W-110)]] (active)
 
 
 ## Mentioned by
@@ -133,5 +130,5 @@ started
 - [[D2-337 Standing rules are written in a stated grammar the prompt gives in…|Standing rules are written in a stated grammar the prompt gives in… (D2-337)]]
 - [[D2-338 The household book has named sets as a primitive|The household book has named sets as a primitive (D2-338)]]
 - [[D2-339 The household book's grammar|The household book's grammar (D2-339)]]
-- … and 53 more
+- … and 50 more
 - *and 4 index or audit notes*

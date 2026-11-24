@@ -18,3 +18,8 @@ conversation (24 Nov: "I thought meant counted in the work count when calculatin
 
 ## Linked
 - parent: [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]
+
+
+## Mentioned by
+- [[The engine's architecture overhauled general mechanisms over typed…|The engine's architecture overhauled: general mechanisms over typed…]]
+- [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]

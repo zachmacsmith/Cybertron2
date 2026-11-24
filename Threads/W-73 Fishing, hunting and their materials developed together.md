@@ -76,7 +76,7 @@ started
 - under it: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]] (active)
 - under it: [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]] (done)
 - under it: [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]] (paused)
-- under it: [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]] (waiting)
+- under it: [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]] (paused)
 
 
 ## Mentioned by
@@ -120,5 +120,5 @@ started
 - [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]
 - [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]
 - [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]
-- … and 56 more
+- … and 57 more
 - *and 7 index or audit notes*

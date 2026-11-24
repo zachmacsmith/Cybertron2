@@ -2,7 +2,7 @@
 id: L-179
 kind: deferred
 state: open
-updated: "2026-11-23"
+updated: "2026-11-24"
 ---
 
 # Every take's line says 'food worth about 1 meal' at the least (L-179)
@@ -16,8 +16,9 @@ updated: "2026-11-23"
 
 
 ## Linked
-- parent: [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]]
+- parent: [[W-111 Priority thread a|Priority thread a (W-111)]]
 
 
 ## Mentioned by
+- [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]
 - [[The build plan|The build plan]]

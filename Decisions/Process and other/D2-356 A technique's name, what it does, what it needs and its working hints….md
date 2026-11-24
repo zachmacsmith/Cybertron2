@@ -18,3 +18,7 @@ conversation (24 Nov: "Yes this seems like separate data why the hell would you 
 
 ## Linked
 - parent: [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]
+
+
+## Mentioned by
+- [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]

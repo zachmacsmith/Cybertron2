@@ -29,6 +29,7 @@ done 23 Nov: built and merged: u8, u9, u11, Eelmouth remade and small; 835 passe
 
 ## Mentioned by
 - [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]
+- [[The engine's architecture overhauled general mechanisms over typed…|The engine's architecture overhauled: general mechanisms over typed…]]
 - [[The world record's shape and its version|The world record's shape and its version]]
 - [[Brief the founders' seeded lines for every built livelihood (thread…|Brief: the founders' seeded lines for every built livelihood (thread…]]
 - [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]

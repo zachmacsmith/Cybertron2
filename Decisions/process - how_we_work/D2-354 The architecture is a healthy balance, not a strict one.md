@@ -21,6 +21,7 @@ conversation (24 Nov: "I don't want to generalise into an architecture that is t
 
 
 ## Mentioned by
+- [[The engine's architecture overhauled general mechanisms over typed…|The engine's architecture overhauled: general mechanisms over typed…]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
 - [[Survey A the world's physics against the patterns (W-110)|Survey A: the world's physics against the patterns (W-110)]]
 - [[Survey B making, taking and keeping (W-110, agent B)|Survey B: making, taking and keeping (W-110, agent B)]]

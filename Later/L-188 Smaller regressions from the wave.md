@@ -16,4 +16,8 @@ updated: "2026-11-24"
 
 
 ## Linked
-- parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
+- parent: [[W-111 Priority thread a|Priority thread a (W-111)]]
+
+
+## Mentioned by
+- [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]

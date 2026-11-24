@@ -20,6 +20,8 @@ started
 
 ## Linked
 - parent: [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]]
+- bears on: [[W-111 Priority thread a|Priority thread a (W-111)]]
+- bears on: [[W-112 Priority thread b|Priority thread b (W-112)]]
 - under it: [[Q-98 One clock for the water's food before anything is sized|One clock for the water's food before anything is sized (Q-98)]] (closed)
 - under it: [[Q-99 How much of the waters made general comes before live run 2|How much of the waters made general comes before live run 2 (Q-99)]] (open)
 
@@ -31,6 +33,7 @@ started
 - [[L-114 The river high or in spate as a sign|The river high or in spate as a sign (L-114)]]
 - [[L-116 The wild layer's fish and a water body, two ways|The wild layer's fish and a water body, two ways (L-116)]]
 - [[L-150 Environmental effects on fishing refined after the rest works|Environmental effects on fishing refined after the rest works (L-150)]]
+- [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]
 - [[The waters made general resident fish from the land, runs on…|The waters made general: resident fish from the land, runs on…]]
 - [[Brief the waters calibrated across many generated environments…|Brief: the waters calibrated across many generated environments…]]
 - [[The waters' ecosystems by environment, and a calibration on one clock…|The waters' ecosystems by environment, and a calibration on one clock…]]

@@ -19,12 +19,13 @@ started
 
 
 ## Linked
-- parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
+- parent: [[W-112 Priority thread b|Priority thread b (W-112)]]
 - under it: [[D2-354 The architecture is a healthy balance, not a strict one|The architecture is a healthy balance, not a strict one (D2-354)]] (live)
 
 
 ## Mentioned by
 - [[D2-354 The architecture is a healthy balance, not a strict one|The architecture is a healthy balance, not a strict one (D2-354)]]
+- [[The engine's architecture overhauled general mechanisms over typed…|The engine's architecture overhauled: general mechanisms over typed…]]
 - [[Survey A the world's physics against the patterns (W-110)|Survey A: the world's physics against the patterns (W-110)]]
 - [[Survey B making, taking and keeping (W-110, agent B)|Survey B: making, taking and keeping (W-110, agent B)]]
 - [[Survey C people and society against the patterns (W-110)|Survey C: people and society against the patterns (W-110)]]

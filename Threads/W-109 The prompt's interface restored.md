@@ -19,13 +19,11 @@ started
 
 
 ## Linked
-- parent: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
+- parent: [[W-111 Priority thread a|Priority thread a (W-111)]]
 - under it: [[D2-350 Every act and every technique a person can take is registered with…|Every act and every technique a person can take is registered with… (D2-350)]] (live)
 - under it: [[D2-351 What a person is shown follows what they have learnt|What a person is shown follows what they have learnt (D2-351)]] (live)
 - under it: [[D2-352 Familiarity and the interface|Familiarity and the interface (D2-352)]] (live)
 - under it: [[D2-356 A technique's name, what it does, what it needs and its working hints…|A technique's name, what it does, what it needs and its working hints… (D2-356)]] (live)
-- under it: [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]] (open)
-- under it: [[Q-100 Old water worlds|Old water worlds (Q-100)]] (open)
 
 
 ## Mentioned by
@@ -33,7 +31,8 @@ started
 - [[D2-351 What a person is shown follows what they have learnt|What a person is shown follows what they have learnt (D2-351)]]
 - [[D2-352 Familiarity and the interface|Familiarity and the interface (D2-352)]]
 - [[D2-356 A technique's name, what it does, what it needs and its working hints…|A technique's name, what it does, what it needs and its working hints… (D2-356)]]
-- [[Q-100 Old water worlds|Old water worlds (Q-100)]]
+- [[W-111 Priority thread a|Priority thread a (W-111)]]
 - [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]]
+- [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]
 - [[What else the wave broke an audit against the engine before it…|What else the wave broke: an audit against the engine before it…]]
 - [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]
