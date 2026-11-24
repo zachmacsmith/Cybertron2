@@ -73,3 +73,17 @@ complete, but showed everyone everything and carried world mechanics in its desc
 technique that lacked a field and what was written; the world facts moved out; Osric's and Peter's prompts before and after (files
 beside the report); the coverage test's table; the replay's differences; a "Not done, and why" section listing every designed item
 left unbuilt; questions for Zach with the defaults you took.
+
+## Amendment (D2-351, Zach, 24 Nov, refines D2-350; sent by the coordinator mid-build)
+
+1. What a person is shown follows what they have learnt: an act or technique is shown once they are familiar with it at all (aware
+   or above), never otherwise.
+2. The set that everyone knows is defined explicitly, as data: the acts of daily life, family and society (go, sleep, come, meet,
+   fire, take, give, move, host, grant, revoke, claim, name, join, admit, leave, found, partner, part, try, care, watch, teach,
+   learn, write, erase, accept, withdraw, release, attack, guard, rest, and so on; each decided and listed in the report) and the
+   basic crafts (`basic: True`); everyone is shown these with their full description.
+3. Whatever is shown carries its FULL interface at any familiarity, even aware: how it is said, its arguments and every option, its
+   cost, what it needs. Familiarity varies only the know-how: inputs and batch, what a tool does to it, the chance of success, the
+   finer ways (modifiers learnt). Aware shows the full interface, says they do not yet know how (and how one learns it: watching,
+   being taught), and gives no recipe detail; rough adds what it needs and a rough recipe; known or capable adds the full recipe and
+   tool effects. The registry fields, the renderer and the tests follow (a test that an aware craft shows its full interface).
