@@ -277,6 +277,15 @@ def seed_lines(world: dict, key: str) -> dict:
         if "fisher" not in (SKILLS[key].get(a["household"]) or {}).get("livelihoods", []):
             for c in ("trap in water", "wicker trap", "wicker traps"):
                 (a.get("knows") or {}).pop(c, None)
+    home_of = {hh: home for home, hhs in FOUNDERS[key].items() for hh in hhs}
+    if len(FOUNDERS[key]) > 1:                                              # groups lost to each other (World 5): the fill seeds every
+        for n, a in world["agents"].items():                                # household as a neighbour of every other (u11 step 8); here no
+            far = [hh for hh, home in home_of.items() if home != home_of[a["household"]]]   # group knows another's crafts or place but by
+            a["aware_of"] = {c: v for c, v in (a.get("aware_of") or {}).items() if not any(h in str(v) for h in far)}   # the
+            a["kept"] = [k for k in a.get("kept") or [] if not any(h in k.get("text", "") for h in far)]              # rumour lines
+            for c in ("trap in water", "wicker trap", "wicker traps"):
+                if c in (a.get("aware_of") or {}) and "fisher" not in (SKILLS[key].get(a["household"]) or {}).get("livelihoods", []):
+                    a["aware_of"].pop(c, None)
     keeper_of = {b.get("keeper"): b for b in world["buildings"].values() if b.get("keeper")}
     for n, b in keeper_of.items():                                          # a holding's keeper line where founders.py has no template
         a = world["agents"].get(n)                                          # (smith, miller, farmer: L-179)
