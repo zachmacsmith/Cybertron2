@@ -303,3 +303,34 @@ def test_the_old_prompt_shows_one_grammar_for_rules():
     sp = PR.system_prompt(Here(old, "Peter"), Mind(old, "Peter"))
     assert '"rules": [...]' in sp or "Standing rules go in" in sp
     assert "\n- rule {" not in sp and "hold back | first | eat | move | tend | chore | drop" not in sp
+
+
+# ---------------------------------------------------------------------- a technique's fields apart (D2-356)
+def test_a_techniques_name_needs_hints_and_world_are_fields_rendered_together(w0b, eel):
+    for t, d in TECHNIQUES.items():
+        assert "(" not in d["label"], t                                       # the name only
+    techs = copy.deepcopy(TECHNIQUES)
+    techs["milk"]["label"] = "milking (a cow in milk)"
+    with pytest.raises(IF.RegistryError, match="milk"):
+        IF.check(None, techs)
+    assert KN.label("milk") == "milking" and KN.titled("milk") == "milking (a cow in milk)"
+    assert KN.titled("forage") == "foraging (greens, roots, berries, nuts)" and KN.titled("forage", world=False) == "foraging"
+    assert KN.named("den work", "aware") == "digging out a den or trapping at a lodge"             # by level, never the world
+    assert KN.named("milk", "rough") == "milking (a cow in milk)" and KN.named("den work", "rough") == KN.label("den work")
+    assert KN.named("den work", "known").endswith("(spades and a dog help)")
+    sp = PR.system_prompt(Here(w0b, "Osric"), Mind(w0b, "Osric"))
+    milk = line_of(sp, "milk")                                                # rough: what it needs, no hint
+    assert "needs a cow in milk" in milk
+    assert "spades and a dog help" in line_of(sp, "den work")                 # known: its hint
+    for t, d in TECHNIQUES.items():                                           # the world's words never in the interface (D5-2)
+        if d.get("world"):
+            assert d["world"] not in section(sp), t
+    old = build("cybertron2/specs/nutrition/eelmouth_old.yaml")               # the old prompt keeps them, from the fields
+    sp_old = PR.system_prompt(Here(old, "Peter"), Mind(old, "Peter"))
+    assert "making a gill net (netting twine, with sinkers) (known" in sp_old
+    from cybertron2.engine import knowledge as K2
+    card = K2.card(Here(w0b, "Osric"), Mind(w0b, "Osric"), "mine")            # a card in the interface: aware, the name only
+    assert card.startswith(f"{KN.label('mine')}: you know of it")
+    from cybertron2.engine import prompt as P2
+    assert "smoke racks (hurdles over a smouldering fire)" in P2._craft_note("smoke fish")      # a fitting's name and what it is
+    assert P2.craft_note_words("cairn").startswith("3 units of work")

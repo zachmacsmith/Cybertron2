@@ -123,6 +123,9 @@ def check(verbs=None, techniques=None, shapes=None) -> None:
         where = f"technique {t!r}"
         if not str(d.get("label") or "").strip():
             raise RegistryError(f"{where}: no label")
+        if "(" in d["label"]:                                     # its name only: needs, hints, world are fields (D2-356)
+            raise RegistryError(f"{where}: a label with a bracket; put what it needs in 'requires', its hints in 'hint', "
+                                "the world's words in 'world'")
         if d.get("modifies") or d.get("verb") == "modifier":
             for k in ("key", "value", "modifies"):
                 if not d.get(k):
@@ -215,13 +218,14 @@ def _tools_words(t) -> str:
 
 
 def _needs_words(t) -> str:
-    """What a craft needs beyond its place and materials (from a rough idea up): a tool, others with you."""
-    bits = []
+    """What a craft needs beyond its place and materials (from a rough idea up): its row's `requires` (D2-356: "a cow in milk"), a
+    tool, others with you."""
+    bits = [t["requires"]] if t.get("requires") else []
     if t.get("tools") and "bare" not in t["tools"]:
         bits.append("a tool")
     if t.get("crew"):
         bits.append("others with you")
-    return ", ".join(bits)
+    return ", ".join(dict.fromkeys(bits))
 
 
 # ---------------------------------------------------------------------- the crafts by familiarity
@@ -264,11 +268,10 @@ def craft_line(here, mind, tech, lvl, uni) -> str:
     from cybertron2.engine.data import TECHNIQUES
     t = TECHNIQUES[tech]
     name = craft_name(tech)
-    does = str(t.get("does") or t["label"])
+    does = KN.doing(tech, iface=True)
     args = t.get("args") or []
     if lvl == "rough":
-        cl = KN.craft_line(tech, "rough", mind.know.get(tech), here, iface=True)
-        inner = cl[len(KN.doing(tech)) + 2:-1]
+        inner = KN.craft_parts(tech, "rough", mind.know.get(tech), here, iface=True)[1]
         need = _needs_words(t)
         a = args_words(here, args, required_only=True)
         return (f"- {name}{' ' + a if a else ''}: {does} ({inner}" + (f", needs {need}" if need else "")
@@ -276,17 +279,15 @@ def craft_line(here, mind, tech, lvl, uni) -> str:
     rec = mind.know.get(tech) if isinstance(mind.know.get(tech), dict) else None
     if SH.SHAPES[SH.shape_of(tech)].get("recipe") == "blueprint":             # a build's recipe: its materials and work (D2-263)
         from cybertron2.engine import prompt as PR
-        note = PR._craft_note(tech)
         head = ("known" + (f", {KN.skill_word(float(rec['skill']), tech, here)}" if rec and rec.get("skill") is not None else "")
                 if lvl == "known" else "capable") if rec else ""
-        inner = (note[len(tech) + 2:-1] if note.startswith(tech + " (") else "").lstrip(", ")
-        body = "; ".join(x for x in (head, inner) if x)
+        inner = PR.craft_note_words(tech)
+        body = "; ".join(x for x in (head, inner, t.get("hint")) if x)
         return f"- {name}: {does}" + (f" ({body})" if body else "")
-    cl = KN.craft_line(tech, "capable" if lvl == "capable" else "known", rec, here, iface=True)
-    inner = cl[len(KN.doing(tech)) + 2:-1]
+    inner = KN.craft_parts(tech, "capable" if lvl == "capable" else "known", rec, here, iface=True)[1]
     if uni and not rec:
         inner = inner.replace("known: ", "", 1).replace("known", "", 1).strip(" :") or ""
-    extra = [x for x in (_needs_words(t), _tools_words(t)) if x]
+    extra = [x for x in (_needs_words(t), _tools_words(t), t.get("hint")) if x]          # its hints: know-how (D2-356)
     a = args_words(here, args)
     body = "; ".join(x for x in [inner] + extra if x)
     return f"- {name}{' ' + a if a else ''}: {does}" + (f" ({body})" if body else "")
@@ -299,7 +300,7 @@ def known_of(mind, techs) -> str:
     for t in techs:
         r = mind.know.get(t) or {}
         src = r.get("source") if isinstance(r, dict) else None
-        name = TECHNIQUES[t]["label"].split(" (")[0] if TECHNIQUES[t].get("modifies") else craft_name(t)
+        name = TECHNIQUES[t]["label"] if TECHNIQUES[t].get("modifies") else craft_name(t)
         out.append(f"{name} ({src})" if src else name)
     return "; ".join(out)
 

@@ -60,35 +60,35 @@ ITEMS = {
 RECIPES = {
     "wicker trap": {"label": "making wicker traps", "aliases": ["wicker traps", "make traps", "make wicker traps", "weave traps", "traps"],
                     "inputs": {"withies": 0.45}, "hours": 6, "class": "practised", "pack": "water", "tags": ["fishing", "craft"]},
-    "creel": {"label": "making a creel (a fish basket on the back)", "aliases": ["creels"], "inputs": {"withies": 0.25}, "hours": 6,
+    "creel": {"label": "making a creel", "hint": "a fish basket on the back", "aliases": ["creels"], "inputs": {"withies": 0.25}, "hours": 6,
               "class": "practised", "pack": "water", "tags": ["fishing", "craft"]},
     "basket": {"label": "making a basket", "aliases": ["baskets"], "inputs": {"withies": 0.3}, "hours": 6, "class": "practised",
                "tags": ["craft"]},
-    "keep box": {"label": "making a keep box (a wicker box to hold fish alive in the water)", "aliases": ["keep boxes"],
+    "keep box": {"label": "making a keep box", "hint": "a wicker box to hold fish alive in the water", "aliases": ["keep boxes"],
                  "inputs": {"withies": 1}, "hours": 9, "class": "practised", "pack": "water", "tags": ["fishing", "craft"]},
-    "hurdle": {"label": "making hurdles (woven wattle panels)", "aliases": ["hurdles", "wattle hurdles"], "inputs": {"withies": 1},
+    "hurdle": {"label": "making hurdles", "hint": "woven wattle panels", "aliases": ["hurdles", "wattle hurdles"], "inputs": {"withies": 1},
                "hours": 2.8, "class": "practised", "tags": ["craft", "building"]},
     "hand line": {"label": "making a hand line", "aliases": ["hand lines", "a line"], "inputs": {"cord": 0.02, "hooks": {"bone hook": 2, "copper hook": 2}},
                   "hours": 1.5, "class": "simple", "pack": "water", "tags": ["fishing", "craft"]},
-    "set lines": {"label": "making a set line (a line of about 30 hooks)", "gives": "set line", "aliases": ["set line", "a set line", "long line"],
+    "set lines": {"label": "making a set line", "hint": "a line of about 30 hooks", "gives": "set line", "aliases": ["set line", "a set line", "long line"],
                  "inputs": {"cord": 0.3, "hooks": {"bone hook": 30, "copper hook": 30}}, "hours": 9, "class": "simple", "pack": "water",
                  "tags": ["fishing", "craft"]},
     "bone hook": {"label": "making bone hooks", "aliases": ["bone hooks"], "inputs": {"bone": 0.005}, "hours": 0.4, "clock": "day",
                   "class": "simple", "pack": "water", "tags": ["fishing", "craft"]},
     "copper hook": {"label": "making copper hooks", "aliases": ["copper hooks", "hooks"], "inputs": {"copper": 0.005}, "hours": 0.4,
                     "class": "skilled", "trade": "smith", "at": {"fittings": ["anvil"]}, "pack": "water", "tags": ["fishing", "smithing"]},
-    "snares": {"label": "making snares (a noose and tether of cord)", "gives": "snare", "aliases": ["snare", "make snares", "nooses"],
+    "snares": {"label": "making snares", "hint": "a noose and tether of cord", "gives": "snare", "aliases": ["snare", "make snares", "nooses"],
               "inputs": {"cord": 0.005}, "hours": 0.165, "clock": "day", "class": "simple", "pack": "wild", "tags": ["hunting", "craft"]},
-    "gill nets": {"label": "making a gill net (netting twine, with sinkers)", "gives": "gill net", "aliases": ["gill net", "a gill net", "fish net"],
+    "gill nets": {"label": "making a gill net", "hint": "netting twine, with sinkers", "gives": "gill net", "aliases": ["gill net", "a gill net", "fish net"],
                  "inputs": {"cord": 1, "stone": 0.1}, "hours": 50, "class": "practised", "at": {"building": True}, "pack": "water",
                  "tags": ["fishing", "craft"]},
-    "dip net": {"label": "making a dip net (a hoop net on a pole)", "aliases": ["dip nets", "hoop net", "hand net"],
+    "dip net": {"label": "making a dip net", "hint": "a hoop net on a pole", "aliases": ["dip nets", "hoop net", "hand net"],
                 "inputs": {"cord": 0.1, "withies": 0.2}, "hours": 3.5, "class": "practised", "pack": "water", "tags": ["fishing", "craft"]},
-    "sack": {"label": "making a sack (woven of cord)", "aliases": ["sacks"], "inputs": {"cord": 0.6}, "hours": 4, "class": "practised",
+    "sack": {"label": "making a sack", "hint": "woven of cord", "aliases": ["sacks"], "inputs": {"cord": 0.6}, "hours": 4, "class": "practised",
              "tags": ["craft"]},
-    "salting tub": {"label": "making a salting tub (a hollowed log or boards, hooped)", "aliases": ["salting tubs", "a tub"],
+    "salting tub": {"label": "making a salting tub", "hint": "a hollowed log or boards, hooped", "aliases": ["salting tubs", "a tub"],
                     "inputs": {"timber": 2, "withies": 0.1}, "hours": 6, "class": "practised", "tags": ["craft", "food"]},
-    "barrel": {"label": "making a barrel (staves and hoops)", "aliases": ["barrels"], "inputs": {"timber": 7, "withies": 0.3},
+    "barrel": {"label": "making a barrel", "hint": "staves and hoops", "aliases": ["barrels"], "inputs": {"timber": 7, "withies": 0.3},
                "hours": 9.5, "class": "skilled", "trade": "cooper", "tags": ["craft"]},
 }
 
@@ -146,11 +146,11 @@ def register_techniques(techniques) -> None:
         row = {"verb": "make", "label": r["label"], "aliases": list(r.get("aliases", [])), "basic": r["class"] == "simple",
                "inputs": dict(r["inputs"]), "units": 1, "gives": {r.get("gives", k): 1}, "tags": list(r.get("tags", ["craft"])),
                "hours": r["hours"], "clock": r.get("clock", "capital"), "class": r["class"]}
-        for f in ("pack", "trade", "at"):
+        for f in ("pack", "trade", "at", "hint", "requires"):
             if f in r:
                 row[f] = r[f]
         techniques[k] = row
-    techniques["mend gear"] = {"verb": "make", "label": "mending gear (traps, nets, lines)", "basic": True,
+    techniques["mend gear"] = {"verb": "make", "label": "mending gear", "hint": "traps, nets, lines", "basic": True,
                                "aliases": ["mend", "mend traps", "mend the traps", "mend nets", "mend the net", "mend the nets", "mend lines"],
                                "mend_gear": True, "units": 1, "gives": "", "inputs": {}, "tags": ["craft", "fishing"],
                                "does": "mend the worn gear in your hands, one kind an act: half its full uses back, a tenth of its "

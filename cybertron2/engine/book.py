@@ -34,6 +34,8 @@ from __future__ import annotations
 import json
 import re
 
+from cybertron2.engine.data import SELF_NAMES
+
 KINDS = ("set", "keep", "first", "share", "do", "drop")
 OLD_KINDS = ("go", "hold back", "eat", "move", "tend", "chore")                 # read as before D2-339, converted (`convert`)
 ROUNDS = 3                                           # cascades: at most three rounds of the household's rules a day
@@ -261,12 +263,12 @@ def target(w, hh, node, words, goods=()) -> dict:
     if ("rack" in t or "smoke" in t or (b is not None and (b.get("fittings") or {}).get("smoke racks"))) and "store" not in t:
         return {"bid": bid if b is not None and (b.get("fittings") or {}).get("smoke racks") else (smoke[0] if smoke else None),
                 "kind": "racks", "proc": "hard cure" if salted else "keeping smoke"}
-    if t in ("hands", "my hands", "me"):
+    if t in SELF_NAMES["hands"]:                                               # one's own words (data.SELF_NAMES, L-189)
         return {"bid": None, "kind": "hands"}
     for k in list(SR.CONTAINERS) + list(SR.SPACES):
         if k in t or (k.endswith("s") is False and f"{k}s" in t):
             return {"bid": bid or _home(w, hh, node), "kind": k}
-    return {"bid": bid or (_home(w, hh, node) if t in ("", "home", "the house", "store", "the store", "house") else None), "kind": "store"}
+    return {"bid": bid or (_home(w, hh, node) if t == "" or t in SELF_NAMES["home"] + SELF_NAMES["store"] else None), "kind": "store"}
 
 
 def _tech(proc, item) -> str | None:
@@ -351,7 +353,7 @@ def _wrote(a) -> str:
 
 def _place_ok(here, v) -> bool:
     w = here._w
-    if str(v).strip().lower() in ("hands", "my hands"):
+    if str(v).strip().lower() in SELF_NAMES["hands"]:
         return True
     tg = target(w, here.household(), here.node, v, ())
     return tg["bid"] is not None or _building(w, here.node, v) is not None
@@ -362,7 +364,7 @@ def _own_place(here, v) -> None:
     household's; store access between households is out of scope, D2-339)."""
     from cybertron2.engine.world import Refused
     w = here._w
-    if str(v).strip().lower() in ("hands", "my hands"):
+    if str(v).strip().lower() in SELF_NAMES["hands"]:
         return
     hh = here.household()
     tg = target(w, hh, here.node, v, ())

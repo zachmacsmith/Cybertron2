@@ -89,7 +89,7 @@ def resolve(mind, word, verb=None) -> str | None:
     live = PK.techniques()
     cands = [t for t in live if (verb is None or TECHNIQUES[t]["verb"] == verb)
              and (x == t or x in [y.lower() for y in TECHNIQUES[t].get("aliases", [])] or x == TECHNIQUES[t]["label"].lower()
-                  or x == KN.label(t).lower())]
+                  or x == KN.titled(t).lower())]                              # the name, or the name with its fields (D2-356)
     if not cands and verb is None:
         return None
     return _known_first(mind, cands) if cands else None
@@ -150,7 +150,7 @@ def craft_in(mind, text, verb=None) -> str | None:
         d = TECHNIQUES[t]
         if d.get("modifies") or d["verb"] == "modifier":
             continue
-        for nm in [t, d["label"].lower(), KN.label(t).lower(), *[y.lower() for y in d.get("aliases", [])]]:
+        for nm in [t, d["label"].lower(), *[y.lower() for y in d.get("aliases", [])]]:
             if len(nm) > 3 and f" {nm} " in f" {x} ":
                 hits.append((len(nm), t))
     if not hits:

@@ -310,7 +310,7 @@ FITTINGS = {
              "does": "housed when sleeping here, one a bed"},                                                  # D2-56; 02zh §4 (proposed)
     "hearth": {"label": "a hearth", "materials": {"stone": 20}, "units": 3, "basic": False, "trade": "mason", "fire": True, "spaces": 1,
                "does": "warmth (burns timber), porridge and baking"},
-    "owl hole": {"label": "an owl hole (a gap left high in a barn's gable)", "materials": {"timber": 0.1}, "units": 1, "basic": True,
+    "owl hole": {"label": "an owl hole", "about": "a gap left high in a barn's gable", "materials": {"timber": 0.1}, "units": 1, "basic": True,
                  "spaces": 0, "pack": "wild", "does": "a way in for a barn owl, which keeps the mice in the store down"},   # brief 2 K1
     "bins": {"label": "bins", "materials": {"timber": 3}, "units": 1, "basic": True, "does": "a store for dry goods (300 kg), off the damp floor",
              "spaces": 1, "holds": {"food": 60}},
@@ -345,9 +345,9 @@ FITTINGS = {
     # brief 5 §4a: a smokehouse is a building of its own (`apart`: no beds or hearth in it) with smoke racks, sets of 250 kg on a
     # space each, the building capping the sets (u4 §4; D2-284, D2-291; process.FITTINGS). Brief 5 §4b: a brine pan over a furnace at or beside a brine spring (`spring`), boiling
     # salt; it wears like other fittings (calibrate)
-    "smoke racks": {"label": "smoke racks (hurdles over a smouldering fire)", "materials": {"withies": 2, "timber": 2}, "units": 2, "basic": True,
+    "smoke racks": {"label": "smoke racks", "about": "hurdles over a smouldering fire", "materials": {"withies": 2, "timber": 2}, "units": 2, "basic": True,
                     "spaces": 1, "apart": True, "aliases": ["smokehouse racks", "smoking racks"]},   # u4's fields: process.FITTINGS
-    "brine pan": {"label": "a brine pan (a shallow pan over a furnace, for boiling salt)", "materials": {"copper": 10, "stone": 4},
+    "brine pan": {"label": "a brine pan", "about": "a shallow pan over a furnace, for boiling salt", "materials": {"copper": 10, "stone": 4},
                   "units": 4, "basic": False, "trade": "salter", "spaces": 2, "heavy": True, "spring": "brine",
                   "aliases": ["salt pan", "lead pan", "salt boiling pan"],
                   "wear": {"life": 60, "count": "act", "mend": "mend the brine pan"},     # boilings; then half (D4-103 phase 2)
@@ -373,13 +373,13 @@ ROOMS = {
              "stone": {"materials": {"stone": 5600, "timber": 140, "straw": 260}, "units": 250, "trade": "mason"}},
 }
 BLUEPRINTS = {
-    "small room": {"label": "a small room (wattle, timber or stone)", "materials": dict(ROOMS["small room"]["wattle"]["materials"]),
+    "small room": {"label": "a small room", "about": "wattle, timber or stone", "materials": dict(ROOMS["small room"]["wattle"]["materials"]),
                    "units": 6, "structure": "wattle", "basic": True},
-    "medium room": {"label": "a medium room (timber on stone, or stone)", "materials": dict(ROOMS["medium room"]["timber"]["materials"]),
+    "medium room": {"label": "a medium room", "about": "timber on stone, or stone", "materials": dict(ROOMS["medium room"]["timber"]["materials"]),
                     "units": 15, "structure": "timber", "basic": False, "trade": "carpenter"},
-    "hall": {"label": "a hall (timber on stone, or stone)", "materials": dict(ROOMS["hall"]["timber"]["materials"]), "units": 200,
+    "hall": {"label": "a hall", "about": "timber on stone, or stone", "materials": dict(ROOMS["hall"]["timber"]["materials"]), "units": 200,
              "structure": "timber", "basic": False, "trade": "carpenter"},
-    "camp": {"label": "a camp (a lean-to and a fire ring)", "materials": {"timber": 3}, "units": 1, "size": 4, "structure": "camp",
+    "camp": {"label": "a camp", "about": "a lean-to and a fire ring", "materials": {"timber": 3}, "units": 1, "size": 4, "structure": "camp",
              "basic": True, "fittings": {"beds": 4, "fire ring": 1}, "lasts": 10},                                  # D2-68
 }
 # The building package (review 02zh; spec/economy/buildings.md; D2-154, D2-155, D2-165 to D2-171). All numbers calibrate.
@@ -420,7 +420,7 @@ MONUMENTS = {
     # (`with`), with a condition (floods and ice wear it, mended like a building) and a gap set open or shut (WATER_WORKS); its
     # materials and units are its first section's in wattle (WATER_WORKS weir: position.first + material.wattle, W-69); built with
     # "structure": timber, the first section is timber and costs the difference more (wild/gear.py)
-    "weir": {"label": "a fish weir (stakes and wattle across the river, wicker traps in its gap)",   # its cost: WATER_WORKS (D2-302)
+    "weir": {"label": "a fish weir", "about": "stakes and wattle across the river, wicker traps in its gap",   # its cost: WATER_WORKS (D2-302)
              "basic": False, "structure": "timber", "site": "river", "crew": 2, "pack": "wild",   # a craft (u2 §6 bug 4)
              "aliases": ["fish weir", "a weir", "a fish weir", "eel weir", "build a weir", "build weir"]},
 }
@@ -502,7 +502,7 @@ LINES = {
 # Techniques: one handler reads these (38.17 §5). Tool multipliers by grade (recipes.md §8); "bare" is bare hands; a grade missing
 # from `tools` means the work cannot be done with it (no mining bare-handed).
 TECHNIQUES = {
-    "forage": {"verb": "gather", "label": "foraging (greens, roots, berries, nuts)", "aliases": ["foraging", "gather food"], "basic": True, "off_with": ["wild"],
+    "forage": {"verb": "gather", "label": "foraging", "world": "greens, roots, berries, nuts", "aliases": ["foraging", "gather food"], "basic": True, "off_with": ["wild"],
                "at": {"covers": ["forest", "meadow", "pasture", "scrub", "heath", "moor", "fen", "saltmarsh"]}, "draws": "plants", "yield": {"kind": "stock", "base": 1.2},
                "units": 1, "gives": "wild food", "tags": ["food"]},
     "hunt": {"verb": "gather", "label": "hunting game", "aliases": ["hunting"], "basic": True, "at": {"covers": ["forest"]}, "off_with": ["wild"],
@@ -512,13 +512,13 @@ TECHNIQUES = {
     "fell": {"verb": "gather", "label": "felling timber", "aliases": ["felling", "chop timber", "cut wood"], "basic": True,
              "at": {"covers": ["forest"]}, "draws": "wood", "yield": {"kind": "fixed", "base": 8.0},   # 4 timber a unit with a crude tool
              "tools": {"bare": 0.25, "crude": 1.0, "copper": 2.0}, "wear": 1, "units": 2, "gives": "timber", "tags": ["timber", "woodland"]},   # (basis §1; was 3 an act)
-    "firewood": {"verb": "gather", "label": "gathering firewood (dead wood, by hand)", "basic": True,
+    "firewood": {"verb": "gather", "label": "gathering firewood", "hint": "dead wood, by hand", "basic": True,
                  "aliases": ["gather firewood", "gathering firewood", "sticks", "dead wood", "kindling"],
                  "at": {"covers": ["forest", "scrub"]}, "draws": "dead", "yield": {"kind": "pool", "base": 3.0}, "units": 1,
                  "gives": "firewood", "tags": ["timber", "woodland", "fuel"]},                                   # D2-156, D2-157
     # clearing new ground for a field (Zach, 24 Oct: "Can they not clear land at all and make new plots?"): grass or scrub broken
     # up, stones and roots got out; a wood must be felled to scrub first. The whole parcel becomes a field when its work is done
-    "clear": {"pack": "farming", "verb": "work", "label": "clearing new ground for a field (turf, roots and stones out)", "basic": True,
+    "clear": {"pack": "farming", "verb": "work", "label": "clearing new ground for a field", "hint": "turf, roots and stones out", "basic": True,
               "aliases": ["clear ground", "clear land", "clearing", "make a field", "break new ground", "grub up"],
               "at": {"covers": ["meadow", "pasture", "scrub"]}, "draws": "plot", "yield": {"kind": "clear"},
               "tools": {"bare": 0.4, "crude": 1.0, "copper": 1.5}, "wear": 1, "units": 1, "gives": "", "tags": ["farming", "building"]},
@@ -528,7 +528,7 @@ TECHNIQUES = {
             "tools": {"crude": 1.0, "copper": 1.5}, "wear": 0.5, "units": 1, "gives": "firewood", "tags": ["timber", "woodland", "fuel"]},
     # withies (u3 §1.1; D2-288: a 10 kg bundle of green rods): cut from the wild willow on the fen and the banks (wild/willow.py), or
     # where none grows from young growth in a wood or scrub (crooked rods), 1.5 bundles a unit with a crude tool, by the season
-    "cut withies": {"verb": "gather", "label": "cutting withies (green rods for wattle and wicker)", "basic": True,
+    "cut withies": {"verb": "gather", "label": "cutting withies", "hint": "green rods for wattle and wicker", "basic": True,
                     "aliases": ["withies", "cut rods", "cut wands", "cut osiers", "cut willow"],
                     "at": {"covers": ["fen", "meadow", "pasture", "forest", "scrub"]}, "draws": "willow", "draws_else": "young",
                     "yield": {"kind": "fixed", "base": 1.5}, "tools": {"bare": 0.33, "crude": 1.0, "copper": 1.33}, "wear": 0.25,
@@ -548,7 +548,7 @@ TECHNIQUES = {
                "draws": "quarry", "yield": {"kind": "fixed", "base": 8.0}, "tools": {"crude": 1.0, "copper": 1.5}, "wear": 2, "units": 2,   # 4 a unit (basis §1)
                "gives": "stone", "tags": ["building", "craft"], "trade": "mason"},
     # Farming (D2-53, D2-54, D2-59, D4-38 to D4-40; 02l §2 scaled to the plot of about 16 seed, calibrate)
-    "sow": {"pack": "farming", "verb": "work", "label": "sowing a field broadcast (seed thrown)", "aliases": ["sowing", "plant", "broadcast"], "basic": True,
+    "sow": {"pack": "farming", "verb": "work", "label": "sowing a field broadcast", "hint": "seed thrown", "aliases": ["sowing", "plant", "broadcast"], "basic": True,
             "at": {"covers": ["field", "meadow", "pasture", "heath", "scrub"]}, "draws": "plot", "yield": {"kind": "sow", "seed": 6.0, "worth": 1.0}, "units": 1, "gives": "",
             "tags": ["farming"]},
     "hoe": {"pack": "farming", "verb": "work", "label": "breaking the soil with a hoe", "aliases": ["hoeing", "dig", "break the soil"], "basic": True,
@@ -582,19 +582,19 @@ TECHNIQUES = {
                 "draws": "grass", "yield": {"kind": "fixed", "base": 7.0}, "tools": {"bare": 0.3, "crude": 1.0, "copper": 1.5}, "wear": 0.5,   # 7 of 10 kg a unit (u3 §10)
                 "by_season": {"spring": 0.5, "summer": 1.0, "autumn": 0.3, "winter": 0.0}, "units": 1, "gives": "hay", "tags": ["animals", "farming"]},
     # Cattle (D2-63, D4-41, D4-44, D4-45; 02o, calibrate)
-    "herd": {"verb": "work", "label": "herding (watching the beasts)", "aliases": ["herding", "watch the herd", "tend the herd"], "basic": True,
+    "herd": {"verb": "work", "label": "herding", "hint": "watching the beasts", "aliases": ["herding", "watch the herd", "tend the herd"], "basic": True,
              "at": {"covers": ["pasture", "meadow", "field", "heath", "moor", "fen", "saltmarsh"]}, "draws": "herd", "yield": {"kind": "herd"}, "units": 1, "gives": "",
              "tags": ["animals"]},
-    "care": {"verb": "work", "label": "caring for a child (feeding, minding, keeping it warm)", "basic": True,
+    "care": {"verb": "work", "label": "caring for a child", "hint": "feeding, minding, keeping it warm", "basic": True,
              "aliases": ["mind", "minding", "look after", "nurse", "tend the child"], "at": {"children": True}, "draws": "child",
              "yield": {"kind": "care"}, "units": 1, "gives": "", "tags": ["family"]},                                       # D2-142, D2-150
     # Fences round a parcel and gates (livestock.md "Fences and gates": D2-130, D2-132): a field work on the parcel; FENCES has the numbers
-    "gather wild food": {"verb": "gather", "label": "gathering wild food (what is in season where you are: greens, berries, nuts, fungi, roots)",
+    "gather wild food": {"verb": "gather", "label": "gathering wild food", "world": "what is in season where you are: greens, berries, nuts, fungi, roots",
                          "aliases": ["forage", "foraging", "gather food", "gather", "pick", "gather nuts", "gather berries", "gather mushrooms",
                                      "gather acorns", "pick berries", "pick mushrooms"], "basic": True, "pack": "wild",
                          "at": {"covers": ["forest", "meadow", "pasture", "scrub", "heath", "moor", "fen", "saltmarsh"]}, "draws": "wild plants",
                          "yield": {"kind": "wild_forage", "base": 1.2}, "units": 1, "gives": "", "tags": ["food"]},
-    "make clappers": {"verb": "make", "label": "making clappers (two boards on a cord) for scaring beasts off a field", "basic": True, "pack": "wild",
+    "make clappers": {"verb": "make", "label": "making clappers for scaring beasts off a field", "hint": "two boards on a cord", "basic": True, "pack": "wild",
                       "aliases": ["clappers", "make a clapper"], "inputs": {"timber": 0.04}, "units": 1, "gives": {"clappers": 1}, "tags": ["farming"]},   # two boards, 1 kg
     "make tallow lights": {"verb": "make", "label": "dipping rushes in tallow for lights to work by at night", "basic": True,
                            "aliases": ["tallow lights", "make lights", "make a light", "rushlights", "dip rushes"],
@@ -612,29 +612,29 @@ TECHNIQUES = {
                      "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:snare", "gather:net", "gather:den work", "gather:trap in water"],
                      "key": "range", "value": "near", "untaught": "tryable", "changes": {"range": "near", "units": 0}, "units": 0,
                      "gives": "", "tags": ["hunting"]},
-    "range: the wood around": {"verb": "modifier", "label": "hunting out through the woods and wastes around (about 2.5 km)", "aliases": [], "basic": True, "pack": "wild",
+    "range: the wood around": {"verb": "modifier", "label": "hunting out through the woods and wastes around", "hint": "about 2.5 km", "aliases": [], "basic": True, "pack": "wild",
                      "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:snare", "gather:net", "gather:den work", "gather:trap in water"],
                      "key": "range", "value": "the wood around", "untaught": "tryable", "changes": {"range": "the wood around", "units": 1}, "units": 1,
                      "gives": "", "tags": ["hunting"]},
-    "range: far": {"verb": "modifier", "label": "hunting far out into the wild land beyond (a long day)", "aliases": [], "basic": True, "pack": "wild",
+    "range: far": {"verb": "modifier", "label": "hunting far out into the wild land beyond", "hint": "a long day", "aliases": [], "basic": True, "pack": "wild",
                      "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:snare", "gather:net", "gather:den work", "gather:trap in water"],
                      "key": "range", "value": "far", "untaught": "tryable", "changes": {"range": "far", "units": 3}, "units": 3,
                      "gives": "", "tags": ["hunting"]},
     "hunt with": {"verb": "modifier", "label": "hunting in another's party: name who leads; you go their way, to their place and range, after what they are after", "aliases": [], "basic": True, "pack": "wild",
                   "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:net"], "key": "with", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["hunting"]},   # brief 4b §3.1
-    "hunt alone": {"verb": "modifier", "label": "hunting alone: no one joins your hunt (others may join it unless you say so)", "aliases": [], "basic": True, "pack": "wild",
+    "hunt alone": {"verb": "modifier", "label": "hunting alone: no one joins your hunt", "hint": "others may join it unless you say so", "aliases": [], "basic": True, "pack": "wild",
                    "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:net"], "key": "alone", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["hunting"]},
     "hunt only with": {"verb": "modifier", "label": "taking into your hunting party only those you name", "aliases": [], "basic": True, "pack": "wild",
                        "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:net"], "key": "only", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["hunting"]},
-    "looking for": {"verb": "modifier", "label": "looking for one thing in particular: name it, a kind or a sort (boar, deer, hares, fowl, small game)", "aliases": [], "basic": True, "pack": "wild",
+    "looking for": {"verb": "modifier", "label": "looking for one thing in particular: name it, a kind or a sort", "world": "boar, deer, hares, fowl, small game", "aliases": [], "basic": True, "pack": "wild",
                     "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive", "gather:snare", "gather:net", "gather:den work", "gather:trap in water",
                                  "gather:gather wild food", "work:guard the field", "work:pest work"],
                     "key": "looking for", "value": "*", "untaught": "tryable", "changes": {}, "units": 0, "gives": "", "tags": ["hunting"]},
-    "fence": {"verb": "work", "label": "fencing a parcel round (wattle or post and rail)", "basic": True,
+    "fence": {"verb": "work", "label": "fencing a parcel round", "hint": "wattle or post and rail", "basic": True,
               "aliases": ["fencing", "put up a fence", "wattle fence", "mend the fence", "build a fence", "a fence"],
               "at": {"covers": ["pasture", "meadow", "field", "scrub"]}, "draws": "plot", "yield": {"kind": "fence", "fence": "wood"},
               "tools": {"bare": 0.5, "crude": 1.0, "copper": 1.5}, "wear": 0.5, "units": 1, "gives": "", "tags": ["animals", "farming", "timber"]},
-    "wall": {"verb": "work", "label": "walling a parcel round (a dry-stone wall)", "basic": False, "trade": "mason", "crew": True,
+    "wall": {"verb": "work", "label": "walling a parcel round", "hint": "a dry-stone wall", "basic": False, "trade": "mason", "crew": True,
              "aliases": ["walling", "dry wall", "dry-stone wall", "stone wall", "build a wall", "mend the wall", "a wall"],
              "at": {"covers": ["pasture", "meadow", "field", "scrub"]}, "draws": "plot", "yield": {"kind": "fence", "fence": "stone"},
              "tools": {"bare": 0.5, "crude": 1.0, "copper": 1.5}, "wear": 0.75, "units": 1, "gives": "", "tags": ["animals", "farming", "building"]},
@@ -647,7 +647,7 @@ TECHNIQUES = {
     "dung": {"pack": "farming", "verb": "gather", "label": "gathering dung", "aliases": ["gather dung", "collect dung"], "basic": True,
                     "at": {"covers": ["pasture", "meadow", "field"]}, "draws": "dung", "yield": {"kind": "fixed", "base": 5.0}, "units": 1,
                     "gives": "dung", "tags": ["animals", "farming"]},
-    "milk": {"pack": "farming", "verb": "work", "label": "milking (a cow in milk)", "aliases": ["milking"], "at": {"covers": ["pasture", "meadow", "field", "heath", "moor", "fen", "saltmarsh"]},
+    "milk": {"pack": "farming", "verb": "work", "label": "milking", "requires": "a cow in milk", "aliases": ["milking"], "at": {"covers": ["pasture", "meadow", "field", "heath", "moor", "fen", "saltmarsh"]},
              "draws": "herd", "yield": {"kind": "milk", "cows": 6, "each": 3.0}, "units": 1, "gives": "milk", "tags": ["food", "animals"],
              "trade": "herder"},   # a medieval cow's 3 kg a day (Trow-Smith), six cows a unit by hand (D2-260; 02zzu): 4.6 food a unit
                                    # at milk's 0.256 a kg (was 3 cows at 1.6 milk; a cow's day 0.77 food, 0.8 on the old values)
@@ -667,7 +667,7 @@ TECHNIQUES = {
                                                           "young": {"meat": 48, "hide": 1, "tallow": 1}}},   # tallow: brief 3 §5 (calibrate)
                   "units": 2, "gives": "meat", "tags": ["food", "animals"]},
     # Mending a worn fitting (D4-103 phase 2; building_risks.md: capital has upkeep): it works at full again (calibrate)
-    "dress millstones": {"verb": "work", "label": "dressing worn millstones (recutting their furrows)", "aliases": ["dress the stones"],
+    "dress millstones": {"verb": "work", "label": "dressing worn millstones", "hint": "recutting their furrows", "aliases": ["dress the stones"],
                          "basic": True, "at": {"fittings": ["millstones"]}, "yield": {"kind": "mend", "fitting": "millstones"},
                          "units": 2, "gives": "", "tags": ["building", "food"]},
     "reline oven": {"verb": "work", "label": "relining a cracked oven", "aliases": ["mend the oven"], "basic": True,
@@ -679,7 +679,7 @@ TECHNIQUES = {
     "repair": {"verb": "work", "label": "repairing a building", "aliases": ["mend"], "basic": True, "at": {"building": True},
                "yield": {"kind": "repair"}, "units": 2, "gives": "", "tags": ["building", "shelter"]},
                # its materials and work by the building's size (D2-168: PHYSICS repair); each action does 2 units until it is mended
-    "clear for building": {"verb": "work", "label": "clearing ground for building (turf, roots and stones out)", "basic": True,
+    "clear for building": {"verb": "work", "label": "clearing ground for building", "hint": "turf, roots and stones out", "basic": True,
                      "aliases": ["clear to build", "building ground", "clear a building plot", "make built ground", "grub out roots"],
                      "at": {"covers": ["field", "pasture", "meadow", "scrub"]}, "draws": "plot", "yield": {"kind": "clear_built"},
                      "tools": {"bare": 0.4, "crude": 1.0, "copper": 1.5}, "wear": 1, "units": 1, "gives": "",
@@ -708,19 +708,19 @@ TECHNIQUES = {
     # Fishing and salt (D4-103's acceptance test; water_and_preservation.md §4, §5: the gear ladder's first rungs; calibrate)
     # the edge (u2 §4.6; u1 §2): the shallows of a water or fen parcel by hand (a dip net helps at a run's pinch), and a run passing
     # by the parcel's pinch (u1 §5); "fish" and "fishing" are no longer its aliases (a bare "fish" names no one way)
-    "fish by hand": {"pack": "water", "verb": "gather", "label": "fishing at the edge (by hand, with a spear or a hand net)", "basic": True,
+    "fish by hand": {"pack": "water", "verb": "gather", "label": "fishing at the edge", "hint": "by hand, with a spear or a hand net", "basic": True,
                      "aliases": ["fishing by hand", "hand fishing", "the edge", "fish the edge", "fish the shallows", "tickle trout",
                                  "catch fish by hand", "fishing at the edge"], "at": {"covers": ["water", "fen"]}, "draws": "shallows",
                      "draws_else": "fish", "yield": {"kind": "stock", "base": 0.6, "spread": 0.5}, "units": 1, "gives": "fish",
                      "tags": ["food", "fishing"], "run": True, "ice": "edge", "run_gear": {"dip net": 3.0}},
     # line fishing (u2 §4.5): the open water's fish with a hand line, a rod raising it x1.5 (today's 1.5 a unit is the rod's)
-    "angle": {"pack": "water", "verb": "gather", "label": "fishing with a line (a hand line, or a rod and line)", "basic": True,
+    "angle": {"pack": "water", "verb": "gather", "label": "fishing with a line", "requires": "a hand line, or a rod and line", "basic": True,
               "aliases": ["angling", "rod fishing", "fish with a rod", "fish with rod and line", "line fishing", "fish with a line"],
               "at": {"covers": ["water"]}, "draws": "fish", "yield": {"kind": "stock", "base": 1.0, "spread": 0.5},
               "gear_x": {"fishing rod": 1.5, "hand line": 1.0}, "units": 1, "gives": "fish", "tags": ["food", "fishing"], "ice": "bank"},
     "fishing rod": {"pack": "water", "verb": "make", "label": "making a fishing rod and line", "aliases": ["make a rod", "rod and line"], "basic": True,
                     "inputs": {"withies": 0.1}, "units": 1, "gives": {"fishing rod": 1}, "tags": ["fishing", "craft"]},   # a 1 kg pole (u3 §2.3)
-    "salt pan": {"pack": "water", "verb": "gather", "label": "making salt in the saltmarsh pans (dried by the sun)", "basic": True,
+    "salt pan": {"pack": "water", "verb": "gather", "label": "making salt in the saltmarsh pans", "world": "dried by the sun", "basic": True,
                  "aliases": ["make salt", "salt pans", "gather salt"], "at": {"covers": ["saltmarsh"]}, "draws": "salt",
                  "yield": {"kind": "fixed", "base": 1.0}, "by_season": {"spring": 0.4, "summer": 1.0, "autumn": 0.2, "winter": 0.0}, "units": 1, "gives": "salt", "tags": ["salt"]},
     # inland salt (brief 5 §4b; D2-56, D2-209; calibrate, OPEN L-110): brine drawn at the pan's spring boiled with firewood, about 1
@@ -730,7 +730,7 @@ TECHNIQUES = {
                   "inputs": {"firewood": 4}, "units": 1, "gives": {"salt": 4}, "tags": ["salt", "fuel"],
                   "manual": "brine drawn from the spring beside the pan and boiled dry over a fire: about 1 firewood a salt, in any "
                             "season; a pan burns through with use and is mended"},
-    "mend the brine pan": {"pack": "water", "verb": "work", "label": "mending a burnt-through brine pan (patching and resetting it)",
+    "mend the brine pan": {"pack": "water", "verb": "work", "label": "mending a burnt-through brine pan", "hint": "patching and resetting it",
                            "aliases": ["mend the pan", "patch the pan", "mend the salt pan"], "basic": True, "at": {"fittings": ["brine pan"]},
                            "yield": {"kind": "mend", "fitting": "brine pan", "inputs": {"copper": 0.25}}, "units": 2, "gives": "",
                            "tags": ["building", "salt"]},
@@ -773,7 +773,7 @@ TECHNIQUES = {
 # argument they are written as (`key`: `value`; "*" any value), and what they change, read by the verb they modify. `untaught`:
 # tryable (done worse, and one becomes aware of it) or no (refused, and one becomes aware it exists). Basic ones everyone knows.
 TECHNIQUES.update({
-    "for": {"verb": "modifier", "label": "doing it for someone (into their store, from it by right or agreement)", "aliases": [],
+    "for": {"verb": "modifier", "label": "doing it for someone", "hint": "into their store, from it by right or agreement", "aliases": [],
             "basic": True, "modifies": ["gather", "work", "make", "build", "give", "accept", "offer"], "key": "for", "value": "*",
             "changes": {"destination": "party"}, "units": 0, "gives": "", "tags": []},                                     # D2-37, D2-94
     "hidden: under brush": {"verb": "modifier", "label": "hiding something under brush", "aliases": ["hide", "under brush", "brush"],
@@ -782,7 +782,7 @@ TECHNIQUES.update({
     "hidden: buried": {"verb": "modifier", "label": "burying something to hide it", "aliases": ["bury it", "buried", "cache"],
                        "modifies": ["give:place"], "key": "hidden", "value": "buried", "untaught": "tryable",
                        "changes": {"hidden": "buried", "units": 2}, "units": 2, "gives": "", "tags": ["hiding"]},
-    "method: dibble": {"pack": "farming", "verb": "modifier", "label": "dibbling seed (set by hand, seed by seed)", "aliases": ["dibble", "dibbling", "set seed"],
+    "method: dibble": {"pack": "farming", "verb": "modifier", "label": "dibbling seed", "hint": "set by hand, seed by seed", "aliases": ["dibble", "dibbling", "set seed"],
                        "modifies": ["work:sow"], "key": "method", "value": "dibble", "untaught": "no",
                        "changes": {"yield": {"seed": 2.0, "worth": 1.67}, "word": "dibbled"}, "units": 0, "gives": "",
                        "tags": ["farming"], "trade": "farmer"},                                      # D2-54, D2-94: 3x the work, 0.6x the seed
@@ -790,22 +790,22 @@ TECHNIQUES.update({
                       "modifies": ["work:bury"], "key": "method", "value": "cairn", "changes": {"inputs": {"stone": 3}},
                       "units": 2, "gives": "", "tags": ["death"]},                                    # D2-96
     # extravagance in tiers (D2-171): a building or monument built finely, richly or grandly (TIERS: materials and work multiplied)
-    "how: fine": {"verb": "modifier", "label": "building it finely (materials x1.5, work x2; seen from next door)", "aliases": ["finely"],
+    "how: fine": {"verb": "modifier", "label": "building it finely", "hint": "materials x1.5, work x2; seen from next door", "aliases": ["finely"],
                   "basic": True, "modifies": ["build"], "key": "how", "value": "fine", "changes": {"tier": "fine"}, "units": 0,
                   "gives": "", "tags": ["building"]},
-    "how: rich": {"verb": "modifier", "label": "building it richly (materials x2.5, work x4; named to all who come)", "aliases": ["richly"],
+    "how: rich": {"verb": "modifier", "label": "building it richly", "hint": "materials x2.5, work x4; named to all who come", "aliases": ["richly"],
                   "basic": True, "modifies": ["build"], "key": "how", "value": "rich", "changes": {"tier": "rich"}, "units": 0,
                   "gives": "", "tags": ["building"]},
-    "how: grand": {"verb": "modifier", "label": "building it grandly (materials x4, work x8; seen from the road coming in)",
+    "how: grand": {"verb": "modifier", "label": "building it grandly", "hint": "materials x4, work x8; seen from the road coming in",
                    "aliases": ["grandly"], "basic": True, "modifies": ["build"], "key": "how", "value": "grand", "changes": {"tier": "grand"},
                    "units": 0, "gives": "", "tags": ["building"]},
     "bury": {"verb": "work", "label": "burying the dead", "aliases": ["burial", "bury the dead", "bury the body"], "basic": True,
              "at": {"things": ["body", "carcass"]}, "yield": {"kind": "bury"}, "units": 2, "units_by": "bury", "gives": "",
              "tags": ["death"]},                                                  # D2-96; a dead beast too (brief 3 §4)
-    "method: shallow": {"verb": "modifier", "label": "burying it shallow (half the digging; beasts may dig it up)", "aliases": ["shallow"],
+    "method: shallow": {"verb": "modifier", "label": "burying it shallow", "hint": "half the digging; beasts may dig it up", "aliases": ["shallow"],
                         "basic": True, "modifies": ["work:bury"], "key": "method", "value": "shallow", "changes": {}, "units": 0,
                         "gives": "", "tags": ["death"]},
-    "burn": {"verb": "work", "label": "burning a carcass (firewood and work by its size)", "aliases": ["burn the carcass", "burn it",
+    "burn": {"verb": "work", "label": "burning a carcass", "requires": "firewood and work by its size", "aliases": ["burn the carcass", "burn it",
              "burn the dead beast", "burn the beast"], "basic": True, "at": {"things": ["carcass"]}, "yield": {"kind": "burn"}, "units": 2,
              "units_by": "burn", "gives": "", "tags": ["death"]},                 # brief 3 §4
 })
@@ -846,7 +846,8 @@ BLUEPRINTS["camp"].update(clock="day", hours=4)                       # a camp l
 
 # Building and fitting are techniques too, for knowledge (basic or a trade), with their costs in BLUEPRINTS and FITTINGS.
 for _k, _b in list(BLUEPRINTS.items()) + list(FITTINGS.items()) + list(MONUMENTS.items()):
-    TECHNIQUES.setdefault(_k, {"verb": "build", "label": "building " + _b["label"], "aliases": [], "basic": _b.get("basic", False),
+    TECHNIQUES.setdefault(_k, {"verb": "build", "label": "building " + _b["label"], **({"hint": _b["about"]} if _b.get("about") else {}),
+                               "aliases": [], "basic": _b.get("basic", False),
                                "units": _b["units"], "gives": "", "tags": ["building", "shelter"], "trade": _b.get("trade"),
                                **({"pack": _b["pack"]} if _b.get("pack") else {})})
 
@@ -878,6 +879,18 @@ CAPITAL = {
     "hold": ["rooms", "fittings", "monuments", "weir", "fences", "clearing", "works"],   # at today's units until stage 5 (D2-309)
     "floor": 1,                # every act costs at least 1 unit (basis §1; O-2)
     "night": 32 / 365,         # the calendar's factor for a life counted in nights (D2-310)
+}
+
+# The words a person uses in an act for their own hands, their own house and their household's store (W-109, L-189: "to": "my
+# hands" was read as racks called 'my hands', "sleep" at "home" as no building): one table, read by the resolver (here.own_word) and
+# every act that takes them, in place of the tuples each act kept.
+SELF_NAMES = {
+    "hands": ("hands", "hand", "my hands", "your hands", "in hand", "in my hands", "into my hands", "into hands", "me", "myself",
+              "carry", "carried", "carrying", "pack", "inventory", "my inventory", "on me", "with me"),
+    "home": ("home", "my home", "our home", "house", "my house", "our house", "the house", "home house", "my household",
+             "our household", "household", "the household"),
+    "store": ("store", "the store", "our store", "my store", "its store", "household store", "the household store",
+              "our household store"),
 }
 
 PHYSICS = {
@@ -1250,9 +1263,9 @@ TECHNIQUES.update({
                 "values": ["stop", "pass by"]},                                                                      # D4-51
     "gather on the way": {"verb": "modifier", "label": "gathering at good places one passes", "basic": True, "modifies": ["travel"],
                           "key": "gather", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["travel"]},
-    "lead": {"verb": "modifier", "label": "leading a pack ox (an ox of your household's, with a harness)", "basic": True,
+    "lead": {"verb": "modifier", "label": "leading a pack ox", "requires": "an ox of your household's, with a harness", "basic": True,
              "modifies": ["travel"], "key": "lead", "value": "*", "changes": {}, "units": 0, "gives": "", "tags": ["travel", "animals"]},   # D2-136
-    "lead on the hunt": {"verb": "modifier", "label": "leading a pack ox on the hunt, to carry the kill home (an ox here, a harness in hand)",
+    "lead on the hunt": {"verb": "modifier", "label": "leading a pack ox on the hunt, to carry the kill home", "requires": "an ox here, a harness in hand",
                          "basic": True, "pack": "wild", "aliases": [],
                          "modifies": ["gather:hunt the wild", "gather:stalk", "gather:drive"], "key": "lead", "value": "*",
                          "changes": {"units": 1, "lead": True}, "units": 1, "gives": "", "tags": ["hunting", "animals"]},   # brief 4b §3.2

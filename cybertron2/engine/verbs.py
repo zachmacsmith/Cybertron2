@@ -15,6 +15,7 @@ from cybertron2.engine import clocks as CK
 from cybertron2.engine import process as PROC
 from cybertron2.engine.data import CAPITAL
 from cybertron2.engine.data import LIFE as _LIFE
+from cybertron2.engine.data import SELF_NAMES
 
 # The registry (cybertron 1's action_registry): arguments, cost (units, a physics path, or "craft"), the line in the manual, and
 # `when` (only in a world with roads). The prompt's verb list and the reply schema are generated from it.
@@ -2039,9 +2040,9 @@ def _take_down(here, a, party):
     item = item_of(a.get("item")) if a.get("item") and str(a.get("item")).strip().lower() not in ("all", "everything", "it") else None
     to = str(a.get("to") or "").strip()
     dst = None
-    if to.lower() in ("hands", "hand", "me", "carry"):
+    if here.own_word(to) == "hands":                                           # the person's own words (data.SELF_NAMES, L-189)
         dst = "hands"
-    elif to and to.lower() not in ("store", "its store", "the store"):
+    elif to and here.own_word(to) != "store":
         dst = here.building(to)
         if dst is None:
             raise Refused(f"there is no building called {to!r} here")
@@ -2055,8 +2056,7 @@ def _take_down(here, a, party):
     return words
 
 
-HOME_WORDS = ("my household", "our household", "household", "home", "my house", "our house", "the house", "house", "the store",
-              "store", "our store", "my store")
+HOME_WORDS = SELF_NAMES["home"] + SELF_NAMES["store"]                         # one's own house and store (data.SELF_NAMES, L-189)
 RACK_WORDS = ("rack", "the rack", "racks", "the racks", "hearth", "the hearth", "drying rack", "the drying rack", "hearth rack",
               "the hearth rack", "the rack by the hearth", "the racks by the hearth", "the rack at the hearth")
 
@@ -2086,7 +2086,7 @@ def _move_from_store(here, a, src_bid):
     item = item_of(a.get("item") or a.get("what"))
     to = str(a.get("to") or "").strip()
     dst = None
-    if to and to.lower() not in ("hands", "hand", "me", "myself", "carry", "carried", "pack"):
+    if to and here.own_word(to) != "hands":
         dst = here.building(to)
         if dst is None and to.lower() in HOME_WORDS:
             dst = (here.homes_here() or [None])[0]
@@ -2145,7 +2145,7 @@ def _move(here, mind, a, party):
     to = str(a.get("to") or "store").strip().lower()
     at = a.get("at")
     from cybertron2.engine import shapes as SH
-    if SH.on(here) and not at and to not in ("hands", "hand", "me", "myself", "carry", "carried", "pack", "store"):
+    if SH.on(here) and not at and here.own_word(to) != "hands" and to != "store":
         if to in HOME_WORDS:                                                   # "to" a building put into (W-102: "to" was dropped)
             at = None
         elif here.building(to) is not None:
@@ -2160,7 +2160,7 @@ def _move(here, mind, a, party):
                 return _move_from_store(here, {**a, "to": here.buildings()[dst]["name"]}, src)
     bid = _store_here(here, at)
     b = here.buildings()[bid]
-    if to in ("hands", "hand", "me", "myself", "carry", "carried", "pack"):
+    if here.own_word(to) == "hands":
         src, dst, verb, have = b["stock"], here.hands, "took", here.stock(bid).get(item, 0.0)
     else:
         src, dst, verb, have = here.hands, b["stock"], "put", here.carried().get(item, 0.0)
@@ -3181,7 +3181,7 @@ def _order(here, mind, a, party):
     if at:
         _site(here, mind, tech, at)                                           # a place here it can be done
     here.apply("office", inst=hh, field="order", value={"what": tech, "at": at, "node": here.node}, by=here.name)
-    return f"Your household's children will {TECHNIQUES[tech]['label'].split(' (')[0]} each day" + (f" at {at}." if at else ".")
+    return f"Your household's children will {TECHNIQUES[tech]['label']} each day" + (f" at {at}." if at else ".")
 
 
 HANDLERS = {"gather": _gather, "work": _work, "make": _make, "build": _build, "move": _move, "take": _take, "give": _give,

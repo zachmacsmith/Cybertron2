@@ -18,13 +18,39 @@ def basic(tech) -> bool:
 
 
 def label(tech) -> str:
-    return TECHNIQUES[tech]["label"].split(" (")[0]
+    """A craft's name (D2-356: its row's `label` is the name only; what it needs, its hints and the world's words are fields)."""
+    return TECHNIQUES[tech]["label"]
 
 
-def doing(tech) -> str:
-    """What doing a craft does, as both prompts show it (W-109; wave_regressions finding 3): the registry's `does`, else its whole
-    label with its working hint ("a drive (beaters and spears; others with you; dangerous)")."""
-    return str(TECHNIQUES[tech].get("does") or TECHNIQUES[tech]["label"])
+def titled(tech, world=True) -> str:
+    """A craft's name with what it needs (`requires`) and its working hints (`hint`), rendered together (D2-356), as the cards and the
+    old prompt show it: 'milking (a cow in milk)'. `world` adds the row's world words (`world`: what grows, what it gives), which
+    the old prompt carried in its labels and the interface leaves to memory (D5-2)."""
+    t = TECHNIQUES[tech]
+    bits = [t[k] for k in ("requires", "hint", "world") if t.get(k) and (world or k != "world")]
+    return t["label"] + (f" ({'; '.join(bits)})" if bits else "")
+
+
+def named(tech, lvl) -> str:
+    """A craft's name as the interface shows it by level (D2-352, D2-356): aware, the name only; a rough idea, with what it needs;
+    known or capable, with its working hints too; never the world's words (D5-2)."""
+    t = TECHNIQUES[tech]
+    keys = () if lvl in (None, "aware") else ("requires",) if lvl == "rough" else ("requires", "hint")
+    bits = [t[k] for k in keys if t.get(k)]
+    return t["label"] + (f" ({'; '.join(bits)})" if bits else "")
+
+
+def thing_titled(row) -> str:
+    """A fitting's, room's or monument's name with what it is (`about`, D2-356): 'smoke racks (hurdles over a smouldering fire)'."""
+    return row["label"] + (f" ({row['about']})" if row.get("about") else "")
+
+
+def doing(tech, iface=False) -> str:
+    """What doing a craft does (W-109; wave_regressions finding 3): the registry's `does`; else, in the interface, its name (what it
+    needs and its hints are said beside it, by level: D2-352, D2-356), and in the old prompt its name with them ('milking (a cow in
+    milk)')."""
+    d = TECHNIQUES[tech]
+    return str(d.get("does") or (d["label"] if iface else titled(tech)))
 
 
 def resolve(x, verb=None):
@@ -38,7 +64,7 @@ def resolve(x, verb=None):
         return x
     for t in order:
         d = TECHNIQUES[t]
-        if x == t or x in d.get("aliases", []) or x == d["label"].lower() or x == label(t).lower():
+        if x == t or x in d.get("aliases", []) or x == d["label"].lower() or x == titled(t).lower():
             return t
     return None
 
@@ -401,20 +427,22 @@ def shortfall(here, mind, tech, mult=1.0, at=None, extra=None, a=None) -> str:
 
 def card(here, mind, tech) -> str:
     """What one is told about a technique, by one's level of it."""
+    from cybertron2.engine import core as CORE
     t = TECHNIQUES[tech]
     lvl = level(mind, tech)
+    titled_ = (lambda x: named(x, lvl)) if CORE.on(here) else titled  # noqa: E731  the interface by level, no world (D2-352, D5-2)
     if lvl is None:
-        return f"{t['label']}: you know nothing of it"
+        return f"{titled_(tech)}: you know nothing of it"
     r = rec(mind, tech)
     src = f" ({r['source']})" if r and r.get("source") else ""
     places = ", ".join(sorted({x[2] for x in where(here, tech)})) or "nowhere here"
     if lvl == "aware":
-        return f"{t['label']}: you know of it{src}, but not how it is done"
+        return f"{titled_(tech)}: you know of it{src}, but not how it is done"
     ins = inputs_words(t.get("inputs"), t.get("batch")) or "no materials"
     if lvl == "rough":
-        return f"{t['label']}: you have a rough idea{src}: {ins}, done at {places}. You could try (about half the time it works, and it takes more)"
+        return f"{titled_(tech)}: you have a rough idea{src}: {ins}, done at {places}. You could try (about half the time it works, and it takes more)"
     gives = t["gives"] if isinstance(t["gives"], str) else ", ".join(f"{q:g} {i}" for i, q in t["gives"].items())
-    line = f"{t['label']} (`{t['verb']} {tech}`): {ins}, at {places}; {t['units']} units" + (f"; gives {gives}" if gives else "")
+    line = f"{titled_(tech)} (`{t['verb']} {tech}`): {ins}, at {places}; {t['units']} units" + (f"; gives {gives}" if gives else "")
     if lvl == "capable":
         line += f". At your level you use about {TRY['capable']['inputs']:g} times the materials and it works about 3 times in 4"
     return line
@@ -430,7 +458,7 @@ def _place_words(t, commas=False) -> str:
     'on water, fen or meadow' (the interface's, W-109)."""
     at = t.get("at") or {}
     if at.get("fittings"):
-        labs = [FITTINGS.get(f, {}).get("label", f).split(" (")[0].removeprefix("a ").removeprefix("an ").removeprefix("the ")
+        labs = [FITTINGS.get(f, {}).get("label", f).removeprefix("a ").removeprefix("an ").removeprefix("the ")
                 for f in at["fittings"]]
         return "at " + _or((("an " if x[:1] in "aeiou" else "a ") + x for x in labs), commas)
     if at.get("building"):
@@ -455,17 +483,23 @@ def _gives_words(t) -> str:
 
 
 def craft_line(tech, lvl, rec=None, w=None, iface=False) -> str:
+    """A craft as one at `lvl` is shown it: what doing it does, and its level's words in brackets (`craft_parts`)."""
+    lab, inner = craft_parts(tech, lvl, rec, w, iface)
+    return f"{lab} ({inner})"
+
+
+def craft_parts(tech, lvl, rec=None, w=None, iface=False) -> tuple:
     """A craft as one at `lvl` is shown it (D2-263; u3 §4): at known and capable its inputs with their batch, what it gives, its units
     and where; at known also its life and its season (D2-251); at capable the odds and the extra materials; at rough its inputs as
-    the card has them; aware, its name and where one heard of it. Numbers come from the data at the world's factor (`w`). The
+    the card has them; aware, its name and where one heard of it. Returned as (what doing it does, the words in its brackets). Numbers come from the data at the world's factor (`w`). The
     interface (`iface`, W-109) leaves the season out (D5-2: seasons are the world's) and "anywhere", and lists places with commas."""
     from cybertron2.engine import clocks as CK, gear as GE
     t = TECHNIQUES[tech]
-    lab = doing(tech)
+    lab = doing(tech, iface)
     rec = rec or {}
     src = f"{rec['source']}; " if rec.get("source") and lvl in ("rough", "capable") else ""   # whom to ask (finding 3)
     if lvl == "aware":
-        return f"{lab} ({rec.get('source') or 'you know of it'})"
+        return lab, rec.get('source') or 'you know of it'
     ins = t.get("inputs") or {}
     place = _place_words(t, commas=iface)
     gives = _gives_words(t)
@@ -477,7 +511,7 @@ def craft_line(tech, lvl, rec=None, w=None, iface=False) -> str:
         season = f"best in {best}"
     if lvl == "rough":
         body = _ins_words(ins) or "no materials"
-        return f"{lab} ({src}a rough idea: {body}" + (f", {place}" if place != "anywhere" or (ins and not iface) else "") + ")"
+        return lab, f"{src}a rough idea: {body}" + (f", {place}" if place != "anywhere" or (ins and not iface) else "")
     if hours and isinstance(t.get("gives"), dict) and len(t["gives"]) == 1:
         item = next(iter(t["gives"]))
         b = CK.batch_of(t, w)
@@ -503,7 +537,7 @@ def craft_line(tech, lvl, rec=None, w=None, iface=False) -> str:
     if lvl == "capable":
         bits.append(f"works about {int(round(TRY['capable']['chance'] * 4))} times in 4, with about "
                     f"{'a third' if abs(TRY['capable']['inputs'] - 1.3) < 0.05 else str(round((TRY['capable']['inputs'] - 1) * 100)) + '%'} more materials")
-    return f"{lab} ({src}{head}" + (": " + "; ".join(bits) if bits else "") + ")"
+    return lab, f"{src}{head}" + (": " + "; ".join(bits) if bits else "")
 
 
 def crafts_lines(mind, here=None) -> list:
@@ -514,7 +548,7 @@ def crafts_lines(mind, here=None) -> list:
     practised = [f"{label(t)} ({skill_word(r['skill'], t)})" for t, r in sorted(k.items()) if basic(t) and r.get("skill", 1.0) >= 1.1]
     capable = [craft_line(t, "capable", r, w) for t, r in sorted(k.items()) if r["level"] == "capable"]
     rough = [craft_line(t, "rough", r, w) for t, r in sorted(k.items()) if r["level"] == "rough"]
-    aware = [f"{TECHNIQUES[t]['label']} ({r['source']})" for t, r in sorted(k.items()) if r["level"] == "aware"]
+    aware = [f"{titled(t)} ({r['source']})" for t, r in sorted(k.items()) if r["level"] == "aware"]
     basics = ", ".join(label(t) for t in TECHNIQUES if basic(t) and not TECHNIQUES[t].get("modifies"))
     makes = [craft_line(t, "known", None, w) for t in TECHNIQUES if basic(t) and TECHNIQUES[t]["verb"] == "make"
              and (TECHNIQUES[t].get("inputs") or TECHNIQUES[t].get("hours")) and not TECHNIQUES[t].get("modifies")]

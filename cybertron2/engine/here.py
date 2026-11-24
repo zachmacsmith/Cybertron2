@@ -216,12 +216,21 @@ class Here:
     def buildings(self) -> dict:
         return {bid: b for bid, b in self._w.s["buildings"].items() if b["node"] == self.node}
 
+    def own_word(self, x):
+        """What a person's own word in an act names (data.SELF_NAMES, L-189): "hands" | "home" | "store" | None."""
+        from cybertron2.engine.data import SELF_NAMES
+        x = str(x or "").strip().lower()
+        return next((k for k, ws in SELF_NAMES.items() if x in ws), None)
+
     def building(self, x):
-        x = str(x or "").strip().lower().removeprefix("the ").removeprefix("my ").removeprefix("your ")
+        raw = str(x or "").strip().lower()
+        x = raw.removeprefix("the ").removeprefix("my ").removeprefix("your ")
         for bid, b in self.buildings().items():
             nm = b["name"].lower()
             if x in (bid.lower(), nm, nm.removeprefix("the ")):
                 return bid
+        if self.own_word(raw) == "home":                                      # "home", "my house": one's own house here (L-189)
+            return (self.homes_here() or [None])[0]
         if any(x in (p["name"].lower(), p["name"].lower().removeprefix("the ")) for p in self.parcels().values()):
             return None                                                       # a place's own name is the place (u2 §6 bug 5)
         hh = {iid: h for iid, h in self._w.s["institutions"].items() if h["kind"] == "household"}

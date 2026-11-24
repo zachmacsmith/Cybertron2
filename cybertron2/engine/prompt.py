@@ -138,13 +138,24 @@ def _drop_empty_enums(node) -> None:
 
 
 def _craft_note(tech) -> str:
+    inner = craft_note_words(tech)
+    return tech + (f" ({inner})" if inner else "")
+
+
+def craft_note_words(tech) -> str:
+    """The words of the old prompt's note on a craft (in its brackets), joined from its parts (`craft_bits`; D2-356)."""
+    return ("; " if TECHNIQUES[tech]["verb"] == "build" and tech in ROOMS else ", ").join(craft_bits(tech))
+
+
+def craft_bits(tech) -> list:
+    """The old prompt's note on a craft, as its parts (a room's: its floor, then each structure's cost); `_craft_note` joins them."""
     t = TECHNIQUES[tech]
     if t.get("note"):                                                          # a wild method: what it is, no multipliers, no kinds (D2-204)
-        return f"{tech} ({t['note']})"
+        return [t["note"]]
     bits = []
     at = t.get("at") or {}
     if at.get("fittings"):
-        bits.append("at " + " or ".join(FITTINGS[f]["label"] for f in at["fittings"]))
+        bits.append("at " + " or ".join(KN.thing_titled(FITTINGS[f]) for f in at["fittings"]))
     tools = t.get("tools")
     if tools:
         bits.append("bare hands cannot" if "bare" not in tools else f"bare hands x{tools['bare']:g}")
@@ -161,10 +172,11 @@ def _craft_note(tech) -> str:
                     c = BL.room_cost(tech, st)
                     by.append(f"{st}{' (a mason' + chr(39) + 's)' if st == 'stone' else ''}: " + ", ".join(f"{q:g} {i}" for i, q in c["materials"].items())
                               + f", {c['units']:g} units")
-            return tech + f" ({r['floor']} spaces of floor; " + "; ".join(by) + ")"
+            return [f"{r['floor']} spaces of floor"] + by
         b = BLUEPRINTS.get(tech) or FITTINGS.get(tech) or MONUMENTS.get(tech)
         f = FITTINGS.get(tech) or {}
-        bits.append(", ".join(f"{q:g} {i}" for i, q in b["materials"].items()) + (f" a {b['per']}" if b.get("per") else "") + f", {b['units']} units of work")
+        mats = ", ".join(f"{q:g} {i}" for i, q in b["materials"].items()) + (f" a {b['per']}" if b.get("per") else "")
+        bits.append(", ".join(x for x in (mats, f"{b['units']} units of work") if x))
         if f:
             sp = int(f.get("spaces", 0)) - int(f.get("room", 0))
             bits.append(f"{int(f.get('spaces', 0))} space{'s' if f.get('spaces') != 1 else ''} of floor" + (f" a {f['per']}" if f.get("per") else "")
@@ -183,7 +195,7 @@ def _craft_note(tech) -> str:
             bits.append(f"only in a building at or beside a {f['spring']} spring")
     if t.get("manual"):                                                        # how it is done, for those who know it (brief 5 §6)
         bits.append(t["manual"])
-    return tech + (f" ({', '.join(bits)})" if bits else "")
+    return bits
 
 
 def _verb_extra(here, v, args, doc):
