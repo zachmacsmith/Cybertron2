@@ -29,7 +29,16 @@ ARGS = {"sow": {"item": "grain", "qty": 2}}  # what a technique needs said to be
 SITUATIONAL = ("not ripe", "has a crop in it", "say which", "you have 0.0 to hand", "there is no dung", "nowhere here",
                "sown as thick", "say whose", "needs", "no gate", "no fence", "nothing to", "no one lying", "not wet ground",
                "not hill ground", "is sound", "no ripe crop", "need a tool", "no dead beast", "no strip of", "strip is dug on",
-               "you hold no plots", "in hand", "no line to fish with", "here you can use")
+               "you hold no plots", "no line to fish with", "here you can use")
+
+
+def situational(r: str) -> bool:
+    """A refusal that is the moment or the inputs, not a shut gate. Gear or inputs wanted in hand count only where the refusal says
+    the person can get them: inputs to bring ("takes ... in hand") or gear they can make ("are made: make ..."); "no traps in hand"
+    with no one able to make them is a shut gate (wave_regressions.md findings 1, 9; W-111)."""
+    if any(k in r for k in SITUATIONAL):
+        return True
+    return "in hand" in r and (" takes " in r or "are made: make" in r)
 
 
 def _ok(out: str) -> bool:
@@ -114,9 +123,9 @@ def summary(res: dict) -> dict:
     works = {node: sorted(t for t, r in g.items() if _ok(r["result"])) for node, g in res["gates"].items()}
     anywhere = set().union(*works.values()) if works else set()
     every = set(t for g in res["gates"].values() for t in g)
-    situational = {t for g in res["gates"].values() for t, r in g.items() if any(k in r["result"] for k in SITUATIONAL)}
+    moment = {t for g in res["gates"].values() for t, r in g.items() if situational(r["result"])}
     nowhere = every - anywhere
-    return {"works": works, "shut everywhere": sorted(nowhere - situational), "only the moment or inputs": sorted(nowhere & situational),
+    return {"works": works, "shut everywhere": sorted(nowhere - moment), "only the moment or inputs": sorted(nowhere & moment),
             "crashes": [(n, t, r["result"]) for n, g in res["gates"].items() for t, r in g.items() if r["result"].startswith("CRASH")],
             "roads refused": [(r["from"], r["to"], r["as"], r["result"]) for r in res["roads"] if not _ok(r["result"])]}
 
@@ -214,20 +223,17 @@ def _source_within(w, nodes, ms, good, depth=0) -> bool:
 
 def _first_run_day(w) -> int | None:
     """The first ecology day a run's window opens from today (the fisher's year), or None without runs."""
-    try:
-        from cybertron2.engine import wild as WL
-        from cybertron2.wild import runs as RU
-        if not WL.on(w) or not (w.s.get("wild") or {}).get("state"):
-            return None
-        m = WL.model(w)
-        if not RU.active(m):
-            return None
-        d0 = WL.eco_day(w)
-        for j in range(int(w.year_days()) + 1):
-            if any(RU._window(m, d0 + j, r["seasons"])[0] for r in RU.runners_of(m).values()):
-                return j
-    except Exception:
+    from cybertron2.engine import wild as WL                           # a failure here raises: M3 is never skipped silently (W-111)
+    from cybertron2.wild import runs as RU
+    if not WL.on(w) or not (w.s.get("wild") or {}).get("state"):
         return None
+    m = WL.model(w)
+    if not RU.active(m):
+        return None
+    d0 = WL.eco_day(w)
+    for j in range(int(w.year_days()) + 1):
+        if any(RU._window(m, d0 + j, r["seasons"])[0] for r in RU.runners_of(m).values()):
+            return j
     return None
 
 
@@ -282,7 +288,7 @@ def making_gates(w, spec=None) -> list:
             if units > spare:
                 out.append(Finding("M3", "warn", village, iid, f"{name}: {short} {GE.plural(item)} needed by the first run in {first} days; "
                                                               f"about {units} units to make them, the {season} rods at {cut:g} bundles a unit"))
-        cuts = any(TECHNIQUES[t].get("tools") for t in crafts) or True                                  # M4: everyone cuts withies
+        cuts = True                                                                                   # M4: everyone cuts withies
         stone = any(par["node"] in nodes and "quarry" in par["res"] for par in w.s["parcels"].values()) or \
             any(b["node"] in nodes and float(w.goods(b["stock"]).get("stone", 0.0)) >= 0.04 for b in w.s["buildings"].values())
         if on("M4") and cuts and not stone:
@@ -354,7 +360,7 @@ def probe_making(w) -> list:
                     r = V.do(Here(w2, who), Mind(w2, who), {"do": "make", "what": tech})
             except Exception as e:                                             # noqa: BLE001 (a crash is a finding)
                 r = f"CRASH {type(e).__name__}: {e}"
-            if r.startswith("CRASH") or (r.startswith("Refused") and not any(k in r for k in SITUATIONAL + ("spring", "racks", "full"))):
+            if r.startswith("CRASH") or (r.startswith("Refused") and not (situational(r) or any(k in r for k in ("spring", "racks", "full")))):
                 out.append(Finding("M8", "report", w.s["nodes"][nid]["name"], None, f"{KN.label(tech)}: {r[:200]}"))
     return out
 

@@ -168,6 +168,44 @@ def check(world: dict, probe=True) -> dict:
     return rep
 
 
+def waivers(world: dict) -> dict:
+    """The checks a world waives, each with its reason (`gate: {waive: {P20: "why"}}`): a waived refusal is not run silently but
+    listed at the run's start and in its record (W-111 §4). A waiver without a reason is refused."""
+    w = (world.get("gate") or {}).get("waive") or {}
+    if not isinstance(w, dict):
+        raise ValueError("gate.waive is a map of check to reason, e.g. {P20: \"the graded goal line, D5-1\"}")
+    bad = sorted(k for k, v in w.items() if not str(v or "").strip())
+    if bad:
+        raise ValueError(f"gate.waive: no reason given for {', '.join(bad)}")
+    return {str(k): str(v) for k, v in w.items()}
+
+
+def at_start(world: dict) -> dict:
+    """The gate at a run's start (Q-100, W-111 §4): the people and making checks (no dry probe), with the world's waivers applied.
+    Returns the report with "waived" (the refusals the world waives, with their reasons) and the verdict over what is left."""
+    rep = check(world, probe=False)
+    wv = waivers(world)
+    rep["waived"] = [{**x, "reason": wv[x["check"]]} for x in rep["refuse"] if x["check"] in wv]
+    rep["refuse"] = [x for x in rep["refuse"] if x["check"] not in wv]
+    rep["verdict"] = "refuse" if rep["refuse"] else "pass"
+    return rep
+
+
+def start_line(rep: dict | None, ungated=False) -> str:
+    """One line for the run's start: what the gate found, and what was waived or overridden."""
+    if rep is None:
+        return "gate: not checked (no person in this run acts by a model)"
+    by = {}
+    for x in rep.get("waived") or []:
+        by.setdefault(x["check"], (x["reason"], []))[1].append(x)
+    w = "; ".join(f"{c} x{len(xs)} waived ({r})" for c, (r, xs) in sorted(by.items()))
+    if rep["verdict"] == "pass":
+        return "gate: pass" + (f"; {w}" if w else "")
+    n = sorted({x["check"] for x in rep["refuse"]})
+    return (f"WARNING: gate: UNGATED: {len(rep['refuse'])} refusals run anyway ({', '.join(n)})" if ungated else
+            f"gate: refuse ({', '.join(n)})") + (f"; {w}" if w else "")
+
+
 def main(argv=None) -> int:
     from cybertron2.engine.world import load_spec
     argv = argv or sys.argv[1:]

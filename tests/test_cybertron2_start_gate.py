@@ -1,0 +1,80 @@
+"""The gate at a run's start (W-111 §4, Q-100): a world the gate check refuses is not run where anyone acts by a model, unless the
+world waives the check with a reason or the run is started --ungated, and the run's first lines say which."""
+import contextlib
+import io
+
+import pytest
+
+from cybertron2.engine import run as R
+from cybertron2.engine.world import load_spec
+from cybertron2.landgen import gate_check as GC
+
+SPEC = "cybertron2/specs/valley_s5.yaml"          # a world from before the wave: no livelihood rows, no beliefs view (P3, P2, P21)
+
+
+def _spec(model="claude-test"):
+    s = load_spec(SPEC)
+    for a in s["agents"].values():
+        if a.get("model"):
+            a["model"] = model
+    return s
+
+
+def _quiet(f, *a, **k):
+    with contextlib.redirect_stdout(io.StringIO()) as out:
+        r = f(*a, **k)
+    return r, out.getvalue()
+
+
+def test_waiver_needs_a_reason():
+    with pytest.raises(ValueError, match="no reason"):
+        GC.waivers({"gate": {"waive": {"P20": ""}}})
+    with pytest.raises(ValueError):
+        GC.waivers({"gate": {"waive": ["P20"]}})
+    assert GC.waivers({}) == {}
+
+
+def test_a_refused_world_is_refused_at_the_start():
+    s = _spec()
+    with pytest.raises(SystemExit, match="gate check refuses"):
+        _quiet(R.start_gate, s)
+
+
+def test_waived_checks_are_listed_not_silent():
+    s = _spec()
+    rep = GC.at_start(s)
+    checks = sorted({x["check"] for x in rep["refuse"]})
+    assert checks, "the old world is expected to be refused by some check"
+    s["gate"] = {"waive": {c: "a world from before the wave (test)" for c in checks}}
+    g, out = _quiet(R.start_gate, s)
+    assert g["verdict"] == "pass" and not g["ungated"]
+    assert {x["check"] for x in g["waived"]} == set(checks)
+    assert out.startswith("gate: pass;") and "waived (a world from before the wave (test))" in out
+
+
+def test_ungated_runs_and_says_so():
+    g, out = _quiet(R.start_gate, _spec(), ungated=True)
+    assert g["ungated"] and g["refuse"]
+    assert out.startswith("WARNING: gate: UNGATED:")
+
+
+def test_no_model_calls_no_check():
+    g, out = _quiet(R.start_gate, _spec(model="bot"))
+    assert g["verdict"] == "not checked" and out.startswith("gate: not checked")
+
+
+def test_run_refuses_before_writing(tmp_path, monkeypatch):
+    monkeypatch.setattr(R, "load_spec", lambda p: _spec())
+    with pytest.raises(SystemExit):
+        _quiet(R.run, SPEC, tmp_path / "out", days=1)
+    assert not (tmp_path / "out").exists()
+
+
+def test_gear_wanted_in_hand_is_a_shut_gate_unless_it_can_be_had():
+    from cybertron2.landgen import gates as G
+    assert not G.situational("Refused: gather: You have no wicker traps in hand.")
+    assert G.situational("Refused: gather: You have no wicker traps in hand (wicker traps are made: make making wicker traps)")
+    assert G.situational("Refused: work: mending the pan takes 1 copper in hand")
+    res = {"gates": {"a": {"trap in water": {"result": "Refused: gather: You have no wicker traps in hand."},
+                           "angle": {"result": "You took 1.2 fish at the Mere."}}}, "roads": []}
+    assert G.summary(res)["shut everywhere"] == ["trap in water"]

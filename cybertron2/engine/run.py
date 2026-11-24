@@ -800,12 +800,33 @@ def settings_line(spec) -> str:
     return line + (f"\nWARNING: standard settings off in this world: {', '.join(off)}" if off else "")
 
 
-def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, seed=None, until=None, mode="start", responders=None):
+def start_gate(spec, ungated=False) -> dict:
+    """The gate check before a new run in which anyone acts by a model (Q-100, W-111 §4): a world it refuses is not run, unless the
+    world waives the check with a reason (`gate.waive`) or the run is started --ungated; either way the run's first lines and its
+    run.json say so. A run with no model calls (bots, people at the keyboard) is not checked, and says that."""
+    from cybertron2.landgen import gate_check as GC
+    paid = any(a.get("model") not in (None, "bot", "human") for a in (spec.get("agents") or {}).values())
+    rep = GC.at_start(spec) if paid else None
+    line = GC.start_line(rep, ungated)
+    print(line, flush=True)
+    if rep and rep["verdict"] == "refuse" and not ungated:
+        for x in rep["refuse"]:
+            print(f"  refuse {x['check']:6} {x['text']}", flush=True)
+        raise SystemExit("the gate check refuses this world (above): fix it, waive a check in the world file with its reason "
+                         "(gate: {waive: {P20: \"why\"}}), or start the run --ungated")
+    return {"line": line, "verdict": rep["verdict"] if rep else "not checked", "ungated": bool(ungated and rep and rep["verdict"] == "refuse"),
+            "refuse": [x["text"] for x in rep["refuse"]] if rep else [],
+            "waived": [{"check": x["check"], "reason": x["reason"], "text": x["text"]} for x in rep["waived"]] if rep else []}
+
+
+def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, seed=None, until=None, mode="start", responders=None,
+        ungated=False):
     """mode "start": a new run from a world file; "resume": go on with the run in out_dir from its journal (every answered request
     reused, the first step not committed run again live); "replay": play the run in out_dir again from its record alone, in a
     scratch copy, checking every committed step's state against its checkpoint, and return what was found. `until`: pause after
     that step's commit (execution.md)."""
     out = Path(out_dir)
+    gate = None
     if mode == "start":
         spec = load_spec(spec_path)
         if seed is not None:
@@ -823,12 +844,14 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                     a["model"] = "bot"
         for name, who in (responders or {}).items():                        # --as NAME=human|bot|model:<id>
             spec["agents"][name]["model"] = who.split(":", 1)[1] if who.startswith("model:") else who
+        gate = start_gate(spec, ungated)
     else:
         src = Path(out_dir) / "run.db"
         if not src.exists():
             raise SystemExit(f"{src}: no journal to {mode} from")
         spec = json.loads(dict(JN.read(src, "SELECT key, value FROM meta"))["spec"])
         backend = backend or json.loads((Path(out_dir) / "run.json").read_text()).get("backend")
+        gate = json.loads((Path(out_dir) / "run.json").read_text()).get("gate")             # the gate as it stood at the start
         if mode == "continue":
             at = json.loads(dict(JN.read(src, "SELECT key, value FROM meta"))["continue"])["at"]
             restored = JN.checkpoint(src, at)
@@ -859,7 +882,7 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
     backend = backend or os.environ.get("LLM_BACKEND") or "claude_code"
     out.mkdir(parents=True, exist_ok=True)
     systems = {n: PR.system_prompt(Here(w, n), Mind(w, n)) for n in w.agents_acting()}
-    (out / "run.json").write_text(json.dumps({"spec": spec, "backend": backend, "systems": systems,
+    (out / "run.json").write_text(json.dumps({"spec": spec, "backend": backend, "systems": systems, "gate": gate,
                                               "models": {n: a["model"] for n, a in w.s["people"].items()}}, indent=1))
     files = {k: open(out / f"{k}.jsonl", "a" if mode == "resume_last" else "w") for k in ("turns", "days", "perception", "memory")}
     conv = Conversations(out, chunk=int((spec.get("memory") or {}).get("chunk", 3)), backend=backend)
@@ -871,6 +894,7 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
         J.start(spec, w.seed, {n: (a["model"] if a.get("model") in (None, "bot") else f"model:{a['model']}") for n, a in w.s["people"].items()})
         J.until = until
         J.meta("capacity", day0_capacity(spec))                            # the run's own baseline (D4-103; economic_calibration G)
+        J.meta("gate", gate)                                               # what the gate found at the start (W-111 §4)
     elif mode in ("continue", "resume_last"):
         J.until = until
         if mode == "resume_last":                                           # the steps committed after that day replayed from the record
@@ -1218,6 +1242,8 @@ def main(argv=None):
     r.add_argument("--seed", type=int)
     r.add_argument("--until", help="pause after this step's commit, e.g. d10.memory")
     r.add_argument("--as", dest="as_", action="append", default=[], help="NAME=human|bot|model:<id>")
+    r.add_argument("--ungated", action="store_true", help="run a world the gate check refuses (said in the run's first lines and "
+                   "its record)")
     g = sub.add_parser("resume")
     g.add_argument("run")
     g.add_argument("--until")
@@ -1292,7 +1318,7 @@ def main(argv=None):
     args = ap.parse_args(argv)
     if args.cmd == "run":
         print(run(args.spec, args.out, args.backend, args.days, args.workers, args.bots, args.seed, until=args.until,
-                  responders=dict(a.split("=", 1) for a in args.as_)))
+                  responders=dict(a.split("=", 1) for a in args.as_), ungated=args.ungated))
     elif args.cmd == "resume":
         print(run(None, args.run, args.backend, workers=args.workers, until=args.until,
                   mode="resume_last" if args.from_last else "resume"))
