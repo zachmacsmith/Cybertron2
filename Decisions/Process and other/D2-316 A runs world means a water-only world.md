@@ -26,6 +26,7 @@ conversation (23 Nov: "by runs only what I really care about is water only. ... 
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
 - [[U11 Worlds and gates livelihoods as data, capital matched to memory…|U11 Worlds and gates: livelihoods as data, capital matched to memory…]]
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
+- [[The waters made general resident fish from the land, runs on…|The waters made general: resident fish from the land, runs on…]]
 - [[Live run 1 the plan (D2-333, D2-334, D2-335)|Live run 1: the plan (D2-333, D2-334, D2-335)]]
 - [[Where live run 1's spring gap lies (set B, the rebuilt arm)|Where live run 1's spring gap lies (set B, the rebuilt arm)]]
 - [[Brief build stage 2, taking and making (thread W-98)|Brief: build stage 2, taking and making (thread W-98)]]

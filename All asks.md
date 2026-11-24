@@ -1,6 +1,8 @@
 # All asks
 
 ## Open
+- [[Q-99 How much of the waters made general comes before live run 2|How much of the waters made general comes before live run 2 (Q-99)]] (open)
+- [[Q-98 One clock for the water's food before anything is sized|One clock for the water's food before anything is sized (Q-98)]] (open)
 - [[Q-97 Hollinford without leather|Hollinford without leather (Q-97)]] (open)
 - [[Q-96 Whether the drop step for a second living should cut its lines only…|Whether the drop step for a second living should cut its lines only… (Q-96)]] (open)
 - [[Q-95 Whether a capable second-living trader gets the capable trader lines|Whether a capable second-living trader gets the capable trader lines (Q-95)]] (open)

@@ -23,5 +23,7 @@ conversation (23 Nov: "I agree with both an and b")
 
 ## Mentioned by
 - [[Q-91 How a water-only village is made able to last the year|How a water-only village is made able to last the year (Q-91)]]
+- [[Q-98 One clock for the water's food before anything is sized|One clock for the water's food before anything is sized (Q-98)]]
+- [[The waters made general resident fish from the land, runs on…|The waters made general: resident fish from the land, runs on…]]
 - [[Brief the waters calibrated across many generated environments…|Brief: the waters calibrated across many generated environments…]]
 - [[The waters swept across 51 generated environments (W-108, agent A)|The waters swept across 51 generated environments (W-108, agent A)]]

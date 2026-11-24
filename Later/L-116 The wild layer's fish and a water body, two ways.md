@@ -26,6 +26,7 @@ updated: "2026-11-23"
 ## Mentioned by
 - [[W-56 One fish stock per water body, the engine half|One fish stock per water body, the engine half (W-56)]]
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
+- [[The waters made general resident fish from the land, runs on…|The waters made general: resident fish from the land, runs on…]]
 - [[Brief the waters calibrated across many generated environments…|Brief: the waters calibrated across many generated environments…]]
 - [[The waters' mechanisms general, or fitted to the test worlds…|The waters' mechanisms: general, or fitted to the test worlds?…]]
 - [[The waters swept across 51 generated environments (W-108, agent A)|The waters swept across 51 generated environments (W-108, agent A)]]
