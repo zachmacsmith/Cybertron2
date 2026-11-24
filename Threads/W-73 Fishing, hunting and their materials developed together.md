@@ -60,6 +60,10 @@ started
 - under it: [[Q-84 The building scale|The building scale (Q-84)]] (closed)
 - under it: [[Q-87 Whether the passing-on seeded line for heads and parents|Whether the passing-on seeded line for heads and parents (Q-87)]] (open)
 - under it: [[Q-88 Whether a chore that yields a trivial amount|Whether a chore that yields a trivial amount (Q-88)]] (open)
+- under it: [[Q-93 The livelihood lines' defaults taken|The livelihood lines' defaults taken (Q-93)]] (open)
+- under it: [[Q-94 Whether a head at the 20-line cap lets a base line go before the gate…|Whether a head at the 20-line cap lets a base line go before the gate… (Q-94)]] (open)
+- under it: [[Q-95 Whether a capable second-living trader gets the capable trader lines|Whether a capable second-living trader gets the capable trader lines (Q-95)]] (open)
+- under it: [[Q-96 Whether the drop step for a second living should cut its lines only…|Whether the drop step for a second living should cut its lines only… (Q-96)]] (open)
 - under it: [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]] (done)
 - under it: [[W-77 Design wave part 1, the physical basis|Design wave part 1, the physical basis (W-77)]] (done)
 - under it: [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]] (done)
@@ -70,8 +74,8 @@ started
 - under it: [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]] (done)
 - under it: [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]] (waiting)
 - under it: [[W-85 The wave's integrated design|The wave's integrated design (W-85)]] (active)
-- under it: [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]] (active)
-- under it: [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]] (waiting)
+- under it: [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]] (done)
+- under it: [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]] (active)
 - under it: [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]] (waiting)
 
 
@@ -104,6 +108,10 @@ started
 - [[Q-84 The building scale|The building scale (Q-84)]]
 - [[Q-87 Whether the passing-on seeded line for heads and parents|Whether the passing-on seeded line for heads and parents (Q-87)]]
 - [[Q-88 Whether a chore that yields a trivial amount|Whether a chore that yields a trivial amount (Q-88)]]
+- [[Q-93 The livelihood lines' defaults taken|The livelihood lines' defaults taken (Q-93)]]
+- [[Q-94 Whether a head at the 20-line cap lets a base line go before the gate…|Whether a head at the 20-line cap lets a base line go before the gate… (Q-94)]]
+- [[Q-95 Whether a capable second-living trader gets the capable trader lines|Whether a capable second-living trader gets the capable trader lines (Q-95)]]
+- [[Q-96 Whether the drop step for a second living should cut its lines only…|Whether the drop step for a second living should cut its lines only… (Q-96)]]
 - [[W-67 Extending the wildlife economy|Extending the wildlife economy (W-67)]]
 - [[W-72 Signs of the river|Signs of the river (W-72)]]
 - [[W-74 The crafts and techniques design evaluated|The crafts and techniques design evaluated (W-74)]]
@@ -112,9 +120,5 @@ started
 - [[W-78 Design wave part 4, the people|Design wave part 4, the people (W-78)]]
 - [[W-79 Design wave, conflicts and consistency|Design wave, conflicts and consistency (W-79)]]
 - [[W-80 Design wave part 3a, keeping|Design wave part 3a, keeping (W-80)]]
-- [[W-81 Design wave part 3b, taking|Design wave part 3b, taking (W-81)]]
-- [[W-82 The building clock's first stage read with bots|The building clock's first stage read with bots (W-82)]]
-- [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
-- [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]
-- … and 48 more
+- … and 52 more
 - *and 7 index or audit notes*

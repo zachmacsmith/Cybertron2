@@ -1,6 +1,10 @@
 # All asks
 
 ## Open
+- [[Q-96 Whether the drop step for a second living should cut its lines only…|Whether the drop step for a second living should cut its lines only… (Q-96)]] (open)
+- [[Q-95 Whether a capable second-living trader gets the capable trader lines|Whether a capable second-living trader gets the capable trader lines (Q-95)]] (open)
+- [[Q-94 Whether a head at the 20-line cap lets a base line go before the gate…|Whether a head at the 20-line cap lets a base line go before the gate… (Q-94)]] (open)
+- [[Q-93 The livelihood lines' defaults taken|The livelihood lines' defaults taken (Q-93)]] (open)
 - [[Q-92 W-102's four defaults taken while fixing the prompt's shapes, never…|W-102's four defaults taken while fixing the prompt's shapes, never… (Q-92)]] (open)
 - [[Q-90 The signs design's eight choices|The signs design's eight choices (Q-90)]] (open)
 - [[Q-88 Whether a chore that yields a trivial amount|Whether a chore that yields a trivial amount (Q-88)]] (open)

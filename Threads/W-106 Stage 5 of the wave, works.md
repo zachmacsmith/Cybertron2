@@ -1,15 +1,15 @@
 ---
 id: W-106
 kind: thread
-state: waiting
-updated: "2026-11-23"
+state: active
+updated: "2026-11-24"
 ---
 
 # Stage 5 of the wave, works (W-106)
 
-*waiting · 37.2 · touched 23 Nov (1 day ago)*
+*active · 37.2 · touched 24 Nov (today)*
 
-> **Next:** after [[W-105 The founders' seeded lines for every built livelihood|W-105]] merges: the stage 5 brief, with the audit's additions (G24, G45 to G49); then stage 5b ([[W-107 Stage 5b of the wave, the gaps closed|W-107]])
+> **Next:** the stage 5 brief and builder (branch w85-s5-works)
 
 ## What it is
 Stage 5 of the wave, works (build_plan.md): u7's hold released in stages, clearing a plot at a time, border fences in sections, site material in the work, turf or brush roofs, a build act costs what is left, Hollinford built without leather; then live run 2 ([[D2-345 Zach's go for stage 5|D2-345]])

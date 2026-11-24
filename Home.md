@@ -26,11 +26,11 @@
 - [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]]: closed by agent
 - [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]: closed by agent
 - [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]: closed by agent
+- [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]]: closed by agent
 - [[W-39 The economy's web of dependence and how far it should reach|The economy's web of dependence and how far it should reach (W-39)]]: revisit: kept open on purpose (Zach, 20 Nov: 'this should be another thread of its own purposefully kept open')
 - [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]: closed by agent
 - [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]: closed by agent
 - [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]: revisit: soon (Zach, 20 Nov: something I want to revisit soon)
-- [[W-70 Verbs and livelihood archetypes, before the engine rework|Verbs and livelihood archetypes, before the engine rework (W-70)]]: revisit: soon (Zach, 20 Nov: 'that one sooner')
 
 ## Active threads (20)
 
@@ -55,8 +55,8 @@
   next: the build continues under W-105 to W-107; live run 2 after stage 5b
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]  
   next: survey and design written (c101c75d); 37.2 reviewed the counts; eight design questions and seven survey…
-- [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]]  
-  next: builder agent on branch w105-lines in /home/user/c2-lines; then 37.2 reviews and merges
+- [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]  
+  next: the stage 5 brief and builder (branch w85-s5-works)
 - [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]]  
   next: two agents: the calibration sweep, and an independent read of the code's generality; then 37.2 brings Zach…
 
@@ -77,7 +77,7 @@
 - [[W-57 The lake runs' seven engine faults|The lake runs' seven engine faults (W-57)]]  
   next: merge (Zach), a bot run to measure the new rows' chances, item 9 after W-56
 
-## Waiting threads (14)
+## Waiting threads (13)
 
 **37.2**
 - [[W-25 Keeping each world's full 150 m land with it|Keeping each world's full 150 m land with it (W-25)]]  
@@ -96,8 +96,6 @@
   next: the A/B replays it holds (L-177's conditional-rule example)
 - [[W-101 Live run 1 two sets of small runs|Live run 1: two sets of small runs (W-101)]]  
   next: Zach: whether a water-only village should last the year or the spring gap is the point; then the after-runs…
-- [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]  
-  next: after W-105 merges: the stage 5 brief, with the audit's additions (G24, G45 to G49); then stage 5b (W-107)
 - [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]]  
   next: after stage 5 (W-106) merges: a brief and builder for each part
 

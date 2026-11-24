@@ -1,13 +1,13 @@
 ---
 id: W-105
 kind: thread
-state: active
-updated: "2026-11-23"
+state: done
+updated: "2026-11-24"
 ---
 
 # The founders' seeded lines for every built livelihood (W-105)
 
-*active · 37.2 · touched 23 Nov (1 day ago)*
+*done, by agent (provisional) · 37.2 · touched 23 Nov (1 day ago)*
 
 > **Next:** builder agent on branch w105-lines in /home/user/c2-lines; then 37.2 reviews and merges
 
@@ -15,7 +15,7 @@ updated: "2026-11-23"
 The founders' seeded lines for every built livelihood: the farmer, herder, hunter, smith, miller, builder, woodsman, basket maker, cord and nets, trader and cottager sets of u9 §5.5, the two missing fisher lines (FI13, FI14) and a neighbour line for each; fowler and tanner stay deferred ([[D2-318 Fowling is postponed from this wave to the hunting build-out|D2-318]], [[D2-327 Tanning and leather are deferred from this wave until the rest is…|D2-327]])
 
 ## Done so far, and what is left
-started
+done 24 Nov: merged 0a679adc: every built livelihood's founders' lines read from the engine (117 templates), keeper lines for every holding, HH2, HH4, PE3; a test that every wanted id has a template; Eelmouth unchanged; suite 858 passed, 2 skipped; its asks [[Q-93 The livelihood lines' defaults taken|Q-93]] to [[Q-96 Whether the drop step for a second living should cut its lines only…|Q-96]] moved to [[W-73 Fishing, hunting and their materials developed together|W-73]]
 
 
 ## Linked
@@ -34,7 +34,7 @@ started
 - [[W-83 Design wave part 2, materials and making|Design wave part 2, materials and making (W-83)]]
 - [[W-84 Behaviour steered by defaults, examples and wording|Behaviour steered by defaults, examples and wording (W-84)]]
 - [[W-85 The wave's integrated design|The wave's integrated design (W-85)]]
-- [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]
+- [[L-183 The gate check checks only building holdings|The gate check checks only building holdings (L-183)]]
 - [[Brief the founders' seeded lines for every built livelihood (thread…|Brief: the founders' seeded lines for every built livelihood (thread…]]
 - [[Report the founders' seeded lines for every built livelihood (thread…|Report: the founders' seeded lines for every built livelihood (thread…]]
 - *and 1 index or audit notes*

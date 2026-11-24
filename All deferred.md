@@ -1,6 +1,9 @@
 # All deferred
 
 ## Open
+- [[L-184 Founders' lines written and waiting on a built thing|Founders' lines written and waiting on a built thing (L-184)]] (open)
+- [[L-183 The gate check checks only building holdings|The gate check checks only building holdings (L-183)]] (open)
+- [[L-182 The elders' line|The elders' line (L-182)]] (open)
 - [[L-181 Designed but sent later by the design itself|Designed but sent later by the design itself (L-181)]] (open)
 - [[L-180 Signs to design before building|Signs to design before building (L-180)]] (open)
 - [[L-179 Every take's line says 'food worth about 1 meal' at the least|Every take's line says 'food worth about 1 meal' at the least (L-179)]] (open)
