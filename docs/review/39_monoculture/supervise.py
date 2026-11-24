@@ -36,6 +36,16 @@ def days_done(out):
         return 0
 
 
+def extinct(out):
+    """The last day's line says nobody is alive."""
+    try:
+        lines = open(out + ".log").read().splitlines()
+    except OSError:
+        return False
+    last = next((l for l in reversed(lines) if l.startswith("day ")), "")
+    return " alive 0," in last
+
+
 def days_wanted(out):
     try:
         return int((json.load(open(os.path.join(out, "run.json"))).get("spec") or {}).get("days") or 0) or 200
@@ -66,6 +76,13 @@ def main():
             time.sleep(60)
             continue
         done, want = days_done(out), days_wanted(out)
+        if extinct(out):                                                # everyone dead: the engine ends the run; so does this
+            log(f"{name}: everyone has died (day {done}); publishing")
+            subprocess.run([sys.executable, "-m", "cybertron2.engine", "publish", out, "--push", "--staging",
+                            f"/home/user/mono1/staging_{name}"], cwd=REPO, env=dict(os.environ, HF_HUB_DISABLE_XET="1"),
+                           stdout=open(out + ".log", "a"), stderr=subprocess.STDOUT)
+            log(f"{name}: published")
+            return
         if done >= want:
             log(f"{name}: finished ({done} days); publishing")
             subprocess.run([sys.executable, "-m", "cybertron2.engine", "publish", out, "--push", "--staging",
