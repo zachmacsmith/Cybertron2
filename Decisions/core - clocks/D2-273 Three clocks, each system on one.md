@@ -42,4 +42,5 @@ conversation (22 Nov: "conversation (22 Nov: "make principled distinctions betwe
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
 - [[The waters' ecosystems by environment, and a calibration on one clock…|The waters' ecosystems by environment, and a calibration on one clock…]]
 - [[The waters' mechanisms general, or fitted to the test worlds…|The waters' mechanisms: general, or fitted to the test worlds?…]]
+- [[Survey A the world's physics against the patterns (W-110)|Survey A: the world's physics against the patterns (W-110)]]
 - *and 5 index or audit notes*

@@ -34,5 +34,7 @@ names in [[D4-103 The engine overhaul goes ahead, in phases|D4-103]]'s records
 - [[02zp · Ecosystems that interact a deep dive, with models on…|02zp · Ecosystems that interact: a deep dive, with models on…]]
 - [[02zv the wild layer consolidated core engine changes, content…|02zv: the wild layer consolidated: core engine changes, content…]]
 - [[Crafts and techniques what the design meant to be, how it held up…|Crafts and techniques: what the design meant to be, how it held up…]]
+- [[Survey A the world's physics against the patterns (W-110)|Survey A: the world's physics against the patterns (W-110)]]
+- [[Survey C people and society against the patterns (W-110)|Survey C: people and society against the patterns (W-110)]]
 - [[38.63 The engine overhaul, phases 1 and 2 what was built, the…|38.63: The engine overhaul, phases 1 and 2: what was built, the…]]
 - [[38.64 The engine overhaul after phases 1 and 2 how the general…|38.64: The engine overhaul after phases 1 and 2: how the general…]]

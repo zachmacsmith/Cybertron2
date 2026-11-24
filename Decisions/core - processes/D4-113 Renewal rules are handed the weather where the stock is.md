@@ -33,4 +33,5 @@ new
 - [[02zp · Ecosystems that interact a deep dive, with models on…|02zp · Ecosystems that interact: a deep dive, with models on…]]
 - [[02zzl the environment as the engine runs it, and as the generator…|02zzl: the environment as the engine runs it, and as the generator…]]
 - [[Audit of 37.2's replies, 22 Oct to 8 Nov 2026 commitments and…|Audit of 37.2's replies, 22 Oct to 8 Nov 2026: commitments and…]]
+- [[Survey A the world's physics against the patterns (W-110)|Survey A: the world's physics against the patterns (W-110)]]
 - *and 2 index or audit notes*

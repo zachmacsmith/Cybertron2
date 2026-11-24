@@ -43,6 +43,7 @@ conversation (22 Nov: "conversation (22 Nov: "I agree with your 3. Recipes shown
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - [[What else the wave broke an audit against the engine before it…|What else the wave broke: an audit against the engine before it…]]
+- [[Survey C people and society against the patterns (W-110)|Survey C: people and society against the patterns (W-110)]]
 - [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]
 - [[Brief the engine's design patterns surveyed (thread W-110)|Brief: the engine's design patterns surveyed (thread W-110)]]
 - *and 4 index or audit notes*

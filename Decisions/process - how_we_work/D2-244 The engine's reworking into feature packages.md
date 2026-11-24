@@ -50,6 +50,8 @@ conversation (20 Nov: "This is still postponed but I think we should flag it so 
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
+- [[Survey A the world's physics against the patterns (W-110)|Survey A: the world's physics against the patterns (W-110)]]
 - [[Survey B making, taking and keeping (W-110, agent B)|Survey B: making, taking and keeping (W-110, agent B)]]
+- [[Survey C people and society against the patterns (W-110)|Survey C: people and society against the patterns (W-110)]]
 - [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]
 - *and 2 index or audit notes*

@@ -42,5 +42,6 @@ a stock on each water parcel, sized by the lake within the village's own land ([
 - [[Brief the waters calibrated across many generated environments…|Brief: the waters calibrated across many generated environments…]]
 - [[The waters' mechanisms general, or fitted to the test worlds…|The waters' mechanisms: general, or fitted to the test worlds?…]]
 - [[The waters swept across 51 generated environments (W-108, agent A)|The waters swept across 51 generated environments (W-108, agent A)]]
+- [[Survey A the world's physics against the patterns (W-110)|Survey A: the world's physics against the patterns (W-110)]]
 - [[38.76 One fish stock per water body, the engine half (D2-229), as…|38.76: One fish stock per water body, the engine half (D2-229), as…]]
 - *and 6 index or audit notes*

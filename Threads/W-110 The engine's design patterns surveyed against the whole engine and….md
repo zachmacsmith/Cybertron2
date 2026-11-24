@@ -27,5 +27,6 @@ started
 - [[D2-354 The architecture is a healthy balance, not a strict one|The architecture is a healthy balance, not a strict one (D2-354)]]
 - [[Survey A the world's physics against the patterns (W-110)|Survey A: the world's physics against the patterns (W-110)]]
 - [[Survey B making, taking and keeping (W-110, agent B)|Survey B: making, taking and keeping (W-110, agent B)]]
+- [[Survey C people and society against the patterns (W-110)|Survey C: people and society against the patterns (W-110)]]
 - [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]
 - [[Brief the engine's design patterns surveyed (thread W-110)|Brief: the engine's design patterns surveyed (thread W-110)]]

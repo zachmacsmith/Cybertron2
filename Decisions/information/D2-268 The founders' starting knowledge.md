@@ -30,4 +30,5 @@ conversation (22 Nov: "conversation (22 Nov)")
 - [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
+- [[Survey C people and society against the patterns (W-110)|Survey C: people and society against the patterns (W-110)]]
 - *and 2 index or audit notes*

@@ -45,5 +45,6 @@ the weir of [[D2-209 Brief 5 (river and water) is built|D2-209]] as one work wit
 - [[Design wave part 2 materials and making (withies, cord and flax…|Design wave part 2: materials and making (withies, cord and flax…]]
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Withies, coppice and the other wood and wild materials for fishing…|Withies, coppice and the other wood and wild materials for fishing…]]
+- [[Survey A the world's physics against the patterns (W-110)|Survey A: the world's physics against the patterns (W-110)]]
 - [[Survey B making, taking and keeping (W-110, agent B)|Survey B: making, taking and keeping (W-110, agent B)]]
 - *and 6 index or audit notes*

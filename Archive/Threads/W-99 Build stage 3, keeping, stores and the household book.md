@@ -33,4 +33,5 @@ done 23 Nov: built and merged: u4, u5, u6; 814 passed, 2 skipped; report stage3_
 - [[Stage 3 of the fishing, hunting and materials wave keeping, stores…|Stage 3 of the fishing, hunting and materials wave: keeping, stores…]]
 - [[What else the wave broke an audit against the engine before it…|What else the wave broke: an audit against the engine before it…]]
 - [[Survey B making, taking and keeping (W-110, agent B)|Survey B: making, taking and keeping (W-110, agent B)]]
+- [[Survey C people and society against the patterns (W-110)|Survey C: people and society against the patterns (W-110)]]
 - [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]

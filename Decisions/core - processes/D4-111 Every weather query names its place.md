@@ -30,4 +30,5 @@ replaces [[D4-109 The weather scheduler|D4-109]]'s reference-node default
 - [[Proposal wild systems, layered kinds that people can learn to read|Proposal: wild systems, layered kinds that people can learn to read]]
 - [[The declared process model|The declared process model]]
 - [[Signs|Signs]]
+- [[Survey A the world's physics against the patterns (W-110)|Survey A: the world's physics against the patterns (W-110)]]
 - *and 1 index or audit notes*

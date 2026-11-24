@@ -31,5 +31,6 @@ done 23 Nov: built and merged (22869770): 849 passed, 2 skipped; 102 of the stop
 - [[The act shapes' interface faults from live run 1 (W-102)|The act shapes' interface faults from live run 1 (W-102)]]
 - [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]
 - [[Survey B making, taking and keeping (W-110, agent B)|Survey B: making, taking and keeping (W-110, agent B)]]
+- [[Survey C people and society against the patterns (W-110)|Survey C: people and society against the patterns (W-110)]]
 - [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]
 - *and 1 index or audit notes*

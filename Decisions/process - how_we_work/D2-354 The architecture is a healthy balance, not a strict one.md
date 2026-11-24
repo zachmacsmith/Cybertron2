@@ -22,5 +22,7 @@ conversation (24 Nov: "I don't want to generalise into an architecture that is t
 
 ## Mentioned by
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
+- [[Survey A the world's physics against the patterns (W-110)|Survey A: the world's physics against the patterns (W-110)]]
 - [[Survey B making, taking and keeping (W-110, agent B)|Survey B: making, taking and keeping (W-110, agent B)]]
+- [[Survey C people and society against the patterns (W-110)|Survey C: people and society against the patterns (W-110)]]
 - [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]

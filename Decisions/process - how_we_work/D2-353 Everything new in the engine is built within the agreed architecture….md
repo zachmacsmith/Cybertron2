@@ -19,5 +19,7 @@ conversation (24 Nov: "building new things should be disciplined within these pa
 ## Mentioned by
 - [[D2-354 The architecture is a healthy balance, not a strict one|The architecture is a healthy balance, not a strict one (D2-354)]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
+- [[Survey A the world's physics against the patterns (W-110)|Survey A: the world's physics against the patterns (W-110)]]
+- [[Survey C people and society against the patterns (W-110)|Survey C: people and society against the patterns (W-110)]]
 - [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]
 - [[Brief the engine's design patterns surveyed (thread W-110)|Brief: the engine's design patterns surveyed (thread W-110)]]

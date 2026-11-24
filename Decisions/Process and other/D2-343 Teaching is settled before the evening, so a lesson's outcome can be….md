@@ -25,3 +25,4 @@ conversation (23 Nov: "I agree we should move teaching before the evenings tho n
 - [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]
 - [[L-175 Teaching, partnerships and joins settled before the evening, so a…|Teaching, partnerships and joins settled before the evening, so a… (L-175)]]
 - [[After live run 1 the build (W-104)|After live run 1: the build (W-104)]]
+- [[Survey C people and society against the patterns (W-110)|Survey C: people and society against the patterns (W-110)]]

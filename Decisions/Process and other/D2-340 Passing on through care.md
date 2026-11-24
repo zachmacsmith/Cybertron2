@@ -28,3 +28,4 @@ conversation (23 Nov: "I agree with this after the arms finish.")
 - [[Report the founders' seeded lines for every built livelihood (thread…|Report: the founders' seeded lines for every built livelihood (thread…]]
 - [[Live run 1 the rebuilt fishing world against the old prompt and the…|Live run 1: the rebuilt fishing world against the old prompt and the…]]
 - [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]
+- [[Survey C people and society against the patterns (W-110)|Survey C: people and society against the patterns (W-110)]]

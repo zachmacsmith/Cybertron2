@@ -28,4 +28,5 @@ conversation (23 Nov: "This is better. Send this.")
 - [[The new prompt against the old, act by act (37.2, 24 Nov 2026)|The new prompt against the old, act by act (37.2, 24 Nov 2026)]]
 - [[What else the wave broke an audit against the engine before it…|What else the wave broke: an audit against the engine before it…]]
 - [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]
+- [[Survey C people and society against the patterns (W-110)|Survey C: people and society against the patterns (W-110)]]
 - *and 1 index or audit notes*
