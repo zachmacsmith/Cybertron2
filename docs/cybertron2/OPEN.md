@@ -139,6 +139,8 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-95 | **Whether a capable second-living trader gets the capable trader lines: today trading as a second living gives only TR1, so TR2 to TR4 and the trader's neighbour line reach no one unless a household lives by trading** | | 37.2 |
 | Q-96 | **Whether the drop step for a second living should cut its lines only for those deeper in their main living, not for everyone (today it cuts them for everyone; Katherine in Eelmouth)** | | 37.2 |
 | Q-97 | **Hollinford without leather (D2-327): u11's tanner household becomes a woodsman household (the oak wood, charcoal for Highpool's smith), Godric still an elder head at an Opus pole; its households pinned by hand until the generator's draw (stage 5b part 3)** | | 37.2 |
+| Q-98 | **One clock for the water's food before anything is sized (proposals/waters_general.md): today the runs, the lake and the harvests are compressed x32/365 while the shallows run a real year's production in 32 nights (about 11.4 times richer a night) and the makers' resident fish at r 0.3 a night** | | 37.2 |
+| Q-99 | **How much of the waters made general comes before live run 2 (proposals/waters_general.md 1 to 7: one clock, resident fish from the land, the lamprey's faults, runs on conditions, the spring river, signs and lore from the rows, water where the land has it)** | | 37.2 |
 
 ## Offers and promises
 
