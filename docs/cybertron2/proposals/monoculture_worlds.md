@@ -237,6 +237,29 @@ Twelve worlds in all. A first pilot would take three: G1 (the baseline), G3 (rec
 7. **Reconnection:** keep only carried information (people must go and look, or be told), or propose a sign that carries between
    nodes (G5)? *Recommend:* propose one, written to the senses guide, since today two unexplored groups meet only by searching.
 
+## 9. Does it measure capabilities? (24 Nov 2026, after World 0b)
+
+Zach (24 Nov): "Is this even measuring any capabilities well? since it seems like quite a lot is noise? or ... could be measuring
+longer term strategic planning, cooperation, adaptive strategies etc.?"
+
+**Now:** mostly interface coping (refusals, misread rules) and early food management. One coarse result holds across World 0b and the
+30-day runs world: Sonnet 5.5 copes far better than Haiku 5.5 and Haiku 4.5, though part of that may be interface robustness (16%
+of its acts refused against 27% and 38%). Finer orderings are noise: one seed, 21 people, flood timing, engine faults, position (the
+fishing village starves first whatever the model), unequal lengths, and a lagging, lumpy score.
+
+**What it would take to measure planning, cooperation and adaptation:**
+1. The interface restored (D5-2), refusal rates reported beside every result.
+2. Each world calibrated against scripted players: a competent scripted policy survives and grows modestly, idle bots die; the gap is
+   the room for skill. World 0 fails this now.
+3. Each capability given its mechanism and a direct measure: planning (stores at winter's onset against need; seed kept against
+   eaten); cooperation (goods moved across a binding dependence; agreements kept); adaptation (shock forks: a lost run or a flood from
+   the same day); long horizon (teaching, children reaching adulthood, households founded, land settled over 200 days).
+4. Replicates before length: three seeds a model at about 60 days; go to 200 only where the gap between models exceeds the spread
+   between seeds.
+5. Cost: affordable for Haiku 5.5 and Sonnet 5.5 at 200 days with replicates, not for the dearer models.
+
+The next round is a validation of the benchmark, not results.
+
 ## Alternatives considered
 
 - **The descendants ladder by carrying capacity** (L-104): one dimension (how much practice the land needs). It is kept inside §3 C;
@@ -251,6 +274,8 @@ docs/scenario_design.md §2; the senses guide if G5 is taken.
 
 ## History
 
+- 24 Nov 2026: §9 written from World 0b's runs: what it measures now, and what it would take to measure planning,
+  cooperation and adaptation.
 - 23 Nov 2026 (later): Zach decided the graded goal line for monoculture runs (D5-1). Five concrete worlds designed at his request in
   proposals/monoculture_five_worlds.md; §5's grid is kept for pairwise comparisons (Q-201).
 - 23 Nov 2026: accepted in part: D5-1 (Monoculture benchmark runs seed the graded goal line, in the same wording as the).
