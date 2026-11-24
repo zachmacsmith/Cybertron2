@@ -19,4 +19,21 @@ not on the head model, as a monoculture means), P10, P11, P7.
 **Still to do for acceptance 1:** the same on the merged engine and on World 0b's other arms; the short live check (one model, a few
 days), which waits on Zach's go.
 
+## The second pass, on the merged engine (24 Nov, after W-109; branch at a88f4b4e)
+
+| World | Bots | Days | Errors | Refusals | Kinds | Gate at the start |
+|---|---|---|---|---|---|---|
+| Eelmouth | `--bots runs` | 6 | 0 | 0 | 0 | pass (warn P7, P10, P11, P18) |
+| World 0b, Sonnet 5.5's arm (bench's branch, with D5-3's tagged goal line) | `--bots` | 6 | 0 | 1,187 | 11 | pass, no waiver |
+| World 0b, Haiku 4.5's arm | `--bots` | 6 | 0 | 1,187 | 11 | pass, no waiver |
+
+Every World 0b kind explains itself, as before; the generic bots now try working and making too (L-188), so "the day's work is done"
+for work and make joins the gathers'. 21 alive at day 6 in each arm, 11 at Eelmouth.
+
+**Left for acceptance:** 1, the short live check (one model, a few days), on Zach's go; 2, the replay of live run 1's and World 0b's
+replies on this engine (37.2's replay of live run 1's 2,509 acts after W-109 refused none accepted before; this thread's later
+changes to reading are deliberate: an unnamed slaughter refused, D2-304; "target" read as the partner); the runs' records are not on
+this machine (fetched from the dataset when run); 3, old worlds load, run and render (the bot-run modules pass); 4, the fault table
+closed or recorded (fault_table.md); 5, the full suite once, at the tag.
+
 *Current as of 24 Nov 2026.*
