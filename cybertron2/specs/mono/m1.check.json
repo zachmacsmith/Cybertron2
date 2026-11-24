@@ -1,0 +1,1455 @@
+{
+ "refused": [],
+ "pins_eased": [
+  "Broadwater: within 6.0 km",
+  "Longmere: within 6.0 km",
+  "rivers shortened from their sources by a place: the land turned the laid channel aside"
+ ],
+ "gate": {
+  "refuse": [
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Agnes",
+    "text": "Agnes: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Agnes",
+    "text": "Agnes: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Alice",
+    "text": "Alice: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Alice",
+    "text": "Alice: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Emma",
+    "text": "Emma: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Emma",
+    "text": "Emma: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Geoffrey",
+    "text": "Geoffrey: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Geoffrey",
+    "text": "Geoffrey: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Joan",
+    "text": "Joan: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Joan",
+    "text": "Joan: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Maud",
+    "text": "Maud: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Maud",
+    "text": "Maud: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Robert",
+    "text": "Robert: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Robert",
+    "text": "Robert: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Roger",
+    "text": "Roger: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Roger",
+    "text": "Roger: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Simon",
+    "text": "Simon: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Simon",
+    "text": "Simon: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Tom",
+    "text": "Tom: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Tom",
+    "text": "Tom: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   },
+   {
+    "check": "P6",
+    "level": "refuse",
+    "who": "Walter",
+    "text": "Walter: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
+   },
+   {
+    "check": "P20",
+    "level": "refuse",
+    "who": "Walter",
+    "text": "Walter: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
+   }
+  ],
+  "warn": [
+   {
+    "check": "P11",
+    "level": "warn",
+    "who": null,
+    "text": "copper: needed by a living here and made by none in reach (a designed scarcity, or not)"
+   },
+   {
+    "check": "P11",
+    "level": "warn",
+    "who": null,
+    "text": "stone: needed by a living here and made by none in reach (a designed scarcity, or not)"
+   },
+   {
+    "check": "P18",
+    "level": "warn",
+    "who": null,
+    "text": "the village rule: 0 livelihoods hold capital; 1 village(s) in the world, so a need from outside has no village in reach to meet it"
+   },
+   {
+    "check": "P7",
+    "level": "warn",
+    "who": null,
+    "text": "crafts held at capable or above with no lesson rows (their failures say only \"your hands\"): charcoal, cheese, hall, hearth, medium room, milk, plough"
+   },
+   {
+    "check": "M3",
+    "level": "warn",
+    "who": "Ashby",
+    "text": "the Ashbys: 12 wicker traps needed by the first run in 0 days; about 31 units to make them, the spring rods at 0.75 bundles a unit"
+   },
+   {
+    "check": "M4",
+    "level": "warn",
+    "who": "Ashby",
+    "text": "the Ashbys: no stone within a day: crude tools cannot be remade once these wear out"
+   },
+   {
+    "check": "M3",
+    "level": "warn",
+    "who": "Colle",
+    "text": "the Colles: 12 wicker traps needed by the first run in 0 days; about 31 units to make them, the spring rods at 0.75 bundles a unit"
+   },
+   {
+    "check": "M4",
+    "level": "warn",
+    "who": "Colle",
+    "text": "the Colles: no stone within a day: crude tools cannot be remade once these wear out"
+   },
+   {
+    "check": "M3",
+    "level": "warn",
+    "who": "Reeve",
+    "text": "the Reeves: 12 wicker traps needed by the first run in 0 days; about 31 units to make them, the spring rods at 0.75 bundles a unit"
+   },
+   {
+    "check": "M4",
+    "level": "warn",
+    "who": "Reeve",
+    "text": "the Reeves: no stone within a day: crude tools cannot be remade once these wear out"
+   }
+  ],
+  "report": [
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "break a dam: shut everywhere in the dry probe"
+   }
+  ],
+  "verdict": "refuse",
+  "probe": {
+   "works": {
+    "Fallowmere": [
+     "burn the stubble",
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "fence",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "guard the field",
+     "hay",
+     "hoe",
+     "hunt the wild",
+     "milk",
+     "net",
+     "pest work",
+     "reap",
+     "shut",
+     "slaughter",
+     "sow",
+     "stalk",
+     "twist cord",
+     "weed"
+    ],
+    "Fallow Wood": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Southmead": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "The Ford": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Broadwater": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Hollins": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Greenhythe": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Hartwood": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Thornheath": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Longmere": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Stonebarrow": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Upper Hollins": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Kingsmead": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Ashen Down": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Wolfcombe": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Far Meadows": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Highbarrow": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Eastmarch": [
+     "clear",
+     "clear for building",
+     "cut",
+     "cut withies",
+     "den work",
+     "fell",
+     "firewood",
+     "fish by hand",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "stalk",
+     "twist cord"
+    ],
+    "Asholt": [
+     "clear",
+     "clear for building",
+     "den work",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "twist cord"
+    ],
+    "Meadthorpe": [
+     "clear",
+     "clear for building",
+     "den work",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "twist cord"
+    ],
+    "Oakley": [
+     "clear",
+     "clear for building",
+     "den work",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "twist cord"
+    ],
+    "Meadton": [
+     "clear",
+     "clear for building",
+     "den work",
+     "gather wild food",
+     "hay",
+     "hunt the wild",
+     "net",
+     "pest work",
+     "twist cord"
+    ]
+   },
+   "shut everywhere": [
+    "break a dam"
+   ],
+   "only the moment or inputs": [
+    "angle",
+    "burn",
+    "bury",
+    "clear the leat",
+    "dig a strip",
+    "ditch",
+    "dress millstones",
+    "drive",
+    "dung",
+    "gather young",
+    "gill net",
+    "manure",
+    "mend the brine pan",
+    "mine",
+    "open the gate",
+    "plough",
+    "pull flax",
+    "quarry",
+    "reline oven",
+    "repair",
+    "salt pan",
+    "select seed",
+    "set line",
+    "shut the gate",
+    "snare",
+    "tend the smoke",
+    "terrace",
+    "trap in water",
+    "wall"
+   ],
+   "crashes": [],
+   "roads refused": []
+  }
+ },
+ "fill": {
+  "households": {
+   "Ashby": {
+    "livelihoods": [
+     "farmer"
+    ],
+    "experts": {
+     "ploughman": "Robert"
+    },
+    "bands": {
+     "Robert": "expert",
+     "Agnes": "capable",
+     "Walter": "broad"
+    },
+    "apprentices": {},
+    "keepers": {
+     "herd:fowler_cattle": "Robert"
+    },
+    "holds": {
+     "herd": [
+      "herd:fowler_cattle"
+     ]
+    },
+    "second_hands": []
+   },
+   "Colle": {
+    "livelihoods": [
+     "builder",
+     "woodsman"
+    ],
+    "experts": {
+     "wright": "Geoffrey"
+    },
+    "bands": {
+     "Geoffrey": "expert",
+     "Emma": "capable",
+     "Roger": "broad"
+    },
+    "apprentices": {},
+    "keepers": {
+     "field:Fallowmere_1": "Geoffrey",
+     "herd:holt_cattle": "Geoffrey",
+     "oxen:holt_cattle": "Geoffrey"
+    },
+    "holds": {
+     "fields": [
+      "field:Fallowmere_1"
+     ],
+     "ox pair": [
+      "oxen:holt_cattle"
+     ],
+     "herd": [
+      "herd:holt_cattle"
+     ]
+    },
+    "second_hands": [
+     "Emma",
+     "Geoffrey"
+    ]
+   },
+   "Reeve": {
+    "livelihoods": [
+     "herder",
+     "farmer"
+    ],
+    "experts": {
+     "dairy": "Maud"
+    },
+    "bands": {
+     "Maud": "expert",
+     "Simon": "capable",
+     "Alice": "broad"
+    },
+    "apprentices": {},
+    "keepers": {
+     "herd:hale_cattle": "Maud"
+    },
+    "holds": {
+     "herd": [
+      "herd:hale_cattle"
+     ]
+    },
+    "second_hands": [
+     "Simon",
+     "Maud"
+    ]
+   }
+  },
+  "people": {},
+  "skipped": [
+   "Ashby: Agnes raised to capable to keep the herd (u11 \u00a72.3)",
+   "Ashby: herd herd:fowler_cattle kept by Robert, its only able hand",
+   "Colle: Emma raised to capable to keep the fields (u11 \u00a72.3)",
+   "Colle: fields field:Fallowmere_1 kept by Geoffrey, its only able hand",
+   "Colle: herd herd:holt_cattle kept by Geoffrey, its only able hand",
+   "Colle: ox pair oxen:holt_cattle kept by Geoffrey, its only able hand",
+   "Reeve: Simon raised to capable to keep the herd (u11 \u00a72.3)"
+  ],
+  "refused": [],
+  "capital": {},
+  "lines": {
+   "Agnes": {
+    "wanted": 20,
+    "rendered": 19,
+    "skipped": [
+     "PE2"
+    ],
+    "steps": [],
+    "seeded": 19,
+    "words": 559,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS7",
+     "BS8",
+     "BS9",
+     "PE1",
+     "FA1",
+     "FA2",
+     "FA3",
+     "FA4",
+     "FA5",
+     "FA6",
+     "HL",
+     "NB-builder:Colle",
+     "NB-herder:Reeve"
+    ]
+   },
+   "Alice": {
+    "wanted": 9,
+    "rendered": 9,
+    "skipped": [],
+    "steps": [],
+    "seeded": 9,
+    "words": 273,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS5",
+     "BS8",
+     "PE1",
+     "HE1",
+     "HE2",
+     "HL"
+    ]
+   },
+   "Emma": {
+    "wanted": 20,
+    "rendered": 18,
+    "skipped": [
+     "PE2",
+     "BU5"
+    ],
+    "steps": [],
+    "seeded": 18,
+    "words": 514,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS7",
+     "BS8",
+     "BS9",
+     "PE1",
+     "BU1",
+     "BU2",
+     "BU3",
+     "BU4",
+     "WO1",
+     "HL",
+     "NB-farmer:Ashby",
+     "NB-herder:Reeve"
+    ]
+   },
+   "Geoffrey": {
+    "wanted": 22,
+    "rendered": 18,
+    "skipped": [
+     "PE2",
+     "BU5",
+     "BU6",
+     "HL"
+    ],
+    "steps": [],
+    "seeded": 18,
+    "words": 496,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS7",
+     "BS8",
+     "BS9",
+     "PE1",
+     "BU1",
+     "BU2",
+     "FA9",
+     "HE7",
+     "FA7",
+     "WO1",
+     "NB-farmer:Ashby",
+     "NB-herder:Reeve"
+    ]
+   },
+   "Hugh": {
+    "wanted": 0,
+    "rendered": 0,
+    "skipped": [],
+    "steps": [],
+    "seeded": 0,
+    "words": 0,
+    "over": false,
+    "long": [],
+    "ids": []
+   },
+   "Joan": {
+    "wanted": 2,
+    "rendered": 2,
+    "skipped": [],
+    "steps": [],
+    "seeded": 2,
+    "words": 43,
+    "over": false,
+    "long": [],
+    "ids": [
+     "FA1",
+     "HL"
+    ]
+   },
+   "Maud": {
+    "wanted": 20,
+    "rendered": 17,
+    "skipped": [
+     "PE2",
+     "HE5",
+     "HL"
+    ],
+    "steps": [],
+    "seeded": 17,
+    "words": 486,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS7",
+     "BS8",
+     "BS9",
+     "PE1",
+     "HE1",
+     "HE2",
+     "HE7",
+     "FA1",
+     "FA3",
+     "NB-farmer:Ashby",
+     "NB-builder:Colle"
+    ]
+   },
+   "Robert": {
+    "wanted": 20,
+    "rendered": 17,
+    "skipped": [
+     "PE2",
+     "FA7",
+     "HL"
+    ],
+    "steps": [],
+    "seeded": 17,
+    "words": 489,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS7",
+     "BS8",
+     "BS9",
+     "PE1",
+     "FA1",
+     "FA2",
+     "FA3",
+     "FA6",
+     "HE7",
+     "NB-builder:Colle",
+     "NB-herder:Reeve"
+    ]
+   },
+   "Roger": {
+    "wanted": 8,
+    "rendered": 8,
+    "skipped": [],
+    "steps": [],
+    "seeded": 8,
+    "words": 270,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS5",
+     "BS8",
+     "PE1",
+     "BU1",
+     "HL"
+    ]
+   },
+   "Simon": {
+    "wanted": 21,
+    "rendered": 18,
+    "skipped": [
+     "PE2",
+     "HE3",
+     "HE5"
+    ],
+    "steps": [],
+    "seeded": 18,
+    "words": 513,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS4",
+     "BS5",
+     "BS6",
+     "BS7",
+     "BS8",
+     "BS9",
+     "PE1",
+     "HE1",
+     "HE2",
+     "HE4",
+     "FA1",
+     "FA3",
+     "HL",
+     "NB-farmer:Ashby",
+     "NB-builder:Colle"
+    ]
+   },
+   "Tom": {
+    "wanted": 2,
+    "rendered": 2,
+    "skipped": [],
+    "steps": [],
+    "seeded": 2,
+    "words": 51,
+    "over": false,
+    "long": [],
+    "ids": [
+     "HE1",
+     "HL"
+    ]
+   },
+   "Walter": {
+    "wanted": 9,
+    "rendered": 9,
+    "skipped": [],
+    "steps": [],
+    "seeded": 9,
+    "words": 273,
+    "over": false,
+    "long": [],
+    "ids": [
+     "BS1",
+     "BS2",
+     "BS3",
+     "BS5",
+     "BS8",
+     "PE1",
+     "FA1",
+     "FA2",
+     "HL"
+    ]
+   }
+  }
+ },
+ "capacity": {
+  "Fallowmere": {
+   "people": 12,
+   "standing": 7.7,
+   "worked": 37.7,
+   "best": 64.7
+  },
+  "(region)": {
+   "people": 12,
+   "standing": 21.8,
+   "worked": 59.8,
+   "best": 91.5
+  }
+ },
+ "roads_off": [],
+ "compare": {
+  "roads": [
+   {
+    "road": "Fallowmere - Fallow Wood",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Fallowmere - Southmead",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Fallowmere - The Ford",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "The Ford - Broadwater",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Fallow Wood - Hollins",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Southmead - Greenhythe",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Fallow Wood - Hartwood",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Southmead - Thornheath",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Broadwater - Longmere",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Hollins - Stonebarrow",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Hollins - Upper Hollins",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Broadwater - Kingsmead",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Hollins - Ashen Down",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Hartwood - Wolfcombe",
+    "designed": 2,
+    "generated": 2
+   },
+   {
+    "road": "Longmere - Far Meadows",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Kingsmead - Far Meadows",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Stonebarrow - Highbarrow",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Kingsmead - Eastmarch",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Greenhythe - Kingsmead",
+    "designed": 2,
+    "generated": 2
+   },
+   {
+    "road": "The Ford - Southmead",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Thornheath - Hartwood",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Thornheath - Greenhythe",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Upper Hollins - Ashen Down",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Ashen Down - Longmere",
+    "designed": 2,
+    "generated": 2
+   },
+   {
+    "road": "Hartwood - Stonebarrow",
+    "designed": 1,
+    "generated": 1
+   },
+   {
+    "road": "Wolfcombe - Highbarrow",
+    "designed": 2,
+    "generated": 2
+   },
+   {
+    "road": "Far Meadows - Eastmarch",
+    "designed": 1,
+    "generated": 1
+   }
+  ],
+  "places": {
+   "Fallowmere": {
+    "land": "farmland",
+    "covers": {
+     "built": 5,
+     "field": 7,
+     "meadow": 1,
+     "pasture": 4,
+     "forest": 1,
+     "fen": 3
+    },
+    "stocks": [
+     "crop",
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Fallow Wood": {
+    "land": "forest",
+    "covers": {
+     "pasture": 5,
+     "forest": 27,
+     "fen": 4,
+     "meadow": 1
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Southmead": {
+    "land": "rich vale",
+    "covers": {
+     "meadow": 44,
+     "pasture": 25,
+     "forest": 19,
+     "fen": 7,
+     "water": 2
+    },
+    "stocks": [
+     "fish",
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "The Ford": {
+    "land": "farmland",
+    "covers": {
+     "meadow": 39,
+     "pasture": 4,
+     "forest": 12,
+     "fen": 6
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Broadwater": {
+    "land": "rich vale",
+    "covers": {
+     "meadow": 69,
+     "pasture": 21,
+     "forest": 24,
+     "fen": 7
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Hollins": {
+    "land": "farmland",
+    "covers": {
+     "meadow": 34,
+     "pasture": 15,
+     "forest": 12
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Greenhythe": {
+    "land": "fen",
+    "covers": {
+     "meadow": 2,
+     "pasture": 5,
+     "forest": 2,
+     "fen": 16
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Hartwood": {
+    "land": "old forest",
+    "covers": {
+     "pasture": 6,
+     "forest": 18,
+     "water": 2,
+     "meadow": 1
+    },
+    "stocks": [
+     "fish",
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Thornheath": {
+    "land": "heath",
+    "covers": {
+     "meadow": 4,
+     "forest": 1,
+     "heath": 8
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Longmere": {
+    "land": "lake",
+    "covers": {
+     "pasture": 25,
+     "forest": 7,
+     "fen": 2,
+     "water": 2,
+     "meadow": 1
+    },
+    "stocks": [
+     "fish",
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Stonebarrow": {
+    "land": "rock hills",
+    "covers": {
+     "meadow": 2,
+     "pasture": 6,
+     "forest": 1,
+     "rock": 6
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "quarry",
+     "wood"
+    ]
+   },
+   "Upper Hollins": {
+    "land": "farmland",
+    "covers": {
+     "meadow": 3,
+     "pasture": 44,
+     "forest": 12,
+     "fen": 2
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Kingsmead": {
+    "land": "rich vale",
+    "covers": {
+     "pasture": 67,
+     "forest": 19,
+     "heath": 10,
+     "water": 2,
+     "meadow": 1
+    },
+    "stocks": [
+     "fish",
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Ashen Down": {
+    "land": "chalk down",
+    "covers": {
+     "pasture": 15,
+     "forest": 2,
+     "rock": 7,
+     "meadow": 1
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "quarry",
+     "wood"
+    ]
+   },
+   "Wolfcombe": {
+    "land": "forest",
+    "covers": {
+     "meadow": 5,
+     "pasture": 4,
+     "forest": 27,
+     "fen": 1
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Far Meadows": {
+    "land": "rich vale",
+    "covers": {
+     "meadow": 105,
+     "pasture": 28,
+     "forest": 34,
+     "fen": 3,
+     "water": 2
+    },
+    "stocks": [
+     "fish",
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Highbarrow": {
+    "land": "moor",
+    "covers": {
+     "pasture": 22,
+     "forest": 2,
+     "meadow": 1
+    },
+    "stocks": [
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   },
+   "Eastmarch": {
+    "land": "farmland",
+    "covers": {
+     "meadow": 3,
+     "pasture": 41,
+     "forest": 12,
+     "fen": 3,
+     "heath": 2,
+     "water": 2
+    },
+    "stocks": [
+     "fish",
+     "game",
+     "grass",
+     "plants",
+     "wood"
+    ]
+   }
+  }
+ }
+}

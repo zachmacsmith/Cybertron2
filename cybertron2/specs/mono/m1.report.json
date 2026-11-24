@@ -1,0 +1,503 @@
+{
+ "seed": 2311,
+ "pins": {},
+ "targets": {
+  "Fallowmere": {
+   "households": 3,
+   "people": 9,
+   "food": 0.85,
+   "heat": 0.3,
+   "plots_wanted": 7,
+   "fields": 7,
+   "wood_wanted": 1,
+   "woods": 1,
+   "waste": 3
+  }
+ },
+ "checks": {
+  "rivers run downhill": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "0 river cells drain uphill"
+  },
+  "laid rivers run where laid": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "1 laid"
+  },
+  "every pin met": {
+   "kind": "physics",
+   "ok": true,
+   "detail": "a pin not met is refused when it is placed"
+  },
+  "settlements placed": {
+   "kind": "design",
+   "ok": true,
+   "detail": "18 of 18 at 7.0 km apart"
+  },
+  "capacity": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Fallowmere": 0.83
+   }
+  },
+  "dependence": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Fallowmere": [
+     "stone",
+     "metal"
+    ]
+   }
+  },
+  "reachable by land": {
+   "kind": "design",
+   "ok": true,
+   "detail": []
+  },
+  "chokepoint": {
+   "kind": "design",
+   "ok": true,
+   "detail": [
+    "Hollins-Stonebarrow: pass",
+    "Stonebarrow-Highbarrow: pass",
+    "Upper Hollins-Ashen Down: pass",
+    "Hartwood-Stonebarrow: pass",
+    "t4-Highbarrow: pass"
+   ]
+  },
+  "roads about a day": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "1": 31
+   }
+  },
+  "parcels per node": {
+   "kind": "design",
+   "ok": false,
+   "detail": {
+    "Fallowmere": 7,
+    "Fallow Wood": 6,
+    "Southmead": 9,
+    "The Ford": 6,
+    "Broadwater": 7,
+    "Hollins": 6,
+    "Greenhythe": 11,
+    "Hartwood": 6,
+    "Thornheath": 4,
+    "Longmere": 6,
+    "Stonebarrow": 7,
+    "Upper Hollins": 7,
+    "Kingsmead": 6,
+    "Ashen Down": 6,
+    "Wolfcombe": 7,
+    "Far Meadows": 8,
+    "Highbarrow": 6,
+    "Eastmarch": 9
+   }
+  },
+  "access gates": {
+   "kind": "design",
+   "ok": true,
+   "detail": "the bot dry run checks them once the people exist (scenario_design)"
+  },
+  "makes its own landscape": {
+   "kind": "design",
+   "ok": true,
+   "detail": "no promise for this configuration"
+  },
+  "lakes where lakes belong": {
+   "kind": "design",
+   "ok": true,
+   "detail": "2 lakes; 0 outside fen or upland systems (0.0 a 1,000 km2)"
+  },
+  "wood share by how long settled": {
+   "kind": "design",
+   "ok": true,
+   "detail": "0.60 of the land in wood (settled: frontier, 0.60)"
+  },
+  "capacity, people as generated": {
+   "kind": "design",
+   "ok": true,
+   "detail": {
+    "Fallowmere": {
+     "people": 9,
+     "share": 0.83,
+     "target": 0.85
+    }
+   }
+  },
+  "economy: region food": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "9 people; the land keeps 69 for good (0.13 of it)"
+  },
+  "economy: food over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "200 days need 1560 meals; store, crops ripening and the land give 13592 (0.11)"
+  },
+  "economy: region heat": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "9 people; the land keeps 13658 for good (0.00 of it)"
+  },
+  "economy: heat over the run": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "200 days need 444 heat (3 hearths, 48.0 cold nights); store and the woods' flow give 455341 (0.00); the woods stand at 7181250 more"
+  },
+  "economy: carrying burden": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {}
+  },
+  "economy: households' runway": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": {
+    "short": [],
+    "share_of_people": 0.0,
+    "days_of_food_a_member": {
+     "the Holts": 6.8,
+     "the Hales": 6.8,
+     "the Fowlers": 6.8
+    }
+   }
+  },
+  "economy: fuel": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "every hearth has wood in store or woods at hand"
+  },
+  "economy: room to grow": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": true,
+   "detail": "3 couples; about 25 births in 200 days if they try often; the region would be at 0.49 of its land"
+  },
+  "economy: succession": {
+   "kind": "economy",
+   "level": "warn",
+   "ok": false,
+   "detail": [
+    "the Holts: Adam (100%), Juliana (100%) likely to die in the run; 0 grown left for 1",
+    "the Hales: Thomas (100%), Cassandra (100%) likely to die in the run; 0 grown left for 2"
+   ]
+  },
+  "predators within range": {
+   "kind": "wild",
+   "ok": true,
+   "detail": {
+    "said": {
+     "Fallowmere": "stoat 13.03 (a group needs 1), fox 9.18 (a group needs 1), wolf 2.19 (a group needs 3), wild boar 1.18 (a group needs 2)"
+    },
+    "by village": {
+     "Fallowmere": {
+      "wild boar": {
+       "heads": 1.18,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 9.18,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 13.03,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 2.19,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 0.03,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     }
+    }
+   }
+  }
+ },
+ "generated": [],
+ "deviations": [
+  "cells on a jittered square grid, not Poisson-disc points with Delaunay neighbours (scipy not installed)",
+  "cells saved as .npz, not parquet (pyarrow not installed)",
+  "people: generate.py once for the region as it stands (no kin between villages yet: 37.4's, later)"
+ ],
+ "descriptions": {
+  "model": null,
+  "written": 0,
+  "failed": 0
+ },
+ "nodes": {
+  "Fallowmere": {
+   "name": "Fallowmere",
+   "kind": "village",
+   "site_km": [
+    75.65,
+    37.99
+   ],
+   "parcels": 7
+  },
+  "Fallow Wood": {
+   "name": "Fallow Wood",
+   "kind": "vacant",
+   "site_km": [
+    55.54,
+    41.53
+   ],
+   "parcels": 6
+  },
+  "Southmead": {
+   "name": "Southmead",
+   "kind": "vacant",
+   "site_km": [
+    63.95,
+    25.65
+   ],
+   "parcels": 9
+  },
+  "The Ford": {
+   "name": "The Ford",
+   "kind": "vacant",
+   "site_km": [
+    83.1,
+    25.55
+   ],
+   "parcels": 6
+  },
+  "Broadwater": {
+   "name": "Broadwater",
+   "kind": "vacant",
+   "site_km": [
+    99.01,
+    31.3
+   ],
+   "parcels": 7
+  },
+  "Hollins": {
+   "name": "Hollins",
+   "kind": "vacant",
+   "site_km": [
+    51.33,
+    56.22
+   ],
+   "parcels": 6
+  },
+  "Greenhythe": {
+   "name": "Greenhythe",
+   "kind": "vacant",
+   "site_km": [
+    68.96,
+    10.8
+   ],
+   "parcels": 11
+  },
+  "Hartwood": {
+   "name": "Hartwood",
+   "kind": "vacant",
+   "site_km": [
+    43.65,
+    33.28
+   ],
+   "parcels": 6
+  },
+  "Thornheath": {
+   "name": "Thornheath",
+   "kind": "vacant",
+   "site_km": [
+    51.9,
+    12.59
+   ],
+   "parcels": 4
+  },
+  "Longmere": {
+   "name": "Longmere",
+   "kind": "vacant",
+   "site_km": [
+    109.61,
+    48.17
+   ],
+   "parcels": 6
+  },
+  "Stonebarrow": {
+   "name": "Stonebarrow",
+   "kind": "vacant",
+   "site_km": [
+    40.65,
+    43.1
+   ],
+   "parcels": 7
+  },
+  "Upper Hollins": {
+   "name": "Upper Hollins",
+   "kind": "vacant",
+   "site_km": [
+    58.2,
+    74.42
+   ],
+   "parcels": 7
+  },
+  "Kingsmead": {
+   "name": "Kingsmead",
+   "kind": "vacant",
+   "site_km": [
+    101.28,
+    19.66
+   ],
+   "parcels": 6
+  },
+  "Ashen Down": {
+   "name": "Ashen Down",
+   "kind": "vacant",
+   "site_km": [
+    71.09,
+    55.34
+   ],
+   "parcels": 6
+  },
+  "Wolfcombe": {
+   "name": "Wolfcombe",
+   "kind": "vacant",
+   "site_km": [
+    8.14,
+    35.35
+   ],
+   "parcels": 7
+  },
+  "Far Meadows": {
+   "name": "Far Meadows",
+   "kind": "vacant",
+   "site_km": [
+    114.45,
+    33.13
+   ],
+   "parcels": 8
+  },
+  "Highbarrow": {
+   "name": "Highbarrow",
+   "kind": "vacant",
+   "site_km": [
+    29.69,
+    57.73
+   ],
+   "parcels": 6
+  },
+  "Eastmarch": {
+   "name": "Eastmarch",
+   "kind": "vacant",
+   "site_km": [
+    118.52,
+    16.77
+   ],
+   "parcels": 9
+  },
+  "t1": {
+   "name": "Asholt",
+   "kind": "stop",
+   "site_km": [
+    25.91,
+    30.55
+   ],
+   "parcels": 1
+  },
+  "t2": {
+   "name": "Meadthorpe",
+   "kind": "stop",
+   "site_km": [
+    84.14,
+    18.61
+   ],
+   "parcels": 1
+  },
+  "t3": {
+   "name": "Oakley",
+   "kind": "stop",
+   "site_km": [
+    88.97,
+    51.02
+   ],
+   "parcels": 1
+  },
+  "t4": {
+   "name": "Meadton",
+   "kind": "stop",
+   "site_km": [
+    18.27,
+    49.25
+   ],
+   "parcels": 1
+  }
+ },
+ "anchors": {
+  "river_0.source": [
+   76.2,
+   39.6
+  ],
+  "river_0.mouth": [
+   120.5,
+   18.7
+  ],
+  "river_0.point_1": [
+   82.5,
+   22.69
+  ],
+  "river_0.point_2": [
+   94.9,
+   35.6
+  ],
+  "river_0.point_3": [
+   102.5,
+   19.3
+  ],
+  "oldwood_1_0": [
+   43.7,
+   30.6
+  ],
+  "oldwood_1_1": [
+   8.0,
+   35.4
+  ],
+  "fen_2_0": [
+   68.1,
+   8.0
+  ],
+  "massif_3_0": [
+   41.7,
+   45.5
+  ],
+  "massif_3_1": [
+   30.4,
+   55.3
+  ],
+  "hollow_Longmere": [
+   104.29,
+   50.91
+  ],
+  "mere_Longmere": [
+   104.29,
+   50.91
+  ],
+  "down_Ashen Down": [
+   68.7,
+   57.1
+  ]
+ },
+ "refused": []
+}
