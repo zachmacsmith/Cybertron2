@@ -28,5 +28,6 @@ updated: "2026-11-23"
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[Brief the waters calibrated across many generated environments…|Brief: the waters calibrated across many generated environments…]]
 - [[The waters' mechanisms general, or fitted to the test worlds…|The waters' mechanisms: general, or fitted to the test worlds?…]]
+- [[The waters swept across 51 generated environments (W-108, agent A)|The waters swept across 51 generated environments (W-108, agent A)]]
 - [[38.76 One fish stock per water body, the engine half (D2-229), as…|38.76: One fish stock per water body, the engine half (D2-229), as…]]
 - *and 4 index or audit notes*

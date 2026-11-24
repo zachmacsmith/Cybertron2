@@ -28,4 +28,5 @@ the runs on the rain cue, which fires 1 to 3 nights a year in the steady climate
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[02zzz2 every state of the water, and what of it reaches a person|02zzz2: every state of the water, and what of it reaches a person]]
 - [[The waters' mechanisms general, or fitted to the test worlds…|The waters' mechanisms: general, or fitted to the test worlds?…]]
+- [[The waters swept across 51 generated environments (W-108, agent A)|The waters swept across 51 generated environments (W-108, agent A)]]
 - *and 3 index or audit notes*

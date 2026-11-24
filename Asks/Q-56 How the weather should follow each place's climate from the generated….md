@@ -34,4 +34,5 @@ updated: "2026-11-22"
 - [[02zzo the weather across conditions, and what the engine leaves…|02zzo: the weather across conditions, and what the engine leaves…]]
 - [[Audit of 37.2's replies, 9 to 19 Nov 2026 commitments and switches|Audit of 37.2's replies, 9 to 19 Nov 2026: commitments and switches]]
 - [[02zzt the calibration suite, its first results, and the generator…|02zzt: the calibration suite, its first results, and the generator…]]
+- [[The waters swept across 51 generated environments (W-108, agent A)|The waters swept across 51 generated environments (W-108, agent A)]]
 - *and 4 index or audit notes*
