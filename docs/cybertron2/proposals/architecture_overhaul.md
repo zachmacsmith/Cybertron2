@@ -116,6 +116,20 @@ The whole engine; `feature_packages.md` (to be revised or replaced by this); `sp
 - **24 Nov 2026:** opened by 37.2 at Zach's ask, from the patterns survey (W-110: C and D complete, A and B part way), the wave's
   regression audit, the gaps audit and the waters' generality read, as one of two priority threads (with W-111).
 
+- **24 Nov 2026 (later): taken over by session arch.** Surveys A and B, checked against the brief, carry every section it asks
+  for (mechanisms, branches, misfits, taxonomy, history, process, verdict, cost); "stopped part way" above was written before their
+  last commits. B's two further misfits are capacity and room, and populations with classes (B §3.5, §3.6).
+  Zach framed the thread (24 Nov, not a decision): "Your main purpose is not to build, but to design a new target architecture,
+  seeing how the engine ACTUALLY works, how this would be better served / ported into a data-central way that is more extensible but
+  simultaneously fluid ... Extensibility is key with new things being able to be built and isolated in their new features etc. that
+  ideally work through existing shared primitives, or introduce some new basic mechanism or specifics if necessary, that may later be
+  generalised into core primitives." arch's reading, to be worked into the target: a mechanism has a **lifecycle** (specific inside
+  one package, then promoted into the core when a second feature needs it), so the target is a small core, fixed seams, a
+  containment rule for specifics and a promotion rule, not a full set of general mechanisms fixed in advance (the surveys' 25 or so
+  missing patterns are candidates to promote, not a list to build); mechanisms stay code with declared extension points and rows
+  carry properties, not logic (no rule interpreter: D2-354's rigid end); and the architecture fixes only the half of the ad hoc code
+  that went ad hoc because the primitives could not be extended (A §7.3): the other half needs the guards and the review rules.
+
 ## Sources
 
 `engine_overhaul.md` (D4-103); `feature_packages.md`; `docs/review/40_feature_packages/`; `docs/review/37_growth/02zzzm_patterns/`; `wave_regressions.md`;
