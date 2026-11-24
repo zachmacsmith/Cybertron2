@@ -50,3 +50,13 @@ def test_a_ambient_condition_is_read_from_the_state(eel):
     assert not PC.ambient_holds(here, pid, dict(p, land={"river": "none"}), {"river": ("brook", "river")})
     with pytest.raises(KeyError):
         PC.ambient_holds(here, pid, p, {"moon": "full"})
+
+
+def test_what_hangs_is_named_not_assumed_fish():
+    """wave_regressions finding 6 (W-111): the gnawed hangings and the smokehouse's smell name what hangs, not 'fish' always."""
+    import inspect
+    from cybertron2.engine import signs as SG
+    from cybertron2.wild.kinds import EATEN_SIGNS
+    assert "{what}" in EATEN_SIGNS["hung"][0]["text"] and "fish" not in EATEN_SIGNS["hung"][0]["text"]
+    smell = [r for r in SG.BUILDING if r.get("sense") == "smell" and "smoke and" in inspect.getsource(r["text"])]
+    assert smell and "'fish' if" not in inspect.getsource(smell[0]["text"])

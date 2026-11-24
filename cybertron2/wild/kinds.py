@@ -561,7 +561,7 @@ EATEN_SIGNS = {
     "sack": [R("all", "sight", 0.8, (0, 1), "the sacks in {place} gnawed through at the bottom, grain run out on the floor")],
     "chest": [R("all", "sight", 0.5, (0, 1), "fresh gnaw marks at a corner of the chest in {place}")],
     "door": [R("all", "sight", 1.0, (0, 0), "the heap outside {place}'s door dug into and scattered in the night")],
-    "hung": [R("all", "sight", 0.7, (0, 1), "something has been at the fish hanging in {place}: tails chewed, droppings beneath")],
+    "hung": [R("all", "sight", 0.7, (0, 1), "something has been at the {what} hanging in {place}: gnawed, droppings beneath")],
 }
 # the oaks' mast in its seasons, on a village's woods: a reading, and for the practised a lore of what follows
 MAST_SIGNS = {

@@ -854,7 +854,7 @@ BUILDING = [
     dict(when=lambda x: x.smoking and x.weather != "fog", own=3.6, sense="sight", tags=["food", "fuel"],   # u8 §5, §6: 0.45 next door
          text=lambda x: f"smoke rising from {x.nm} this morning"),
     dict(when=lambda x: x.smoking, own=1.2, reach="around", sense="smell", tags=["food"],                  # smell carries by steps
-         text=lambda x: f"the smell of smoke and {'fish' if 'fish' in x.smoking else 'meat'} about {x.nm}"),
+         text=lambda x: f"the smell of smoke and {x.smoking} about {x.nm}"),          # what hangs, read from the lots (W-111)
     dict(when=lambda x: x.smoking and x.weather == "fog", own=2.4, reach="around", sense="sight", tags=["food"],
          text=lambda x: f"smoke lying low about {x.nm} in the fog"),
     dict(when=lambda x: x.smoke_out, reach="near", own=0.8, sense="sight", tags=["food", "fuel"],
@@ -2159,7 +2159,8 @@ def _wild_eaten(here, add) -> None:
                 if vm.get("day") is not None and int(vm["day"]) == int(rec["day"]) and EATEN_SIGNS.get(vm.get("where")):   # by where (u5 §5)
                     x = event_context(here, b["name"], rec["day"])
                     rows_b = [dict(r, own=r["own"] * scale) for r in EATEN_SIGNS[vm["where"]]]
-                    _wild_emit(here, rows_b, x, [f"building:{bid}"], b["parcel"], add, "wildeat", dict(place=b["name"]), age)
+                    _wild_emit(here, rows_b, x, [f"building:{bid}"], b["parcel"], add, "wildeat",
+                               dict(place=b["name"], what=vm.get("what") or "food"), age)
                 elif b.get("stock") and WL._store_food(here._w, here.node) > 0 and any(
                         it in WL.DRY_STORES and q > 0 for it, q in (here._w.s["containers"].get(b["stock"], {}).get("goods") or {}).items()):
                     x = event_context(here, b["name"], rec["day"])

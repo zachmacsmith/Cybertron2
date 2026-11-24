@@ -2990,7 +2990,7 @@ def _stores(w, node, share) -> float:
         if b["node"] != node or not b.get("stock") or b.get("stock") not in w.s["containers"] or b.get("monument"):
             continue
         cid = b["stock"]
-        lost_by = {}
+        lost_by, items_by = {}, {}
         racks = {r: c for r, c in _racks_in(w, node) if c["in"] == bid}
         for item, q, kind in SR.vermin_portions(w, bid):
             f = sum(sh * SR.exposure(kind, STORE_KIND.get(k, "other")) * _stops(dict(b, _id=bid), k, w) for k, sh in shares.items())
@@ -3008,9 +3008,11 @@ def _stores(w, node, share) -> float:
                 total += take
                 key = "hung" if kind == "smoke loft" else kind
                 lost_by[key] = lost_by.get(key, 0.0) + take
+                items_by.setdefault(key, set()).add(item)
         if lost_by:
-            w.apply("set", node, ref=("building", bid), field="vermin", value={"day": w.d, "where": max(sorted(lost_by), key=lambda k: lost_by[k]),
-                                                                              "lost": round(sum(lost_by.values()), 4)})
+            where = max(sorted(lost_by), key=lambda k: lost_by[k])
+            w.apply("set", node, ref=("building", bid), field="vermin", value={"day": w.d, "where": where, "lost": round(sum(lost_by.values()), 4),
+                                                                              "what": " and ".join(sorted(items_by[where]))})   # what was at it (W-111)
     door = float(LEFT_OUT["exposure"])
     for pid_, c in _left_out(w, node, vermin=True) + [x for x in _left_out(w, node) if x not in _left_out(w, node, vermin=True)]:
         for item in sorted(set(LEFT_OUT["items"]) | set(DRY_STORES)):
