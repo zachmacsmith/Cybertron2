@@ -14,6 +14,7 @@ from cybertron2.engine.here import Refused, show
 from cybertron2.engine import clocks as CK
 from cybertron2.engine import process as PROC
 from cybertron2.engine.data import CAPITAL
+from cybertron2.engine.data import LIFE as _LIFE
 
 # The registry (cybertron 1's action_registry): arguments, cost (units, a physics path, or "craft"), the line in the manual, and
 # `when` (only in a world with roads). The prompt's verb list and the reply schema are generated from it.
@@ -102,6 +103,167 @@ VERB = {
     "rule": {"args": '{"rule": go | keep | hold back | first | eat | move | tend | chore | drop, "for"?: household | me, "goods"?, "to"? | "in"? | "from"?: a building or a container (the racks, the salting tub, the chest), "qty"?, "before"?, "who"?, "by"?: a person or whoever has time, "acts"?: [actions] (a chore), "when"?, "unless"?, "words"?: your sentence, "n"?: a rule\'s number to change or drop}', "cost": 0,
              "doc": "set, change or drop a standing rule of your household's book (the head's; yours are proposals) or your own"},
 }
+
+# The interface of each act (D2-350, D2-351, D2-352; W-109): its faces, each with the shape it is listed under, the word said in
+# "do", its arguments (each with what it is and every option with what it does), what it does in interface terms (what happens when
+# you do it; never what the world yields), what it needs, its cost when the registry's `cost` is not a number, and who is shown it
+# (the names of iface.WHO's conditions: the world's settings, the person's stage and office). A face `via: techniques` lists the
+# person's crafts under its shape (data.TECHNIQUES); `retired` names where its work is said now. iface.check raises for an act
+# without them, at load. The `args` and `doc` above stay as they were for the old prompt (D2-314, D2-331: old worlds keep it).
+def _a(key, what=None, req=False, opts=None, who=None) -> dict:
+    """An argument: its key, what it is, whether it must be said, its options ({value: what it does}) and who is shown it."""
+    return {"key": key, "is": what, "req": req, "opts": opts or {}, "who": list(who or [])}
+
+
+_IFACE = {
+    "gather": [{"shape": "gather", "via": "techniques"}],
+    "work": [{"shape": "work", "via": "techniques"}],
+    "make": [{"shape": "make", "via": "techniques"}],
+    "build": [{"shape": "build", "via": "techniques"},
+              {"shape": "build", "word": "build", "what": "upgrade", "does": "rebuild a building here in a stronger structure (the new "
+               "structure's materials for its rooms, less a quarter, and the work; it counts as damaged until done), or with \"how\" "
+               "build it finer for the difference", "needs": "the building here",
+               "args": [_a("at", "a building here", True), _a("to", None, False, {"timber": "", "stone": "a mason's"})],
+               "cost": "the work of its rooms", "who": ["not youth"]}],
+    "move": [{"shape": "move", "word": "move", "does": "between your hands and a store here you may use (your household's); from racks, "
+              "a done lot taken down into the store", "needs": "",
+              "args": [_a("item", "a good", True), _a("qty", "how much", True),
+                       _a("to", None, False, {"store": "into the store", "hands": "into your hands", "a building": "its store, if you may use it"}),
+                       _a("from", "racks (a smokehouse, a hearth's rack): a done lot taken down"), _a("at", "a building")],
+              "cost": "free; a lot taken down, a unit for each 120 kg", "who": []}],
+    "take": [{"shape": "move", "word": "take", "does": "from any store you can get into, or from what lies in the open (nobody's: "
+              "whoever takes it holds it); taking from a store without the right to it is theft, and may be seen", "needs": "",
+              "args": [_a("item", "a good", True), _a("qty", "how much", True),
+                       _a("from", "a building, someone's remains, or a place where you know something lies", True)], "who": []}],
+    "give": [{"shape": "move", "word": "give", "does": "to a person here, into their hands; to a household, or a building you may use, "
+              "into its store; to a building you may not use, or someone not here, left at its door; to a place (a field, a wood), "
+              "left there in the open, where anyone may find it and take it. Leaving, putting down and hiding are giving to a place",
+              "needs": "", "args": [_a("to", "a person, a household, a building or a place here", True), _a("item", "a good", True),
+                                    _a("qty", "how much", True), _a("for", "your household: to give from its store")], "who": []}],
+    "accept": [{"shape": "agree", "word": "accept", "does": "an open offer here: both sides at once, or nothing", "needs": "",
+                "args": [_a("offer", "its id", True), _a("lots", "how many of its lots"), _a("for", "your household")], "who": []}],
+    "withdraw": [{"shape": "change", "word": "withdraw", "does": "take back an offer of yours", "needs": "",
+                  "args": [_a("offer", "its id", True)], "who": []}],
+    "release": [{"shape": "change", "word": "release", "does": "count what is owed to you (or your household) on an agreement as paid, "
+                 "however it was paid, or forgive it", "needs": "", "args": [_a("agreement", "its id", True)], "who": []}],
+    "host": [{"shape": "change", "word": "host", "does": "let someone sleep in a house you may let people into, tonight (and eat from its "
+              "store, if you feed them)", "needs": "", "args": [_a("person", "a person here", True), _a("at", "a building"),
+                                                                 _a("feed", None, False, {"true": "they eat from its store"})],
+              "who": ["grown"]}],
+    "grant": [{"shape": "change", "word": "grant", "does": "let someone use a house you may let people into, until you revoke it (or for "
+               "some days)", "needs": "", "args": [_a("to", "a person, a household or anyone", True), _a("at", "a building", True),
+                                                   _a("what", None, True, {"shelter": "a bed", "shelter and food": "a bed and its store"}),
+                                                   _a("days", "how many")], "who": ["grown"]}],
+    "revoke": [{"shape": "change", "word": "revoke", "does": "end what you granted", "needs": "",
+                "args": [_a("to", "whom you granted it", True), _a("at", "the building", True)], "who": ["grown"]}],
+    "join": [{"shape": "agree", "word": "join", "does": "ask to be taken into a household here; it happens if one who may admit you does "
+              "so today", "needs": "", "args": [_a("household", "a household here", True)], "who": []}],
+    "admit": [{"shape": "agree", "word": "admit", "does": "take someone into your household, if they ask today", "needs": "",
+               "args": [_a("person", "a person here", True)], "who": ["head"]}],
+    "leave_household": [{"shape": "change", "word": "leave household", "does": "leave your household (you keep what you carry)",
+                         "needs": "", "args": [], "who": ["household", "grown"]}],
+    "found": [{"shape": "change", "word": "found", "does": "start a household of your own, with you at its head", "needs": "",
+               "args": [_a("name", "its name", True)], "who": ["grown"]}],
+    "claim": [{"shape": "change", "word": "claim", "does": "claim it as yours: others will know, and may agree or dispute it",
+               "needs": "", "args": [_a("thing", "a field, building or herd here", True),
+                                     _a("plots", "of a field, pasture or meadow: how many of its plots (else all of them)"),
+                                     _a("for", "your household")], "who": ["grown"]}],
+    "drive": [{"shape": "move", "word": "drive", "does": "move beasts to another place here", "needs": "",
+               "args": [_a("thing", "a herd here", True), _a("item", None, False, {"cows": "", "oxen": "", "bulls": "", "calves": "",
+                                                                                   "all": "the default"}),
+                        _a("qty", "how many"), _a("to", "a place here", True)], "who": ["herds"]}],
+    "sleep": [{"shape": "go", "word": "sleep", "does": "sleep there tonight, if you can get in and a bed is free; you sleep at home "
+               "unless you say otherwise", "needs": "", "args": [_a("at", "a building here", True)], "who": []}],
+    "set": [{"shape": "set", "via": "techniques"},
+            {"shape": "change", "word": "set", "does": "open or bar the door of a building you manage", "needs": "",
+             "args": [_a("thing", None, True, {"door": ""}), _a("to", None, True, {"open": "", "barred": "only those it lets in get in"}),
+                      _a("at", "the building")], "cost": "free", "who": []},
+            {"shape": "change", "word": "set", "does": "the gap of a fish weir you work or a water mill you manage", "needs": "",
+             "args": [_a("thing", None, True, {"gap": ""}),
+                      _a("to", None, True, {"shut": "the weir's traps take what passes; a mill grinds at full and holds the fish back",
+                                            "open": "what runs passes; a mill grinds at half"}),
+                      _a("at", "the weir or the mill")], "cost": "free", "who": ["gap"]}],
+    "tend": [{"shape": "tend", "word": "tend", "does": "go back to your set gear there: take what it caught and set again what was "
+              "sprung; with no tag, all of yours of that kind there; or keep a smokehouse's fire for tonight", "needs": "",
+              "args": [_a("thing", "a tag (T7)"), _a("what", "the gear (traps, snares, net, set line, weir) or the fire"),
+                       _a("at", "a place or a smokehouse"), _a("up", None, False, {"true": "bring the gear home"}),
+                       _a("to", "a place to move snares to")], "cost": "1 unit a place", "who": ["sets"]}],
+    "travel": [{"shape": "go", "word": "go", "does": "set off along a road: the day's last act; on the road you decide nothing unless "
+                "something happens (trouble, a meeting, a find), and do what you chose here. Within this place you go nowhere: name "
+                "the spot as \"at\" in the act done there", "needs": "",
+                "args": [_a("to", "another place, or a way from here as the roads name it", True),
+                         _a("when", None, False, {"nightfall": "the default: you work the day, sleep out on the road, and arrive the next "
+                                                                "day at midday with half your units",
+                                                  "morning": "as your first act: you walk all day and arrive by nightfall, with no night "
+                                                             "out on a one-day road"}, who=["evening"]),
+                         _a("days", "how long to wait or stop")], "who": ["roads"]}],
+    "watch": [{"shape": "agree", "word": "watch", "does": "spend the day working beside them: you see how they do things, and get a "
+               "rough idea of their crafts", "needs": "them here", "args": [_a("person", "a person here", True)], "who": []}],
+    "teach": [{"shape": "agree", "word": "teach", "does": "one session, if they set aside time to learn from you the same day",
+               "needs": "them here, learning the same day", "args": [_a("to", "a person here", True), _a("what", "a craft you know", True)],
+               "who": []}],
+    "learn": [{"shape": "agree", "word": "learn", "does": "one session, if they set aside time to teach you the same day",
+               "needs": "them here, teaching the same day", "args": [_a("from", "a person here", True), _a("what", "the craft", True)],
+               "who": []}],
+    "attack": [{"shape": "force", "word": "attack", "does": "settled tonight", "needs": "",
+                "args": [_a("target", "a person or a building", True),
+                         _a("aim", None, True, {"rob": "a house: break in for its food", "hurt": "break in and set on those inside"})],
+                "who": ["grown"]}],
+    "guard": [{"shape": "force", "word": "guard", "does": "stand guard over a building here and anyone set upon there, or watch over a "
+               "place or a herd", "needs": "",
+               "args": [_a("at", "a building, a place or a herd here"),
+                        _a("when", None, False, {"night": "the default: tonight, losing the night's sleep",
+                                                 "day": "by day, for the units you give it"}),
+                        _a("units", "by day, how many")], "who": []}],
+    "fire": [{"shape": "go", "word": "fire", "does": "light a fire in the open tonight if you sleep out (on the road, or with no bed); "
+              "say it before you set off", "needs": "fuel in your hands", "args": [], "who": []}],
+    "partner": [{"shape": "agree", "word": "partner", "does": "become partners with someone here, if they choose it too today",
+                 "needs": "them here, choosing it the same day", "args": [_a("with", "a person here", True)], "who": ["grown"]}],
+    "part": [{"shape": "change", "word": "part", "does": "end your partnership", "needs": "", "args": [], "who": ["grown"]}],
+    "try": [{"shape": "agree", "word": "try", "does": "try for a child with them, if they try with you today and you both sleep in one "
+             "place tonight: the more units, the better the chance, less with each one more", "needs": "them here, trying the same day",
+             "args": [_a("with", "a person of the other sex here", True), _a("units", "1 or more", True)],
+             "cost": "the units you give it", "who": ["grown", "children"]}],
+    "name": [{"shape": "change", "word": "name", "does": "as head, name who heads the household after you; when a head has died, each "
+              "grown member names the new head", "needs": "",
+              "args": [_a("heir", "a person of your household"), _a("head", "a person of your household")], "who": ["household", "grown"]},
+             {"shape": "change", "word": "name", "does": "give a group of beasts or a thing a name of your own: you, everyone here and "
+              "your household will know it by that name, and can use it in place of the tag", "needs": "",
+              "args": [_a("thing", "a tag (H2, T5)", True), _a("as", "the name you give it", True)], "who": ["tags"]}],
+    "order": [{"shape": "change", "word": "order", "does": "as head, set your household's children to a small work each day, until you "
+               "change it", "needs": "",
+               "args": [_a("what", None, True, {**{_w: "" for _w in _LIFE["children_work"]},
+                                                 "nothing": "no work"}),
+                        _a("at", "a place here")], "who": ["head", "children"]}],
+    "meet": [{"shape": "go", "word": "meet", "does": "call a meeting for the start of tomorrow, before the day's work, for everyone at "
+              "this place: whoever comes gives a unit to it; all who come hear what is said there, and witness what is offered",
+              "needs": "", "args": [_a("at", "a building or a place here", True), _a("about", "what it is for")], "who": ["evening"]}],
+    "come": [{"shape": "go", "word": "come", "does": "go to the meeting called for this morning: before the day's work you talk there "
+              "with all who come, and may change your plan", "needs": "a meeting called here",
+              "args": [_a("to", "the meeting")], "who": ["evening"]}],
+    "write": [{"shape": "work", "word": "write", "does": "write a line on a building or monument; whoever goes in, or looks it over, reads "
+               "it; it is seen being done. A building has so many places for lines: a small room 2, a medium room 4, a hall 8, a "
+               "monument 3", "needs": "",
+               "args": [_a("at", "a building or monument here", True), _a("text", "a sentence (about 30 words)", True),
+                        _a("line", "which place (its number, or where it is: \"over the door\"), to replace a line"),
+                        _a("how", None, False, {"paint": "2 units", "carve": "4 units, 6 in stone; with a tool, and in stone a mason's"}),
+                        _a("description", "text in place of \"text\", to replace its description")],
+               "cost": "painting 2 units, carving 4 (6 in stone); changing another's words 1 more", "who": []}],
+    "erase": [{"shape": "work", "word": "erase", "does": "scratch out a line written there; it is seen being done", "needs": "",
+               "args": [_a("at", "a building or monument here", True), _a("line", "which place", True)],
+               "cost": "the work it took to write, 1 more if it is another's", "who": []}],
+    "rest": [{"shape": "work", "word": "rest", "does": "rest; the units your plan leaves are rest too", "needs": "", "args": [],
+              "who": []}],
+    "rule": [{"shape": "change", "retired": "a standing rule is written in \"rules\" (D2-339)"}],
+}
+for _v, _faces in _IFACE.items():
+    VERB[_v]["iface"] = _faces
+# The acts everyone knows (D2-351): shown to each person their conditions allow (iface.WHO), with their full description. The
+# four craft handlers and set gear are shown through the person's crafts (TECHNIQUES, `basic` the crafts everyone knows); `rule`
+# is retired for "rules".
+EVERYONE = ("move", "take", "give", "accept", "withdraw", "release", "host", "grant", "revoke", "join", "admit", "leave_household", "found",
+            "claim", "drive", "sleep", "set", "tend", "travel", "watch", "teach", "learn", "attack", "guard", "fire", "partner", "part",
+            "try", "name", "order", "meet", "come", "write", "erase", "rest", "build")
 VERBS = tuple(VERB)
 FM_KINDS = ("sow", "break", "tend", "manure", "crop", "herd", "milk", "slaughter", "works", "select", "fence", "gate", "pull", "dig_strip")
 FREE = tuple(v for v, d in VERB.items() if d["cost"] == 0)
