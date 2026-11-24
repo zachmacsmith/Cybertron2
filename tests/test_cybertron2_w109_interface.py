@@ -1,0 +1,260 @@
+"""W-109: the interface from one registry (D2-350, D2-351, D2-352, D2-353; D5-2 "interface is not world"). Interface tests
+(D2-298): every act (verbs.VERB) and way (the modifier rows) reaches the rendered prompt of a fixture person who can use it, with
+every argument and option; the loader check refuses an undescribed act, craft or way; what each familiarity shows; an argument an
+act is refused without is shown as required; who is shown what, from the registry's conditions. Fixtures: session bench's World 0b
+(Osric, a farmer head and a parent; Orabel; Jocelin, a fisher head who knows the weir; Alice, who dibbles; Hawise, a youth; Alice
+again after leaving her household, a lone grown person) and Eelmouth (Peter, Nigel a youth, Nichola, Gunnild, Oliver)."""
+import copy
+import os
+import re
+
+import pytest
+
+from cybertron2.engine import iface as IF, knowledge as KN, perceive as PC, prompt as PR, run as R, shapes as SH, verbs as V
+from cybertron2.engine.data import MODIFIERS, TECHNIQUES
+from cybertron2.engine.here import Here, Mind
+from cybertron2.engine.world import World, load_spec
+
+W0B = next(p for p in ("cybertron2/specs/mono/world0b_sonnet55.yaml", "tests/fixtures/world0b_sonnet55.yaml") if os.path.exists(p))
+EEL = "cybertron2/specs/nutrition/eelmouth.yaml"
+W0B_PEOPLE = ("Osric", "Orabel", "Jocelin", "Alice", "Hawise")
+EEL_PEOPLE = ("Peter", "Nigel", "Nichola", "Gunnild", "Oliver")
+
+
+def build(path):
+    w = World(load_spec(path))
+    w.s["day"] = 0
+    w.s["events"] = []
+    w.s["today"] = R.blank_today()
+    R.dawn(w)
+    PC.dawn(w)
+    return w
+
+
+@pytest.fixture(scope="module")
+def w0b():
+    return build(W0B)
+
+
+@pytest.fixture(scope="module")
+def eel():
+    return build(EEL)
+
+
+@pytest.fixture(scope="module")
+def lone():
+    w = build(W0B)
+    r = V.do(Here(w, "Alice"), Mind(w, "Alice"), {"do": "leave_household"})
+    assert not r.startswith("Refused"), r
+    assert Here(w, "Alice").household() is None
+    return w
+
+
+@pytest.fixture(scope="module")
+def cast(w0b, eel, lone):
+    """[(label, world, name, system prompt)] for every fixture person."""
+    out = [(f"w0b:{n}", w0b, n, PR.system_prompt(Here(w0b, n), Mind(w0b, n))) for n in W0B_PEOPLE]
+    out += [(f"eel:{n}", eel, n, PR.system_prompt(Here(eel, n), Mind(eel, n))) for n in EEL_PEOPLE]
+    out.append(("lone:Alice", lone, "Alice", PR.system_prompt(Here(lone, "Alice"), Mind(lone, "Alice"))))
+    return out
+
+
+def section(sp) -> str:
+    return sp[sp.index("What you can do."):sp.index("Reply with JSON")]
+
+
+def line_of(sp, name) -> str:
+    return next((x for x in section(sp).splitlines() if x.startswith(f"- {name} {{") or x.startswith(f"- {name}:")), "")
+
+
+def block(sp, shape) -> str:
+    """The lines under a shape's grammar line, to its next."""
+    out, on = [], False
+    for x in section(sp).splitlines():
+        if not x.startswith((" ", "-")):
+            on = x.startswith(f"{shape} {{")
+            continue
+        if on:
+            out.append(x)
+    return "\n".join(out)
+
+
+# ---------------------------------------------------------------------- the loader check
+def test_the_loader_check_passes_and_refuses_an_undescribed_act_craft_or_way():
+    IF.check()
+    verbs = copy.deepcopy(V.VERB)
+    verbs["watch"]["iface"][0].pop("does")
+    with pytest.raises(IF.RegistryError, match="watch"):
+        IF.check(verbs)
+    verbs = copy.deepcopy(V.VERB)
+    verbs["write"]["iface"][0].pop("cost")                                  # its cost is no number: the face must say it
+    with pytest.raises(IF.RegistryError, match="write"):
+        IF.check(verbs)
+    verbs = copy.deepcopy(V.VERB)
+    verbs["meet"].pop("iface")
+    with pytest.raises(IF.RegistryError, match="meet"):
+        IF.check(verbs)
+    verbs = copy.deepcopy(V.VERB)
+    verbs["grant"]["iface"][0]["args"][0].pop("req")
+    with pytest.raises(IF.RegistryError, match="grant"):
+        IF.check(verbs)
+    techs = copy.deepcopy(TECHNIQUES)
+    techs["snare"].pop("does")                                              # a set craft must say what doing it does
+    with pytest.raises(IF.RegistryError, match="snare"):
+        IF.check(None, techs)
+    techs = copy.deepcopy(TECHNIQUES)
+    techs["hunt with"].pop("takes")                                         # a way taking any value says what it takes
+    with pytest.raises(IF.RegistryError, match="hunt with"):
+        IF.check(None, techs)
+    shapes = copy.deepcopy(SH.SHAPES)
+    shapes["force"].pop("line")
+    with pytest.raises(IF.RegistryError, match="force"):
+        IF.check(None, None, shapes)
+
+
+# ---------------------------------------------------------------------- coverage
+def test_every_handler_with_every_argument_and_option_reaches_someone_who_can_use_it(cast):
+    allp = "\n".join(sp for *_, sp in cast)
+    for v, d in V.VERB.items():
+        for f in d["iface"]:
+            if f.get("retired"):
+                assert 'Standing rules are written in "rules"' in allp, v
+                continue
+            if f.get("via"):
+                assert f"\n{f['shape']} {SH.SHAPES[f['shape']]['args']}: " in allp, (v, f["shape"])
+                continue
+            who = [(lab, w, n, sp) for lab, w, n, sp in cast if IF.allowed(Here(w, n), f["who"])]
+            assert who, f"nobody in the fixtures may {v} ({f['who']})"
+            lab, w, n, sp = who[0]
+            line = IF.act_line(Here(w, n), Mind(w, n), v, f)
+            assert line in sp, (v, lab)
+            assert f'"do": "{f["word"]}"' in line
+            for a in f["args"]:
+                if a.get("who") and not IF.allowed(Here(w, n), a["who"]):
+                    continue
+                assert f'"{a["key"]}"' in line, (v, a["key"])
+                for o in a["opts"]:
+                    assert o in line, (v, a["key"], o)
+        for key in re.findall(r'"([a-z ]+)"\??:', d["args"]):                  # the old registry's arguments, every one
+            if v == "rule":
+                continue
+            assert f'"{key}"' in allp, (v, key)
+
+
+def test_every_way_and_its_values_reach_someone_who_knows_it(cast):
+    for m in sorted(MODIFIERS):
+        d = TECHNIQUES[m]
+        if d.get("shown_in"):
+            continue
+        knowers = [sp for lab, w, n, sp in cast if KN.level(Mind(w, n), m) in ("rough", "capable", "known")
+                   or d.get("untaught") == "tryable"]
+        assert knowers, m
+        vals = [d["value"]] if d["value"] != "*" else (d.get("values") or [d["takes"]])
+        hit = [sp for sp in knowers if f'"{d["key"]}"?: ' in section(sp) and all(x in section(sp) for x in vals)]
+        assert hit, (m, d["key"], vals)
+
+
+def test_every_craft_a_fixture_person_can_do_is_on_a_line_of_its_own(cast):
+    for lab, w, n, sp in cast:
+        here, mind = Here(w, n), Mind(w, n)
+        for sh, xs in IF.familiar(here, mind).items():
+            for t, lvl, uni in xs:
+                if lvl == "aware":
+                    continue
+                assert line_of(sp, IF.craft_name(t)), (lab, t)
+
+
+# ---------------------------------------------------------------------- familiarity (D2-352)
+def test_an_aware_craft_shows_its_name_only_a_rough_one_its_minimum_interface_a_known_one_its_full_line(w0b, eel):
+    sp = PR.system_prompt(Here(w0b, "Osric"), Mind(w0b, "Osric"))
+    assert KN.level(Mind(w0b, "Osric"), "mine") == "aware"
+    assert not line_of(sp, "mine") and "known of, not how" in sp and "mine (you have seen the Brooks at it all your life)" in sp
+    assert KN.level(Mind(w0b, "Osric"), "milk") == "rough"
+    milk = line_of(sp, "milk")
+    assert "a rough idea" in milk and "you could try" in milk and " unit" not in milk           # no cost at rough
+    plough = line_of(sp, "plough")
+    assert "known, master" in plough and "1 unit" in plough and "on field" in plough            # the full line
+    fell = line_of(sp, "fell")                                                                   # everyone's: in full
+    assert "bare hands x0.25" in fell and "a copper tool x2" in fell and "2 units" in fell
+    sp_n = PR.system_prompt(Here(eel, "Nigel"), Mind(eel, "Nigel"))
+    assert KN.level(Mind(eel, "Nigel"), "weir") == "rough"
+    weir = line_of(sp_n, "weir")
+    assert '"with": one or more people here' in weir and "a rough idea" in weir                 # how it is said, what it must have
+    rough_ways = [x for x in section(sp_n).splitlines() if x.startswith("  ways, with") and "weir" in x]
+    assert not rough_ways                                                                        # the ways only from capable up
+
+
+def test_only_what_one_is_familiar_with_is_shown(w0b):
+    here, mind = Here(w0b, "Osric"), Mind(w0b, "Osric")
+    sp = PR.system_prompt(here, mind)
+    for t, d in TECHNIQUES.items():
+        if SH.shape_of(t) is None or KN.level(mind, t) is not None or SH._universal(t, "adult"):
+            continue
+        known_of = " ".join(x.split("taught): ", 1)[1] for x in section(sp).splitlines() if "known of, not how" in x)
+        mine = [x for x in block(sp, SH.shape_of(t)).splitlines() if x.startswith((f"- {IF.craft_name(t)} {{", f"- {IF.craft_name(t)}:"))]
+        assert not mine and not re.search(rf"(^|; ){re.escape(IF.craft_name(t))} \(", known_of), t
+
+
+# ---------------------------------------------------------------------- an argument refused without is shown as required
+def test_an_act_refused_for_a_missing_argument_shows_it_as_required(w0b):
+    here, mind = Here(w0b, "Osric"), Mind(w0b, "Osric")
+    sp = PR.system_prompt(here, mind)
+    tried = [V.do(Here(w0b, "Osric"), Mind(w0b, "Osric"), {"do": "sow", "at": p["name"]}) for p in here.parcels().values()
+             if p["cover"] in TECHNIQUES["sow"]["at"]["covers"]]
+    assert any(r.startswith("Refused") and "say which seed" in r for r in tried), tried
+    assert '- sow {"item": the seed to sow' in sp                            # required: no "?"
+    for case, needs in (({"do": "meet"}, '"at"'), ({"do": "write"}, '"at"'), ({"do": "erase", "at": "Field House"}, '"line"'),
+                        ({"do": "travel"}, '"to"'), ({"do": "name"}, '"heir"')):
+        r = V.do(Here(w0b, "Osric"), Mind(w0b, "Osric"), case)
+        assert r.startswith("Refused"), (case, r)
+        word = next(f["word"] for f in V.VERB[case["do"]]["iface"] if f.get("word"))
+        line = next(x for x in section(sp).splitlines() if x.startswith(f'- {word} {{"do": "{word}"'))
+        assert needs in line, (case, line)
+    for t, d in TECHNIQUES.items():                                           # every required argument shown without "?"
+        for a in d.get("args") or []:
+            ln = line_of(sp, IF.craft_name(t))
+            if a["req"] and ln:
+                assert f'"{a["key"]}":' in ln, (t, a["key"])
+    for v, d in V.VERB.items():
+        for f in d["iface"]:
+            if f.get("word") and IF.allowed(here, f["who"]):
+                ln = IF.act_line(here, mind, v, f)
+                for a in f["args"]:
+                    if a["req"]:
+                        assert f'"{a["key"]}":' in ln, (v, a["key"])
+
+
+# ---------------------------------------------------------------------- who is shown what (the registry's conditions)
+def test_who_sees_what_by_stage_office_household_and_world(cast, w0b):
+    sp = {lab: s for lab, *_, s in cast}
+    acts = lambda lab: {x.split(" {")[0][2:] for x in section(sp[lab]).splitlines() if x.startswith("- ") and ' {"do": ' in x}  # noqa: E731
+    osric, orabel, hawise, lone_ = acts("w0b:Osric"), acts("w0b:Orabel"), acts("w0b:Hawise"), acts("lone:Alice")
+    assert {"order", "admit"} <= osric and not {"order", "admit"} & orabel            # the head's acts for a head
+    assert {"try", "partner", "attack", "found", "host"} <= orabel
+    assert not {"try", "partner", "attack", "found", "host", "part"} & hawise and "guard" in hawise   # a youth's list by stage
+    assert "found" in lone_ and "join" in lone_ and "leave household" not in lone_                   # no household
+    assert '"heir"' not in section(sp["lone:Alice"]) and '"heir"' in section(sp["w0b:Orabel"])
+    assert line_of(sp["w0b:Osric"], "care") and line_of(sp["w0b:Hawise"], "care")      # a world with children
+    for lab in sp:
+        assert "\n- tend " in section(sp[lab]) or not IF.allowed(Here(*next((w, n) for l2, w, n, _ in cast if l2 == lab)), ["sets"])
+    eel_has_herds = V.when_holds(Here(next(w for l2, w, *_ in cast if l2 == "eel:Peter"), "Peter"), "herds")
+    assert ("- drive {" in section(sp["eel:Peter"])) == eel_has_herds
+    assert "- drive {" in section(sp["w0b:Osric"])                                     # cattle at Middleham
+
+
+def test_the_section_lists_each_act_on_its_own_line_with_look_up_back_and_no_options_list(cast):
+    for lab, w, n, sp in cast:
+        s = section(sp)
+        for word in ("sleep", "fire", "meet", "come", "go"):                           # go's acts each on its own line
+            assert f'\n- {word} {{"do": "{word}"' in s, (lab, word)
+        assert "Today you could" not in sp and "you could do today" not in sp            # D2-286
+        assert '"look_up": [crafts]' in sp
+        assert "a standing rule (rule)" not in s and "- rule " not in s                  # rules only in "rules" (D2-339)
+        assert "known of, not how" not in s or s.index("known of, not how") > s.index("\n- ")
+
+
+def test_the_build_shapes_upgrade_face_is_read_from_the_registry(w0b):
+    here, mind = Here(w0b, "Osric"), Mind(w0b, "Osric")
+    a = SH.normalize(here, mind, {"do": "build", "what": "upgrade", "at": "Field House", "to": "timber"})
+    assert a == {"do": "build", "what": "upgrade", "at": "Field House", "to": "timber"}
+    assert '- upgrade {"do": "build", "what": upgrade, "at": a building here' in PR.system_prompt(here, mind)
