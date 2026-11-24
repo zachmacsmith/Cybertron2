@@ -21,6 +21,7 @@ import sys
 from collections import defaultdict
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", "..")))
 DATA = os.path.join(HERE, "data")
 SEASONS = ("spring", "summer", "autumn", "winter")
 NEED = {"spring": 11.0, "summer": 11.0, "autumn": 11.0, "winter": 12.0}
@@ -333,6 +334,17 @@ def water_class(r):
     return "no water parcel"
 
 
+def _node_rain(wid, nodes):
+    import yaml
+    p = os.path.join(HERE, "worlds", wid + ".yaml") if wid != "eelmouth" else os.path.join(HERE, "..", "..", "..", "..", "..", "cybertron2", "specs", "nutrition", "eelmouth.yaml")
+    try:
+        w = yaml.safe_load(open(p))
+    except OSError:
+        return None
+    xs = [float(w["nodes"][n].get("rain_mm")) for n in nodes if n in w["nodes"] and w["nodes"][n].get("rain_mm") is not None]
+    return round(stt.mean(xs), 0) if xs else None
+
+
 def cue_per_world(D):
     """Per world: the engine's mean rain a day at its villages' catchments (against runs.RAIN_MEAN 3.4) and the generator's rain_mm;
     per kind, the cue nights a window (eels: at each settled village's own stretch; up-runs: at each mouth), and the share of
@@ -347,7 +359,7 @@ def cue_per_world(D):
         e0 = int(r["eco_day0"])
         settled = {v["node"] for v in d["census_maker"]["villages"].values() if not v.get("wild")}
         rm = [x for n, x in r["catch_rain_mean"].items() if n in settled] or list(r["catch_rain_mean"].values())
-        rec = {"rain_mm (generator)": rain_of(d), "village node rain_mm (generator)": None,
+        rec = {"rain_mm (generator)": rain_of(d), "village node rain_mm (generator)": _node_rain(wid, settled),
                "engine rain a day, mean at the villages' catchments": round(stt.mean(rm), 2), "over RAIN_MEAN": round(stt.mean(rm) / RU.RAIN_MEAN, 2)}
         cnt = defaultdict(lambda: defaultdict(int))
         for d1, k, n, c, ic in r.get("village_cue") or []:
