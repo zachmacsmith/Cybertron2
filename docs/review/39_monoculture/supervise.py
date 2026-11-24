@@ -69,6 +69,7 @@ def windows():
 def main():
     out = sys.argv[1]
     workers = sys.argv[sys.argv.index("--workers") + 1] if "--workers" in sys.argv else "6"
+    upto = int(sys.argv[sys.argv.index("--until-day") + 1]) if "--until-day" in sys.argv else None   # stop after this many days
     name = os.path.basename(out)
     log(f"{name}: watching")
     while True:
@@ -76,6 +77,8 @@ def main():
             time.sleep(60)
             continue
         done, want = days_done(out), days_wanted(out)
+        if upto:
+            want = min(want, upto)
         if extinct(out):                                                # everyone dead: the engine ends the run; so does this
             log(f"{name}: everyone has died (day {done}); publishing")
             subprocess.run([sys.executable, "-m", "cybertron2.engine", "publish", out, "--push", "--staging",
@@ -84,7 +87,7 @@ def main():
             log(f"{name}: published")
             return
         if done >= want:
-            log(f"{name}: finished ({done} days); publishing")
+            log(f"{name}: finished ({done} days{' of ' + str(upto) + ' asked' if upto else ''}); publishing")
             subprocess.run([sys.executable, "-m", "cybertron2.engine", "publish", out, "--push", "--staging",
                             f"/home/user/mono1/staging_{name}"], cwd=REPO, env=dict(os.environ, HF_HUB_DISABLE_XET="1"),
                            stdout=open(out + ".log", "a"), stderr=subprocess.STDOUT)
@@ -105,7 +108,8 @@ def main():
             continue
         log(f"{name}: resuming from day {done} (five-hour {five:.0%}, week {week:.0%})")
         env = dict(os.environ, LLM_BACKEND="claude_code", CYBERTRON2_WEEK_STOP=str(STOP_WEEK), HF_HUB_DISABLE_XET="1")
-        subprocess.Popen([sys.executable, "-m", "cybertron2.engine", "resume", out, "--from-last", "--workers", workers], cwd=REPO,
+        until = ["--until", f"d{want - 1}.memory"] if upto else []
+        subprocess.Popen([sys.executable, "-m", "cybertron2.engine", "resume", out, "--from-last", "--workers", workers] + until, cwd=REPO,
                          env=env, stdout=open(out + ".log", "a"), stderr=subprocess.STDOUT, start_new_session=True)
         time.sleep(120)
 
