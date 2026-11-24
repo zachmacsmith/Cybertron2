@@ -425,3 +425,13 @@ def test_a_lesson_or_an_act_without_its_fields_is_told_them_from_the_registry(w0
     assert _did(w, "Osric", {"do": "teach", "to": "Drew"}) == 'Refused: teach: say a craft you know in "what"'
     assert _did(w, "Osric", {"do": "watch"}) == 'Refused: watch: say a person here in "person"'
     assert "None" not in _did(w, "Osric", {"do": "learn", "from": "Orabel"})
+
+
+def test_live_run_ones_lessons_and_offers_under_agree_are_read(w0b):
+    """Replies of live run 1 refused before (the replay, iface_report.md): a lesson written in "agreement" or "name", an offer
+    accepted under agree."""
+    here, mind = Here(w0b, "Osric"), Mind(w0b, "Osric")
+    a = SH.normalize(here, mind, {"do": "agree", "with": "Orabel", "agreement": "learn the plough from Orabel, 2 units"})
+    assert (a["do"], a["from"], a["what"]) == ("learn", "Orabel", "plough")
+    assert SH.normalize(here, mind, {"do": "agree", "with": "Orabel", "name": "learn milking"})["what"] == "milk"
+    assert SH.normalize(here, mind, {"do": "agree", "offer": "O1", "for": "my household"})["do"] == "accept"

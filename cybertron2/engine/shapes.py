@@ -112,7 +112,8 @@ def _nearest(mind, word) -> str:
 RULE_DO = {"first": "first", "eat first": "first", "hold back": "hold back", "keep back": "hold back", "fallback": "fallback"}
 BOOK_KINDS = ("go", "keep", "hold back", "first", "eat", "move", "tend", "chore", "drop", "fallback", "eat first")   # book.KINDS
 PEOPLE_KEYS = ("with", "person", "to", "from", "target", "who")
-CRAFT_KEYS = ("what", "craft", "line", "thing", "technique", "skill", "describe", "description", "text")
+CRAFT_KEYS = ("what", "craft", "line", "thing", "technique", "skill", "describe", "description", "text", "agreement", "name",
+              "about", "how")                                   # a lesson's words wherever it was written (live run 1's replay, W-109)
 DOOR_TO = {"shut": "barred", "closed": "barred", "close": "barred", "set shut": "barred", "locked": "barred", "lock": "barred",
            "bar": "barred", "bolted": "barred", "barred": "barred", "open": "open", "opened": "open", "unbarred": "open"}
 
@@ -327,6 +328,8 @@ def normalize(here, mind, a) -> dict:
                 v = faces[f0]
                 if v in ("teach", "learn"):
                     return _lesson(here, mind, {**a, "what": more}, v)
+        if do == "agree" and a.get("offer") and not a.get("what"):           # an offer named under agree: accepting it (W-109 replay)
+            return {**a, "do": "accept"}
         if do == "agree":
             return _lesson(here, mind, a, None)
         if do == "go":
