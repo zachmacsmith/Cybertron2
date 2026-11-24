@@ -2868,7 +2868,7 @@ def _part(here, mind, a, party):
 
 
 def _try(here, mind, a, party):
-    x = a.get("with") or a.get("person")
+    x = a.get("with") or a.get("person") or a.get("target")              # "target", as the other acts name a person (W-202)
     if not x:                                                               # "with" left out: one's partner, if here (W-202: the
         mate = here.body(here.name).get("partner")                          # shape marks "with" optional, and the one try in 14
         if mate and mate in here.people(me=False):                          # days of a run was refused as "nobody called None")
