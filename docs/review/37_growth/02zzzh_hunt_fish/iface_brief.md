@@ -87,3 +87,13 @@ left unbuilt; questions for Zach with the defaults you took.
    finer ways (modifiers learnt). Aware shows the full interface, says they do not yet know how (and how one learns it: watching,
    being taught), and gives no recipe detail; rough adds what it needs and a rough recipe; known or capable adds the full recipe and
    tool effects. The registry fields, the renderer and the tests follow (a test that an aware craft shows its full interface).
+
+## Correction (D2-352, Zach, 24 Nov, replaces D2-351's aware clause; sent by the coordinator mid-build)
+
+Aware is only knowing a craft or act is a possibility: its name and who does it, nothing more (no interface, no costs). Once a
+person can do it (a rough idea or more, or it is in the set everyone knows), at least the minimum interface to call it: how it is
+said and its required arguments. Costs, options (the ways) and the recipe's detail grow with familiarity (rough: what it needs and
+a rough recipe; known or capable: the full recipe, batch, tool effects, the ways learnt, costs). The set everyone knows is shown in
+full. The rest of D2-351 stands (shown only once familiar; the everyone-knows set defined as data). The test "an aware craft shows
+its full interface" becomes: an aware craft shows its name only; a rough one its minimum interface; a known one its full line. Kept
+lean: the prompt is not inflated beyond what each level needs.
