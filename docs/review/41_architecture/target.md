@@ -149,6 +149,10 @@ What this changes in practice:
   built.
 - The surveys' list of missing patterns becomes the first promotion queue. Every entry already has two or more copies today, so by
   the rule each is a promotion that is due. They are not all built at once. They are ordered by which content waits on them (§5).
+  Said plainly, since it can read as a contradiction: **for the code that exists, the lifecycle does not reduce the work; it reduces to
+  a priority queue** of overdue promotions. Its real effect is on what is built from here on: no general mechanism is designed
+  before a feature needs it, and a feature that needs one it does not find builds it locally, inside its folder, not as a branch in a
+  hub.
 
 ## 5. The shared mechanisms: which first
 
@@ -192,6 +196,17 @@ Taken from the four surveys' verdicts, and consistent across them:
   promotion leaves its old copy behind (question 3).
 - **Experiments.** Every change to a rendered line changes the stimulus (D §10). The migration runs after W-111's tag, never under
   a running experiment.
+- **Visibility: a diagnostics stream** (Zach, 24 Nov: "there is no unified error logging or logging stream at all"). True: the
+  journal (`journal.py:21-36`) records steps, requests, events and state changes, but nothing about the engine itself; the code has
+  21 broad `except` sites in `engine/` and `wild/`, and only `infra/llm.py` logs. Every regression this week was found by hand
+  (wave_regressions.md, build_gaps.md, World 0b's refusals, L-189). Proposed: one journal table, `diagnostics`, written by one call
+  (`w.note(kind, where, detail)`), with a small fixed vocabulary: `load_error`, `skip` (a row or step dropped), `fallback` (a default
+  used), `refused` (an act refused, with a reason code). Constraints so it is safe for experiments: written to the journal only, never
+  to `World.s` or a checkpoint (replay's checkpoint comparison is untouched); no randomness and never shown in a prompt; left out of
+  golden-journal comparisons; old journals load without it. It is the same change as two others in this target: the load check
+  writes its failures there, and structured act results (`{kind, text, data}`) give each refusal its code, so refusals counted by
+  code would have found L-189's faults with a query. "No silent failure" is already W-111's scope (stable_engine_for_runs.md), so
+  the stream belongs there, before the tag; W-112's load check writes into it. Posted on the board; not built.
 
 ## 8. The first build (outline; step 4 gives it in full)
 
