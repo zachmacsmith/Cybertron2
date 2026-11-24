@@ -55,6 +55,7 @@ say a verb just to say a technique what is the verb actually doing?"
 
 ## History
 
+- 24 Nov 2026: accepted in part: D5-2 (The prompt's interface shows every act a person can take, each with a descriptio).
 - 23 Nov 2026: accepted in part: D2-314 (The eleven act shapes are the verb list: go, gather, set, tend, make, work, buil).
 - **22 Nov 2026:** written as exploration by 37.2 from the day's conversation (Zach quoted under Why), under D2-277 (every explored idea
   written down), with the crafts evaluation's counts.

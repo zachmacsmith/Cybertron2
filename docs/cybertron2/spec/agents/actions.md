@@ -18,6 +18,7 @@ the world, not from a complete manual. Moving house is one of the things agents 
   give that cannot reach its recipient is left at its door (world/things_in_places.md).
 - D2-93, D2-94, D2-112: modifiers on verbs are techniques (agents/modifiers.md): `for`, `hidden`, the sowing method.
 - D2-96: `bury` is work on a body, offered only where one lies (world/things_in_places.md).
+- D5-2: The prompt's interface shows every act a person can take, each with a description of what it does and its options, and every technique of theirs with what it does; only the world (yields, seasons, ecology, where things are) is left to memory and seeded lines. Concise means not explaining the world, never cutting the interface: an act or option not shown does not practically exist. Amends D2-314's presentation (the eleven shapes' grammar stays)
 
 ## Mechanics
 
