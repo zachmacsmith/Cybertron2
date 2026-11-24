@@ -133,11 +133,28 @@ for _k, _v in {"smoke fish": _KS_DOES, "smoke meat": _KS_DOES, "hard cure fish":
                "ret flax": "lay pulled flax in still water for a night, or spread on the grass for 3, until the stems part from the "
                            "fibre; lift it with a take"}.items():
     TECHNIQUES[_k]["does"] = _v
+
+
+def fire_risk_words() -> str:
+    """The smokehouse's own fire, told from PHYSICS smokehouse.fire (a night's chance by structure; process.catch rolls it): the old
+    prompt's manual had said it until the wave (wave_regressions finding 7; W-111)."""
+    from cybertron2.engine.data import PHYSICS
+    f = PHYSICS["smokehouse"]["fire"]
+    by = sorted(f.items(), key=lambda kv: -kv[1])
+    return "its fire can catch the smokehouse itself on a night it burns: " + ", ".join(
+        f"{m} about 1 night in {round(1 / p):,}" if p > 0 else f"{m} never" for m, p in by)
+
+
+def tell_fire_risk(techniques) -> None:
+    """The smokehouse techniques' manual tells its fire (called by data.py once PHYSICS is loaded)."""
+    for k in ("smoke fish", "smoke meat", "hard cure fish", "hard cure meat"):
+        if techniques.get(k, {}).get("manual") and "catch the smokehouse" not in techniques[k]["manual"]:
+            techniques[k]["manual"] += "; " + fire_risk_words()
 # the containers (u4 §4; D2-284, D2-291): a set of racks holds 250 kg on 1 space; the building caps the sets (`per`, `work floor`)
 FITTINGS = {
     "smoke racks": {"process": ["keeping smoke", "hard cure"], "holds_kg": 250, "spaces": 1, "per": "set", "racks": None,
                     "does": "a smokehouse: a set of racks holds about 250 kg hung over a smouldering fire, tended daily (a keeping smoke a "
-                            "night; a hard cure 3 nights in timber or stone)"},
+                            "night; a hard cure 3 nights in timber or stone); its fire can catch the house, a wattle one most"},
     "hearth": {"process": ["hearth rack"], "holds_kg": 8, "racks": None},
     "fire ring": {"process": ["hearth rack"], "holds_kg": 8, "racks": None},
 }
@@ -690,7 +707,7 @@ def house_lines(here, bid) -> list:
         out.append(f"firewood for tonight's fire ({_n(bundles(need))} bundles needed, {_n(bundles(have))} there)" if have + 1e-9 >= need else
                    f"not enough firewood for tonight's fire ({_n(bundles(need))} bundles needed, {_n(bundles(have))} there)")
     elif smoke and on and sm.get("tended") == here.day:
-        out.append("the fish on the racks have had their smoke: more fire does them no good")
+        out.append(f"the {what_of(list(on.values()))} on the racks have had their smoke: more fire does them no good")   # W-111
     if smoke:
         left = room(w, bid, "keeping smoke")
         cap = capacity(b, "keeping smoke")

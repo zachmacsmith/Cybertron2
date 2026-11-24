@@ -1373,6 +1373,7 @@ _GEAR.register_techniques(TECHNIQUES)
 from cybertron2.engine import process as _PROC                          # noqa: E402
 _PROC.register_techniques(TECHNIQUES)
 _PROC.register_fittings(FITTINGS)
+_PROC.tell_fire_risk(TECHNIQUES)                                          # the smokehouse's fire, in the manual (W-111)
 # Stores and containers (u5; engine/stores.py, D2-244): the spaces' real capacities, the containers, the vermin goods
 from cybertron2.engine import stores as _STORES                         # noqa: E402
 _STORES.register_fittings(FITTINGS)

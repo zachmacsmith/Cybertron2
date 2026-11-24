@@ -56,3 +56,15 @@ def test_household_names_and_crumbs_read_right():
 
 def test_the_rules_block_names_the_household_by_its_surname(eel):
     assert any(x.startswith("The Marsh household") for x in BK.rules_block(eel, "Peter"))
+
+
+def test_the_smokehouse_fire_is_told_and_what_hangs_is_named():
+    """wave_regressions findings 6 and 7 (W-111): the old prompt's manual tells the smokehouse's fire, from PHYSICS; the racks'
+    description says it can catch; a done smokehouse names what hangs, not 'the fish'."""
+    import inspect
+    from cybertron2.engine import process as PROC
+    from cybertron2.engine.data import FITTINGS, PHYSICS, TECHNIQUES
+    p = PHYSICS["smokehouse"]["fire"]["wattle"]
+    assert f"wattle about 1 night in {round(1 / p):,}" in TECHNIQUES["smoke meat"]["manual"]
+    assert "can catch" in FITTINGS["smoke racks"]["does"]
+    assert "the fish on the racks" not in inspect.getsource(PROC)
