@@ -18,3 +18,7 @@ conversation (24 Nov: "we should add new actions, and each action should require
 
 ## Linked
 - parent: [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]
+
+
+## Mentioned by
+- [[D2-351 What a person is shown follows what they have learnt|What a person is shown follows what they have learnt (D2-351)]]
