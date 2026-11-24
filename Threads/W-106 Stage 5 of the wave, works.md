@@ -1,15 +1,15 @@
 ---
 id: W-106
 kind: thread
-state: active
+state: paused
 updated: "2026-11-24"
 ---
 
 # Stage 5 of the wave, works (W-106)
 
-*active · 37.2 · touched 24 Nov (today)*
+*paused · 37.2 · touched 24 Nov (today)*
 
-> **Next:** the stage 5 brief and builder (branch w85-s5-works)
+> **Next:** stopped 24 Nov by Zach or the app; work kept on w85-s5-works (ce3cd71d); resumes when Zach says; check its 'a build act begun costs its whole work' against [[D2-324 A build act costs what is left of the work|D2-324]]
 
 ## What it is
 Stage 5 of the wave, works (build_plan.md): u7's hold released in stages, clearing a plot at a time, border fences in sections, site material in the work, turf or brush roofs, a build act costs what is left, Hollinford built without leather; then live run 2 ([[D2-345 Zach's go for stage 5|D2-345]])

@@ -32,7 +32,7 @@
 - [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]: closed by agent
 - [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]: closed by agent
 
-## Active threads (21)
+## Active threads (20)
 
 **37.2**
 - [[W-29 Writing up the 10 Nov wild-region live run|Writing up the 10 Nov wild-region live run (W-29)]]  
@@ -55,12 +55,10 @@
   next: the build continues under W-105 to W-107; live run 2 after stage 5b
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]  
   next: survey and design written (c101c75d); 37.2 reviewed the counts; eight design questions and seven survey…
-- [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]  
-  next: the stage 5 brief and builder (branch w85-s5-works)
 - [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]]  
   next: both reads done (sweep.md, generality.md); the proposal waters_general.md with Zach (Q-98, Q-99); then 5b…
 - [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]  
-  next: builder on branch w109-interface in /home/user/c2-iface; then 37.2 reviews, replays real replies and merges
+  next: the registry and renderer builder on w109-interface (brief iface_brief.md); a regression audit of the wave…
 
 **37.4**
 - [[W-2 Build briefs 2 and 3, the 20 dry test arms, the spring live run|Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)]]  
@@ -114,8 +112,8 @@
 - [[W-28 The Cybertron 2 website|The Cybertron 2 website (W-28)]]  
   next: Zach sets up the Netlify site and the subdomain; `python -m c2viz.site.viewer_publish` after each publish…
 
-## Queued and paused (19)
-[[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy, [[W-86 Households generalised into institutions and laws|W-86]] Households generalised into institutions and laws, [[W-87 Health, fatigue and illness|W-87]] Health, fatigue and illness, [[W-88 The coast and the sea|W-88]] The coast and the sea, [[W-89 Trade between villages markets, carriage, what flows where|W-89]] Trade between villages: markets, carriage, what flows where, [[W-90 Textiles and clothing|W-90]] Textiles and clothing, [[W-91 Pottery and clay crocks, ovens, daub, bricks|W-91]] Pottery and clay: crocks, ovens, daub, bricks, [[W-92 Boats, barrels and the cooper|W-92]] Boats, barrels and the cooper, [[W-93 Demography and growth|W-93]] Demography and growth, [[W-94 Timed actions|W-94]] Timed actions, [[W-95 Stone and quarrying|W-95]] Stone and quarrying, [[W-96 Space unified everywhere|W-96]] Space unified everywhere
+## Queued and paused (20)
+[[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy, [[W-86 Households generalised into institutions and laws|W-86]] Households generalised into institutions and laws, [[W-87 Health, fatigue and illness|W-87]] Health, fatigue and illness, [[W-88 The coast and the sea|W-88]] The coast and the sea, [[W-89 Trade between villages markets, carriage, what flows where|W-89]] Trade between villages: markets, carriage, what flows where, [[W-90 Textiles and clothing|W-90]] Textiles and clothing, [[W-91 Pottery and clay crocks, ovens, daub, bricks|W-91]] Pottery and clay: crocks, ovens, daub, bricks, [[W-92 Boats, barrels and the cooper|W-92]] Boats, barrels and the cooper, [[W-93 Demography and growth|W-93]] Demography and growth, [[W-94 Timed actions|W-94]] Timed actions, [[W-95 Stone and quarrying|W-95]] Stone and quarrying, [[W-96 Space unified everywhere|W-96]] Space unified everywhere, [[W-106 Stage 5 of the wave, works|W-106]] Stage 5 of the wave, works
 
 ## Decided this week (136)
 - [[D2-350 Every act and every technique a person can take is registered with…|Every act and every technique a person can take is registered with… (D2-350)]]
