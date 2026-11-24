@@ -17,7 +17,6 @@ batch, what a tool does to it, the ways learnt). No list of what one could do to
 from __future__ import annotations
 
 LEVEL_ORDER = {"known": 0, "capable": 1, "rough": 2, "aware": 3}
-CRAFT_SHAPES = ("gather", "set", "make", "work", "build")
 
 
 class RegistryError(ValueError):
@@ -58,7 +57,7 @@ WHO = {
     "household": lambda here: here.household() is not None,
     "children": lambda here: bool(here.children_on()),
     "roads": lambda here: bool(here.roads()),
-    "herds": lambda here: __import__("cybertron2.engine.verbs", fromlist=["verb_here"]).verb_here(here, "drive"),
+    "herds": lambda here: __import__("cybertron2.engine.verbs", fromlist=["when_holds"]).when_holds(here, "herds"),
     "evening": lambda here: bool(here.setting("evening")),
     "tags": lambda here: bool(here.setting("tags")),
     "gap": _gap,
@@ -126,7 +125,7 @@ def check(verbs=None, techniques=None, shapes=None) -> None:
             for k in ("key", "value", "modifies"):
                 if not d.get(k):
                     raise RegistryError(f"{where}: a way without {k!r}")
-            if d["value"] == "*" and d["key"] != "for" and not d.get("values") and not d.get("takes"):
+            if d["value"] == "*" and not d.get("shown_in") and not d.get("values") and not d.get("takes"):
                 raise RegistryError(f"{where}: a way taking any value says neither its values nor what it takes (takes)")
             continue
         if d.get("verb") not in ("gather", "work", "make", "build"):
@@ -181,7 +180,7 @@ def ways_words(here, mind, mods) -> list:
     for m in mods:
         d = TECHNIQUES[m]
         lvl = KN.level(mind, m)
-        if d["key"] == "for" or (lvl not in ("rough", "capable", "known") and d.get("untaught") != "tryable"):
+        if d.get("shown_in") or (lvl not in ("rough", "capable", "known") and d.get("untaught") != "tryable"):
             continue
         u = int((d.get("changes") or {}).get("units", 0) or 0)
         extra = f", {u} unit{'s' if u != 1 else ''} more" if u else ""
@@ -211,7 +210,7 @@ def _needs_words(t) -> str:
     if t.get("tools") and "bare" not in t["tools"]:
         bits.append("a tool")
     if t.get("crew"):
-        bits.append("others with you" if (t.get("yield") or {}).get("kind") == "wild_take" else "a crew, led by one who knows how")
+        bits.append("others with you")
     return ", ".join(bits)
 
 
@@ -241,8 +240,6 @@ def familiar(here, mind) -> dict:
         uni = SH._universal(t, stage)
         if lvl is None and not uni:
             continue
-        if sh == "build" and stage == "youth" and not lvl:
-            continue
         if not allowed(here, d.get("who")):
             continue
         out.setdefault(sh, []).append((t, "known" if uni and not lvl else lvl, uni))
@@ -253,7 +250,7 @@ def familiar(here, mind) -> dict:
 
 def craft_line(here, mind, tech, lvl, uni) -> str:
     """One craft on its own line, at the detail the person's familiarity gives (D2-352). Aware crafts are not lines: `known_of`."""
-    from cybertron2.engine import knowledge as KN
+    from cybertron2.engine import knowledge as KN, shapes as SH
     from cybertron2.engine.data import TECHNIQUES
     t = TECHNIQUES[tech]
     name = craft_name(tech)
@@ -261,13 +258,13 @@ def craft_line(here, mind, tech, lvl, uni) -> str:
     args = t.get("args") or []
     if lvl == "rough":
         cl = KN.craft_line(tech, "rough", mind.know.get(tech), here)
-        inner = cl[cl.index("(a rough idea") + 1:-1] if "(a rough idea" in cl else "a rough idea"
+        inner = cl[cl.index("(a rough idea") + 1:-1]
         need = _needs_words(t)
         a = args_words(here, args, required_only=True)
         return (f"- {name}{' ' + a if a else ''}: {does} ({inner}" + (f", needs {need}" if need else "")
                 + "; you could try: about half the time it works, and it takes more)")
     rec = mind.know.get(tech) if isinstance(mind.know.get(tech), dict) else None
-    if t["verb"] == "build":                                                   # a build's recipe: its materials and work (D2-263)
+    if SH.SHAPES[SH.shape_of(tech)].get("recipe") == "blueprint":             # a build's recipe: its materials and work (D2-263)
         from cybertron2.engine import prompt as PR
         note = PR._craft_note(tech)
         head = ("known" + (f", {KN.skill_word(float(rec['skill']), tech, here)}" if rec and rec.get("skill") is not None else "")
@@ -298,12 +295,10 @@ def known_of(mind, techs) -> str:
     return "; ".join(out)
 
 
-def _mods_for(verb, techs=(), place=False) -> list:
-    from cybertron2.engine import modifiers as MOD
-    out = list(MOD.available(verb, place=place)) if not techs else []
-    for t in techs:
-        out += [m for m in MOD.available(verb, t) if m not in out]
-    return out
+def ways_for(targets) -> list:
+    """The ways (modifiers) whose `modifies` names one of the targets a face or a shape row declares ("travel", "give:place")."""
+    from cybertron2.engine.data import MODIFIERS, TECHNIQUES
+    return [m for m in sorted(MODIFIERS) if set(TECHNIQUES[m]["modifies"]) & set(targets)]
 
 
 def _craft_ways(here, mind, sh, full) -> list:
@@ -313,7 +308,7 @@ def _craft_ways(here, mind, sh, full) -> list:
     groups = {}
     for t in full:
         for m in MOD.available(TECHNIQUES[t]["verb"], t):
-            if m != "for" and set(TECHNIQUES[m]["modifies"]) & {f"{TECHNIQUES[t]['verb']}:{t}"}:
+            if not TECHNIQUES[m].get("shown_in") and set(TECHNIQUES[m]["modifies"]) & {f"{TECHNIQUES[t]['verb']}:{t}"}:
                 groups.setdefault(m, []).append(t)
     by_set = {}
     for m, ts in groups.items():
@@ -332,20 +327,20 @@ def act_cost(here, v, face) -> str:
     if face.get("cost"):
         return face["cost"]
     n = V.verb_units(here.p, v)
-    return _units(n) if n is not None else ""
+    if n is None:
+        raise RegistryError(f"act {v!r}: no cost to show")
+    return _units(n)
 
 
 def act_line(here, mind, v, face) -> str:
     """An act on its own line (D2-350), in full: how it is said with every argument and option, what it does, what it needs, its
     cost, and the ways it takes that one knows (D2-351: the acts everyone knows are shown in full)."""
-    say = args_words(here, face["args"], do=face["word"]) if face.get("word") != "build" else \
-        args_words(here, [{"key": "what", "is": None, "req": True, "opts": {face["what"]: ""}}] + face["args"], do="build")
+    what = [{"key": "what", "is": None, "req": True, "opts": {face["what"]: ""}}] if face.get("what") else []   # a face said with
+    say = args_words(here, what + face["args"], do=face["word"])                                               # its "what"
     bits = [face["does"]] + ([f"needs {face['needs']}"] if face.get("needs") else [])
     cost = act_cost(here, v, face)
-    line = f"- {face['word'] if face.get('word') != 'build' else face['what']} {say}: " + "; ".join(bits) + (f" ({cost})" if cost else "")
-    place = v == "give"
-    mods = _mods_for(v, place=place) if v in ("travel", "give") else []
-    w = ways_words(here, mind, mods)
+    line = f"- {face.get('what') or face['word']} {say}: " + "; ".join(bits) + (f" ({cost})" if cost else "")
+    w = ways_words(here, mind, ways_for(face.get("ways") or []))
     if w:
         line += "\n  ways: " + "; ".join(w)
     return line
@@ -379,17 +374,13 @@ def lines(here, mind, first=()) -> list:
         doable = [x for x in xs if x[1] != "aware"]
         aware = [x[0] for x in xs if x[1] == "aware"]
         acts = acts_of(here, sh)
-        if sh in CRAFT_SHAPES and not xs and not acts:
-            continue
-        if sh == "set" and not doable and not aware:
-            continue
         body = [act_line(here, mind, v, f) for v, f in acts]
         body += [craft_line(here, mind, t, lvl, uni) for t, lvl, uni in doable]
         full = [t for t, lvl, uni in doable if lvl in ("known", "capable")]
         body += _craft_ways(here, mind, sh, full)
-        if sh == "build" and any(TECHNIQUES[t]["verb"] == "build" for t in full):
-            body += [f"  ways: " + "; ".join(w) for w in [ways_words(here, mind, _mods_for("build"))] if w]
-        verb = {"gather": "gather", "work": "work", "make": "make", "build": "build"}.get(sh)
+        if full and row.get("ways"):                                          # the shape's own ways (build: how fine)
+            body += [f"  ways: " + "; ".join(w) for w in [ways_words(here, mind, ways_for(row["ways"]))] if w]
+        verb = (row.get("techs") or (None,))[0]
         mods_aware = [m for m in MODIFIERS if KN.level(mind, m) == "aware" and verb
                       and any(x.split(":")[0] == verb for x in TECHNIQUES[m]["modifies"])]
         if aware or mods_aware:

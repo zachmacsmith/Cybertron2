@@ -135,7 +135,7 @@ _IFACE = {
               "whoever takes it holds it); taking from a store without the right to it is theft, and may be seen", "needs": "",
               "args": [_a("item", "a good", True), _a("qty", "how much", True),
                        _a("from", "a building, someone's remains, or a place where you know something lies", True)], "who": []}],
-    "give": [{"shape": "move", "word": "give", "does": "to a person here, into their hands; to a household, or a building you may use, "
+    "give": [{"shape": "move", "word": "give", "ways": ["give:place"], "does": "to a person here, into their hands; to a household, or a building you may use, "
               "into its store; to a building you may not use, or someone not here, left at its door; to a place (a field, a wood), "
               "left there in the open, where anyone may find it and take it. Leaving, putting down and hiding are giving to a place",
               "needs": "", "args": [_a("to", "a person, a household, a building or a place here", True), _a("item", "a good", True),
@@ -188,7 +188,7 @@ _IFACE = {
               "args": [_a("thing", "a tag (T7)"), _a("what", "the gear (traps, snares, net, set line, weir) or the fire"),
                        _a("at", "a place or a smokehouse"), _a("up", None, False, {"true": "bring the gear home"}),
                        _a("to", "a place to move snares to")], "cost": "1 unit a place", "who": ["sets"]}],
-    "travel": [{"shape": "go", "word": "go", "does": "set off along a road: the day's last act; on the road you decide nothing unless "
+    "travel": [{"shape": "go", "word": "go", "ways": ["travel"], "does": "set off along a road: the day's last act; on the road you decide nothing unless "
                 "something happens (trouble, a meeting, a find), and do what you chose here. Within this place you go nowhere: name "
                 "the spot as \"at\" in the act done there", "needs": "",
                 "args": [_a("to", "another place, or a way from here as the roads name it", True),
@@ -270,7 +270,11 @@ FREE = tuple(v for v, d in VERB.items() if d["cost"] == 0)
 
 
 def verb_here(here, verb) -> bool:
-    when = VERB[verb].get("when")
+    return when_holds(here, VERB[verb].get("when"))
+
+
+def when_holds(here, when) -> bool:
+    """Whether a world condition an act's `when` names holds here (roads, herds, children, an evening)."""
     return not when or (when == "roads" and bool(here.roads())) or (when == "herds" and any(FM.head(h) > 0 for h in here.herds().values())) \
         or (when == "children" and here.children_on()) or (when == "evening" and bool(here.setting("evening")))
 

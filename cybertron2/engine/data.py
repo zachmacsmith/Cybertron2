@@ -1304,6 +1304,7 @@ for _k, _v in {"hunt alone": "true", "hunt only with": "[the people you take]", 
                "searching": "a herd or a person lost on that road", "gather on the way": "true",
                "lead": "a herd of yours here with an ox"}.items():
     TECHNIQUES[_k]["takes"] = _v
+TECHNIQUES["for"]["shown_in"] = "reply"          # said on any act in the reply's format ("for": a person or your household)
 
 # ---------------------------------------------------------------------------------------------------------------- life (spec/life)
 # Birth and death (life/birth_and_death.md: D2-138 to D2-152; calibrate where the spec says so). Stages by days since birth (D2-139):

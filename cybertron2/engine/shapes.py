@@ -39,7 +39,7 @@ SHAPES = {
                       'camp: any place here but water), or a building here (a room added, a fitting), "structure"?: wattle | timber | '
                       'stone, "storey"?: 2 | 3 (stone only), "qty"?: beds or stalls, "name"?, "describe"?: a sentence in your words}',
               "line": "its materials at the start, the work over days; a room added to a building costs a quarter less, an upper storey "
-                      "1.5 or 2 times a room alone and no ground", "techs": ("build",)},
+                      "1.5 or 2 times a room alone and no ground", "techs": ("build",), "recipe": "blueprint", "ways": ["build"]},
     "move": {"args": '{"do": an act below}',
              "line": "goods between your hands, stores, people and places, or left in the open; beasts driven",
              "faces": {"take": "take", "give": "give", "put": "move", "move": "move", "drive": "drive", "leave": "leave",
@@ -181,6 +181,13 @@ def _lesson(here, mind, a, face) -> dict:
     return out
 
 
+def _said_with_what(shape, what):
+    """The registry face listed under a shape that is said with this "what" (the build's upgrade), else None."""
+    from cybertron2.engine import verbs as V
+    return next((f for d in V.VERB.values() for f in d.get("iface") or [] if f.get("shape") == shape and f.get("what")
+                 and f["what"] == what), None)
+
+
 def _door(a) -> dict:
     """A door set (the change shape's face; "set the door"): "to" in the reply's words (shut, closed, set shut: barred)."""
     to = str(a.get("to") or "").strip().lower()
@@ -275,8 +282,6 @@ def normalize(here, mind, a) -> dict:
         x = a.get("what") or a.get("thing") or a.get("id")
         if x:
             return {**{k: v for k, v in a.items() if k not in ("what", "thing", "id")}, "offer": x}
-    if do == "upgrade":                                                       # {"do": "upgrade", "at", "to"}: the build's face
-        return {**a, "do": "build", "what": "upgrade"}
     if do in RULE_DO:                                                        # a rule's kind put in "do" ({"do": "first", ...})
         return _rule(a, RULE_DO[do])
     if do in ("sleep", "sleep at"):
@@ -328,8 +333,9 @@ def normalize(here, mind, a) -> dict:
         if do == "force":
             return {**a, "do": "guard" if not a.get("target") else "attack"}
         verbs = SHAPES[do].get("techs") or ()
-        if do == "build" and what in ("upgrade", "rebuild"):                    # the build shape's upgrade face (W-109)
-            return {**a, "do": "build", "what": what}
+        face = _said_with_what(do, what)                                      # a registry face said with its "what" (W-109)
+        if face:
+            return {**a, "do": face["word"], "what": face["what"]}
         if what:
             t = resolve(mind, what, verbs[0]) if verbs else None
             if t is None and verbs and verbs[0] == "gather":
