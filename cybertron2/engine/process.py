@@ -84,17 +84,17 @@ TECHNIQUES = {
                        "basic": True, "at": {"fittings": ["smoke racks"]}, "inputs": {"salt fish": 60}, "units": 1,
                        "gives": {"salt fish": 60}, "batch": True, "process": "hard cure", "tags": ["food", "cooking", "fishing"],
                        "manual": _HC},
-    "hard cure meat": {"verb": "make", "label": "hanging salt meat for a hard cure (bacon, ham) in a timber or stone smokehouse",
+    "hard cure meat": {"verb": "make", "label": "hanging salt meat for a hard cure in a timber or stone smokehouse", "world": "bacon, ham",
                        "aliases": ["hard-cure meat", "hang salt meat", "cure bacon", "make bacon", "hard cure salt meat"], "basic": True,
                        "at": {"fittings": ["smoke racks"]}, "inputs": {"salt meat": 60}, "units": 1, "gives": {"salt meat": 60},
                        "batch": True, "process": "hard cure", "tags": ["food", "cooking"], "manual": _HC},
-    "hot smoke fish": {"pack": "water", "verb": "make", "label": "hot-smoking fish over a fire (cooked, to eat cold or carry)",
+    "hot smoke fish": {"pack": "water", "verb": "make", "label": "hot-smoking fish over a fire", "hint": "cooked, to eat cold or carry",
                        "aliases": ["hot smoke", "hot-smoke fish", "hot smoking"], "basic": True,
                        "at": {"fittings": ["hearth", "fire ring"]}, "inputs": {"fish": 10, "firewood": 0.15}, "units": 1,
                        "gives": {"hot-smoked fish": 6.7}, "batch": True, "process": "hot smoke", "tags": ["food", "cooking", "fishing"],
                        "manual": "fish hot-smoked over a fire in one go: 10 kg a unit gives 6.7 kg, cooked, eaten cold, keeping about a week; "
                                  "about 1.5 bundles of firewood for 10 kg"},
-    "hot smoke meat": {"verb": "make", "label": "hot-smoking meat over a fire (cooked, to eat cold or carry)",
+    "hot smoke meat": {"verb": "make", "label": "hot-smoking meat over a fire", "hint": "cooked, to eat cold or carry",
                        "aliases": ["hot-smoke meat"], "basic": True, "at": {"fittings": ["hearth", "fire ring"]},
                        "inputs": {"meat": 10, "firewood": 0.15}, "units": 1, "gives": {"hot-smoked meat": 6.7}, "batch": True,
                        "process": "hot smoke", "tags": ["food", "cooking"],
@@ -109,15 +109,30 @@ TECHNIQUES = {
                  "batch": True, "process": "hearth rack", "tags": ["food", "cooking", "fishing"],
                  "manual": "hung on the rack at a hearth or a fire ring: up to 8 kg a unit, dry after a night of the hearth's fire (outside, a "
                            "dry night), half the weight, keeping a year and more kept dry"},
-    "tend the smoke": {"verb": "work", "label": "tending a smokehouse fire (feeding and banking it for the night)",
+    "tend the smoke": {"verb": "work", "label": "tending a smokehouse fire", "hint": "feeding and banking it for the night",
                        "aliases": ["tend the smokehouse", "tend smokehouse", "tend the fire", "bank the fire", "tend smoke"], "basic": True,
                        "at": {"fittings": ["smoke racks"]}, "yield": {"kind": "smoke_tend"}, "units": 1, "gives": "", "tags": ["food", "fuel"]},
-    "ret flax": {"verb": "make", "label": "retting flax (laid in still water, or spread on the grass)", "aliases": ["retting", "ret the flax",
+    "ret flax": {"verb": "make", "label": "retting flax", "hint": "laid in still water, or spread on the grass", "aliases": ["retting", "ret the flax",
                  "rett flax", "lay flax to ret"], "basic": True, "at": {"covers": ["water", "fen", "meadow", "pasture"]},
                  "inputs": {"flax": 50}, "units": 1, "gives": {"retting flax": 50}, "batch": True, "process": "retting", "tags": ["craft"],
                  "manual": "pulled flax laid in still water for a night, or spread on the grass for 3, until the stems part from the fibre: "
                            "up to 50 kg a unit, 8 kg retted from 10; a spate on the river washes half away; lift it with a take"},
 }
+# What doing each does, in interface terms (W-109; D2-350): the world's figures (keeping times, firewood a kg) stay in `manual` for
+# the old prompt and in the engine's own results ("the fire ... wants about 0.6 bundles of firewood"), never in the interface.
+_KS_DOES = ("hang it on the racks of a smokehouse: done after 1 night of a tended fire (tend it daily; it burns firewood from the "
+            "smokehouse's store or the woodpile at its door); a lot that misses its fire waits; take the done lot down with move")
+_HC_DOES = ("hang salted goods in a timber or stone smokehouse: done after 3 nights of a tended fire; take the done lot down with move")
+for _k, _v in {"smoke fish": _KS_DOES, "smoke meat": _KS_DOES, "hard cure fish": _HC_DOES, "hard cure meat": _HC_DOES,
+               "hot smoke fish": "smoke it over a fire in one go: done in the act, cooked",
+               "hot smoke meat": "smoke it over a fire in one go: done in the act, cooked",
+               "dry meat": "hang it on the rack at a hearth or a fire ring: dry after a night of the fire (outside, a dry night), at half "
+                           "the weight",
+               "dry fish": "hang it on the rack at a hearth or a fire ring: dry after a night of the fire (outside, a dry night), at half "
+                           "the weight",
+               "ret flax": "lay pulled flax in still water for a night, or spread on the grass for 3, until the stems part from the "
+                           "fibre; lift it with a take"}.items():
+    TECHNIQUES[_k]["does"] = _v
 # the containers (u4 §4; D2-284, D2-291): a set of racks holds 250 kg on 1 space; the building caps the sets (`per`, `work floor`)
 FITTINGS = {
     "smoke racks": {"process": ["keeping smoke", "hard cure"], "holds_kg": 250, "spaces": 1, "per": "set", "racks": None,

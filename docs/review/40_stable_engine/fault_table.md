@@ -12,13 +12,13 @@ branch (`claude/busy-turing-v54rhu`). "Fixed" names the commit and its test. Pro
 | Old worlds | `World()` runs worlds the gate refuses | confirmed | **fixed** e69a8979: refused at a run's start where anyone acts by a model (default taken: not in `World()` itself; Q-100's notes); waivers and `--ungated` said in the first line and run.json | Q-100 |
 | Founders | other villages' households seeded as neighbours, also across unexplored places | confirmed (`wanted` gave an NB line for every household in the world) | **fixed** 26db8874 (D2-349): neighbours in one's village; a line of their own in a known village; none for an unknown one | D2-349 |
 | Founders | fisher lines assume an eel run on any water | confirmed (`_runs_here(c, "eel")` returned True everywhere) | **fixed** 26db8874: the runs read from the world's land as the engine runs them, at a water parcel on the river; salmon, lamprey and the mill's line reachable at last. Eelmouth's lines unchanged | L-187 |
-| Founders | the farmer's seed lines set seed per plot too high | **not an engine fault**: FA3 and HH2 state the engine's `plot_seed` (16 kg a plot). World 0b holds 32 grain against six plots' 96 | closed (agent), for World 0b's design | L-185, Q-102 |
+| Founders | the farmer's seed lines set seed per plot too high | **not an engine fault**: FA3 and HH2 state the engine's `plot_seed` (16 kg a plot). World 0b holds 32 grain against six plots' 96 | closed (agent), for World 0b's design | L-185, Q-105 |
 | Herds | an unnamed slaughter fell on a neighbour's herd | confirmed by bench | bench's fix 1e799387, to cherry-pick after W-109 | L-189 |
 | Building | the cairn free | fixed on main before this thread (cfc21ab7) | probe `cairn.py`: "it needs 6 stone" three times | L-186 (closed) |
 | Building | the wattle roof free (site material removed without its work) | not yet checked | stage 5's proper fix (D2-357: the work of getting it added to the units); open | D2-357 |
 | Waters | the lamprey dies out at world build | confirmed: Eelmouth 18 of 19 spawning stretches with spawners, the runs world 20 of 21 (worse on longer rivers, sweep.md) | **fixed** 6584e3a1: pulses in flight at the history's end spawn where bound; 19 of 19, 21 of 21 | Q-101 |
-| Waters | the lamprey's run sized by head waters only (bug 2) | confirmed in the data (`spawn` unset) | left; an ask (Q-103) | Q-103 |
-| Waters | shallows 11.4 times too rich | not checked: benched by Zach, who doubts the figure | benched | L-190 |
+| Waters | the lamprey's run sized by head waters only (bug 2) | confirmed in the data (`spawn` unset) | left; an ask (Q-106) | Q-106 |
+| Waters | shallows 11.4 times too rich | not checked: benched by Zach, who doubts the figure | benched | L-191 |
 | Waters | resident fish only from makers | confirmed (sweep.md bug 5) | W-112 (the overhaul) | W-108 |
 | Signs | false ambient lines (cattle lowing with no herds, picks with nobody quarrying) | confirmed (`data.py` COVERS, emitted for every parcel of the cover) | **fixed** (D2-346): the pasture's and the rock's lines dropped (the herd's bundle and the quarrying rows say it when true); water over its stones only on a brook or river at low or normal flow; voices only with three or more there | D2-346 |
 | Signs | an attend that finds nothing falls back to the ambient lines | confirmed (`resolve_target` returned "the place in general") | **fixed** (D2-346): a name inside the sentence is found (a person, a building, a parcel, a herd); nothing found shows nothing but one's own line. The design's own sentence waits on prompt.py (W-109) | D2-346 |
@@ -32,6 +32,6 @@ branch (`claude/busy-turing-v54rhu`). "Fixed" names the commit and its test. Pro
 - World 0b's own gate report refuses it on P6 and P20, both from the graded goal line that D5-1 decided. With the gate now at a
   run's start, World 0b's files need `gate: {waive: {P6: ..., P20: ...}}` with the reason (sent to bench).
 - World 0b's makers and specs are only on bench's branch, and bench reads World 0b as unfair as a benchmark (a late-summer start,
-  the fishing village starving first in every arm): Q-102.
+  the fishing village starving first in every arm): Q-105.
 
 *Current as of 24 Nov 2026.*

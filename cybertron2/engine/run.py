@@ -20,6 +20,7 @@ from cybertron2.engine import forests as FO
 from cybertron2.engine import agreements as AG, fuse as FU, knowledge as KN, life as LF, night as N, perceive as PC, prompt as PR, roads as RD, settle as ST, verbs as V
 from cybertron2.engine import branch as BR, evening as EVN, journal as JN, memory as MEM, tags as TG, view as VW
 from cybertron2.engine import core as CORE
+from cybertron2.engine import shapes as SHAPES
 from cybertron2.engine.converse import Conversations
 from cybertron2.engine.data import EDIBLE, TECHNIQUES
 from cybertron2.engine.here import Here, Mind
@@ -978,6 +979,9 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
             first = {n: dict(replies[n]) for n in names}
             results = {n: ([f"(Your reply could not be used, so you did nothing: {errors[n][:160]})"] if n in errors else []) for n in names}
             for n in names:
+                if SHAPES.on(w):                                               # a reply field put among the acts (L-189)
+                    replies[n], moved = SHAPES.reply_fields(replies[n])
+                    results[n] += moved
                 results[n] += PC.apply_notes(Mind(w, n), replies[n])
                 if (replies[n] or {}).get("rules"):                            # the reply's rules, free (D2-339)
                     from cybertron2.engine import book as BK

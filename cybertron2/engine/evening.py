@@ -115,6 +115,10 @@ def answer_prompt(w, n, heard, asked, left) -> str:
 def apply(w, n, reply, gather, names, results, left, box) -> int:
     """One evening reply: speech to the hearth (free), private words, the night's acts. Returns units spent (trying for a child)."""
     here, mind = Here(w, n), Mind(w, n)
+    from cybertron2.engine import shapes as SH
+    if SH.on(here):                                                            # a reply field put among the acts (L-189)
+        reply, moved = SH.reply_fields(reply)
+        results.extend(moved)
     results.extend(PC.apply_notes(mind, {k: reply.get(k) for k in ("note", "pin", "forget")}))
     if reply.get("rules"):                                                     # the evening is a time to set rules (D2-319, D2-339)
         from cybertron2.engine import book as BK

@@ -100,6 +100,7 @@ def reply_text(here, mind, first=()) -> str:
               '- "offers": [{"to": a person or "anyone", "give", "get"}], as "<n> <good>", "<n> <good> by day <d>" or "work <n> days"; '
               'done when accepted, both ways or not at all.',
               '- "attend": what or whom you look at closely (free).',
+              '- "look_up": [crafts] a craft\'s card as you know it, shown before work, when you may change your plan (free).',
               '- "rules": [standing rules, as above] to set, change or drop (free).',
               '- "note": [{"title", "text"}], "pin", "open", "forget": your notes (up to 8).',
               '- "memory", "keep", "drop": only when asked for.']

@@ -94,7 +94,7 @@ Answered 24 Nov (Q-101, Q-100):
 3. Old water worlds: both: their trappers seeded with traps and the craft as Eelmouth's fill does, and `World()` refuses what
    the gate check refuses (default taken: the recommended option chosen).
 4. The waters: the lamprey is fixed here; the shallows' richness is benched: Zach doubts the figure ("I can't believe the
-   shallows are 11.4 times too rich so maybe bench that"), so the claim is checked before any fix (L-190).
+   shallows are 11.4 times too rich so maybe bench that"), so the claim is checked before any fix (L-191).
 
 Still open: the acceptance list below.
 
@@ -108,7 +108,7 @@ The engine's interface (`prompt.py`, `core.py`, `shapes.py`, `view.py`, `verbs.p
 
 - **24 Nov 2026:** opened by 37.2 at Zach's ask, from the week's audits, as one of two priority threads (with W-112).
 - **24 Nov 2026:** taken by session stable. Zach settled the scope: World 0b and Eelmouth are the experiment worlds; the freeze
-  as written; old water worlds seeded and gate-refused worlds refused by `World()`; the lamprey fixed, the shallows benched (L-190).
+  as written; old water worlds seeded and gate-refused worlds refused by `World()`; the lamprey fixed, the shallows benched (L-191).
 - **24 Nov 2026:** built on W-111 (branch `claude/busy-turing-v54rhu`): the gate at a run's start, where anyone acts by a model,
   with waivers and `--ungated` said in the first line (default taken: at the run's start, not in `World()`, Q-100); the old water
   worlds' traps; the lamprey's spawners kept at the history's end; the founders' lines by the runs and by village (D2-349); the

@@ -21,46 +21,41 @@ from cybertron2.engine.here import Refused
 # Each shape: its arguments, the grammar line, the registry handlers its faces map to (face word -> verb), and which technique verbs
 # sit under it (u9 §3.1). The order is the prompt's.
 SHAPES = {
-    "go": {"args": '{"to": another place or a way, "when"?: morning | nightfall, "on trouble"?: go round | push on | turn back | wait}',
-           "line": 'travel to another place along a road (a part of this place you do not go to: name it as "at" in the act done '
-                   'there); "sleep" at a building; "come" to a meeting called here; a "fire" on the road',
-           "faces": {"travel": "travel", "go": "travel", "sleep": "sleep", "sleep at": "sleep", "come": "come", "fire": "fire"}},
-    "gather": {"args": '{"do", "at": a place here}', "line": "take from the land and water into your hands", "techs": ("gather",)},
-    "set": {"args": '{"do": gear you carry, "at": a place, "qty"?}',
+    "go": {"args": '{"do": an act below}', "line": "travel to another place along a road, sleep, and meet",
+           "faces": {"travel": "travel", "go": "travel", "sleep": "sleep", "sleep at": "sleep", "come": "come", "fire": "fire",
+                     "meet": "meet"}},
+    "gather": {"args": '{"do": a craft, "at": a place here}', "line": "take from the land and water into your hands", "techs": ("gather",)},
+    "set": {"args": '{"do": gear you carry, "at": a place, "qty"?: how many}',
             "line": "lay gear from your hands where it catches by night; it stays, yours, until you take it up (1 unit; up to 6 traps "
                     "or 25 snares)", "faces": {"set": "set", "lay": "set"}},
-    "tend": {"args": '{"thing"?: a tag, "at"?: a place, "up"?: true}',
-             "line": 'go back to your gear: take what it caught and set again what was sprung; "up" brings it home. Unnamed, all of '
-                     'yours of that kind at the place, 1 unit a place; or keep a smokehouse\'s fire for tonight',
+    "tend": {"args": '{"do": an act below}', "line": "go back to what you set, or keep a fire going",
              "faces": {"tend": "tend", "lift": "tend", "check": "tend", "empty": "tend", "walk": "tend", "collect": "tend"}},
-    "make": {"args": '{"do", "qty"?}',
+    "make": {"args": '{"do": a craft, "qty"?: how many times}',
              "line": "goods into goods, from your hands, then stores here you may use; or a lot laid in a container that becomes the "
                      "next good over nights", "techs": ("make",)},
-    "work": {"args": '{"do", "at"?: a thing or a place}', "line": "labour on what stays where it is", "techs": ("work",),
-             "faces": {"write": "write", "erase": "erase"}},
-    "build": {"args": '{"do", "at", "structure"?: wattle | timber | stone}', "line": "its materials at the start, the work over days",
-              "techs": ("build",)},
-    "move": {"args": '{"do": take | give | put | drive, "item", "qty", "from" | "to"}',
-             "line": 'goods between your hands, stores, people and places, or left in the open ("hidden": buried | under brush); a done '
-                     'lot taken down; beasts driven. Taking from a store not yours is theft',
+    "work": {"args": '{"do": a craft or an act below, "at"?: a thing or a place}', "line": "labour on what stays where it is",
+             "techs": ("work",), "faces": {"write": "write", "erase": "erase", "rest": "rest"}},
+    "build": {"args": '{"do": a room, a fitting or a monument, "at": a place on built ground or scrub (a new building or a monument; a '
+                      'camp: any place here but water), or a building here (a room added, a fitting), "structure"?: wattle | timber | '
+                      'stone, "storey"?: 2 | 3 (stone only), "qty"?: beds or stalls, "name"?, "describe"?: a sentence in your words}',
+              "line": "its materials at the start, the work over days; a room added to a building costs a quarter less, an upper storey "
+                      "1.5 or 2 times a room alone and no ground", "techs": ("build",), "recipe": "blueprint", "ways": ["build"]},
+    "move": {"args": '{"do": an act below}',
+             "line": "goods between your hands, stores, people and places, or left in the open; beasts driven",
              "faces": {"take": "take", "give": "give", "put": "move", "move": "move", "drive": "drive", "leave": "leave",
-                       "hide": "hide", "bury": "bury", "put down": "put down"}},
-    "change": {"args": '{"do", "thing"?, "to"?}',
-               "line": 'what you control: a door or a weir\'s gap ("set", "thing", "to"); who may sleep or eat at a house you may let '
-                       'people into (host, grant, revoke); a claim; a name, the heir; your household (leave, found), a partnership '
-                       '(part), a debt (release); a standing rule (rule)',
+                       "hide": "hide", "put down": "put down"}},       # burying goods: give, "hidden": "buried"; "bury" is the
+    # craft of burying the dead (L-189: the face named no act, so "bury" was no act at all)
+    "change": {"args": '{"do": an act below}',
+               "line": 'what you control: doors and gaps, who may use a house, claims, names, your household, a partnership, your '
+                       'offers and debts. Standing rules are written in "rules" (above), not here',
                "faces": {"host": "host", "grant": "grant", "revoke": "revoke", "claim": "claim", "name": "name", "order": "order",
                          "leave": "leave_household", "leave household": "leave_household", "leave_household": "leave_household",
                          "found": "found", "part": "part", "release": "release", "rule": "rule", "withdraw": "withdraw",
                          "door": "set", "gap": "set"}},
-    "agree": {"args": '{"do", "with"?}',
-              "line": "what both must choose: an offer accepted, a lesson (teach or learn, the same day, 2 units each), partnering, "
-                      "joining a household or admitting someone, trying for a child",
+    "agree": {"args": '{"do": an act below}', "line": "with others: what both must choose, and learning from them",
               "faces": {"accept": "accept", "teach": "teach", "learn": "learn", "partner": "partner", "join": "join", "admit": "admit",
-                        "try": "try"}},
-    "force": {"args": '{"do": attack | guard, "target"?, "aim"?: rob | hurt, "at"?, "when"?: day | night}',
-              "line": 'settled tonight: attack (rob, hurt); guard a building, a field or a herd, by night (the default) or by day '
-                      '("when": "day": you spend the units you give it watching there)',
+                        "try": "try", "watch": "watch"}},
+    "force": {"args": '{"do": an act below}', "line": "settled tonight",
               "faces": {"attack": "attack", "guard": "guard", "watch over": "guard", "keep watch": "guard"}},
 }
 FACE = {f: v for s in SHAPES.values() for f, v in (s.get("faces") or {}).items()}
@@ -95,7 +90,7 @@ def resolve(mind, word, verb=None) -> str | None:
     live = PK.techniques()
     cands = [t for t in live if (verb is None or TECHNIQUES[t]["verb"] == verb)
              and (x == t or x in [y.lower() for y in TECHNIQUES[t].get("aliases", [])] or x == TECHNIQUES[t]["label"].lower()
-                  or x == KN.label(t).lower())]
+                  or x == KN.titled(t).lower())]                              # the name, or the name with its fields (D2-356)
     if not cands and verb is None:
         return None
     return _known_first(mind, cands) if cands else None
@@ -117,7 +112,8 @@ def _nearest(mind, word) -> str:
 RULE_DO = {"first": "first", "eat first": "first", "hold back": "hold back", "keep back": "hold back", "fallback": "fallback"}
 BOOK_KINDS = ("go", "keep", "hold back", "first", "eat", "move", "tend", "chore", "drop", "fallback", "eat first")   # book.KINDS
 PEOPLE_KEYS = ("with", "person", "to", "from", "target", "who")
-CRAFT_KEYS = ("what", "craft", "line", "thing", "technique", "skill", "describe", "description", "text")
+CRAFT_KEYS = ("what", "craft", "line", "thing", "technique", "skill", "describe", "description", "text", "agreement", "name",
+              "about", "how")                                   # a lesson's words wherever it was written (live run 1's replay, W-109)
 DOOR_TO = {"shut": "barred", "closed": "barred", "close": "barred", "set shut": "barred", "locked": "barred", "lock": "barred",
            "bar": "barred", "bolted": "barred", "barred": "barred", "open": "open", "opened": "open", "unbarred": "open"}
 
@@ -156,7 +152,7 @@ def craft_in(mind, text, verb=None) -> str | None:
         d = TECHNIQUES[t]
         if d.get("modifies") or d["verb"] == "modifier":
             continue
-        for nm in [t, d["label"].lower(), KN.label(t).lower(), *[y.lower() for y in d.get("aliases", [])]]:
+        for nm in [t, d["label"].lower(), *[y.lower() for y in d.get("aliases", [])]]:
             if len(nm) > 3 and f" {nm} " in f" {x} ":
                 hits.append((len(nm), t))
     if not hits:
@@ -178,13 +174,22 @@ def _lesson(here, mind, a, face) -> dict:
     tech = next((t for t in (craft_in(mind, x) for x in words) if t), None)
     if face is None and tech:
         face = "teach" if KN.level(mind, tech) == "known" else "learn"
-    if face is None:
-        raise Refused('say the lesson: {"do": "agree", "what": "teach" or "learn", "with": a person here, "line": the craft}')
+    if face is None:                                                         # the two faces as the prompt says them (L-189)
+        from cybertron2.engine import iface as IF, verbs as V
+        said = [IF.args_words(here, f["args"], do=f["word"]) for v in ("teach", "learn") for f in V.VERB[v]["iface"] if f.get("word")]
+        raise Refused("say the lesson as " + " or ".join(said))
     rest = {k: v for k, v in a.items() if k not in PEOPLE_KEYS + CRAFT_KEYS}
     out = {**rest, "do": face, ("to" if face == "teach" else "from"): who or a.get("with") or a.get("person") or a.get("to")
            or a.get("from")}
     out["what"] = tech or next((x for x in words if x.lower() not in ("teach", "learn")), None)
     return out
+
+
+def _said_with_what(shape, what):
+    """The registry face listed under a shape that is said with this "what" (the build's upgrade), else None."""
+    from cybertron2.engine import verbs as V
+    return next((f for d in V.VERB.values() for f in d.get("iface") or [] if f.get("shape") == shape and f.get("what")
+                 and f["what"] == what), None)
 
 
 def _door(a) -> dict:
@@ -323,6 +328,8 @@ def normalize(here, mind, a) -> dict:
                 v = faces[f0]
                 if v in ("teach", "learn"):
                     return _lesson(here, mind, {**a, "what": more}, v)
+        if do == "agree" and a.get("offer") and not a.get("what"):           # an offer named under agree: accepting it (W-109 replay)
+            return {**a, "do": "accept"}
         if do == "agree":
             return _lesson(here, mind, a, None)
         if do == "go":
@@ -332,6 +339,9 @@ def normalize(here, mind, a) -> dict:
         if do == "force":
             return {**a, "do": "guard" if not a.get("target") else "attack"}
         verbs = SHAPES[do].get("techs") or ()
+        face = _said_with_what(do, what)                                      # a registry face said with its "what" (W-109)
+        if face:
+            return {**a, "do": face["word"], "what": face["what"]}
         if what:
             t = resolve(mind, what, verbs[0]) if verbs else None
             if t is None and verbs and verbs[0] == "gather":
@@ -352,6 +362,8 @@ def normalize(here, mind, a) -> dict:
         return a
     from cybertron2.engine import verbs as V
     if do in V.VERB:                                                         # the old registry verbs: as they were
+        return a
+    if do in V.ALIASES and V.ALIASES[do](a) is not None:                     # a word read as giving, with the field it needs
         return a
     m = PL.method_of(do)                                                     # a set technique named alone: by what stands
     if m is not None:
@@ -455,44 +467,9 @@ def crafts_by_shape(here, mind, first=()) -> dict:
 
 
 def lines(here, mind, first=()) -> list:
-    """The "What you can do" section (u9 §2.3): one entry per shape the person has something to do with, its grammar line and the
-    crafts under it at their level (D2-263); the free shapes always."""
-    from cybertron2.engine import knowledge as KN
-    by = crafts_by_shape(here, mind, first)
-    stage = (mind.person or {}).get("stage", "adult")
-    head = here.head(here.household()) == here.name if here.household() else False
-    out = ['What you can do. Name the craft or the act in "do", and what it acts on:']
-    for sh, row in SHAPES.items():
-        xs = by.get(sh) or []
-        if sh in ("gather", "make", "work", "build") and not xs:
-            continue
-        if sh == "set" and not xs:
-            continue
-        if sh == "tend" and not (by.get("set") or _containers(here)):
-            continue
-        yours = []
-        named = []
-        for t, lvl, uni in xs:
-            if uni:
-                if not KN.where(here, t):                                      # a universal craft with nowhere to do it here
-                    continue
-                season = KN.craft_line(t, "known", None, here).split("best in ", 1)
-                named.append(t + (f" (best in {season[1].split(';')[0].rstrip(')')})" if len(season) > 1 else ""))
-            else:
-                line_ = KN.craft_line(t, lvl, mind.know.get(t), here)
-                lab = KN.label(t)
-                from cybertron2.engine import placed as PL
-                name = PL.NOUN[t][1] if sh == "set" and t in PL.NOUN else t
-                yours.append(name + line_[len(lab):] if line_.startswith(lab) else line_)
-        line = f"- {sh} {row['args']}: {row['line']}."
-        if sh == "change" and head:
-            line = line[:-1] + "; as head, the household's rules and chores, your heir (name), the children's work (order)."
-        if sh == "force" and stage == "youth":
-            line = f"- {sh} " + '{"do": "guard", "at"?, "when"?: day | night}' + ": guard a building, a field or a herd, by night or by day."
-        if yours or named:
-            line += " Yours: " + "; ".join(yours + named) + "."
-        out.append(line)
-    return out
+    """The "What you can do" section: the registry's renderer (iface.lines; W-109, D2-350 to D2-352)."""
+    from cybertron2.engine import iface as IF
+    return IF.lines(here, mind, first)
 
 
 def _containers(here) -> bool:
@@ -521,3 +498,43 @@ def example(here, mind, first=()) -> str:
             return '{"do": "%s"}' % name
     wood = next((s for s in KN.where(here, "firewood") if s[0] == "parcel"), None) if "firewood" in KN.TECHNIQUES else None
     return '{"do": "firewood", "at": "%s"}' % (wood[2] if wood else "a wood you know")
+
+
+# ---------------------------------------------------------------------- a reply field put among the acts (L-189)
+MEMORY_FIELDS = ("memory", "keep", "drop")            # the reply's fields for the end of a stretch, asked for only then: never an act's
+def reply_fields(reply) -> tuple:
+    """(reply, notes): acts whose "do" names a field of the reply format rather than an act ({"do": "say", "to": "everyone",
+    "text": ...}; World 0b's "say" among the actions, L-189) moved into that field, read from the reply schema (prompt.SCHEMA):
+    its item's properties from the act's fields, a field the act left out from its one other word; the notes say what was moved."""
+    from cybertron2.engine import verbs as V
+    from cybertron2.engine.prompt import SCHEMA
+    if not isinstance(reply, dict) or not isinstance(reply.get("actions"), list):
+        return reply, []
+    props = {k: v for k, v in SCHEMA["properties"].items() if k not in ("why", "actions") + MEMORY_FIELDS}
+    keep, notes, out = [], [], dict(reply)
+    for a in reply["actions"]:
+        do = str(a.get("do") or "").strip().lower().replace(" ", "_") if isinstance(a, dict) else ""
+        field = next((k for k in (do, do + "s") if k in props), None) \
+            if do and do not in V.VERB and do not in V.ALIASES and do not in FACE else None
+        if field is None:
+            keep.append(a)
+            continue
+        spec = props[field]
+        rest = {k: v for k, v in a.items() if k != "do"}
+        if spec.get("type") == "array" and (spec.get("items") or {}).get("type") == "object":
+            names = list(spec["items"].get("properties") or {})
+            item = {k: rest.pop(k) for k in names if k in rest}
+            for k in names:                                                   # a field left out: the act's one other word
+                if k not in item and len([v for v in rest.values() if isinstance(v, str)]) == 1:
+                    item[k] = next(v for v in rest.values() if isinstance(v, str))
+                    rest = {}
+            out[field] = list(out.get(field) or []) + [item]
+        else:
+            val = next((v for v in rest.values() if isinstance(v, str)), None)
+            if val is None:
+                keep.append(a)
+                continue
+            out[field] = list(out.get(field) or []) + [val] if spec.get("type") == "array" else val
+        notes.append(f'(Your "{a.get("do")}" among the actions was read as the reply\'s "{field}": put it there, not in "actions".)')
+    out["actions"] = keep
+    return out, notes

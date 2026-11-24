@@ -279,7 +279,7 @@ def cast_and_memories(world: dict) -> dict:
                     continue
                 own = [t for t in techs if t in (a.get("knows") or {})]
                 if own:
-                    a["trade"] = " and ".join(TECHNIQUES[t]["label"].split(" (")[0] for t in own[:2])
+                    a["trade"] = " and ".join(TECHNIQUES[t]["label"] for t in own[:2])
     return out
 
 

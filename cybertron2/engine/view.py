@@ -96,6 +96,8 @@ def _self(here, mind, a, full) -> str:
     you = [f"You are {STAGES[a['hunger']]}" + (", and hurt" if a["wounded"] else "") + f". You carry: {hold}"
            + (f" (weight {show(here.load())} of the {here.capacity():g} you can travel with)" if here.roads() else "") + "."]
     you += here.meal_lines()                                                   # what one ate last night, and how well (D2-342)
+    if here.gear_line():                                                       # one's own gear and its state, from the one source the
+        you.append(here.gear_line())                                           # classic view reads too (W-109: finding 2)
     age = here.age_line()                                                      # one's age and what lies ahead (D4-69)
     if age:
         you.append(age)
@@ -107,8 +109,8 @@ def _self(here, mind, a, full) -> str:
     fam = PR._family_lines(here, mind)
     if not full:                                                               # the standing instructions only at the opening
         fam = [x for x in fam if not x.startswith(("Looking after a child is work", "While caring for a child"))]
-    house = PR._house_lines(here, mind) if full else here.book_empty_lines()   # the book's lines are the house's at the opening;
-                                                                               # after, what gave nothing yesterday (W-104)
+    house = PR._house_lines(here, mind) if full else here.book_waiting_lines() + here.book_empty_lines()   # the book's lines are the
+    # house's at the opening; after, what waits today each morning (W-109: finding 10) and what gave nothing yesterday (W-104)
     return "## You\n" + "\n".join(you + fam + (PR._beast_lines(here, mind) if full else []) + house)
 
 

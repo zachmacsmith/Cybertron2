@@ -59,7 +59,7 @@ def test_the_old_prompt_is_kept_as_a_setting_and_the_core_replaces_it(eel):
     turn = VW.turn(Here(eel, "Peter"), Mind(eel, "Peter"), opening=True)
     assert turn.endswith(CORE.CLOSING) and VW.turn(Here(w_old, "Peter"), Mind(w_old, "Peter"), opening=True).endswith(CORE.OLD_CLOSING)
     s = PR.schema_for(Here(eel, "Peter"), Mind(eel, "Peter"))
-    assert "enum" not in s["properties"]["actions"]["items"]["properties"]["do"] and "look_up" not in s["properties"]
+    assert "enum" not in s["properties"]["actions"]["items"]["properties"]["do"] and "look_up" in s["properties"]   # back (W-109)
 
 
 def test_reply_examples_are_each_persons_own_craft(eel):
