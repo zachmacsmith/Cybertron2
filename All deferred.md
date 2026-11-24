@@ -1,6 +1,9 @@
 # All deferred
 
 ## Open
+- [[L-188 Smaller regressions from the wave|Smaller regressions from the wave (L-188)]] (open)
+- [[L-187 Regressions from the wave for stage 5b|Regressions from the wave for stage 5b (L-187)]] (open)
+- [[L-186 A cairn costs nothing since the wave|A cairn costs nothing since the wave (L-186)]] (open)
 - [[L-185 The farmer's seed lines|The farmer's seed lines (L-185)]] (open)
 - [[L-184 Founders' lines written and waiting on a built thing|Founders' lines written and waiting on a built thing (L-184)]] (open)
 - [[L-183 The gate check checks only building holdings|The gate check checks only building holdings (L-183)]] (open)

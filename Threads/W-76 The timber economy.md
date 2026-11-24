@@ -50,6 +50,7 @@ started
 - [[L-164 Builders' craftsmanship|Builders' craftsmanship (L-164)]]
 - [[L-165 Unfinished things generalised|Unfinished things generalised (L-165)]]
 - [[L-167 The dead hedge and cheaper crop protection, thought through|The dead hedge and cheaper crop protection, thought through (L-167)]]
+- [[L-188 Smaller regressions from the wave|Smaller regressions from the wave (L-188)]]
 - [[The building clock making durable things at their real share of a…|The building clock: making durable things at their real share of a…]]
 - [[The build plan|The build plan]]
 - [[U0 the basis in code (stage 1)|U0: the basis in code (stage 1)]]
