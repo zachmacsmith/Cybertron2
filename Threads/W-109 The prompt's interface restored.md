@@ -34,5 +34,7 @@ started
 - [[W-111 Priority thread a|Priority thread a (W-111)]]
 - [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]]
 - [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]
+- [[Brief the interface from one registry (thread W-109)|Brief: the interface from one registry (thread W-109)]]
+- [[W-109 the interface from one registry report (24 Nov 2026, session…|W-109: the interface from one registry: report (24 Nov 2026, session…]]
 - [[What else the wave broke an audit against the engine before it…|What else the wave broke: an audit against the engine before it…]]
 - [[Survey D senses and interface, against the patterns hypothesis…|Survey D: senses and interface, against the patterns hypothesis…]]

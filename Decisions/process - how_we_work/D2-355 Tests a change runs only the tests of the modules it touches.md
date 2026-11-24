@@ -20,3 +20,5 @@ conversation (24 Nov: "Yes write that up I've been asking you to stop running th
 - [[The engine's architecture overhauled general mechanisms over typed…|The engine's architecture overhauled: general mechanisms over typed…]]
 - [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]
+- [[Brief the interface from one registry (thread W-109)|Brief: the interface from one registry (thread W-109)]]
+- [[W-109 the interface from one registry report (24 Nov 2026, session…|W-109: the interface from one registry: report (24 Nov 2026, session…]]

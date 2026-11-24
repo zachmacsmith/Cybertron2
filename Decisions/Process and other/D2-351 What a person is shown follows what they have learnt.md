@@ -22,3 +22,5 @@ conversation (24 Nov: "this should be about people learning things! The detail o
 
 ## Mentioned by
 - [[D2-352 Familiarity and the interface|Familiarity and the interface (D2-352)]]
+- [[Brief the interface from one registry (thread W-109)|Brief: the interface from one registry (thread W-109)]]
+- [[W-109 the interface from one registry report (24 Nov 2026, session…|W-109: the interface from one registry: report (24 Nov 2026, session…]]

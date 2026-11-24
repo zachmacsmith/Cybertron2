@@ -22,3 +22,5 @@ conversation (24 Nov: "Yes this seems like separate data why the hell would you 
 
 ## Mentioned by
 - [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]
+- [[Brief the interface from one registry (thread W-109)|Brief: the interface from one registry (thread W-109)]]
+- [[W-109 the interface from one registry report (24 Nov 2026, session…|W-109: the interface from one registry: report (24 Nov 2026, session…]]

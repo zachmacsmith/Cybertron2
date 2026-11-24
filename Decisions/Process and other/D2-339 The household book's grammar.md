@@ -25,6 +25,8 @@ conversation (23 Nov: "This is better. Send this.")
 - [[Rules as the grammar of norms claims, access and laws in the same…|Rules as the grammar of norms: claims, access and laws in the same…]]
 - [[Stores in the book of standing rules where goods go, where they are…|Stores in the book of standing rules: where goods go, where they are…]]
 - [[The act shapes' interface faults from live run 1 (W-102)|The act shapes' interface faults from live run 1 (W-102)]]
+- [[Brief the interface from one registry (thread W-109)|Brief: the interface from one registry (thread W-109)]]
+- [[W-109 the interface from one registry report (24 Nov 2026, session…|W-109: the interface from one registry: report (24 Nov 2026, session…]]
 - [[The new prompt against the old, act by act (37.2, 24 Nov 2026)|The new prompt against the old, act by act (37.2, 24 Nov 2026)]]
 - [[What else the wave broke an audit against the engine before it…|What else the wave broke: an audit against the engine before it…]]
 - [[Signs survey every mechanism's signs, by sense and by the way a…|Signs survey: every mechanism's signs, by sense and by the way a…]]
