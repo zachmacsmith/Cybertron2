@@ -138,6 +138,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-94 | **Whether a head at the 20-line cap lets a base line go before the gate refuses: today FA3 drops when HH2 (seed held back) is held, leaving the farmer head Ralph at exactly 20, so one more line for such a head is refused** | | 37.2 |
 | Q-95 | **Whether a capable second-living trader gets the capable trader lines: today trading as a second living gives only TR1, so TR2 to TR4 and the trader's neighbour line reach no one unless a household lives by trading** | | 37.2 |
 | Q-96 | **Whether the drop step for a second living should cut its lines only for those deeper in their main living, not for everyone (today it cuts them for everyone; Katherine in Eelmouth)** | | 37.2 |
+| Q-97 | **Hollinford without leather (D2-327): u11's tanner household becomes a woodsman household (the oak wood, charcoal for Highpool's smith), Godric still an elder head at an Opus pole; its households pinned by hand until the generator's draw (stage 5b part 3)** | | 37.2 |
 
 ## Offers and promises
 
