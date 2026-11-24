@@ -164,7 +164,8 @@ def PE1(c):
     t = _tree(c, c.name)
     if t.get("origin") and t.get("partner"):
         return f"I came to {c.village()} from {t['origin']} when I married {t['partner']}."
-    founding = next((h for h in c.world.get("history") or [] if c.name in (h.get("who") or []) and "came to" in h.get("text", "")), None)
+    founding = next((h for h in c.world.get("history") or [] if c.name in (h.get("who") or []) and "came to" in h.get("text", "")
+                     and "came to blows" not in h.get("text", "")), None)    # a feud is not a founding (W-107)
     if founding:
         who = founding["who"]
         line = c.line_name()

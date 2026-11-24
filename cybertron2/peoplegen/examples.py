@@ -1,5 +1,5 @@
 """Example built pasts, written to be read: each village's present as the build read it, a village's chronicle, and one family
-traced back. `python -m proto.peoplegen.examples` writes results/examples.md."""
+traced back. `python -m cybertron2.peoplegen.examples` writes results/examples.md."""
 from __future__ import annotations
 
 import copy
@@ -169,7 +169,7 @@ def truth_side_by_side(seed):
 
 def main():
     out = ["# Example built pasts", "",
-           "Built by `proto/peoplegen` (`python -m proto.peoplegen.examples`). Years are counted back from now (0); the region has four "
+           "Built by `cybertron2/peoplegen` (`python -m cybertron2.peoplegen.examples`). Years are counted back from now (0); the region has four "
            "village sites and an off-map market town, Kingsmarket. Names are keyed presentation; a surname follows the father.", ""]
     mix = MIXES["test_conditions"]
     spec = PR.draw(mix, 3)
@@ -187,7 +187,7 @@ def main():
             "sex and household was hidden, and the build made a past for it. 'Same' means the build named the same living parents "
             "as the simulation (a dead or away parent counts as matching any dead or away parent).", "",
             f"Household {h}:", "", "| Person | Age | Sex | True parents (age) | Built parents (age) | Same |", "|---|---|---|---|---|---|"] + rows
-    path = os.path.join(os.path.dirname(__file__), "results", "examples.md")
+    path = os.path.join("proto", "peoplegen", "results", "examples.md")       # the prototype's results stay with its report
     with open(path, "w") as f:
         f.write("\n".join(out) + "\n")
     print(path)

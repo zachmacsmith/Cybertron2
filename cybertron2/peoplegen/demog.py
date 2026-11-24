@@ -7,6 +7,7 @@ import math
 
 from .keyed import u
 
+FAR = 6.0               # villages with no road between them: this many days apart (W-107, a default taken)
 LAMBDA = 0.8            # the marriage market's reach: a spouse d road-days away is weighted exp(-d / LAMBDA)
 GAP = (3.5, 4.5)        # husband's age minus wife's: mean, sd
 OFF_RATE = 0.8          # the off-map node's weight as a source of parents, as if this many unseen couples

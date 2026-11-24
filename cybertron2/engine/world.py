@@ -299,7 +299,8 @@ class World:
             "messages": self._message_limit(name), "at": None, "transit": None, "home_seen": None,
             "born": None if born is None else int(born), "parents": list(a.get("parents") or []), "partner": a.get("partner"),
             "pregnant": a.get("pregnant"), "gap_until": a.get("gap_until"), "order": None}
-        for f_ in ("livelihood", "crafts_first"):                             # the livelihood line and its crafts (u9 §2.2, §2.3; u11)
+        for f_ in ("livelihood", "crafts_first", "widowed_of"):               # the livelihood line and its crafts (u9 §2.2, §2.3; u11);
+                                                                              # a seeded widow's late partner (W-107)
             if a.get(f_):
                 s["people"][name][f_] = copy.deepcopy(a[f_])
 

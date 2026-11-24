@@ -1,3 +1,5 @@
+*The code moved to `cybertron2/peoplegen/` (23 Nov, W-107), bridged into world generation as `population: {build: backward}` (generation_redesign.md §6). This report and its results stay here.*
+
 # Prototype: the past built backward to a pinned present
 
 `docs/cybertron2/proposals/generation_redesign.md` §5 named two risks to settle before build briefs: (1) whether a past built
@@ -5,7 +7,7 @@ backward to a pinned present reads as likely, and (2) whether a graph of keyed d
 previous world, never reject) works. This prototype tests both, for people only, outside the engine. The c2viz session built it
 on 14 Nov 2026 at Zach's request ("prototype it"). Nothing under `cybertron2/` was changed.
 
-Run: `PYTHONPATH=. python3 -m proto.peoplegen.evaluate --seeds 40` (about 80 s). The results are in `results/results.json`, the
+Run: `python3 -m cybertron2.peoplegen.evaluate --seeds 40` (about 80 s). The results are in `results/results.json`, the
 held-out seeds in `results/heldout_41_80.txt`, and a sample past in `results/sample_seed1.md` and `.json`.
 
 ## What was built

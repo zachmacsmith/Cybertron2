@@ -2,7 +2,7 @@
 likely (against the forward model's truth, and against a null arm with the forward model's weights taken out), is it the same
 every time, does an edit move only what it must, and what does it do with odd or impossible pins?
 
-    python -m proto.peoplegen.evaluate [--seeds 40] [--out proto/peoplegen/results]
+    python -m cybertron2.peoplegen.evaluate [--seeds 40] [--out proto/peoplegen/results]
 """
 from __future__ import annotations
 

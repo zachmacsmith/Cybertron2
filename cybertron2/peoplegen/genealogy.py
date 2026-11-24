@@ -60,8 +60,9 @@ class Build:
         self.seed = seed
         self.sharp = float(spec.get("sharp", D.SHARP))
         self.span = int(spec.get("span", 100))
-        self.V = {v: d["at"] for v, d in spec["villages"].items()}
+        self.V = {v: d.get("at") for v, d in spec["villages"].items()}
         self.off = spec.get("off")
+        self.days = {tuple(k.split("|")): float(d) for k, d in (spec.get("distances") or {}).items()}   # road days, a world's own
         self.hard = set(spec["hard_years"]) if spec.get("hard_years") is not None else D.hard_years(seed, self.span)
         self.pin_found = (spec.get("pins") or {}).get("found") or {}
         self.mother = {}                                          # a daughter village -> the village it budded from
@@ -86,6 +87,8 @@ class Build:
 
     # ------------------------------------------------------------------ helpers
     def dv(self, a, b):
+        if self.days:                                                # a world's road distances in days, both ways ("OFF" for
+            return 0.0 if a == b else self.days.get((a, b), self.days.get((b, a), D.FAR))   # the off-map place)
         at = lambda v: self.off["at"] if v == "OFF" else self.V[v]
         return dist(at(a), at(b))
 

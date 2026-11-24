@@ -199,6 +199,19 @@ def kin(T, a, b, deep=True) -> str | None:
 
 # ---------------------------------------------------------------------- the spec
 def build(base: dict, seed: int, tries=600) -> dict:
+    """The world's people: the family tree, then the world written from it. A world with `population: {build: backward}` has its
+    present pinned (or drawn) and its past built backward to fit it (cybertron2/peoplegen; generation_redesign.md §6, W-107); every
+    other world simulates its tree forward and fits it to the bounds, as before."""
+    if (base.get("population") or {}).get("build") == "backward":
+        from cybertron2.peoplegen import world as PW
+        return PW.build(base, seed)
+    T, hist, k = tree_forward(base, seed, tries)
+    return spec_from_tree(base, seed, T, hist, {"seed": seed, "try": k})
+
+
+def tree_forward(base: dict, seed: int, tries=600) -> tuple:
+    """The tree simulated forward from founding couples, a place at a time, until it fits the lines' and the world's bounds.
+    Returns (tree, history, the try that fitted)."""
     lines = base["lines"]
     nodes = base.get("nodes") or {"home": base.get("node", {})}
     houses_of = {bid: b for bid, b in (base.get("buildings") or {}).items() if b.get("household") and (b.get("fittings") or {}).get("beds")}
@@ -247,13 +260,30 @@ def build(base: dict, seed: int, tries=600) -> dict:
             break
     else:
         raise RuntimeError("no tree fits; widen the bounds")
+    return T, hist, k
+
+
+CLOSE = ("father", "mother", "son", "daughter", "brother", "sister", "husband", "wife", "grandfather", "grandmother")
+
+
+def spec_from_tree(base: dict, seed: int, T, hist: list, generated: dict, heads: dict | None = None,
+                   living_partners: bool = False, close_kin: bool = False) -> dict:
+    """The world written from a tree (in years, 0 now): the living as agents (household = line), the tree and the history in days,
+    heads (the eldest adult man of each line unless `heads` names them), kin and the dead remembered, a feud, debts, friendships, an
+    old love, crafts known and seen, models, tools, aims, beds and stores. `living_partners` keeps an agent's partner only if living,
+    and names a dead one `widowed_of`; `close_kin` remembers only close kin's deaths (the backward build's tree holds every child
+    who died young); the forward build keeps today's output."""
+    lines = base["lines"]
+    nodes = base.get("nodes") or {"home": base.get("node", {})}
+    houses_of = {bid: b for bid, b in (base.get("buildings") or {}).items() if b.get("household") and (b.get("fittings") or {}).get("beds")}
+    living = [n for n in T.p if T.alive(n)]
     rng = random.Random(f"{seed}|ties")
     L = int(base.get("lifespan") or LF.lifespan())
     year = 4 * int((base.get("calendar") or {}).get("season_days", 6))
     stage_ = lambda age: stage(age, L)
     wint = lambda n: winters(n, L, year)
     spec = copy.deepcopy({k: v for k, v in base.items() if k not in ("lines",)})
-    spec["generated"] = {"seed": seed, "try": k}
+    spec["generated"] = dict(generated)
     date = lambda y: None if y is None else -int(round(to_days(-y, L)))      # a year of the tree as a day (0 now)
     spec["tree"] = [{**p, "born": date(p["born"]), "died": date(p["died"]), "left": date(p["left"])} for p in T.p.values()]
     spec["history"] = [{**{k: v for k, v in h.items() if k != "year"}, "day": date(h["year"])} for h in sorted(hist, key=lambda h: h["year"])]
@@ -266,13 +296,19 @@ def build(base: dict, seed: int, tries=600) -> dict:
         if p["parents"]:
             agents[n]["parents"] = list(p["parents"])
         if p["partner"]:
-            agents[n]["partner"] = p["partner"]
+            if not living_partners or p["partner"] in living:
+                agents[n]["partner"] = p["partner"]
+            else:
+                agents[n]["widowed_of"] = p["partner"]
     # heads: the eldest man of each line who is an adult, else the eldest adult
     head = {}
     for l in lines:
-        ad = sorted([n for n in agents if T.p[n]["line"] == l and agents[n]["stage"] in ("adult", "elder")], key=lambda n: T.p[n]["born"])
-        men = [n for n in ad if T.p[n]["sex"] == "m" and agents[n]["stage"] == "adult"]
-        head[l] = (men or [n for n in ad if agents[n]["stage"] == "adult"] or ad)[0]
+        if heads and heads.get(l) in agents:
+            head[l] = heads[l]
+        else:
+            ad = sorted([n for n in agents if T.p[n]["line"] == l and agents[n]["stage"] in ("adult", "elder")], key=lambda n: T.p[n]["born"])
+            men = [n for n in ad if T.p[n]["sex"] == "m" and agents[n]["stage"] == "adult"]
+            head[l] = (men or [n for n in ad if agents[n]["stage"] == "adult"] or ad)[0]
         agents[head[l]]["role"] = "head"
     # kin and the dead
     for a in agents:
@@ -282,7 +318,8 @@ def build(base: dict, seed: int, tries=600) -> dict:
             r = kin(T, a, b)
             if b in agents:
                 agents[a]["relations"][b] = r or f"of the {T.p[b]['line']} household"
-            elif r and T.p[b]["died"] is not None and T.age(a, T.p[b]["died"]) >= 6:
+            elif (r and T.p[b]["died"] is not None and T.age(a, T.p[b]["died"]) >= 6
+                  and (not close_kin or r.split()[-1] in CLOSE)):
                 agents[a]["memories"].append(f"{r[5:].capitalize()} {b} died {wint(-T.p[b]['died'])} ({T.p[b]['cause']}).")
             elif (r and T.p[b]["left"] is not None and r.split()[-1] in ("father", "mother", "son", "daughter", "brother", "sister")
                   and sum("married into" in m for m in agents[a]["memories"]) < 2):
