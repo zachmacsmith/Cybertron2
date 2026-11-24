@@ -43,6 +43,21 @@ def blank_today() -> dict:
 
 
 # ---------------------------------------------------------------------- a scripted bot (smoke tests only)
+def spread(lines) -> list:
+    """The bots' candidates ("verb technique") taken a verb at a time in turn, each verb's in its own order (W-111, L-188: sorted
+    alone, four gathers filled every plan and the old worlds' smoke runs never worked or made)."""
+    by = {}
+    for x in lines:
+        by.setdefault(x.split(" ", 1)[0], []).append(x)
+    out, k = [], 0
+    while len(out) < len(lines):
+        for v in by:
+            if k < len(by[v]):
+                out.append(by[v][k])
+        k += 1
+    return out
+
+
 def bot_plan(w, name, talk=None, kind="decision") -> dict:
     from cybertron2.engine import bots_livelihood as BLV
     if BLV.on(w):                                                         # a world's livelihood bots (W-69, D2-256)
@@ -57,7 +72,7 @@ def bot_plan(w, name, talk=None, kind="decision") -> dict:
         ripe = any(float(c.get("progress", 0) or 0) >= 1.0 for par in here.parcels().values() for _, _, c in FM.standing(par))
         can = [x for x in can if ripe or not x.startswith("work reap")]
     scripted = any(int(sc["day"]) - 1 == w.d and sc["who"] == name for sc in w.spec.get("script") or [])
-    for line in can[:4]:
+    for line in spread(can)[:4]:                                         # across verbs, so a smoke run works and makes too (L-188)
         verb, tech = line.split(" ", 1)
         acts.append({"do": verb, "what": tech})
     for item in ("wild food", "grain", "timber", "meat", "milk"):

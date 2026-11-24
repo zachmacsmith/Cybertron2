@@ -103,3 +103,9 @@ def test_m7_reads_the_weirs_withies_from_the_data():
     want = G.WEIR_UPKEEP * (c["first"]["wattle"]["materials"]["withies"] + c["added"]["wattle"]["materials"]["withies"] * max(0, n - 1))
     m7 = [f.text for f in G.making_gates(w, {"gates": {c_: False for c_ in ("M1", "M2", "M3", "M4", "M5", "M6", "M8")}}) if f.check == "M7"]
     assert any(f"about {want:g} bundles" in t for t in m7), m7
+
+
+def test_the_generic_bots_take_their_candidates_a_verb_at_a_time():
+    xs = ["gather cut withies", "gather fell", "gather firewood", "gather hay", "work clear", "work fence", "make rope"]
+    assert R.spread(xs)[:4] == ["gather cut withies", "work clear", "make rope", "gather fell"]   # L-188: not four gathers
+    assert sorted(R.spread(xs)) == sorted(xs)
