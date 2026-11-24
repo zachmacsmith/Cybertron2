@@ -67,7 +67,8 @@ class Ctx:
     def line_name(self, hh=None):
         """The household as the engine names it ("the Brooks": world.py), without its article."""
         hh = hh or self.hh
-        return str((self.world.get("institutions") or {}).get(hh, {}).get("name") or f"{hh}s").removeprefix("the ")
+        from cybertron2.engine.world import plural
+        return str((self.world.get("institutions") or {}).get(hh, {}).get("name") or plural(hh)).removeprefix("the ")
 
     def members(self, hh=None):
         hh = hh or self.hh

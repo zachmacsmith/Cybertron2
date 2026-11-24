@@ -1438,7 +1438,9 @@ def rules_block(w, name) -> list:
     hr = household_rules(w, hh)
     head = w.head(hh) if hh else None
     if hh:
+        from cybertron2.engine.world import plural
         nm = str(w.s["institutions"][hh].get("name") or hh).removeprefix("the ")
+        nm = hh if nm == plural(hh) else nm                               # "The Marsh household" (L-178)
         if hr:
             out.append(f"The {nm} household's standing rules ({head} sets them{'' if head == name else '; you may propose'}):")
             out += [f"{r['n']}. {reading(w, r)}" for r in hr]

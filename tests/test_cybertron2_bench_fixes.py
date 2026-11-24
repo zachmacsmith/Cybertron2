@@ -44,3 +44,15 @@ def test_food_in_meals_is_said_as_it_is():
     from cybertron2.engine.placed import meals
     assert meals(0.02) == "hardly a mouthful" and meals(0.2) == "about a quarter of a meal"
     assert meals(0.5) == "about half a meal" and meals(1.2) == "about 1 meal" and meals(3.6) == "about 4 meals"
+
+
+def test_household_names_and_crumbs_read_right():
+    """L-178 (W-111): the Marshes, not the Marshs; 'which the Brooks hold'; crumbs in hand said as crumbs."""
+    from cybertron2.engine import night as N
+    from cybertron2.engine.world import plural
+    assert plural("Marsh") == "Marshes" and plural("Brook") == "Brooks" and plural("Fox") == "Foxes"
+    assert N._goods_words([("roots", 1.2), ("greens", 0.05), ("berries", 0.04)]) == "1.2 roots and crumbs of greens and berries"
+
+
+def test_the_rules_block_names_the_household_by_its_surname(eel):
+    assert any(x.startswith("The Marsh household") for x in BK.rules_block(eel, "Peter"))

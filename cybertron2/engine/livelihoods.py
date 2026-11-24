@@ -464,19 +464,24 @@ def fill(world: dict, skills: dict | None = None, seed=None, lines=True) -> dict
                 mid += 1
             else:
                 a["model"] = cast["rest"]
-    # neighbours (u11 §3.3): aware of each other household's broad band
+    # neighbours (u11 §3.3): aware of each other household's broad band, in one's own village (D2-349's rule, W-111: "seen them at
+    # it all your life" is false of a household in another village)
+    from cybertron2.engine import founders as FD
+    from cybertron2.engine.world import plural
+    home = {hh: FD._hh_node(FD.Ctx(world, ms[0], report, report["households"].get(hh) or {}), hh)
+            for hh, ms in hhs.items() if ms}
     for n, a in agents.items():
         if a.get("stage") not in ("youth", "adult", "elder") or not a.get("household"):
             continue
         for hh, rep in report["households"].items():
-            if hh == a["household"]:
+            if hh == a["household"] or home.get(hh) != home.get(a["household"]):
                 continue
             for lv in rep["livelihoods"][:1]:
                 for t in ROWS[lv]["broad"]:
                     if t in TECHNIQUES and t not in (a.get("knows") or {}):
                         if (TECHNIQUES[t].get("basic")):
                             continue                                             # everyone's crafts need no seeing
-                        a.setdefault("aware_of", {})[t] = f"you have seen the {hh}s at it all your life"
+                        a.setdefault("aware_of", {})[t] = f"you have seen the {plural(hh)} at it all your life"
     if lines:
         from cybertron2.engine import founders as FD
         report["lines"] = FD.seed_world(world, report, seed)

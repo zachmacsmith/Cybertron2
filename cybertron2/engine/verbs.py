@@ -841,7 +841,8 @@ def _against(here, thing) -> str:
     if not others:
         return ""
     has = "withdrawal" in here.rights(thing)
-    return f" (which {' and '.join(others)} {'also claim' if has else 'hold' + ('s' if len(others) == 1 else '')})"
+    one = len(others) == 1 and not any(c["claimant"] in hh for c in here.claims(thing) if c["claimant"] not in mine)   # "the Brooks hold"
+    return f" (which {' and '.join(others)} {'also claim' if has else 'hold' + ('s' if one else '')})"
 
 
 def _holding_people(here, holder) -> list:

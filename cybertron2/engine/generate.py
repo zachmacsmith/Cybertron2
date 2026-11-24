@@ -365,7 +365,8 @@ def build(base: dict, seed: int, tries=600) -> dict:
         for l, d in lines.items():
             for c in d["crafts"]:
                 if c not in a["knows"] and a["stage"] not in LF.MINOR:         # another line's craft: seen, not known
-                    a["aware_of"][c] = f"you have seen the {l}s at it all your life"
+                    from cybertron2.engine.world import plural
+                    a["aware_of"][c] = f"you have seen the {plural(l)} at it all your life"
         for c in a["knows"]:
             a["concerns"] += [t for t in TECHNIQUES[c]["tags"] if t not in a["concerns"]]
         a["concerns"] = a["concerns"][:4]

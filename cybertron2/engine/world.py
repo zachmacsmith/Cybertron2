@@ -56,6 +56,12 @@ class PlaceError(Exception):
     """A primitive touched something not at the place it acts in: an engine fault (D4-35)."""
 
 
+def plural(surname) -> str:
+    """A household's name from its surname: the Fenns, the Marshes (L-178, W-111: "the Marshs")."""
+    s = str(surname)
+    return s + ("es" if s.lower().endswith(("s", "x", "z", "ch", "sh")) else "s")
+
+
 def show(x) -> str:
     return f"{math.floor(float(x) * 10 + 1e-9) / 10:g}"
 
@@ -200,13 +206,13 @@ class World:
         from cybertron2.engine import tags as TG
         TG.herds_at_start(self)                                                 # H1, H2, ... (D4-68)
         for iid, h in (spec.get("households") or {}).items():
-            s["institutions"][iid] = {"kind": "household", "name": h.get("name", f"the {iid}s"), "members": [],
+            s["institutions"][iid] = {"kind": "household", "name": h.get("name", f"the {plural(iid)}"), "members": [],
                                       "offices": {"head": h.get("head")}, "rules": {"admit": "head", "grant": "members", **(h.get("rules") or {})}}
         for name, a in spec["agents"].items():
             self._person(name, a)
             hh = a.get("household")
             if hh:
-                s["institutions"].setdefault(hh, {"kind": "household", "name": f"the {hh}s", "members": [], "offices": {"head": None},
+                s["institutions"].setdefault(hh, {"kind": "household", "name": f"the {plural(hh)}", "members": [], "offices": {"head": None},
                                                   "rules": {"admit": "head", "grant": "members"}})["members"].append(name)
                 if a.get("role") == "head":
                     s["institutions"][hh]["offices"]["head"] = name
@@ -812,7 +818,7 @@ def p_found(w, person, name):
     while iid in w.s["institutions"]:
         n += 1
         iid = f"{name} {n}"
-    w.s["institutions"][iid] = {"kind": "household", "name": f"the {name}s", "members": [], "offices": {"head": person},
+    w.s["institutions"][iid] = {"kind": "household", "name": f"the {plural(name)}", "members": [], "offices": {"head": person},
                                 "rules": {"admit": "head", "grant": "members"}}
     if w.spec.get("household_models") and (w.s["people"].get(person) or {}).get("model"):   # a world that gives each household a model:
         w.s["institutions"][iid]["model"] = w.s["people"][person]["model"]            # a new household's is its founder's (Zach, 13 Nov)

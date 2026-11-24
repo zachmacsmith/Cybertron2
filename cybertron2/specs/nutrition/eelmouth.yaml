@@ -3438,7 +3438,7 @@ agents:
     - text: We hold the Salt House on Eelmouth Fen, where Oliver boils salt, and the Brook Smokehouse on Eelmouth Field, which Katherine keeps. The pan wants copper when it wears through; it holds about
         250 kilos of fish at a time.
       source: a holding
-    - text: 'The Marshs live by the Isel: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
+    - text: 'The Marshes live by the Isel: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
       source: family lore
   Katherine:
     household: Brook
@@ -3578,7 +3578,7 @@ agents:
     - text: We hold the Salt House on Eelmouth Fen, where Oliver boils salt, and the Brook Smokehouse on Eelmouth Field, which Katherine keeps. The pan wants copper when it wears through; it holds about
         250 kilos of fish at a time.
       source: a holding
-    - text: 'The Marshs live by the Isel: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
+    - text: 'The Marshes live by the Isel: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
       source: family lore
   Peter:
     household: Marsh
@@ -4118,7 +4118,7 @@ agents:
       source: a holding
     - text: The Brooks boil salt at the spring; they want firewood for the pan.
       source: family lore
-    - text: 'The Marshs live by the Isel: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
+    - text: 'The Marshes live by the Isel: they know when the eels run, and dry and salt the catch; in late autumn they have fish to spare.'
       source: family lore
   Nigel:
     household: Marsh
