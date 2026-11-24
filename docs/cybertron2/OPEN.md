@@ -155,6 +155,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-214 | **Ids collide between sessions on separate branches (main has reused W-202, W-203, W-108, O-201 since my last merge): give session bench its own range (W-500 up, and the same for Q, L, O), or renumber at each merge** | | bench |
 | ~~Q-215~~ | **(Closed 24 Nov: all five resumed; the weekly stop at 90% still applies.)** **The usage budget fits two of World 0b's five arms to 200 days this week: Haiku 5.5 (about $0.09 a day) and Sonnet 5.5 ($0.75) run on; Haiku 4.5 ($1.18), Sonnet 4.5 ($2.15) and Sonnet 5 ($3.04) are paused at days 3, 3 and 2. Stop them, run them to about day 25 later, or carry them on next week** | | bench |
 | ~~Q-216~~ | **(Closed 24 Nov: D5-2.)** **Trying for a child as its own act shape again (it was its own verb before the rebuild; D2-314 folded it into 'agree', where it is the last phrase of the line), with 'with' defaulting to one's partner: amends D2-314** | | bench |
+| Q-217 | **World 0's trade between the villages never happened (offers are seen only where posted; the salt-holders posted at Highpool, the grain was at Middleham): add a market place or a carrier to the world, or leave it as the test** | | bench |
 
 ## Offers and promises
 
@@ -170,7 +171,7 @@ unanswered is neither lost nor re-asked. Written by `python3 tools/records.py ne
 | ~~O-201~~ | **(Closed 23 Nov: taken up as W-202.)** **Build World 0's maker (Highpool and Middleham from the runs world), its checks and a 200-day bot arm, with the farming acts checked on the rebuilt engine** | wait for Zach's go | 2026-11-30 | bench |
 | ~~O-202~~ | **(Closed 23 Nov: the lines to the other agent; the two worlds in W-203.)** **Build the farmer, herder and miller seeded lines (u9 §5.5.2, 5.5.3, 5.5.8) in founders.py, then World 0b's five arms; after them, build Fallowmere (World 1) as the next monoculture world, then the Scattering** | do it | 2026-11-24 | bench |
 | O-203 | **A pre-generation check in the monoculture maker: the founders' data against founders.py's templates (two founders a line, two parents) and the gate's rules (keepers' lines, crafts with their makers, fits), before any generation** | do it | 2026-11-24 | bench |
-| O-204 | **Read World 0b's agents' own reasoning on days they could have tried for a child and did not: food pressure, the prompt's placement of try, or the goal not turning into acts** | do it | 2026-11-24 | bench |
+| ~~O-204~~ | **(Closed 24 Nov: done in w0b_failures.md (the reasoning on hungry days and the tries for children read with the rest).)** **Read World 0b's agents' own reasoning on days they could have tried for a child and did not: food pressure, the prompt's placement of try, or the goal not turning into acts** | do it | 2026-11-24 | bench |
 
 ## Flagged for later (deferred)
 
