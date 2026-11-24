@@ -40,6 +40,7 @@ evidence ranks them.
 
 ## The proposal
 
+0. **The river's size carried from the land to the world** (found 24 Nov, Zach: "why is every river the same?"): the generator computes each cell's rain-weighted area drained (`landgen/physical.py:305-311`), its three river classes (15, 45 and 150 km2, `vocab.py:24-27`), floodplains and channel depth growing with the root of the area; the writer keeps only a word, "river" or "brook" (`landgen/write.py:84`), the wild layer fixes every channel at 0.12 or 0.6 of a 150 m cell (18 m or 90 m, `wild/ecology.py:48-53`), and a village takes at most two water cells (`settle.py:335`). Carry each water parcel's and body's area drained, discharge, width (by hydraulic geometry, width growing with the root of discharge), depth and slope into the world, and derive from them every water quantity: area, ecosystem zone, resident fish, the shallows' margin, the weir's share, the flow's answer to rain, a run's reach. Everything below reads these.
 1. **One clock for the water's food** (D2-273 already decides it; Q-98 answered): the runs' clock (x32/365, D2-259's compression), and D2-348's quarter
    reached through one named lever written beside the data (`WATER_RICHNESS`, about 3 to 13 times real productivity by the
    sweep's experiment d), so the fitting is in one visible place instead of three makers.
@@ -90,6 +91,8 @@ sits in one lever Zach can see.
 `wild/water.py` (shallows), `landgen/settle.py` (village water), `engine/founders.py` (FI6, FI7), the three makers; u1_water.md.
 
 ## History
+
+- **24 Nov 2026:** item 0 added: the land's river size is lost at the land-to-world write and replaced by fixed widths and two words; carried through, it is what makes every later item general.
 
 - **24 Nov 2026:** 37.2's ecosystems and calibration (docs/review/37_growth/02zzzl_waters_calib/c_ecosystems/ecosystems.md): the clock is already decided (D2-273: all food on the year clock, real quantities x 32/365); the shallows' rates were u1's misreading (a real year in 32 nights, 11.4 times too rich) and come onto it; resident fish by ecosystem from the land (a Huet-style zonation, nine ecosystems); D2-348's quarter needs a lever of median 2.8 over real productivity; water-only worlds only on big run rivers or meres; fens as water bodies.
 
