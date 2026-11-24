@@ -414,7 +414,7 @@ MONUMENTS = {
                     "aliases": ["post", "a post", "carved pole"]},
     "standing stone": {"label": "a standing stone", "materials": {"stone": 60}, "units": 4, "basic": False, "trade": "mason",   # about 1.5 t
                        "structure": "stone", "aliases": ["stone", "a stone", "menhir"]},
-    "cairn": {"label": "a cairn", "materials": {}, "units": 3, "basic": True, "structure": "stone",   # stones got on the spot (D2-306)
+    "cairn": {"label": "a cairn", "materials": {"stone": 6}, "units": 3, "basic": True, "structure": "stone",   # 6 stone until site material is built (D2-306, stage 5; L-186)
               "aliases": ["a cairn", "heap of stones"]},
     # a fish weir (brief 5 §3, D2-209; calibrate): a standing work across a river at a water parcel, built by a declared crew
     # (`with`), with a condition (floods and ice wear it, mended like a building) and a gap set open or shut (WATER_WORKS); its
