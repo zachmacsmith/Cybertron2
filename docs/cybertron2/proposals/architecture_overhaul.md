@@ -80,7 +80,8 @@ Several of these are feature_packages.md's object model (records, layers, popula
 3. **The map** (first pass, 24 Nov: [41_architecture/map.md](../../review/41_architecture/map.md), generated table beside it):
    every mechanism the surveys list (about 390) to its home in the target, and every named branch and side table to the
    property it becomes; what stays legitimately by name.
-4. **The migration:** phases on `main` in small merges (feature_packages §9.1), each against golden journals and prompt
+4. **The migration** (first pass, 24 Nov: [41_architecture/estimate.md](../../review/41_architecture/estimate.md): about 44 to 67
+   builder-days; the cheap first tier 9 to 15): phases on `main` in small merges (feature_packages §9.1), each against golden journals and prompt
    snapshots; the replay policy (when an old path may go, and which old runs it ends); the order (the shared core first: registry
    checks, conditions, resolver, phase list; then the mechanisms; then the content moved onto them), with estimates.
 5. **Guards and process,** written into `how_we_work.md` on Zach's word: the brief template's architecture section; the review
@@ -142,6 +143,10 @@ The whole engine; `feature_packages.md` (to be revised or replaced by this); `sp
   and acts (35) are the largest jobs; set gear fits worst (13 of 16 need work) and is proposed as the acceptance test; the
   migration's main move is pulling features' specifics out of the shared paths into their rows, not moving folders. Named
   branches: about 1,600 sites, about 800 to become properties, about 300 legitimate, about 350 side-table entries.
+- **24 Nov 2026 (later): the migration and its estimate, first pass** (session arch, `docs/review/41_architecture/estimate.md`):
+  phases 0 (golden journals, prompt snapshots, the diagnostics table: none exist in `tests/` today) to 2 change no behaviour and
+  stop the growth (9 to 15 builder-days); the promotions (35 to 52) are paced by the content that waits on each; in all 44 to 67,
+  against feature_packages.md's 26 to 39 on an engine then 20,400 lines (now 36,293 in `engine/`).
 
 ## Sources
 
