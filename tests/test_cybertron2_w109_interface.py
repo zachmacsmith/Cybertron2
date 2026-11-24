@@ -333,7 +333,7 @@ def test_a_techniques_name_needs_hints_and_world_are_fields_rendered_together(w0
     assert card.startswith(f"{KN.label('mine')}: you know of it")
     from cybertron2.engine import prompt as P2
     assert "smoke racks (hurdles over a smouldering fire)" in P2._craft_note("smoke fish")      # a fitting's name and what it is
-    assert P2.craft_note_words("cairn").startswith("3 units of work")
+    assert P2.craft_note_words("cairn").startswith("6 stone, 3 units of work")                # no empty materials ", " (its 6 stone, L-186)
 
 
 # ---------------------------------------------------------------------- World 0b's refusals (session bench, L-189)
