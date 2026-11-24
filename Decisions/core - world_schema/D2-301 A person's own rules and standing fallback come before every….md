@@ -33,4 +33,5 @@ conversation (22 Nov: "Your own rule should overrun chores. They just by default
 - [[Stage 3 of the fishing, hunting and materials wave keeping, stores…|Stage 3 of the fishing, hunting and materials wave: keeping, stores…]]
 - [[Brief build stage 4, taking and making (thread W-100)|Brief: build stage 4, taking and making (thread W-100)]]
 - [[Stage 4 of the fishing, hunting and materials wave signs, people and…|Stage 4 of the fishing, hunting and materials wave: signs, people and…]]
+- [[What else the wave broke an audit against the engine before it…|What else the wave broke: an audit against the engine before it…]]
 - *and 4 index or audit notes*

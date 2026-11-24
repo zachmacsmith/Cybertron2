@@ -37,4 +37,5 @@ done 24 Nov: merged 0a679adc: every built livelihood's founders' lines read from
 - [[L-183 The gate check checks only building holdings|The gate check checks only building holdings (L-183)]]
 - [[Brief the founders' seeded lines for every built livelihood (thread…|Brief: the founders' seeded lines for every built livelihood (thread…]]
 - [[Report the founders' seeded lines for every built livelihood (thread…|Report: the founders' seeded lines for every built livelihood (thread…]]
+- [[What else the wave broke an audit against the engine before it…|What else the wave broke: an audit against the engine before it…]]
 - *and 1 index or audit notes*
