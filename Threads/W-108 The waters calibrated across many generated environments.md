@@ -20,7 +20,7 @@ started
 
 ## Linked
 - parent: [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]]
-- under it: [[Q-98 One clock for the water's food before anything is sized|One clock for the water's food before anything is sized (Q-98)]] (open)
+- under it: [[Q-98 One clock for the water's food before anything is sized|One clock for the water's food before anything is sized (Q-98)]] (closed)
 - under it: [[Q-99 How much of the waters made general comes before live run 2|How much of the waters made general comes before live run 2 (Q-99)]] (open)
 
 
@@ -33,5 +33,6 @@ started
 - [[L-150 Environmental effects on fishing refined after the rest works|Environmental effects on fishing refined after the rest works (L-150)]]
 - [[The waters made general resident fish from the land, runs on…|The waters made general: resident fish from the land, runs on…]]
 - [[Brief the waters calibrated across many generated environments…|Brief: the waters calibrated across many generated environments…]]
+- [[The waters' ecosystems by environment, and a calibration on one clock…|The waters' ecosystems by environment, and a calibration on one clock…]]
 - [[The waters' mechanisms general, or fitted to the test worlds…|The waters' mechanisms: general, or fitted to the test worlds?…]]
 - [[The waters swept across 51 generated environments (W-108, agent A)|The waters swept across 51 generated environments (W-108, agent A)]]

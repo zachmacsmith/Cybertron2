@@ -23,6 +23,7 @@ conversation (22 Nov: "conversation (22 Nov: "make principled distinctions betwe
 
 ## Mentioned by
 - [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]]
+- [[Q-98 One clock for the water's food before anything is sized|One clock for the water's food before anything is sized (Q-98)]]
 - [[L-148 The wild's clock|The wild's clock (L-148)]]
 - [[The integration review (23 Nov 2026)|The integration review (23 Nov 2026)]]
 - [[The integrated design's open questions, in one place|The integrated design's open questions, in one place]]
@@ -31,6 +32,7 @@ conversation (22 Nov: "conversation (22 Nov: "make principled distinctions betwe
 - [[U1. Water and wild stocks the shallows by water type, the runs, the…|U1. Water and wild stocks: the shallows by water type, the runs, the…]]
 - [[U3. Materials and making the chains, the made things in kilograms…|U3. Materials and making: the chains, the made things in kilograms…]]
 - [[U4. Processing containers lots that become the next good over nights|U4. Processing containers: lots that become the next good over nights]]
+- [[The waters made general resident fish from the land, runs on…|The waters made general: resident fish from the land, runs on…]]
 - [[Clocks which systems run on which time|Clocks: which systems run on which time]]
 - [[The building clock what pricing lasting things on the year clock…|The building clock: what pricing lasting things on the year clock…]]
 - [[Wave 1, part 1 the physical basis (weights, shelf lives, making…|Wave 1, part 1: the physical basis (weights, shelf lives, making…]]
@@ -38,5 +40,6 @@ conversation (22 Nov: "conversation (22 Nov: "make principled distinctions betwe
 - [[Design wave part 3b, taking set and tend, snares, the weir, nets…|Design wave part 3b, taking: set and tend, snares, the weir, nets…]]
 - [[Design wave part 4, the people what they are told, what they know…|Design wave part 4, the people: what they are told, what they know…]]
 - [[The timber economy a scouting note (the real ladder, what the engine…|The timber economy: a scouting note (the real ladder, what the engine…]]
+- [[The waters' ecosystems by environment, and a calibration on one clock…|The waters' ecosystems by environment, and a calibration on one clock…]]
 - [[The waters' mechanisms general, or fitted to the test worlds…|The waters' mechanisms: general, or fitted to the test worlds?…]]
 - *and 5 index or audit notes*

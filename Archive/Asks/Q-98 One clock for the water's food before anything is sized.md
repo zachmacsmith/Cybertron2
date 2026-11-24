@@ -1,13 +1,13 @@
 ---
 id: Q-98
 kind: ask
-state: open
+state: closed
 updated: "2026-11-24"
 ---
 
 # One clock for the water's food before anything is sized (Q-98)
 
-*open · 37.2*
+*closed, by agent (provisional) · 37.2*
 
 ## The question
 
@@ -26,3 +26,4 @@ updated: "2026-11-24"
 ## Mentioned by
 - [[W-108 The waters calibrated across many generated environments|The waters calibrated across many generated environments (W-108)]]
 - [[The waters made general resident fish from the land, runs on…|The waters made general: resident fish from the land, runs on…]]
+- [[The waters' ecosystems by environment, and a calibration on one clock…|The waters' ecosystems by environment, and a calibration on one clock…]]

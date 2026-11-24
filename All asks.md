@@ -2,7 +2,6 @@
 
 ## Open
 - [[Q-99 How much of the waters made general comes before live run 2|How much of the waters made general comes before live run 2 (Q-99)]] (open)
-- [[Q-98 One clock for the water's food before anything is sized|One clock for the water's food before anything is sized (Q-98)]] (open)
 - [[Q-97 Hollinford without leather|Hollinford without leather (Q-97)]] (open)
 - [[Q-96 Whether the drop step for a second living should cut its lines only…|Whether the drop step for a second living should cut its lines only… (Q-96)]] (open)
 - [[Q-95 Whether a capable second-living trader gets the capable trader lines|Whether a capable second-living trader gets the capable trader lines (Q-95)]] (open)
@@ -50,7 +49,8 @@
 - [[Q-RR3 The human player's first interface|The human player's first interface (Q-RR3)]] (open)
 - [[Q-RR5 A replay test with shuffled completion order of model calls|A replay test with shuffled completion order of model calls (Q-RR5)]] (open)
 
-## Closed (60)
+## Closed (61)
+- [[Q-98 One clock for the water's food before anything is sized|One clock for the water's food before anything is sized (Q-98)]]
 - [[Q-91 How a water-only village is made able to last the year|How a water-only village is made able to last the year (Q-91)]]
 - [[Q-89 Whether a water-only village should last the year, or the spring gap…|Whether a water-only village should last the year, or the spring gap… (Q-89)]]
 - [[Q-86 Fresh food on the keeping curve|Fresh food on the keeping curve (Q-86)]]

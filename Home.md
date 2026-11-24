@@ -23,6 +23,7 @@
 - [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]: revisit: kept open on purpose with W-39 (Zach, 20 Nov)
 - [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]]: closed by agent
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]: closed by agent
+- [[Q-98 One clock for the water's food before anything is sized|One clock for the water's food before anything is sized (Q-98)]]: closed by agent
 - [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]]: closed by agent
 - [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]: closed by agent
 - [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]: closed by agent
@@ -30,7 +31,6 @@
 - [[W-39 The economy's web of dependence and how far it should reach|The economy's web of dependence and how far it should reach (W-39)]]: revisit: kept open on purpose (Zach, 20 Nov: 'this should be another thread of its own purposefully kept open')
 - [[W-53 Floodplains in the generator|Floodplains in the generator (W-53)]]: closed by agent
 - [[W-62 Merging the water work from its twelve branches into main|Merging the water work from its twelve branches into main (W-62)]]: closed by agent
-- [[W-69 Nutrition worlds|Nutrition worlds (W-69)]]: revisit: soon (Zach, 20 Nov: something I want to revisit soon)
 
 ## Active threads (20)
 
