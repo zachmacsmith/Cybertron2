@@ -77,7 +77,7 @@ def test_a_rule_or_the_book_cannot_be_attended_and_falls_back_as_any_unreadable_
     here = Here(w, "Peter")
     for x in ("rule 1", "the household's rules", "Marsh House's rules", "the book", "my fallback", {"rule": "first", "n": 1}):
         sub, label = PC.resolve_target(here, x)
-        assert sub == "place" and "you could not find" in label, (x, sub, label)
+        assert sub == "nothing", (x, sub, label)                                 # nothing found, nothing shown (D2-346)
     assert PC.resolve_target(here, "Marsh House")[0].startswith("building:")    # a building is still a building
 
 

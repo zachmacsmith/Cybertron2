@@ -170,7 +170,10 @@ def facts(here) -> list:
 
     for pid, p in here.parcels().items():
         nm, sub = p["name"], f"parcel:{pid}"
-        for sense, tpl, sal in COVERS[p["cover"]]["ambient"]:
+        for row in COVERS[p["cover"]]["ambient"]:                              # each grounded in the state by its `when` (D2-346)
+            sense, tpl, sal = row[:3]
+            if len(row) > 3 and not ambient_holds(here, pid, p, row[3]):
+                continue
             add([sub], tpl.format(name=nm), sal, ["place"], sense, ambient=True, spot={"node": here.node, "parcel": pid, "own": 1.0})
     from cybertron2.engine import signs as SG                                  # fields, pastures and herds: bundles of signs
     SG.facts(here, add)
@@ -422,6 +425,7 @@ def evening(w, attend: dict, today: dict, skip=None) -> dict:
         tgt_raw = today["watch"].get(name) or attend.get(name)
         subject, label = resolve_target(here, tgt_raw)
         place = subject == "place"
+        nothing = subject == "nothing"
         from cybertron2.engine import things as TH
         con = []                                                                # what concerns one (D4-75): by the rule; what
         for f in F:                                                             # happened to one, or in one's house, in full
@@ -521,7 +525,9 @@ def evening(w, attend: dict, today: dict, skip=None) -> dict:
                 if f["text"] not in texts and len(att) < ATTEND_MAX:
                     att.append(f)
                     texts.add(f["text"])
-        if (subject or place) and skip is None:                                # the day's attention: shown at the hearth (D4-82)
+        if nothing and skip is None:                                           # a target not found: one's own act, no lines (D2-346)
+            t["attended"] = {"target": label, "lines": ["you found nothing by that name here to look at closely"], "found": False}
+        elif (subject or place) and skip is None:                              # the day's attention: shown at the hearth (D4-82)
             t["attended"] = {"target": label, "lines": [f["text"] for f in att] or ["nothing out of the ordinary"]}
         seen |= {f["id"] for f in att}
         others = [x for x in here.people(me=False) if x in living and f"person:{x}" != subject]
@@ -661,15 +667,35 @@ def _shut_gate(w, name, pid) -> bool:
 RULE_WORDS = re.compile(r"\b(rules?|the book|book of rules|standing orders?|fallbacks?)\b")   # D2-341: a rule is known as set, never attended
 
 
+def ambient_holds(here, pid, p, when) -> bool:
+    """A cover's ambient row's condition (data.COVERS, D2-346): `river`, the parcel's river kinds; `flow`, the river's flow classes at
+    the village tonight (a village off the river record never); `people`, at least that many on the parcel today. An unknown key
+    raises (no silent skip)."""
+    for k, v in when.items():
+        if k == "river":
+            if (p.get("land") or {}).get("river") not in v:
+                return False
+        elif k == "flow":
+            from cybertron2.wild import river as RV
+            if RV.flow_today(here._w, here.node) not in v:
+                return False
+        elif k == "people":                                              # people at the place today (the engine holds no spot
+            if len(here.people()) < int(v):                              # within a parcel)
+                return False
+        else:
+            raise KeyError(f"COVERS ambient: unknown condition {k!r}")
+    return True
+
+
 def resolve_target(here, x):
     if not x:
         return None, None
     if isinstance(x, dict) and ({"rule", "n", "rules"} & set(x)):              # a rule named as a rule's fields (D2-341)
-        return "place", f"the place in general (you could not find {json.dumps(x)[:80]!r} to attend to)"
+        return "nothing", json.dumps(x)[:80]
     s = str(x).strip()
     low = s.lower()
     if RULE_WORDS.search(low) and not here.building(s) and not here.parcel(s) and not here.person(s):
-        return "place", f"the place in general (you could not find {s!r} to attend to)"   # rules are not attendable (D2-341)
+        return "nothing", s[:80]                                                # rules are not attendable (D2-341)
     if low in ("the village", "village", "the hamlet", "the layout", "how the village fits together", "the lie of the land",
                here.node_name.lower()):
         return "village", f"how {here.node_name} fits together"                    # D2-116
@@ -693,7 +719,35 @@ def resolve_target(here, x):
     cid = TG.thing_by_tag(here._w, s.split()[-1].strip("()")) if here.setting("tags") else None
     if cid and here.tagged_here(s.split()[-1].strip("()")):
         return f"thing:{cid}", f"what lies there ({here._w.s['containers'][cid].get('tag')})"
-    return "place", f"the place in general (you could not find {s!r} to attend to)"
+    found = named_in(here, low)                                                 # a name inside the sentence (D2-346)
+    if found:
+        return found
+    return "nothing", s[:80]                                                    # nothing found: nothing shown (D2-346; rules, D2-341)
+
+
+def _named(low, name) -> int:
+    """Where a name stands in a sentence as whole words (its position), else -1; "the" before it optional."""
+    nm = str(name or "").lower().removeprefix("the ").strip()
+    if len(nm) < 3:
+        return -1
+    m = re.search(r"(?<![\w'])" + re.escape(nm) + r"(?![\w])", low)
+    return m.start() if m else -1
+
+
+def named_in(here, low):
+    """The first thing named inside an attend's sentence (signs design §0.1, D2-346): a person here, a building, a parcel, a herd, in
+    that order; within a kind the earliest in the sentence, the longest name at a tie. None if the sentence names none."""
+    kinds = [("person", {n: n for n in here.people(me=False)}),
+             ("building", {bid: b["name"] for bid, b in here.buildings().items()}),
+             ("parcel", {pid: p["name"] for pid, p in here.parcels().items()}),
+             ("herd", {hid: h["name"] for hid, h in here.herds().items()})]
+    for kind, names in kinds:
+        hits = [(_named(low, nm), -len(nm), key, nm) for key, nm in names.items()]
+        hits = sorted(h for h in hits if h[0] >= 0)
+        if hits:
+            _, _, key, nm = hits[0]
+            return f"{kind}:{key}", nm
+    return None
 
 
 # ---------------------------------------------------------------------- memory

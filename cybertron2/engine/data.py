@@ -228,12 +228,13 @@ COVERS = {
                "ambient": [("sound", "birdsong and the creak of trees from {name}", 0.2), ("smell", "leaf mould on the air from {name}", 0.15)]},
     "field": {"words": "fields", "ground": 0, "sight": 1.0, "sound": 1.0, "dig": "soft", "ambient": [("sight", "{name} stretching out beyond the houses", 0.1)]},
     "pasture": {"words": "pasture", "ground": 0, "sight": 1.0, "sound": 1.0, "dig": "soft",
-                "ambient": [("sound", "cattle lowing on {name}", 0.35), ("smell", "dung and trodden grass from {name}", 0.15)]},
+                "ambient": []},           # cattle lowing and dung only with a herd there: the herd's bundle (D2-346)
     "meadow": {"words": "meadow", "ground": 0, "sight": 1.0, "sound": 1.0, "dig": "soft", "ambient": [("sound", "insects in the long grass of {name}", 0.15)]},
-    "water": {"words": "water", "ground": 0, "sight": 1.0, "sound": 1.0, "dig": "soft", "ambient": [("sound", "water running over stones in {name}", 0.3)]},
-    "built": {"words": "built ground", "ground": 24, "sight": 0.7, "sound": 1.0, "dig": "soft", "ambient": [("sound", "voices and work about the houses", 0.2)]},
+    "water": {"words": "water", "ground": 0, "sight": 1.0, "sound": 1.0, "dig": "soft", "ambient": [("sound", "{name} running quick over its stones", 0.3,
+                                                                                                 {"river": ("brook", "river"), "flow": ("low", "normal")})]},   # D2-346
+    "built": {"words": "built ground", "ground": 24, "sight": 0.7, "sound": 1.0, "dig": "soft", "ambient": [("sound", "voices and work about the houses", 0.2, {"people": 3})]},   # D2-346
     "scrub": {"words": "scrub", "ground": 16, "sight": 0.5, "sound": 0.9, "dig": "stony", "ambient": []},
-    "rock": {"words": "rock", "ground": 0, "sight": 0.5, "sound": 0.9, "dig": "stony", "ambient": [("sound", "the ring of picks from {name}", 0.25)]},
+    "rock": {"words": "rock", "ground": 0, "sight": 0.5, "sound": 0.9, "dig": "stony", "ambient": []},   # the ring of picks only when someone quarries: the wild's quarrying rows (D2-346)
     # D2-185: heath, moor, fen and saltmarsh as covers (the landscape generator's waste land); their own crafts and changes come later
     "heath": {"words": "heath", "ground": 0, "sight": 0.8, "sound": 1.0, "dig": "soft", "ambient": [("smell", "warm gorse on the air from {name}", 0.12)]},
     "moor": {"words": "moor", "ground": 0, "sight": 0.9, "sound": 1.0, "dig": "soft", "ambient": [("sound", "curlews calling over {name}", 0.15)]},
