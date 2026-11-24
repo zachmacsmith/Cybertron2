@@ -46,6 +46,7 @@ decision, or the rule it was first written in. A new process decision is added h
 - D2-313: For this wave (W-73, W-85), 37.2 owns every engine file its design changes, including those 37.4 owns (verbs and their registry, the standing rules, the prompt core, clocks, spoilage, buildings and their cost code, senses); 37.4 is told on the board.
 - D2-353: Everything new in the engine is built within the agreed architecture without being asked each time: features are data on the core's general mechanisms (feature_packages.md P3), behaviour attaches to declared properties of rows and never to a thing's name, interface and signs are rendered from data, and every registry is checked when it loads. Every brief states it, every review checks it (named branches, hand-written text, word lists, silent skips, maker patches), and a guard test fails on new branches on a named thing.
 - D2-354: The architecture is a healthy balance, not a strict one: most of the world is data acting on general, shared primitives that are extended when a new feature needs it; a system may own its specifics where they truly belong to it; the aim is that the engine can change quickly without falling into a tangle of ad hoc fixes or becoming so rigid that ad hoc fixes are the only fast way to build. Refines D2-353.
+- D2-355: Tests: a change runs only the tests of the modules it touches (and a short bot smoke run where an interface changed); the full suite runs only when a whole stage merges or before a live run. Every brief says so.
 
 ## Sources
 
