@@ -601,9 +601,14 @@ def make(key: str, seed: int, models) -> dict:
     if report.get("refused"):
         raise SystemExit(f"{key}: refused: {report['refused']}")
     print(key, "pins eased:", relaxed or "none", flush=True)
-    world = gear(weir(by_livelihood(MP.water_stocks(founders(world, key)), key), key), key)
+    world = weir(by_livelihood(MP.water_stocks(founders(world, key)), key), key)
     world = explore(world, key)
     fill = seed_lines(world, key)
+    world = gear(world, key)                                                # after the livelihoods' fill, which rewrites the crafts
+    for b in world["buildings"].values():                                   # and gear it seeds (the fishers' nets were lost before it)
+        if b.get("monument") == "weir":                                     # the weir's crew still know the weir after the fill
+            for n in b.get("crew") or []:
+                world["agents"][n].setdefault("knows", {}).setdefault("weir", {"level": WEIR[key]["knows"], "skill": 0.6})
     from cybertron2.landgen import gate_check as GC
     gate = GC.check(world)
     try:
