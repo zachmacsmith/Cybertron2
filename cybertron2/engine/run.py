@@ -1011,6 +1011,9 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                                         "thinking": (mm.get(n) or {}).get("thinking"), "error": ee.get(n)})
                     if n in ee or not isinstance(r2.get("actions"), list):
                         continue
+                    if SHAPES.on(w):                                           # a reply field put among the acts, here too (L-189; W-111:
+                        r2, moved = SHAPES.reply_fields(r2)                    # World 0b's live check refused a talk wave's "say" as a craft)
+                        results[n] += moved
                     replies[n] = {**replies[n], **{k: v for k, v in r2.items() if v not in (None, "", [])}, "actions": r2["actions"]}
                     results[n] += PC.apply_notes(Mind(w, n), {k: r2.get(k) for k in ("note", "pin", "forget")})
                     if r2.get("rules"):                                         # the reply's rules, free (D2-339)

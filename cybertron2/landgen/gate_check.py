@@ -24,6 +24,12 @@ def pinned(line) -> bool:
     from the seeded-line checks on length (P6) and on naming a price, a score or a grade (P20) (D5-3, Zach 24 Nov)."""
     return isinstance(line, dict) and bool(line.get("fixed")) and bool(str(line.get("tag") or "").strip())
 
+def _family(model) -> str:
+    """A model's family from its id ("claude-haiku-4-5" and "claude-haiku-5-5": "haiku"), for the cast's tiers (P17)."""
+    parts = str(model or "").lower().split("-")
+    return parts[1] if len(parts) > 1 and parts[0] == "claude" else str(model or "").lower()
+
+
 def _f(out, check, level, text, who=None):
     out.append({"check": check, "level": level, "who": who, "text": text})
 
@@ -113,8 +119,9 @@ def people_checks(world: dict) -> list:
                 _f(out, "P14", "refuse", f"{n}: a head without HH1, HH3 and HH7", n)
     cast = [a.get("model") for a in agents.values() if a.get("stage") in ("adult", "elder", "youth") and a.get("model") not in (None, "bot")]
     from cybertron2.engine.livelihoods import CAST
-    if cast and all("haiku" in str(m) for m in cast) and not (world.get("cast") or {}).get("allow_weak"):   # P17: a flag, not
-        _f(out, "P17", "warn", "every acting person on a Haiku model (an all-Haiku society)")              # a block (D5-4)
+    weak = _family(CAST["rest"])                                               # the weakest tier: the cast's "rest" model's family, any
+    if cast and all(_family(m) == weak for m in cast) and not (world.get("cast") or {}).get("allow_weak"):   # version (P17; W-111)
+        _f(out, "P17", "warn", "every acting person on the weakest model family (an all-Haiku society)")   # a flag, not a block (D5-4)
     for n, a in sorted(agents.items()):                                       # P16: heads and chokepoint keepers on the head model
         keeps = [bid for bid, b in (world.get("buildings") or {}).items() if b.get("keeper") == n
                  and any(LV.HOLDINGS[k]["chokepoint"] and LV.HOLDINGS[k]["of"](b) for k in LV.HOLDINGS)]
