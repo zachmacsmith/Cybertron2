@@ -69,12 +69,12 @@ WORDS = {"sack": ("sack", "sacks"), "basket": ("basket", "baskets"), "chest": ("
 # the new goods and the smoke loft (u5 §1, §2): a chest made by a carpenter of 4 timber (wave1 §3.3; its making is u3's to price)
 ITEMS = {"chest": {"weight": 40, "food": 0.0, "spoil": 0.0}}
 FITTINGS = {
-    "smoke loft": {"label": "a smoke loft (hooks in the roof over the hearth)", "materials": {"timber": 2}, "units": 1, "basic": True,
+    "smoke loft": {"label": "a smoke loft", "about": "hooks in the roof over the hearth", "materials": {"timber": 2}, "units": 1, "basic": True,
                    "spaces": 0, "needs": "hearth", "capital": "fittings", "hours": 4, "does": "hooks in the roof over the hearth: cured, salt and dried goods hung out of the "
                    "damp and the flies (40 kg a space of the room's floor)"},
 }
 TECHNIQUES = {
-    "chest": {"verb": "make", "label": "making a chest (an ark of boards)", "aliases": ["chests", "an ark", "make a chest"], "basic": False,
+    "chest": {"verb": "make", "label": "making a chest", "hint": "an ark of boards", "aliases": ["chests", "an ark", "make a chest"], "basic": False,
               "trade": "carpenter", "inputs": {"timber": 4}, "units": 2, "gives": {"chest": 1}, "tags": ["craft"]},
 }
 # vermin's sudden illness (u5 §6; G11): the adult's chance x (1 + `most` x min(1, rats a km2 / `rats`) x the household's exposure)

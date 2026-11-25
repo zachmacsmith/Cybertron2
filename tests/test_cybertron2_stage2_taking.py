@@ -29,6 +29,9 @@ def _setter(river_w, traps=6):
     node = "Saltwell"
     who = adults(w, node)[0]
     _knows(w, who, "trap in water")
+    h = w.s["containers"][w.s["people"][who]["hands"]]                             # the world seeds six (Q-100): start from none
+    h["goods"].pop("wicker trap", None)
+    (h.get("pieces") or {}).pop("wicker trap", None)
     if traps:
         _give(w, who, "wicker trap", traps)
     return w, node, who, water(w, node), w.s["parcels"][water(w, node)]["name"]
@@ -254,9 +257,10 @@ def test_a_craft_line_renders_at_each_level():
     capable = KN.craft_line("wicker trap", "capable", {"skill": 1.0})
     assert "up to 5 wicker traps a unit" in capable and "times in 4" in capable and "20 nights" not in capable
     rough = KN.craft_line("gill nets", "rough", {})
-    assert rough == "making a gill net (a rough idea: 1 cord and 0.1 stone, at a house)"
+    assert rough == "making a gill net (netting twine, with sinkers) (a rough idea: 1 cord and 0.1 stone, at a house)"   # its hint
+    # back (wave_regressions finding 3), from its own field (D2-356)
     assert KN.craft_line("gill nets", "aware", {"source": "you have seen one at the Marshs'"}) == \
-        "making a gill net (you have seen one at the Marshs')"
+        "making a gill net (netting twine, with sinkers) (you have seen one at the Marshs')"
     assert "up to 40 fish and 10 salt" in KN.craft_line("salt fish", "known", {"skill": 1.0})
     assert "best in winter" in KN.craft_line("cut withies", "known", {"skill": 1.0})
 

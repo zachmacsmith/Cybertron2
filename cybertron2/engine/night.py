@@ -525,9 +525,19 @@ HUNGER_WHY = {"kept back": "the rest was kept back", "not enough for everyone": 
               "nothing more": "there was nothing more you could eat"}
 
 
-def _goods_words(pairs) -> str:
-    xs = [f"{show_fine(q)} {i}" for i, q in pairs]
+CRUMB = 0.1                                       # less than this of a good is said as crumbs, not a figure (L-178, W-111)
+
+
+def _and(xs) -> str:
     return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " and " + xs[-1]
+
+
+def _goods_words(pairs) -> str:
+    """Goods as people say them: the amounts that count, and the rest as crumbs of them ('0.05 greens' is no meal's figure)."""
+    big = [f"{show_fine(q)} {i}" for i, q in pairs if float(q) >= CRUMB]
+    bits = [i for i, q in pairs if float(q) < CRUMB]
+    crumbs = f"crumbs of {_and(bits)}" if bits else ""
+    return _and(big + ([crumbs] if crumbs else [])) if big else crumbs
 
 
 def meal_lines(w, name, rec) -> list:

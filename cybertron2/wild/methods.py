@@ -25,8 +25,11 @@ SCARES = [
 ]
 
 
-def _take_row(label, aliases, covers, needs, favours, base, gear, units, note, basic=False, untaught=True, crew=False, when=None):
-    row = {"verb": "gather", "label": label, "aliases": aliases, "basic": basic, "pack": "wild", "at": {"covers": covers},
+def _take_row(label, aliases, covers, needs, favours, base, gear, units, note, basic=False, untaught=True, crew=False, when=None,
+              hint=None, requires=None):
+    """`label` is the method's name only; `hint` its working hints and `requires` what it needs, in words (D2-356)."""
+    row = {"verb": "gather", "label": label, **({"hint": hint} if hint else {}), **({"requires": requires} if requires else {}),
+           "aliases": aliases, "basic": basic, "pack": "wild", "at": {"covers": covers},
            "draws": "wild", "reads_as": ["hunt"], "needs": needs, "favours": favours, "base": base,
            "yield": {"kind": "wild_take", **({"when": when} if when else {})}, "gear": gear, "wear": 0.3, "units": units,
            "gives": "meat", "tags": ["food", "hunting", "animals"], "note": note}
@@ -49,15 +52,17 @@ METHODS = {
         HUNT_COVERS, {"size": ("small", "large"), "water": False}, [({"runs": True}, 3.0)], 0.33, {"crude weapon": 2.0}, 2,
         "go out after whatever game the place holds; a weapon helps", basic=True),
     "stalk": _take_row(
-        "stalking a beast that keeps to its paths (slow, downwind, close in for the shot)",
+        "stalking a beast that keeps to its paths",
         ["stalking", "stalk deer", "stalk the deer", "still-hunting"],
         ["forest", "scrub", "heath", "moor"], {"size": ("medium", "large"), "runs": True, "home": "none"}, [],
-        2.5, {"crude weapon": 5.0}, 3, "go quietly after a beast that keeps to its paths, and take it with a weapon"),
+        2.5, {"crude weapon": 5.0}, 3, "go quietly after a beast that keeps to its paths, and take it with a weapon",
+        hint="slow, downwind, close in for the shot"),
     "drive": _take_row(
-        "a drive (beaters and spears; others with you; dangerous)",
+        "a drive",
         ["boar hunt", "hunt the boar", "hunting boar", "spear the boar", "boar hunting", "drive the wood", "a drive"],
         ["forest", "scrub", "fen"], {"size": ("medium", "large"), "social": "group"}, [], 3.0, {"crude weapon": 6.0}, 4,
-        "beat a wood with others to drive a herd or sounder onto waiting spears; dangerous alone", untaught=False, crew=True),
+        "beat a wood with others to drive a herd or sounder onto waiting spears; dangerous alone", untaught=False, crew=True,
+        hint="beaters and spears; dangerous", requires="others with you"),
     "snare": _take_row(
         "setting snares on the runs",
         ["snaring", "set snares", "snare hares", "snare the runs", "snares", "my snares", "the snares"],
@@ -89,12 +94,13 @@ METHODS = {
         ["water", "fen"], {"water": True, "swims": True, "size": ("small", "small")}, [], 3.0, {}, 1,
         "set a line of hooks in the water at dusk; it takes what feeds at the edge and the water's own fish by night, until you take it up"),
     "den work": _take_row(
-        "digging out a den or trapping at a lodge (spades and a dog help)",
+        "digging out a den or trapping at a lodge",
         ["dig out the fox earth", "dig out the earth", "dig out the foxes", "dig out the cubs", "earth stopping",
          "trap beavers", "trap the beavers", "trap beaver", "dig out the den"],
         ["forest", "scrub", "heath", "pasture", "meadow", "water", "fen"], {"home": ["den", "burrow", "lodge", "holt"]}, [], 4.0,
         {"crude weapon": 1.25},                                                   # the otter at its holt (u2 §6 fault 14)
-        3, "dig out a beast's den, or trap at a lodge, where you know one to be", untaught=False),
+        3, "dig out a beast's den, or trap at a lodge, where you know one to be", untaught=False,
+        hint="spades and a dog help"),
 }
 METHODS["den work"]["yield"]["kind"] = "wild_den"
 # nights a set lasts; its chance against a hunter's; how many sets one act lays (a snare line, brief 4 §2.10); what one set holds
@@ -130,7 +136,7 @@ METHODS.update({
                      "at": {"covers": ["forest", "scrub"]}, "draws": "site", "needs": {"site_home": "colony"},
                      "yield": {"kind": "wild_young"}, "units": 1, "gives": "", "tags": ["food", "hunting"],
                      "note": "take the young from a heronry or rookery in their season"},
-    "pest work": {"verb": "work", "label": "working the pests off a crop (picking them off, pinching out the tops)", "basic": True,
+    "pest work": {"verb": "work", "label": "working the pests off a crop", "hint": "picking them off, pinching out the tops", "basic": True,
                   "pack": ["wild", "farming"], "aliases": ["pick slugs at dusk", "pick slugs", "slug the field", "go slugging", "pick off the slugs",
                                               "pick slugs by lantern", "top the beans", "top beans", "pinch out the beans",
                                               "pinch the bean tops", "clear the grubs off the beans", "clear the grubs",
@@ -154,13 +160,40 @@ METHODS.update({
                         "at": {"covers": FIELD_COVERS + ["water"]}, "draws": "watch", "yield": {"kind": "wild_watch", "scares": SCARES},
                         "units": 2, "gives": "", "tags": ["farming", "animals"],
                         "note": "sit up by a field all night to scare beasts off, with a fire, clappers, a horn or the dog; you lose the night's sleep"},
-    "shut": {"verb": "work", "label": "shutting the hens and the store up for the night (the doors wedged, the gaps stopped)",
+    "shut": {"verb": "work", "label": "shutting the hens and the store up for the night", "hint": "the doors wedged, the gaps stopped",
              "basic": True, "pack": "wild", "aliases": ["shut the hens in", "shut in the hens", "close up the hens", "shut the hens",
                                                         "shut up the store", "bar the doors", "shut the store", "shut up for the night",
                                                         "shut up"],
              "at": {"covers": ["built"]}, "draws": "hens", "yield": {"kind": "wild_shut"}, "units": 1, "gives": "", "tags": ["animals"],
              "note": "shut up your house, store and hens for the night against whatever comes"},
 })
+
+# What doing each does, in interface terms (W-109; D2-350, D5-2): what happens when one does it, never what the land holds or when
+# (the `note` stays for the old prompt); the set ones take how many one act lays ("qty").
+for _k, _v in {
+    "hunt the wild": "go out after whatever game the place holds, and take what you meet",
+    "stalk": "go quietly after a beast that keeps to its paths, and take it with a weapon",
+    "drive": "beat a wood with others to drive beasts onto waiting spears: it needs others with you (a party you lead, or another's "
+             "you join with \"with\")",
+    "snare": "set a line of nooses from your hands; it stays where you set it and catches by night for a few nights: come back (tend) "
+             "and take what is in them, or it rots there or another finds it",
+    "net": "spread nets and decoys where birds come down, and take what you net",
+    "trap in water": "set wicker traps from your hands in the water; they stay and fish by night: come back (tend) and take what is in "
+                     "them, or it rots there or another finds it",
+    "gill net": "set a gill net from your hands across open water at dusk; it fishes by night and stays until you take it up (tend)",
+    "set line": "set a line of baited hooks from your hands in the water at dusk; it fishes by night and stays until you take it up "
+                "(tend)",
+    "den work": "dig out a beast's den, or trap at a lodge, where you know one to be",
+    "gather young": "take the young from the nests of a colony",
+    "pest work": "go over a crop and take off what is eating it; name the pest with \"looking for\", else the worst there",
+    "break a dam": "pull open a dam that floods a meadow",
+    "guard the field": "sit up by a field all night to scare beasts off, with a fire, clappers, a horn or the dog; you lose the "
+                       "night's sleep",
+    "shut": "shut up your house, store and hens for the night",
+}.items():
+    METHODS[_k]["does"] = _v
+for _k in SETS:
+    METHODS[_k]["args"] = [{"key": "qty", "is": "how many", "req": False, "opts": {}, "who": []}]
 
 LOAD_NAMES = {"moles": ("moles", "mole", "molehills"), "leatherjackets": ("leatherjackets", "the rooks' grubs", "root grubs"),
               "slugs": ("slugs", "slug", "snails"), "aphids": ("aphids", "fly", "blackfly", "greenfly", "the fly", "bean fly"),

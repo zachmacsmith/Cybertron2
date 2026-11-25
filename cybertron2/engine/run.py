@@ -20,6 +20,7 @@ from cybertron2.engine import forests as FO
 from cybertron2.engine import agreements as AG, fuse as FU, knowledge as KN, life as LF, night as N, perceive as PC, prompt as PR, roads as RD, settle as ST, verbs as V
 from cybertron2.engine import branch as BR, evening as EVN, journal as JN, memory as MEM, tags as TG, view as VW
 from cybertron2.engine import core as CORE
+from cybertron2.engine import shapes as SHAPES
 from cybertron2.engine.converse import Conversations
 from cybertron2.engine.data import EDIBLE, TECHNIQUES
 from cybertron2.engine.here import Here, Mind
@@ -43,6 +44,21 @@ def blank_today() -> dict:
 
 
 # ---------------------------------------------------------------------- a scripted bot (smoke tests only)
+def spread(lines) -> list:
+    """The bots' candidates ("verb technique") taken a verb at a time in turn, each verb's in its own order (W-111, L-188: sorted
+    alone, four gathers filled every plan and the old worlds' smoke runs never worked or made)."""
+    by = {}
+    for x in lines:
+        by.setdefault(x.split(" ", 1)[0], []).append(x)
+    out, k = [], 0
+    while len(out) < len(lines):
+        for v in by:
+            if k < len(by[v]):
+                out.append(by[v][k])
+        k += 1
+    return out
+
+
 def bot_plan(w, name, talk=None, kind="decision") -> dict:
     from cybertron2.engine import bots_livelihood as BLV
     if BLV.on(w):                                                         # a world's livelihood bots (W-69, D2-256)
@@ -57,7 +73,7 @@ def bot_plan(w, name, talk=None, kind="decision") -> dict:
         ripe = any(float(c.get("progress", 0) or 0) >= 1.0 for par in here.parcels().values() for _, _, c in FM.standing(par))
         can = [x for x in can if ripe or not x.startswith("work reap")]
     scripted = any(int(sc["day"]) - 1 == w.d and sc["who"] == name for sc in w.spec.get("script") or [])
-    for line in can[:4]:
+    for line in spread(can)[:4]:                                         # across verbs, so a smoke run works and makes too (L-188)
         verb, tech = line.split(" ", 1)
         acts.append({"do": verb, "what": tech})
     for item in ("wild food", "grain", "timber", "meat", "milk"):
@@ -800,12 +816,33 @@ def settings_line(spec) -> str:
     return line + (f"\nWARNING: standard settings off in this world: {', '.join(off)}" if off else "")
 
 
-def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, seed=None, until=None, mode="start", responders=None):
+def start_gate(spec, ungated=False) -> dict:
+    """The gate check before a new run in which anyone acts by a model (Q-100, W-111 §4): a world it refuses is not run, unless the
+    world waives the check with a reason (`gate.waive`) or the run is started --ungated; either way the run's first lines and its
+    run.json say so. A run with no model calls (bots, people at the keyboard) is not checked, and says that."""
+    from cybertron2.landgen import gate_check as GC
+    paid = any(a.get("model") not in (None, "bot", "human") for a in (spec.get("agents") or {}).values())
+    rep = GC.at_start(spec) if paid else None
+    line = GC.start_line(rep, ungated)
+    print(line, flush=True)
+    if rep and rep["verdict"] == "refuse" and not ungated:
+        for x in rep["refuse"]:
+            print(f"  refuse {x['check']:6} {x['text']}", flush=True)
+        raise SystemExit("the gate check refuses this world (above): fix it, waive a check in the world file with its reason "
+                         "(gate: {waive: {P20: \"why\"}}), or start the run --ungated")
+    return {"line": line, "verdict": rep["verdict"] if rep else "not checked", "ungated": bool(ungated and rep and rep["verdict"] == "refuse"),
+            "refuse": [x["text"] for x in rep["refuse"]] if rep else [],
+            "waived": [{"check": x["check"], "reason": x["reason"], "text": x["text"]} for x in rep["waived"]] if rep else []}
+
+
+def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, seed=None, until=None, mode="start", responders=None,
+        ungated=False):
     """mode "start": a new run from a world file; "resume": go on with the run in out_dir from its journal (every answered request
     reused, the first step not committed run again live); "replay": play the run in out_dir again from its record alone, in a
     scratch copy, checking every committed step's state against its checkpoint, and return what was found. `until`: pause after
     that step's commit (execution.md)."""
     out = Path(out_dir)
+    gate = None
     if mode == "start":
         spec = load_spec(spec_path)
         if seed is not None:
@@ -823,12 +860,14 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                     a["model"] = "bot"
         for name, who in (responders or {}).items():                        # --as NAME=human|bot|model:<id>
             spec["agents"][name]["model"] = who.split(":", 1)[1] if who.startswith("model:") else who
+        gate = start_gate(spec, ungated)
     else:
         src = Path(out_dir) / "run.db"
         if not src.exists():
             raise SystemExit(f"{src}: no journal to {mode} from")
         spec = json.loads(dict(JN.read(src, "SELECT key, value FROM meta"))["spec"])
         backend = backend or json.loads((Path(out_dir) / "run.json").read_text()).get("backend")
+        gate = json.loads((Path(out_dir) / "run.json").read_text()).get("gate")             # the gate as it stood at the start
         if mode == "continue":
             at = json.loads(dict(JN.read(src, "SELECT key, value FROM meta"))["continue"])["at"]
             restored = JN.checkpoint(src, at)
@@ -859,7 +898,7 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
     backend = backend or os.environ.get("LLM_BACKEND") or "claude_code"
     out.mkdir(parents=True, exist_ok=True)
     systems = {n: PR.system_prompt(Here(w, n), Mind(w, n)) for n in w.agents_acting()}
-    (out / "run.json").write_text(json.dumps({"spec": spec, "backend": backend, "systems": systems,
+    (out / "run.json").write_text(json.dumps({"spec": spec, "backend": backend, "systems": systems, "gate": gate,
                                               "models": {n: a["model"] for n, a in w.s["people"].items()}}, indent=1))
     files = {k: open(out / f"{k}.jsonl", "a" if mode == "resume_last" else "w") for k in ("turns", "days", "perception", "memory")}
     conv = Conversations(out, chunk=int((spec.get("memory") or {}).get("chunk", 3)), backend=backend)
@@ -871,6 +910,7 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
         J.start(spec, w.seed, {n: (a["model"] if a.get("model") in (None, "bot") else f"model:{a['model']}") for n, a in w.s["people"].items()})
         J.until = until
         J.meta("capacity", day0_capacity(spec))                            # the run's own baseline (D4-103; economic_calibration G)
+        J.meta("gate", gate)                                               # what the gate found at the start (W-111 §4)
     elif mode in ("continue", "resume_last"):
         J.until = until
         if mode == "resume_last":                                           # the steps committed after that day replayed from the record
@@ -939,6 +979,9 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
             first = {n: dict(replies[n]) for n in names}
             results = {n: ([f"(Your reply could not be used, so you did nothing: {errors[n][:160]})"] if n in errors else []) for n in names}
             for n in names:
+                if SHAPES.on(w):                                               # a reply field put among the acts (L-189)
+                    replies[n], moved = SHAPES.reply_fields(replies[n])
+                    results[n] += moved
                 results[n] += PC.apply_notes(Mind(w, n), replies[n])
                 if (replies[n] or {}).get("rules"):                            # the reply's rules, free (D2-339)
                     from cybertron2.engine import book as BK
@@ -1218,6 +1261,8 @@ def main(argv=None):
     r.add_argument("--seed", type=int)
     r.add_argument("--until", help="pause after this step's commit, e.g. d10.memory")
     r.add_argument("--as", dest="as_", action="append", default=[], help="NAME=human|bot|model:<id>")
+    r.add_argument("--ungated", action="store_true", help="run a world the gate check refuses (said in the run's first lines and "
+                   "its record)")
     g = sub.add_parser("resume")
     g.add_argument("run")
     g.add_argument("--until")
@@ -1292,7 +1337,7 @@ def main(argv=None):
     args = ap.parse_args(argv)
     if args.cmd == "run":
         print(run(args.spec, args.out, args.backend, args.days, args.workers, args.bots, args.seed, until=args.until,
-                  responders=dict(a.split("=", 1) for a in args.as_)))
+                  responders=dict(a.split("=", 1) for a in args.as_), ungated=args.ungated))
     elif args.cmd == "resume":
         print(run(None, args.run, args.backend, workers=args.workers, until=args.until,
                   mode="resume_last" if args.from_last else "resume"))

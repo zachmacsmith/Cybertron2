@@ -1,0 +1,297 @@
+world	village	wild	types	elevation	stretch_km	big_km	upstream_river_km	catchment_km2	stretches_to_mouth	salmon_river	lake_km2	fish_K_generated	fish_K_maker	shallows_K	web_fish_K_kg	fish_food_night_maker_summer	shallows_food_night_summer	shallows_food_night_winter
+cfg_basin_in_a_ring_of_hills_s1	Watworth	False	fen,river	71.6	6.75	0.0	6.8	19.7	1	False	0.0	0.0	35.2	29.0	8082.6	1.297	0.467	0.046
+cfg_basin_in_a_ring_of_hills_s1	Marford	False	fen,river	27.7	6.3	0.0	11.8	78.8	1	False	0.0	0.0	35.2	29.0	7689.4	1.297	0.467	0.046
+cfg_basin_in_a_ring_of_hills_s1	Meadwick	False	fen,river	45.7	6.6	0.0	6.6	19.7	6	True	0.0	0.0	35.2	29.0	7951.5	1.297	0.467	0.046
+cfg_basin_in_a_ring_of_hills_s1	Flintdale	False		134.4	3.3	0.0	9.9	124.0	7	True	0.0	0.0	0.0	0	2883.5	0.0	0.0	0.0
+cfg_basin_in_a_ring_of_hills_s1	Craghurst	True		417.1	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_basin_in_a_ring_of_hills_s1	Flintley	True		326.5	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_basin_in_a_ring_of_hills_s1	Scarhope	True		464.2	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_confluence_plain_s1	Meadworth	False	fen	44.4	6.45	0.0	6.5	19.7	7	True	0.0	0.0	0.0	21.0	5636.0	0.0	0.338	0.034
+cfg_confluence_plain_s1	Marford	False	fen,river	50.0	6.9	0.0	11.1	76.1	9	True	0.0	0.0	35.2	29.0	8213.6	1.297	0.467	0.046
+cfg_confluence_plain_s1	Marworth	False	big river,fen	49.2	7.05	2.7	7.0	19.7	1	True	0.0	0.0	35.2	25.0	17781.7	1.297	0.403	0.04
+cfg_confluence_plain_s1	Oakhurst	True		84.0	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_gated_valley_s1	Watworth	False	fen	73.2	3.45	0.0	3.5	19.7	1	False	0.0	0.0	0.0	21.0	3014.6	0.0	0.338	0.034
+cfg_gated_valley_s1	Marford	False	fen,river	97.1	6.0	0.0	6.0	19.7	6	True	0.0	0.0	35.2	29.0	7427.2	1.297	0.467	0.046
+cfg_gated_valley_s1	Marcombe	False	fen,river	40.2	5.4	0.0	20.4	143.5	2	True	0.0	0.0	35.2	29.0	6903.0	1.297	0.467	0.046
+cfg_gated_valley_s1	Flintdale	False		181.9	0.6	0.0	0.6	18.1	8	True	0.0	0.0	0.0	0	524.3	0.0	0.0	0.0
+cfg_gated_valley_s1	Cragdon	True		499.9	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_gated_valley_s1	Flintley	True		358.2	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_gated_valley_s1	Scarhope	True		360.5	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_river_through_a_range_s1	Watworth	False	fen,river	83.9	6.15	0.0	6.9	79.7	6	True	0.0	0.0	35.2	29.0	7558.3	1.297	0.467	0.047
+cfg_river_through_a_range_s1	Marford	False	big river,fen	51.8	6.9	0.3	19.2	131.2	3	True	0.0	0.0	35.2	25.0	9262.2	1.297	0.403	0.04
+cfg_river_through_a_range_s1	Marworth	False	fen	39.6	7.35	0.0	7.4	19.7	3	True	0.0	0.0	0.0	21.0	6422.4	0.0	0.338	0.034
+cfg_river_through_a_range_s1	Cragcombe	True		312.6	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_river_through_a_range_s1	Flintley	True		308.4	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_settled_lowland_and_frontier_s1	Watworth	False	fen,river	60.1	9.75	0.0	21.4	139.7	4	True	0.0	0.0	35.2	29.0	10704.0	1.297	0.467	0.046
+cfg_settled_lowland_and_frontier_s1	Marford	False	river	87.5	4.35	0.0	4.3	19.7	4	True	0.0	0.0	35.2	8.0	5985.5	1.297	0.129	0.013
+cfg_settled_lowland_and_frontier_s1	Oakholt	False	fen	68.7	4.35	0.0	4.4	19.7	2	False	0.0	0.0	0.0	21.0	3801.0	0.0	0.338	0.034
+cfg_settled_lowland_and_frontier_s1	Oakhurst	True		82.1	4.95	0.0	14.6	79.8	2	True	0.0	0.0	0.0	0	4325.3	0.0	0.0	0.0
+cfg_settled_lowland_and_frontier_s1	Hazeley	True		79.6	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_settled_lowland_and_frontier_s1	Scarhope	True		275.8	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_two_valleys_over_a_pass_s1	Watcombe	False	big river,fen	68.5	8.7	1.2	8.7	19.7	5	True	0.0	0.0	35.2	25.0	13980.7	1.297	0.403	0.04
+cfg_two_valleys_over_a_pass_s1	Marford	False	big river,fen	53.6	6.15	2.1	28.5	177.2	6	True	0.0	0.0	35.2	25.0	14898.2	1.297	0.403	0.04
+cfg_two_valleys_over_a_pass_s1	Marworth	False	fen,river	50.0	5.1	0.0	9.3	76.1	2	True	0.0	0.0	35.2	29.0	6640.8	1.297	0.467	0.046
+cfg_two_valleys_over_a_pass_s1	Flintdale	False		286.6	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_two_valleys_over_a_pass_s1	Cragcombe	True		301.0	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_two_valleys_over_a_pass_s1	Flintden	True		271.8	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_two_valleys_over_a_pass_s1	Scarhope	True		320.9	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_two_valleys_over_a_pass_s1	Scarden	True		301.3	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_watershed_divide_s1	Watworth	False	big river,fen	47.0	5.85	0.9	68.0	448.4	1	True	0.0	0.0	35.2	25.0	10441.8	1.297	0.403	0.04
+cfg_watershed_divide_s1	Leaton	False	fen,river	102.4	7.95	0.0	12.2	78.5	3	True	0.0	0.0	35.2	29.0	9131.1	1.297	0.467	0.046
+cfg_watershed_divide_s1	Marworth	False	fen,river	50.0	6.9	0.0	11.1	76.1	2	True	0.0	0.0	35.2	29.0	8213.6	1.297	0.467	0.046
+cfg_watershed_divide_s1	Flintholt	False		374.3	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+cfg_watershed_divide_s1	Craghurst	True		317.7	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+eelmouth	Eelmouth	False	big river,fen	43.5	9.9	4.65	113.4	709.9	2	True	0.0	8.8	8.8	25.0	24903.1	0.324	0.403	0.04
+eelmouth	Oakhurst	True		83.5	2.85	0.0	2.9	19.7	9	True	0.0	0.0	0.0	0	2490.3	0.0	0.0	0.0
+eelmouth	Cragton	True		219.7	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+laid_large_dry_s5	Highpool	False	big river,fen	94.6	4.8	4.8	4.8	19.7	9	True	0.0	0.0	35.2	18.0	20971.0	1.297	0.29	0.029
+laid_large_dry_s5	Lowstrand	False	big river,fen	42.2	5.55	4.05	138.4	988.3	1	True	0.0	0.0	35.2	25.0	19005.0	1.297	0.403	0.04
+laid_large_dry_s5	Middleham	False	big river,fen	43.6	3.9	3.9	76.3	491.4	5	True	0.0	0.0	35.2	25.0	17038.9	1.297	0.403	0.04
+laid_large_dry_s5	Cragcombe	True		158.2	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+laid_large_dry_s5	Cragton	True		227.9	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+laid_large_dry_s5	Craghurst	True		432.3	1.95	1.95	1.9	13.9	11	True	0.0	0.0	0.0	0	8519.5	0.0	0.0	0.0
+laid_large_s5	Highpool	False	big river,fen	127.6	5.1	5.1	19.9	135.6	8	True	0.0	0.0	35.2	25.0	22281.7	1.297	0.403	0.04
+laid_large_s5	Lowstrand	False	big river,fen	42.4	5.7	4.2	140.6	1006.4	1	True	0.0	0.0	35.2	25.0	19660.3	1.297	0.403	0.04
+laid_large_s5	Middleham	False	big river,fen	47.7	4.8	4.8	37.4	262.5	5	True	0.0	0.0	35.2	25.0	20971.0	1.297	0.403	0.04
+laid_large_s5	Craghurst	True		212.0	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+laid_large_s5	Cragton	True		208.4	1.2	0.0	1.2	19.7	5	True	0.0	0.0	0.0	0	1048.6	0.0	0.0	0.0
+laid_large_s5	Stanhurst	True		441.4	1.5	1.5	1.5	11.7	12	True	0.0	0.0	0.0	0	6553.4	0.0	0.0	0.0
+laid_large_s7	Highpool	False	big river,fen	22.2	6.15	4.95	15.9	69.0	1	True	0.0	0.0	35.2	25.0	22674.9	1.297	0.403	0.04
+laid_large_s7	Lowstrand	False	big river,fen	65.8	4.35	4.35	4.3	19.8	2	True	0.0	0.0	35.2	25.0	19005.0	1.297	0.403	0.04
+laid_large_s7	Middleham	False	big river	71.8	6.0	2.55	57.0	254.0	3	True	0.0	0.0	35.2	4.0	14155.4	1.297	0.064	0.006
+laid_large_s7	Hazelthorpe	True		87.4	3.3	0.0	3.3	19.7	3	True	0.0	0.0	0.0	0	2883.5	0.0	0.0	0.0
+laid_large_s7	Oakhurst	True		137.6	1.35	1.35	1.4	19.7	2	True	0.0	0.0	0.0	0	5898.1	0.0	0.0	0.0
+laid_large_s7	Flintlow	True		334.2	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+laid_large_s7	Scarley	True		354.5	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+laid_large_wet_s5	Highpool	False	big river,fen	110.6	5.85	5.1	5.8	19.7	8	True	0.0	0.0	35.2	25.0	22937.0	1.297	0.403	0.04
+laid_large_wet_s5	Lowstrand	False	big river,fen	42.3	7.35	5.1	153.2	1047.0	1	True	0.0	0.0	35.2	25.0	24247.7	1.297	0.403	0.04
+laid_large_wet_s5	Middleham	False	big river,fen	47.8	4.8	4.8	39.9	295.0	5	True	0.0	0.0	35.2	25.0	20971.0	1.297	0.403	0.04
+laid_large_wet_s5	Oakhurst	True		81.7	1.8	0.0	1.8	19.7	5	True	0.0	0.0	0.0	0	1572.8	0.0	0.0	0.0
+laid_large_wet_s5	Oakton	True		87.0	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+laid_large_wet_s5	Cragcombe	True		157.5	1.5	0.0	1.5	19.7	10	True	0.0	0.0	0.0	0	1310.7	0.0	0.0	0.0
+laid_large_wet_s5	Scarton	True		180.4	2.4	0.0	2.4	19.7	5	True	0.0	0.0	0.0	0	2097.1	0.0	0.0	0.0
+laid_large_wet_s5	Flintley	True		479.1	3.15	3.15	3.3	37.1	9	True	0.292	0.0	0.0	0	27961.3	0.0	0.0	0.0
+laid_medium_s5	Highpool	False	big river,fen	79.5	8.1	1.8	8.1	19.7	3	True	0.0	0.0	35.2	25.0	15553.5	1.297	0.403	0.04
+laid_medium_s5	Lowstrand	False	fen	42.5	5.7	4.2	131.4	909.0	1	True	0.0	0.0	0.0	21.0	19660.3	0.0	0.338	0.034
+laid_medium_s5	Middleham	False	fen	42.9	4.95	4.95	5.0	19.7	5	True	0.0	0.0	0.0	21.0	21626.4	0.0	0.338	0.034
+laid_medium_s5	Oakhurst	True		78.6	4.05	0.0	13.2	76.4	8	True	0.0	0.0	0.0	0	3538.9	0.0	0.0	0.0
+laid_medium_s5	Oakton	True		90.8	2.55	0.0	6.0	65.2	4	True	0.0	0.0	0.0	0	2228.2	0.0	0.0	0.0
+laid_medium_s5	Cragley	True		403.1	2.7	0.0	2.7	19.7	9	True	1.012	0.0	0.0	0	51510.0	0.0	0.0	0.0
+laid_river_s5	Highpool	False	big river,fen	79.5	8.1	1.8	8.1	19.7	3	True	0.0	0.0	35.2	25.0	15553.5	1.297	0.403	0.04
+laid_river_s5	Lowstrand	False	fen	42.5	5.7	4.2	131.1	909.0	1	True	0.0	0.0	0.0	21.0	19660.3	0.0	0.338	0.034
+laid_river_s5	Middleham	False	fen	42.9	4.95	4.95	77.1	527.6	5	True	0.0	0.0	0.0	21.0	21626.4	0.0	0.338	0.034
+laid_river_s5	Oakhurst	True		78.6	4.05	0.0	13.2	76.4	9	True	0.0	0.0	0.0	0	3538.9	0.0	0.0	0.0
+laid_river_s5	Oakton	True		90.8	2.55	0.0	6.0	65.2	4	True	0.0	0.0	0.0	0	2228.2	0.0	0.0	0.0
+laid_river_s5	Craghurst	True		291.3	4.2	0.0	4.2	19.7	10	True	0.0	0.0	0.0	0	3669.9	0.0	0.0	0.0
+lake_meresby_s3	Meresby	False	fen,lake	72.5	2.25	0.0	2.2	19.7	3	True	1.282	0.0	21178.6	25.0	64223.7	10.668	0.403	0.04
+lake_meresby_s3	Hazelhope	True		108.9	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w01_lowland_s1	Watworth	False	fen	86.9	6.75	0.0	6.8	19.7	6	True	0.0	0.0	0.0	21.0	5898.1	0.0	0.338	0.034
+w01_lowland_s1	Marford	False	fen,river	60.1	9.75	0.0	21.4	139.7	4	True	0.0	0.0	35.2	29.0	10704.0	1.297	0.467	0.046
+w01_lowland_s1	Marworth	False	fen,river	50.0	6.9	0.0	11.1	76.1	3	True	0.0	0.0	35.2	29.0	8213.6	1.297	0.467	0.046
+w01_lowland_s2	Brookford	False	fen,river	66.5	5.7	0.0	5.7	19.7	2	False	0.0	0.0	35.2	29.0	7165.1	1.297	0.467	0.047
+w01_lowland_s2	Meadham	False	fen,river	66.2	8.55	0.0	8.6	19.7	4	True	0.0	0.0	35.2	29.0	9655.4	1.297	0.467	0.046
+w01_lowland_s2	Leaton	False	fen,river	45.8	4.2	0.0	4.2	19.7	2	True	0.0	0.0	35.2	29.0	5854.4	1.297	0.467	0.047
+w01_lowland_s2	Leaham	False		116.2	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w01_lowland_s2	Asholt	False		73.8	1.2	0.0	1.2	19.7	2	True	0.0	0.0	0.0	0	1048.6	0.0	0.0	0.0
+w01_lowland_s2	Hazelham	True		116.0	0.15	0.0	0.1	19.7	6	True	0.0	0.0	0.0	0	131.1	0.0	0.0	0.0
+w01_lowland_s2	Hayhurst	True		68.8	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w01_lowland_s2	Hazelhurst	True		132.3	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w01_lowland_s3	Leaby	False	fen	65.1	3.45	0.0	3.5	19.7	9	True	0.0	0.0	0.0	21.0	3014.6	0.0	0.338	0.034
+w01_lowland_s3	Fleetford	False	fen,river	67.4	7.65	0.0	19.5	191.6	7	True	0.0	0.0	35.2	29.0	8869.0	1.297	0.467	0.046
+w01_lowland_s3	Meadwick	False	fen	47.6	6.0	0.0	8.7	82.4	4	True	0.0	0.0	0.0	21.0	5242.8	0.0	0.338	0.034
+w01_lowland_s3	Hazelhope	True		110.7	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w01_lowland_s3	Oakhurst	True		94.5	0.15	0.0	0.1	19.7	2	False	0.0	0.0	0.0	0	131.1	0.0	0.0	0.0
+w01_lowland_s3	Ashley	True		113.3	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w02_dry_east_s1	Watworth	False	fen,river	57.2	5.4	0.0	10.8	136.6	2	False	0.0	0.0	35.2	29.0	6903.0	1.297	0.467	0.046
+w02_dry_east_s1	Leaton	False	fen	67.5	1.8	0.0	1.8	19.7	2	False	0.0	0.0	0.0	21.0	1572.8	0.0	0.338	0.034
+w02_dry_east_s1	Meadwick	False	fen,river	74.2	6.6	0.0	6.6	19.7	5	True	0.0	0.0	17.6	25.0	6859.3	0.648	0.403	0.04
+w02_dry_east_s1	Oakhurst	True		95.8	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w02_dry_east_s1	Hazeley	True		138.2	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w02_dry_east_s2	Brookford	False	fen,river	60.5	8.7	0.0	8.7	19.7	4	True	0.0	0.0	35.2	29.0	9786.5	1.297	0.467	0.046
+w02_dry_east_s2	Haywick	False	fen,river	30.9	6.0	0.0	8.6	70.4	1	False	0.0	0.0	35.2	29.0	7427.2	1.297	0.467	0.046
+w02_dry_east_s2	Meadthorpe	False	fen	53.6	3.15	0.0	3.1	19.7	3	True	0.0	0.0	0.0	21.0	2752.4	0.0	0.338	0.034
+w02_dry_east_s2	Meadham	False		67.5	1.65	0.0	1.6	19.7	3	True	0.0	0.0	0.0	0	1441.8	0.0	0.0	0.0
+w02_dry_east_s2	Hazelham	True		116.6	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w02_dry_east_s3	Marham	False	fen,river	47.0	4.8	0.0	20.2	197.6	3	True	0.0	0.0	35.2	29.0	6378.7	1.297	0.467	0.046
+w02_dry_east_s3	Leaworth	False	fen,river	67.1	4.65	0.0	4.6	19.7	7	True	0.0	0.0	35.2	29.0	6247.6	1.297	0.467	0.046
+w02_dry_east_s3	Brookford	False	big river,fen	51.7	6.3	1.35	31.9	318.1	3	True	0.0	0.0	35.2	25.0	12407.8	1.297	0.403	0.04
+w02_dry_east_s3	Hazelhope	True		129.7	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w02_dry_east_s3	Oakhurst	True		141.6	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w02_dry_east_s3	Ashley	True		63.9	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w02_dry_east_s3	Holthurst	True		113.4	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w03_wet_west_s1	Meadworth	False	fen	57.1	6.15	3.15	6.2	19.7	1	True	0.0	0.0	0.0	21.0	16383.6	0.0	0.338	0.034
+w03_wet_west_s1	Marford	False	fen,river	87.9	8.1	0.0	8.1	19.7	6	True	0.0	0.0	35.2	29.0	9262.2	1.297	0.467	0.046
+w03_wet_west_s1	Marworth	False	fen,river	51.0	7.05	0.0	12.0	74.4	2	False	0.0	0.0	35.2	29.0	8344.7	1.297	0.467	0.046
+w03_wet_west_s1	Fleeton	False		77.9	4.95	0.0	5.0	19.7	4	True	0.0	0.0	0.0	0	4325.3	0.0	0.0	0.0
+w03_wet_west_s1	Oakhurst	True		101.8	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w03_wet_west_s1	Hazeley	True		95.5	0.75	0.0	0.8	19.7	1	False	0.0	0.0	0.0	0	655.3	0.0	0.0	0.0
+w03_wet_west_s2	Brookford	False	fen,river	66.5	7.8	0.0	7.8	19.7	2	False	0.0	0.0	35.2	29.0	9000.1	1.297	0.467	0.047
+w03_wet_west_s2	Haywick	False	big river,fen	54.4	8.7	1.5	8.7	19.7	3	True	0.0	0.0	35.2	25.0	15029.2	1.297	0.403	0.04
+w03_wet_west_s2	Welton	False	fen,river	45.4	5.55	0.0	5.5	19.7	2	True	0.0	0.0	17.6	25.0	5941.8	0.648	0.403	0.04
+w03_wet_west_s2	Hazelham	True		96.5	2.85	0.0	2.9	19.7	4	True	0.0	0.0	0.0	0	2490.3	0.0	0.0	0.0
+w03_wet_west_s2	Hayhurst	True		132.3	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w03_wet_west_s2	Hazelcombe	True		78.7	2.1	0.0	2.1	19.7	3	True	0.0	0.0	0.0	0	1835.0	0.0	0.0	0.0
+w03_wet_west_s3	Leaby	False	fen,river	76.1	7.95	0.0	15.4	139.6	6	True	0.0	0.0	35.2	29.0	9131.1	1.297	0.467	0.046
+w03_wet_west_s3	Leaworth	False	big river,fen	40.0	5.25	0.9	94.5	639.0	2	True	0.0	0.0	35.2	25.0	9917.5	1.297	0.403	0.04
+w03_wet_west_s3	Brookford	False	fen	53.3	9.9	6.15	79.5	574.6	1	True	0.0	0.0	0.0	21.0	30145.8	0.0	0.338	0.034
+w03_wet_west_s3	Hazelhope	True		82.4	3.0	0.0	3.0	19.7	6	True	0.0	0.0	0.0	0	2621.4	0.0	0.0	0.0
+w03_wet_west_s3	Oakhurst	True		101.3	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w04_coast_mountains_s1	Watworth	False	fen,river	88.3	8.1	0.0	8.1	19.7	6	True	0.0	0.0	17.6	25.0	8170.0	0.648	0.403	0.04
+w04_coast_mountains_s1	Marford	False	fen,river	51.2	6.9	0.0	12.1	74.4	2	False	0.0	0.0	35.2	29.0	8213.6	1.297	0.467	0.046
+w04_coast_mountains_s1	Marworth	False	fen,river	59.7	9.15	0.0	9.2	19.7	2	True	0.0	0.0	35.2	29.0	10179.7	1.297	0.467	0.046
+w04_coast_mountains_s1	Flintdale	False		326.6	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w04_coast_mountains_s1	Oakhurst	True		96.4	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w04_coast_mountains_s1	Flintden	True		453.5	0.45	0.0	0.5	19.7	3	False	0.0	0.0	0.0	0	393.2	0.0	0.0	0.0
+w04_coast_mountains_s1	Scarhope	True		272.3	0.6	0.0	0.6	19.7	2	False	0.0	0.0	0.0	0	524.3	0.0	0.0	0.0
+w04_coast_mountains_s2	Brookford	False	fen,river	66.5	7.35	0.0	7.3	19.7	2	False	0.0	0.0	35.2	29.0	8606.9	1.297	0.467	0.047
+w04_coast_mountains_s2	Haywick	False	big river,fen	41.4	8.85	2.85	8.9	19.7	3	True	0.0	0.0	35.2	25.0	19878.8	1.297	0.403	0.04
+w04_coast_mountains_s2	Welwick	False	fen,river	92.6	7.35	0.0	13.3	73.7	8	True	0.0	0.0	35.2	29.0	8606.9	1.297	0.467	0.046
+w04_coast_mountains_s2	Stancombe	False		192.4	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w04_coast_mountains_s2	Hazelham	True		132.3	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w04_coast_mountains_s2	Hayhurst	True		82.5	2.25	0.0	2.2	19.7	3	True	0.0	0.0	0.0	0	1966.0	0.0	0.0	0.0
+w04_coast_mountains_s2	Flinthurst	True		357.1	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w04_coast_mountains_s2	Craghurst	True		402.2	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w04_coast_mountains_s3	Leaby	False	fen	71.7	5.4	0.0	5.4	19.7	3	True	0.0	0.0	0.0	21.0	4718.5	0.0	0.338	0.034
+w04_coast_mountains_s3	Leaworth	False	fen,river	74.7	3.75	0.0	3.8	19.7	7	True	0.0	0.0	35.2	29.0	5461.2	1.297	0.467	0.046
+w04_coast_mountains_s3	Brookford	False	fen	84.1	5.1	0.0	5.1	19.7	1	True	0.0	0.0	0.0	21.0	4456.3	0.0	0.338	0.034
+w04_coast_mountains_s3	Flintdale	False		176.5	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w04_coast_mountains_s3	Hazelhope	True		93.4	0.3	0.0	0.3	19.7	2	False	0.0	0.0	0.0	0	262.1	0.0	0.0	0.0
+w04_coast_mountains_s3	Craghurst	True		413.9	0.15	0.0	0.1	19.7	1	True	0.0	0.0	0.0	0	131.1	0.0	0.0	0.0
+w05_upland_moor_s1	Watworth	False	fen,river	71.4	4.8	0.0	4.8	19.7	4	True	0.0	0.0	35.2	29.0	6378.7	1.297	0.467	0.046
+w05_upland_moor_s1	Leaby	False	fen	150.2	3.9	0.0	3.9	19.7	3	False	0.068	0.0	0.0	21.0	6684.5	0.0	0.338	0.034
+w05_upland_moor_s1	Marworth	False	fen,river	52.1	7.05	0.0	11.2	76.1	3	True	0.0	0.0	35.2	29.0	8344.7	1.297	0.467	0.046
+w05_upland_moor_s1	Leaham	False		69.4	7.65	3.45	7.7	19.7	2	True	0.0	0.0	0.0	0	18742.8	0.0	0.0	0.0
+w05_upland_moor_s1	Craghurst	True		348.4	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w05_upland_moor_s1	Flintley	True		346.0	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w05_upland_moor_s1	Scarhope	True		388.1	0.9	0.0	5.1	76.4	2	False	0.0	0.0	0.0	0	786.4	0.0	0.0	0.0
+w05_upland_moor_s1	Scarley	True		371.2	4.2	0.0	4.2	19.7	2	False	0.0	0.0	0.0	0	3669.9	0.0	0.0	0.0
+w05_upland_moor_s2	Brookford	False	fen,river	145.5	4.2	0.0	19.1	202.1	3	True	0.0	0.0	35.2	29.0	5854.4	1.297	0.467	0.046
+w05_upland_moor_s2	Haywick	False	fen	81.2	6.0	0.0	34.2	261.6	2	True	0.0	0.0	0.0	21.0	5242.8	0.0	0.338	0.034
+w05_upland_moor_s2	Welwick	False	fen,river	52.2	4.8	0.0	8.2	80.4	1	False	0.0	0.0	35.2	29.0	6378.7	1.297	0.467	0.046
+w05_upland_moor_s2	Meadham	False		78.4	1.95	0.0	1.9	19.7	3	True	0.0	0.0	0.0	0	1703.9	0.0	0.0	0.0
+w05_upland_moor_s2	Flinthurst	True		323.9	4.95	0.0	10.7	138.1	5	True	0.0	0.0	0.0	0	4325.3	0.0	0.0	0.0
+w05_upland_moor_s3	Leaby	False	fen	126.2	5.1	0.0	23.2	134.9	3	True	0.0	0.0	0.0	21.0	4456.3	0.0	0.338	0.034
+w05_upland_moor_s3	Leaworth	False	fen,river	58.7	7.35	0.0	31.1	251.3	3	True	0.0	0.0	35.2	29.0	8606.9	1.297	0.467	0.046
+w05_upland_moor_s3	Brookford	False	fen,river	57.0	6.6	0.0	15.6	82.9	4	True	0.0	0.0	35.2	29.0	7951.5	1.297	0.467	0.047
+w05_upland_moor_s3	Flinthope	True		296.1	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w06_high_mountains_s1	Meadham	False	big river,fen	75.1	6.75	0.3	6.8	19.7	4	True	0.0	0.0	35.2	25.0	9131.1	1.297	0.403	0.04
+w06_high_mountains_s1	Marford	False	fen,river	52.3	7.2	0.0	10.9	74.4	3	True	0.0	0.0	35.2	29.0	8475.8	1.297	0.467	0.046
+w06_high_mountains_s1	Meadwick	False	big river,fen	49.7	6.45	5.25	6.5	19.8	1	True	0.0	0.0	35.2	25.0	26170.1	1.297	0.403	0.04
+w06_high_mountains_s1	Craghurst	True		307.6	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w06_high_mountains_s1	Flintley	True		376.0	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w06_high_mountains_s2	Brookford	False	fen,river	103.3	4.65	0.0	4.6	19.7	3	True	0.0	0.0	35.2	29.0	6247.6	1.297	0.467	0.047
+w06_high_mountains_s2	Meadham	False	fen	37.2	2.55	0.0	2.5	19.7	2	True	0.0	0.0	0.0	21.0	2228.2	0.0	0.338	0.034
+w06_high_mountains_s2	Welwick	False	big river,fen	98.5	6.9	3.6	6.9	19.7	3	True	0.0	0.0	35.2	25.0	20796.2	1.297	0.403	0.04
+w06_high_mountains_s2	Leaham	False		84.4	5.55	0.0	5.5	19.7	1	False	0.0	0.0	0.0	0	4849.5	0.0	0.0	0.0
+w06_high_mountains_s2	Flinthurst	True		302.2	1.8	0.0	1.8	19.7	4	True	0.0	0.0	0.0	0	1572.8	0.0	0.0	0.0
+w06_high_mountains_s3	Leathorpe	False	fen,river	111.0	4.65	0.0	23.5	183.7	2	True	0.0	0.0	35.2	29.0	6247.6	1.297	0.467	0.046
+w06_high_mountains_s3	Fleetford	False	fen,river	63.9	6.6	0.0	6.6	19.7	4	True	0.0	0.0	35.2	29.0	7951.5	1.297	0.467	0.046
+w06_high_mountains_s3	Brookford	False	fen,river	117.4	4.5	0.0	8.2	65.2	3	True	0.0	0.0	35.2	29.0	6116.5	1.297	0.467	0.046
+w06_high_mountains_s3	Hazelhope	True		88.6	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w06_high_mountains_s3	Craghurst	True		313.0	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w06_high_mountains_s3	Stanhope	True		428.2	4.5	0.0	4.5	19.7	2	False	0.0	0.0	0.0	0	3932.1	0.0	0.0	0.0
+w07_cold_north_s1	Watworth	False	fen	86.9	6.45	0.0	6.5	19.7	6	True	0.0	0.0	0.0	21.0	5636.0	0.0	0.338	0.034
+w07_cold_north_s1	Marford	False	fen	59.2	7.65	0.0	7.7	19.7	6	True	0.0	0.0	0.0	21.0	6684.5	0.0	0.338	0.034
+w07_cold_north_s1	Marworth	False	big river,fen	27.8	7.35	3.0	10.3	75.7	1	True	0.0	0.0	35.2	25.0	19092.4	1.297	0.403	0.04
+w07_cold_north_s1	Oakhurst	True		79.6	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w07_cold_north_s2	Leawick	False	fen,river	62.9	8.55	0.0	8.6	19.7	4	True	0.0	0.0	35.2	29.0	9655.4	1.297	0.467	0.046
+w07_cold_north_s2	Haywick	False	fen,river	66.5	5.7	0.0	5.7	19.7	2	False	0.0	0.0	35.2	29.0	7165.1	1.297	0.467	0.046
+w07_cold_north_s2	Welwick	False	fen	74.1	8.85	1.95	8.8	19.7	3	True	0.0	0.0	0.0	21.0	14548.6	0.0	0.338	0.034
+w07_cold_north_s2	Meadham	False		109.5	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w07_cold_north_s2	Hazelham	True		110.0	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w07_cold_north_s2	Hayhurst	True		70.1	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w07_cold_north_s2	Hazelhurst	True		112.4	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w07_cold_north_s2	Oakhurst	True		43.3	2.85	0.0	2.9	19.7	2	False	0.0	0.0	0.0	0	2490.3	0.0	0.0	0.0
+w07_cold_north_s3	Marworth	False	fen,river	64.9	5.85	0.0	5.8	19.7	10	True	0.0	0.0	35.2	29.0	7296.2	1.297	0.467	0.047
+w07_cold_north_s3	Fleetford	False	fen	47.3	6.0	0.0	8.7	82.4	4	True	0.0	0.0	0.0	21.0	5242.8	0.0	0.338	0.034
+w07_cold_north_s3	Brookford	False	fen	80.0	5.25	0.0	5.2	19.7	1	False	0.0	0.0	0.0	21.0	4587.4	0.0	0.338	0.034
+w07_cold_north_s3	Hazelhope	True		122.2	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w08_fen_s1	Watworth	False	fen,river	36.9	8.1	0.0	10.0	79.2	9	True	0.0	0.0	35.2	29.0	9262.2	1.297	0.467	0.046
+w08_fen_s1	Marford	False	fen,river	47.1	7.35	0.0	11.2	73.4	3	True	0.0	0.0	35.2	29.0	8606.9	1.297	0.467	0.046
+w08_fen_s1	Meadwick	False	fen	31.4	0.6	0.0	0.6	19.7	0	False	0.0	0.0	0.0	21.0	524.3	0.0	0.338	0.034
+w08_fen_s1	Fleetholt	False		47.0	5.55	4.8	5.5	19.7	7	True	0.0	0.0	0.0	0	21626.4	0.0	0.0	0.0
+w08_fen_s1	Oakhurst	True		69.0	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w08_fen_s2	Brookford	False	fen	26.7	6.3	0.0	6.3	19.7	6	True	0.0	0.0	0.0	21.0	5504.9	0.0	0.338	0.034
+w08_fen_s2	Marwick	False	fen,river	19.1	3.75	0.0	3.8	19.7	5	True	0.0	0.0	35.2	29.0	5461.2	1.297	0.467	0.046
+w08_fen_s2	Reedworth	False	fen,river	13.8	5.25	0.0	15.3	71.5	1	True	0.0	0.0	35.2	29.0	6771.9	1.297	0.467	0.046
+w08_fen_s2	Hazelham	True		64.7	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w08_fen_s4	Fleetford	False	fen	38.4	4.65	0.0	4.7	19.7	8	True	0.0	0.0	0.0	21.0	4063.1	0.0	0.338	0.034
+w08_fen_s4	Leawick	False	fen	35.6	3.75	0.0	3.8	19.7	8	True	0.0	0.0	0.0	21.0	3276.7	0.0	0.338	0.034
+w08_fen_s4	Meadford	False	fen,river	17.2	4.5	0.0	11.6	116.7	3	True	0.0	0.0	35.2	29.0	6116.5	1.297	0.467	0.046
+w08_fen_s4	Oakham	False		72.1	3.45	0.0	3.5	18.9	7	True	0.0	0.0	0.0	0	3014.6	0.0	0.0	0.0
+w08_fen_s4	Hazeley	True		65.7	3.45	0.0	6.9	37.8	6	True	0.0	0.0	0.0	0	3014.6	0.0	0.0	0.0
+w08_fen_s4	Ashley	True		61.8	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w08_fen_s4	Welhope	True		65.3	2.4	0.0	2.4	19.7	6	True	0.0	0.0	0.0	0	2097.1	0.0	0.0	0.0
+w08_fen_s4	Hazelthorpe	True		44.5	1.05	0.0	1.1	19.5	0	False	0.0	0.0	0.0	0	917.5	0.0	0.0	0.0
+w09_estuary_s1	Watworth	False	fen,river	50.4	4.65	0.0	4.6	19.7	6	True	0.0	0.0	35.2	29.0	6247.6	1.297	0.467	0.047
+w09_estuary_s1	Marford	False	fen,river	29.1	7.35	0.0	11.1	77.1	1	False	0.0	0.0	35.2	29.0	8606.9	1.297	0.467	0.046
+w09_estuary_s1	Marworth	False	fen,river	49.7	6.9	0.0	10.2	76.1	10	True	0.0	0.0	35.2	29.0	8213.6	1.297	0.467	0.047
+w09_estuary_s1	Reedhope	True		58.0	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w09_estuary_s2	Leawick	False	fen,river	43.1	7.95	0.0	8.0	19.7	7	True	0.0	0.0	35.2	29.0	9131.1	1.297	0.467	0.047
+w09_estuary_s2	Haywick	False	fen,river	40.0	5.85	0.0	10.9	57.3	4	True	0.0	0.0	35.2	29.0	7296.2	1.297	0.467	0.046
+w09_estuary_s2	Welwick	False	fen	38.5	4.05	0.0	4.8	75.4	1	False	0.0	0.0	0.0	21.0	3538.9	0.0	0.338	0.034
+w09_estuary_s2	Brookhurst	False		41.8	4.95	4.95	17.1	152.7	6	True	0.0	0.0	0.0	0	21626.4	0.0	0.0	0.0
+w09_estuary_s2	Asholt	False		72.9	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w09_estuary_s2	Hazelham	True		73.3	1.95	0.0	1.9	19.7	5	True	0.0	0.0	0.0	0	1703.9	0.0	0.0	0.0
+w09_estuary_s2	Hayhurst	True		44.3	1.95	0.0	1.9	19.7	8	True	0.0	0.0	0.0	0	1703.9	0.0	0.0	0.0
+w09_estuary_s2	Mosshope	True		-0.7	3.45	3.45	230.8	1559.5	0	True	0.0	0.0	0.0	0	14417.6	0.0	0.0	0.0
+w09_estuary_s3	Reedham	False	fen,river	47.4	5.85	0.0	5.8	19.7	4	True	0.0	0.0	35.2	29.0	7296.2	1.297	0.467	0.046
+w09_estuary_s3	Fleetford	False	fen,river	39.4	5.1	0.0	5.1	19.7	4	True	0.0	0.0	35.2	29.0	6640.8	1.297	0.467	0.046
+w09_estuary_s3	Brookford	False	fen,river	40.1	5.55	0.0	7.7	71.3	3	True	0.0	0.0	35.2	29.0	7034.0	1.297	0.467	0.046
+w09_estuary_s3	Mossby	False		4.1	5.1	5.1	31.2	309.0	4	True	0.0	0.0	0.0	0	22281.7	0.0	0.0	0.0
+w09_estuary_s3	Hazelhope	True		93.3	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w09_estuary_s3	Craghope	True		45.5	1.65	1.65	1.6	17.8	1	True	0.0	0.0	0.0	0	7208.8	0.0	0.0	0.0
+w09_estuary_s3	Fenhaven	True		3.4	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w10_chalk_clay_s1	Watworth	False	river	100.1	5.7	0.0	35.9	262.3	3	True	0.0	0.0	35.2	8.0	7165.1	1.297	0.129	0.013
+w10_chalk_clay_s1	Marford	False	river	145.2	7.5	0.0	7.5	19.7	4	True	0.0	0.0	35.2	8.0	8737.9	1.297	0.129	0.013
+w10_chalk_clay_s1	Marworth	False	big river,fen	36.4	7.5	3.15	28.8	195.9	1	True	0.0	0.0	35.2	25.0	19747.7	1.297	0.403	0.04
+w10_chalk_clay_s1	Oakcombe	True		54.9	3.3	0.0	3.3	19.7	5	True	0.0	0.0	0.0	0	2883.5	0.0	0.0	0.0
+w10_chalk_clay_s1	Hazeley	True		120.3	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w10_chalk_clay_s2	Brookford	False	fen,river	61.6	5.7	0.0	5.7	19.7	5	True	0.0	0.0	35.2	29.0	7165.1	1.297	0.467	0.046
+w10_chalk_clay_s2	Hayford	False	fen,river	74.5	6.75	0.0	20.1	138.1	4	True	0.0	0.0	35.2	29.0	8082.6	1.297	0.467	0.046
+w10_chalk_clay_s2	Welwick	False	big river,fen	36.6	7.2	2.25	10.7	79.2	1	True	0.0	0.0	35.2	25.0	16339.9	1.297	0.403	0.04
+w10_chalk_clay_s2	Hazelham	True		89.5	0.15	0.0	0.1	15.3	3	True	0.0	0.0	0.0	0	131.1	0.0	0.0	0.0
+w10_chalk_clay_s2	Holtford	True		75.2	2.55	0.0	2.5	19.7	2	True	0.0	0.0	0.0	0	2228.2	0.0	0.0	0.0
+w10_chalk_clay_s3	Marham	False	big river,fen	95.7	10.2	0.6	30.1	267.3	7	True	0.0	0.0	35.2	25.0	13194.3	1.297	0.403	0.04
+w10_chalk_clay_s3	Fleetford	False	fen,river	83.0	7.05	0.0	8.8	67.6	0	False	0.0	0.0	35.2	29.0	8344.7	1.297	0.467	0.046
+w10_chalk_clay_s3	Brookford	False	fen	51.8	4.65	0.0	4.7	19.7	1	False	0.0	0.0	0.0	21.0	4063.1	0.0	0.338	0.034
+w10_chalk_clay_s3	Hazelhope	True		78.3	1.5	0.0	2.1	80.6	6	True	0.0	0.0	0.0	0	1310.7	0.0	0.0	0.0
+w10_chalk_clay_s3	Oakhurst	True		124.0	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w11_sand_heath_s1	Meadworth	False	fen	71.4	5.1	0.0	5.1	19.7	4	True	0.0	0.0	0.0	21.0	4456.3	0.0	0.338	0.034
+w11_sand_heath_s1	Marford	False	fen,river	90.4	4.2	0.0	4.2	19.7	2	False	0.0	0.0	35.2	29.0	5854.4	1.297	0.467	0.046
+w11_sand_heath_s1	Marworth	False	fen	58.8	7.95	0.0	8.0	19.7	2	True	0.0	0.0	0.0	21.0	6946.6	0.0	0.338	0.034
+w11_sand_heath_s1	Hazelholt	False		158.1	2.85	0.0	2.9	19.7	3	True	0.0	0.0	0.0	0	2490.3	0.0	0.0	0.0
+w11_sand_heath_s1	Oakhurst	True		82.0	1.65	0.0	1.6	19.7	4	True	0.0	0.0	0.0	0	1441.8	0.0	0.0	0.0
+w11_sand_heath_s1	Hazeley	True		78.1	0.3	0.0	0.3	19.7	3	True	0.0	0.0	0.0	0	262.1	0.0	0.0	0.0
+w11_sand_heath_s1	Birchope	True		154.7	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w11_sand_heath_s1	Birchley	True		115.0	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w11_sand_heath_s2	Brookford	False	fen,river	67.0	6.45	0.0	6.5	19.7	2	False	0.0	0.0	35.2	29.0	7820.4	1.297	0.467	0.047
+w11_sand_heath_s2	Meadham	False	fen,river	45.0	5.4	0.0	17.2	135.2	2	True	0.0	0.0	35.2	15.0	6903.0	1.297	0.242	0.024
+w11_sand_heath_s2	Leaton	False	fen	37.8	3.45	0.0	3.5	19.7	1	True	0.0	0.0	0.0	21.0	3014.6	0.0	0.338	0.034
+w11_sand_heath_s2	Ashurst	False		79.6	3.3	0.0	3.3	19.7	3	False	0.0	0.0	0.0	0	2883.5	0.0	0.0	0.0
+w11_sand_heath_s2	Hazelhurst	True		111.2	3.3	0.0	3.3	19.7	6	True	0.0	0.0	0.0	0	2883.5	0.0	0.0	0.0
+w11_sand_heath_s2	Hayhurst	True		132.5	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w11_sand_heath_s3	Leadale	False	river	49.9	4.5	0.0	22.1	203.0	4	True	0.0	0.0	35.2	8.0	6116.5	1.297	0.129	0.013
+w11_sand_heath_s3	Leaworth	False	big river,fen	77.0	6.75	4.65	78.0	573.3	1	True	0.0	0.0	35.2	25.0	24335.1	1.297	0.403	0.04
+w11_sand_heath_s3	Brookford	False	fen	80.0	5.25	0.0	5.2	19.7	1	False	0.0	0.0	0.0	21.0	4587.4	0.0	0.338	0.034
+w11_sand_heath_s3	Hazelholt	False		81.2	5.25	0.0	5.2	19.7	8	True	0.0	0.0	0.0	0	4587.4	0.0	0.0	0.0
+w11_sand_heath_s3	Hazelhope	True		121.7	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w12_lake_country_s1	Meadworth	False	fen	72.0	10.65	0.0	10.7	19.7	4	True	0.338	0.0	0.0	21.0	25689.5	0.0	0.338	0.034
+w12_lake_country_s1	Marford	False	fen,river	150.3	6.9	0.0	6.9	19.7	3	True	0.203	0.0	35.2	29.0	18043.8	1.297	0.467	0.046
+w12_lake_country_s1	Marworth	False	fen,river	51.8	7.35	0.0	12.1	74.4	3	True	0.0	0.0	35.2	29.0	8606.9	1.297	0.467	0.046
+w12_lake_country_s1	Leaham	False		69.4	9.75	4.5	9.8	19.7	2	True	0.0	0.0	0.0	0	24247.7	0.0	0.0	0.0
+w12_lake_country_s1	Craghurst	True		259.9	0.45	0.0	0.5	19.7	3	True	0.0	0.0	0.0	0	393.2	0.0	0.0	0.0
+w12_lake_country_s1	Flintley	True		387.9	2.1	0.0	6.3	76.9	3	True	0.0	0.0	0.0	0	1835.0	0.0	0.0	0.0
+w12_lake_country_s1	Scarford	True		308.2	2.55	0.0	2.5	19.7	2	False	0.0	0.0	0.0	0	2228.2	0.0	0.0	0.0
+w12_lake_country_s1	Scarhope	True		351.4	5.1	0.0	5.1	19.7	4	True	1.867	0.0	0.0	0	95112.3	0.0	0.0	0.0
+w12_lake_country_s2	Brookford	False	fen,river	145.4	4.5	0.0	19.2	201.4	3	True	0.0	0.0	35.2	29.0	6116.5	1.297	0.467	0.046
+w12_lake_country_s2	Haywick	False	fen	81.1	6.0	1.35	34.5	261.6	2	True	0.0	0.0	0.0	21.0	9961.2	0.0	0.338	0.034
+w12_lake_country_s2	Meadham	False	fen	37.8	1.35	0.0	1.4	19.7	2	True	0.0	0.0	0.0	21.0	1179.6	0.0	0.338	0.034
+w12_lake_country_s2	Brookley	False		81.6	4.5	0.0	27.4	139.9	2	True	0.0	0.0	0.0	0	3932.1	0.0	0.0	0.0
+w12_lake_country_s2	Flintdon	True		335.0	4.8	0.0	10.3	137.4	5	True	0.0	0.0	0.0	0	4194.2	0.0	0.0	0.0
+w12_lake_country_s3	Cragton	False	fen,river	132.2	5.4	0.0	5.4	19.7	2	False	1.508	0.0	24874.0	29.0	80083.0	12.529	0.467	0.046
+w12_lake_country_s3	Leaworth	False	fen	125.9	5.1	0.0	24.1	143.6	3	True	0.0	0.0	0.0	21.0	4456.3	0.0	0.338	0.034
+w12_lake_country_s3	Brookford	False	fen,river	100.7	6.9	0.0	6.9	19.7	2	False	0.0	0.0	35.2	29.0	8213.6	1.297	0.467	0.046
+w12_lake_country_s3	Flintdale	False		186.7	3.15	0.0	3.1	19.7	6	True	0.0	0.0	0.0	0	2752.4	0.0	0.0	0.0
+w12_lake_country_s3	Hazelhope	True		87.4	None	None	None	None	None	None	0.0	0.0	0.0	0	0.0	0.0	0.0	0.0
+w12_lake_country_s3	Craghurst	True		380.9	7.8	0.0	11.1	144.7	3	False	0.0	0.0	0.0	0	6815.6	0.0	0.0	0.0

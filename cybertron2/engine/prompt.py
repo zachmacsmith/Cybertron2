@@ -116,9 +116,9 @@ def schema_for(here, mind) -> dict:
         a["when"] = {"type": "string", "enum": ["morning", "nightfall"]}
     from cybertron2.engine import core as CORE
     if CORE.on(here):                                                          # u9 §1.3: "do" free (a craft or an act, the shapes
-        for k in ("do", "what"):                                               # resolve it); look_up gone; on trouble in the alphabet's
-            a[k].pop("enum", None)                                             # order; rule a free act
-        s["properties"].pop("look_up", None)
+        for k in ("do", "what"):                                               # resolve it); on trouble in the alphabet's order; rule
+            a[k].pop("enum", None)                                             # a free act; look_up back in the reply (W-109)
+        s["properties"]["look_up"]["items"].pop("enum", None)
         a["on trouble"]["enum"] = sorted(a["on trouble"]["enum"])
         s["properties"]["fallback"] = copy.deepcopy(s["properties"]["actions"])
     _drop_empty_enums(s)                                                       # one who knows nobody: the name is free text
@@ -138,13 +138,24 @@ def _drop_empty_enums(node) -> None:
 
 
 def _craft_note(tech) -> str:
+    inner = craft_note_words(tech)
+    return tech + (f" ({inner})" if inner else "")
+
+
+def craft_note_words(tech) -> str:
+    """The words of the old prompt's note on a craft (in its brackets), joined from its parts (`craft_bits`; D2-356)."""
+    return ("; " if TECHNIQUES[tech]["verb"] == "build" and tech in ROOMS else ", ").join(craft_bits(tech))
+
+
+def craft_bits(tech) -> list:
+    """The old prompt's note on a craft, as its parts (a room's: its floor, then each structure's cost); `_craft_note` joins them."""
     t = TECHNIQUES[tech]
     if t.get("note"):                                                          # a wild method: what it is, no multipliers, no kinds (D2-204)
-        return f"{tech} ({t['note']})"
+        return [t["note"]]
     bits = []
     at = t.get("at") or {}
     if at.get("fittings"):
-        bits.append("at " + " or ".join(FITTINGS[f]["label"] for f in at["fittings"]))
+        bits.append("at " + " or ".join(KN.thing_titled(FITTINGS[f]) for f in at["fittings"]))
     tools = t.get("tools")
     if tools:
         bits.append("bare hands cannot" if "bare" not in tools else f"bare hands x{tools['bare']:g}")
@@ -161,10 +172,11 @@ def _craft_note(tech) -> str:
                     c = BL.room_cost(tech, st)
                     by.append(f"{st}{' (a mason' + chr(39) + 's)' if st == 'stone' else ''}: " + ", ".join(f"{q:g} {i}" for i, q in c["materials"].items())
                               + f", {c['units']:g} units")
-            return tech + f" ({r['floor']} spaces of floor; " + "; ".join(by) + ")"
+            return [f"{r['floor']} spaces of floor"] + by
         b = BLUEPRINTS.get(tech) or FITTINGS.get(tech) or MONUMENTS.get(tech)
         f = FITTINGS.get(tech) or {}
-        bits.append(", ".join(f"{q:g} {i}" for i, q in b["materials"].items()) + (f" a {b['per']}" if b.get("per") else "") + f", {b['units']} units of work")
+        mats = ", ".join(f"{q:g} {i}" for i, q in b["materials"].items()) + (f" a {b['per']}" if b.get("per") else "")
+        bits.append(", ".join(x for x in (mats, f"{b['units']} units of work") if x))
         if f:
             sp = int(f.get("spaces", 0)) - int(f.get("room", 0))
             bits.append(f"{int(f.get('spaces', 0))} space{'s' if f.get('spaces') != 1 else ''} of floor" + (f" a {f['per']}" if f.get("per") else "")
@@ -183,7 +195,7 @@ def _craft_note(tech) -> str:
             bits.append(f"only in a building at or beside a {f['spring']} spring")
     if t.get("manual"):                                                        # how it is done, for those who know it (brief 5 §6)
         bits.append(t["manual"])
-    return tech + (f" ({', '.join(bits)})" if bits else "")
+    return bits
 
 
 def _verb_extra(here, v, args, doc):
@@ -210,8 +222,8 @@ def evening(w) -> bool:
 def verb_lines(here, mind) -> str:
     out = []
     for v, d in V.VERB.items():
-        if not V.verb_here(here, v):
-            continue
+        if not V.verb_here(here, v) or any(f.get("retired") for f in d.get("iface") or []):   # a retired face (the old rule act's
+            continue                                                           # kinds: the rules block's grammar instead, W-109)
         crafts = [_craft_note(t) for t in TECHNIQUES if TECHNIQUES[t]["verb"] == v and KN.level(mind, t) is not None]
         if "{crafts}" in d["doc"] and not crafts:
             continue
@@ -709,7 +721,9 @@ def saw_lines(mind) -> list:
         y += ["What concerned you:"] + [f"- {x}" for x in t["concerned"]]
     if t["notice"]:
         y += ["What stood out:"] + [f"- {x}" for x in t["notice"]]
-    if t["attended"]:
+    if t["attended"] and t["attended"].get("found") is False:                  # nothing by that name (D2-346): one's own act
+        y += [f"You looked for {t['attended']['target']} and found nothing there to look at closely."]
+    elif t["attended"]:
         y += [f"You paid close attention to {t['attended']['target']}:"] + [f"- {x}" for x in t["attended"]["lines"]]
     if t["glimpse"]:
         y += ["In passing: " + "; ".join(t["glimpse"]) + "."]
@@ -772,9 +786,8 @@ def turn_prompt(here, mind, opening=True) -> str:
            + (f" (weight {show(here.load())} of the {here.capacity():g} you can travel with"
               + (f", {here.capacity(True):g} on a road with a track" if here.capacity(True) > here.capacity() else "") + ")" if here.roads() else "") + "."]
     you += here.meal_lines()                                                   # what one ate last night, and how well (D2-342)
-    worn = here.gear_words()                                                   # one's own gear and its state (u3 §3.5: shown, not sensed)
-    if worn:
-        you.append("Of your gear: " + "; ".join(worn) + ".")
+    if here.gear_line():                                                       # one's own gear and its state (u3 §3.5: shown, not sensed)
+        you.append(here.gear_line())
     if here.age_line():                                                        # one's age and what lies ahead (D4-69)
         you.append(here.age_line())
     beasts = [f"Leading: {nm} ({'it carries ' + format(HERDS['pack_ox']['carry'], 'g') + ' for you on the road; ' if ox else ''}it stays "

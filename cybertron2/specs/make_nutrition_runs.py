@@ -131,6 +131,22 @@ SEEDED_TRAPS = 6                              # D2-330 (C5): six wicker traps fo
                                               # the weir's expert; the making known at the setting's level (u3: gear made, set, tended)
 
 
+def seed_traps(world: dict) -> dict:
+    """D2-330's C5 on a world as written: each trap-setter knows the making of the traps at the setting's level, and each who is
+    capable or knows the setting holds six. Returns {name: traps held}. Also used on the water worlds made before the wave
+    (seed_water_traps.py, Q-100)."""
+    out = {}
+    for n, a in sorted(world["agents"].items()):
+        k = (a.get("knows") or {}).get("trap in water")
+        if not k:
+            continue
+        a["knows"]["wicker trap"] = {"level": k["level"], "skill": k["skill"]}
+        if k["level"] in ("capable", "known"):
+            a.setdefault("holdings", {})["wicker trap"] = SEEDED_TRAPS
+            out[n] = SEEDED_TRAPS
+    return out
+
+
 def water_only(world: dict, arm: str) -> dict:
     """D2-316 and D2-330's C5 on a made arm: a small resident fish stock on the village's river water (no switch takes the fish
     away: the shallows come with the water pack), each trap-setter's craft of making the traps at their level, six traps in the
@@ -143,14 +159,7 @@ def water_only(world: dict, arm: str) -> dict:
             k = round(RESIDENT_SHARE * 8 * MP.RESIDENT_FISH * int(p.get("size", 1)), 2)
             p.setdefault("state", {})["fish"] = {"K": k, "S": k, "r": 0.3, "renewal": "fast"}
             out["fish"][pid] = k
-    for n, a in sorted(world["agents"].items()):
-        k = (a.get("knows") or {}).get("trap in water")
-        if not k:
-            continue
-        a["knows"]["wicker trap"] = {"level": k["level"], "skill": k["skill"]}
-        if k["level"] in ("capable", "known"):
-            a.setdefault("holdings", {})["wicker trap"] = SEEDED_TRAPS
-            out["traps"][n] = SEEDED_TRAPS
+    out["traps"] = seed_traps(world)
     weir = next((b for b in world["buildings"].values() if b.get("monument") == "weir"), None)
     if weir and weir.get("crew"):
         who = sorted(weir["crew"])[0]

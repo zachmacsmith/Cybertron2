@@ -365,7 +365,8 @@ def build(base: dict, seed: int, tries=600) -> dict:
         for l, d in lines.items():
             for c in d["crafts"]:
                 if c not in a["knows"] and a["stage"] not in LF.MINOR:         # another line's craft: seen, not known
-                    a["aware_of"][c] = f"you have seen the {l}s at it all your life"
+                    from cybertron2.engine.world import plural
+                    a["aware_of"][c] = f"you have seen the {plural(l)} at it all your life"
         for c in a["knows"]:
             a["concerns"] += [t for t in TECHNIQUES[c]["tags"] if t not in a["concerns"]]
         a["concerns"] = a["concerns"][:4]
@@ -375,7 +376,7 @@ def build(base: dict, seed: int, tries=600) -> dict:
                                                         cast.get("youth", "claude-haiku-5-5") if a["stage"] == "youth" else
                                                         cast.get("rest", "claude-sonnet-5-5"))
         a["born_line"] = p.get("line_born") or p["line"]
-        a["trade"] = " and ".join(TECHNIQUES[c]["label"].split(" (")[0] for c in own[:2]) if a["stage"] in ("adult", "elder") else ""
+        a["trade"] = " and ".join(TECHNIQUES[c]["label"] for c in own[:2]) if a["stage"] in ("adult", "elder") else ""
     hm = base.get("household_models") or {}                                  # one model a household, if the world says so
     for n, a in agents.items():
         if a["model"] and a["household"] in hm:
@@ -415,7 +416,7 @@ def build(base: dict, seed: int, tries=600) -> dict:
         elif a["stage"] == "youth":
             other_crafts = [(c, l) for l, d in lines.items() for c in d["crafts"] if c not in a["knows"]]
             c, l = rng.choice(other_crafts) if other_crafts else (None, None)
-            a["aim"] = "Prove yourself to your family" + (f", and learn {TECHNIQUES[c]['label'].split(' (')[0]} as the {l}s do it." if c else ".")
+            a["aim"] = "Prove yourself to your family" + (f", and learn {TECHNIQUES[c]['label']} as the {l}s do it." if c else ".")
         elif a["stage"] == "elder":
             a["aim"] = rng.choice(["Pass on what you know before your strength goes.",
                                    "See your grandchildren settled and provided for before you die.",

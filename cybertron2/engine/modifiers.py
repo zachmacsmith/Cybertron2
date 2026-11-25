@@ -95,5 +95,5 @@ def lines(mind, verb, tech=None, place=False, limit=4) -> list:
         lvl = KN.level(mind, m)
         if lvl in ("rough", "capable", "known") or d.get("untaught") == "tryable":
             extra = f", {d['changes']['units']} unit{'s' if d['changes']['units'] > 1 else ''}" if (d.get("changes") or {}).get("units") else ""
-            out.append(f'"{d["key"]}": "{d["value"]}" ({d["label"]}{extra})')
+            out.append(f'"{d["key"]}": "{d["value"]}" ({KN.titled(m)}{extra})')
     return out[:limit if verb != "gather" else max(limit, 8)]          # a hunt's range, quarry, party and led beast (brief 4b)

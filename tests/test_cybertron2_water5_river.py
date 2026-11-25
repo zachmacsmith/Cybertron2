@@ -653,6 +653,7 @@ def test_a_flood_very_likely_and_a_spate_half_the_time_wrecks_a_trap_in_the_rive
             w.rng = lambda *k, o=o, s_=s_: o(*k, "wreck", s_)
             no_robbers(w)
             who = adults(w, "Saltwell")[0]
+            w.s["containers"][w.hands(who)]["goods"].pop("wicker trap", None)    # the world seeds six (Q-100): one trap here
             w.apply("create", "Saltwell", dst=w.hands(who), item="wicker trap", qty=1.0, why="test")   # one trap (u2 §3)
             do(w, who, {"do": "gather", "what": "trap in water", "at": w.s["parcels"][water(w, "Saltwell")]["name"]})
             rec = N.night(w)

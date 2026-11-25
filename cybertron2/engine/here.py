@@ -216,12 +216,24 @@ class Here:
     def buildings(self) -> dict:
         return {bid: b for bid, b in self._w.s["buildings"].items() if b["node"] == self.node}
 
+    def own_word(self, x):
+        """What a person's own word in an act names (data.SELF_NAMES, L-189): "hands" | "home" | "store" | None."""
+        from cybertron2.engine.data import SELF_NAMES
+        x = str(x or "").strip().lower()
+        return next((k for k, ws in SELF_NAMES.items() if x in ws), None)
+
     def building(self, x):
-        x = str(x or "").strip().lower().removeprefix("the ").removeprefix("my ").removeprefix("your ")
+        raw = str(x or "").strip().lower()
+        x = raw.removeprefix("the ").removeprefix("my ").removeprefix("your ")
         for bid, b in self.buildings().items():
             nm = b["name"].lower()
             if x in (bid.lower(), nm, nm.removeprefix("the ")):
                 return bid
+        if self.own_word(raw) == "home":                                      # "home", "my house": one's own house here (L-189)
+            return (self.homes_here() or [None])[0]
+        for tail in ("'s store", " store"):                                   # "Marsh House store": that building's store
+            if raw.endswith(tail) and raw[: -len(tail)].strip():
+                return self.building(raw[: -len(tail)])
         if any(x in (p["name"].lower(), p["name"].lower().removeprefix("the ")) for p in self.parcels().values()):
             return None                                                       # a place's own name is the place (u2 §6 bug 5)
         hh = {iid: h for iid, h in self._w.s["institutions"].items() if h["kind"] == "household"}
@@ -450,6 +462,18 @@ class Here:
         rec = (log[-1].get("book") if log else None) or {}
         hh = self._w.household_of(self.name)
         return BK.empty_lines(rec, self.name, hh if hh and self._w.head(hh) == self.name else None)
+
+    def book_waiting_lines(self) -> list:
+        """What waits today by the book (u6 §9), each morning (W-109: wave_regressions finding 10)."""
+        if not self._w.s.get("books"):
+            return []
+        from cybertron2.engine import book as BK
+        return BK.morning_lines(self._w, self.name)
+
+    def gear_line(self) -> str:
+        """'Of your gear: ...': one's own gear in hand and its state (u3 §3.5: shown, not sensed), one line for every turn's "You"."""
+        worn = self.gear_words()
+        return ("Of your gear: " + "; ".join(worn) + ".") if worn else ""
 
     def meal_lines(self) -> list:
         """What one ate last night and what one's household's stores gave the meal (D2-342): one's own body and house, known."""

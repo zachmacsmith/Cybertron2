@@ -1,4 +1,5 @@
 # Lake run 2's world (lake.yaml) with a graded population goal kept for good by everyone (Zach, 17 Nov; W-55). Run 2 is the null.
+# Wicker traps and their making seeded by cybertron2/specs/seed_water_traps.py (Q-100, W-111, 24 Nov 2026).
 name: water_lake_goal
 seed: 9
 days: 14
@@ -3215,11 +3216,15 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       medium room: you have seen the Coles at it all your life
     holdings:
       crude tool: 1
       coin: 2
+      wicker trap: 6
     concerns:
     - farming
     - food
@@ -3295,9 +3300,13 @@ agents:
       trap in water:
         level: known
         skill: 1.2
+      wicker trap:
+        level: known
+        skill: 1.2
     aware_of:
       medium room: you have seen the Coles at it all your life
-    holdings: {}
+    holdings:
+      wicker trap: 6
     concerns:
     - farming
     - food
