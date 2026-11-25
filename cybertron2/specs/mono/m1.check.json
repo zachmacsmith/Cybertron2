@@ -29,13 +29,13 @@
     "check": "P18",
     "level": "warn",
     "who": null,
-    "text": "the village rule: 0 livelihoods hold capital; 1 village(s) in the world, so a need from outside has no village in reach to meet it"
+    "text": "the village rule: 1 livelihoods hold capital; 1 village(s) in the world, so a need from outside has no village in reach to meet it"
    },
    {
     "check": "P7",
     "level": "warn",
     "who": null,
-    "text": "crafts held at capable or above with no lesson rows (their failures say only \"your hands\"): charcoal, cheese, hall, hearth, medium room, milk, plough"
+    "text": "crafts held at capable or above with no lesson rows (their failures say only \"your hands\"): charcoal, cheese, hall, hearth, medium room, milk, plough, weir"
    },
    {
     "check": "M3",
@@ -110,6 +110,7 @@
      "fish by hand",
      "gather wild food",
      "gather young",
+     "gill net",
      "guard the field",
      "hay",
      "hoe",
@@ -153,6 +154,7 @@
      "fish by hand",
      "gather wild food",
      "gather young",
+     "gill net",
      "hay",
      "hunt the wild",
      "net",
@@ -171,6 +173,7 @@
      "fish by hand",
      "gather wild food",
      "gather young",
+     "gill net",
      "hay",
      "hunt the wild",
      "net",
@@ -474,7 +477,6 @@
     "ditch",
     "dress millstones",
     "dung",
-    "gill net",
     "hunting drive",
     "mend the brine pan",
     "mine",
@@ -537,12 +539,18 @@
     },
     "bands": {
      "Geoffrey": "expert",
-     "Emma": "broad",
+     "Emma": "capable",
      "Roger": "broad"
     },
     "apprentices": {},
-    "keepers": {},
-    "holds": {},
+    "keepers": {
+     "colle_weir": "Geoffrey"
+    },
+    "holds": {
+     "weir": [
+      "colle_weir"
+     ]
+    },
     "second_hands": [
      "Emma",
      "Geoffrey"
@@ -579,6 +587,8 @@
   "people": {},
   "skipped": [
    "Ashby: Agnes raised to capable to keep the fields (u11 \u00a72.3)",
+   "Colle: Emma raised to capable to keep the weir (u11 \u00a72.3)",
+   "Colle: weir colle_weir kept by Geoffrey, its only able hand",
    "Reeve: Simon raised to capable to keep the herd (u11 \u00a72.3)"
   ],
   "refused": [],
@@ -640,15 +650,15 @@
     ]
    },
    "Emma": {
-    "wanted": 17,
-    "rendered": 15,
+    "wanted": 20,
+    "rendered": 18,
     "skipped": [
      "PE2",
-     "HL"
+     "BU5"
     ],
     "steps": [],
-    "seeded": 15,
-    "words": 438,
+    "seeded": 18,
+    "words": 501,
     "over": false,
     "long": [],
     "ids": [
@@ -664,22 +674,25 @@
      "PE1",
      "BU1",
      "BU2",
+     "BU3",
+     "BU4",
      "WO1",
+     "HL",
      "NB-farmer:Ashby",
      "NB-herder:Reeve"
     ]
    },
    "Geoffrey": {
-    "wanted": 19,
-    "rendered": 16,
+    "wanted": 20,
+    "rendered": 17,
     "skipped": [
      "PE2",
      "BU5",
      "HL"
     ],
     "steps": [],
-    "seeded": 16,
-    "words": 448,
+    "seeded": 17,
+    "words": 470,
     "over": false,
     "long": [],
     "ids": [
@@ -696,6 +709,7 @@
      "BU1",
      "BU2",
      "BU6",
+     "FI12",
      "WO1",
      "NB-farmer:Ashby",
      "NB-herder:Reeve"
@@ -793,13 +807,11 @@
    },
    "Roger": {
     "wanted": 8,
-    "rendered": 7,
-    "skipped": [
-     "HL"
-    ],
+    "rendered": 8,
+    "skipped": [],
     "steps": [],
-    "seeded": 7,
-    "words": 232,
+    "seeded": 8,
+    "words": 252,
     "over": false,
     "long": [],
     "ids": [
@@ -809,7 +821,8 @@
      "BS5",
      "BS8",
      "PE1",
-     "BU1"
+     "BU1",
+     "HL"
     ]
    },
    "Simon": {

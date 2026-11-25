@@ -3650,7 +3650,7 @@ nodes:
           drain_rate: 0.25
           depth: 1.12
           base_fertility: 1.0
-          position: hollow
+          position: slope
           rain_factor: 1.005
           sea_km: 99.0
           river: none
@@ -4585,7 +4585,7 @@ nodes:
           drain_rate: 0.25
           depth: 1.16
           base_fertility: 1.05
-          position: hollow
+          position: slope
           rain_factor: 0.983
           sea_km: 99.0
           river: brook
@@ -5474,6 +5474,25 @@ buildings:
       dung: 10
       wooden plough: 1
       harness: 2
+  colle_weir:
+    parcel: Fallowmere_6
+    node: Fallowmere
+    household: Colle
+    name: the weir
+    structure: wattle
+    monument: weir
+    tier: plain
+    fittings: {}
+    rooms: []
+    gap: shut
+    crew:
+    - Emma
+    - Geoffrey
+    keeper: Geoffrey
+    sections:
+    - m: wattle
+      foot: false
+      level: 5
 herds:
   holt_cattle:
     name: the Ashby oxen
@@ -20711,8 +20730,8 @@ agents:
     livelihood: You live by the land, and you are best at the plough and the oxen, and you keep the ox team.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
-        as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as you can, and see them survive and spread over as many generations
+        as you can. Your score is the number of people living anywhere in the world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The old men said there is good black land two days east, past the ford, where the river widens: they called it Broadwater.'
@@ -20847,8 +20866,8 @@ agents:
     livelihood: You live by the land, and you see to Clay Field.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
-        as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as you can, and see them survive and spread over as many generations
+        as you can. Your score is the number of people living anywhere in the world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
@@ -20975,8 +20994,8 @@ agents:
     livelihood: You are learning your household's living.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
-        as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as you can, and see them survive and spread over as many generations
+        as you can. Your score is the number of people living anywhere in the world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
@@ -21051,8 +21070,8 @@ agents:
     - bread
     livelihood: ''
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
-        as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as you can, and see them survive and spread over as many generations
+        as you can. Your score is the number of people living anywhere in the world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: Barley does best sown in spring, and well early in summer or late in winter; sown at other times it comes up poor or not at all.
@@ -21111,8 +21130,8 @@ agents:
     - bread
     livelihood: ''
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
-        as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as you can, and see them survive and spread over as many generations
+        as you can. Your score is the number of people living anywhere in the world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
   Maud:
@@ -21227,8 +21246,8 @@ agents:
     livelihood: You live by the herd, and by the land beside it, and you are best at the dairy, and you keep the Reeve cattle.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
-        as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as you can, and see them survive and spread over as many generations
+        as you can. Your score is the number of people living anywhere in the world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
@@ -21383,8 +21402,8 @@ agents:
     livelihood: You live by the herd, and by the land beside it.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
-        as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as you can, and see them survive and spread over as many generations
+        as you can. Your score is the number of people living anywhere in the world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
@@ -21502,8 +21521,8 @@ agents:
     livelihood: You are learning your household's living.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
-        as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as you can, and see them survive and spread over as many generations
+        as you can. Your score is the number of people living anywhere in the world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
@@ -21585,8 +21604,8 @@ agents:
     - bread
     livelihood: ''
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
-        as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as you can, and see them survive and spread over as many generations
+        as you can. Your score is the number of people living anywhere in the world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: Hay is cut most in summer, half as much in spring, a third as much in autumn, none in winter; beasts on bare winter grass without it begin to die after about 4 hungry nights.
@@ -21653,10 +21672,17 @@ agents:
       firewood:
         level: known
         skill: 1.152
+      gill net:
+        level: rough
+        skill: 0.6
+      weir:
+        level: capable
+        skill: 1.0
     aware_of:
       milk: you have seen the Reeves at it all your life
     holdings:
       crude tool: 1
+      gill net: 1
     concerns:
     - food
     - family
@@ -21691,11 +21717,11 @@ agents:
     - firewood
     - charcoal
     - cut withies
-    livelihood: You live by building, and by the wood beside it, and you are best at the wright's work.
+    livelihood: You live by building, and by the wood beside it, and you are best at the wright's work, and you keep the weir on Fallowmere Water.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
-        as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as you can, and see them survive and spread over as many generations
+        as you can. Your score is the number of people living anywhere in the world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
@@ -21727,6 +21753,8 @@ agents:
       source: family lore
     - text: The plough is a wright's work; the Ashbys need it.
       source: family lore
+    - text: 'Our weir stands on Fallowmere Water: 1 sections of wattle, all of them sound. Nothing else stands below it on our water.'
+      source: a holding
     - text: Young growth cut in Fallowmere Copse comes again in a few years; dead wood once gathered comes back only slowly, as the old trees shed it.
       source: family lore
     - text: The Ashbys sow and reap Clay Field; they have grain after harvest and want hands at reaping.
@@ -21751,42 +21779,57 @@ agents:
       Geoffrey: your husband
       Roger: your son
     knows:
-      hearth:
-        level: known
-        skill: 1.2
       fell:
         level: known
-        skill: 0.823
+        skill: 0.973
       small room:
         level: known
-        skill: 0.911
+        skill: 1.061
       beds:
         level: known
-        skill: 0.84
+        skill: 0.99
       bins:
         level: known
-        skill: 0.856
+        skill: 1.006
       repair:
         level: known
-        skill: 0.895
+        skill: 1.045
       clear for building:
         level: known
-        skill: 0.874
+        skill: 1.024
       woodshed:
         level: known
-        skill: 0.868
+        skill: 1.018
+      medium room:
+        level: capable
+        skill: 0.957
+      granary:
+        level: capable
+        skill: 0.976
+      hearth:
+        level: capable
+        skill: 1.036
+      smoke racks:
+        level: capable
+        skill: 0.959
+      hall:
+        level: rough
+        skill: 0.765
       cut:
         level: known
-        skill: 0.832
+        skill: 0.982
       firewood:
         level: known
-        skill: 0.839
+        skill: 0.989
       charcoal:
         level: capable
-        skill: 0.631
+        skill: 0.931
       cut withies:
         level: capable
-        skill: 0.801
+        skill: 0.951
+      weir:
+        level: capable
+        skill: 1.0
     aware_of:
       milk: you have seen the Reeves at it all your life
     holdings:
@@ -21803,7 +21846,7 @@ agents:
     - Fallowmere
     - Southmead
     - The Ford
-    band: broad
+    band: capable
     livelihoods: *id003
     crafts_first:
     - fell
@@ -21825,8 +21868,8 @@ agents:
     livelihood: You live by building, and by the wood beside it.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
-        as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as you can, and see them survive and spread over as many generations
+        as you can. Your score is the number of people living anywhere in the world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
@@ -21856,8 +21899,14 @@ agents:
       source: family lore
     - text: Felling with a tool gives far more than gathering dead wood by hand; a crude tool wants only a little wood and stone.
       source: family lore
+    - text: A full store takes no more, and what will not go in lies at the door; at Colle House the bins hold about 300 kilos.
+      source: family lore
+    - text: One who knows the work raises a room in about half the days one new to it takes.
+      source: family lore
     - text: Young growth cut in Fallowmere Copse comes again in a few years; dead wood once gathered comes back only slowly, as the old trees shed it.
       source: family lore
+    - text: We hold the weir on Fallowmere Water, which Geoffrey keeps. Its traps take the run when its gap is shut.
+      source: a holding
     - text: The Ashbys sow and reap Clay Field; they have grain after harvest and want hands at reaping.
       source: family lore
     - text: The Reeves keep their cattle on Fallowmere Common; they have milk, and oxen for the plough.
@@ -21942,8 +21991,8 @@ agents:
     livelihood: You are learning your household's living.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
-        as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as you can, and see them survive and spread over as many generations
+        as you can. Your score is the number of people living anywhere in the world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
@@ -21962,6 +22011,8 @@ agents:
       source: family lore
     - text: 'Every house wears with the weather, wattle fastest, and worst in frost, wind and snow; unmended it falls to ruin. Mending wants timber, or stone for a stone house: keep some back from the fire.'
       source: family lore
+    - text: We hold the weir on Fallowmere Water, which Geoffrey keeps. Its traps take the run when its gap is shut.
+      source: a holding
 tree:
 - name: Robert
   sex: m
@@ -22125,6 +22176,8 @@ history:
   day: -20
 made_by_maker:
 - land, beasts and buildings by livelihood; bare fields and next year's seed (W-203, Q-220)
+- 'Fallowmere: a weir of 1 wattle section, the Colles'' (Zach)'
+- 'starting gear: snares, nets (D5-6)'
 skills:
   depth: full
   households:

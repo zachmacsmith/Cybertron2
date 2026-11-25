@@ -2563,7 +2563,7 @@ nodes:
           drain_rate: 0.08
           depth: 1.07
           base_fertility: 1.05
-          position: hollow
+          position: ridge
           rain_factor: 0.849
           sea_km: 1.3
           river: none
@@ -2668,7 +2668,7 @@ nodes:
           drain_rate: 0.08
           depth: 1.04
           base_fertility: 1.05
-          position: hollow
+          position: ridge
           rain_factor: 0.901
           sea_km: 1.1
           river: none
@@ -6851,7 +6851,7 @@ buildings:
       firewood: 24
       cheese: 64
   hale_forge:
-    name: Hale's Forge
+    name: Fell's Forge
     parcel: Highcairn_0
     household: Fell
     structure: timber
@@ -6913,6 +6913,16 @@ buildings:
     stock:
       firewood: 20
     keeper: Margery
+  strand_smokehouse:
+    parcel: Holtmouth_2
+    household: Strand
+    structure: wattle
+    name: the Strand Smokehouse
+    fittings:
+      smoke racks: 1
+    stock:
+      firewood: 12
+    keeper: Stephen
 herds:
   hale_cattle:
     name: the Fell cattle
@@ -19302,11 +19312,15 @@ agents:
       cut:
         level: known
         skill: 1.163
+      gill net:
+        level: capable
+        skill: 1.0
     aware_of: {}
     holdings:
       crude tool: 1
       wicker trap: 6
       hand line: 1
+      gill net: 1
     concerns:
     - food
     - family
@@ -19346,9 +19360,9 @@ agents:
       Field.
     model: claude-sonnet-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: My sister Avice took her family north toward the high moors after the dark year; Henry went east to the river country, and Gilbert
@@ -19391,9 +19405,6 @@ agents:
     - text: A kilo of salt keeps four of fish or eight of meat for about a year. Every house that kills, fishes or makes cheese needs it, and
         few can make it.
       source: family lore
-    - text: We hold the Salt House on Middle Pasture, where Margery boils salt, and Middle Field, which Stephen sees to. The pan wants copper
-        when it wears through; seed must be kept back for them.
-      source: a holding
   Margery:
     household: Strand
     born: -40
@@ -19458,11 +19469,15 @@ agents:
       salt pan:
         level: capable
         skill: 1.035
+      gill net:
+        level: capable
+        skill: 1.0
     aware_of: {}
     holdings:
       crude tool: 1
       wicker trap: 6
       hand line: 1
+      gill net: 1
     concerns:
     - food
     - family
@@ -19498,9 +19513,9 @@ agents:
     livelihood: You live by fishing, and by boiling salt at the spring beside it, and you keep the Salt House.
     model: claude-opus-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What
@@ -19543,9 +19558,6 @@ agents:
     - text: A kilo of salt keeps four of fish or eight of meat for about a year. Every house that kills, fishes or makes cheese needs it, and
         few can make it.
       source: family lore
-    - text: We hold the Salt House on Middle Pasture, where Margery boils salt, and Middle Field, which Stephen sees to. The pan wants copper
-        when it wears through; seed must be kept back for them.
-      source: a holding
   Nicholas:
     household: Strand
     born: -18
@@ -19621,9 +19633,9 @@ agents:
     livelihood: You are learning your household's living from Stephen, at the traps and the runs.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What
@@ -19644,9 +19656,6 @@ agents:
     - text: A spate smashes about half the traps in the water, and a flood nearly all; an otter that finds full traps comes back each night. When
         the water drops, set again.
       source: family lore
-    - text: We hold the Salt House on Middle Pasture, where Margery boils salt, and Middle Field, which Stephen sees to. The pan wants copper
-        when it wears through; seed must be kept back for them.
-      source: a holding
   Isolda:
     household: Strand
     born: -15
@@ -19713,9 +19722,9 @@ agents:
     livelihood: You are learning your household's living.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What
@@ -19733,9 +19742,6 @@ agents:
     - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries
         alone.
       source: family lore
-    - text: We hold the Salt House on Middle Pasture, where Margery boils salt, and Middle Field, which Stephen sees to. The pan wants copper
-        when it wears through; seed must be kept back for them.
-      source: a holding
   Avice:
     household: Fell
     born: -50
@@ -19807,9 +19813,9 @@ agents:
     livelihood: You live by the herd, and you are best at stock and breeding, and you keep the Fell cattle.
     model: claude-sonnet-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: After the dark year my brother Stephen went west to the sea; Henry east to the river country; Gilbert into the great wood.
@@ -19854,7 +19860,7 @@ agents:
       source: family lore
     - text: Our herd is 4 cows, a bull and 2 calves, kept on Highcairn Common; 2 of the cows are in milk.
       source: a holding
-    - text: We hold Hale's Forge, where Ralph works copper, and 7 beasts on Highcairn Common, which Avice herds. It burns charcoal; they want
+    - text: We hold Fell's Forge, where Ralph works copper, and 7 beasts on Highcairn Common, which Avice herds. It burns charcoal; they want
         hay through the winter.
       source: a holding
   Ralph:
@@ -19933,12 +19939,12 @@ agents:
     - firewood
     - mine
     - copper tool
-    livelihood: You live by the herd, and by copper work at the forge beside it, and you keep Hale's Forge.
+    livelihood: You live by the herd, and by copper work at the forge beside it, and you keep Fell's Forge.
     model: claude-opus-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What
@@ -19977,11 +19983,11 @@ agents:
     - text: Pasture and meadow feed beasts best, fen half as well, heath and moor less; the murrain goes worst where herds share the grass, and
         comes from the deer.
       source: family lore
-    - text: Our forge at Hale's Forge has an anvil and bellows on its hearth; it burns charcoal by the sack, and holds 4 sacks now.
+    - text: Our forge at Fell's Forge has an anvil and bellows on its hearth; it burns charcoal by the sack, and holds 4 sacks now.
       source: a holding
     - text: Five loads of timber burnt slow in the wood make one sack of charcoal; at the anvil a sack of it smelts as much as six loads of timber.
       source: family lore
-    - text: We hold Hale's Forge, where Ralph works copper, and 7 beasts on Highcairn Common, which Avice herds. It burns charcoal; they want
+    - text: We hold Fell's Forge, where Ralph works copper, and 7 beasts on Highcairn Common, which Avice herds. It burns charcoal; they want
         hay through the winter.
       source: a holding
   Beatrice:
@@ -20051,9 +20057,9 @@ agents:
     livelihood: You live by the herd, and by copper work at the forge beside it.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What
@@ -20089,7 +20095,7 @@ agents:
       source: family lore
     - text: Five loads of timber burnt slow in the wood make one sack of charcoal; at the anvil a sack of it smelts as much as six loads of timber.
       source: family lore
-    - text: We hold Hale's Forge, where Ralph works copper, and 7 beasts on Highcairn Common, which Avice herds. It burns charcoal; they want
+    - text: We hold Fell's Forge, where Ralph works copper, and 7 beasts on Highcairn Common, which Avice herds. It burns charcoal; they want
         hay through the winter.
       source: a holding
   Hob:
@@ -20153,9 +20159,9 @@ agents:
     livelihood: You are learning your household's living.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What
@@ -20180,7 +20186,7 @@ agents:
       source: family lore
     - text: Cattle stray through an open gate, and most walk home at dusk; a beast that strays onto the road may die there or be lost.
       source: family lore
-    - text: We hold Hale's Forge, where Ralph works copper, and 7 beasts on Highcairn Common, which Avice herds. It burns charcoal; they want
+    - text: We hold Fell's Forge, where Ralph works copper, and 7 beasts on Highcairn Common, which Avice herds. It burns charcoal; they want
         hay through the winter.
       source: a holding
   Henry:
@@ -20268,9 +20274,9 @@ agents:
     livelihood: You live by the land, and you are best at seed and harvest, and you see to Lowbury Field.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'We parted after the dark year: Stephen to the coast in the west, Avice north to the moors, my brother Gilbert south into the wood.'
@@ -20403,9 +20409,9 @@ agents:
     livelihood: You live by the land, and you keep the ox team.
     model: claude-sonnet-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What
@@ -20529,9 +20535,9 @@ agents:
     livelihood: You are learning your household's living.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What
@@ -20603,9 +20609,9 @@ agents:
     - bread
     livelihood: ''
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: Barley does best sown in spring, and well early in summer or late in winter; sown at other times it comes up poor or not at all.
@@ -20665,6 +20671,7 @@ agents:
       crude tool: 1
       tent: 1
       dried meat: 16
+      snare: 4
     concerns:
     - food
     - family
@@ -20702,9 +20709,9 @@ agents:
     livelihood: You live by hunting and trapping, and you are best at stalking and drives.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: My brother Henry went east to the river country after the dark year; Stephen to the western sea; Avice north to the moors.
@@ -20814,6 +20821,7 @@ agents:
       crude tool: 1
       bedroll: 1
       dried meat: 16
+      snare: 4
     concerns:
     - food
     - family
@@ -20848,9 +20856,9 @@ agents:
     livelihood: You live by hunting and trapping, and by the wood beside it.
     model: claude-sonnet-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What
@@ -20934,6 +20942,7 @@ agents:
       crude tool: 1
       bedroll: 1
       dried meat: 16
+      snare: 4
     concerns:
     - food
     - family
@@ -20968,9 +20977,9 @@ agents:
     livelihood: You live by hunting and trapping, and by the wood beside it.
     model: claude-haiku-5-5
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What
@@ -21056,9 +21065,9 @@ agents:
     - cut withies
     livelihood: ''
     kept:
-    - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
-        can, and see them survive and spread over as many generations as you can. Your score is the number of people descended from your household''s
-        founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
+    - text: 'YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to be as many as
+        you can, and see them survive and spread over as many generations as you can. Your score is the number of people living anywhere in the
+        world at the end of day 200, in every household and place together, not your household alone: the more, the better.'
       fixed: true
       tag: goal
     - text: Snares go on the runs in pasture, meadow, heath, field and scrub, never in the wood; a hare snared in the night is best taken at first
@@ -21279,6 +21288,8 @@ history:
 made_by_maker:
 - 'Holtmouth: Holtmouth_3 made saltmarsh (the generator gave the salters'' shore none)'
 - land, beasts and buildings by livelihood; bare fields and next year's seed (W-203, Q-220)
+- the Strand smokehouse (D5-6)
+- 'starting gear: snares, nets (D5-6)'
 skills:
   depth: full
   households:

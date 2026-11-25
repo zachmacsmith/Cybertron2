@@ -8,7 +8,7 @@
     "check": "P7",
     "level": "warn",
     "who": null,
-    "text": "crafts held at capable or above with no lesson rows (their failures say only \"your hands\"): boil salt, charcoal, copper tool, den work, hearth, hunting drive, milk, mine, plough, stalk, trap in water, wicker trap"
+    "text": "crafts held at capable or above with no lesson rows (their failures say only \"your hands\"): boil salt, charcoal, copper tool, den work, gill net, hearth, hunting drive, milk, mine, plough, stalk, trap in water, wicker trap"
    },
    {
     "check": "M3",
@@ -84,6 +84,7 @@
      "hunt the wild",
      "net",
      "pest work",
+     "snare",
      "stalk",
      "twist cord"
     ],
@@ -98,6 +99,7 @@
      "fish by hand",
      "gather wild food",
      "gather young",
+     "gill net",
      "hay",
      "hunt the wild",
      "net",
@@ -153,6 +155,7 @@
      "hunt the wild",
      "net",
      "pest work",
+     "snare",
      "stalk",
      "twist cord"
     ],
@@ -170,6 +173,7 @@
      "hunt the wild",
      "net",
      "pest work",
+     "snare",
      "stalk",
      "twist cord"
     ],
@@ -187,6 +191,7 @@
      "hunt the wild",
      "net",
      "pest work",
+     "snare",
      "stalk",
      "twist cord"
     ],
@@ -204,6 +209,7 @@
      "hunt the wild",
      "net",
      "pest work",
+     "snare",
      "stalk",
      "twist cord"
     ],
@@ -221,6 +227,7 @@
      "hunt the wild",
      "net",
      "pest work",
+     "snare",
      "stalk",
      "twist cord"
     ],
@@ -237,6 +244,7 @@
      "fish by hand",
      "gather wild food",
      "gather young",
+     "gill net",
      "guard the field",
      "hay",
      "hoe",
@@ -261,6 +269,7 @@
      "fish by hand",
      "gather wild food",
      "gather young",
+     "gill net",
      "hay",
      "hunt the wild",
      "net",
@@ -299,6 +308,7 @@
      "hunt the wild",
      "net",
      "pest work",
+     "snare",
      "stalk",
      "twist cord"
     ],
@@ -449,6 +459,7 @@
      "hunt the wild",
      "net",
      "pest work",
+     "snare",
      "stalk",
      "twist cord"
     ],
@@ -469,6 +480,7 @@
      "net",
      "pest work",
      "shut",
+     "snare",
      "stalk",
      "twist cord"
     ],
@@ -485,6 +497,7 @@
      "hunt the wild",
      "net",
      "pest work",
+     "snare",
      "stalk",
      "twist cord"
     ],
@@ -501,6 +514,7 @@
      "hunt the wild",
      "net",
      "pest work",
+     "snare",
      "stalk",
      "twist cord"
     ],
@@ -513,6 +527,7 @@
      "hunt the wild",
      "net",
      "pest work",
+     "snare",
      "twist cord"
     ]
    },
@@ -530,7 +545,6 @@
     "ditch",
     "dress millstones",
     "dung",
-    "gill net",
     "hunting drive",
     "mend the brine pan",
     "open the gate",
@@ -542,7 +556,6 @@
     "set line",
     "shut the gate",
     "slaughter",
-    "snare",
     "tend the smoke",
     "terrace",
     "trap in water",
@@ -653,9 +666,13 @@
     },
     "keepers": {
      "field:Holtmouth_1": "Stephen",
-     "strand_salthouse": "Margery"
+     "strand_salthouse": "Margery",
+     "strand_smokehouse": "Stephen"
     },
     "holds": {
+     "smokehouse": [
+      "strand_smokehouse"
+     ],
      "salt house": [
       "strand_salthouse"
      ],
@@ -673,7 +690,8 @@
   "skipped": [
    "Meade: Cecily raised to capable to keep the ox pair (u11 \u00a72.3)",
    "Strand: Margery raised to capable to keep the fields (u11 \u00a72.3)",
-   "Strand: fields field:Holtmouth_1 kept by Stephen, its only able hand"
+   "Strand: fields field:Holtmouth_1 kept by Stephen, its only able hand",
+   "Strand: smokehouse strand_smokehouse kept by Stephen, its only able hand"
   ],
   "refused": [],
   "capital": {},
@@ -889,7 +907,7 @@
     ],
     "steps": [],
     "seeded": 7,
-    "words": 231,
+    "words": 233,
     "over": false,
     "long": [],
     "ids": [
@@ -948,7 +966,7 @@
     ],
     "steps": [],
     "seeded": 16,
-    "words": 517,
+    "words": 519,
     "over": false,
     "long": [],
     "ids": [
@@ -979,7 +997,7 @@
     ],
     "steps": [],
     "seeded": 8,
-    "words": 262,
+    "words": 264,
     "over": false,
     "long": [],
     "ids": [
@@ -1067,8 +1085,8 @@
     ]
    },
    "Stephen": {
-    "wanted": 21,
-    "rendered": 16,
+    "wanted": 22,
+    "rendered": 17,
     "skipped": [
      "PE2",
      "FI1",
@@ -1077,8 +1095,8 @@
      "FI7"
     ],
     "steps": [],
-    "seeded": 16,
-    "words": 499,
+    "seeded": 17,
+    "words": 539,
     "over": false,
     "long": [],
     "ids": [
@@ -1096,6 +1114,7 @@
      "FI4",
      "FI8",
      "FA9",
+     "FI17",
      "SA1",
      "HL"
     ]
