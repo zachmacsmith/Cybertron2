@@ -151,6 +151,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | ~~Q-107~~ | **(Closed 25 Nov: Fallowmere (m1) and the Scattering (m5) are the worlds bench runs; W-111 makes the engine ready for them.)** **Which worlds the stable engine's acceptance and the comparative runs use: World 0b was the pilot (from the runs world; harsh, a late-summer start); the five designed monoculture worlds are what the benchmark was designed for, two of them built on bench's branch (Fallowmere m1, the Scattering m5), three designs only. Q-101 named World 0b and Eelmouth** | | stable |
 | Q-108 | **Vermin's sudden illness saturates in every world: the rat term tops out at 120 rats a km2 (stores.ILLNESS, a first estimate, G11) but every world holds 290 to 400 at its homes, so an adult's illness risk is 1.9 to 2.8 times D2-149's base everywhere, whatever is done about rats; in Fallowmere Emma dies on night 1 in every arm (her fixed draw 0.0014 against 0.0019)** | | stable |
 | Q-109 | **The hunting method 'drive' (D2-204, 9 Nov) shares its name with the herd act 'drive' (D2-127, 24 Oct); since the core prompt lets a craft be named alone in 'do', the act wins: Eelmouth refused a hunting drive, the Scattering drove a household's cattle into a wood. Rename one and refuse name clashes when the registries load** | | stable |
+| Q-110 | **The engine-runs-1 tag could not be pushed: this session's GitHub access refuses tag pushes (403); main at 34afb75f passed the full suite (935 passed, 18 skipped) and is the commit to pin** | | stable |
 
 ## Offers and promises
 
