@@ -398,6 +398,45 @@ def weir(world: dict, key: str) -> dict:
     return world
 
 
+GEAR = {   # Zach, 25 Nov: "I would give out some snares / nets and maybe a smoke rack" (D5-6)
+    "M1": {"Colle": {"each": {"gill net": 1}, "who": "weir", "knows": {"gill net": "rough"}}},          # a net to the weir's keepers
+    "M5": {"Holt": {"each": {"snare": 4}, "knows": {}},                                                 # the hunters' snares
+           "Strand": {"each": {"gill net": 1}, "knows": {"gill net": "capable"}, "smokehouse": True}},  # the fishers' nets and racks
+}
+SKILL_AT = {"rough": 0.6, "capable": 1.0, "known": 1.6}
+
+
+def gear(world: dict, key: str) -> dict:
+    """The design's starting gear (GEAR, D5-6): so much of each in the hands of each grown person of the household (or of the weir's
+    crew), the craft to use it, and the fishers' smokehouse (a wattle building with smoke racks, apart from the houses, as
+    make_nutrition_runs builds one; the racks must stand apart, FITTINGS)."""
+    for hh, g in (GEAR.get(key) or {}).items():
+        who = [n for n, a in world["agents"].items() if a.get("household") == hh and a.get("stage") in ("adult", "elder")]
+        if g.get("who") == "weir":
+            weir_ = next((b for b in world["buildings"].values() if b.get("monument") == "weir" and b.get("household") == hh), None)
+            who = [n for n in who if weir_ and n in (weir_.get("crew") or [])][:1]
+        for n in who:
+            a = world["agents"][n]
+            for item, q in g["each"].items():
+                a.setdefault("holdings", {})[item] = a["holdings"].get(item, 0) + q
+            for craft, lvl in g["knows"].items():
+                if (a.get("knows") or {}).get(craft, {}).get("level") not in ("capable", "known"):
+                    a.setdefault("knows", {})[craft] = {"level": lvl, "skill": SKILL_AT[lvl]}
+        if g.get("smokehouse"):
+            home = next(hm for hm, hhs in FOUNDERS[key].items() if hh in hhs)
+            pars = world["nodes"][home]["parcels"]
+            housed = {b["parcel"] for b in world["buildings"].values() if (b.get("fittings") or {}).get("beds")}
+            ground = sorted((pid for pid, p in pars.items() if p.get("cover") in ("scrub", "pasture", "meadow", "heath") and pid not in housed),
+                            key=lambda q: (pars[q].get("cover") != "scrub", -int(pars[q].get("size") or 1), q))
+            if not ground:
+                raise DesignRefused(f"{key}: no ground away from the houses for the {hh} smokehouse")
+            world["buildings"][f"{hh.lower()}_smokehouse"] = {"parcel": ground[0], "household": hh, "structure": "wattle",
+                                                              "name": f"the {hh} Smokehouse", "fittings": {"smoke racks": 1},
+                                                              "stock": {"firewood": 12}}
+    world.setdefault("made_by_maker", []).append("starting gear: snares, nets, a smokehouse (D5-6)")
+    return world
+
+
 def design_check(world: dict, key: str, cap: dict) -> list:
     """What the design says each home and household has, read from the built world: [failures] (W-203). A build with any is refused."""
     bad = []
@@ -562,7 +601,7 @@ def make(key: str, seed: int, models) -> dict:
     if report.get("refused"):
         raise SystemExit(f"{key}: refused: {report['refused']}")
     print(key, "pins eased:", relaxed or "none", flush=True)
-    world = weir(by_livelihood(MP.water_stocks(founders(world, key)), key), key)
+    world = gear(weir(by_livelihood(MP.water_stocks(founders(world, key)), key), key), key)
     world = explore(world, key)
     fill = seed_lines(world, key)
     from cybertron2.landgen import gate_check as GC
