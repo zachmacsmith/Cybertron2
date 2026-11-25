@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Writing 37.2's decisions into the spec (about 52 missing) (W-68)
 
-*queued · 37.2 · touched 20 Nov (4 days ago)*
+*queued · 37.2 · touched 20 Nov (5 days ago)*
 
 ## Done so far, and what is left
 started

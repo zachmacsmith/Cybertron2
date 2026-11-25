@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Forays: trips out into the land and back, with what is found and told (W-12)
 
-*queued · 37.2 · touched 20 Nov (4 days ago)*
+*queued · 37.2 · touched 20 Nov (5 days ago)*
 
 > **Next:** Zach on forays.md's open questions (story wording, names, features per area, units a step, the turn-home rule, the morning after, one interpreter call); [[Q-57 Fishing, from the lake run|Q-57]] (a) fishing reaching the ring's water belongs here
 

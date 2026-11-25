@@ -2,14 +2,14 @@
 id: W-111
 kind: thread
 state: active
-updated: "2026-11-24"
+updated: "2026-11-25"
 ---
 
 # Priority thread a (W-111)
 
-*active · stable · touched 24 Nov (today)*
+*active · stable · touched 25 Nov (today)*
 
-> **Next:** Zach: merge to main ([[Q-104 Merging this thread's fixes to main|Q-104]]); the live check (one model, a few days) on his go; then the replay of live run 1 and World 0b's replies, the full suite once and the tag engine-runs-1. Left open, recorded: knowledge.doable's site filter, P14, M3 for traps only, the river's run signs by name, the wattle roof ([[D2-357 D2-306 as meant|D2-357]], stage 5)
+> **Next:** Zach: the experiment worlds ([[Q-107 Which worlds the stable engine's acceptance and the comparative runs…|Q-107]]: Fallowmere and the Scattering, or World 0b and Eelmouth); then their bot passes and a short live check; the replay; the tag engine-runs-1; [[O-5 Reconcile the audits into the records|O-5]] the audits reconciled
 
 ## What it is
 Priority thread a: a stable engine for comparative runs: everything built so far tidied, usable and pinned (no new content until it is; the faults found this week fixed with module tests; other sessions' fixes merged; no silent failure; the records reconciled; a tag for experiments)
@@ -36,6 +36,7 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - under it: [[L-190 The interface rebuild's Not done|The interface rebuild's Not done (L-190)]] (open)
 - under it: [[L-191 The shallows' richness|The shallows' richness (L-191)]] (open)
 - under it: [[O-5 Reconcile the audits into the records|Reconcile the audits into the records (O-5)]] (open)
+- under it: [[O-6 Set up the live check|Set up the live check (O-6)]] (closed)
 - under it: [[Q-100 Old water worlds|Old water worlds (Q-100)]] (open)
 - under it: [[Q-101 The two priority threads' scope|The two priority threads' scope (Q-101)]] (open)
 - under it: [[Q-102 The interface's size|The interface's size (Q-102)]] (open)
@@ -43,6 +44,7 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - under it: [[Q-104 Merging this thread's fixes to main|Merging this thread's fixes to main (Q-104)]] (closed)
 - under it: [[Q-105 Whether World 0b is reworked before it is the benchmark world|Whether World 0b is reworked before it is the benchmark world (Q-105)]] (open)
 - under it: [[Q-106 The lamprey's second fault|The lamprey's second fault (Q-106)]] (open)
+- under it: [[Q-107 Which worlds the stable engine's acceptance and the comparative runs…|Which worlds the stable engine's acceptance and the comparative runs… (Q-107)]] (open)
 - under it: [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]] (done)
 
 
@@ -58,6 +60,7 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - [[Q-104 Merging this thread's fixes to main|Merging this thread's fixes to main (Q-104)]]
 - [[Q-105 Whether World 0b is reworked before it is the benchmark world|Whether World 0b is reworked before it is the benchmark world (Q-105)]]
 - [[Q-106 The lamprey's second fault|The lamprey's second fault (Q-106)]]
+- [[Q-107 Which worlds the stable engine's acceptance and the comparative runs…|Which worlds the stable engine's acceptance and the comparative runs… (Q-107)]]
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]
 - [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]
 - [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]]
@@ -73,5 +76,6 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - [[L-190 The interface rebuild's Not done|The interface rebuild's Not done (L-190)]]
 - [[L-191 The shallows' richness|The shallows' richness (L-191)]]
 - [[O-5 Reconcile the audits into the records|Reconcile the audits into the records (O-5)]]
+- [[O-6 Set up the live check|Set up the live check (O-6)]]
 - [[The engine's architecture overhauled general mechanisms over typed…|The engine's architecture overhauled: general mechanisms over typed…]]
 - [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]

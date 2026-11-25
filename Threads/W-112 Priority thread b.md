@@ -7,7 +7,7 @@ updated: "2026-11-24"
 
 # Priority thread b (W-112)
 
-*active · 37.2 · touched 24 Nov (today)*
+*active · 37.2 · touched 24 Nov (1 day ago)*
 
 > **Next:** a new session takes it (proposals/architecture_overhaul.md, Start here): finish surveys A and B, then the target architecture
 

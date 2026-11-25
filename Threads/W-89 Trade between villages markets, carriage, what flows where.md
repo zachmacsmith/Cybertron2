@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Trade between villages: markets, carriage, what flows where (W-89)
 
-*benched · 37.2 · touched 22 Nov (2 days ago)*
+*benched · 37.2 · touched 22 Nov (3 days ago)*
 
 ## Done so far, and what is left
 started

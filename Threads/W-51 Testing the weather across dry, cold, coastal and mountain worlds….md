@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Testing the weather across dry, cold, coastal and mountain worlds… (W-51)
 
-*active · 37.2 · touched 20 Nov (4 days ago)*
+*active · 37.2 · touched 20 Nov (5 days ago)*
 
 > **Next:** Zach's answers to [[Q-56 How the weather should follow each place's climate from the generated…|Q-56]]; the generator's half (node temp_c, sea_km, wind) when he agrees; the flow-level rule ([[D2-218 Set traps in high water|D2-218]]) after the climate, since the rivers follow it
 

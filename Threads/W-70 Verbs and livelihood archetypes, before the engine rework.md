@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Verbs and livelihood archetypes, before the engine rework (W-70)
 
-*queued · 37.4 (with Zach) · touched 20 Nov (4 days ago)*
+*queued · 37.4 (with Zach) · touched 20 Nov (5 days ago)*
 
 ## Done so far, and what is left
 scope (20 Nov): the verb list ([[Q-27 Keep the 38 built verbs, or fold them back to about 22 to 24|Q-27]]); livelihood archetypes and specialisation (proposals/livelihood_archetypes.md); [[D2-251 Every technique, fitting and thing to build says what it does and why…|D2-251]], the ladder of detail by familiarity for every technique, fitting and thing to build (today 15 fittings carry a one-line 'does', no technique carries a description, and the knowledge levels aware of, a rough idea and knows exist but choose no detail)

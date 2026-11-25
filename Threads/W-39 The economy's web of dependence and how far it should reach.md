@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # The economy's web of dependence and how far it should reach (W-39)
 
-*waiting · 37.2 (session "Thicker economy exploration") · touched 20 Nov (4 days ago)*
+*waiting · 37.2 (session "Thicker economy exploration") · touched 20 Nov (5 days ago)*
 
 > **Next:** Zach's choices (its open questions); then briefs; 15 Nov: 02zzi, how the economy could scale beyond the village (kinds of good, the limits, a sequence of societies with branches, mechanisms, what each would need, what scaling asks of the engine)
 

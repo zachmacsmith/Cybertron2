@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # The wave's integrated design (W-85)
 
-*active · 37.2 · touched 23 Nov (1 day ago)*
+*active · 37.2 · touched 23 Nov (2 days ago)*
 
 > **Next:** the build continues under [[W-105 The founders' seeded lines for every built livelihood|W-105]] to [[W-107 Stage 5b of the wave, the gaps closed|W-107]]; live run 2 after stage 5b
 

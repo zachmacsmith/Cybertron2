@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Brookend survival world, rerun p2 (W-13)
 
-*paused · 37.4 · touched 8 Nov (16 days ago)*
+*paused · 37.4 · touched 8 Nov (17 days ago)*
 
 > **Next:** rerun after the work costs fit the year (OPEN [[L-69 Work costs out of scale with a short year|L-69]], an ask)
 

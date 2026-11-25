@@ -20,3 +20,7 @@ state: open
 
 ## Linked
 - parent: [[W-111 Priority thread a|Priority thread a (W-111)]]
+
+
+## Mentioned by
+- [[O-6 Set up the live check|Set up the live check (O-6)]]

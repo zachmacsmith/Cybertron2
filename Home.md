@@ -1,6 +1,6 @@
 # Cybertron 2
 
-*The records, rebuilt from main after every push (last 2026-11-24). Read only: ask a session to change anything.*
+*The records, rebuilt from main after every push (last 2026-11-25). Read only: ask a session to change anything.*
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
@@ -23,6 +23,7 @@
 - [[L-179 Every take's line says 'food worth about 1 meal' at the least|Every take's line says 'food worth about 1 meal' at the least (L-179)]]: closed by agent
 - [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]]: closed by agent
 - [[O-2 Make the eleven bulk processes take up to their batch|Make the eleven bulk processes take up to their batch (O-2)]]: closed by agent
+- [[O-6 Set up the live check|Set up the live check (O-6)]]: closed by agent
 - [[Q-47 Where the economy stops for now|Where the economy stops for now (Q-47)]]: revisit: kept open on purpose with W-39 (Zach, 20 Nov)
 - [[Q-74 Whether a weir's first section costs a base of 6 timber and 8 units…|Whether a weir's first section costs a base of 6 timber and 8 units… (Q-74)]]: closed by agent
 - [[Q-79 Whether to fix the fishing bugs the live runs exposed|Whether to fix the fishing bugs the live runs exposed (Q-79)]]: closed by agent
@@ -30,7 +31,6 @@
 - [[W-100 Build stage 4, signs, people and worlds|Build stage 4, signs, people and worlds (W-100)]]: closed by agent
 - [[W-102 Fix the act shapes' interface faults found in live run 1's rebuilt arm|Fix the act shapes' interface faults found in live run 1's rebuilt arm (W-102)]]: closed by agent
 - [[W-104 Build the after-runs list from live run 1|Build the after-runs list from live run 1 (W-104)]]: closed by agent
-- [[W-105 The founders' seeded lines for every built livelihood|The founders' seeded lines for every built livelihood (W-105)]]: closed by agent
 
 ## Active threads (22)
 
@@ -81,7 +81,7 @@
 
 **stable**
 - [[W-111 Priority thread a|Priority thread a (W-111)]]  
-  next: Zach: merge to main (Q-104); the live check (one model, a few days) on his go; then the replay of live run 1…
+  next: Zach: the experiment worlds (Q-107: Fallowmere and the Scattering, or World 0b and Eelmouth); then their bot…
 
 ## Waiting threads (12)
 
@@ -119,7 +119,7 @@
 ## Queued and paused (21)
 [[W-12 Forays trips out into the land and back, with what is found and told|W-12]] Forays: trips out into the land and back, with what is found and told, [[W-13 Brookend survival world, rerun p2|W-13]] Brookend survival world, rerun p2, [[W-16 The engine overhaul|W-16]] The engine overhaul, [[W-58 The runs world with a model to each household|W-58]] The runs world with a model to each household, [[W-67 Extending the wildlife economy|W-67]] Extending the wildlife economy, [[W-68 Writing 37.2's decisions into the spec (about 52 missing)|W-68]] Writing 37.2's decisions into the spec (about 52 missing), [[W-70 Verbs and livelihood archetypes, before the engine rework|W-70]] Verbs and livelihood archetypes, before the engine rework, [[W-76 The timber economy|W-76]] The timber economy, [[W-86 Households generalised into institutions and laws|W-86]] Households generalised into institutions and laws, [[W-87 Health, fatigue and illness|W-87]] Health, fatigue and illness, [[W-88 The coast and the sea|W-88]] The coast and the sea, [[W-89 Trade between villages markets, carriage, what flows where|W-89]] Trade between villages: markets, carriage, what flows where, [[W-90 Textiles and clothing|W-90]] Textiles and clothing, [[W-91 Pottery and clay crocks, ovens, daub, bricks|W-91]] Pottery and clay: crocks, ovens, daub, bricks, [[W-92 Boats, barrels and the cooper|W-92]] Boats, barrels and the cooper, [[W-93 Demography and growth|W-93]] Demography and growth, [[W-94 Timed actions|W-94]] Timed actions, [[W-95 Stone and quarrying|W-95]] Stone and quarrying, [[W-96 Space unified everywhere|W-96]] Space unified everywhere, [[W-106 Stage 5 of the wave, works|W-106]] Stage 5 of the wave, works, [[W-107 Stage 5b of the wave, the gaps closed|W-107]] Stage 5b of the wave, the gaps closed
 
-## Decided this week (143)
+## Decided this week (128)
 - [[D2-357 D2-306 as meant|D2-306 as meant (D2-357)]]
 - [[D2-356 A technique's name, what it does, what it needs and its working hints…|A technique's name, what it does, what it needs and its working hints… (D2-356)]]
 - [[D2-355 Tests a change runs only the tests of the modules it touches|Tests: a change runs only the tests of the modules it touches (D2-355)]]

@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # One fish stock per water body, the engine half (W-56)
 
-*active · 37.4 · touched 17 Nov (7 days ago)*
+*active · 37.4 · touched 17 Nov (8 days ago)*
 
 > **Next:** Zach's merge; 37.2's LAKE_FISH from the whole lake; report 38.76
 

@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # Build stage 1, the basis in code (W-97)
 
-*done, by agent (provisional) · 37.2 · touched 23 Nov (1 day ago)*
+*done, by agent (provisional) · 37.2 · touched 23 Nov (2 days ago)*
 
 > **Next:** build u0 on the branch; tests; journals re-taken; review by 37.2; merge
 
