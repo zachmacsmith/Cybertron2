@@ -62,7 +62,7 @@ ROWS = {
                "depends": {"needs": ["salt", "hay"], "gives": ["milk", "cheese"]}, "neighbour_line": "NB-HE"},
     "hunter": {"status": "built", "fits": {"covers": ["forest", "scrub", "heath"]}, "words": {"lives": "hunting and trapping"},
                "broad": ["hunt the wild", "snare", "dry meat", "crude weapon"], "capable": ["stalk", "den work", "salt meat", "tent", "bedroll", "snares"],
-               "specialisms": {"stalking": {"words": "stalking and drives", "crafts": ["stalk", "drive"], "lines": ["HU5", "HU6"]},
+               "specialisms": {"stalking": {"words": "stalking and drives", "crafts": ["stalk", "hunting drive"], "lines": ["HU5", "HU6"]},
                                "snares": {"words": "snares and small game", "crafts": ["snare", "snares"], "lines": ["HU7"]},
                                "dressing": {"words": "dressing the kill", "crafts": [], "lines": ["HU8"], "built": False}},   # u3's dressing
                "lines": {"broad": ["HU1", "HU2"], "capable": ["HU3", "HU4"], "youth": ["HU1"], "second": ["HU1", "HU2"]},

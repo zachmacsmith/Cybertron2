@@ -280,7 +280,7 @@ def test_the_gear_line_reaches_the_beliefs_view_from_the_one_source():
 def test_craft_lines_keep_their_working_hint_and_where_they_came_from():
     milk = KN.craft_line("milk", "rough", {"source": "from your upbringing"})
     assert milk.startswith("milking (a cow in milk) (") and "from your upbringing" in milk
-    assert KN.craft_line("drive", "known", {}).startswith(KN.doing("drive"))
+    assert KN.craft_line("hunting drive", "known", {}).startswith(KN.doing("hunting drive"))
     assert "Brook" in KN.craft_line("stalk", "capable", {"source": "taught by Hamon Brook"})
     old = build("cybertron2/specs/nutrition/eelmouth_old.yaml")
     sp = PR.system_prompt(Here(old, "Peter"), Mind(old, "Peter"))

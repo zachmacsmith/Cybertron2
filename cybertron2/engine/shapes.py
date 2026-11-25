@@ -16,6 +16,8 @@ a world without the setting keeps the old one, so old worlds replay: D2-314 "old
 """
 from __future__ import annotations
 
+import re
+
 from cybertron2.engine.here import Refused
 
 # Each shape: its arguments, the grammar line, the registry handlers its faces map to (face word -> verb), and which technique verbs
@@ -356,12 +358,6 @@ def normalize(here, mind, a) -> dict:
         return _door(a) if do == "door" else {**a, "do": "set", "thing": do}
     if do in FACE and do not in KEEP:                                        # a face word on its own: lift, check, lay, put ...
         return {**a, "do": FACE[do]}
-    if do in KEEP and not a.get("thing"):                                    # an act word that is also a craft one knows ("drive":
-        t = resolve(mind, do)                                                # beasts moved, or the hunting drive): the craft, where the
-        if t is not None and TECHNIQUES[t]["verb"] != do:                    # act names nothing it acts on or is not in this world
-            from cybertron2.engine import verbs as V                         # (W-111: Eelmouth's live check refused a drive written
-            if not V.verb_here(here, do):                                    # as shown, "no drive in this world"); an act the world has
-                return {**a, "do": TECHNIQUES[t]["verb"], "what": t}         # stays the act ("watch" a field is the watch act)
     if do in KEEP:
         if do == "travel":
             return _go(here, a)

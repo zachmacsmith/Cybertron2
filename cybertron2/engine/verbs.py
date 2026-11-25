@@ -3272,3 +3272,21 @@ assert set(HANDLERS) == set(VERB)
 # Every act, craft and way carries its interface (D2-350): one without it is a build error, raised here at load (W-109).
 from cybertron2.engine import iface as _IFC  # noqa: E402
 _IFC.check(VERB)
+
+
+def _check_names() -> None:
+    """No act and craft share a name (D2-353: every registry checked when it loads; W-111, Q-109: "drive" was both the herd act and
+    the hunting drive, and the act won wherever a craft is named alone in "do")."""
+    from cybertron2.engine.data import TECHNIQUES
+    CRAFT_VERBS = {t["verb"] for t in TECHNIQUES.values() if t.get("verb") != "modifier"}   # gather, make, work, build: crafts by name
+    clash = sorted(set(VERB) & set(TECHNIQUES))
+    if clash:
+        raise RuntimeError(f"an act and a craft share a name: {', '.join(clash)}; rename one")
+    dead = sorted({f"{k}: {m}" for k, r in TECHNIQUES.items() for m in (r.get("modifies") or [])
+                   if ":" in m and m.split(":", 1)[0] in CRAFT_VERBS and m.split(":", 1)[1] not in TECHNIQUES})   # a way of a craft
+                                                                               # that is no craft (W-111: the
+    if dead:                                                                   # rename of the drive left eight silently unapplied)
+        raise RuntimeError("ways that name no craft: " + "; ".join(dead))
+
+
+_check_names()
