@@ -326,10 +326,12 @@ def allocate(L: Land, conf: dict, base: dict, s: Settlement, claimed: np.ndarray
     s.facts["woods"] = take("wood", units, lambda rc: L.cover[rc] == "forest" or tn(rc) in V.WOOD_OK)
     s.facts["waste"] = take("waste", waste_units, lambda rc: tn(rc) in V.WASTE_COVER or L.cover[rc] in ("heath", "moor", "fen"))
     near_water = [rc for rc in order[:400] if (L.river[rc] >= 2 or L.lake[rc]) and not claimed[rc]]
-    own = {"big river": (L.river >= 3) & ~L.lake, "lake": lakes(L, s.pin)}.get(s.pin.get("on"))
-    if own is not None:                                                    # the large river's or the lake's own cells, nearest the
-        r0, c0 = s.site                                                    # site first: the travel costs skip them (_cost_from), so
-        big = np.argwhere(own & ~claimed & ~L.sea)                         # they are found by distance, within the village's reach
+    on = s.pin.get("on")
+    own = {"big river": (L.river >= 3) & ~L.lake, "lake": lakes(L, s.pin), "sea": L.sea}.get(on)   # the sea too: a settled village
+    if own is not None:                                                    # pinned on it had no water (bench, 25 Nov: Holtmouth); the
+        r0, c0 = s.site                                                    # large river's, the lake's or the sea's own cells, nearest the
+        big = np.argwhere(own & ~claimed & (L.sea if on == "sea" else ~L.sea))   # site first: the travel costs skip them (_cost_from),
+                                                                           # so they are found by distance, within the village's reach
         dist = np.hypot(L.g.x[big[:, 0], big[:, 1]] - L.g.x[r0, c0], L.g.y[big[:, 0], big[:, 1]] - L.g.y[r0, c0])
         near_water = [tuple(map(int, big[i])) for i in np.argsort(dist, kind="stable") if dist[i] <= float(conf["field_km"])][:2] or near_water
     for rc in near_water[:2]:

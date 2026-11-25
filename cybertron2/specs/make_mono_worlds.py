@@ -40,6 +40,8 @@ MP.D = D                                   # the peoples maker's features and co
 OUT = os.path.join(HERE, "mono")
 LIFESPAN = 64
 FIRST = 16                                 # days of food in store at the start (spring day 1; the first harvest about day 16 to 20)
+PLOT_SEED = 16                             # grain a plot sown (data.PHYSICS farming.plot_seed): next year's seed, in store (Q-220)
+WORKED_MIN = 1.2                           # a home feeds at least this many times its people at good work (the design check, W-203)
 MODELS = ["claude-haiku-5-5"]
 
 # --------------------------------------------------------------------------- the founders (monoculture_five_worlds.md §2 and §6)
@@ -116,12 +118,24 @@ def pin(key: str, p: dict) -> dict:
         out["on"] = "river"
     elif p["land"] in ("rich vale", "farmland") and ("fish" in p["res"] or "mill site" in p["res"] or "runs" in p["res"]):
         out["on"] = "river"
+    if out.get("on") == "river" and any(k == "river" and p["name"] in xs for k, xs in D.FEATURES.get(key, [])):
+        out["on"] = "big river"                                            # the rivers are laid big (spec), and the generator's walk
+                                                                           # never crosses a big river's cells, so a village pinned
+                                                                           # "on river" by one got no water: Fallowmere (25 Nov)
     if p["kind"].startswith("home:"):
         hhs = FOUNDERS[key][p["name"]]
         out.update({"households": len(hhs), "food_share": MP.FOOD_SHARE, "heat_share": MP.HEAT_SHARE})
     else:
         out.update({"vacant": True, "room": max(1, int(p["room"])), "land": D.LAND[p["land"]][2]})
     return out
+
+
+def _home_near(key: str, xy) -> bool:
+    """Whether a river's laid point (normalised x, y) is one of the design's homes."""
+    w = D.WORLDS[key]
+    sz = float(w["size_km"])                                                # as make_peoples.features writes a laid point
+    return any(p["kind"].startswith("home:") and abs(round(p["x"] / sz, 4) - xy[0]) < 1e-3 and abs(round(p["y"] / sz, 4) - xy[1]) < 1e-3
+               for p in w["places"])
 
 
 def spec(key: str, seed: int) -> dict:
@@ -271,6 +285,141 @@ def founders(world: dict, key: str) -> dict:
     return world
 
 
+HERD = {"herder": {"cows": 4, "bulls": 1, "young": 2, "in_milk": 2},     # the herders' stock: the most cows and a bull, so calves
+         "farmer": {"oxen": 2}}                                              # the farmers' plough team (FA7's ox pair)
+
+
+def by_livelihood(world: dict, key: str) -> dict:
+    """Land, beasts and buildings by what each household lives by (W-203; the generator gives every household one template:
+    field 2, meadow 1, pasture 2, forest 1, fen 2, and 2 cows, 2 oxen, a bull): only farmers hold fields and the plough team;
+    herders hold the most stock and a bull; a household that neither farms nor herds keeps no beasts; the salters a salt house on
+    their saltmarsh. And the start (Q-220, default taken at Zach's 'fix them', 25 Nov): fields bare, no standing crop; each farming
+    household's store holds next year's seed (its plots at PLOT_SEED) beside its FIRST days of food."""
+    sk = SKILLS[key]
+    lv = {hh: (sk.get(hh) or {}).get("livelihoods") or [] for hh in sk}
+    plots = {}
+    for nid, n in world["nodes"].items():
+        for pid, p in n["parcels"].items():
+            st = p.get("state") or {}
+            st.pop("crop", None)                                            # bare fields (Q-220)
+            hh = p.get("holder")
+            if hh in lv and p.get("cover") == "field":
+                if {"farmer", "fisher"} & set(lv[hh]):                       # fishers keep a garden field: the fishing alone feeds a
+                                                                            # household of 4 about 34 food a year (capacity, Holtmouth)
+                    plots[hh] = plots.get(hh, 0) + int(p.get("size") or 1)
+                else:
+                    p.pop("holder", None)                                   # a field its holders cannot work, let go (unheld)
+    for c in list(world.get("claims") or []):
+        if isinstance(c, dict) and c.get("claimant") in lv and str(c.get("thing", "")).startswith("parcel:"):
+            pid = str(c["thing"]).split(":", 1)[1]
+            par = next((n["parcels"][pid] for n in world["nodes"].values() if pid in n["parcels"]), None)
+            if par is not None and par.get("cover") == "field" and "farmer" not in lv[c["claimant"]]:
+                world["claims"].remove(c)
+    for hid, h in list((world.get("herds") or {}).items()):
+        hh = h.get("holder")
+        if hh not in lv:
+            continue
+        want = {}
+        for k in ("herder", "farmer"):
+            if k in lv[hh]:
+                for a, q in HERD[k].items():
+                    want[a] = max(want.get(a, 0), q)
+        if not want:
+            del world["herds"][hid]                                         # neither farmers nor herders: no beasts
+            continue
+        for a in ("cows", "oxen", "bulls", "young", "in_milk"):
+            h[a] = int(want.get(a, 0))
+        h["name"] = f"the {hh} " + ("cattle" if h["cows"] else "oxen")
+    held = {h.get("holder") for h in (world.get("herds") or {}).values()}
+    for hh, ls in lv.items():                                               # a herder or farmer the template left without beasts
+        if hh in held or not ({"herder", "farmer"} & set(ls)):
+            continue
+        home = next(hm for hm, hhs in FOUNDERS[key].items() if hh in hhs)
+        past = next((pid for pid, p in world["nodes"][home]["parcels"].items() if p.get("cover") in ("pasture", "meadow")), None)
+        if past:
+            want = {}
+            for k in ("herder", "farmer"):
+                if k in ls:
+                    for a, q in HERD[k].items():
+                        want[a] = max(want.get(a, 0), q)
+            world["herds"][f"{hh.lower()}_cattle"] = {"name": f"the {hh} " + ("cattle" if want.get("cows") else "oxen"), "kind": "cattle",
+                                                     "parcel": past, "holder": hh, **{a: int(want.get(a, 0)) for a in ("cows", "oxen", "bulls", "young", "in_milk")}}
+    for bid, b in world["buildings"].items():                               # the plough and harness only where a farmer ploughs
+        hh = b.get("household")
+        if hh in lv and "farmer" not in lv[hh]:
+            for g in ("wooden plough", "harness"):
+                (b.get("stock") or {}).pop(g, None)
+    for hh, ls in lv.items():                                               # the salters' salt house, on their saltmarsh (World 0b's
+        if "salter" not in ls or any(b.get("household") == hh and (b.get("fittings") or {}).get("brine pan")   # Salt House)
+                                     for b in world["buildings"].values()):
+            continue
+        home = next(hm for hm, hhs in FOUNDERS[key].items() if hh in hhs)
+        marsh = next((pid for pid, p in world["nodes"][home]["parcels"].items() if p.get("cover") == "saltmarsh"), None)
+        head = next(n for n, a in world["agents"].items() if a["household"] == hh)
+        if marsh:
+            world["buildings"][f"{hh.lower()}_salthouse"] = {"parcel": marsh, "household": hh, "structure": "wattle", "name": "the Salt House",
+                                                             "fittings": {"brine pan": 1}, "stock": {"firewood": 20}, "keeper": head}
+    for b in world["buildings"].values():                                   # next year's seed in the farmers' store (Q-220)
+        hh = b.get("household")
+        if hh in plots and (b.get("fittings") or {}).get("beds"):
+            st = b.setdefault("stock", {})
+            st["grain"] = int(st.get("grain") or 0) + plots[hh] * PLOT_SEED
+    world.setdefault("made_by_maker", []).append("land, beasts and buildings by livelihood; bare fields and next year's seed (W-203, Q-220)")
+    return world
+
+
+def design_check(world: dict, key: str, cap: dict) -> list:
+    """What the design says each home and household has, read from the built world: [failures] (W-203). A build with any is refused."""
+    bad = []
+    w = D.WORLDS[key]
+    sk = SKILLS[key]
+    for p in w["places"]:
+        if not p["kind"].startswith("home:"):
+            continue
+        home = p["name"]
+        pars = world["nodes"][home]["parcels"]
+        fishy = [pid for pid, x in pars.items() if x.get("cover") == "water" and float(((x.get("state") or {}).get("fish") or {}).get("K", 0)) > 0]
+        hhs = FOUNDERS[key][home]
+        if ("fish" in p["res"] or "runs" in p["res"] or p["land"] == "coast" or
+                any("fisher" in (sk.get(hh) or {}).get("livelihoods", []) for hh in hhs)) and not fishy:
+            bad.append(f"{home}: no water with fish (its design: {p['land']}, {p['res']})")
+        c = (cap or {}).get(home) or {}
+        if c.get("people") and float(c.get("worked", 0)) < WORKED_MIN * float(c["people"]):
+            bad.append(f"{home}: feeds {c.get('worked')} at good work, under {WORKED_MIN}x its {c['people']}")
+        for hh in hhs:
+            ls = (sk.get(hh) or {}).get("livelihoods") or []
+            herd = [h for h in (world.get("herds") or {}).values() if h.get("holder") == hh]
+            fields = sum(int(x.get("size") or 1) for x in pars.values() if x.get("holder") == hh and x.get("cover") == "field")
+            if ls[:1] == ["farmer"] and fields < 2:                         # farming the main livelihood (a herder who also farms,
+                bad.append(f"{hh}: farmers with {fields} plots of field")   # Reeve, clears his own: Fallowmere has one field)
+            if not ({"farmer", "fisher"} & set(ls)) and fields:
+                bad.append(f"{hh}: {fields} plots of field and neither farmers nor fishers")
+            if "herder" in ls and not any(int(h.get("cows", 0)) >= 3 and int(h.get("bulls", 0)) >= 1 for h in herd):
+                bad.append(f"{hh}: herders without 3 cows and a bull")
+            if not ({"herder", "farmer"} & set(ls)) and herd:
+                bad.append(f"{hh}: beasts and neither farmers nor herders")
+            if "salter" in ls and not any(b.get("household") == hh and (b.get("fittings") or {}).get("brine pan") for b in world["buildings"].values()):
+                bad.append(f"{hh}: salters without a salt house")
+            if "salter" in ls and not any(x.get("cover") in ("saltmarsh",) for x in pars.values()):
+                bad.append(f"{hh}: salters without a saltmarsh")
+            if "farmer" in ls:
+                seed = sum(float((b.get("stock") or {}).get("grain", 0)) for b in world["buildings"].values() if b.get("household") == hh)
+                if seed < fields * PLOT_SEED:
+                    bad.append(f"{hh}: {seed:g} grain for {fields} plots' seed ({fields * PLOT_SEED})")
+        for x in pars.values():
+            if (x.get("state") or {}).get("crop"):
+                bad.append(f"{home}: a standing crop at the start (Q-220: bare fields)")
+                break
+    from cybertron2.capacity import model as CM                             # the first 64 days at good work: no home short
+    with contextlib.redirect_stdout(io.StringIO()):
+        r = CM.analyse(copy.deepcopy(world), levels=("worked",), horizon=64)
+    for home in FOUNDERS[key]:
+        h = ((r["nodes"].get(home) or {}).get("horizon") or {}).get("worked") or {}
+        if h.get("first_short") is not None:
+            bad.append(f"{home}: short from day {h['first_short']} for {h.get('short_days')} days in the first 64 at good work")
+    return bad
+
+
 def explore(world: dict, key: str) -> dict:
     """Every place unexplored but each group's home and the places a day from it (D4-47), which its people know (`places`)."""
     w = D.WORLDS[key]
@@ -338,6 +487,10 @@ def arm(world: dict, model: str) -> dict:
     return w
 
 
+class DesignRefused(Exception):
+    """The built world does not meet its design (design_check)."""
+
+
 def make(key: str, seed: int, models) -> dict:
     from cybertron2.landgen.settle import Refused
     s = spec(key, seed)
@@ -349,9 +502,11 @@ def make(key: str, seed: int, models) -> dict:
             if "laid rivers run where laid" in (report.get("refused") or []):
                 rivers = [f for f in s["generate"]["features"] if f.get("kind") == "river" and len(f["through"]) > 2]
                 if rivers:
-                    for f in rivers:
-                        f["through"] = f["through"][1:]
-                    relaxed.append("rivers shortened from their sources by a place: the land turned the laid channel aside")
+                    for f in rivers:                                       # from the end farther from a home: cut from the source, a
+                        homes_at = [i for i, xy in enumerate(f["through"]) if _home_near(key, xy)]   # home by the source lost its river
+                        tail = bool(homes_at) and min(homes_at) <= len(f["through"]) - 1 - max(homes_at)  # (Fallowmere, 25 Nov)
+                        f["through"] = f["through"][:-1] if tail else f["through"][1:]
+                    relaxed.append("rivers shortened by a place at the end away from the homes: the land turned the laid channel aside")
                     continue
             break
         except Refused as e:
@@ -366,8 +521,8 @@ def make(key: str, seed: int, models) -> dict:
                 relaxed.append(f"{name}: soil {p.pop('soil')} not required")
             elif p.get("has"):
                 relaxed.append(f"{name}: {p.pop('has')} not required")
-            elif p.get("on"):
-                relaxed.append(f"{name}: on {p.pop('on')} not required")
+            elif p.get("on") and not p.get("households"):                 # a home's water is its livelihood: never eased away (the
+                relaxed.append(f"{name}: on {p.pop('on')} not required")    # design check refuses the build instead)
             elif p.get("resources"):
                 relaxed.append(f"{name}: {p.pop('resources')} not required")
             else:
@@ -377,7 +532,7 @@ def make(key: str, seed: int, models) -> dict:
     if report.get("refused"):
         raise SystemExit(f"{key}: refused: {report['refused']}")
     print(key, "pins eased:", relaxed or "none", flush=True)
-    world = MP.water_stocks(founders(world, key))
+    world = by_livelihood(MP.water_stocks(founders(world, key)), key)
     world = explore(world, key)
     fill = seed_lines(world, key)
     from cybertron2.landgen import gate_check as GC
@@ -386,6 +541,9 @@ def make(key: str, seed: int, models) -> dict:
         cap = MP.capacity(world)
     except Exception as e:  # noqa: BLE001
         cap = {"error": str(e)[:300]}
+    bad_design = design_check(world, key, cap)                              # W-203: refused, never written, if the design is not met
+    if bad_design:
+        raise DesignRefused(f"{key} (seed {seed}): " + "; ".join(bad_design))
     os.makedirs(OUT, exist_ok=True)
     path = os.path.join(OUT, f"{key.lower()}.yaml")
     W.write(world, cells, report, path, picture=os.path.join(OUT, f"{key.lower()}.png"))
@@ -413,6 +571,14 @@ if __name__ == "__main__":
     argv = sys.argv[1:]
     seed = int(argv[argv.index("--seed") + 1]) if "--seed" in argv else 2311
     models = argv[argv.index("--models") + 1].split(",") if "--models" in argv else MODELS
-    keys = [a for i, a in enumerate(argv) if not a.startswith("--") and (i == 0 or argv[i - 1] not in ("--seed", "--models"))]
+    keys = [a for i, a in enumerate(argv) if not a.startswith("--") and (i == 0 or argv[i - 1] not in ("--seed", "--models", "--tries"))]
+    tries = int(argv[argv.index("--tries") + 1]) if "--tries" in argv else 6
     for k in keys or ["M1", "M5"]:
-        make(k, seed, models)
+        for i in range(tries):                                              # a seed whose land misses the design: the next seed
+            try:
+                make(k, seed + i, models)
+                break
+            except DesignRefused as e:
+                print("design refused:", e, flush=True)
+        else:
+            raise SystemExit(f"{k}: no seed of {tries} from {seed} meets the design")
