@@ -368,9 +368,9 @@ def by_livelihood(world: dict, key: str) -> dict:
     return world
 
 
-WEIR = {"M1": {"household": "Colle", "home": "Fallowmere", "sections": ["wattle"], "knows": "rough"}}   # Zach, 25 Nov: one section,
+WEIR = {"M1": {"household": "Colle", "home": "Fallowmere", "sections": ["wattle"], "knows": "capable"}}   # Zach, 25 Nov: one section,
 # the lowest level: one wattle section, sound (level 5), on the village's river, held by the builders and woodsmen, who know the
-# weir only roughly (the lowest working level, data.LEVELS); its crew the household's grown people who know it
+# weir at capable, the least that works one (gate P1; rough would leave it idle); its crew the household's grown people
 
 
 def weir(world: dict, key: str) -> dict:
@@ -386,7 +386,7 @@ def weir(world: dict, key: str) -> dict:
     crew = []
     for n, a in world["agents"].items():
         if a.get("household") == hh and a.get("stage") in ("youth", "adult", "elder"):
-            a.setdefault("knows", {})["weir"] = {"level": wd["knows"], "skill": 0.6}
+            a.setdefault("knows", {})["weir"] = {"level": wd["knows"], "skill": SKILL_AT[wd["knows"]]}
             if a.get("stage") != "youth":
                 crew.append(n)
     head = next(n for n, a in world["agents"].items() if a.get("household") == hh)
@@ -422,6 +422,13 @@ def gear(world: dict, key: str) -> dict:
             for craft, lvl in g["knows"].items():
                 if (a.get("knows") or {}).get(craft, {}).get("level") not in ("capable", "known"):
                     a.setdefault("knows", {})[craft] = {"level": lvl, "skill": SKILL_AT[lvl]}
+    world.setdefault("made_by_maker", []).append("starting gear: snares, nets (D5-6)")
+    return world
+
+
+def gear_buildings(world: dict, key: str) -> dict:
+    """GEAR's buildings (the fishers' smokehouse), before the livelihoods' fill, so it names the keeper and gives the keeper's line."""
+    for hh, g in (GEAR.get(key) or {}).items():
         if g.get("smokehouse"):
             home = next(hm for hm, hhs in FOUNDERS[key].items() if hh in hhs)
             pars = world["nodes"][home]["parcels"]
@@ -433,7 +440,7 @@ def gear(world: dict, key: str) -> dict:
             world["buildings"][f"{hh.lower()}_smokehouse"] = {"parcel": ground[0], "household": hh, "structure": "wattle",
                                                               "name": f"the {hh} Smokehouse", "fittings": {"smoke racks": 1},
                                                               "stock": {"firewood": 12}}
-    world.setdefault("made_by_maker", []).append("starting gear: snares, nets, a smokehouse (D5-6)")
+            world.setdefault("made_by_maker", []).append(f"the {hh} smokehouse (D5-6)")
     return world
 
 
@@ -601,14 +608,14 @@ def make(key: str, seed: int, models) -> dict:
     if report.get("refused"):
         raise SystemExit(f"{key}: refused: {report['refused']}")
     print(key, "pins eased:", relaxed or "none", flush=True)
-    world = weir(by_livelihood(MP.water_stocks(founders(world, key)), key), key)
+    world = gear_buildings(weir(by_livelihood(MP.water_stocks(founders(world, key)), key), key), key)
     world = explore(world, key)
     fill = seed_lines(world, key)
     world = gear(world, key)                                                # after the livelihoods' fill, which rewrites the crafts
     for b in world["buildings"].values():                                   # and gear it seeds (the fishers' nets were lost before it)
         if b.get("monument") == "weir":                                     # the weir's crew still know the weir after the fill
             for n in b.get("crew") or []:
-                world["agents"][n].setdefault("knows", {}).setdefault("weir", {"level": WEIR[key]["knows"], "skill": 0.6})
+                world["agents"][n].setdefault("knows", {})["weir"] = {"level": WEIR[key]["knows"], "skill": SKILL_AT[WEIR[key]["knows"]]}
     from cybertron2.landgen import gate_check as GC
     gate = GC.check(world)
     try:
@@ -616,6 +623,8 @@ def make(key: str, seed: int, models) -> dict:
     except Exception as e:  # noqa: BLE001
         cap = {"error": str(e)[:300]}
     bad_design = design_check(world, key, cap)                              # W-203: refused, never written, if the design is not met
+    bad_design += [f"gate {x.get('check')}: {x['text'][:160]}" for x in gate["refuse"] if "YOUR GOAL" not in x["text"]]   # the
+                                                                            # run's own gate would refuse it (a waiver is the world's)
     if bad_design:
         raise DesignRefused(f"{key} (seed {seed}): " + "; ".join(bad_design))
     os.makedirs(OUT, exist_ok=True)
