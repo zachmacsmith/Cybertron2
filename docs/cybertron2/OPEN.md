@@ -167,6 +167,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-105 | **Whether World 0b is reworked before it is the benchmark world: session bench reads its runs as unfair (it starts in late summer, winter by day 13, and the fishing village starves first in every arm, w0b_failures.md), and its specs are only on bench's branch** | | stable |
 | Q-219 | **The next monoculture round as a validation of the benchmark: the interface restored, each world calibrated against scripted players, direct measures of planning, cooperation and adaptation, three seeds a model at about 60 days before any 200-day run** | | bench |
 | Q-106 | **The lamprey's second fault (sweep.md bug 2): its run is sized by head-water stretches only, so a 100 km river's lampreys are those of its last 1 to 2 km (23 a year at Eelmouth); spawn: river as the salmon gives about 300 at Middleham. A data change that raises the spring food on every river world** | | stable |
+| Q-220 | **Whether Fallowmere and the Scattering start with a standing barley crop ripe on day 5 (48 grain a plot, a windfall on top of 16 days of stores), or with bare fields, 16 days of food and next year's seed in store** | | bench |
 
 ## Offers and promises
 
