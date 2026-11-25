@@ -16,6 +16,8 @@ a world without the setting keeps the old one, so old worlds replay: D2-314 "old
 """
 from __future__ import annotations
 
+import re
+
 from cybertron2.engine.here import Refused
 
 # Each shape: its arguments, the grammar line, the registry handlers its faces map to (face word -> verb), and which technique verbs
@@ -266,6 +268,13 @@ def _keys(a) -> dict:
     return out
 
 
+def required_args(verb) -> tuple:
+    """An act's own fields that are not optional, read from its registry row's "args" ('{"thing": ..., "item"?: ...}': thing, to)."""
+    from cybertron2.engine import verbs as V
+    args = str((V.VERB.get(verb) or {}).get("args") or "")
+    return tuple(re.findall(r'"([^"]+)"(?!\?)\s*:', args))
+
+
 def normalize(here, mind, a) -> dict:
     """A free act (u9 §3.2) as a registry act: {"do": verb, ...}. Old verbs pass as they are; a shape word reads its face or craft
     from "what" (or "thing", "as"); a craft named alone takes its handler's verb (a set technique named alone: by what stands,
@@ -356,12 +365,12 @@ def normalize(here, mind, a) -> dict:
         return _door(a) if do == "door" else {**a, "do": "set", "thing": do}
     if do in FACE and do not in KEEP:                                        # a face word on its own: lift, check, lay, put ...
         return {**a, "do": FACE[do]}
-    if do in KEEP and not a.get("thing"):                                    # an act word that is also a craft one knows ("drive":
-        t = resolve(mind, do)                                                # beasts moved, or the hunting drive): the craft, where the
-        if t is not None and TECHNIQUES[t]["verb"] != do:                    # act names nothing it acts on or is not in this world
-            from cybertron2.engine import verbs as V                         # (W-111: Eelmouth's live check refused a drive written
-            if not V.verb_here(here, do):                                    # as shown, "no drive in this world"); an act the world has
-                return {**a, "do": TECHNIQUES[t]["verb"], "what": t}         # stays the act ("watch" a field is the watch act)
+    if do in KEEP and do in TECHNIQUES and TECHNIQUES[do]["verb"] != do and resolve(mind, do) == do:
+        from cybertron2.engine import verbs as V                             # an act and a craft of one name ("drive": beasts moved,
+        need = required_args(do)                                             # or the hunting drive) and one knows the craft: the craft
+        if not V.verb_here(here, do) or not any(a.get(k) not in (None, "") for k in need):   # where the act is not in this world or
+            return {**a, "do": TECHNIQUES[do]["verb"], "what": do}           # none of its own fields is given (W-111: Eelmouth refused
+                                                                             # a drive as shown; the Scattering drove the cattle)
     if do in KEEP:
         if do == "travel":
             return _go(here, a)

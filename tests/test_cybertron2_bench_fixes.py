@@ -77,7 +77,6 @@ def test_an_act_word_that_is_a_craft_one_knows_is_read_as_the_craft(eel):
     here, mind = Here(eel, "Peter"), Mind(eel, "Peter")
     n = SH.normalize(here, mind, {"do": "drive", "at": "Clay Field", "only": ["Nigel"], "looking for": "deer"})
     assert n["do"] == "gather" and n["what"] == "drive", n
-    assert SH.normalize(here, mind, {"do": "drive", "thing": "the cattle", "to": "Clay Field"})["do"] == "drive"
     assert SH.normalize(here, mind, {"do": "watch", "at": "Eelmouth Field"})["do"] == "watch"     # an act the world has stays the act
 
 
@@ -135,3 +134,23 @@ def test_caring_with_food_not_in_hand_says_where_it_is(eel):
     with pytest.raises(Refused) as e:
         V._care(here, Mind(eel, "Peter"), {"do": "care", "at": kids[0], "item": "smoked fish"})
     assert "fed from your hands" in str(e.value) and "holds 5" in str(e.value) and "move smoked fish to your hands" in str(e.value)
+
+
+def test_the_hunting_drive_in_a_world_with_herds_is_not_the_herd_act():
+    """W-111: in the Scattering a hunter's {"do": "drive", "at": a wood, "looking for": "deer"} drove his household's cattle into
+    the wood. An act and a craft of one name: the craft when none of the act's own fields ("thing", "to") is given."""
+    from cybertron2.engine import shapes as SH
+    from cybertron2.engine.data import TECHNIQUES
+    assert sorted(set(V.VERB) & set(TECHNIQUES)) == ["drive"], "a new act-craft name clash: say how it is read"
+    assert SH.required_args("drive") == ("thing", "to")
+    with contextlib.redirect_stdout(io.StringIO()):
+        w = World(load_spec("cybertron2/specs/nutrition/eelmouth.yaml"))
+    w.s["today"] = R.blank_today()
+    w.s["know"]["Peter"]["drive"] = {"level": "known", "skill": 1.0}
+    here, mind = Here(w, "Peter"), Mind(w, "Peter")
+    import unittest.mock as um
+    with um.patch.object(V, "verb_here", lambda h, v: True):                    # as in a world with herds
+        n = SH.normalize(here, mind, {"do": "drive", "at": "the Spinney", "looking for": "deer"})
+        assert (n["do"], n["what"]) == ("gather", "drive"), n
+        n = SH.normalize(here, mind, {"do": "drive", "thing": "the cows", "to": "Clay Field"})
+        assert n["do"] == "drive", n
