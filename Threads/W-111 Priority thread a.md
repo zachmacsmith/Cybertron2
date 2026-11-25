@@ -9,7 +9,7 @@ updated: "2026-11-25"
 
 *active · stable · touched 25 Nov (today)*
 
-> **Next:** ready the engine for bench's Fallowmere and Scattering runs ([[Q-107 Which worlds the stable engine's acceptance and the comparative runs…|Q-107]]): their gate, their makers on main, long bot passes (farming, hunting, herding, a year and more), every refusal and crash read; then the tag
+> **Next:** the full suite running on dc60ae5c (the drive rename, D5-4, the even split): if it passes, push to main and tag engine-runs-1 for bench; if not, fix first
 
 ## What it is
 Priority thread a: a stable engine for comparative runs: everything built so far tidied, usable and pinned (no new content until it is; the faults found this week fixed with module tests; other sessions' fixes merged; no silent failure; the records reconciled; a tag for experiments)
@@ -45,6 +45,8 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - under it: [[Q-105 Whether World 0b is reworked before it is the benchmark world|Whether World 0b is reworked before it is the benchmark world (Q-105)]] (open)
 - under it: [[Q-106 The lamprey's second fault|The lamprey's second fault (Q-106)]] (open)
 - under it: [[Q-107 Which worlds the stable engine's acceptance and the comparative runs…|Which worlds the stable engine's acceptance and the comparative runs… (Q-107)]] (closed)
+- under it: [[Q-108 Vermin's sudden illness saturates in every world|Vermin's sudden illness saturates in every world (Q-108)]] (open)
+- under it: [[Q-109 The hunting method 'drive'|The hunting method 'drive' (Q-109)]] (open)
 - under it: [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]] (done)
 
 
@@ -61,6 +63,8 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - [[Q-105 Whether World 0b is reworked before it is the benchmark world|Whether World 0b is reworked before it is the benchmark world (Q-105)]]
 - [[Q-106 The lamprey's second fault|The lamprey's second fault (Q-106)]]
 - [[Q-107 Which worlds the stable engine's acceptance and the comparative runs…|Which worlds the stable engine's acceptance and the comparative runs… (Q-107)]]
+- [[Q-108 Vermin's sudden illness saturates in every world|Vermin's sudden illness saturates in every world (Q-108)]]
+- [[Q-109 The hunting method 'drive'|The hunting method 'drive' (Q-109)]]
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]
 - [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]
 - [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]]

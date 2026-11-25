@@ -18,6 +18,7 @@ conversation (24 Nov: "building new things should be disciplined within these pa
 
 ## Mentioned by
 - [[D2-354 The architecture is a healthy balance, not a strict one|The architecture is a healthy balance, not a strict one (D2-354)]]
+- [[Q-109 The hunting method 'drive'|The hunting method 'drive' (Q-109)]]
 - [[The engine's architecture overhauled general mechanisms over typed…|The engine's architecture overhauled: general mechanisms over typed…]]
 - [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]
 - [[How we work the process and its mechanisms|How we work: the process and its mechanisms]]

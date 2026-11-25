@@ -81,7 +81,7 @@
 
 **stable**
 - [[W-111 Priority thread a|Priority thread a (W-111)]]  
-  next: ready the engine for bench's Fallowmere and Scattering runs (Q-107): their gate, their makers on main, long…
+  next: the full suite running on dc60ae5c (the drive rename, D5-4, the even split): if it passes, push to main and…
 
 ## Waiting threads (12)
 

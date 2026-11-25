@@ -1,6 +1,8 @@
 # All asks
 
 ## Open
+- [[Q-109 The hunting method 'drive'|The hunting method 'drive' (Q-109)]] (open)
+- [[Q-108 Vermin's sudden illness saturates in every world|Vermin's sudden illness saturates in every world (Q-108)]] (open)
 - [[Q-106 The lamprey's second fault|The lamprey's second fault (Q-106)]] (open)
 - [[Q-105 Whether World 0b is reworked before it is the benchmark world|Whether World 0b is reworked before it is the benchmark world (Q-105)]] (open)
 - [[Q-103 The interface rebuild's defaults|The interface rebuild's defaults (Q-103)]] (open)

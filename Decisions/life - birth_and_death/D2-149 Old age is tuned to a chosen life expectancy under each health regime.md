@@ -20,6 +20,7 @@ fixed old-age numbers chosen for the run's length alone
 
 
 ## Mentioned by
+- [[Q-108 Vermin's sudden illness saturates in every world|Vermin's sudden illness saturates in every world (Q-108)]]
 - [[Proposal children as a choice, counted in days (costs, care, growing…|Proposal: children as a choice, counted in days (costs, care, growing…]]
 - [[Proposal life (partners, children, growing up, death, inheritance)|Proposal: life (partners, children, growing up, death, inheritance)]]
 - [[U5. Stores and containers a space and what is in it, each removing…|U5. Stores and containers: a space and what is in it, each removing…]]

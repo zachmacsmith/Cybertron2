@@ -17,6 +17,7 @@ livestock.md
 
 
 ## Mentioned by
+- [[Q-109 The hunting method 'drive'|The hunting method 'drive' (Q-109)]]
 - [[Proposal livestock|Proposal: livestock]]
 - [[Livestock|Livestock]]
 - [[02s build brief for 37.4 the parcel graph, herds, fences, hidden…|02s: build brief for 37.4: the parcel graph, herds, fences, hidden…]]
