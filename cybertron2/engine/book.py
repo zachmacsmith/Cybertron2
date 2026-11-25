@@ -325,8 +325,10 @@ def people_of(w, name, x, depth=0) -> list | None:
     stage = lambda m: w.s["people"][m]["stage"]
     if t in ("whoever has time", "anyone", "whoever"):
         return None
-    if t in ("everyone", "all", "the household", "us", "everybody"):
-        return list(members)
+    if t in ("everyone", "all", "the household", "us", "everybody") or t in SELF_NAMES["home"]:   # "my household" (W-111: World 0b's
+        return list(members)                                                  # live check refused a rule's "who" in those words)
+    if t in SELF_NAMES["self"]:
+        return [name]
     if t in ("adults", "the adults", "grown", "the grown"):
         return [m for m in members if stage(m) == "adult"]
     if t in ("children", "the children", "the young", "young"):

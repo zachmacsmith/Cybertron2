@@ -3135,8 +3135,12 @@ def _care(here, mind, a):
         if item not in ITEMS or not float(ITEMS[item]["food"]):
             raise Refused(f"{item!r} is not food")
         have = float(here.carried().get(item, 0.0))
-        if have <= 1e-9:
-            raise Refused(f"you carry no {item}")
+        if have <= 1e-9:                                                       # where it is, as move says it (W-111: World 0b's live
+            where = [(c, here.contents(c).get(item, 0.0)) for c in here.takeable() if c != here.hands]   # check, 16 such refusals)
+            where = [(c, q) for c, q in where if q > 1e-9]
+            raise Refused(f"you carry no {item}: a child is fed from your hands" + (
+                "; " + ", ".join(f"{_store_name(here, c)} holds {show(q)}" for c, q in where)
+                + f" (take it into your hands first: move {item} to your hands)" if where else ""))
         qty = min(have, float(a.get("qty") or have))
         gift.update(item=item, qty=qty)
         bits.append(f"you mean to give {who} {show(qty)} {item} tonight")
