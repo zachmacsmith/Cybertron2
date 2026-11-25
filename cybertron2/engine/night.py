@@ -131,8 +131,13 @@ def night(w) -> dict:
         bm = BK.meal(w, name) if w.s.get("books") else {"first": [], "ration": 1.0, "skip": []}   # what is kept back (moment 4)
         took = []                                                               # what was eaten, from where: the morning's line (D2-342)
         part = shares.get(w.household_of(name), 1.0) if float(bm["ration"]) >= 1.0 else 1.0
-        ate = _eat(w, place, stores, need * float(bm["ration"]) * part, hearth, first=bm["first"], who=name, skip=bm.get("skip") or (),
-                   log=took)
+        want = need * float(bm["ration"])
+        if part < 1.0:                                                         # one's own hands first, then an even share of what
+            ate = _eat(w, place, stores[:1], want, hearth, first=bm["first"], who=name, skip=bm.get("skip") or (), log=took)   # the
+            ate += _eat(w, place, stores[1:], (want - ate) * part, hearth, first=bm["first"], who=name,                      # house
+                        skip=bm.get("skip") or (), log=took)                                                                 # holds
+        else:
+            ate = _eat(w, place, stores, want, hearth, first=bm["first"], who=name, skip=bm.get("skip") or (), log=took)
         if rawf and ate + 1e-9 < need:                                         # food that wants a fire, eaten raw or not (D2-160)
             rec.setdefault("uncooked", {})[name] = rawf
         me = ("person", name)
@@ -160,7 +165,7 @@ def night(w) -> dict:
             rec["missed"].append(name)
             if ate:
                 rec["ate"][name] = round(ate, 2)
-        _meal_record(w, rec, name, took, bm, need, full, ate, stores, hearth)  # the morning's meal line (D2-342)
+        _meal_record(w, rec, name, took, bm, need, full, ate, stores, hearth, part)   # the morning's meal line (D2-342)
         soaked = name in (today.get("soaked") or [])                           # soaked at a ford: the cold's fall (world/roads.md)
         if (cold or soaked) and state == "unsheltered" and w.rng("cold", w.d, name).random() < float(p["cold_starving"]) * max(fall, 0.5 if soaked else 0):
             w.apply("harm", place, person=name, hunger=-2)
@@ -496,7 +501,7 @@ def eat_order(items, hearth=True) -> list:
     return sorted(items, key=lambda i: (eaten_worth(i, hearth) < ITEMS[i]["food"], -ITEMS[i]["spoil"]))
 
 
-def _meal_record(w, rec, name, took, bm, need, full, ate, stores, hearth) -> None:
+def _meal_record(w, rec, name, took, bm, need, full, ate, stores, hearth, part=1.0) -> None:
     """What one ate tonight, for the morning (D2-342): the goods and how much, from which store, by which rule or the usual order,
     how well it met one's hunger; and what each store gave the meal, in all by good. Facts of one's own body and house."""
     from cybertron2.engine import book as BK
@@ -511,6 +516,8 @@ def _meal_record(w, rec, name, took, bm, need, full, ate, stores, hearth) -> Non
         shared = any(cid in others for x in (rec.get("meal") or {}).values() for cid, _, _ in x["ate"]) if others else False
         if float(bm.get("ration", 1.0)) < 1 - 1e-9:
             why = "ration"
+        elif part < 1 - 1e-9:
+            why = "shared out"                                                 # the household's even split (W-111)
         elif left > 1e-6:
             why = "kept back"
         else:
@@ -525,6 +532,7 @@ def _meal_record(w, rec, name, took, bm, need, full, ate, stores, hearth) -> Non
 
 
 HUNGER_WHY = {"kept back": "the rest was kept back", "not enough for everyone": "there was not enough for everyone",
+              "shared out": "the household's food was shared out evenly, and there was not enough for everyone",
               "nothing more": "there was nothing more you could eat"}
 
 
@@ -617,20 +625,20 @@ def even_shares(w, where) -> dict:
     for hh, ms in sorted(by.items()):
         if any(r.get("rule") == "share" for r in BK.household_rules(w, hh)):
             continue
-        need, seen, food = 0.0, set(), 0.0
+        need, seen, food = 0.0, set(), 0.0                                   # one's own hands are one's own: the share is of the
+        hands = {w.hands(m) for m, _ in ms}                                    # household's stores, after what each carries
         for n, place in ms:
             mult, extra = LF.ration_factor(w, n)
-            need += float(w.p["ration"]) * mult + extra
             bid = where.get(n)
             hearth = bool(bid and w.s["buildings"][bid].get("fire"))
+            worth = lambda cid: sum(eaten_worth(i, hearth) * max(0.0, float(q) - (BK.held(w, n, cid, i) if w.s.get("books") else 0.0))
+                                    for i, q in w.goods(cid).items() if i in EDIBLE and q > 1e-9)   # noqa: E731
+            need += max(0.0, float(w.p["ration"]) * mult + extra - worth(w.hands(n)))
             for cid in w.takeable(n, place):
-                if cid in seen:
+                if cid in seen or cid in hands:
                     continue
                 seen.add(cid)
-                for item, q in w.goods(cid).items():
-                    v = eaten_worth(item, hearth) if item in EDIBLE else 0.0
-                    if v > 0 and q > 1e-9:
-                        food += v * max(0.0, float(q) - (BK.held(w, n, cid, item) if w.s.get("books") else 0.0))
+                food += worth(cid)
         if need > 1e-9 and food + 1e-9 < need:
             out[hh] = round(max(0.0, food / need), 4)
     return out
