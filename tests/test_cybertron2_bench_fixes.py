@@ -78,6 +78,7 @@ def test_an_act_word_that_is_a_craft_one_knows_is_read_as_the_craft(eel):
     n = SH.normalize(here, mind, {"do": "drive", "at": "Clay Field", "only": ["Nigel"], "looking for": "deer"})
     assert n["do"] == "gather" and n["what"] == "drive", n
     assert SH.normalize(here, mind, {"do": "drive", "thing": "the cattle", "to": "Clay Field"})["do"] == "drive"
+    assert SH.normalize(here, mind, {"do": "watch", "at": "Eelmouth Field"})["do"] == "watch"     # an act the world has stays the act
 
 
 def test_an_empty_pin_written_as_quotes_is_no_pin(eel):
