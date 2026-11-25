@@ -71,3 +71,24 @@ seed; the store has 51 grain), the seed-or-eat choice (L-185) in its plainest fo
 A before-and-after comparison of the prompt can only be read on World 0b as it stands (the broken prompt's runs are there), and
 its population is decided by Highpool's winter (Q-222); its behaviour measures are the comparison. Fallowmere, once fixed, is the
 better world for any later comparison: its outcome turns on effort (0.64× at little work, 3.2× at good work), not one dependence.
+
+## 5. After the fixes (rebuilt 25 Nov on main 34afb75f, worktree bench-fix)
+
+Made by `make_mono_worlds.py` with `by_livelihood` and `design_check` (refuses a build whose homes lack their water, their
+livelihood's land, beasts or buildings, their seed, or run short in the first 64 days at good work); the sea case added to
+`landgen/settle.allocate`; homes on a river laid big pinned "big river". Both passed on seed 2311.
+
+| Home | Water (fish K) | Held | Beasts | Store | Standing | Worked | 64 days, standing | 64 days, worked |
+|---|---|---|---|---|---|---|---|---|
+| Fallowmere | 2 parcels (17.6 each) | Ashby field 7, Reeve meadow 1 | Ashby 2 oxen; Reeve 4 cows, bull, 2 young, 2 oxen | 209 food (20.3 d), Ashby's 112 seed in it | 7.5 (0.63×) | 38.8 (3.2×) | short from day 32, 16 days | none |
+| Holtmouth | 2 parcels (17.6 each), saltmarsh, Salt House | Strand field 2 (a garden), meadow 1 | none | 64 smoked fish, 32 seed | 2.3 (0.58×) | 10.2 (2.5×) | short from day 36, 13 days | none |
+| Highcairn | 1 (35.2) | Fell meadow 1 | 4 cows, bull, 2 young | 64 cheese | 8.5 (2.1×) | 16.2 (4.1×) | none | none |
+| Lowbury | 2 (17.6 each) | Meade field 4, meadow 1 | 2 oxen | 51 grain, 13 beans, 64 seed | 4.2 (1.05×) | 23.3 (5.8×) | none | none |
+| Hartsmoot | 1 (35.2) | Holt meadow 1 (a tent) | none | 64 dried meat in hand | 7.4 (1.8×) | 15.2 (3.8×) | none | none |
+
+Regions: M1 22.5 / 60.7 / 88.8 (standing, worked, best) for 12; M5 48.5 / 90.8 / 127.8 for 16.
+
+Still open: the vermin (every home in every world, World 0b too, 290 to 430 rats a km², illness about 1.9× from night 1;
+stable's Q-108); fishing feeds little at every home (Holtmouth's water about 34 food a year at good work), hence the fishers'
+garden field; the hunters' wood at home has game K 1 (they roam); one road off design (Greenhythe to Kingsmead, 1 day for 2);
+the gate's warnings M3 (wicker traps for households with no fishing), M4 (no stone within a day), P7, P11, P18.
