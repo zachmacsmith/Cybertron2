@@ -5,16 +5,10 @@
   "refuse": [],
   "warn": [
    {
-    "check": "P18",
-    "level": "warn",
-    "who": null,
-    "text": "the village rule: 1 livelihoods hold capital; 3 village(s) in the world, so a need from outside has no village in reach to meet it"
-   },
-   {
     "check": "P7",
     "level": "warn",
     "who": null,
-    "text": "crafts held at capable or above with no lesson rows (their failures say only \"your hands\"): boil salt, charcoal, copper tool, den work, drive, hearth, milk, mine, plough, stalk, trap in water, wicker trap"
+    "text": "crafts held at capable or above with no lesson rows (their failures say only \"your hands\"): boil salt, charcoal, copper tool, den work, hearth, hunting drive, milk, mine, plough, stalk, trap in water, wicker trap"
    },
    {
     "check": "M3",
@@ -59,6 +53,18 @@
     "level": "report",
     "who": null,
     "text": "break a dam: shut everywhere in the dry probe"
+   },
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "reap: shut everywhere in the dry probe"
+   },
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "weed: shut everywhere in the dry probe"
    }
   ],
   "verdict": "pass",
@@ -238,12 +244,11 @@
      "manure",
      "net",
      "pest work",
-     "reap",
      "salt pan",
      "shut",
+     "sow",
      "stalk",
-     "twist cord",
-     "weed"
+     "twist cord"
     ],
     "The Saltings": [
      "clear",
@@ -318,11 +323,9 @@
      "mine",
      "net",
      "pest work",
-     "reap",
      "shut",
      "stalk",
-     "twist cord",
-     "weed"
+     "twist cord"
     ],
     "Coppermount": [
      "clear",
@@ -393,12 +396,10 @@
      "net",
      "pest work",
      "plough",
-     "reap",
      "shut",
      "sow",
      "stalk",
-     "twist cord",
-     "weed"
+     "twist cord"
     ],
     "Millbrook": [
      "clear",
@@ -467,11 +468,9 @@
      "hunt the wild",
      "net",
      "pest work",
-     "reap",
      "shut",
      "stalk",
-     "twist cord",
-     "weed"
+     "twist cord"
     ],
     "Deepwood": [
      "clear",
@@ -518,7 +517,9 @@
     ]
    },
    "shut everywhere": [
-    "break a dam"
+    "break a dam",
+    "reap",
+    "weed"
    ],
    "only the moment or inputs": [
     "angle",
@@ -528,9 +529,9 @@
     "dig a strip",
     "ditch",
     "dress millstones",
-    "drive",
     "dung",
     "gill net",
+    "hunting drive",
     "mend the brine pan",
     "open the gate",
     "pull flax",
@@ -570,19 +571,11 @@
     "apprentices": {},
     "keepers": {
      "herd:hale_cattle": "Avice",
-     "field:Highcairn_1": "Avice",
-     "hale_forge": "Ralph",
-     "oxen:hale_cattle": "Avice"
+     "hale_forge": "Ralph"
     },
     "holds": {
      "forge": [
       "hale_forge"
-     ],
-     "fields": [
-      "field:Highcairn_1"
-     ],
-     "ox pair": [
-      "oxen:hale_cattle"
      ],
      "herd": [
       "herd:hale_cattle"
@@ -607,18 +600,8 @@
      "Sabina": "broad"
     },
     "apprentices": {},
-    "keepers": {
-     "field:Hartsmoot_1": "Gilbert",
-     "herd:ward_cattle": "Gilbert"
-    },
-    "holds": {
-     "fields": [
-      "field:Hartsmoot_1"
-     ],
-     "herd": [
-      "herd:ward_cattle"
-     ]
-    },
+    "keepers": {},
+    "holds": {},
     "second_hands": [
      "Adam",
      "Sabina"
@@ -639,7 +622,6 @@
     "apprentices": {},
     "keepers": {
      "field:Lowbury_1": "Henry",
-     "herd:fowler_cattle": "Henry",
      "oxen:fowler_cattle": "Cecily"
     },
     "holds": {
@@ -648,9 +630,6 @@
      ],
      "ox pair": [
       "oxen:fowler_cattle"
-     ],
-     "herd": [
-      "herd:fowler_cattle"
      ]
     },
     "second_hands": []
@@ -674,18 +653,14 @@
     },
     "keepers": {
      "field:Holtmouth_1": "Stephen",
-     "herd:holt_cattle": "Stephen",
-     "oxen:holt_cattle": "Stephen"
+     "strand_salthouse": "Margery"
     },
     "holds": {
+     "salt house": [
+      "strand_salthouse"
+     ],
      "fields": [
       "field:Holtmouth_1"
-     ],
-     "ox pair": [
-      "oxen:holt_cattle"
-     ],
-     "herd": [
-      "herd:holt_cattle"
      ]
     },
     "second_hands": [
@@ -696,30 +671,24 @@
   },
   "people": {},
   "skipped": [
-   "Fell: fields field:Highcairn_1 kept by Avice, its only able hand",
-   "Fell: ox pair oxen:hale_cattle kept by Avice, its only able hand",
-   "Holt: fields field:Hartsmoot_1 kept by Gilbert, its only able hand",
-   "Holt: herd herd:ward_cattle kept by Gilbert, its only able hand",
-   "Meade: Cecily raised to capable to keep the herd (u11 \u00a72.3)",
-   "Meade: herd herd:fowler_cattle kept by Henry, its only able hand",
+   "Meade: Cecily raised to capable to keep the ox pair (u11 \u00a72.3)",
    "Strand: Margery raised to capable to keep the fields (u11 \u00a72.3)",
-   "Strand: fields field:Holtmouth_1 kept by Stephen, its only able hand",
-   "Strand: herd herd:holt_cattle kept by Stephen, its only able hand",
-   "Strand: ox pair oxen:holt_cattle kept by Stephen, its only able hand"
+   "Strand: fields field:Holtmouth_1 kept by Stephen, its only able hand"
   ],
   "refused": [],
   "capital": {},
   "lines": {
    "Adam": {
     "wanted": 18,
-    "rendered": 16,
+    "rendered": 15,
     "skipped": [
      "PE2",
-     "HU3"
+     "HU3",
+     "HL"
     ],
     "steps": [],
-    "seeded": 16,
-    "words": 497,
+    "seeded": 15,
+    "words": 467,
     "over": false,
     "long": [],
     "ids": [
@@ -737,19 +706,18 @@
      "HU2",
      "HU4",
      "HU5",
-     "WO1",
-     "HL"
+     "WO1"
     ]
    },
    "Avice": {
-    "wanted": 19,
-    "rendered": 18,
+    "wanted": 17,
+    "rendered": 16,
     "skipped": [
      "PE2"
     ],
     "steps": [],
-    "seeded": 18,
-    "words": 536,
+    "seeded": 16,
+    "words": 480,
     "over": false,
     "long": [],
     "ids": [
@@ -768,8 +736,6 @@
      "HE4",
      "HE6",
      "HE7",
-     "FA9",
-     "FA7",
      "HL"
     ]
    },
@@ -782,7 +748,7 @@
     ],
     "steps": [],
     "seeded": 13,
-    "words": 434,
+    "words": 420,
     "over": false,
     "long": [],
     "ids": [
@@ -809,7 +775,7 @@
     ],
     "steps": [],
     "seeded": 17,
-    "words": 555,
+    "words": 550,
     "over": false,
     "long": [],
     "ids": [
@@ -833,15 +799,15 @@
     ]
    },
    "Gilbert": {
-    "wanted": 18,
-    "rendered": 16,
+    "wanted": 16,
+    "rendered": 14,
     "skipped": [
      "PE2",
      "HL"
     ],
     "steps": [],
-    "seeded": 16,
-    "words": 453,
+    "seeded": 14,
+    "words": 424,
     "over": false,
     "long": [],
     "ids": [
@@ -858,21 +824,19 @@
      "HU1",
      "HU2",
      "HU5",
-     "HU6",
-     "FA9",
-     "HE7"
+     "HU6"
     ]
    },
    "Henry": {
-    "wanted": 20,
-    "rendered": 18,
+    "wanted": 19,
+    "rendered": 17,
     "skipped": [
      "PE2",
      "FA10"
     ],
     "steps": [],
-    "seeded": 18,
-    "words": 531,
+    "seeded": 17,
+    "words": 504,
     "over": false,
     "long": [],
     "ids": [
@@ -892,7 +856,6 @@
      "FA5",
      "FA8",
      "FA9",
-     "HE7",
      "HL"
     ]
    },
@@ -902,7 +865,7 @@
     "skipped": [],
     "steps": [],
     "seeded": 9,
-    "words": 297,
+    "words": 283,
     "over": false,
     "long": [],
     "ids": [
@@ -926,7 +889,7 @@
     ],
     "steps": [],
     "seeded": 7,
-    "words": 235,
+    "words": 231,
     "over": false,
     "long": [],
     "ids": [
@@ -945,7 +908,7 @@
     "skipped": [],
     "steps": [],
     "seeded": 9,
-    "words": 295,
+    "words": 290,
     "over": false,
     "long": [],
     "ids": [
@@ -962,29 +925,30 @@
    },
    "Lucy": {
     "wanted": 2,
-    "rendered": 2,
-    "skipped": [],
+    "rendered": 1,
+    "skipped": [
+     "HL"
+    ],
     "steps": [],
-    "seeded": 2,
-    "words": 70,
+    "seeded": 1,
+    "words": 40,
     "over": false,
     "long": [],
     "ids": [
-     "HU1",
-     "HL"
+     "HU1"
     ]
    },
    "Margery": {
-    "wanted": 18,
-    "rendered": 15,
+    "wanted": 19,
+    "rendered": 16,
     "skipped": [
      "PE2",
      "FI1",
      "FI2"
     ],
     "steps": [],
-    "seeded": 15,
-    "words": 494,
+    "seeded": 16,
+    "words": 517,
     "over": false,
     "long": [],
     "ids": [
@@ -1001,6 +965,7 @@
      "FI3",
      "FI4",
      "FI5",
+     "SA4",
      "SA1",
      "HL"
     ]
@@ -1014,7 +979,7 @@
     ],
     "steps": [],
     "seeded": 8,
-    "words": 266,
+    "words": 262,
     "over": false,
     "long": [],
     "ids": [
@@ -1037,7 +1002,7 @@
     ],
     "steps": [],
     "seeded": 16,
-    "words": 502,
+    "words": 488,
     "over": false,
     "long": [],
     "ids": [
@@ -1065,7 +1030,7 @@
     "skipped": [],
     "steps": [],
     "seeded": 2,
-    "words": 65,
+    "words": 60,
     "over": false,
     "long": [],
     "ids": [
@@ -1075,14 +1040,15 @@
    },
    "Sabina": {
     "wanted": 15,
-    "rendered": 13,
+    "rendered": 12,
     "skipped": [
      "PE1",
-     "PE2"
+     "PE2",
+     "HL"
     ],
     "steps": [],
-    "seeded": 13,
-    "words": 418,
+    "seeded": 12,
+    "words": 388,
     "over": false,
     "long": [],
     "ids": [
@@ -1097,24 +1063,22 @@
      "BS9",
      "HU1",
      "HU2",
-     "WO1",
-     "HL"
+     "WO1"
     ]
    },
    "Stephen": {
-    "wanted": 23,
-    "rendered": 17,
+    "wanted": 21,
+    "rendered": 16,
     "skipped": [
      "PE2",
      "FI1",
      "FI2",
      "FI6",
-     "FI7",
-     "HL"
+     "FI7"
     ],
     "steps": [],
-    "seeded": 17,
-    "words": 521,
+    "seeded": 16,
+    "words": 499,
     "over": false,
     "long": [],
     "ids": [
@@ -1132,9 +1096,8 @@
      "FI4",
      "FI8",
      "FA9",
-     "HE7",
-     "FA7",
-     "SA1"
+     "SA1",
+     "HL"
     ]
    }
   }
@@ -1143,32 +1106,32 @@
   "Holtmouth": {
    "people": 4,
    "standing": 2.3,
-   "worked": 11.3,
-   "best": 18.6
+   "worked": 10.2,
+   "best": 17.5
   },
   "Highcairn": {
    "people": 4,
-   "standing": 7.5,
-   "worked": 14.2,
-   "best": 19.4
+   "standing": 8.5,
+   "worked": 16.2,
+   "best": 21.4
   },
   "Lowbury": {
    "people": 4,
-   "standing": 10.7,
-   "worked": 31.2,
-   "best": 48.8
+   "standing": 4.2,
+   "worked": 23.3,
+   "best": 40.9
   },
   "Hartsmoot": {
    "people": 4,
-   "standing": 8.4,
-   "worked": 17.3,
-   "best": 24.6
+   "standing": 7.4,
+   "worked": 15.2,
+   "best": 22.5
   },
   "(region)": {
    "people": 16,
-   "standing": 54.6,
-   "worked": 99.2,
-   "best": 136.4
+   "standing": 48.5,
+   "worked": 90.8,
+   "best": 127.8
   }
  },
  "roads_off": [],
@@ -1501,13 +1464,14 @@
     "covers": {
      "built": 2,
      "field": 2,
-     "saltmarsh": 1,
-     "pasture": 2,
+     "meadow": 1,
+     "saltmarsh": 2,
      "forest": 1,
-     "fen": 2
+     "fen": 2,
+     "water": 2
     },
     "stocks": [
-     "crop",
+     "fish",
      "game",
      "grass",
      "plants",
@@ -1576,7 +1540,6 @@
      "water": 2
     },
     "stocks": [
-     "crop",
      "fish",
      "game",
      "grass",
@@ -1645,7 +1608,6 @@
      "water": 2
     },
     "stocks": [
-     "crop",
      "fish",
      "game",
      "grass",
@@ -1714,7 +1676,6 @@
      "water": 2
     },
     "stocks": [
-     "crop",
      "fish",
      "game",
      "grass",

@@ -3,7 +3,12 @@
  "pins_eased": [
   "Broadwater: within 6.0 km",
   "Longmere: within 6.0 km",
-  "rivers shortened from their sources by a place: the land turned the laid channel aside"
+  "rivers shortened by a place at the end away from the homes: the land turned the laid channel aside",
+  "Kingsmead: within 6.0 km",
+  "Kingsmead: within 9.0 km",
+  "Kingsmead: soil rich not required",
+  "Kingsmead: on big river not required",
+  "rivers shortened by a place at the end away from the homes: the land turned the laid channel aside"
  ],
  "gate": {
   "refuse": [],
@@ -80,7 +85,13 @@
     "check": "probe",
     "level": "report",
     "who": null,
-    "text": "milk: shut everywhere in the dry probe"
+    "text": "reap: shut everywhere in the dry probe"
+   },
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "weed: shut everywhere in the dry probe"
    }
   ],
   "verdict": "pass",
@@ -98,20 +109,20 @@
      "firewood",
      "fish by hand",
      "gather wild food",
+     "gather young",
      "guard the field",
      "hay",
      "hoe",
      "hunt the wild",
      "manure",
+     "milk",
      "net",
      "pest work",
      "plough",
-     "reap",
      "shut",
      "sow",
      "stalk",
-     "twist cord",
-     "weed"
+     "twist cord"
     ],
     "Fallow Wood": [
      "clear",
@@ -123,6 +134,7 @@
      "firewood",
      "fish by hand",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -140,6 +152,7 @@
      "firewood",
      "fish by hand",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -157,6 +170,7 @@
      "firewood",
      "fish by hand",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -174,6 +188,7 @@
      "firewood",
      "fish by hand",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -189,7 +204,9 @@
      "den work",
      "fell",
      "firewood",
+     "fish by hand",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -207,6 +224,7 @@
      "firewood",
      "fish by hand",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -224,6 +242,7 @@
      "firewood",
      "fish by hand",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -240,6 +259,7 @@
      "fell",
      "firewood",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -257,6 +277,7 @@
      "firewood",
      "fish by hand",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -273,6 +294,7 @@
      "fell",
      "firewood",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -290,6 +312,7 @@
      "firewood",
      "fish by hand",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -307,6 +330,7 @@
      "firewood",
      "fish by hand",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -323,6 +347,7 @@
      "fell",
      "firewood",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -340,6 +365,7 @@
      "firewood",
      "fish by hand",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -357,6 +383,7 @@
      "firewood",
      "fish by hand",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -373,6 +400,7 @@
      "fell",
      "firewood",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -390,6 +418,7 @@
      "firewood",
      "fish by hand",
      "gather wild food",
+     "gather young",
      "hay",
      "hunt the wild",
      "net",
@@ -408,7 +437,7 @@
      "pest work",
      "twist cord"
     ],
-    "Meadthorpe": [
+    "Hazelthorpe": [
      "clear",
      "clear for building",
      "den work",
@@ -419,18 +448,7 @@
      "pest work",
      "twist cord"
     ],
-    "Oakley": [
-     "clear",
-     "clear for building",
-     "den work",
-     "gather wild food",
-     "hay",
-     "hunt the wild",
-     "net",
-     "pest work",
-     "twist cord"
-    ],
-    "Meadton": [
+    "Leaton": [
      "clear",
      "clear for building",
      "den work",
@@ -444,7 +462,8 @@
    },
    "shut everywhere": [
     "break a dam",
-    "milk"
+    "reap",
+    "weed"
    ],
    "only the moment or inputs": [
     "angle",
@@ -454,10 +473,9 @@
     "dig a strip",
     "ditch",
     "dress millstones",
-    "drive",
     "dung",
-    "gather young",
     "gill net",
+    "hunting drive",
     "mend the brine pan",
     "mine",
     "open the gate",
@@ -497,8 +515,7 @@
     "apprentices": {},
     "keepers": {
      "oxen:holt_cattle": "Robert",
-     "field:Fallowmere_1": "Agnes",
-     "herd:holt_cattle": "Robert"
+     "field:Fallowmere_1": "Agnes"
     },
     "holds": {
      "fields": [
@@ -506,9 +523,6 @@
      ],
      "ox pair": [
       "oxen:holt_cattle"
-     ],
-     "herd": [
-      "herd:holt_cattle"
      ]
     },
     "second_hands": []
@@ -523,18 +537,12 @@
     },
     "bands": {
      "Geoffrey": "expert",
-     "Emma": "capable",
+     "Emma": "broad",
      "Roger": "broad"
     },
     "apprentices": {},
-    "keepers": {
-     "herd:fowler_cattle": "Geoffrey"
-    },
-    "holds": {
-     "herd": [
-      "herd:fowler_cattle"
-     ]
-    },
+    "keepers": {},
+    "holds": {},
     "second_hands": [
      "Emma",
      "Geoffrey"
@@ -571,9 +579,6 @@
   "people": {},
   "skipped": [
    "Ashby: Agnes raised to capable to keep the fields (u11 \u00a72.3)",
-   "Ashby: herd herd:holt_cattle kept by Robert, its only able hand",
-   "Colle: Emma raised to capable to keep the herd (u11 \u00a72.3)",
-   "Colle: herd herd:fowler_cattle kept by Geoffrey, its only able hand",
    "Reeve: Simon raised to capable to keep the herd (u11 \u00a72.3)"
   ],
   "refused": [],
@@ -587,7 +592,7 @@
     ],
     "steps": [],
     "seeded": 20,
-    "words": 589,
+    "words": 588,
     "over": false,
     "long": [],
     "ids": [
@@ -635,15 +640,15 @@
     ]
    },
    "Emma": {
-    "wanted": 20,
-    "rendered": 18,
+    "wanted": 17,
+    "rendered": 15,
     "skipped": [
      "PE2",
-     "BU5"
+     "HL"
     ],
     "steps": [],
-    "seeded": 18,
-    "words": 492,
+    "seeded": 15,
+    "words": 438,
     "over": false,
     "long": [],
     "ids": [
@@ -659,25 +664,22 @@
      "PE1",
      "BU1",
      "BU2",
-     "BU3",
-     "BU4",
      "WO1",
-     "HL",
      "NB-farmer:Ashby",
      "NB-herder:Reeve"
     ]
    },
    "Geoffrey": {
-    "wanted": 20,
-    "rendered": 17,
+    "wanted": 19,
+    "rendered": 16,
     "skipped": [
      "PE2",
      "BU5",
      "HL"
     ],
     "steps": [],
-    "seeded": 17,
-    "words": 460,
+    "seeded": 16,
+    "words": 448,
     "over": false,
     "long": [],
     "ids": [
@@ -694,7 +696,6 @@
      "BU1",
      "BU2",
      "BU6",
-     "HE7",
      "WO1",
      "NB-farmer:Ashby",
      "NB-herder:Reeve"
@@ -717,7 +718,7 @@
     "skipped": [],
     "steps": [],
     "seeded": 2,
-    "words": 65,
+    "words": 60,
     "over": false,
     "long": [],
     "ids": [
@@ -735,7 +736,7 @@
     ],
     "steps": [],
     "seeded": 17,
-    "words": 486,
+    "words": 492,
     "over": false,
     "long": [],
     "ids": [
@@ -759,14 +760,14 @@
     ]
    },
    "Robert": {
-    "wanted": 20,
-    "rendered": 19,
+    "wanted": 19,
+    "rendered": 18,
     "skipped": [
      "PE2"
     ],
     "steps": [],
-    "seeded": 19,
-    "words": 565,
+    "seeded": 18,
+    "words": 544,
     "over": false,
     "long": [],
     "ids": [
@@ -785,7 +786,6 @@
      "FA3",
      "FA6",
      "FA7",
-     "HE7",
      "HL",
      "NB-builder:Colle",
      "NB-herder:Reeve"
@@ -793,11 +793,13 @@
    },
    "Roger": {
     "wanted": 8,
-    "rendered": 8,
-    "skipped": [],
+    "rendered": 7,
+    "skipped": [
+     "HL"
+    ],
     "steps": [],
-    "seeded": 8,
-    "words": 248,
+    "seeded": 7,
+    "words": 232,
     "over": false,
     "long": [],
     "ids": [
@@ -807,8 +809,7 @@
      "BS5",
      "BS8",
      "PE1",
-     "BU1",
-     "HL"
+     "BU1"
     ]
    },
    "Simon": {
@@ -865,7 +866,7 @@
     "skipped": [],
     "steps": [],
     "seeded": 9,
-    "words": 295,
+    "words": 290,
     "over": false,
     "long": [],
     "ids": [
@@ -885,18 +886,24 @@
  "capacity": {
   "Fallowmere": {
    "people": 12,
-   "standing": 7.7,
-   "worked": 37.7,
-   "best": 64.7
+   "standing": 7.5,
+   "worked": 38.8,
+   "best": 65.8
   },
   "(region)": {
    "people": 12,
-   "standing": 21.8,
-   "worked": 59.8,
-   "best": 91.5
+   "standing": 22.5,
+   "worked": 60.7,
+   "best": 88.8
   }
  },
- "roads_off": [],
+ "roads_off": [
+  {
+   "road": "Greenhythe - Kingsmead",
+   "designed": 2,
+   "generated": 1
+  }
+ ],
  "compare": {
   "roads": [
    {
@@ -992,7 +999,7 @@
    {
     "road": "Greenhythe - Kingsmead",
     "designed": 2,
-    "generated": 2
+    "generated": 1
    },
    {
     "road": "The Ford - Southmead",
@@ -1042,12 +1049,12 @@
      "built": 5,
      "field": 7,
      "meadow": 1,
-     "pasture": 4,
+     "pasture": 7,
      "forest": 1,
-     "fen": 3
+     "water": 2
     },
     "stocks": [
-     "crop",
+     "fish",
      "game",
      "grass",
      "plants",
@@ -1089,12 +1096,15 @@
    "The Ford": {
     "land": "farmland",
     "covers": {
-     "meadow": 39,
-     "pasture": 4,
+     "meadow": 33,
+     "pasture": 10,
      "forest": 12,
-     "fen": 6
+     "fen": 4,
+     "heath": 2,
+     "water": 2
     },
     "stocks": [
+     "fish",
      "game",
      "grass",
      "plants",
@@ -1104,12 +1114,14 @@
    "Broadwater": {
     "land": "rich vale",
     "covers": {
-     "meadow": 69,
-     "pasture": 21,
+     "meadow": 65,
+     "pasture": 20,
      "forest": 24,
-     "fen": 7
+     "fen": 10,
+     "water": 2
     },
     "stocks": [
+     "fish",
      "game",
      "grass",
      "plants",
@@ -1119,9 +1131,10 @@
    "Hollins": {
     "land": "farmland",
     "covers": {
-     "meadow": 34,
-     "pasture": 15,
-     "forest": 12
+     "meadow": 40,
+     "pasture": 3,
+     "forest": 12,
+     "fen": 6
     },
     "stocks": [
      "game",
@@ -1226,11 +1239,11 @@
    "Kingsmead": {
     "land": "rich vale",
     "covers": {
-     "pasture": 67,
+     "meadow": 54,
+     "pasture": 16,
      "forest": 19,
-     "heath": 10,
-     "water": 2,
-     "meadow": 1
+     "fen": 8,
+     "water": 2
     },
     "stocks": [
      "fish",
@@ -1274,10 +1287,11 @@
    "Far Meadows": {
     "land": "rich vale",
     "covers": {
-     "meadow": 105,
-     "pasture": 28,
+     "meadow": 111,
+     "pasture": 13,
      "forest": 34,
-     "fen": 3,
+     "fen": 2,
+     "heath": 8,
      "water": 2
     },
     "stocks": [
@@ -1305,15 +1319,12 @@
    "Eastmarch": {
     "land": "farmland",
     "covers": {
-     "meadow": 3,
-     "pasture": 41,
+     "meadow": 21,
+     "pasture": 22,
      "forest": 12,
-     "fen": 3,
-     "heath": 2,
-     "water": 2
+     "fen": 6
     },
     "stocks": [
-     "fish",
      "game",
      "grass",
      "plants",

@@ -65,24 +65,24 @@
     "Stonebarrow-Highbarrow: pass",
     "Upper Hollins-Ashen Down: pass",
     "Hartwood-Stonebarrow: pass",
-    "t4-Highbarrow: pass"
+    "t3-Highbarrow: pass"
    ]
   },
   "roads about a day": {
    "kind": "design",
    "ok": true,
    "detail": {
-    "1": 31
+    "1": 30
    }
   },
   "parcels per node": {
    "kind": "design",
    "ok": false,
    "detail": {
-    "Fallowmere": 7,
+    "Fallowmere": 8,
     "Fallow Wood": 6,
     "Southmead": 9,
-    "The Ford": 6,
+    "The Ford": 7,
     "Broadwater": 7,
     "Hollins": 6,
     "Greenhythe": 11,
@@ -91,12 +91,12 @@
     "Longmere": 6,
     "Stonebarrow": 7,
     "Upper Hollins": 7,
-    "Kingsmead": 6,
+    "Kingsmead": 9,
     "Ashen Down": 6,
     "Wolfcombe": 7,
-    "Far Meadows": 8,
+    "Far Meadows": 14,
     "Highbarrow": 6,
-    "Eastmarch": 9
+    "Eastmarch": 6
    }
   },
   "access gates": {
@@ -200,27 +200,27 @@
    "ok": true,
    "detail": {
     "said": {
-     "Fallowmere": "stoat 13.03 (a group needs 1), fox 9.18 (a group needs 1), wolf 2.19 (a group needs 3), wild boar 1.18 (a group needs 2)"
+     "Fallowmere": "stoat 11.84 (a group needs 1), fox 8.11 (a group needs 1), wolf 2.16 (a group needs 3), wild boar 1.95 (a group needs 2)"
     },
     "by village": {
      "Fallowmere": {
       "wild boar": {
-       "heads": 1.18,
+       "heads": 1.95,
        "least": 2,
        "range_km2": 40.0
       },
       "fox": {
-       "heads": 9.18,
+       "heads": 8.11,
        "least": 1,
        "reach": "ring"
       },
       "stoat": {
-       "heads": 13.03,
+       "heads": 11.84,
        "least": 1,
        "reach": "ring"
       },
       "wolf": {
-       "heads": 2.19,
+       "heads": 2.16,
        "least": 3,
        "range_km2": 200.0
       },
@@ -250,10 +250,10 @@
    "name": "Fallowmere",
    "kind": "village",
    "site_km": [
-    75.65,
-    37.99
+    74.87,
+    36.95
    ],
-   "parcels": 7
+   "parcels": 8
   },
   "Fallow Wood": {
    "name": "Fallow Wood",
@@ -277,17 +277,17 @@
    "name": "The Ford",
    "kind": "vacant",
    "site_km": [
-    83.1,
-    25.55
+    81.34,
+    20.37
    ],
-   "parcels": 6
+   "parcels": 7
   },
   "Broadwater": {
    "name": "Broadwater",
    "kind": "vacant",
    "site_km": [
-    99.01,
-    31.3
+    99.03,
+    32.35
    ],
    "parcels": 7
   },
@@ -295,8 +295,8 @@
    "name": "Hollins",
    "kind": "vacant",
    "site_km": [
-    51.33,
-    56.22
+    52.38,
+    58.02
    ],
    "parcels": 6
   },
@@ -358,10 +358,10 @@
    "name": "Kingsmead",
    "kind": "vacant",
    "site_km": [
-    101.28,
-    19.66
+    94.21,
+    17.13
    ],
-   "parcels": 6
+   "parcels": 9
   },
   "Ashen Down": {
    "name": "Ashen Down",
@@ -385,10 +385,10 @@
    "name": "Far Meadows",
    "kind": "vacant",
    "site_km": [
-    114.45,
-    33.13
+    109.66,
+    32.8
    ],
-   "parcels": 8
+   "parcels": 14
   },
   "Highbarrow": {
    "name": "Highbarrow",
@@ -403,10 +403,10 @@
    "name": "Eastmarch",
    "kind": "vacant",
    "site_km": [
-    118.52,
-    16.77
+    118.3,
+    16.79
    ],
-   "parcels": 9
+   "parcels": 6
   },
   "t1": {
    "name": "Asholt",
@@ -418,16 +418,7 @@
    "parcels": 1
   },
   "t2": {
-   "name": "Meadthorpe",
-   "kind": "stop",
-   "site_km": [
-    84.14,
-    18.61
-   ],
-   "parcels": 1
-  },
-  "t3": {
-   "name": "Oakley",
+   "name": "Hazelthorpe",
    "kind": "stop",
    "site_km": [
     88.97,
@@ -435,8 +426,8 @@
    ],
    "parcels": 1
   },
-  "t4": {
-   "name": "Meadton",
+  "t3": {
+   "name": "Leaton",
    "kind": "stop",
    "site_km": [
     18.27,
@@ -447,24 +438,20 @@
  },
  "anchors": {
   "river_0.source": [
-   76.2,
-   39.6
+   50.6,
+   57.6
   ],
   "river_0.mouth": [
-   120.5,
-   18.7
-  ],
-  "river_0.point_1": [
-   82.5,
-   22.69
-  ],
-  "river_0.point_2": [
    94.9,
    35.6
   ],
-  "river_0.point_3": [
-   102.5,
-   19.3
+  "river_0.point_1": [
+   76.2,
+   39.6
+  ],
+  "river_0.point_2": [
+   82.5,
+   22.69
   ],
   "oldwood_1_0": [
    43.7,

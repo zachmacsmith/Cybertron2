@@ -134,7 +134,7 @@
     "Fernmoor": 8,
     "Marchmead": 7,
     "Southfold": 6,
-    "Holtmouth": 6,
+    "Holtmouth": 8,
     "The Saltings": 6,
     "Cove": 5,
     "Greyhaven": 9,
@@ -142,7 +142,7 @@
     "Coppermount": 6,
     "Stonefell": 6,
     "Highmoor": 5,
-    "Lowbury": 7,
+    "Lowbury": 8,
     "Millbrook": 7,
     "Wheatley": 7,
     "Southmere": 7,
@@ -272,8 +272,8 @@
     "said": {
      "Hartsmoot": "stoat 14 (a group needs 1), fox 9.98 (a group needs 1), wild boar 4.57 (a group needs 2), wolf 2.61 (a group needs 3), brown bear 1.21 (a group needs 1)",
      "Highcairn": "wild boar 25.53 (a group needs 2), stoat 12.11 (a group needs 1), fox 8.33 (a group needs 1), wolf 3.48 (a group needs 3), brown bear 2.81 (a group needs 1)",
-     "Holtmouth": "stoat 9.49 (a group needs 1), fox 6.44 (a group needs 1), wild boar 2.72 (a group needs 2), wolf 1.46 (a group needs 3), brown bear 0.78 (a group needs 1)",
-     "Lowbury": "stoat 14.5 (a group needs 1), fox 10.3 (a group needs 1), wild boar 4.8 (a group needs 2), wolf 2.34 (a group needs 3), brown bear 0.65 (a group needs 1)"
+     "Holtmouth": "stoat 9.52 (a group needs 1), fox 6.47 (a group needs 1), wild boar 2.51 (a group needs 2), wolf 1.43 (a group needs 3), brown bear 0.77 (a group needs 1)",
+     "Lowbury": "stoat 14.56 (a group needs 1), fox 10.34 (a group needs 1), wild boar 5.04 (a group needs 2), wolf 2.33 (a group needs 3), brown bear 0.64 (a group needs 1)"
     },
     "by village": {
      "Hartsmoot": {
@@ -332,54 +332,54 @@
      },
      "Holtmouth": {
       "wild boar": {
-       "heads": 2.72,
+       "heads": 2.51,
        "least": 2,
        "range_km2": 40.0
       },
       "fox": {
-       "heads": 6.44,
+       "heads": 6.47,
        "least": 1,
        "reach": "ring"
       },
       "stoat": {
-       "heads": 9.49,
+       "heads": 9.52,
        "least": 1,
        "reach": "ring"
       },
       "wolf": {
-       "heads": 1.46,
+       "heads": 1.43,
        "least": 3,
        "range_km2": 200.0
       },
       "brown bear": {
-       "heads": 0.78,
+       "heads": 0.77,
        "least": 1,
        "range_km2": 300.0
       }
      },
      "Lowbury": {
       "wild boar": {
-       "heads": 4.8,
+       "heads": 5.04,
        "least": 2,
        "range_km2": 40.0
       },
       "fox": {
-       "heads": 10.3,
+       "heads": 10.34,
        "least": 1,
        "reach": "ring"
       },
       "stoat": {
-       "heads": 14.5,
+       "heads": 14.56,
        "least": 1,
        "reach": "ring"
       },
       "wolf": {
-       "heads": 2.34,
+       "heads": 2.33,
        "least": 3,
        "range_km2": 200.0
       },
       "brown bear": {
-       "heads": 0.65,
+       "heads": 0.64,
        "least": 1,
        "range_km2": 300.0
       }
@@ -488,7 +488,7 @@
     6.14,
     58.69
    ],
-   "parcels": 6
+   "parcels": 8
   },
   "The Saltings": {
    "name": "The Saltings",
@@ -560,7 +560,7 @@
     79.64,
     56.83
    ],
-   "parcels": 7
+   "parcels": 8
   },
   "Millbrook": {
    "name": "Millbrook",

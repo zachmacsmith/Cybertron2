@@ -2562,8 +2562,8 @@ nodes:
           drain_rate: 0.08
           depth: 1.07
           base_fertility: 1.05
-          position: ridge
-          rain_factor: 0.968
+          position: hollow
+          rain_factor: 0.849
           sea_km: 1.3
           river: none
         state: {}
@@ -2591,22 +2591,18 @@ nodes:
           depth: 1.1
           base_fertility: 1.05
           position: hollow
-          rain_factor: 0.98
+          rain_factor: 0.859
           sea_km: 1.2
           river: none
         holder: Strand
-        state:
-          crop:
-            kind: barley
-            left: 96
-            ripe_day: 5
+        state: {}
       Holtmouth_2:
         name: Holtmouth Meadow
-        cover: saltmarsh
+        cover: meadow
         size: 1
         side: south
         height: 0
-        text: saltmarsh by the shore, its pools crusted white in summer
+        text: hay meadow, on heavy clay, low by the water
         adj:
         - Holtmouth_5
         state:
@@ -2618,13 +2614,9 @@ nodes:
             K: 27.0
             S: 27.0
             r: 0.32
-          salt:
-            K: 1000
-            S: 1000
-            r: 0.0
-        terrain: saltmarsh
+        terrain: clay vale
         soil: clay
-        ecosystem: saltmarsh
+        ecosystem: wet grassland
         land:
           elevation: 14.6
           exposure: 0.26
@@ -2634,22 +2626,23 @@ nodes:
           depth: 1.0
           base_fertility: 1.05
           position: hollow
-          rain_factor: 0.753
+          rain_factor: 0.66
           sea_km: 1.4
           river: none
         holder: Strand
       Holtmouth_3:
         name: Middle Pasture
-        cover: pasture
+        cover: saltmarsh
         size: 2
         side: centre
         height: 1
-        text: grazing, on heavy clay
+        text: saltmarsh by the shore, its pools crusted white in summer
         adj:
         - Holtmouth_0
         - Holtmouth_1
         - Holtmouth_4
         - Holtmouth_5
+        - Holtmouth_7
         state:
           plants:
             K: 2.0
@@ -2659,9 +2652,13 @@ nodes:
             K: 60.0
             S: 60.0
             r: 0.32
-        terrain: clay vale
+          salt:
+            K: 1000
+            S: 1000
+            r: 0.0
+        terrain: saltmarsh
         soil: clay
-        ecosystem: grassland
+        ecosystem: saltmarsh
         land:
           elevation: 32.1
           exposure: 0.57
@@ -2670,8 +2667,8 @@ nodes:
           drain_rate: 0.08
           depth: 1.04
           base_fertility: 1.05
-          position: ridge
-          rain_factor: 1.028
+          position: hollow
+          rain_factor: 0.901
           sea_km: 1.1
           river: none
       Holtmouth_4:
@@ -2709,7 +2706,7 @@ nodes:
           depth: 1.09
           base_fertility: 1.05
           position: slope
-          rain_factor: 0.814
+          rain_factor: 0.714
           sea_km: 1.2
           river: none
       Holtmouth_5:
@@ -2722,6 +2719,7 @@ nodes:
         adj:
         - Holtmouth_2
         - Holtmouth_3
+        - Holtmouth_6
         state:
           plants:
             K: 2.0
@@ -2743,14 +2741,76 @@ nodes:
           depth: 1.02
           base_fertility: 1.025
           position: hollow
-          rain_factor: 1.24
+          rain_factor: 1.087
           sea_km: 0.9
           river: none
+      Holtmouth_6:
+        name: the Lyde
+        cover: water
+        size: 1
+        side: west
+        height: 0
+        text: a brook, quick and shallow
+        adj:
+        - Holtmouth_5
+        terrain: water
+        soil: loam
+        ecosystem: water
+        land:
+          elevation: -5.4
+          exposure: 0.45
+          texture: loam
+          held_mm: 153.7
+          drain_rate: 0.25
+          depth: 0.9
+          base_fertility: 1.0
+          position: hollow
+          rain_factor: 1.617
+          sea_km: 0.0
+          river: none
+          down: out
+          water_body: water:Holtmouth_6
+        state:
+          fish:
+            K: 17.6
+            S: 17.6
+            r: 0.3
+      Holtmouth_7:
+        name: Holtmouth Water
+        cover: water
+        size: 1
+        side: south
+        height: 0
+        text: a brook, quick and shallow
+        adj:
+        - Holtmouth_3
+        terrain: water
+        soil: clay
+        ecosystem: water
+        land:
+          elevation: -0.5
+          exposure: 0.21
+          texture: clay
+          held_mm: 141.1
+          drain_rate: 0.08
+          depth: 0.94
+          base_fertility: 1.05
+          position: hollow
+          rain_factor: 1.617
+          sea_km: 0.0
+          river: none
+          down: out
+          water_body: water:Holtmouth_7
+        state:
+          fish:
+            K: 17.6
+            S: 17.6
+            r: 0.3
     xy:
     - 6.14
     - 58.69
-    elevation: 29.0
-    rain_mm: 1951.0
+    elevation: 23.7
+    rain_mm: 2226.0
     unexplored: true
   The Saltings:
     name: The Saltings
@@ -3530,12 +3590,7 @@ nodes:
           rain_factor: 0.978
           sea_km: 99.0
           river: none
-        holder: Fell
-        state:
-          crop:
-            kind: barley
-            left: 96
-            ripe_day: 5
+        state: {}
       Highcairn_2:
         name: Ouse Meadow
         cover: meadow
@@ -4403,7 +4458,6 @@ nodes:
         - Lowbury_1
         - Lowbury_3
         - Lowbury_4
-        - Lowbury_6
         terrain: clay vale
         soil: clay
         ecosystem: grassland
@@ -4416,7 +4470,7 @@ nodes:
           depth: 1.04
           base_fertility: 1.2
           position: slope
-          rain_factor: 1.024
+          rain_factor: 1.048
           sea_km: 99.0
           river: none
         state: {}
@@ -4431,7 +4485,6 @@ nodes:
         - Lowbury_0
         - Lowbury_2
         - Lowbury_3
-        - Lowbury_6
         fertility: 1.37
         terrain: river floodplain
         soil: clay
@@ -4445,15 +4498,11 @@ nodes:
           depth: 1.17
           base_fertility: 1.208
           position: slope
-          rain_factor: 0.982
+          rain_factor: 1.004
           sea_km: 99.0
           river: none
         holder: Meade
-        state:
-          crop:
-            kind: barley
-            left: 192
-            ripe_day: 5
+        state: {}
       Lowbury_2:
         name: Leven Meadow
         cover: meadow
@@ -4464,7 +4513,6 @@ nodes:
         adj:
         - Lowbury_1
         - Lowbury_4
-        - Lowbury_6
         state:
           plants:
             K: 1.3
@@ -4486,7 +4534,7 @@ nodes:
           depth: 1.18
           base_fertility: 1.208
           position: slope
-          rain_factor: 1.011
+          rain_factor: 1.034
           sea_km: 99.0
           river: none
         holder: Meade
@@ -4500,7 +4548,7 @@ nodes:
         adj:
         - Lowbury_0
         - Lowbury_1
-        - Lowbury_6
+        - Lowbury_7
         state:
           plants:
             K: 2.0
@@ -4522,7 +4570,7 @@ nodes:
           depth: 1.01
           base_fertility: 1.208
           position: slope
-          rain_factor: 1.037
+          rain_factor: 1.061
           sea_km: 99.0
           river: none
       Lowbury_4:
@@ -4535,8 +4583,6 @@ nodes:
         adj:
         - Lowbury_0
         - Lowbury_2
-        - Lowbury_5
-        - Lowbury_6
         state:
           plants:
             K: 1.4
@@ -4561,7 +4607,7 @@ nodes:
           depth: 1.0
           base_fertility: 1.2
           position: slope
-          rain_factor: 1.05
+          rain_factor: 1.075
           sea_km: 99.0
           river: none
       Lowbury_5:
@@ -4572,7 +4618,7 @@ nodes:
         height: 0
         text: reed and sedge over standing water, low by the water
         adj:
-        - Lowbury_4
+        - Lowbury_6
         state:
           plants:
             K: 2.0
@@ -4594,53 +4640,78 @@ nodes:
           depth: 1.2
           base_fertility: 1.2
           position: hollow
-          rain_factor: 0.912
+          rain_factor: 0.933
           sea_km: 99.0
           river: brook
       Lowbury_6:
         name: Lowbury Water
         cover: water
-        size: 2
-        side: centre
+        size: 1
+        side: west
         height: 0
-        text: the river, running between banks
+        text: a broad slow river
         adj:
-        - Lowbury_0
-        - Lowbury_1
-        - Lowbury_2
-        - Lowbury_3
-        - Lowbury_4
-        terrain: clay vale
+        - Lowbury_5
+        - Lowbury_7
+        terrain: water
         soil: clay
-        ecosystem: wet grassland
+        ecosystem: water
         land:
-          elevation: 108.6
-          exposure: 0.47
+          elevation: 96.0
+          exposure: 0.33
           texture: clay
-          held_mm: 165.5
+          held_mm: 177.6
           drain_rate: 0.08
-          depth: 1.1
+          depth: 1.18
           base_fertility: 1.208
           position: hollow
-          rain_factor: 1.032
+          rain_factor: 0.912
+          sea_km: 99.0
+          river: river
+          down: Lowbury_7
+          water_body: reach:Lowbury
+        state:
+          fish:
+            K: 17.6
+            S: 17.6
+            r: 0.3
+      Lowbury_7:
+        name: the Leven
+        cover: water
+        size: 1
+        side: south
+        height: 0
+        text: a broad slow river
+        adj:
+        - Lowbury_3
+        - Lowbury_6
+        terrain: water
+        soil: clay
+        ecosystem: water
+        land:
+          elevation: 96.0
+          exposure: 0.33
+          texture: clay
+          held_mm: 177.6
+          drain_rate: 0.08
+          depth: 1.18
+          base_fertility: 1.208
+          position: hollow
+          rain_factor: 0.878
           sea_km: 99.0
           river: river
           down: out
           water_body: reach:Lowbury
         state:
           fish:
-            K: 35.2
-            S: 35.2
+            K: 17.6
+            S: 17.6
             r: 0.3
-            run_K: 140.8
-            run_r: 0.35
-            run_seasons:
-            - autumn
     xy:
     - 79.64
     - 56.83
-    elevation: 108.2
-    rain_mm: 951.0
+    elevation: 106.4
+    rain_mm: 929.0
     unexplored: true
   Millbrook:
     name: Millbrook
@@ -5458,12 +5529,7 @@ nodes:
           rain_factor: 1.0
           sea_km: 99.0
           river: none
-        holder: Holt
-        state:
-          crop:
-            kind: barley
-            left: 96
-            ripe_day: 5
+        state: {}
       Hartsmoot_2:
         name: Brue 2 Meadow
         cover: meadow
@@ -6755,6 +6821,7 @@ buildings:
       timber: 8
       firewood: 24
       smoked fish: 64
+      grain: 32
       copper hook: 4
   holt_byre:
     name: the Strand Byre
@@ -6768,8 +6835,6 @@ buildings:
       hay: 20
       straw: 10
       dung: 10
-      wooden plough: 1
-      harness: 2
   hale_house:
     name: Fell House
     parcel: Highcairn_0
@@ -6808,8 +6873,6 @@ buildings:
       hay: 20
       straw: 10
       dung: 10
-      wooden plough: 1
-      harness: 2
   fowler_house:
     name: Meade House
     parcel: Lowbury_0
@@ -6823,7 +6886,7 @@ buildings:
     stock:
       timber: 8
       firewood: 30
-      grain: 51
+      grain: 115
       beans: 13
   fowler_byre:
     name: the Meade Byre
@@ -6839,47 +6902,37 @@ buildings:
       dung: 10
       wooden plough: 1
       harness: 2
-herds:
-  holt_cattle:
-    name: the Strand cattle
-    kind: cattle
+  strand_salthouse:
     parcel: Holtmouth_3
-    cows: 2
-    oxen: 2
-    bulls: 1
-    young: 1
-    in_milk: 1
-    holder: Strand
+    household: Strand
+    structure: wattle
+    name: the Salt House
+    fittings:
+      brine pan: 1
+    stock:
+      firewood: 20
+    keeper: Margery
+herds:
   hale_cattle:
     name: the Fell cattle
     kind: cattle
     parcel: Highcairn_3
-    cows: 2
-    oxen: 2
+    cows: 4
+    oxen: 0
     bulls: 1
-    young: 1
-    in_milk: 1
+    young: 2
+    in_milk: 2
     holder: Fell
   fowler_cattle:
-    name: the Meade cattle
+    name: the Meade oxen
     kind: cattle
     parcel: Lowbury_3
-    cows: 2
+    cows: 0
     oxen: 2
-    bulls: 1
-    young: 1
-    in_milk: 1
+    bulls: 0
+    young: 0
+    in_milk: 0
     holder: Meade
-  ward_cattle:
-    name: the Holt cattle
-    kind: cattle
-    parcel: Hartsmoot_3
-    cows: 2
-    oxen: 2
-    bulls: 1
-    young: 1
-    in_milk: 1
-    holder: Holt
 wild:
   land:
     version: 1
@@ -7245,10 +7298,12 @@ wild:
         - Holtmouth_3
         - Holtmouth_4
         - Holtmouth_5
-        km2: 0.225
+        - Holtmouth_6
+        - Holtmouth_7
+        km2: 0.27
         xy_km:
-        - 6.19
-        - 58.59
+        - 6.05
+        - 58.56
         cover:
           built: 0.045
           field: 0.045
@@ -7256,19 +7311,21 @@ wild:
           pasture: 0.045
           forest: 0.0225
           fen: 0.045
+          water: 0.045
         eco:
           grassland: 0.135
           wet grassland: 0.0225
           oak-ash wood: 0.0225
           fen: 0.045
+          water: 0.045
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
-        wet: 0.582
-        elevation: 29.0
-        temp: 8.78
+        wet: 0.652
+        elevation: 23.7
+        temp: 8.81
         texture:
-          loam: 0.1
-          clay: 0.9
+          loam: 0.167
+          clay: 0.833
         rock: 0.0
         river_km: 0.0
         big_river_km: 0.0
@@ -7542,10 +7599,11 @@ wild:
         - Lowbury_4
         - Lowbury_5
         - Lowbury_6
+        - Lowbury_7
         km2: 0.315
         xy_km:
-        - 79.51
-        - 56.82
+        - 79.39
+        - 56.7
         cover:
           built: 0.045
           field: 0.09
@@ -7559,18 +7617,18 @@ wild:
           hay meadow: 0.1125
           oak-ash wood: 0.0225
           fen: 0.045
-          wet grassland: 0.045
+          water: 0.045
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
         wet: 0.494
-        elevation: 108.2
-        temp: 8.27
+        elevation: 106.4
+        temp: 8.3
         texture:
           loam: 0.071
           clay: 0.929
         rock: 0.0
         river_km: 0.45
-        big_river_km: 0.0
+        big_river_km: 0.3
         lake_km2: 0.0
       a18:
         kind: home
@@ -8361,26 +8419,26 @@ wild:
         - 56.85
         cover:
           fen: 0.7875
-          meadow: 9.225
+          meadow: 9.27
           pasture: 8.73
-          water: 0.675
+          water: 0.63
         eco:
           fen: 0.7875
           grassland: 8.73
           hay meadow: 9.0225
-          water: 0.675
-          wet grassland: 0.2025
+          water: 0.63
+          wet grassland: 0.2475
         old_wood_km2: 0.0
         wood_edge_km2: 0.0
         wet: 0.443
-        elevation: 107.2
-        temp: 8.32
+        elevation: 107.3
+        temp: 8.31
         texture:
           loam: 0.592
           clay: 0.408
         rock: 0.0
         river_km: 9.45
-        big_river_km: 4.5
+        big_river_km: 4.2
         lake_km2: 0.0
       a43:
         kind: ring
@@ -15904,7 +15962,7 @@ wild:
       - 8.7
     - - a9
       - a34
-      - 3.6
+      - 4.5
     - - a10
       - a35
       - 5.7
@@ -15928,7 +15986,7 @@ wild:
       - 4.2
     - - a17
       - a42
-      - 4.2
+      - 6.0
     - - a18
       - a43
       - 11.1
@@ -17717,6 +17775,7 @@ wild:
           a42: 9.45
         parcels:
         - Lowbury_6
+        - Lowbury_7
       reach:Millbrook:
         kind: reach
         river_km: 10.05
@@ -19157,6 +19216,18 @@ wild:
         areas: {}
         parcels:
         - Tarn_5
+      water:Holtmouth_6:
+        kind: pool
+        km2: 0.0225
+        areas: {}
+        parcels:
+        - Holtmouth_6
+      water:Holtmouth_7:
+        kind: pool
+        km2: 0.0225
+        areas: {}
+        parcels:
+        - Holtmouth_7
       water:The Saltings_4:
         kind: pool
         km2: 0.045
@@ -19304,14 +19375,12 @@ agents:
       source: family lore
     - text: A spate smashes about half the traps in the water, and a flood nearly all; an otter that finds full traps comes back each night. When the water drops, set again.
       source: family lore
-    - text: Middle Field stands in barley, its soil rich.
-      source: a holding
-    - text: Our herd is 2 cows, 2 oxen, a bull and a calf, kept on Middle Pasture; one cow is in milk.
-      source: a holding
-    - text: Our oxen plough a plot in 4 units where a hoe takes 16; they eat hay when the grass is gone, a fifth less in stalls, and the plough and harness wear with use.
+    - text: Middle Field lies empty, its soil rich.
       source: a holding
     - text: A kilo of salt keeps four of fish or eight of meat for about a year. Every house that kills, fishes or makes cheese needs it, and few can make it.
       source: family lore
+    - text: We hold the Salt House on Middle Pasture, where Margery boils salt, and Middle Field, which Stephen sees to. The pan wants copper when it wears through; seed must be kept back for them.
+      source: a holding
   Margery:
     household: Strand
     born: -40
@@ -19413,7 +19482,7 @@ agents:
     - cut
     - mend the brine pan
     - salt pan
-    livelihood: You live by fishing, and by boiling salt at the spring beside it.
+    livelihood: You live by fishing, and by boiling salt at the spring beside it, and you keep the Salt House.
     model: claude-haiku-5-5
     kept:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
@@ -19447,10 +19516,11 @@ agents:
       source: family lore
     - text: In summer the fish lie in the warm shallows and pools, where a hand or a rod takes them. A water fished hard thins in days and comes back when it is rested.
       source: family lore
+    - text: The pan at the Salt House is sound, not boiled since it was last mended; the salt house holds about 0 kilos of salt as it stands.
+      source: a holding
     - text: A kilo of salt keeps four of fish or eight of meat for about a year. Every house that kills, fishes or makes cheese needs it, and few can make it.
       source: family lore
-    - text: We hold Middle Field, which Stephen sees to, the ox team and plough, which Stephen keeps, and 6 beasts on Middle Pasture, which Stephen herds. Seed must be kept back for them; they want hay
-        through the winter.
+    - text: We hold the Salt House on Middle Pasture, where Margery boils salt, and Middle Field, which Stephen sees to. The pan wants copper when it wears through; seed must be kept back for them.
       source: a holding
   Nicholas:
     household: Strand
@@ -19545,8 +19615,7 @@ agents:
       source: family lore
     - text: A spate smashes about half the traps in the water, and a flood nearly all; an otter that finds full traps comes back each night. When the water drops, set again.
       source: family lore
-    - text: We hold Middle Field, which Stephen sees to, the ox team and plough, which Stephen keeps, and 6 beasts on Middle Pasture, which Stephen herds. Seed must be kept back for them; they want hay
-        through the winter.
+    - text: We hold the Salt House on Middle Pasture, where Margery boils salt, and Middle Field, which Stephen sees to. The pan wants copper when it wears through; seed must be kept back for them.
       source: a holding
   Isolda:
     household: Strand
@@ -19630,8 +19699,7 @@ agents:
       source: family lore
     - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone.
       source: family lore
-    - text: We hold Middle Field, which Stephen sees to, the ox team and plough, which Stephen keeps, and 6 beasts on Middle Pasture, which Stephen herds. Seed must be kept back for them; they want hay
-        through the winter.
+    - text: We hold the Salt House on Middle Pasture, where Margery boils salt, and Middle Field, which Stephen sees to. The pan wants copper when it wears through; seed must be kept back for them.
       source: a holding
   Avice:
     household: Fell
@@ -19741,14 +19809,9 @@ agents:
       source: family lore
     - text: Without the plough oxen, 2 to a yoke, there is no ploughing, and without the bull no calves; meat from them is eaten once.
       source: family lore
-    - text: Our herd is 2 cows, 2 oxen, a bull and a calf, kept on Highcairn Common; one cow is in milk.
+    - text: Our herd is 4 cows, a bull and 2 calves, kept on Highcairn Common; 2 of the cows are in milk.
       source: a holding
-    - text: Highcairn Field stands in barley, its soil good.
-      source: a holding
-    - text: Our oxen plough a plot in 4 units where a hoe takes 16; they eat hay when the grass is gone, a fifth less in stalls, and the plough and harness wear with use.
-      source: a holding
-    - text: We hold Hale's Forge, where Ralph works copper, Highcairn Field, which Avice sees to, the ox team and plough, which Avice keeps, and 6 beasts on Highcairn Common, which Avice herds. It burns
-        charcoal; they want hay through the winter.
+    - text: We hold Hale's Forge, where Ralph works copper, and 7 beasts on Highcairn Common, which Avice herds. It burns charcoal; they want hay through the winter.
       source: a holding
   Ralph:
     household: Fell
@@ -19866,8 +19929,7 @@ agents:
       source: a holding
     - text: Five loads of timber burnt slow in the wood make one sack of charcoal; at the anvil a sack of it smelts as much as six loads of timber.
       source: family lore
-    - text: We hold Hale's Forge, where Ralph works copper, Highcairn Field, which Avice sees to, the ox team and plough, which Avice keeps, and 6 beasts on Highcairn Common, which Avice herds. It burns
-        charcoal; they want hay through the winter.
+    - text: We hold Hale's Forge, where Ralph works copper, and 7 beasts on Highcairn Common, which Avice herds. It burns charcoal; they want hay through the winter.
       source: a holding
   Beatrice:
     household: Fell
@@ -19967,8 +20029,7 @@ agents:
       source: family lore
     - text: Five loads of timber burnt slow in the wood make one sack of charcoal; at the anvil a sack of it smelts as much as six loads of timber.
       source: family lore
-    - text: We hold Hale's Forge, where Ralph works copper, Highcairn Field, which Avice sees to, the ox team and plough, which Avice keeps, and 6 beasts on Highcairn Common, which Avice herds. It burns
-        charcoal; they want hay through the winter.
+    - text: We hold Hale's Forge, where Ralph works copper, and 7 beasts on Highcairn Common, which Avice herds. It burns charcoal; they want hay through the winter.
       source: a holding
   Hob:
     household: Fell
@@ -20053,8 +20114,7 @@ agents:
       source: family lore
     - text: Cattle stray through an open gate, and most walk home at dusk; a beast that strays onto the road may die there or be lost.
       source: family lore
-    - text: We hold Hale's Forge, where Ralph works copper, Highcairn Field, which Avice sees to, the ox team and plough, which Avice keeps, and 6 beasts on Highcairn Common, which Avice herds. It burns
-        charcoal; they want hay through the winter.
+    - text: We hold Hale's Forge, where Ralph works copper, and 7 beasts on Highcairn Common, which Avice herds. It burns charcoal; they want hay through the winter.
       source: a holding
   Henry:
     household: Meade
@@ -20180,12 +20240,9 @@ agents:
       source: family lore
     - text: Barley and rye sown year on year tires the ground; beans give it back. A field rested, or dunged, bears better.
       source: family lore
-    - text: Lowbury Field stands in barley, its soil rich.
+    - text: Lowbury Field lies empty, its soil rich.
       source: a holding
-    - text: Our herd is 2 cows, 2 oxen, a bull and a calf, kept on Lowbury Common; one cow is in milk.
-      source: a holding
-    - text: We hold Lowbury Field, which Henry sees to, the ox team and plough, which Cecily keeps, and 6 beasts on Lowbury Common, which Henry herds. Seed must be kept back for them; they want hay through
-        the winter.
+    - text: We hold Lowbury Field, which Henry sees to, and the ox team and plough, which Cecily keeps. Seed must be kept back for them; they break the ground far faster than a hoe.
       source: a holding
   Cecily:
     household: Meade
@@ -20309,8 +20366,7 @@ agents:
       source: family lore
     - text: Our oxen plough a plot in 4 units where a hoe takes 16; they eat hay when the grass is gone, a fifth less in stalls, and the plough and harness wear with use.
       source: a holding
-    - text: We hold Lowbury Field, which Henry sees to, the ox team and plough, which Cecily keeps, and 6 beasts on Lowbury Common, which Henry herds. Seed must be kept back for them; they want hay through
-        the winter.
+    - text: We hold Lowbury Field, which Henry sees to, and the ox team and plough, which Cecily keeps. Seed must be kept back for them; they break the ground far faster than a hoe.
       source: a holding
   John:
     household: Meade
@@ -20407,8 +20463,7 @@ agents:
       source: family lore
     - text: Rye does best sown late in autumn, and well in summer or early in autumn, and wants a winter in the ground; beans do best sown early in summer, and well in spring.
       source: family lore
-    - text: We hold Lowbury Field, which Henry sees to, the ox team and plough, which Cecily keeps, and 6 beasts on Lowbury Common, which Henry herds. Seed must be kept back for them; they want hay through
-        the winter.
+    - text: We hold Lowbury Field, which Henry sees to, and the ox team and plough, which Cecily keeps. Seed must be kept back for them; they break the ground far faster than a hoe.
       source: a holding
   Rose:
     household: Meade
@@ -20460,8 +20515,7 @@ agents:
       tag: goal
     - text: Barley does best sown in spring, and well early in summer or late in winter; sown at other times it comes up poor or not at all.
       source: family lore
-    - text: We hold Lowbury Field, which Henry sees to, the ox team and plough, which Cecily keeps, and 6 beasts on Lowbury Common, which Henry herds. Seed must be kept back for them; they want hay through
-        the winter.
+    - text: We hold Lowbury Field, which Henry sees to, and the ox team and plough, which Cecily keeps. Seed must be kept back for them; they break the ground far faster than a hoe.
       source: a holding
   Gilbert:
     household: Holt
@@ -20507,9 +20561,9 @@ agents:
       snares:
         level: known
         skill: 1.081
-      drive:
+      hunting drive:
         level: known
-        skill: 1.197
+        skill: 1.185
     aware_of: {}
     holdings:
       crude tool: 1
@@ -20549,7 +20603,7 @@ agents:
     - firewood
     - charcoal
     - cut withies
-    livelihood: You live by hunting and trapping, and you are best at stalking and drives, and you see to North Field.
+    livelihood: You live by hunting and trapping, and you are best at stalking and drives.
     model: claude-haiku-5-5
     kept:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
@@ -20590,10 +20644,6 @@ agents:
       source: family lore
     - text: Border Wood Wood, a day off, holds game; a camp there saves the walk home each night.
       source: family lore
-    - text: North Field stands in barley, its soil rich.
-      source: a holding
-    - text: Our herd is 2 cows, 2 oxen, a bull and a calf, kept on Hartsmoot Common; one cow is in milk.
-      source: a holding
   Adam:
     household: Holt
     born: -34
@@ -20637,9 +20687,9 @@ agents:
       snares:
         level: capable
         skill: 1.064
-      drive:
+      hunting drive:
         level: rough
-        skill: 0.653
+        skill: 0.67
       fell:
         level: known
         skill: 1.02
@@ -20732,8 +20782,6 @@ agents:
       source: family lore
     - text: Young growth cut in the Holt comes again in many years; dead wood once gathered comes back only slowly, as the old trees shed it.
       source: family lore
-    - text: We hold North Field, which Gilbert sees to, and 6 beasts on Hartsmoot Common, which Gilbert herds. Seed must be kept back for them; they want hay through the winter.
-      source: a holding
   Sabina:
     household: Holt
     born: -30
@@ -20839,8 +20887,6 @@ agents:
       source: family lore
     - text: Young growth cut in the Holt comes again in many years; dead wood once gathered comes back only slowly, as the old trees shed it.
       source: family lore
-    - text: We hold North Field, which Gilbert sees to, and 6 beasts on Hartsmoot Common, which Gilbert herds. Seed must be kept back for them; they want hay through the winter.
-      source: a holding
   Lucy:
     household: Holt
     born: -10
@@ -20897,8 +20943,6 @@ agents:
     - text: Snares go on the runs in pasture, meadow, heath, field and scrub, never in the wood; a hare snared in the night is best taken at first light, before it breaks free or a fox or the crows take
         it.
       source: family lore
-    - text: We hold North Field, which Gilbert sees to, and 6 beasts on Hartsmoot Common, which Gilbert herds. Seed must be kept back for them; they want hay through the winter.
-      source: a holding
 tree:
 - name: Stephen
   sex: m
@@ -21112,7 +21156,8 @@ history:
   - Adam
   day: -20
 made_by_maker:
-- 'Holtmouth: Holtmouth_2 made saltmarsh (the generator gave the salters'' shore none)'
+- 'Holtmouth: Holtmouth_3 made saltmarsh (the generator gave the salters'' shore none)'
+- land, beasts and buildings by livelihood; bare fields and next year's seed (W-203, Q-220)
 skills:
   depth: full
   households:
