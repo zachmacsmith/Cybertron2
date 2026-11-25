@@ -201,7 +201,7 @@ def founders(world: dict, key: str) -> dict:
     for b in world["buildings"].values():
         if b.get("household"):
             b["household"] = rn(b["household"])
-            b["name"] = " ".join(rn(t) for t in b["name"].split(" "))
+            b["name"] = " ".join(rn(t[:-2]) + "'s" if t.endswith("'s") else rn(t) for t in b["name"].split(" "))   # "Hale's Forge"
     for h in (world.get("herds") or {}).values():
         if h.get("holder"):
             h["holder"] = rn(h["holder"])
@@ -365,6 +365,36 @@ def by_livelihood(world: dict, key: str) -> dict:
             st = b.setdefault("stock", {})
             st["grain"] = int(st.get("grain") or 0) + plots[hh] * PLOT_SEED
     world.setdefault("made_by_maker", []).append("land, beasts and buildings by livelihood; bare fields and next year's seed (W-203, Q-220)")
+    return world
+
+
+WEIR = {"M1": {"household": "Colle", "home": "Fallowmere", "sections": ["wattle"], "knows": "rough"}}   # Zach, 25 Nov: one section,
+# the lowest level: one wattle section, sound (level 5), on the village's river, held by the builders and woodsmen, who know the
+# weir only roughly (the lowest working level, data.LEVELS); its crew the household's grown people who know it
+
+
+def weir(world: dict, key: str) -> dict:
+    """The design's weir, if any (WEIR): a monument on the home's largest water parcel, as make_nutrition_runs seeds one."""
+    wd = WEIR.get(key)
+    if not wd:
+        return world
+    hh, home = wd["household"], wd["home"]
+    pars = world["nodes"][home]["parcels"]
+    wet = sorted((pid for pid, p in pars.items() if p.get("cover") == "water"), key=lambda pid: (-int(pars[pid].get("size") or 1), pid))
+    if not wet:
+        raise DesignRefused(f"{key}: {home} has no water for its weir")
+    crew = []
+    for n, a in world["agents"].items():
+        if a.get("household") == hh and a.get("stage") in ("youth", "adult", "elder"):
+            a.setdefault("knows", {})["weir"] = {"level": wd["knows"], "skill": 0.6}
+            if a.get("stage") != "youth":
+                crew.append(n)
+    head = next(n for n, a in world["agents"].items() if a.get("household") == hh)
+    world["buildings"][f"{hh.lower()}_weir"] = {
+        "parcel": wet[0], "node": home, "household": hh, "name": "the weir", "structure": wd["sections"][0], "monument": "weir",
+        "tier": "plain", "fittings": {}, "rooms": [], "gap": "shut", "crew": sorted(crew), "keeper": head,
+        "sections": [{"m": m, "foot": False, "level": 5} for m in wd["sections"]]}
+    world.setdefault("made_by_maker", []).append(f"{home}: a weir of {len(wd['sections'])} {wd['sections'][0]} section, the {hh}s' (Zach)")
     return world
 
 
@@ -532,7 +562,7 @@ def make(key: str, seed: int, models) -> dict:
     if report.get("refused"):
         raise SystemExit(f"{key}: refused: {report['refused']}")
     print(key, "pins eased:", relaxed or "none", flush=True)
-    world = by_livelihood(MP.water_stocks(founders(world, key)), key)
+    world = weir(by_livelihood(MP.water_stocks(founders(world, key)), key), key)
     world = explore(world, key)
     fill = seed_lines(world, key)
     from cybertron2.landgen import gate_check as GC
