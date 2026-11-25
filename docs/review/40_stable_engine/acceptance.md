@@ -36,4 +36,29 @@ changes to reading are deliberate: an unnamed slaughter refused, D2-304; "target
 this machine (fetched from the dataset when run); 3, old worlds load, run and render (the bot-run modules pass); 4, the fault table
 closed or recorded (fault_table.md); 5, the full suite once, at the tag.
 
-*Current as of 24 Nov 2026.*
+## The live check (25 Nov, Zach's go; acceptance 1)
+
+Run on main at 46790664, `claude_code` backend, 4 days each, logs outside the repository (`/home/user/c2runs/`). The
+first launch was discarded: orphaned processes wrote into the same run directories as the relaunch; each was rerun once, alone.
+
+| World | Cast | Days | Alive at the end | Errors | Refusals | Kinds | Cost | Conversations continued / fallbacks |
+|---|---|---|---|---|---|---|---|---|
+| Eelmouth | its own: 3 Opus 5.5 heads, 1 Sonnet 5.5, 4 Haiku 5.5 | 4 | 12 of 12 | 0 | 22 | 16 | $2.12 | 16 / 0 |
+| World 0b, Haiku 4.5's arm | Haiku 4.5 throughout | 4 | 21 of 21 (Alard and Osric hungry on night 4) | 0 | 117 | 35 | $5.70 | 30 / 0 |
+
+**Every refusal read** (`tools/refusals.py`). Most explain themselves: the three-a-day message limit (57 of World 0b's), the notes
+cap, the day's work done, the fish fished out for now, nothing in season, a door only its holder's head sets, a hen is not food, a
+rule's condition that is no condition. **Five were the engine's, fixed with tests:**
+
+| Refusal | Fault | Fix |
+|---|---|---|
+| "drive: there is no drive in this world" (Eelmouth) | "drive" is both the herd act and the hunting craft one is shown; the parser took the act | an act word that is also a craft one knows is read as the craft where the act names nothing or is not in this world (d8e70b20) |
+| "pin: you have no note called “\"\"”" (Eelmouth) | an empty pin written as quotes | read as no pin (d8e70b20) |
+| "tell/say: you know no craft called 'tell'" (World 0b) | a talk wave's reply with "say" or "tell" among its actions skipped reply_fields (L-189 built it for the morning and the evening only) | moved to its field there too (25299098) |
+| "rule: could not read who: 'my household'" (World 0b) | "who" did not read one's own words ("for" did) | read (25299098) |
+| "work: you carry no smoked fish" x16 (World 0b, care) | true, but unlike move's it did not say where the food was | says a child is fed from the hands, where the food is and how to take it (25299098) |
+
+**Read:** the interface works for both casts; no refusal is unexplained after these fixes. World 0b's hunger by day 4 is the world's
+food, as bench read it (Q-105, Q-107), not the engine's.
+
+*Current as of 25 Nov 2026.*
