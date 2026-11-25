@@ -86,6 +86,22 @@ def _unit(key) -> float:
     return float(RESOURCES[key].get("spec_unit", 1.0))
 
 
+RENAMED_TECHNIQUES = {"drive": "hunting drive"}      # a craft's old name in worlds made before its rename (W-111, Q-109: "drive" is the
+                                                    # herd act)
+
+
+def renamed(spec: dict) -> dict:
+    """A world as written, its people's crafts under their current names (knows, aware_of): a world made before a rename runs."""
+    for a in (spec.get("agents") or {}).values():
+        for field in ("knows", "aware_of"):
+            d = a.get(field)
+            if isinstance(d, dict):
+                for old, new in RENAMED_TECHNIQUES.items():
+                    if old in d and new not in d:
+                        d[new] = d.pop(old)
+    return spec
+
+
 def load_spec(path) -> dict:
     """A world's spec; `base: <path>` makes it a variant: the base, with this file's keys merged over it (a comparison arm, a dry
     run). Lists replace; tables merge."""
@@ -96,12 +112,12 @@ def load_spec(path) -> dict:
         if not os.path.exists(base):
             base = os.path.join(os.path.dirname(path), os.path.basename(base))
         spec = merge(load_spec(base), spec)
-    return spec
+    return renamed(spec)
 
 
 class World:
     def __init__(self, spec: dict):
-        self.spec = spec
+        self.spec = renamed(spec)
         from cybertron2.engine import packs as PK
         PK.use(self)
         self.seed = int(spec.get("seed", 1))

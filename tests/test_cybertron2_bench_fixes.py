@@ -8,6 +8,7 @@ import pytest
 
 from cybertron2.engine import book as BK, run as R, verbs as V
 from cybertron2.engine.here import Here, Mind
+from cybertron2.engine.data import EDIBLE
 from cybertron2.engine.world import Refused, World, load_spec
 
 
@@ -70,16 +71,6 @@ def test_the_smokehouse_fire_is_told_and_what_hangs_is_named():
     assert "the fish on the racks" not in inspect.getsource(PROC)
 
 
-def test_an_act_word_that_is_a_craft_one_knows_is_read_as_the_craft(eel):
-    """W-111 (Eelmouth's live check): {"do": "drive", "at": ..., "looking for": "deer"} is the hunting drive Peter knows and is shown,
-    not the herd act, which this world has not; a herd driven ("thing": a herd) stays the herd act."""
-    from cybertron2.engine import shapes as SH
-    here, mind = Here(eel, "Peter"), Mind(eel, "Peter")
-    n = SH.normalize(here, mind, {"do": "drive", "at": "Clay Field", "only": ["Nigel"], "looking for": "deer"})
-    assert n["do"] == "gather" and n["what"] == "drive", n
-    assert SH.normalize(here, mind, {"do": "watch", "at": "Eelmouth Field"})["do"] == "watch"     # an act the world has stays the act
-
-
 def test_an_empty_pin_written_as_quotes_is_no_pin(eel):
     """W-111 (Eelmouth's live check): "pin": '""' was refused as a note called “""”; it means no pin."""
     from cybertron2.engine import perceive as PC
@@ -136,21 +127,71 @@ def test_caring_with_food_not_in_hand_says_where_it_is(eel):
     assert "fed from your hands" in str(e.value) and "holds 5" in str(e.value) and "move smoked fish to your hands" in str(e.value)
 
 
-def test_the_hunting_drive_in_a_world_with_herds_is_not_the_herd_act():
-    """W-111: in the Scattering a hunter's {"do": "drive", "at": a wood, "looking for": "deer"} drove his household's cattle into
-    the wood. An act and a craft of one name: the craft when none of the act's own fields ("thing", "to") is given."""
+def test_no_act_and_craft_share_a_name_and_the_hunting_drive_is_its_own():
+    """Q-109 (W-111): the hunting method was 'drive', the herd act's name; where a craft is named alone in "do" the act won (Eelmouth
+    refused a hunting drive; the Scattering drove a household's cattle into a wood). It is 'hunting drive', and the registries are
+    checked for a shared name when they load."""
     from cybertron2.engine import shapes as SH
     from cybertron2.engine.data import TECHNIQUES
-    assert sorted(set(V.VERB) & set(TECHNIQUES)) == ["drive"], "a new act-craft name clash: say how it is read"
-    assert SH.required_args("drive") == ("thing", "to")
+    assert not set(V.VERB) & set(TECHNIQUES)
+    assert TECHNIQUES["hunting drive"]["label"] == "a hunting drive"
     with contextlib.redirect_stdout(io.StringIO()):
         w = World(load_spec("cybertron2/specs/nutrition/eelmouth.yaml"))
     w.s["today"] = R.blank_today()
-    w.s["know"]["Peter"]["drive"] = {"level": "known", "skill": 1.0}
-    here, mind = Here(w, "Peter"), Mind(w, "Peter")
-    import unittest.mock as um
-    with um.patch.object(V, "verb_here", lambda h, v: True):                    # as in a world with herds
-        n = SH.normalize(here, mind, {"do": "drive", "at": "the Spinney", "looking for": "deer"})
-        assert (n["do"], n["what"]) == ("gather", "drive"), n
-        n = SH.normalize(here, mind, {"do": "drive", "thing": "the cows", "to": "Clay Field"})
-        assert n["do"] == "drive", n
+    w.s["know"]["Peter"]["hunting drive"] = {"level": "known", "skill": 1.0}
+    n = SH.normalize(Here(w, "Peter"), Mind(w, "Peter"), {"do": "hunting drive", "at": "the Spinney", "looking for": "deer"})
+    assert (n["do"], n["what"]) == ("gather", "hunting drive"), n
+
+
+def test_a_world_made_before_the_rename_reads_drive_as_the_hunting_drive():
+    from cybertron2.engine.world import renamed
+    spec = {"agents": {"Gilbert": {"knows": {"drive": {"level": "known", "skill": 1.0}}, "aware_of": {"drive": "seen"}}}}
+    renamed(spec)
+    assert "hunting drive" in spec["agents"]["Gilbert"]["knows"] and "drive" not in spec["agents"]["Gilbert"]["knows"]
+    assert "hunting drive" in spec["agents"]["Gilbert"]["aware_of"]
+
+
+
+def _short_marsh(w, food=1.0):
+    """The Marshes with `food` of salt fish in all, in their house's store, and nothing in hand."""
+    for m in w.members("Marsh"):
+        w.s["containers"][w.hands(m)]["goods"] = {k: v for k, v in w.goods(w.hands(m)).items() if k not in EDIBLE}
+    for bid in Here(w, "Peter").homes_here():
+        st = w.s["buildings"][bid]["stock"]
+        w.s["containers"][st]["goods"] = {k: v for k, v in w.goods(st).items() if k not in EDIBLE}
+    home = Here(w, "Peter").homes_here()[0]
+    w.s["containers"][w.s["buildings"][home]["stock"]]["goods"]["salt fish"] = food
+
+
+def test_a_short_household_with_no_share_rule_splits_the_meal_evenly(eel):
+    """W-111 (bench's World 0b reruns): fed in name order, the last of a short household got nothing night after night. With no
+    share rule, each member eats the same share."""
+    from cybertron2.engine import night as N
+    _short_marsh(eel, food=2.0)
+    shares = N.even_shares(eel, {m: Here(eel, m).homes_here()[0] for m in eel.members("Marsh") if Here(eel, m).homes_here()})
+    assert 0 < shares["Marsh"] < 1
+    rec = N.night(eel)
+    ms = [m for m in eel.members("Marsh") if eel.s["people"][m].get("alive", True)]
+    ate = {m: (rec["meal"].get(m) or {}).get("ate_total", rec["ate"].get(m, 0.0)) or 0.0 for m in ms}
+    assert all(m not in rec["missed"] or ate[m] > 0 for m in ms), ate          # nobody left with nothing while others eat
+    assert max(ate.values()) - min(ate.values()) < 0.6, ate
+
+
+def test_a_share_rule_keeps_its_own_order(eel):
+    from cybertron2.engine import night as N
+    BK.act(Here(eel, "Peter"), {"rule": "share", "order": ["Peter"]})
+    _short_marsh(eel, food=2.0)
+    assert "Marsh" not in N.even_shares(eel, {})
+
+
+def test_the_registries_refuse_a_shared_name_and_a_way_of_no_craft(monkeypatch):
+    """D2-353 (W-111): checked when they load. The drive's rename left eight hunting ways naming 'gather:drive', silently unapplied."""
+    from cybertron2.engine import data as D
+    V._check_names()
+    monkeypatch.setitem(D.TECHNIQUES, "a test way", {"verb": "modifier", "modifies": ["gather:no such craft"]})
+    with pytest.raises(RuntimeError, match="ways that name no craft"):
+        V._check_names()
+    monkeypatch.delitem(D.TECHNIQUES, "a test way")
+    monkeypatch.setitem(D.TECHNIQUES, "travel", {"verb": "gather"})
+    with pytest.raises(RuntimeError, match="share a name"):
+        V._check_names()

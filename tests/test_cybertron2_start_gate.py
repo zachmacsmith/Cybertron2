@@ -124,12 +124,12 @@ def test_a_pinned_tagged_line_is_exempt_from_the_length_and_grade_checks():
     assert {"P6", "P20"} <= {x["check"] for x in GC.people_checks(s) if x["who"] == n}
 
 
-def test_an_all_weak_society_is_refused_whatever_the_version_unless_allowed():
+def test_an_all_weak_society_is_flagged_whatever_the_version():
     """P17 reads the weakest tier as the cast's 'rest' model's family (W-111: an all-Haiku 4.5 world passed, an all-Haiku 5.5 one
-    was refused); a world that says `cast.allow_weak` (a monoculture or model-contrast arm) passes."""
+    was refused), and is a warning, not a block (D5-4, Zach: "All haiku should be a warning flag not a block")."""
     for model in ("claude-haiku-5-5", "claude-haiku-4-5"):
         s = _spec(model)
-        assert "P17" in {x["check"] for x in GC.people_checks(s)}, model
+        assert {x["level"] for x in GC.people_checks(s) if x["check"] == "P17"} == {"warn"}, model
         s["cast"] = {"allow_weak": True}
         assert "P17" not in {x["check"] for x in GC.people_checks(s)}, model
     assert "P17" not in {x["check"] for x in GC.people_checks(_spec("claude-sonnet-5-5"))}

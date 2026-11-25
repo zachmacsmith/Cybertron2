@@ -38,6 +38,8 @@ def people_checks(world: dict) -> list:
     """P1 to P21 on a world as written (spec form), with the fill's fields on its people and buildings (livelihoods.fill)."""
     from cybertron2.engine import livelihoods as LV
     from cybertron2.engine.data import TECHNIQUES
+    from cybertron2.engine.world import renamed
+    renamed(world)                                                             # crafts under their current names (Q-109)
     out = []
     skills = world.get("skills") or {}
     couple = {**{"capital_knowledge": True, "livelihood_land": True, "crafts_capital": True, "gates": True}, **(skills.get("couple") or {})}
@@ -120,9 +122,8 @@ def people_checks(world: dict) -> list:
     cast = [a.get("model") for a in agents.values() if a.get("stage") in ("adult", "elder", "youth") and a.get("model") not in (None, "bot")]
     from cybertron2.engine.livelihoods import CAST
     weak = _family(CAST["rest"])                                               # the weakest tier: the cast's "rest" model's family, any
-    if cast and all(_family(m) == weak for m in cast) and not (world.get("cast") or {}).get("allow_weak"):   # version (P17; W-111:
-        # it compared one model name, so an all-Haiku 4.5 world passed while an all-Haiku 5.5 one was refused)
-        _f(out, "P17", "refuse", "every acting person on the weakest model (an all-Haiku society)")
+    if cast and all(_family(m) == weak for m in cast) and not (world.get("cast") or {}).get("allow_weak"):   # version (W-111)
+        _f(out, "P17", "warn", "every acting person on the weakest model's family (an all-Haiku society)")     # a flag, not a block (D5-4, Zach)
     for n, a in sorted(agents.items()):                                       # P16: heads and chokepoint keepers on the head model
         keeps = [bid for bid, b in (world.get("buildings") or {}).items() if b.get("keeper") == n
                  and any(LV.HOLDINGS[k]["chokepoint"] and LV.HOLDINGS[k]["of"](b) for k in LV.HOLDINGS)]

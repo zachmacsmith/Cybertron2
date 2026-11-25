@@ -476,7 +476,7 @@ SPRING = {0: (0, 7)}
 SITES = {
     "heronry": {"home": "colony", "where": {"covers": ["forest"], "beside": ["water"], "or_river": True}, "p": 0.6, "size": (6, 24), "cap": 24, "grow": 0.25,
                 "season": SPRING, "leaves": 0.35, "hard_winter": {"frozen": 3, "crash": 0.5},
-                "troubled_by": ["fell", "hunt the wild", "stalk", "drive", "gather young"],   # at the nests, not the quiet work (D2-204 names)
+                "troubled_by": ["fell", "hunt the wild", "stalk", "hunting drive", "gather young"],   # at the nests, not the quiet work (D2-204 names)
                 "eats": {"res": "fish", "covers": ["water"], "each": 0.02, "most": 0.2, "follows": 1.0},   # brief 5 §4 (calibrate)
                 "take": {"season": {0: (3, 7)}, "item": "meat", "each": 0.37, "most": 4, "words": "young herons from the nests"}},   # 1.2 kg, squab proxy (D2-258)
     "rookery": {"home": "colony", "where": {"covers": ["forest", "scrub"], "beside": ["field"]}, "p": 0.8, "size": (20, 70), "cap": 80, "grow": 0.2,
@@ -639,7 +639,7 @@ RAVENS_OVER = {"min_carrion": 20.0, "lay": "ravens wheeling over the wood", "kno
 TAKEN = {
     "red deer":   {"family": ["deer", "red deer", "stag", "hind", "venison", "big game", "game"], "detect": 0.35, "flee": 0.55,
                    "goods": {"meat": 33.0, "hide": 1},           # 90 kg, 19.8 food a head (D2-258)
-                   "calibrate": {"drive": 0.15}},   # a drive is made for the sounder: deer break back through the beaters (D2-204 §4)
+                   "calibrate": {"hunting drive": 0.15}},   # a drive is made for the sounder: deer break back through the beaters (D2-204 §4)
     "roe deer":   {"family": ["deer", "roe", "roe deer", "venison", "game"], "detect": 0.3, "flee": 0.5, "goods": {"meat": 8.1, "hide": 1},   # 22 kg, 4.9 food
                    "calibrate": {"snare": 0.03}},   # a hare's noose seldom holds a roe (D2-204 §4)
     "wild boar":  {"family": ["boar", "wild boar", "pig", "swine", "sounder", "big game", "game"], "detect": 0.3, "flee": 0.35,

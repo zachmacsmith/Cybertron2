@@ -196,7 +196,7 @@ def test_a_trace_reads_one_way_to_a_practised_hunter_and_another_to_anyone_else(
     assert any("turf" in t for t in read["Tom"]) and not any("sounder" in t for t in read["Tom"])
 
 
-def _hunters(generated, n=30, knows=("hunt the wild", "drive", "stalk")):
+def _hunters(generated, n=30, knows=("hunt the wild", "hunting drive", "stalk")):
     world = copy.deepcopy(generated)
     world["agents"] = {f"H{i}": {"household": "Ash", "stage": "adult", "sex": "m", "at": "s1",
                                  "knows": {t: {"level": "known", "skill": 1.4} for t in knows}} for i in range(n)}
@@ -259,11 +259,11 @@ def test_looking_for_something_makes_it_likelier_but_not_certain(generated):
 def test_boar_hunted_alone_hurt_more_often_than_with_a_crew(generated):
     """D2-193: a boar hunt alone is dangerous; others hunting with you at the same place that day share the danger."""
     w, WL, wood = _hunters(generated, n=80)
-    alone = [_do(w, f"H{i}", {"do": "gather", "what": "drive", "at": wood, "looking for": "boar"}) for i in range(40)]
+    alone = [_do(w, f"H{i}", {"do": "gather", "what": "hunting drive", "at": wood, "looking for": "boar"}) for i in range(40)]
     w2, _, wood2 = _hunters(generated, n=80)
     together = []
     for i in range(40, 80):                                                     # hunters in fours, each four at the same wood
-        together.append(_do(w2, f"H{i}", {"do": "gather", "what": "drive", "at": wood2, "looking for": "boar"}))
+        together.append(_do(w2, f"H{i}", {"do": "gather", "what": "hunting drive", "at": wood2, "looking for": "boar"}))
     hurt = lambda rs: sum("turned on you" in r for r in rs) / max(1, sum("came on" in r for r in rs))
     assert hurt(alone) >= hurt(together[4:])
 
@@ -1093,7 +1093,7 @@ def test_trapping_the_last_beaver_ends_the_lodge_for_good(generated):
 
 def test_killing_the_old_sow_scatters_the_sounder(generated):
     """A kill from a group with a leader may be the leader (odds by the group's size); the group then drives less for a while."""
-    w, WL, wood = _hunters(generated, n=60, knows=("drive",))
+    w, WL, wood = _hunters(generated, n=60, knows=("hunting drive",))
     from cybertron2.engine import night as N
     m, ri = _ring(w, WL)
     w.s["wild"]["state"]["pop"]["wild boar"][ri] = 60.0 / m.km2[ri]
@@ -1104,11 +1104,17 @@ def test_killing_the_old_sow_scatters_the_sounder(generated):
     w.s["wild"]["groups"][gid] = dict(g, n=1, leader={"name": "the old sow", "alive": True})      # one beast: the kill is she
     for i in range(60):                                                          # armed and practised: no crew counted by events now
         w.s["containers"][w.s["people"][f"H{i}"]["hands"]]["goods"]["crude weapon"] = 1
-        w.s["know"][f"H{i}"]["drive"]["skill"] = 3.0
+        w.s["know"][f"H{i}"]["hunting drive"]["skill"] = 3.0
     rs = []
-    for i in range(30):                                                          # a drive is a party's (brief 4b)
-        rs += _party_hunt(w, [f"H{2 * i}", f"H{2 * i + 1}"], {"do": "gather", "what": "drive", "at": wood, "range": "the wood around",
-                                                              "looking for": "boar"})
+    from cybertron2.engine import run as R
+    day0 = w.s["day"]
+    for d in range(10):                                                          # over days, not one day's draws (they are keyed by the
+        w.s["day"], w.s["today"] = day0 + d, R.blank_today()                     # method's name: W-111's rename changed them)
+        for i in range(30):                                                      # a drive is a party's (brief 4b)
+            rs += _party_hunt(w, [f"H{2 * i}", f"H{2 * i + 1}"], {"do": "gather", "what": "hunting drive", "at": wood,
+                                                                  "range": "the wood around", "looking for": "boar"})
+            if (w.s["wild"]["groups"][gid].get("leader") or {}).get("died") is not None:
+                break
         if (w.s["wild"]["groups"][gid].get("leader") or {}).get("died") is not None:
             break
     assert any("the old sow that led them" in r for r in rs)

@@ -36,7 +36,7 @@ def test_the_hunt_has_its_own_hard_curve_and_the_meat_is_on_the_cows_scale():
     goods = {k: (WK.TAKEN[k].get("goods") or {}).get("meat") for k in ("red deer", "roe deer", "wild boar", "brown hare")}
     assert goods == {"red deer": 33.0, "roe deer": 8.1, "wild boar": 29.0, "brown hare": 1.25}   # on the 1,500 kcal unit (D2-258)
     assert WK.TAKEN["eel"]["goods"] == {"fish": 0.58}                              # eels are fish goods (D2-216); 0.58 (D2-258)
-    assert TECHNIQUES["stalk"]["sweep"] == 0.4 and TECHNIQUES["drive"]["sweep"] == 2.0
+    assert TECHNIQUES["stalk"]["sweep"] == 0.4 and TECHNIQUES["hunting drive"]["sweep"] == 2.0
 
 
 def test_a_trip_can_meet_more_than_one_beast_and_ends_when_the_hunter_can_carry_no_more(generated):  # noqa: F811

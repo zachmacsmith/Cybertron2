@@ -12,7 +12,7 @@ from tests.test_cybertron2_wild import _hunters, _party_hunt, generated  # noqa:
 
 # ---------------------------------------------------------------------------------------------------------------- §3.1 the chance
 def test_the_chance_is_one_minus_e_to_the_baseline_times_the_multipliers():
-    for tech in ("hunt the wild", "stalk", "drive"):
+    for tech in ("hunt the wild", "stalk", "hunting drive"):
         base = float(TECHNIQUES[tech]["take_base"])
         assert math.isclose(WL.take_chance(tech, 1.0, 1.0, 0.0, 1.0), 1 - math.exp(-base))       # a bare-handed novice: at base
         p0 = WL.take_chance(tech, 1.0, 1.0, 0.5, 1.0)
@@ -29,10 +29,10 @@ def test_the_chance_is_one_minus_e_to_the_baseline_times_the_multipliers():
 
 def test_the_crew_bonus_is_for_the_drive_only():
     flee, fam = 0.5, 1.0
-    assert TECHNIQUES["drive"].get("crew")
-    assert WL.take_chance("drive", 1.0, 1.0, flee, fam, n_out=3) > WL.take_chance("drive", 1.0, 1.0, flee, fam, n_out=1)
-    x1 = float(TECHNIQUES["drive"]["take_base"]) * (1 - flee)
-    assert math.isclose(WL.take_chance("drive", 1.0, 1.0, flee, fam, n_out=3), 1 - math.exp(-x1 * (1 + 2 * float(HUNT["crew"]))))
+    assert TECHNIQUES["hunting drive"].get("crew")
+    assert WL.take_chance("hunting drive", 1.0, 1.0, flee, fam, n_out=3) > WL.take_chance("hunting drive", 1.0, 1.0, flee, fam, n_out=1)
+    x1 = float(TECHNIQUES["hunting drive"]["take_base"]) * (1 - flee)
+    assert math.isclose(WL.take_chance("hunting drive", 1.0, 1.0, flee, fam, n_out=3), 1 - math.exp(-x1 * (1 + 2 * float(HUNT["crew"]))))
     for tech in ("hunt the wild", "stalk"):                                                         # a party's gain there is the carry,
         assert WL.take_chance(tech, 1.0, 1.0, flee, fam, n_out=3) == WL.take_chance(tech, 1.0, 1.0, flee, fam, n_out=1)   # the eyes
 
@@ -47,7 +47,7 @@ def test_skill_finds_more_game_only_above_the_capable():
 
 
 def test_no_wild_method_keeps_a_weapon_ceiling():
-    for tech in ("hunt the wild", "stalk", "drive", "snare", "net", "trap in water", "den work"):
+    for tech in ("hunt the wild", "stalk", "hunting drive", "snare", "net", "trap in water", "den work"):
         assert "weapon" not in TECHNIQUES[tech] and isinstance(TECHNIQUES[tech].get("gear"), dict), tech
 
 
@@ -180,5 +180,5 @@ def test_no_kind_or_method_is_named_in_the_take_rule():
     import inspect
     src = (inspect.getsource(WL.take_chance) + inspect.getsource(WL.gear) + inspect.getsource(WL.practise)).lower()
     import re
-    assert not [k for k in ("deer", "hare", "boar", "pigeon", "drive", "stalk", "hunt the wild", "crude weapon")
+    assert not [k for k in ("deer", "hare", "boar", "pigeon", "hunting drive", "drive", "stalk", "hunt the wild", "crude weapon")
                 if re.search(r"\b" + k + r"s?\b", src)]

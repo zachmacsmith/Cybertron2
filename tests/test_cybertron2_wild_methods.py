@@ -42,7 +42,7 @@ def test_a_need_that_fails_gives_nothing_and_one_method_answers_several_kinds():
 def test_old_names_resolve_as_aliases():
     from cybertron2.engine import knowledge as KN, packs as PK
     PK.CURRENT = ("wild",)
-    for old, new in (("stalk deer", "stalk"), ("boar hunt", "drive"), ("snare hares", "snare"), ("fowling", "net"),
+    for old, new in (("stalk deer", "stalk"), ("boar hunt", "hunting drive"), ("snare hares", "snare"), ("fowling", "net"),
                      ("set eel traps", "trap in water"), ("dig out the fox earth", "den work"), ("trap beavers", "den work"),
                      ("take the young herons", "gather young"), ("pick slugs at dusk", "pest work"), ("top the beans", "pest work"),
                      ("watch the field (fire)", "guard the field"), ("shut the hens in", "shut"), ("hunt", "hunt the wild")):

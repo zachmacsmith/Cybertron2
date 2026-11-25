@@ -1096,7 +1096,7 @@ def HU4(c):
 def HU5(c):
     """`stalk` (slow: its units; wood and heath: its covers; a weapon), `drive` (a crew; dangerous), `hunt the wild` (what comes)."""
     from cybertron2.engine.data import TECHNIQUES as T
-    if not T["drive"].get("crew") or T["stalk"]["units"] <= T["hunt the wild"]["units"]:
+    if not T["hunting drive"].get("crew") or T["stalk"]["units"] <= T["hunt the wild"]["units"]:
         return None
     return ("Stalking is slow work in wood and heath, downwind and close; a drive wants beaters and spears and is dangerous; one "
             "alone with a weapon takes what comes.")

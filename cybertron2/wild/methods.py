@@ -57,8 +57,8 @@ METHODS = {
         ["forest", "scrub", "heath", "moor"], {"size": ("medium", "large"), "runs": True, "home": "none"}, [],
         2.5, {"crude weapon": 5.0}, 3, "go quietly after a beast that keeps to its paths, and take it with a weapon",
         hint="slow, downwind, close in for the shot"),
-    "drive": _take_row(
-        "a drive",
+    "hunting drive": _take_row(                                               # not "drive", the herd act (W-111, Q-109)
+        "a hunting drive",
         ["boar hunt", "hunt the boar", "hunting boar", "spear the boar", "boar hunting", "drive the wood", "a drive"],
         ["forest", "scrub", "fen"], {"size": ("medium", "large"), "social": "group"}, [], 3.0, {"crude weapon": 6.0}, 4,
         "beat a wood with others to drive a herd or sounder onto waiting spears; dangerous alone", untaught=False, crew=True,
@@ -113,15 +113,15 @@ for _k, _v in SETS.items():
     METHODS[_k]["set"] = dict(_v)
 # the take as a search over time (brief 4 §2.2, §2.6; calibrate): km2 searched a unit of the method's own work, and the hunt's
 # hard curve of skill; methods with no sweep search at SWEEP_DEFAULT
-SWEEP = {"stalk": 0.4, "hunt the wild": 1.0, "drive": 2.0, "net": 0.3, "den work": 3.0}   # an earth one knows is soon found
+SWEEP = {"stalk": 0.4, "hunt the wild": 1.0, "hunting drive": 2.0, "net": 0.3, "den work": 3.0}   # an earth one knows is soon found
 for _k, _v in SWEEP.items():
     METHODS[_k]["sweep"] = _v
-for _k in ("stalk", "hunt the wild", "drive"):
+for _k in ("stalk", "hunt the wild", "hunting drive"):
     METHODS[_k]["curve"] = "hard"
 # a beast met is taken at 1 - e^(-take_base x gear x skill x familiarity x (1 - flee)) (brief 4c §3.1): `take_base` the bare-handed
 # novice's, by method; `gear` (on each row above; calibrate (4c)) the multiplier of what one carries, by item, on the methods it
 # serves; net and den work keep brief 4's chance (take_k x their old bare-handed factor; their weapon's ratio as gear)
-TAKE_BASE = {"hunt the wild": 0.25, "stalk": 0.06, "drive": 0.1, "net": 0.25, "den work": 0.2}   # calibrate (4c), and the gear rows
+TAKE_BASE = {"hunt the wild": 0.25, "stalk": 0.06, "hunting drive": 0.1, "net": 0.25, "den work": 0.2}   # calibrate (4c), and the gear rows
 for _k, _v in TAKE_BASE.items():
     METHODS[_k]["take_base"] = _v
 METHODS["snare"]["note"] = ("set a line of nooses where small beasts run; it catches by night for a few nights: come back to your snares and "
@@ -173,7 +173,7 @@ METHODS.update({
 for _k, _v in {
     "hunt the wild": "go out after whatever game the place holds, and take what you meet",
     "stalk": "go quietly after a beast that keeps to its paths, and take it with a weapon",
-    "drive": "beat a wood with others to drive beasts onto waiting spears: it needs others with you (a party you lead, or another's "
+    "hunting drive": "beat a wood with others to drive beasts onto waiting spears: it needs others with you (a party you lead, or another's "
              "you join with \"with\")",
     "snare": "set a line of nooses from your hands; it stays where you set it and catches by night for a few nights: come back (tend) "
              "and take what is in them, or it rots there or another finds it",
@@ -361,7 +361,7 @@ def seed_by_land(w) -> None:
             for meth in sorted(methods):
                 if meth not in TECHNIQUES or KN.basic(meth):
                     continue
-                if meth == "drive" and n not in heads and over is None:          # the drive is led by the household's head (§6)
+                if meth == "hunting drive" and n not in heads and over is None:          # the drive is led by the household's head (§6)
                     continue
                 if meth not in k:
                     k[meth] = {"level": "known", "skill": KN.curve(meth)[0], "seen": 0, "wins": 0, "fails": 0,

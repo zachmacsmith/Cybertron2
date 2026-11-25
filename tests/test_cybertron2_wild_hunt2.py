@@ -139,7 +139,7 @@ def test_no_kind_is_named_in_the_party_code():
 
 # ---------------------------------------------------------------------------------------------------------------- stage B
 def _party_world(generated, n=3):
-    w, WL_, wood = _hunters(generated, n=n, knows=("stalk", "drive", "hunt the wild"))
+    w, WL_, wood = _hunters(generated, n=n, knows=("stalk", "hunting drive", "hunt the wild"))
     for i in range(n):
         w.s["containers"][w.s["people"][f"H{i}"]["hands"]]["goods"]["crude weapon"] = 1
         w.s["know"][f"H{i}"]["stalk"]["skill"] = 3.0
@@ -266,7 +266,7 @@ def test_a_follower_with_fewer_units_turns_back_and_knows_only_what_came_before(
 
 def test_a_drive_needs_a_party(generated):  # noqa: F811
     w, wood = _party_world(generated, n=1)
-    r = _do(w, "H0", {"do": "gather", "what": "drive", "at": wood})
+    r = _do(w, "H0", {"do": "gather", "what": "hunting drive", "at": wood})
     assert r.startswith("Refused") and "others" in r
 
 
