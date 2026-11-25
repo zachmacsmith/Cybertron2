@@ -36,6 +36,22 @@ def publish(name, out):
     log(f"{name}: published at day {S.days_done(out)}")
 
 
+PUBS = {}                 # arm: (the publish process, the day it publishes); one at a time an arm
+
+
+def publish_bg(name, out):
+    """Publish an arm in the background as it stands (Zach, 25 Nov: every 10-day chunk, updating the last publish): the upload
+    replaces the arm's folder in the dataset, so each publish holds every day so far. One at a time an arm."""
+    p = PUBS.get(name)
+    if p and p[0].poll() is None:
+        return
+    day = S.days_done(out)
+    PUBS[name] = (subprocess.Popen([sys.executable, "-m", "cybertron2.engine", "publish", out, "--push", "--staging",
+                                    f"{ROOT}/staging_{name}"], cwd=S.REPO, env=env(), stdout=open(out + ".publish.log", "a"),
+                                   stderr=subprocess.STDOUT, start_new_session=True), day)
+    log(f"{name}: publishing in the background at day {day}")
+
+
 def launch(name, world, out, target, workers):
     until = ["--until", f"d{target - 1}.memory"]
     if not os.path.exists(os.path.join(out, "run.json")):
@@ -55,6 +71,7 @@ def main(argv):
     outs = {n: os.path.join(ROOT, n) for n in arms}
     ended = set()
     tries = {}                                                          # (arm, day) launches that did not move it on
+    published = {}                                                      # arm: the last day published
     log(f"watching {len(arms)} arms, step {step}: {', '.join(sorted(arms))}")
     target = step
     while True:
@@ -65,6 +82,11 @@ def main(argv):
                 ended.add(n)
                 log(f"{n}: ended at day {S.days_done(out)} ({'died out' if S.extinct(out) else 'its last day'})")
                 publish(n, out)
+        for n, out in outs.items():                                     # a finished 10-day chunk: publish it (in the background)
+            d = S.days_done(out)
+            if n not in ended and d and d % step == 0 and not S.alive(out) and published.get(n, 0) < d:
+                published[n] = d
+                publish_bg(n, out)
         live = [n for n in arms if n not in ended]
         if not live:
             log("every arm ended")
