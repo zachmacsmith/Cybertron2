@@ -186,6 +186,7 @@ unanswered is neither lost nor re-asked. Written by `python3 tools/records.py ne
 | ~~O-202~~ | **(Closed 23 Nov: the lines to the other agent; the two worlds in W-203.)** **Build the farmer, herder and miller seeded lines (u9 §5.5.2, 5.5.3, 5.5.8) in founders.py, then World 0b's five arms; after them, build Fallowmere (World 1) as the next monoculture world, then the Scattering** | do it | 2026-11-24 | bench |
 | O-203 | **A pre-generation check in the monoculture maker: the founders' data against founders.py's templates (two founders a line, two parents) and the gate's rules (keepers' lines, crafts with their makers, fits), before any generation** | do it | 2026-11-24 | bench |
 | ~~O-204~~ | **(Closed 24 Nov: done in w0b_failures.md (the reasoning on hungry days and the tries for children read with the rest).)** **Read World 0b's agents' own reasoning on days they could have tried for a child and did not: food pressure, the prompt's placement of try, or the goal not turning into acts** | do it | 2026-11-24 | bench |
+| O-205 | **A salience test of the fixed prompt: World 0b on Sonnet 5.5 with the acts done with others grouped near the top, against the prompt as it is, 2 runs each to day 25 (about 4 runs, $25 to $30)** | | | bench |
 
 ## Flagged for later (deferred)
 
