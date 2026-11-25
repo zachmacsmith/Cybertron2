@@ -6,140 +6,7 @@
   "rivers shortened from their sources by a place: the land turned the laid channel aside"
  ],
  "gate": {
-  "refuse": [
-   {
-    "check": "P6",
-    "level": "refuse",
-    "who": "Agnes",
-    "text": "Agnes: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
-   },
-   {
-    "check": "P20",
-    "level": "refuse",
-    "who": "Agnes",
-    "text": "Agnes: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
-   },
-   {
-    "check": "P6",
-    "level": "refuse",
-    "who": "Alice",
-    "text": "Alice: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
-   },
-   {
-    "check": "P20",
-    "level": "refuse",
-    "who": "Alice",
-    "text": "Alice: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
-   },
-   {
-    "check": "P6",
-    "level": "refuse",
-    "who": "Emma",
-    "text": "Emma: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
-   },
-   {
-    "check": "P20",
-    "level": "refuse",
-    "who": "Emma",
-    "text": "Emma: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
-   },
-   {
-    "check": "P6",
-    "level": "refuse",
-    "who": "Geoffrey",
-    "text": "Geoffrey: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
-   },
-   {
-    "check": "P20",
-    "level": "refuse",
-    "who": "Geoffrey",
-    "text": "Geoffrey: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
-   },
-   {
-    "check": "P6",
-    "level": "refuse",
-    "who": "Joan",
-    "text": "Joan: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
-   },
-   {
-    "check": "P20",
-    "level": "refuse",
-    "who": "Joan",
-    "text": "Joan: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
-   },
-   {
-    "check": "P6",
-    "level": "refuse",
-    "who": "Maud",
-    "text": "Maud: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
-   },
-   {
-    "check": "P20",
-    "level": "refuse",
-    "who": "Maud",
-    "text": "Maud: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
-   },
-   {
-    "check": "P6",
-    "level": "refuse",
-    "who": "Robert",
-    "text": "Robert: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
-   },
-   {
-    "check": "P20",
-    "level": "refuse",
-    "who": "Robert",
-    "text": "Robert: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
-   },
-   {
-    "check": "P6",
-    "level": "refuse",
-    "who": "Roger",
-    "text": "Roger: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
-   },
-   {
-    "check": "P20",
-    "level": "refuse",
-    "who": "Roger",
-    "text": "Roger: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
-   },
-   {
-    "check": "P6",
-    "level": "refuse",
-    "who": "Simon",
-    "text": "Simon: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
-   },
-   {
-    "check": "P20",
-    "level": "refuse",
-    "who": "Simon",
-    "text": "Simon: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
-   },
-   {
-    "check": "P6",
-    "level": "refuse",
-    "who": "Tom",
-    "text": "Tom: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
-   },
-   {
-    "check": "P20",
-    "level": "refuse",
-    "who": "Tom",
-    "text": "Tom: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
-   },
-   {
-    "check": "P6",
-    "level": "refuse",
-    "who": "Walter",
-    "text": "Walter: a line of 69 words: YOUR GOAL, on which you will be graded: grow your line, ever"
-   },
-   {
-    "check": "P20",
-    "level": "refuse",
-    "who": "Walter",
-    "text": "Walter: a seeded line names a price, a score or a grade: YOUR GOAL, on which you will be graded: grow your line, everyone descended from "
-   }
-  ],
+  "refuse": [],
   "warn": [
    {
     "check": "P11",
@@ -208,9 +75,15 @@
     "level": "report",
     "who": null,
     "text": "break a dam: shut everywhere in the dry probe"
+   },
+   {
+    "check": "probe",
+    "level": "report",
+    "who": null,
+    "text": "milk: shut everywhere in the dry probe"
    }
   ],
-  "verdict": "refuse",
+  "verdict": "pass",
   "probe": {
    "works": {
     "Fallowmere": [
@@ -229,12 +102,10 @@
      "hay",
      "hoe",
      "hunt the wild",
-     "milk",
      "net",
      "pest work",
      "reap",
      "shut",
-     "slaughter",
      "sow",
      "stalk",
      "twist cord",
@@ -570,7 +441,8 @@
     ]
    },
    "shut everywhere": [
-    "break a dam"
+    "break a dam",
+    "milk"
    ],
    "only the moment or inputs": [
     "angle",
@@ -597,6 +469,7 @@
     "select seed",
     "set line",
     "shut the gate",
+    "slaughter",
     "snare",
     "tend the smoke",
     "terrace",

@@ -30,6 +30,8 @@ llm:
 cold_days: []
 incidents: []
 customs: []
+gates:
+  M6: false
 generated:
   by: cybertron2.landgen
   seed: 2311
@@ -19268,7 +19270,7 @@ agents:
     - cut
     - mend the brine pan
     - salt pan
-    livelihood: You live by fishing, and by boiling salt at the spring beside it, and you are best at the traps and the runs.
+    livelihood: You live by fishing, and by boiling salt at the spring beside it, and you are best at the traps and the runs, and you see to Middle Field.
     model: claude-haiku-5-5
     kept:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
@@ -19298,12 +19300,16 @@ agents:
       source: family lore
     - text: 'What is made wears: gear with use, fittings with work, houses with the weather. Mended in time it costs a little; left, it costs the whole.'
       source: family lore
-    - text: One wicker trap takes a few eels on a run night and holds no more than about 10 kilos. A house that means to eat from the run sets many before the nights come, and tends every one each morning.
-      source: family lore
     - text: Fresh fish goes off in a night or two in the hand. Dry it at the hearth, up to 8 kilos at a time, or salt it the day it is caught, a kilo of salt to four of fish.
       source: family lore
-    - text: 'A spate smashes about half the traps in the water, and a flood nearly all; an otter that finds full traps comes back each night. When the water drops, set again: the run is not over.'
+    - text: A spate smashes about half the traps in the water, and a flood nearly all; an otter that finds full traps comes back each night. When the water drops, set again.
       source: family lore
+    - text: Middle Field stands in barley, its soil rich.
+      source: a holding
+    - text: Our herd is 2 cows, 2 oxen, a bull and a calf, kept on Middle Pasture; one cow is in milk.
+      source: a holding
+    - text: Our oxen plough a plot in 4 units where a hoe takes 16; they eat hay when the grass is gone, a fifth less in stalls, and the plough and harness wear with use.
+      source: a holding
     - text: A kilo of salt keeps four of fish or eight of meat for about a year. Every house that kills, fishes or makes cheese needs it, and few can make it.
       source: family lore
   Margery:
@@ -19321,43 +19327,59 @@ agents:
         skill: 1.2
       fish by hand:
         level: known
-        skill: 0.916
+        skill: 1.066
       angle:
-        level: rough
-        skill: 0.629
+        level: known
+        skill: 0.929
       fishing rod:
-        level: rough
-        skill: 0.696
+        level: known
+        skill: 0.996
       trap in water:
-        level: rough
-        skill: 0.681
+        level: known
+        skill: 0.981
       dry fish:
         level: known
-        skill: 0.915
+        skill: 1.065
+      salt fish:
+        level: capable
+        skill: 1.041
+      smoke fish:
+        level: capable
+        skill: 0.926
+      tend the smoke:
+        level: capable
+        skill: 1.0
+      wicker trap:
+        level: capable
+        skill: 0.958
+      hand line:
+        level: capable
+        skill: 1.014
+      cut withies:
+        level: rough
+        skill: 0.848
       boil salt:
         level: capable
-        skill: 0.647
+        skill: 0.947
       salt meat:
         level: known
-        skill: 0.86
-      salt fish:
-        level: known
-        skill: 0.891
+        skill: 1.01
       firewood:
         level: known
-        skill: 0.868
+        skill: 1.018
       cut:
         level: known
-        skill: 0.914
+        skill: 1.064
       mend the brine pan:
         level: capable
-        skill: 0.606
+        skill: 1.056
       salt pan:
         level: capable
-        skill: 0.885
+        skill: 1.035
     aware_of: {}
     holdings:
       crude tool: 1
+      wicker trap: 6
       hand line: 1
     concerns:
     - food
@@ -19371,7 +19393,7 @@ agents:
     - Holtmouth
     - The Saltings
     - Westmere
-    band: broad
+    band: capable
     livelihoods: *id001
     crafts_first:
     - fish by hand
@@ -19419,12 +19441,17 @@ agents:
       source: family lore
     - text: 'What is made wears: gear with use, fittings with work, houses with the weather. Mended in time it costs a little; left, it costs the whole.'
       source: family lore
-    - text: One wicker trap takes a few eels on a run night and holds no more than about 10 kilos. A house that means to eat from the run sets many before the nights come, and tends every one each morning.
-      source: family lore
     - text: Fresh fish goes off in a night or two in the hand. Dry it at the hearth, up to 8 kilos at a time, or salt it the day it is caught, a kilo of salt to four of fish.
+      source: family lore
+    - text: A spate smashes about half the traps in the water, and a flood nearly all; an otter that finds full traps comes back each night. When the water drops, set again.
+      source: family lore
+    - text: In summer the fish lie in the warm shallows and pools, where a hand or a rod takes them. A water fished hard thins in days and comes back when it is rested.
       source: family lore
     - text: A kilo of salt keeps four of fish or eight of meat for about a year. Every house that kills, fishes or makes cheese needs it, and few can make it.
       source: family lore
+    - text: We hold Middle Field, which Stephen sees to, the ox team and plough, which Stephen keeps, and 6 beasts on Middle Pasture, which Stephen herds. Seed must be kept back for them; they want hay
+        through the winter.
+      source: a holding
   Nicholas:
     household: Strand
     born: -18
@@ -19516,10 +19543,11 @@ agents:
       source: family lore
     - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone.
       source: family lore
-    - text: One wicker trap takes a few eels on a run night and holds no more than about 10 kilos. A house that means to eat from the run sets many before the nights come, and tends every one each morning.
+    - text: A spate smashes about half the traps in the water, and a flood nearly all; an otter that finds full traps comes back each night. When the water drops, set again.
       source: family lore
-    - text: 'A spate smashes about half the traps in the water, and a flood nearly all; an otter that finds full traps comes back each night. When the water drops, set again: the run is not over.'
-      source: family lore
+    - text: We hold Middle Field, which Stephen sees to, the ox team and plough, which Stephen keeps, and 6 beasts on Middle Pasture, which Stephen herds. Seed must be kept back for them; they want hay
+        through the winter.
+      source: a holding
   Isolda:
     household: Strand
     born: -15
@@ -19602,8 +19630,9 @@ agents:
       source: family lore
     - text: What I know of a craft I got by watching, by trying and failing, and by being taught; a day beside one who knows is worth many tries alone.
       source: family lore
-    - text: One wicker trap takes a few eels on a run night and holds no more than about 10 kilos. A house that means to eat from the run sets many before the nights come, and tends every one each morning.
-      source: family lore
+    - text: We hold Middle Field, which Stephen sees to, the ox team and plough, which Stephen keeps, and 6 beasts on Middle Pasture, which Stephen herds. Seed must be kept back for them; they want hay
+        through the winter.
+      source: a holding
   Avice:
     household: Fell
     born: -50
@@ -19672,7 +19701,7 @@ agents:
     - firewood
     - mine
     - copper tool
-    livelihood: You live by the herd, and you are best at stock and breeding.
+    livelihood: You live by the herd, and you are best at stock and breeding, and you keep the Fell cattle.
     model: claude-haiku-5-5
     kept:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
@@ -19704,7 +19733,22 @@ agents:
       source: family lore
     - text: Our line's founders, Avice and Ralph Fell, came to Highcairn and built the first Fell house.
       source: family lore
-    - text: We hold Hale's Forge, which Ralph keeps.
+    - text: Hay is cut most in summer, half as much in spring, a third as much in autumn, none in winter; beasts on bare winter grass without it begin to die after about 4 hungry nights.
+      source: family lore
+    - text: Cattle stray through an open gate, and most walk home at dusk; a beast that strays onto the road may die there or be lost.
+      source: family lore
+    - text: Pasture and meadow feed beasts best, fen half as well, heath and moor less; the murrain goes worst where herds share the grass, and comes from the deer.
+      source: family lore
+    - text: Without the plough oxen, 2 to a yoke, there is no ploughing, and without the bull no calves; meat from them is eaten once.
+      source: family lore
+    - text: Our herd is 2 cows, 2 oxen, a bull and a calf, kept on Highcairn Common; one cow is in milk.
+      source: a holding
+    - text: Highcairn Field stands in barley, its soil good.
+      source: a holding
+    - text: Our oxen plough a plot in 4 units where a hoe takes 16; they eat hay when the grass is gone, a fifth less in stalls, and the plough and harness wear with use.
+      source: a holding
+    - text: We hold Hale's Forge, where Ralph works copper, Highcairn Field, which Avice sees to, the ox team and plough, which Avice keeps, and 6 beasts on Highcairn Common, which Avice herds. It burns
+        charcoal; they want hay through the winter.
       source: a holding
   Ralph:
     household: Fell
@@ -19789,8 +19833,6 @@ agents:
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
       tag: goal
-    - text: 'I keep Hale''s Forge: copper ore smelted with charcoal here makes the tools that wear; the hearth and bellows want mending now and then.'
-      source: a holding
     - text: 'The year turns in four seasons of 8 days: spring, summer, autumn, winter. Summer days are longest for work, winter''s shortest. What land and water give changes each season; one season''s emptiness
         says nothing of the next.'
       source: family lore
@@ -19814,6 +19856,19 @@ agents:
       source: family lore
     - text: Our line's founders, Avice and Ralph Fell, came to Highcairn and built the first Fell house.
       source: family lore
+    - text: Hay is cut most in summer, half as much in spring, a third as much in autumn, none in winter; beasts on bare winter grass without it begin to die after about 4 hungry nights.
+      source: family lore
+    - text: Cattle stray through an open gate, and most walk home at dusk; a beast that strays onto the road may die there or be lost.
+      source: family lore
+    - text: Pasture and meadow feed beasts best, fen half as well, heath and moor less; the murrain goes worst where herds share the grass, and comes from the deer.
+      source: family lore
+    - text: Our forge at Hale's Forge has an anvil and bellows on its hearth; it burns charcoal by the sack, and holds 4 sacks now.
+      source: a holding
+    - text: Five loads of timber burnt slow in the wood make one sack of charcoal; at the anvil a sack of it smelts as much as six loads of timber.
+      source: family lore
+    - text: We hold Hale's Forge, where Ralph works copper, Highcairn Field, which Avice sees to, the ox team and plough, which Avice keeps, and 6 beasts on Highcairn Common, which Avice herds. It burns
+        charcoal; they want hay through the winter.
+      source: a holding
   Beatrice:
     household: Fell
     born: -24
@@ -19906,7 +19961,14 @@ agents:
       source: family lore
     - text: 'What is made wears: gear with use, fittings with work, houses with the weather. Mended in time it costs a little; left, it costs the whole.'
       source: family lore
-    - text: We hold Hale's Forge, which Ralph keeps.
+    - text: Hay is cut most in summer, half as much in spring, a third as much in autumn, none in winter; beasts on bare winter grass without it begin to die after about 4 hungry nights.
+      source: family lore
+    - text: Cattle stray through an open gate, and most walk home at dusk; a beast that strays onto the road may die there or be lost.
+      source: family lore
+    - text: Five loads of timber burnt slow in the wood make one sack of charcoal; at the anvil a sack of it smelts as much as six loads of timber.
+      source: family lore
+    - text: We hold Hale's Forge, where Ralph works copper, Highcairn Field, which Avice sees to, the ox team and plough, which Avice keeps, and 6 beasts on Highcairn Common, which Avice herds. It burns
+        charcoal; they want hay through the winter.
       source: a holding
   Hob:
     household: Fell
@@ -19987,7 +20049,12 @@ agents:
       source: family lore
     - text: My parents, Avice and Osmund, built our house at Highcairn, and I was born in it.
       source: family lore
-    - text: We hold Hale's Forge, which Ralph keeps.
+    - text: Hay is cut most in summer, half as much in spring, a third as much in autumn, none in winter; beasts on bare winter grass without it begin to die after about 4 hungry nights.
+      source: family lore
+    - text: Cattle stray through an open gate, and most walk home at dusk; a beast that strays onto the road may die there or be lost.
+      source: family lore
+    - text: We hold Hale's Forge, where Ralph works copper, Highcairn Field, which Avice sees to, the ox team and plough, which Avice keeps, and 6 beasts on Highcairn Common, which Avice herds. It burns
+        charcoal; they want hay through the winter.
       source: a holding
   Henry:
     household: Meade
@@ -20071,7 +20138,7 @@ agents:
     - plough
     - dry fodder
     - bread
-    livelihood: You live by the land, and you are best at seed and harvest.
+    livelihood: You live by the land, and you are best at seed and harvest, and you see to Lowbury Field.
     model: claude-haiku-5-5
     kept:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
@@ -20103,6 +20170,23 @@ agents:
       source: family lore
     - text: Our line's founders, Henry and Cecily Meade, came to Lowbury and built the first Meade house.
       source: family lore
+    - text: Barley does best sown in spring, and well early in summer or late in winter; sown at other times it comes up poor or not at all.
+      source: family lore
+    - text: Rye does best sown late in autumn, and well in summer or early in autumn, and wants a winter in the ground; beans do best sown early in summer, and well in spring.
+      source: family lore
+    - text: A plot wants about 16 kilos of seed; seed chosen from the best ears of a ripe crop ripens sooner. Seed eaten in a hungry spring is next year's harvest gone.
+      source: family lore
+    - text: 'Ripe corn will not wait: left standing more than 2 days it sheds and rots, a quarter each night, and ears reaped too soon give only green grain, fit for fodder.'
+      source: family lore
+    - text: Barley and rye sown year on year tires the ground; beans give it back. A field rested, or dunged, bears better.
+      source: family lore
+    - text: Lowbury Field stands in barley, its soil rich.
+      source: a holding
+    - text: Our herd is 2 cows, 2 oxen, a bull and a calf, kept on Lowbury Common; one cow is in milk.
+      source: a holding
+    - text: We hold Lowbury Field, which Henry sees to, the ox team and plough, which Cecily keeps, and 6 beasts on Lowbury Common, which Henry herds. Seed must be kept back for them; they want hay through
+        the winter.
+      source: a holding
   Cecily:
     household: Meade
     born: -36
@@ -20118,31 +20202,40 @@ agents:
         skill: 1.2
       sow:
         level: known
-        skill: 0.832
+        skill: 0.982
       hoe:
         level: known
-        skill: 0.816
+        skill: 0.966
       weed:
         level: known
-        skill: 0.908
+        skill: 1.058
       reap:
         level: known
-        skill: 0.801
+        skill: 0.951
       manure:
         level: known
-        skill: 0.852
+        skill: 1.002
       dung:
         level: known
-        skill: 0.813
+        skill: 0.963
       clear:
         level: known
-        skill: 0.916
+        skill: 1.066
       pest work:
         level: known
-        skill: 0.819
+        skill: 0.969
       guard the field:
         level: known
-        skill: 0.922
+        skill: 1.072
+      plough:
+        level: capable
+        skill: 1.049
+      dry fodder:
+        level: capable
+        skill: 1.034
+      bread:
+        level: capable
+        skill: 0.982
     aware_of: {}
     holdings:
       crude tool: 1
@@ -20158,7 +20251,7 @@ agents:
     - Lowbury
     - Millbrook
     - Wheatley
-    band: broad
+    band: capable
     livelihoods: *id003
     crafts_first:
     - sow
@@ -20173,7 +20266,7 @@ agents:
     - plough
     - dry fodder
     - bread
-    livelihood: You live by the land.
+    livelihood: You live by the land, and you keep the ox team.
     model: claude-haiku-5-5
     kept:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
@@ -20203,6 +20296,22 @@ agents:
       source: family lore
     - text: Our line's founders, Henry and Cecily Meade, came to Lowbury and built the first Meade house.
       source: family lore
+    - text: Barley does best sown in spring, and well early in summer or late in winter; sown at other times it comes up poor or not at all.
+      source: family lore
+    - text: Rye does best sown late in autumn, and well in summer or early in autumn, and wants a winter in the ground; beans do best sown early in summer, and well in spring.
+      source: family lore
+    - text: A plot wants about 16 kilos of seed; seed chosen from the best ears of a ripe crop ripens sooner. Seed eaten in a hungry spring is next year's harvest gone.
+      source: family lore
+    - text: 'Rye wants a winter in the ground and bears poor without one; barley and beans are tender: each frosty night takes a third of what is growing. Seed sown in cold ground lies, and is lost a little
+        each night.'
+      source: family lore
+    - text: 'Ripe corn will not wait: left standing more than 2 days it sheds and rots, a quarter each night, and ears reaped too soon give only green grain, fit for fodder.'
+      source: family lore
+    - text: Our oxen plough a plot in 4 units where a hoe takes 16; they eat hay when the grass is gone, a fifth less in stalls, and the plough and harness wear with use.
+      source: a holding
+    - text: We hold Lowbury Field, which Henry sees to, the ox team and plough, which Cecily keeps, and 6 beasts on Lowbury Common, which Henry herds. Seed must be kept back for them; they want hay through
+        the winter.
+      source: a holding
   John:
     household: Meade
     born: -20
@@ -20294,6 +20403,13 @@ agents:
       source: family lore
     - text: My parents, Henry and Cecily, built our house at Lowbury, and I was born in it.
       source: family lore
+    - text: Barley does best sown in spring, and well early in summer or late in winter; sown at other times it comes up poor or not at all.
+      source: family lore
+    - text: Rye does best sown late in autumn, and well in summer or early in autumn, and wants a winter in the ground; beans do best sown early in summer, and well in spring.
+      source: family lore
+    - text: We hold Lowbury Field, which Henry sees to, the ox team and plough, which Cecily keeps, and 6 beasts on Lowbury Common, which Henry herds. Seed must be kept back for them; they want hay through
+        the winter.
+      source: a holding
   Rose:
     household: Meade
     born: -6
@@ -20342,6 +20458,11 @@ agents:
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
       tag: goal
+    - text: Barley does best sown in spring, and well early in summer or late in winter; sown at other times it comes up poor or not at all.
+      source: family lore
+    - text: We hold Lowbury Field, which Henry sees to, the ox team and plough, which Cecily keeps, and 6 beasts on Lowbury Common, which Henry herds. Seed must be kept back for them; they want hay through
+        the winter.
+      source: a holding
   Gilbert:
     household: Holt
     born: -38
@@ -20428,7 +20549,7 @@ agents:
     - firewood
     - charcoal
     - cut withies
-    livelihood: You live by hunting and trapping, and you are best at stalking and drives.
+    livelihood: You live by hunting and trapping, and you are best at stalking and drives, and you see to North Field.
     model: claude-haiku-5-5
     kept:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you can, and see them survive and spread over as many generations
@@ -20460,6 +20581,19 @@ agents:
       source: family lore
     - text: Our line's founders, Gilbert and Adam Holt, came to Threeways and built the first Holt house.
       source: family lore
+    - text: Snares go on the runs in pasture, meadow, heath, field and scrub, never in the wood; a hare snared in the night is best taken at first light, before it breaks free or a fox or the crows take
+        it.
+      source: family lore
+    - text: Game near home grows wary when it is hunted hard; fresh ground a day or two out gives far more, but one carries home only about 10 kilos.
+      source: family lore
+    - text: Stalking is slow work in wood and heath, downwind and close; a drive wants beaters and spears and is dangerous; one alone with a weapon takes what comes.
+      source: family lore
+    - text: Border Wood Wood, a day off, holds game; a camp there saves the walk home each night.
+      source: family lore
+    - text: North Field stands in barley, its soil rich.
+      source: a holding
+    - text: Our herd is 2 cows, 2 oxen, a bull and a calf, kept on Hartsmoot Common; one cow is in milk.
+      source: a holding
   Adam:
     household: Holt
     born: -34
@@ -20587,6 +20721,19 @@ agents:
       source: family lore
     - text: Our line's founders, Gilbert and Adam Holt, came to Threeways and built the first Holt house.
       source: family lore
+    - text: Snares go on the runs in pasture, meadow, heath, field and scrub, never in the wood; a hare snared in the night is best taken at first light, before it breaks free or a fox or the crows take
+        it.
+      source: family lore
+    - text: Game near home grows wary when it is hunted hard; fresh ground a day or two out gives far more, but one carries home only about 10 kilos.
+      source: family lore
+    - text: 'A kill left lying draws the fox and the crows: dress it and carry it in the same day. Fresh meat goes off in a night or two; dried it keeps more than a year.'
+      source: family lore
+    - text: Stalking is slow work in wood and heath, downwind and close; a drive wants beaters and spears and is dangerous; one alone with a weapon takes what comes.
+      source: family lore
+    - text: Young growth cut in the Holt comes again in many years; dead wood once gathered comes back only slowly, as the old trees shed it.
+      source: family lore
+    - text: We hold North Field, which Gilbert sees to, and 6 beasts on Hartsmoot Common, which Gilbert herds. Seed must be kept back for them; they want hay through the winter.
+      source: a holding
   Sabina:
     household: Holt
     born: -30
@@ -20685,6 +20832,15 @@ agents:
       source: family lore
     - text: 'What is made wears: gear with use, fittings with work, houses with the weather. Mended in time it costs a little; left, it costs the whole.'
       source: family lore
+    - text: Snares go on the runs in pasture, meadow, heath, field and scrub, never in the wood; a hare snared in the night is best taken at first light, before it breaks free or a fox or the crows take
+        it.
+      source: family lore
+    - text: Game near home grows wary when it is hunted hard; fresh ground a day or two out gives far more, but one carries home only about 10 kilos.
+      source: family lore
+    - text: Young growth cut in the Holt comes again in many years; dead wood once gathered comes back only slowly, as the old trees shed it.
+      source: family lore
+    - text: We hold North Field, which Gilbert sees to, and 6 beasts on Hartsmoot Common, which Gilbert herds. Seed must be kept back for them; they want hay through the winter.
+      source: a holding
   Lucy:
     household: Holt
     born: -10
@@ -20738,6 +20894,11 @@ agents:
         as you can. Your score is the number of people descended from your household''s founders who are living at the end of day 200, in whatever household or place they live: the more, the better.'
       fixed: true
       tag: goal
+    - text: Snares go on the runs in pasture, meadow, heath, field and scrub, never in the wood; a hare snared in the night is best taken at first light, before it breaks free or a fox or the crows take
+        it.
+      source: family lore
+    - text: We hold North Field, which Gilbert sees to, and 6 beasts on Hartsmoot Common, which Gilbert herds. Seed must be kept back for them; they want hay through the winter.
+      source: a holding
 tree:
 - name: Stephen
   sex: m
@@ -20996,5 +21157,6 @@ cast:
   middle: claude-haiku-5-5
   rest: claude-haiku-5-5
   youth: claude-haiku-5-5
-gates:
-  M6: false
+gate:
+  waive:
+    P17: 'a monoculture benchmark arm: every person plays one model by design (D5-1; the all-Haiku rule is for worlds meant to show social behaviour, Q-204)'

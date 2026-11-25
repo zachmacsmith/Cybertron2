@@ -151,17 +151,37 @@ def spec(key: str, seed: int) -> dict:
 
 def founders(world: dict, key: str) -> dict:
     """The design's founders in place of the generator's people; the generator's households (lines) at each home renamed to the
-    design's, in order, with their houses, herds, fields and claims."""
+    design's, matched on land (the farmer to the fields, the herder to the meadows), with their houses, herds, fields and claims."""
     lines_at = {}
     for b in world["buildings"].values():
         if (b.get("fittings") or {}).get("beds") and b.get("household"):
             lines_at.setdefault(b["parcel"].rsplit("_", 1)[0], []).append(b["household"])
+    land = {}                                                               # what the generator gave each of its households
+    for n in world["nodes"].values():
+        for p in n["parcels"].values():
+            if p.get("holder"):
+                c = land.setdefault(p["holder"], {"field": 0, "meadow": 0})
+                if p.get("cover") in c:
+                    c[p["cover"]] += int(p.get("size") or 1)
+    for h in (world.get("herds") or {}).values():
+        if h.get("holder"):
+            land.setdefault(h["holder"], {"field": 0, "meadow": 0})["meadow"] += 1
+    def wants(hh):                                                          # the farmer first to the fields, the herder to the meadows
+        lv = (SKILLS[key].get(hh) or {}).get("livelihoods") or []
+        return ("farmer" not in lv, lv.index("farmer") if "farmer" in lv else 9, "herder" not in lv)
     rename = {}
     for home, hhs in FOUNDERS[key].items():
         gen = sorted(set(lines_at.get(home, [])))
         if len(gen) < len(hhs):
             raise SystemExit(f"{key}: {home} has {len(gen)} households generated, the design wants {len(hhs)}")
-        rename.update(dict(zip(gen, hhs)))
+        left = list(gen)                                                    # matched on land, not on the order of names: by name, the
+        for hh in sorted(hhs, key=wants):                                   # Fallowmere field and plough went to the builders (25 Nov)
+            lv = (SKILLS[key].get(hh) or {}).get("livelihoods") or []
+            by = "field" if "farmer" in lv else "meadow" if "herder" in lv else None
+            g = max(left, key=lambda g: ((land.get(g) or {}).get(by, 0), g)) if by else \
+                min(left, key=lambda g: (sum((land.get(g) or {}).values()), g))
+            rename[g] = hh
+            left.remove(g)
     def rn(x):
         return rename.get(x, x)
     for b in world["buildings"].values():
@@ -315,6 +335,9 @@ def arm(world: dict, model: str) -> dict:
     for a in w["agents"].values():
         if a["stage"] in ("youth", "adult", "elder"):
             a["model"] = model
+    if "haiku" in model:                                                   # one model by design: the gate's all-Haiku check waived
+        from cybertron2.specs.make_world0 import MONO_P17
+        w.setdefault("gate", {}).setdefault("waive", {})["P17"] = MONO_P17
     return w
 
 
