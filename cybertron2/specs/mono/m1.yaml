@@ -101,7 +101,7 @@ nodes:
           rain_factor: 1.0
           sea_km: 99.0
           river: none
-        holder: Colle
+        holder: Ashby
         state:
           crop:
             kind: barley
@@ -5223,20 +5223,20 @@ roads:
         - spring
 buildings:
   holt_house:
-    name: Colle House
+    name: Ashby House
     parcel: Fallowmere_0
-    household: Colle
+    household: Ashby
     structure: wattle
-    size: 4
+    size: 6
     fittings:
-      beds: 4
+      beds: 6
       hearth: 1
       bins: 1
     stock:
       timber: 8
-      firewood: 18
-      grain: 38
-      beans: 10
+      firewood: 30
+      grain: 64
+      beans: 16
   hale_house:
     name: Reeve House
     parcel: Fallowmere_0
@@ -5253,24 +5253,24 @@ buildings:
       grain: 51
       beans: 13
   fowler_house:
-    name: Ashby House
+    name: Colle House
     parcel: Fallowmere_0
-    household: Ashby
+    household: Colle
     structure: wattle
-    size: 6
+    size: 4
     fittings:
-      beds: 6
+      beds: 4
       hearth: 1
       bins: 1
     stock:
       timber: 8
-      firewood: 30
-      grain: 64
-      beans: 16
+      firewood: 18
+      grain: 38
+      beans: 10
   holt_byre:
-    name: the Colle Byre
+    name: the Ashby Byre
     parcel: Fallowmere_0
-    household: Colle
+    household: Ashby
     structure: wattle
     size: 4
     fittings:
@@ -5283,7 +5283,7 @@ buildings:
       harness: 2
 herds:
   holt_cattle:
-    name: the Colle cattle
+    name: the Ashby cattle
     kind: cattle
     parcel: Fallowmere_3
     cows: 2
@@ -5291,7 +5291,7 @@ herds:
     bulls: 1
     young: 1
     in_milk: 1
-    holder: Colle
+    holder: Ashby
   hale_cattle:
     name: the Reeve cows
     kind: cattle
@@ -5301,13 +5301,13 @@ herds:
     in_milk: 1
     holder: Reeve
   fowler_cattle:
-    name: the Ashby cows
+    name: the Colle cows
     kind: cattle
     parcel: Fallowmere_4
     cows: 2
     young: 1
     in_milk: 1
-    holder: Ashby
+    holder: Colle
 wild:
   land:
     version: 1
@@ -20592,7 +20592,7 @@ agents:
     - plough
     - dry fodder
     - bread
-    livelihood: You live by the land, and you are best at the plough and the oxen, and you keep the Ashby cows.
+    livelihood: You live by the land, and you are best at the plough and the oxen, and you keep the ox team.
     model: claude-haiku-5-5
     kept:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
@@ -20641,11 +20641,15 @@ agents:
     - text: A crude tool reaps and fells; a copper one from the smith reaps half as much again and fells twice as much. Oxen and a plough break
         the ground four times as fast as a hoe.
       source: family lore
-    - text: Our herd is 2 cows and a calf, kept on the Common; one cow is in milk.
+    - text: Our oxen plough a plot in 4 units where a hoe takes 16; they eat hay when the grass is gone, a fifth less in stalls, and the plough
+        and harness wear with use.
+      source: a holding
+    - text: Our herd is 2 cows, 2 oxen, a bull and a calf, kept on the Leaze; one cow is in milk.
+      source: a holding
+    - text: We hold Clay Field, which Agnes sees to, the ox team and plough, which Robert keeps, and 6 beasts on the Leaze, which Robert herds.
+        Seed must be kept back for them; they want hay through the winter.
       source: a holding
     - text: 'The Colles build: a frame, a wheel or a hearth is their work.'
-      source: family lore
-    - text: The Reeves keep their cattle on the Common; they have milk.
       source: family lore
   Agnes:
     household: Ashby
@@ -20735,7 +20739,7 @@ agents:
     - plough
     - dry fodder
     - bread
-    livelihood: You live by the land.
+    livelihood: You live by the land, and you see to Clay Field.
     model: claude-sonnet-5-5
     kept:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
@@ -20788,11 +20792,12 @@ agents:
     - text: A crude tool reaps and fells; a copper one from the smith reaps half as much again and fells twice as much. Oxen and a plough break
         the ground four times as fast as a hoe.
       source: family lore
-    - text: We hold 3 beasts on the Common, which Robert herds. They want hay through the winter.
+    - text: Clay Field stands in barley, its soil rich.
+      source: a holding
+    - text: We hold Clay Field, which Agnes sees to, the ox team and plough, which Robert keeps, and 6 beasts on the Leaze, which Robert herds.
+        Seed must be kept back for them; they want hay through the winter.
       source: a holding
     - text: 'The Colles build: a frame, a wheel or a hearth is their work.'
-      source: family lore
-    - text: The Reeves keep their cattle on the Common; they have milk.
       source: family lore
   Walter:
     household: Ashby
@@ -20903,7 +20908,8 @@ agents:
     - text: Rye does best sown late in autumn, and well in summer or early in autumn, and wants a winter in the ground; beans do best sown early
         in summer, and well in spring.
       source: family lore
-    - text: We hold 3 beasts on the Common, which Robert herds. They want hay through the winter.
+    - text: We hold Clay Field, which Agnes sees to, the ox team and plough, which Robert keeps, and 6 beasts on the Leaze, which Robert herds.
+        Seed must be kept back for them; they want hay through the winter.
       source: a holding
   Joan:
     household: Ashby
@@ -20964,7 +20970,8 @@ agents:
       tag: goal
     - text: Barley does best sown in spring, and well early in summer or late in winter; sown at other times it comes up poor or not at all.
       source: family lore
-    - text: We hold 3 beasts on the Common, which Robert herds. They want hay through the winter.
+    - text: We hold Clay Field, which Agnes sees to, the ox team and plough, which Robert keeps, and 6 beasts on the Leaze, which Robert herds.
+        Seed must be kept back for them; they want hay through the winter.
       source: a holding
   Hugh:
     household: Ashby
@@ -21180,7 +21187,7 @@ agents:
     - text: A plot wants about 16 kilos of seed; seed chosen from the best ears of a ripe crop ripens sooner. Seed eaten in a hungry spring is
         next year's harvest gone.
       source: family lore
-    - text: The Ashbys sow and reap their fields; they have grain after harvest and want hands at reaping.
+    - text: The Ashbys sow and reap Clay Field; they have grain after harvest and want hands at reaping.
       source: family lore
     - text: 'The Colles build: a frame, a wheel or a hearth is their work.'
       source: family lore
@@ -21347,7 +21354,7 @@ agents:
       source: family lore
     - text: We hold 3 beasts on the Common, which Maud herds. They want hay through the winter.
       source: a holding
-    - text: The Ashbys sow and reap their fields; they have grain after harvest and want hands at reaping.
+    - text: The Ashbys sow and reap Clay Field; they have grain after harvest and want hands at reaping.
       source: family lore
     - text: 'The Colles build: a frame, a wheel or a hearth is their work.'
       source: family lore
@@ -21623,7 +21630,7 @@ agents:
     - firewood
     - charcoal
     - cut withies
-    livelihood: You live by building, and by the wood beside it, and you are best at the wright's work, and you see to Clay Field.
+    livelihood: You live by building, and by the wood beside it, and you are best at the wright's work, and you keep the Colle cows.
     model: claude-haiku-5-5
     kept:
     - text: 'YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household''s founders, to be as many as you
@@ -21664,17 +21671,14 @@ agents:
       source: family lore
     - text: Felling with a tool gives far more than gathering dead wood by hand; a crude tool wants only a little wood and stone.
       source: family lore
-    - text: Clay Field stands in barley, its soil rich.
-      source: a holding
-    - text: Our herd is 2 cows, 2 oxen, a bull and a calf, kept on the Leaze; one cow is in milk.
-      source: a holding
-    - text: Our oxen plough a plot in 4 units where a hoe takes 16; they eat hay when the grass is gone, a fifth less in stalls, and the plough
-        and harness wear with use.
+    - text: The plough is a wright's work; the Ashbys need it.
+      source: family lore
+    - text: Our herd is 2 cows and a calf, kept on the Common; one cow is in milk.
       source: a holding
     - text: Young growth cut in Hazel Copse comes again in a few years; dead wood once gathered comes back only slowly, as the old trees shed
         it.
       source: family lore
-    - text: The Ashbys sow and reap their fields; they have grain after harvest and want hands at reaping.
+    - text: The Ashbys sow and reap Clay Field; they have grain after harvest and want hands at reaping.
       source: family lore
     - text: The Reeves keep their cattle on the Common; they have milk.
       source: family lore
@@ -21827,10 +21831,9 @@ agents:
     - text: Young growth cut in Hazel Copse comes again in a few years; dead wood once gathered comes back only slowly, as the old trees shed
         it.
       source: family lore
-    - text: We hold Clay Field, which Geoffrey sees to, the ox team and plough, which Geoffrey keeps, and 6 beasts on the Leaze, which Geoffrey
-        herds. Seed must be kept back for them; they want hay through the winter.
+    - text: We hold 3 beasts on the Common, which Geoffrey herds. They want hay through the winter.
       source: a holding
-    - text: The Ashbys sow and reap their fields; they have grain after harvest and want hands at reaping.
+    - text: The Ashbys sow and reap Clay Field; they have grain after harvest and want hands at reaping.
       source: family lore
     - text: The Reeves keep their cattle on the Common; they have milk.
       source: family lore
@@ -21939,8 +21942,7 @@ agents:
     - text: 'Every house wears with the weather, wattle fastest, and worst in frost, wind and snow; unmended it falls to ruin. Mending wants timber,
         or stone for a stone house: keep some back from the fire.'
       source: family lore
-    - text: We hold Clay Field, which Geoffrey sees to, the ox team and plough, which Geoffrey keeps, and 6 beasts on the Leaze, which Geoffrey
-        herds. Seed must be kept back for them; they want hay through the winter.
+    - text: We hold 3 beasts on the Common, which Geoffrey herds. They want hay through the winter.
       source: a holding
 tree:
 - name: Robert

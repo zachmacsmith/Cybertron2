@@ -102,8 +102,10 @@
      "hay",
      "hoe",
      "hunt the wild",
+     "manure",
      "net",
      "pest work",
+     "plough",
      "reap",
      "shut",
      "sow",
@@ -456,11 +458,9 @@
     "dung",
     "gather young",
     "gill net",
-    "manure",
     "mend the brine pan",
     "mine",
     "open the gate",
-    "plough",
     "pull flax",
     "quarry",
     "reline oven",
@@ -496,11 +496,19 @@
     },
     "apprentices": {},
     "keepers": {
-     "herd:fowler_cattle": "Robert"
+     "oxen:holt_cattle": "Robert",
+     "field:Fallowmere_1": "Agnes",
+     "herd:holt_cattle": "Robert"
     },
     "holds": {
+     "fields": [
+      "field:Fallowmere_1"
+     ],
+     "ox pair": [
+      "oxen:holt_cattle"
+     ],
      "herd": [
-      "herd:fowler_cattle"
+      "herd:holt_cattle"
      ]
     },
     "second_hands": []
@@ -520,19 +528,11 @@
     },
     "apprentices": {},
     "keepers": {
-     "field:Fallowmere_1": "Geoffrey",
-     "herd:holt_cattle": "Geoffrey",
-     "oxen:holt_cattle": "Geoffrey"
+     "herd:fowler_cattle": "Geoffrey"
     },
     "holds": {
-     "fields": [
-      "field:Fallowmere_1"
-     ],
-     "ox pair": [
-      "oxen:holt_cattle"
-     ],
      "herd": [
-      "herd:holt_cattle"
+      "herd:fowler_cattle"
      ]
     },
     "second_hands": [
@@ -570,26 +570,24 @@
   },
   "people": {},
   "skipped": [
-   "Ashby: Agnes raised to capable to keep the herd (u11 \u00a72.3)",
-   "Ashby: herd herd:fowler_cattle kept by Robert, its only able hand",
-   "Colle: Emma raised to capable to keep the fields (u11 \u00a72.3)",
-   "Colle: fields field:Fallowmere_1 kept by Geoffrey, its only able hand",
-   "Colle: herd herd:holt_cattle kept by Geoffrey, its only able hand",
-   "Colle: ox pair oxen:holt_cattle kept by Geoffrey, its only able hand",
+   "Ashby: Agnes raised to capable to keep the fields (u11 \u00a72.3)",
+   "Ashby: herd herd:holt_cattle kept by Robert, its only able hand",
+   "Colle: Emma raised to capable to keep the herd (u11 \u00a72.3)",
+   "Colle: herd herd:fowler_cattle kept by Geoffrey, its only able hand",
    "Reeve: Simon raised to capable to keep the herd (u11 \u00a72.3)"
   ],
   "refused": [],
   "capital": {},
   "lines": {
    "Agnes": {
-    "wanted": 20,
-    "rendered": 19,
+    "wanted": 21,
+    "rendered": 20,
     "skipped": [
      "PE2"
     ],
     "steps": [],
-    "seeded": 19,
-    "words": 559,
+    "seeded": 20,
+    "words": 589,
     "over": false,
     "long": [],
     "ids": [
@@ -609,6 +607,7 @@
      "FA4",
      "FA5",
      "FA6",
+     "FA9",
      "HL",
      "NB-builder:Colle",
      "NB-herder:Reeve"
@@ -644,7 +643,7 @@
     ],
     "steps": [],
     "seeded": 18,
-    "words": 514,
+    "words": 492,
     "over": false,
     "long": [],
     "ids": [
@@ -669,17 +668,16 @@
     ]
    },
    "Geoffrey": {
-    "wanted": 22,
-    "rendered": 18,
+    "wanted": 20,
+    "rendered": 17,
     "skipped": [
      "PE2",
      "BU5",
-     "BU6",
      "HL"
     ],
     "steps": [],
-    "seeded": 18,
-    "words": 496,
+    "seeded": 17,
+    "words": 460,
     "over": false,
     "long": [],
     "ids": [
@@ -695,9 +693,8 @@
      "PE1",
      "BU1",
      "BU2",
-     "FA9",
+     "BU6",
      "HE7",
-     "FA7",
      "WO1",
      "NB-farmer:Ashby",
      "NB-herder:Reeve"
@@ -720,7 +717,7 @@
     "skipped": [],
     "steps": [],
     "seeded": 2,
-    "words": 43,
+    "words": 65,
     "over": false,
     "long": [],
     "ids": [
@@ -763,15 +760,13 @@
    },
    "Robert": {
     "wanted": 20,
-    "rendered": 17,
+    "rendered": 19,
     "skipped": [
-     "PE2",
-     "FA7",
-     "HL"
+     "PE2"
     ],
     "steps": [],
-    "seeded": 17,
-    "words": 489,
+    "seeded": 19,
+    "words": 565,
     "over": false,
     "long": [],
     "ids": [
@@ -789,7 +784,9 @@
      "FA2",
      "FA3",
      "FA6",
+     "FA7",
      "HE7",
+     "HL",
      "NB-builder:Colle",
      "NB-herder:Reeve"
     ]
@@ -800,7 +797,7 @@
     "skipped": [],
     "steps": [],
     "seeded": 8,
-    "words": 270,
+    "words": 248,
     "over": false,
     "long": [],
     "ids": [
@@ -868,7 +865,7 @@
     "skipped": [],
     "steps": [],
     "seeded": 9,
-    "words": 273,
+    "words": 295,
     "over": false,
     "long": [],
     "ids": [
