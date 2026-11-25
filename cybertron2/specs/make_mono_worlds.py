@@ -335,9 +335,6 @@ def arm(world: dict, model: str) -> dict:
     for a in w["agents"].values():
         if a["stage"] in ("youth", "adult", "elder"):
             a["model"] = model
-    if "haiku" in model:                                                   # one model by design: the gate's all-Haiku check waived
-        from cybertron2.specs.make_world0 import MONO_P17
-        w.setdefault("gate", {}).setdefault("waive", {})["P17"] = MONO_P17
     return w
 
 

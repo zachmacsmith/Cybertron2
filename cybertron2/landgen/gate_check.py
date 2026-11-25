@@ -113,8 +113,8 @@ def people_checks(world: dict) -> list:
                 _f(out, "P14", "refuse", f"{n}: a head without HH1, HH3 and HH7", n)
     cast = [a.get("model") for a in agents.values() if a.get("stage") in ("adult", "elder", "youth") and a.get("model") not in (None, "bot")]
     from cybertron2.engine.livelihoods import CAST
-    if cast and all(m == CAST["rest"] for m in cast) and not (world.get("cast") or {}).get("allow_weak"):   # P17
-        _f(out, "P17", "refuse", "every acting person on the weakest model (an all-Haiku society)")
+    if cast and all("haiku" in str(m) for m in cast) and not (world.get("cast") or {}).get("allow_weak"):   # P17: a flag, not
+        _f(out, "P17", "warn", "every acting person on a Haiku model (an all-Haiku society)")              # a block (D5-4)
     for n, a in sorted(agents.items()):                                       # P16: heads and chokepoint keepers on the head model
         keeps = [bid for bid, b in (world.get("buildings") or {}).items() if b.get("keeper") == n
                  and any(LV.HOLDINGS[k]["chokepoint"] and LV.HOLDINGS[k]["of"](b) for k in LV.HOLDINGS)]

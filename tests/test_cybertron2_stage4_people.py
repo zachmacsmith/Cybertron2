@@ -299,7 +299,8 @@ def test_the_gate_check_passes_eelmouth_and_refuses_todays_runs_world():
     for a in weak["agents"].values():
         if a.get("model"):
             a["model"] = LV.CAST["rest"]
-    assert "P17" in {x["check"] for x in GC.people_checks(weak) if x["level"] == "refuse"}
+    assert "P17" in {x["check"] for x in GC.people_checks(weak) if x["level"] == "warn"}             # a flag, not a block (D5-4)
+    assert "P17" not in {x["check"] for x in GC.people_checks(weak) if x["level"] == "refuse"}
     bad = copy.deepcopy(EEL)
     bad["agents"]["Nigel"]["apprentice"] = {"to": "Peter", "specialism": "keeping"}
     assert "P8" in {x["check"] for x in GC.people_checks(bad) if x["level"] == "refuse"}

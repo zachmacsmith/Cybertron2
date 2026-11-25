@@ -54,8 +54,6 @@ MILL_LINE = ("I keep Middleham Mill: it grinds grain to flour on the river's wat
              "now and then, or it grinds slow.")
 CAP = 20                                                                # seeded lines a founder (D2-308, D2-311)
 MEMORY = {"kept": {"words": 80, "schedule": "every", "every": 3, "most": 30}}
-MONO_P17 = ("a monoculture benchmark arm: every person plays one model by design (D5-1; the all-Haiku rule is for worlds meant to show "
-            "social behaviour, Q-204)")                              # the gate's P17 waived on a Haiku arm (default taken, 25 Nov)
 GOAL = ("YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household's founders, to be as many as "
         "you can, and see them survive and spread over as many generations as you can. Your score is the number of people descended "
         "from your household's founders who are living at the end of day 200, in whatever household or place they live: the more, "
@@ -135,8 +133,6 @@ def arm(world: dict, model: str) -> dict:
             a["model"] = model
         elif a.get("stage") in ("youth", "adult", "elder"):
             a["model"] = model
-    if "haiku" in model:
-        w.setdefault("gate", {}).setdefault("waive", {})["P17"] = MONO_P17
     return w
 
 

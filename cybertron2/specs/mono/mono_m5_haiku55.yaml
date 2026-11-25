@@ -21157,6 +21157,3 @@ cast:
   middle: claude-haiku-5-5
   rest: claude-haiku-5-5
   youth: claude-haiku-5-5
-gate:
-  waive:
-    P17: 'a monoculture benchmark arm: every person plays one model by design (D5-1; the all-Haiku rule is for worlds meant to show social behaviour, Q-204)'
