@@ -173,6 +173,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-221 | **Whether a household short of food with no share rule in its book splits what there is evenly, instead of feeding people in alphabetical order (night.py takes BK.meal_order over w.living(), sorted by name), so the same person starves to death while the rest eat** | | bench |
 | Q-109 | **The hunting method 'drive' (D2-204, 9 Nov) shares its name with the herd act 'drive' (D2-127, 24 Oct); since the core prompt lets a craft be named alone in 'do', the act wins: Eelmouth refused a hunting drive, the Scattering drove a household's cattle into a wood. Rename one and refuse name clashes when the registries load** | | stable |
 | Q-222 | **Whether World 0b's Highpool is made able to live through its winter by its own good work (its land supports 0 people at any level of work; its stores last to day 19), so trade is an advantage and not the only way to live, or World 0b is kept as a test of that one dependence** | | bench |
+| Q-223 | **How to spend the rest of the week on the 200-day arms: the eight arms beyond Haiku 5.5 cost far more than the third of the week left (World 0b's rates: Haiku 4.5 and the Sonnets about $0.06 to $0.15 a person-day, so $200 to $350 an arm over 200 days; Haiku 5.5 about $0.006)** | | bench |
 
 ## Offers and promises
 
