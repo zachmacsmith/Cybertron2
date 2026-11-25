@@ -68,3 +68,20 @@ def test_the_smokehouse_fire_is_told_and_what_hangs_is_named():
     assert f"wattle about 1 night in {round(1 / p):,}" in TECHNIQUES["smoke meat"]["manual"]
     assert "can catch" in FITTINGS["smoke racks"]["does"]
     assert "the fish on the racks" not in inspect.getsource(PROC)
+
+
+def test_an_act_word_that_is_a_craft_one_knows_is_read_as_the_craft(eel):
+    """W-111 (Eelmouth's live check): {"do": "drive", "at": ..., "looking for": "deer"} is the hunting drive Peter knows and is shown,
+    not the herd act, which this world has not; a herd driven ("thing": a herd) stays the herd act."""
+    from cybertron2.engine import shapes as SH
+    here, mind = Here(eel, "Peter"), Mind(eel, "Peter")
+    n = SH.normalize(here, mind, {"do": "drive", "at": "Clay Field", "only": ["Nigel"], "looking for": "deer"})
+    assert n["do"] == "gather" and n["what"] == "drive", n
+    assert SH.normalize(here, mind, {"do": "drive", "thing": "the cattle", "to": "Clay Field"})["do"] == "drive"
+
+
+def test_an_empty_pin_written_as_quotes_is_no_pin(eel):
+    """W-111 (Eelmouth's live check): "pin": '""' was refused as a note called “""”; it means no pin."""
+    from cybertron2.engine import perceive as PC
+    out = PC.apply_notes(Mind(eel, "Peter"), {"pin": '""'})
+    assert not any("pin:" in x for x in out)

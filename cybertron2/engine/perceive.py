@@ -832,6 +832,8 @@ def apply_notes(mind, reply) -> list:
     if str(pin).strip().lower() in ("none", "null", ""):
         pin = None
     written = [str(n["title"]).strip()[:60] for n in (reply.get("note") or []) if isinstance(n, dict) and n.get("title")]
+    if str(pin or "").strip().strip('"\'“”').strip() == "":                    # an empty pin written as quotes ('""'): no pin (W-111)
+        pin = None
     if pin and str(pin) not in notes and len(written) == 1 and written[0] in notes:
         pin = written[0]
     if pin and str(pin) not in notes:                                          # a note by its title in any case, or by its text (D4-95)
