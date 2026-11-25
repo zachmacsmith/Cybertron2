@@ -33,7 +33,7 @@ import yaml  # noqa: E402
 
 from cybertron2.specs import make_peoples as MP  # noqa: E402
 from cybertron2.specs import mono_design as D  # noqa: E402
-from cybertron2.specs.make_world0 import CAP, GOAL, MEMORY  # noqa: E402
+from cybertron2.specs.make_world0 import CAP, MEMORY, WORLD_GOAL as GOAL  # noqa: E402   (D5-7)
 from cybertron2.landgen import write as W  # noqa: E402
 
 MP.D = D                                   # the peoples maker's features and comparison read this design

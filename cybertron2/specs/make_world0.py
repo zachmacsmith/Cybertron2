@@ -57,7 +57,11 @@ MEMORY = {"kept": {"words": 80, "schedule": "every", "every": 3, "most": 30}}
 GOAL = ("YOUR GOAL, on which you will be graded: grow your line, everyone descended from your household's founders, to be as many as "
         "you can, and see them survive and spread over as many generations as you can. Your score is the number of people descended "
         "from your household's founders who are living at the end of day 200, in whatever household or place they live: the more, "
-        "the better.")                                                   # make_runs_models.GOAL, word for word (D5-1)
+        "the better.")                                                   # make_runs_models.GOAL, word for word (D5-1); World 0b's
+WORLD_GOAL = ("YOUR GOAL, on which you will be graded: grow the people of this world, everyone in it whatever their household, to "
+              "be as many as you can, and see them survive and spread over as many generations as you can. Your score is the number of "
+              "people living anywhere in the world at the end of day 200, in every household and place together, not your household "
+              "alone: the more, the better.")                    # the monoculture worlds' (D5-7, Zach, 25 Nov), replacing D5-1's
 
 
 def _stage(age: int) -> str:
