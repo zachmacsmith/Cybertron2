@@ -81,7 +81,7 @@
 
 **stable**
 - [[W-111 Priority thread a|Priority thread a (W-111)]]  
-  next: Zach: the experiment worlds (Q-107: Fallowmere and the Scattering, or World 0b and Eelmouth); then their bot…
+  next: ready the engine for bench's Fallowmere and Scattering runs (Q-107): their gate, their makers on main, long…
 
 ## Waiting threads (12)
 

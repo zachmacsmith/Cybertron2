@@ -9,7 +9,7 @@ updated: "2026-11-25"
 
 *active · stable · touched 25 Nov (today)*
 
-> **Next:** Zach: the experiment worlds ([[Q-107 Which worlds the stable engine's acceptance and the comparative runs…|Q-107]]: Fallowmere and the Scattering, or World 0b and Eelmouth); then their bot passes and a short live check; the replay; the tag engine-runs-1; [[O-5 Reconcile the audits into the records|O-5]] the audits reconciled
+> **Next:** ready the engine for bench's Fallowmere and Scattering runs ([[Q-107 Which worlds the stable engine's acceptance and the comparative runs…|Q-107]]): their gate, their makers on main, long bot passes (farming, hunting, herding, a year and more), every refusal and crash read; then the tag
 
 ## What it is
 Priority thread a: a stable engine for comparative runs: everything built so far tidied, usable and pinned (no new content until it is; the faults found this week fixed with module tests; other sessions' fixes merged; no silent failure; the records reconciled; a tag for experiments)
@@ -44,7 +44,7 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - under it: [[Q-104 Merging this thread's fixes to main|Merging this thread's fixes to main (Q-104)]] (closed)
 - under it: [[Q-105 Whether World 0b is reworked before it is the benchmark world|Whether World 0b is reworked before it is the benchmark world (Q-105)]] (open)
 - under it: [[Q-106 The lamprey's second fault|The lamprey's second fault (Q-106)]] (open)
-- under it: [[Q-107 Which worlds the stable engine's acceptance and the comparative runs…|Which worlds the stable engine's acceptance and the comparative runs… (Q-107)]] (open)
+- under it: [[Q-107 Which worlds the stable engine's acceptance and the comparative runs…|Which worlds the stable engine's acceptance and the comparative runs… (Q-107)]] (closed)
 - under it: [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]] (done)
 
 
