@@ -71,3 +71,26 @@ Opus 5.5 spent 34 person-days away from home (Sonnet 5.5 10, Sonnet 5 15, Haiku 
   pregnancy: the best base for growth, if the fishers' last adult holds.
 - Sonnet 5.5: the most people (15) but the thinnest stores (55) at winter's end, three households, two couples and a pregnancy.
 - Sonnet 5: 10 people, 30 food, no pregnancy: at risk. Haiku 5.5 and Sonnet 4.5: 6 each, one couple. Haiku 4.5: one elder, gone.
+
+## Matched moments (26 Nov): the same person on the same day in every arm
+
+Six moments, the same situation in each arm, the model the only difference (quotes trimmed; the turns are in
+/home/user/mono1/m5_<model>/turns.jsonl):
+
+- Day 0, Avice (the herders' head) plans: Opus 5.5 names an heir and tells the young to think of children; Sonnet 5.5 lists chores;
+  Sonnet 5 claims the land first "so there's no dispute later"; Sonnet 4.5 sows rye in spring with no seed; Haiku 5.5 sets a standing
+  rule and gives everyone a job; Haiku 4.5 "establish routines, observe my people's needs".
+- Day 8, Henry (the farmers' head), barley near ripe: Opus 5.5 fences the deer gap and weeds, watching the barley; Sonnet 5.5 sows
+  beans; Sonnet 5 dries green-cut barley into hay (it cut the barley too early); Sonnet 4.5 puts every unit into reaping; Haiku 5.5
+  and Haiku 4.5 spend the day burying John, dead since day 4, and Haiku 5.5 keeps the grain "above fifty" and sows nothing.
+- Day 13, Gilbert (the hunters' head), meat nearly gone: Opus 5.5 walks home to plan a hunting drive with his brother; Sonnet 5.5
+  walks a day away to hunt alone; Sonnet 5 builds a room; Sonnet 4.5 makes weapons and hunts deer where hinds were seen; Haiku 5.5
+  resets snares and asks Sabina "plainly about the child".
+- Day 20 evening, Ralph (the herders) to his household: Opus 5.5 reports, asks to learn rod-making, and proposes laying in for winter;
+  Sonnet 5.5 reports and gives an order ("Eat the fresh fish first"); Sonnet 4.5 files a "TARN REPORT" and "I FAILED TODAY"; Haiku 5.5
+  bars the door and counts the byre.
+- Day 23, Margery (the fishers' mother), winter's eve: Opus 5.5 rations care, mends traps and eyes the boar for meat; Sonnet 5.5
+  salts 0.2 meat and shuts the house; Sonnet 5 goes to a meeting to hear the tally of stores; Sonnet 4.5 "WINTER DAY 1 CATASTROPHE";
+  Haiku 5.5 stalks a stag.
+- Day 34, Beatrice (the herders' young mother), the spring gap: Opus 5.5 and Sonnet 5 both fish the salmon run and smoke the catch;
+  Sonnet 5.5 cares, gathers and tries for a child; Sonnet 4.5 counts her last fertile days; Haiku 5.5 mends a wall first.
