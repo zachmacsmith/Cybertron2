@@ -464,7 +464,8 @@ CRAFTS = {   # Zach, 26 Nov: "choose more than 2 people to give out some of the 
     "M1": {"Roger": {"trap in water": "capable", "wicker trap": "capable", "gill nets": "rough"},       # the river and the weir
            "Geoffrey": {"millstones": "capable", "water wheel": "capable"},                         # a mill at Broadwater
            "Walter": {"wooden plough": "capable", "harness": "capable", "select seed": "rough"},     # the plough team kept
-           "Simon": {"quarry": "capable", "stalk": "capable"},                                      # stone; the boar and deer
+           "Simon": {"quarry": "capable", "stalk": "capable", "mine": "rough", "smelt": "rough"},   # stone, copper; boar and deer
+           "Maud": {"boil salt": "rough", "brine pan": "rough"},                                    # salt from the Greenhythe spring
            "Alice": {"oven": "capable", "basket": "capable", "sack": "capable"}},                   # bread and storage
 }
 
@@ -479,6 +480,30 @@ def crafts(world: dict, key: str) -> dict:
             a.setdefault("knows", {})[c] = {"level": lvl, "skill": SKILL_AT[lvl]}
     if CRAFTS.get(key):
         world.setdefault("made_by_maker", []).append("specialised crafts seeded (D5-8)")
+    return world
+
+
+FAR = {   # Zach, 26 Nov: "There should be salt and copper sources they can go to that are maybe 2-4 days away" (D5-9)
+    "M1": {"salt": "Greenhythe", "copper": "Stonebarrow"},                 # a brine spring in the fen (2 days); a seam by the quarry (3)
+}
+
+
+def far_sources(world: dict, key: str) -> dict:
+    """FAR (D5-9): a brine spring (a parcel's `spring: brine` and its endless `brine`, as the generator writes one) at the salt place,
+    on a parcel that is not water; a copper seam (the finite `seam`, as Highcairn's) on the copper place's rock."""
+    fd = FAR.get(key) or {}
+    if fd.get("salt"):
+        pars = world["nodes"][fd["salt"]]["parcels"]
+        pid = sorted((q for q, p in pars.items() if p.get("cover") in ("fen", "meadow", "pasture", "heath")),
+                     key=lambda q: (pars[q].get("cover") != "fen", q))[0]
+        pars[pid]["spring"] = "brine"
+        pars[pid].setdefault("state", {})["brine"] = {"K": 1000.0, "S": 1000.0, "r": 0.0}
+        world.setdefault("made_by_maker", []).append(f"{fd['salt']}: a brine spring on {pid} (D5-9)")
+    if fd.get("copper"):
+        pars = world["nodes"][fd["copper"]]["parcels"]
+        pid = sorted(q for q, p in pars.items() if p.get("cover") == "rock")[0]
+        pars[pid].setdefault("state", {})["seam"] = {"K": 60.0, "S": 60.0}
+        world.setdefault("made_by_maker", []).append(f"{fd['copper']}: a copper seam on {pid} (D5-9)")
     return world
 
 
@@ -646,7 +671,7 @@ def make(key: str, seed: int, models) -> dict:
     if report.get("refused"):
         raise SystemExit(f"{key}: refused: {report['refused']}")
     print(key, "pins eased:", relaxed or "none", flush=True)
-    world = gear_buildings(weir(by_livelihood(river_runs(MP.water_stocks(founders(world, key))), key), key), key)
+    world = gear_buildings(weir(by_livelihood(far_sources(river_runs(MP.water_stocks(founders(world, key))), key), key), key), key)
     world = explore(world, key)
     fill = seed_lines(world, key)
     world = crafts(gear(world, key), key)                                   # after the livelihoods' fill, which rewrites the crafts
