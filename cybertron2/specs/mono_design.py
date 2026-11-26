@@ -21,7 +21,8 @@ WORLDS = {}
 
 WORLDS["M1"] = {
     "title": "World 1 Fallowmere: a farming village at the edge of the wild wood",
-    "groups": {"A": "Fallowmere: 13 in 3 households (farming, cattle, woodcraft)"},
+    "groups": {"A": "Fallowmere: 9 in 2 households (farming, cattle)",
+               "B": "The Ford: 3 in 1 household (the river: weir and fishing, building, wood), a day downriver (D5-10)"},
     "summary": "The baseline, with the fewest systems. Home feeds its 13 with a little to spare; everything beyond a day is unexplored, "
                "and most of it is better than home. The best land (Broadwater, a mill site) is known only by a rumour line. Wolves and "
                "boar keep to the old woods to the west; stone is three days off in the hills.",
@@ -29,7 +30,7 @@ WORLDS["M1"] = {
         M("Fallowmere", 0, 0, "farmland", "fair", ["grass", "wood", "fish"], "home:A", room=3),
         M("Fallow Wood", -1, 0.1, "forest", "fair", ["wood", "game"], room=1, known=True),
         M("Southmead", 0, -1, "rich vale", "rich", ["grass", "fish"], room=2, known=True),
-        M("The Ford", 1, 0, "farmland", "fair", ["grass"], room=1, known=True),
+        M("The Ford", 1, 0, "farmland", "fair", ["grass", "fish"], "home:B", room=2),       # Colle's home (D5-10)
         M("Broadwater", 2, 0.1, "rich vale", "rich", ["grass", "fish", "mill site"], room=4, mark="rumour"),
         M("Hollins", -1, 1.1, "farmland", "fair", ["grass", "wood"], room=3),
         M("Greenhythe", 0.9, -1.7, "fen", "fair", ["fish", "grass"], room=1),

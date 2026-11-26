@@ -50,7 +50,8 @@ FOUNDERS = {
     "M1": {"Fallowmere": {
         "Ashby": [("Robert", "m", 54, "Agnes"), ("Agnes", "f", 44, "Robert"), ("Walter", "m", 18, None), ("Joan", "f", 9, None),
                   ("Hugh", "m", 2, None)],
-        "Reeve": [("Maud", "f", 40, None), ("Simon", "m", 32, None), ("Alice", "f", 16, None), ("Tom", "m", 6, None)],
+        "Reeve": [("Maud", "f", 40, None), ("Simon", "m", 32, None), ("Alice", "f", 16, None), ("Tom", "m", 6, None)]},
+           "The Ford": {                                                     # moved a day downriver, the river household (D5-10)
         "Colle": [("Geoffrey", "m", 50, "Emma"), ("Emma", "f", 44, "Geoffrey"), ("Roger", "m", 20, None)]}},
     "M5": {
         "Holtmouth": {"Strand": [("Stephen", "m", 46, "Margery"), ("Margery", "f", 40, "Stephen"), ("Nicholas", "m", 18, None),
@@ -72,7 +73,7 @@ SIBLINGS = {"M1": [("Maud", "Simon")], "M5": [("Gilbert", "Adam"), ("Stephen", "
 SKILLS = {
     "M1": {"Ashby": {"livelihoods": ["farmer"], "experts": ["ploughman", "seed_and_harvest"]},
            "Reeve": {"livelihoods": ["herder", "farmer"], "experts": ["dairy", "hay_and_winter"]},
-           "Colle": {"livelihoods": ["builder", "woodsman"], "experts": ["wright"]}},
+           "Colle": {"livelihoods": ["builder", "woodsman", "fisher"], "experts": ["wright"]}},   # fishers too at The Ford (D5-10)
     "M5": {"Strand": {"livelihoods": ["fisher", "salter"], "experts": ["traps_and_runs", "the_pan"]},
            "Fell": {"livelihoods": ["herder", "smith"], "experts": ["stock", "smelting"]},
            "Meade": {"livelihoods": ["farmer"], "experts": ["seed_and_harvest"]},
@@ -128,6 +129,11 @@ def pin(key: str, p: dict) -> dict:
     else:
         out.update({"vacant": True, "room": max(1, int(p["room"])), "land": D.LAND[p["land"]][2]})
     return out
+
+
+def _next_door(key: str, a: str, b: str) -> bool:
+    """Whether two places are a day apart by a designed road (homes there know each other: D5-10)."""
+    return a != b and any(int(r[2]) == 1 and {r[0], r[1]} == {a, b} for r in D.WORLDS[key]["roads"])
 
 
 def _home_near(key: str, xy) -> bool:
@@ -230,7 +236,7 @@ def founders(world: dict, key: str) -> dict:
                 rel[m] = "your father" if sx2 == "m" else "your mother"
             elif (n, m) in sibs or (m, n) in sibs or (kin.get(n) and kin.get(n) == kin.get(m)):
                 rel[m] = "your brother" if sx2 == "m" else "your sister"
-            elif hh2 == hh or h2 == home:
+            elif hh2 == hh or h2 == home or _next_door(key, h2, home):     # a household a day off is known too (D5-10)
                 rel[m] = f"of the {hh2} household"
         agents[n] = {"household": hh, "born": -age, "stage": _stage(age), "sex": sex, "relations": rel, "memories": [],
                      "knows": {"hearth": {"level": "known", "skill": 1.2}}, "aware_of": {}, "holdings": {"crude tool": 1},
@@ -368,7 +374,7 @@ def by_livelihood(world: dict, key: str) -> dict:
     return world
 
 
-WEIR = {"M1": {"household": "Colle", "home": "Fallowmere", "sections": ["wattle"], "knows": "capable"}}   # Zach, 25 Nov: one section,
+WEIR = {"M1": {"household": "Colle", "home": "The Ford", "sections": ["wattle"], "knows": "capable"}}   # at their home (D5-10)   # Zach, 25 Nov: one section,
 # the lowest level: one wattle section, sound (level 5), on the village's river, held by the builders and woodsmen, who know the
 # weir at capable, the least that works one (gate P1; rough would leave it idle); its crew the household's grown people
 
@@ -464,7 +470,8 @@ CRAFTS = {   # Zach, 26 Nov: "choose more than 2 people to give out some of the 
     "M1": {"Roger": {"trap in water": "capable", "wicker trap": "capable", "gill nets": "rough"},       # the river and the weir
            "Geoffrey": {"millstones": "capable", "water wheel": "capable"},                         # a mill at Broadwater
            "Walter": {"wooden plough": "capable", "harness": "capable", "select seed": "rough"},     # the plough team kept
-           "Simon": {"quarry": "capable", "stalk": "capable", "mine": "rough", "smelt": "rough"},   # stone, copper; boar and deer
+           "Simon": {"quarry": "capable", "stalk": "capable", "mine": "rough", "smelt": "rough",   # stone, copper; boar and deer;
+                     "anvil": "rough", "copper tool": "rough"},                                    # an anvil and copper tools (Zach)
            "Maud": {"boil salt": "rough", "brine pan": "rough"},                                    # salt from the Greenhythe spring
            "Alice": {"oven": "capable", "basket": "capable", "sack": "capable"}},                   # bread and storage
 }
@@ -591,7 +598,8 @@ def seed_lines(world: dict, key: str) -> dict:
     home_of = {hh: home for home, hhs in FOUNDERS[key].items() for hh in hhs}
     if len(FOUNDERS[key]) > 1:                                              # groups lost to each other (World 5): the fill seeds every
         for n, a in world["agents"].items():                                # household as a neighbour of every other (u11 step 8); here no
-            far = [hh for hh, home in home_of.items() if home != home_of[a["household"]]]   # group knows another's crafts or place but by
+            far = [hh for hh, home in home_of.items() if home != home_of[a["household"]]   # group knows another's crafts or place but by
+                   and not _next_door(key, home, home_of[a["household"]])]                   # (neighbours a day apart know each other, D5-10)
             a["aware_of"] = {c: v for c, v in (a.get("aware_of") or {}).items() if not any(h in str(v) for h in far)}   # the
             a["kept"] = [k for k in a.get("kept") or [] if not any(h in k.get("text", "") for h in far)]              # rumour lines
             for c in ("trap in water", "wicker trap", "wicker traps"):
