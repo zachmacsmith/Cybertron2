@@ -193,6 +193,7 @@ unanswered is neither lost nor re-asked. Written by `python3 tools/records.py ne
 | O-203 | **A pre-generation check in the monoculture maker: the founders' data against founders.py's templates (two founders a line, two parents) and the gate's rules (keepers' lines, crafts with their makers, fits), before any generation** | do it | 2026-11-24 | bench |
 | ~~O-204~~ | **(Closed 24 Nov: done in w0b_failures.md (the reasoning on hungry days and the tries for children read with the rest).)** **Read World 0b's agents' own reasoning on days they could have tried for a child and did not: food pressure, the prompt's placement of try, or the goal not turning into acts** | do it | 2026-11-24 | bench |
 | O-205 | **A salience test of the fixed prompt: World 0b on Sonnet 5.5 with the acts done with others grouped near the top, against the prompt as it is, 2 runs each to day 25 (about 4 runs, $25 to $30)** | | | bench |
+| O-206 | **A separate session that only runs the 200-day monoculture arms (lockstep.py), so they keep going between this session's turns; and which to resume this week: the Scattering from day 30, both worlds (Fallowmere from day 10), or neither** | ask; nothing resumes without Zach's word this week | 2026-11-27 | bench |
 
 ## Flagged for later (deferred)
 
