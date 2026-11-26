@@ -470,8 +470,9 @@ CRAFTS = {   # Zach, 26 Nov: "choose more than 2 people to give out some of the 
     "M1": {"Roger": {"trap in water": "capable", "wicker trap": "capable", "gill nets": "rough"},       # the river and the weir
            "Geoffrey": {"millstones": "capable", "water wheel": "capable"},                         # a mill at Broadwater
            "Walter": {"wooden plough": "capable", "harness": "capable", "select seed": "rough"},     # the plough team kept
-           "Simon": {"quarry": "capable", "stalk": "capable", "mine": "rough", "smelt": "rough",   # stone, copper; boar and deer;
-                     "anvil": "rough", "copper tool": "rough"},                                    # an anvil and copper tools (Zach)
+           "Simon": {"quarry": "capable", "mine": "rough", "smelt": "rough"},                       # stone and copper from the ground
+           "Tom": {"anvil": "rough", "copper tool": "rough"},                                      # the next generation's smith (Zach)
+           "Joan": {"stalk": "capable"},                                                           # a hunter: the boar and deer
            "Maud": {"boil salt": "rough", "brine pan": "rough"},                                    # salt from the Greenhythe spring
            "Alice": {"oven": "capable", "basket": "capable", "sack": "capable"}},                   # bread and storage
 }
