@@ -152,6 +152,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-108 | **Vermin's sudden illness saturates in every world: the rat term tops out at 120 rats a km2 (stores.ILLNESS, a first estimate, G11) but every world holds 290 to 400 at its homes, so an adult's illness risk is 1.9 to 2.8 times D2-149's base everywhere, whatever is done about rats; in Fallowmere Emma dies on night 1 in every arm (her fixed draw 0.0014 against 0.0019)** | | stable |
 | Q-109 | **The hunting method 'drive' (D2-204, 9 Nov) shares its name with the herd act 'drive' (D2-127, 24 Oct); since the core prompt lets a craft be named alone in 'do', the act wins: Eelmouth refused a hunting drive, the Scattering drove a household's cattle into a wood. Rename one and refuse name clashes when the registries load** | | stable |
 | Q-110 | **The engine-runs-1 tag could not be pushed: this session's GitHub access refuses tag pushes (403); main at 34afb75f passed the full suite (935 passed, 18 skipped) and is the commit to pin** | | stable |
+| Q-111 | **Whether a household's keep floor yields when its people are starving (session bench, 25 Nov): the Meades kept 'at least 50 grain for the seed' and all three starved with 48 grain in the bins; World 0b's Annora the same ('so the 20 grain stays uneaten'). Today a floor holds to death unless the rule says 'unless'** | | stable |
 
 ## Offers and promises
 

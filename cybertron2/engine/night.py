@@ -514,8 +514,17 @@ def _meal_record(w, rec, name, took, bm, need, full, ate, stores, hearth, part=1
         left = sum(max(0.0, float(q) - (BK.held(w, name, cid, i) if w.s.get("books") else 0.0)) for cid in stores
                    for i, q in w.goods(cid).items() if i in EDIBLE and i not in (bm.get("skip") or ()) and eaten_worth(i, hearth) > 0)
         shared = any(cid in others for x in (rec.get("meal") or {}).values() for cid, _, _ in x["ate"]) if others else False
+        kept = []                                                              # what a keep rule held back from one, at or under
+        if w.s.get("books"):                                                   # its floor too (W-111: the Meades starved behind
+            for cid in stores:                                                 # their seed floor told only "nothing more")
+                for i, q in w.goods(cid).items():
+                    if i in EDIBLE and q > 1e-9 and eaten_worth(i, hearth) > 0:
+                        kept += [{"n": r.get("n"), "words": r.get("words"), "item": i, "qty": round(h, 2)}
+                                 for r, h in BK.holding(w, name, cid, i)]
         if float(bm.get("ration", 1.0)) < 1 - 1e-9:
             why = "ration"
+        elif kept:
+            why = "kept back"                                                  # the household's own rule: named (W-111)
         elif part < 1 - 1e-9:
             why = "shared out"                                                 # the household's even split (W-111)
         elif left > 1e-6:
@@ -523,7 +532,7 @@ def _meal_record(w, rec, name, took, bm, need, full, ate, stores, hearth, part=1
         else:
             why = "not enough for everyone" if shared else "nothing more"
     rec.setdefault("meal", {})[name] = {"ate": [[cid, i, round(q, 3)] for cid, i, q in took], "rules": rules, "how": how, "why": why,
-                                        "ration": float(bm.get("ration", 1.0))}
+                                        "ration": float(bm.get("ration", 1.0)), **({"kept": kept} if how == "hungry" and kept else {})}
     hands = w.hands(name)
     for cid, i, q in took:
         if cid != hands and cid in w.s["containers"]:
@@ -534,6 +543,17 @@ def _meal_record(w, rec, name, took, bm, need, full, ate, stores, hearth, part=1
 HUNGER_WHY = {"kept back": "the rest was kept back", "not enough for everyone": "there was not enough for everyone",
               "shared out": "the household's food was shared out evenly, and there was not enough for everyone",
               "nothing more": "there was nothing more you could eat"}
+
+
+def _kept_words(m) -> str:
+    """Which of the household's rules kept what back from a hungry person's meal (W-111)."""
+    by = {}
+    for k in m["kept"]:
+        e = by.setdefault((k.get("n"), k.get("words")), {})
+        e[k["item"]] = e.get(k["item"], 0.0) + float(k["qty"])
+    bits = [f"rule {n}" + (f" (“{words}”)" if words else "") + " kept back " + _and([f"{show_fine(q)} {i}" for i, q in sorted(g.items())])
+            for (n, words), g in by.items()]
+    return "the household's " + "; ".join(bits) + "."
 
 
 CRUMB = 0.1                                       # less than this of a good is said as crumbs, not a figure (L-178, W-111)
@@ -578,6 +598,7 @@ def meal_lines(w, name, rec) -> list:
         r = m["ration"]
         share = "half" if abs(r - 0.5) < 1e-6 else f"{r:g} of a full meal"
         line += ": you were still hungry; " + (f"the rule gave you a {share} share." if m["why"] == "ration"
+                                                else _kept_words(m) if m["why"] == "kept back" and m.get("kept")
                                                 else HUNGER_WHY.get(m["why"], "there was not enough") + ".")
     out = [line]
     from cybertron2.engine import book as BK
@@ -639,8 +660,8 @@ def even_shares(w, where) -> dict:
                     continue
                 seen.add(cid)
                 food += worth(cid)
-        if need > 1e-9 and food + 1e-9 < need:
-            out[hh] = round(max(0.0, food / need), 4)
+        if need > 1e-9 and 1e-9 < food < need - 1e-9:                         # nothing to share is no split
+            out[hh] = round(food / need, 4)
     return out
 
 

@@ -207,3 +207,18 @@ def test_the_arrival_view_counts_the_others_not_oneself(eel):
             eel.s["people"][n]["at"] = None
     assert not any("about the place" in x for x in LY.overview(eel, node, viewer="Peter"))
     assert not any("about the place" in x for x in Here(eel, "Peter").overview())
+
+
+def test_a_hungry_meal_names_the_rule_that_kept_the_food_back(eel):
+    """W-111 (bench's Scattering arm): the Meades starved behind "keep at least 50 grain" with 48 in the bins, told each morning
+    "nothing more"; the meal line names the household's rule and what it kept back, at or under its floor too."""
+    from cybertron2.engine import night as N
+    _short_marsh(eel, food=0.0)
+    home = Here(eel, "Peter").homes_here()[0]
+    eel.s["containers"][eel.s["buildings"][home]["stock"]]["goods"]["grain"] = 40.0
+    BK.act(Here(eel, "Peter"), {"rule": "keep", "goods": "grain", "at least": 50, "words": "keep the seed grain"})
+    N.night(eel)
+    eel.s["day"] += 1
+    eel.s["today"] = R.blank_today()
+    line = Here(eel, "Peter").meal_lines()[0]
+    assert "still hungry" in line and "kept back 40 grain" in line and "keep the seed grain" in line, line
