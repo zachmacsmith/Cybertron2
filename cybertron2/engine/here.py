@@ -410,7 +410,7 @@ class Here:
     def overview(self) -> list:
         """What strikes one first here: 3 to 5 lines (D2-116)."""
         from cybertron2.engine import layout as LY
-        return LY.overview(self._w, self.node)
+        return LY.overview(self._w, self.node, viewer=self.name)
 
     def landmarks_known(self, nid) -> list:
         """The landmarks one knows on the road from here to `nid` (world/roads.md)."""

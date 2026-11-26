@@ -195,3 +195,15 @@ def test_the_registries_refuse_a_shared_name_and_a_way_of_no_craft(monkeypatch):
     monkeypatch.setitem(D.TECHNIQUES, "travel", {"verb": "gather"})
     with pytest.raises(RuntimeError, match="share a name"):
         V._check_names()
+
+
+def test_the_arrival_view_counts_the_others_not_oneself(eel):
+    """W-111 (bench's 200-day runs): a lone traveller at an empty place read "one person about the place" while "Here today: nobody
+    else" stood beside it; the count is of the others there."""
+    from cybertron2.engine import layout as LY
+    node = eel.s["people"]["Peter"]["at"]
+    for n in list(eel.present(node)):
+        if n != "Peter":
+            eel.s["people"][n]["at"] = None
+    assert not any("about the place" in x for x in LY.overview(eel, node, viewer="Peter"))
+    assert not any("about the place" in x for x in Here(eel, "Peter").overview())

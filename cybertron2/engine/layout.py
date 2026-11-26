@@ -287,8 +287,9 @@ def tier_words(b) -> str:
         else f"{b['name']}, a richly built {what}"
 
 
-def overview(w, node) -> list:
-    """What strikes one first on arriving: 3 to 5 lines, the largest and busiest things, not positions (D2-116)."""
+def overview(w, node, viewer=None) -> list:
+    """What strikes one first on arriving: 3 to 5 lines, the largest and busiest things, not positions (D2-116). The people about the
+    place are the others there, not the one arriving (W-111: a lone traveller read "one person about the place")."""
     cands = []
     for bid, b in w.s["buildings"].items():
         if b["node"] != node or b.get("unfinished"):
@@ -315,7 +316,7 @@ def overview(w, node) -> list:
             cands.append((0.8 + 0.1 * p["size"], f"{COVERS[p['cover']]['words']}: {p['name']}"))
         elif p["cover"] != "built":
             cands.append((0.3 + 0.05 * p["size"], f"{COVERS.get(p['cover'], {}).get('words', p['cover'])}: {p['name']}"))
-    people = [n for n in w.present(node) if w.s["people"][n]["stage"] != "child"]
+    people = [n for n in w.present(node) if w.s["people"][n]["stage"] != "child" and n != viewer]
     if people:
         cands.append((0.9, f"{_count(len(people), 'person')} about the place" if len(people) > 1 else "one person about the place"))
     for hid, h in w.s["herds"].items():
