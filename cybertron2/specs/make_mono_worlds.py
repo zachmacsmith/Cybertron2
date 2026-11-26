@@ -444,6 +444,44 @@ def gear_buildings(world: dict, key: str) -> dict:
     return world
 
 
+def river_runs(world: dict) -> dict:
+    """An autumn run on every stretch of a river (Zach, 26 Nov: "make the river fix"): make_peoples.water_stocks gives a run only to
+    a river parcel of 2 plots or a big river's class, so where the generator cut a reach into 1-plot parcels (Fallowmere) it had none;
+    here each river parcel without one gets the same run a plot (4 times its resident stock, autumn)."""
+    for n in world["nodes"].values():
+        for p in n["parcels"].values():
+            fish = (p.get("state") or {}).get("fish")
+            if p.get("cover") != "water" or not fish or "run_K" in fish:
+                continue
+            land = p.get("land") or {}
+            if land.get("river") == "river" or str(land.get("water_body", "")).startswith("reach:") or "river" in str(p.get("text", "")):
+                fish.update({"run_K": round(4 * float(fish["K"]), 1), "run_r": 0.35, "run_seasons": ["autumn"]})
+    return world
+
+
+CRAFTS = {   # Zach, 26 Nov: "choose more than 2 people to give out some of the specialised skills for the different things like
+    # building etc" (D5-8): crafts nobody in the world knew, each to one person, the young where it should outlast the founders
+    "M1": {"Roger": {"trap in water": "capable", "wicker trap": "capable", "gill nets": "rough"},       # the river and the weir
+           "Geoffrey": {"millstones": "capable", "water wheel": "capable"},                         # a mill at Broadwater
+           "Walter": {"wooden plough": "capable", "harness": "capable", "select seed": "rough"},     # the plough team kept
+           "Simon": {"quarry": "capable", "stalk": "capable"},                                      # stone; the boar and deer
+           "Alice": {"oven": "capable", "basket": "capable", "sack": "capable"}},                   # bread and storage
+}
+
+
+def crafts(world: dict, key: str) -> dict:
+    """CRAFTS (D5-8), after the livelihoods' fill (which rewrites crafts): each named person knows each craft at its level."""
+    for n, cs in (CRAFTS.get(key) or {}).items():
+        a = world["agents"].get(n)
+        if a is None:
+            raise DesignRefused(f"{key}: no {n} to seed with {sorted(cs)}")
+        for c, lvl in cs.items():
+            a.setdefault("knows", {})[c] = {"level": lvl, "skill": SKILL_AT[lvl]}
+    if CRAFTS.get(key):
+        world.setdefault("made_by_maker", []).append("specialised crafts seeded (D5-8)")
+    return world
+
+
 def design_check(world: dict, key: str, cap: dict) -> list:
     """What the design says each home and household has, read from the built world: [failures] (W-203). A build with any is refused."""
     bad = []
@@ -608,10 +646,10 @@ def make(key: str, seed: int, models) -> dict:
     if report.get("refused"):
         raise SystemExit(f"{key}: refused: {report['refused']}")
     print(key, "pins eased:", relaxed or "none", flush=True)
-    world = gear_buildings(weir(by_livelihood(MP.water_stocks(founders(world, key)), key), key), key)
+    world = gear_buildings(weir(by_livelihood(river_runs(MP.water_stocks(founders(world, key))), key), key), key)
     world = explore(world, key)
     fill = seed_lines(world, key)
-    world = gear(world, key)                                                # after the livelihoods' fill, which rewrites the crafts
+    world = crafts(gear(world, key), key)                                   # after the livelihoods' fill, which rewrites the crafts
     for b in world["buildings"].values():                                   # and gear it seeds (the fishers' nets were lost before it)
         if b.get("monument") == "weir":                                     # the weir's crew still know the weir after the fill
             for n in b.get("crew") or []:
