@@ -94,3 +94,23 @@ Six moments, the same situation in each arm, the model the only difference (quot
   Haiku 5.5 stalks a stag.
 - Day 34, Beatrice (the herders' young mother), the spring gap: Opus 5.5 and Sonnet 5 both fish the salmon run and smoke the catch;
   Sonnet 5.5 cares, gathers and tries for a child; Sonnet 4.5 counts her last fertile days; Haiku 5.5 mends a wall first.
+
+## Three people followed through their runs (26 Nov)
+
+- Hob (the herders' youth). Opus 5.5: herding, then two sent errands west (days 3 to 7) and east (10 to 17) looking for seed, a
+  smelter and people; home for the winter (rods, smoking, caring for the newborns); scouts Highmoor on day 36 ("empty and a dead
+  end"); sets out again on day 44 and at Midwold on day 46 reads "Someone has sown beans on Midwold Meadow, so people must live or farm
+  near here"; alive at day 50, hungry on the road. Sonnet 5.5: never leaves home until he is dying; learns at the forge on day 3, then
+  fishes and smokes every day from 9 to 27; slaughters the starving cattle on day 36; walks to Tarn starving on day 42 and dies.
+- Henry (the farmers' head). Opus 5.5: three harvests in 48 days, each with seed kept back: sows on day 0, keeps 38 grain "as food"
+  on day 2, buries John on day 6 (not on the harvest day), fences the deer gap, brings in 198 grain on day 10, sows again; dungs the
+  field on day 30, holds the seed while "the soil is still frozen" on day 32, sows when "the blackthorn is in flower" on day 34, reaps
+  on day 42 ("the last day ... before it sheds"), sows again keeping 64 for seed on day 44, reaps the beans on day 46. Haiku 5.5: sows
+  on days 0 to 6, buries John on day 8, and on day 0 wrote the rule "Keep at least 50 grain in the Meade House bins for the seed";
+  the barley failed, the bins fell to 49.6, and the household starved on days 10 to 14 beside 48 grain and 10 beans it never revoked
+  the rule to eat (the meal lines said "nothing more"; sent to stable, an ask for Zach).
+- Gilbert (the hunters' head). Opus 5.5: builds the house by day 6, then takes his brother Adam to Border Wood to hunt; Adam dies,
+  Sabina dies on day 18; Gilbert turns to fishing and hot-smoking the catch from day 20, lays in firewood for the snow, makes snares in
+  late winter; dies on day 33 at Border Wood, starving, asking Eva "to share what she carries". Sonnet 5.5: cuts withies and builds
+  the house by day 10 (beds included), then "food is short" from day 11; walks alone to Border Wood on day 13 and gathers there,
+  starving, until he dies on day 16.
