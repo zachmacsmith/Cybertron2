@@ -176,6 +176,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | ~~Q-223~~ | **How to spend the rest of the week on the 200-day arms: the eight arms beyond Haiku 5.5 cost far more than the third of the week left (World 0b's rates: Haiku 4.5 and the Sonnets about $0.06 to $0.15 a person-day, so $200 to $350 an arm over 200 days; Haiku 5.5 about $0.006)** | | bench |
 | ~~Q-224~~ | **(Closed 26 Nov: fixed on main at 44f6dfd7 by stable: layout.overview takes the viewer.)** **The arrival view counts the viewer: a lone traveller at an empty place reads 'one person about the place' (layout.py, from w.present including the viewer), misleading the Scattering's searchers; sent to stable for a fix** | | bench |
 | Q-225 | **Whether the Scattering is redesigned so its households can keep having children: in Opus 5.5's arm (the only one alive at day 50) every couple is past childbearing by day 40, and the only unrelated young pair (Hob of the herders, Rose of the farmers) live 4 days apart and have never met; options: homes 2 days apart, each household knowing where the others are (a rumour line), or households of 2 unrelated couples** | | bench |
+| Q-226 | **Whether a household's 'keep at least' floor yields when its people are starving (they would eat the seed before dying), or stays absolute unless the rule says otherwise: Haiku 5.5's farmers in the Scattering starved on days 10 to 14 beside 48 grain held by their own day-0 rule, and the meal line never said it was kept back (sent to stable)** | | bench |
 
 ## Offers and promises
 
