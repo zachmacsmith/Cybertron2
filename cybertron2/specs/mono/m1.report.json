@@ -3,15 +3,26 @@
  "pins": {},
  "targets": {
   "Fallowmere": {
-   "households": 3,
-   "people": 9,
+   "households": 2,
+   "people": 8,
    "food": 0.85,
    "heat": 0.3,
-   "plots_wanted": 7,
-   "fields": 7,
+   "plots_wanted": 6,
+   "fields": 6,
    "wood_wanted": 1,
    "woods": 1,
    "waste": 3
+  },
+  "The Ford": {
+   "households": 1,
+   "people": 5,
+   "food": 0.85,
+   "heat": 0.3,
+   "plots_wanted": 4,
+   "fields": 4,
+   "wood_wanted": 1,
+   "woods": 1,
+   "waste": 2
   }
  },
  "checks": {
@@ -39,7 +50,8 @@
    "kind": "design",
    "ok": true,
    "detail": {
-    "Fallowmere": 0.83
+    "Fallowmere": 0.87,
+    "The Ford": 0.81
    }
   },
   "dependence": {
@@ -47,6 +59,10 @@
    "ok": false,
    "detail": {
     "Fallowmere": [
+     "stone",
+     "metal"
+    ],
+    "The Ford": [
      "stone",
      "metal"
     ]
@@ -124,8 +140,13 @@
    "ok": true,
    "detail": {
     "Fallowmere": {
-     "people": 9,
-     "share": 0.83,
+     "people": 8,
+     "share": 0.87,
+     "target": 0.85
+    },
+    "The Ford": {
+     "people": 5,
+     "share": 0.81,
      "target": 0.85
     }
    }
@@ -134,25 +155,25 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "9 people; the land keeps 69 for good (0.13 of it)"
+   "detail": "13 people; the land keeps 70 for good (0.18 of it)"
   },
   "economy: food over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "200 days need 1560 meals; store, crops ripening and the land give 13592 (0.11)"
+   "detail": "200 days need 2040 meals; store, crops ripening and the land give 13699 (0.15)"
   },
   "economy: region heat": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "9 people; the land keeps 13658 for good (0.00 of it)"
+   "detail": "13 people; the land keeps 13007 for good (0.00 of it)"
   },
   "economy: heat over the run": {
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "200 days need 444 heat (3 hearths, 48.0 cold nights); store and the woods' flow give 455341 (0.00); the woods stand at 7181250 more"
+   "detail": "200 days need 444 heat (3 hearths, 48.0 cold nights); store and the woods' flow give 433655 (0.00); the woods stand at 6817350 more"
   },
   "economy: carrying burden": {
    "kind": "economy",
@@ -184,15 +205,16 @@
    "kind": "economy",
    "level": "warn",
    "ok": true,
-   "detail": "3 couples; about 25 births in 200 days if they try often; the region would be at 0.49 of its land"
+   "detail": "3 couples; about 25 births in 200 days if they try often; the region would be at 0.54 of its land"
   },
   "economy: succession": {
    "kind": "economy",
    "level": "warn",
    "ok": false,
    "detail": [
-    "the Holts: Adam (100%), Juliana (100%) likely to die in the run; 0 grown left for 1",
-    "the Hales: Thomas (100%), Cassandra (100%) likely to die in the run; 0 grown left for 2"
+    "the Holts: Adam (100%), Juliana (100%) likely to die in the run; 0 grown left for 2",
+    "the Hales: Thomas (100%), Cassandra (100%) likely to die in the run; 0 grown left for 2",
+    "the Fowlers: William (100%), Amice (100%) likely to die in the run; 0 grown left for 3"
    ]
   },
   "predators within range": {
@@ -200,22 +222,23 @@
    "ok": true,
    "detail": {
     "said": {
-     "Fallowmere": "stoat 11.84 (a group needs 1), fox 8.11 (a group needs 1), wolf 2.16 (a group needs 3), wild boar 1.95 (a group needs 2)"
+     "Fallowmere": "stoat 11.86 (a group needs 1), fox 8.09 (a group needs 1), wolf 2.16 (a group needs 3), wild boar 1.94 (a group needs 2)",
+     "The Ford": "stoat 13.29 (a group needs 1), fox 9.42 (a group needs 1), wolf 2.4 (a group needs 3), wild boar 1.8 (a group needs 2), brown bear 0.08 (a group needs 1)"
     },
     "by village": {
      "Fallowmere": {
       "wild boar": {
-       "heads": 1.95,
+       "heads": 1.94,
        "least": 2,
        "range_km2": 40.0
       },
       "fox": {
-       "heads": 8.11,
+       "heads": 8.09,
        "least": 1,
        "reach": "ring"
       },
       "stoat": {
-       "heads": 11.84,
+       "heads": 11.86,
        "least": 1,
        "reach": "ring"
       },
@@ -226,6 +249,33 @@
       },
       "brown bear": {
        "heads": 0.03,
+       "least": 1,
+       "range_km2": 300.0
+      }
+     },
+     "The Ford": {
+      "wild boar": {
+       "heads": 1.8,
+       "least": 2,
+       "range_km2": 40.0
+      },
+      "fox": {
+       "heads": 9.42,
+       "least": 1,
+       "reach": "ring"
+      },
+      "stoat": {
+       "heads": 13.29,
+       "least": 1,
+       "reach": "ring"
+      },
+      "wolf": {
+       "heads": 2.4,
+       "least": 3,
+       "range_km2": 200.0
+      },
+      "brown bear": {
+       "heads": 0.08,
        "least": 1,
        "range_km2": 300.0
       }
@@ -275,10 +325,10 @@
   },
   "The Ford": {
    "name": "The Ford",
-   "kind": "vacant",
+   "kind": "village",
    "site_km": [
-    81.34,
-    20.37
+    84.27,
+    22.46
    ],
    "parcels": 7
   },

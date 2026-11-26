@@ -29,13 +29,25 @@
     "check": "P18",
     "level": "warn",
     "who": null,
-    "text": "the village rule: 1 livelihoods hold capital; 1 village(s) in the world, so a need from outside has no village in reach to meet it"
+    "text": "the village rule: 1 livelihoods hold capital; 2 village(s) in the world, so a need from outside has no village in reach to meet it"
    },
    {
     "check": "P7",
     "level": "warn",
     "who": null,
-    "text": "crafts held at capable or above with no lesson rows (their failures say only \"your hands\"): charcoal, cheese, hall, hearth, medium room, milk, plough, weir"
+    "text": "crafts held at capable or above with no lesson rows (their failures say only \"your hands\"): basket, charcoal, cheese, hall, harness, hearth, medium room, milk, millstones, oven, plough, quarry, sack, stalk, trap in water, water wheel, weir, wicker trap, wooden plough"
+   },
+   {
+    "check": "M1",
+    "level": "warn",
+    "who": "Ashby",
+    "text": "the Ashbys: making a harness needs hide, and none is to be had within a day"
+   },
+   {
+    "check": "M1",
+    "level": "warn",
+    "who": "Ashby",
+    "text": "the Ashbys: making a plough needs copper, and none is to be had within a day"
    },
    {
     "check": "M3",
@@ -50,6 +62,12 @@
     "text": "the Ashbys: no stone within a day: crude tools cannot be remade once these wear out"
    },
    {
+    "check": "M1",
+    "level": "warn",
+    "who": "Colle",
+    "text": "the Colles: making a gill net needs stone, and none is to be had within a day"
+   },
+   {
     "check": "M3",
     "level": "warn",
     "who": "Colle",
@@ -60,6 +78,18 @@
     "level": "warn",
     "who": "Colle",
     "text": "the Colles: no stone within a day: crude tools cannot be remade once these wear out"
+   },
+   {
+    "check": "M1",
+    "level": "warn",
+    "who": "Reeve",
+    "text": "the Reeves: making a copper hand tool needs copper, and none is to be had within a day"
+   },
+   {
+    "check": "M1",
+    "level": "warn",
+    "who": "Reeve",
+    "text": "the Reeves: smelting copper needs copper ore, and none is to be had within a day"
    },
    {
     "check": "M3",
@@ -110,7 +140,6 @@
      "fish by hand",
      "gather wild food",
      "gather young",
-     "gill net",
      "guard the field",
      "hay",
      "hoe",
@@ -163,21 +192,27 @@
      "twist cord"
     ],
     "The Ford": [
+     "burn the stubble",
      "clear",
      "clear for building",
      "cut",
      "cut withies",
      "den work",
      "fell",
+     "fence",
      "firewood",
      "fish by hand",
      "gather wild food",
-     "gather young",
      "gill net",
+     "guard the field",
      "hay",
+     "hoe",
      "hunt the wild",
+     "manure",
      "net",
      "pest work",
+     "shut",
+     "sow",
      "stalk",
      "twist cord"
     ],
@@ -191,7 +226,7 @@
      "firewood",
      "fish by hand",
      "gather wild food",
-     "gather young",
+     "gill net",
      "hay",
      "hunt the wild",
      "net",
@@ -532,7 +567,8 @@
    "Colle": {
     "livelihoods": [
      "builder",
-     "woodsman"
+     "woodsman",
+     "fisher"
     ],
     "experts": {
      "wright": "Geoffrey"
@@ -544,11 +580,15 @@
     },
     "apprentices": {},
     "keepers": {
+     "field:The Ford_1": "Geoffrey",
      "colle_weir": "Geoffrey"
     },
     "holds": {
      "weir": [
       "colle_weir"
+     ],
+     "fields": [
+      "field:The Ford_1"
      ]
     },
     "second_hands": [
@@ -587,7 +627,8 @@
   "people": {},
   "skipped": [
    "Ashby: Agnes raised to capable to keep the fields (u11 \u00a72.3)",
-   "Colle: Emma raised to capable to keep the weir (u11 \u00a72.3)",
+   "Colle: Emma raised to capable to keep the fields (u11 \u00a72.3)",
+   "Colle: fields field:The Ford_1 kept by Geoffrey, its only able hand",
    "Colle: weir colle_weir kept by Geoffrey, its only able hand",
    "Reeve: Simon raised to capable to keep the herd (u11 \u00a72.3)"
   ],
@@ -602,7 +643,7 @@
     ],
     "steps": [],
     "seeded": 20,
-    "words": 588,
+    "words": 586,
     "over": false,
     "long": [],
     "ids": [
@@ -624,7 +665,7 @@
      "FA6",
      "FA9",
      "HL",
-     "NB-builder:Colle",
+     "NV-builder:Colle",
      "NB-herder:Reeve"
     ]
    },
@@ -658,7 +699,7 @@
     ],
     "steps": [],
     "seeded": 18,
-    "words": 501,
+    "words": 505,
     "over": false,
     "long": [],
     "ids": [
@@ -678,21 +719,21 @@
      "BU4",
      "WO1",
      "HL",
-     "NB-farmer:Ashby",
-     "NB-herder:Reeve"
+     "NV-farmer:Ashby",
+     "NV-herder:Reeve"
     ]
    },
    "Geoffrey": {
-    "wanted": 20,
-    "rendered": 17,
+    "wanted": 21,
+    "rendered": 18,
     "skipped": [
      "PE2",
      "BU5",
      "HL"
     ],
     "steps": [],
-    "seeded": 17,
-    "words": 470,
+    "seeded": 18,
+    "words": 467,
     "over": false,
     "long": [],
     "ids": [
@@ -709,10 +750,11 @@
      "BU1",
      "BU2",
      "BU6",
+     "FA9",
      "FI12",
      "WO1",
-     "NB-farmer:Ashby",
-     "NB-herder:Reeve"
+     "NV-farmer:Ashby",
+     "NV-herder:Reeve"
     ]
    },
    "Hugh": {
@@ -750,7 +792,7 @@
     ],
     "steps": [],
     "seeded": 17,
-    "words": 492,
+    "words": 490,
     "over": false,
     "long": [],
     "ids": [
@@ -770,7 +812,7 @@
      "FA1",
      "FA3",
      "NB-farmer:Ashby",
-     "NB-builder:Colle"
+     "NV-builder:Colle"
     ]
    },
    "Robert": {
@@ -781,7 +823,7 @@
     ],
     "steps": [],
     "seeded": 18,
-    "words": 544,
+    "words": 542,
     "over": false,
     "long": [],
     "ids": [
@@ -801,7 +843,7 @@
      "FA6",
      "FA7",
      "HL",
-     "NB-builder:Colle",
+     "NV-builder:Colle",
      "NB-herder:Reeve"
     ]
    },
@@ -811,7 +853,7 @@
     "skipped": [],
     "steps": [],
     "seeded": 8,
-    "words": 252,
+    "words": 267,
     "over": false,
     "long": [],
     "ids": [
@@ -835,7 +877,7 @@
     ],
     "steps": [],
     "seeded": 18,
-    "words": 513,
+    "words": 511,
     "over": false,
     "long": [],
     "ids": [
@@ -856,7 +898,7 @@
      "FA3",
      "HL",
      "NB-farmer:Ashby",
-     "NB-builder:Colle"
+     "NV-builder:Colle"
     ]
    },
    "Tom": {
@@ -898,16 +940,22 @@
  },
  "capacity": {
   "Fallowmere": {
-   "people": 12,
-   "standing": 7.5,
-   "worked": 38.8,
-   "best": 65.8
+   "people": 9,
+   "standing": 8.6,
+   "worked": 37.8,
+   "best": 63.9
+  },
+  "The Ford": {
+   "people": 3,
+   "standing": 4.5,
+   "worked": 21.4,
+   "best": 35.5
   },
   "(region)": {
    "people": 12,
-   "standing": 22.5,
-   "worked": 60.7,
-   "best": 88.8
+   "standing": 18.7,
+   "worked": 78.1,
+   "best": 124.2
   }
  },
  "roads_off": [
@@ -1059,10 +1107,10 @@
    "Fallowmere": {
     "land": "farmland",
     "covers": {
-     "built": 5,
-     "field": 7,
+     "built": 3,
+     "field": 6,
      "meadow": 1,
-     "pasture": 7,
+     "pasture": 6,
      "forest": 1,
      "water": 2
     },
@@ -1109,10 +1157,11 @@
    "The Ford": {
     "land": "farmland",
     "covers": {
-     "meadow": 33,
-     "pasture": 10,
-     "forest": 12,
-     "fen": 4,
+     "built": 2,
+     "field": 4,
+     "meadow": 1,
+     "pasture": 2,
+     "forest": 1,
      "heath": 2,
      "water": 2
     },
@@ -1165,6 +1214,7 @@
      "fen": 16
     },
     "stocks": [
+     "brine",
      "game",
      "grass",
      "plants",
@@ -1231,6 +1281,7 @@
      "grass",
      "plants",
      "quarry",
+     "seam",
      "wood"
     ]
    },
