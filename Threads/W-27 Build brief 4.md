@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Build brief 4 (W-27)
 
-*active · 37.4 · touched 10 Nov (15 days ago)*
+*active · 37.4 · touched 10 Nov (16 days ago)*
 
 > **Next:** Zach on [[Q-40 Brief 4 as built, and its gate|Q-40]] (and 37.2's [[Q-39 Brief 4's open questions|Q-39]]); merging to `ecology` (his go); a live run if he allows one
 

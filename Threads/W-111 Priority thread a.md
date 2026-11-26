@@ -7,9 +7,9 @@ updated: "2026-11-25"
 
 # Priority thread a (W-111)
 
-*active · stable · touched 25 Nov (today)*
+*active · stable · touched 25 Nov (1 day ago)*
 
-> **Next:** the full suite running on dc60ae5c (the drive rename, D5-4, the even split): if it passes, push to main and tag engine-runs-1 for bench; if not, fix first
+> **Next:** Zach: push the tag engine-runs-1 at 34afb75f ([[Q-110 The engine-runs-1 tag could not be pushed|Q-110]]; this session cannot push tags); open: [[Q-108 Vermin's sudden illness saturates in every world|Q-108]] vermin's illness, [[Q-105 Whether World 0b is reworked before it is the benchmark world|Q-105]] World 0b, [[Q-106 The lamprey's second fault|Q-106]] the lamprey's size, [[O-5 Reconcile the audits into the records|O-5]] the audits reconciled; bench's faults as they come
 
 ## What it is
 Priority thread a: a stable engine for comparative runs: everything built so far tidied, usable and pinned (no new content until it is; the faults found this week fixed with module tests; other sessions' fixes merged; no silent failure; the records reconciled; a tag for experiments)
@@ -35,6 +35,7 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - under it: [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]] (closed)
 - under it: [[L-190 The interface rebuild's Not done|The interface rebuild's Not done (L-190)]] (open)
 - under it: [[L-191 The shallows' richness|The shallows' richness (L-191)]] (open)
+- under it: [[L-192 Fishing at a home feeds little|Fishing at a home feeds little (L-192)]] (open)
 - under it: [[O-5 Reconcile the audits into the records|Reconcile the audits into the records (O-5)]] (open)
 - under it: [[O-6 Set up the live check|Set up the live check (O-6)]] (closed)
 - under it: [[Q-100 Old water worlds|Old water worlds (Q-100)]] (open)
@@ -47,6 +48,7 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - under it: [[Q-107 Which worlds the stable engine's acceptance and the comparative runs…|Which worlds the stable engine's acceptance and the comparative runs… (Q-107)]] (closed)
 - under it: [[Q-108 Vermin's sudden illness saturates in every world|Vermin's sudden illness saturates in every world (Q-108)]] (open)
 - under it: [[Q-109 The hunting method 'drive'|The hunting method 'drive' (Q-109)]] (open)
+- under it: [[Q-110 The engine-runs-1 tag could not be pushed|The engine-runs-1 tag could not be pushed (Q-110)]] (open)
 - under it: [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]] (done)
 
 
@@ -65,6 +67,7 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - [[Q-107 Which worlds the stable engine's acceptance and the comparative runs…|Which worlds the stable engine's acceptance and the comparative runs… (Q-107)]]
 - [[Q-108 Vermin's sudden illness saturates in every world|Vermin's sudden illness saturates in every world (Q-108)]]
 - [[Q-109 The hunting method 'drive'|The hunting method 'drive' (Q-109)]]
+- [[Q-110 The engine-runs-1 tag could not be pushed|The engine-runs-1 tag could not be pushed (Q-110)]]
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]
 - [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]
 - [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]]
@@ -79,6 +82,7 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - [[L-189 Interface and resolver faults from World 0b's refusals|Interface and resolver faults from World 0b's refusals (L-189)]]
 - [[L-190 The interface rebuild's Not done|The interface rebuild's Not done (L-190)]]
 - [[L-191 The shallows' richness|The shallows' richness (L-191)]]
+- [[L-192 Fishing at a home feeds little|Fishing at a home feeds little (L-192)]]
 - [[O-5 Reconcile the audits into the records|Reconcile the audits into the records (O-5)]]
 - [[O-6 Set up the live check|Set up the live check (O-6)]]
 - [[The engine's architecture overhauled general mechanisms over typed…|The engine's architecture overhauled: general mechanisms over typed…]]

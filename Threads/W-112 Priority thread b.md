@@ -7,7 +7,7 @@ updated: "2026-11-24"
 
 # Priority thread b (W-112)
 
-*active · 37.2 · touched 24 Nov (1 day ago)*
+*active · 37.2 · touched 24 Nov (2 days ago)*
 
 > **Next:** a new session takes it (proposals/architecture_overhaul.md, Start here): finish surveys A and B, then the target architecture
 
@@ -31,5 +31,6 @@ started
 - [[W-110 The engine's design patterns surveyed against the whole engine and…|The engine's design patterns surveyed against the whole engine and… (W-110)]]
 - [[L-190 The interface rebuild's Not done|The interface rebuild's Not done (L-190)]]
 - [[L-191 The shallows' richness|The shallows' richness (L-191)]]
+- [[L-192 Fishing at a home feeds little|Fishing at a home feeds little (L-192)]]
 - [[The engine's architecture overhauled general mechanisms over typed…|The engine's architecture overhauled: general mechanisms over typed…]]
 - [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]

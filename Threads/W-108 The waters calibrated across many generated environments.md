@@ -7,7 +7,7 @@ updated: "2026-11-24"
 
 # The waters calibrated across many generated environments (W-108)
 
-*active · 37.2 · touched 24 Nov (1 day ago)*
+*active · 37.2 · touched 24 Nov (2 days ago)*
 
 > **Next:** both reads done (sweep.md, generality.md); the proposal waters_general.md with Zach ([[Q-98 One clock for the water's food before anything is sized|Q-98]], [[Q-99 How much of the waters made general comes before live run 2|Q-99]]); then 5b part 4's brief
 
@@ -35,6 +35,7 @@ started
 - [[L-116 The wild layer's fish and a water body, two ways|The wild layer's fish and a water body, two ways (L-116)]]
 - [[L-150 Environmental effects on fishing refined after the rest works|Environmental effects on fishing refined after the rest works (L-150)]]
 - [[L-191 The shallows' richness|The shallows' richness (L-191)]]
+- [[L-192 Fishing at a home feeds little|Fishing at a home feeds little (L-192)]]
 - [[A stable engine for comparative runs everything built so far tidied…|A stable engine for comparative runs: everything built so far tidied…]]
 - [[The waters made general resident fish from the land, runs on…|The waters made general: resident fish from the land, runs on…]]
 - [[Brief the waters calibrated across many generated environments…|Brief: the waters calibrated across many generated environments…]]

@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Compile the generator into spec/world/generation.md (W-9)
 
-*merged, by zach · 37.2 · touched 3 Nov (22 days ago)*
+*merged, by zach · 37.2 · touched 3 Nov (23 days ago)*
 
 ## What it is
 Compile the generator into spec/world/generation.md (OPEN [[L-101 Compile the generator into specworldgeneration.md|L-101]])

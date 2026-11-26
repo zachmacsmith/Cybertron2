@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # The ecology branch's next steps (W-7)
 
-*dropped, by zach · 37.2 · touched 19 Nov (6 days ago)*
+*dropped, by zach · 37.2 · touched 19 Nov (7 days ago)*
 
 ## What it is
 The ecology branch's next steps: the calibration backlog, takes from the store, an engine experiment

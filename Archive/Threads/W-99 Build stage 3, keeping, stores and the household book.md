@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # Build stage 3, keeping, stores and the household book (W-99)
 
-*done, by agent (provisional) · 37.2 · touched 23 Nov (2 days ago)*
+*done, by agent (provisional) · 37.2 · touched 23 Nov (3 days ago)*
 
 > **Next:** build; tests; review; merge
 

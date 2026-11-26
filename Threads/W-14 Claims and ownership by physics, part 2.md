@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Claims and ownership by physics, part 2 (W-14)
 
-*waiting · 37.4 · touched 8 Nov (17 days ago)*
+*waiting · 37.4 · touched 8 Nov (18 days ago)*
 
 > **Next:** Zach's go on the small fixes (OPEN [[L-70 The claims fixes|L-70]])
 

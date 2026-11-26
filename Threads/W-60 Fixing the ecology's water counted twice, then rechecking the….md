@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Fixing the ecology's water counted twice, then rechecking the… (W-60)
 
-*active · 37.2 · touched 20 Nov (5 days ago)*
+*active · 37.2 · touched 20 Nov (6 days ago)*
 
 > **Next:** the water counted once is on main ([[W-62 Merging the water work from its twelve branches into main|W-62]]); the recheck of the heron, otter, fish-taking fowl and the fish stocks against real densities is done on the calibration suite after the food values change ([[D2-258 The food values are put on one physical basis|D2-258]])
 

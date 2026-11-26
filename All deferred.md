@@ -1,6 +1,7 @@
 # All deferred
 
 ## Open
+- [[L-192 Fishing at a home feeds little|Fishing at a home feeds little (L-192)]] (open)
 - [[L-191 The shallows' richness|The shallows' richness (L-191)]] (open)
 - [[L-190 The interface rebuild's Not done|The interface rebuild's Not done (L-190)]] (open)
 - [[L-188 Smaller regressions from the wave|Smaller regressions from the wave (L-188)]] (open)

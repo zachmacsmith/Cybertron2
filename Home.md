@@ -1,6 +1,6 @@
 # Cybertron 2
 
-*The records, rebuilt from main after every push (last 2026-11-25). Read only: ask a session to change anything.*
+*The records, rebuilt from main after every push (last 2026-11-26). Read only: ask a session to change anything.*
 
 [The desk](https://claude.ai/artifact/MAn9WhTy6gGjpjcL3duoVm): the same, as a page, refreshed weekly.
 
@@ -81,7 +81,7 @@
 
 **stable**
 - [[W-111 Priority thread a|Priority thread a (W-111)]]  
-  next: the full suite running on dc60ae5c (the drive rename, D5-4, the even split): if it passes, push to main and…
+  next: Zach: push the tag engine-runs-1 at 34afb75f (Q-110; this session cannot push tags); open: Q-108 vermin's…
 
 ## Waiting threads (12)
 
