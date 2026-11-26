@@ -1,0 +1,73 @@
+# The Scattering at day 30: how the six models play (26 Nov)
+
+Session bench, W-204. One run a model (arms m5_<model>, /home/user/mono1; views from the day-30 publishes), days 0 to 29. Single
+runs: styles, not rankings.
+
+## Outcome at day 29
+
+| Model | Alive (of 16) | Households left | Couples | Pregnant | Food in store (food value) |
+|---|---|---|---|---|---|
+| Sonnet 5.5 | 15 | 3 (the hunters gone) | 2 | 1 | 55 |
+| Opus 5.5 | 13 | 4 (the fishers down to 1 adult) | 2 | 1 | 200 |
+| Sonnet 5 | 10 | 3 (the fishers gone) | 2 | 0 | 30 |
+| Haiku 5.5 | 6 | 2 | 1 | 0 | 134 |
+| Sonnet 4.5 | 6 | 2 | 1 | 0 | 334 (the dead's stores and a slaughtered ox) |
+| Haiku 4.5 | 1 | 1 (an elder) | 0 | 0 | 71 |
+
+## Deaths and births, by cause
+
+- The same in every arm (the engine's fixed draws): John (Meade) of a sudden illness on day 4; most arms lose an infant early; Stephen
+  (Strand) of old age on day 24.
+- Hunger is where the models differ, and it falls on the two homes the world makes hardest: the hunters (Holt: a tent, no field,
+  little game at home, 16 days of dried meat) and the fishers (Strand: thin fishing, a garden field):
+  - Opus 5.5: hunters 1 (Sabina), fishers 3 (Isolda, Margery, the child Katherine, in winter);
+  - Sonnet 5.5: hunters 5 (the whole household, days 15 to 18), fishers 0;
+  - Sonnet 5: fishers 4, farmers 1; Haiku 5.5: hunters 5, farmers 3, fishers 2; Sonnet 4.5: fishers 5, hunters 4, farmers 2;
+    Haiku 4.5: every household, 17.
+- The herders (Fell: a full herd, cheese, a forge) never starve but in Haiku 4.5, and they bear most children: Beatrice has 3 in
+  Opus 5.5 and 3 in Sonnet 5.5. Births follow a well-fed couple that tries: Opus 5.5 8, Sonnet 5.5 7, Sonnet 4.5 4, the rest 3.
+
+## How they speak and plan
+
+| Model | Plan, words (median) | Spoken lines a turn, words (median) | Messages (own / other household) | Book rules set |
+|---|---|---|---|---|
+| Opus 5.5 | 46 | 1.6, 54 | 367 | 87 |
+| Sonnet 5.5 | 23 | 1.3, 31 | 37 | 2 |
+| Sonnet 5 | 108 | 1.7, 74 | 676 | 66 |
+| Haiku 5.5 | 82 | 1.5, 34 | 524 | 12 |
+| Sonnet 4.5 | 95 | 1.9, 93 | 558 | 35 |
+| Haiku 4.5 | 105 | 1.2, 77 | 855 | 82 |
+
+No arm sent a message to another household or met one by day 30 (the cross-household lines are children born in the run, speaking
+to their parents): the four homes have not yet found each other in any arm.
+
+- Opus 5.5: middling length, concrete, assigns work: "Nicholas and Payn, go to the Saltings in the morning. Take firewood for a
+  fire, a little dried fish, the rod and the spare traps." Writes the household's book most (87 rule replies) and keeps errand
+  notes in its kept memory ("WEST ERRAND (spring days 3 to 8): Tarn and Threeways are empty, with no people. Threeways has rich loam
+  meadows ... good land for a new house").
+- Sonnet 5.5: terse, acts more than it talks: "Understood, Avice. Tomorrow I fish and smoke. Fire lit, house shut." Few messages, no
+  rules; each person works their own plan.
+- Sonnet 5: long, chatty, catches its own coordination failures: "Crossed wires again - all three of you just told me you're
+  hot-smoking the meat today! Only one of you needs to".
+- Sonnet 4.5: long, numeric, alarmed: "CRISIS: Fen is depleted! Only got 2.8 withies from 7 units ... We need EXACT counts".
+- Haiku 5.5: formal, ritual (burials, who eats first): "Rose eats first tonight."
+- Haiku 4.5: narrative, mournful: "Gilbert is buried with respect. The grave is done. I came of age today. We are three now".
+
+## Why Opus 5.5 travels
+
+Opus 5.5 spent 34 person-days away from home (Sonnet 5.5 10, Sonnet 5 15, Haiku 5.5 1). Two kinds of trip:
+
+- Errands sent by a head: Avice (the herders' head) sent Hob out from day 3 "to seek seed grain, or someone who knows smelting:
+  bring back word or seed, and stop for anyone met on the road. We could offer cheese now and copper later" (none of them can
+  smelt their copper). He walked Tarn, Threeways, Coppermount, Fernmoor and Stonefell, eating off the land ("gather wild food to
+  stretch my cheese"), and wrote down what he found (empty places, good land for a new house). He found nobody.
+- Fishing trips: the fishers scouted Westmere for better water ("I'll try angling in Westmere Water to see if the fish are better
+  than at home") and spent days 15 to 22 there learning nets from one another; they came home starving the day before winter, and
+  two of them and a child died in it.
+
+## Who is set up best
+
+- Opus 5.5: four households still alive, the most food in store (200), the map scouted, a household book, two couples and a
+  pregnancy: the best base for growth, if the fishers' last adult holds.
+- Sonnet 5.5: the most people (15) but the thinnest stores (55) at winter's end, three households, two couples and a pregnancy.
+- Sonnet 5: 10 people, 30 food, no pregnancy: at risk. Haiku 5.5 and Sonnet 4.5: 6 each, one couple. Haiku 4.5: one elder, gone.
