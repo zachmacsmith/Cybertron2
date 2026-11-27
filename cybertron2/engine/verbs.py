@@ -1466,8 +1466,13 @@ def _monument(here, mind, a, party, pid, what):
         from cybertron2.engine import parties as PT, wild as WL
         if not here.river_parcel(pid):
             raise Refused(f"{d['label'][2:]} is built across a river: at a place of water on a river here")
-        if any(WL.is_weir(b) and b["parcel"] == pid for b in here.buildings().values()):
-            raise Refused(f"there is a weir across {par['name']} already")
+        have = next((b for b in here.buildings().values() if WL.is_weir(b) and b["parcel"] == pid), None)
+        if have is not None:                                                  # what one may build at it instead, from the parts' words
+            from cybertron2.wild import gear as GR                            # (W-111: Fallowmere's "second weir" was refused unexplained)
+            full = len(WL.sections(have)) - 1 >= GR.most_added()
+            raise Refused(f"there is a weir across {par['name']} already" + (
+                f": to add to it, build {_and_or(sorted(set(WEIR_PART_WORDS.values())))} at it" if not full else
+                f"; it has all its sections, but you can build {WEIR_PART_WORDS['footing']} or {WEIR_PART_WORDS['upgrade']} at it"))
         for x in PT._names(a.get("with")):
             n_ = here.person(x)                                            # a living person here (at the node)
             if n_ and n_ != here.name and n_ not in crew:
@@ -1625,6 +1630,11 @@ WEIR_PARTS = {"weir section": "section", "a weir section": "section", "timber se
               "upgrade the weir": "upgrade", "timber upgrade": "upgrade", "rebuild a section in timber": "upgrade"}
 WEIR_PART_WORDS = {"timber": "a timber section", "wattle": "a wattle section", "footing": "a stone footing",
                    "upgrade": "a section rebuilt in timber"}
+
+
+def _and_or(xs) -> str:
+    xs = list(xs)
+    return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " or " + xs[-1]
 
 
 def _weir_part(here, mind, a, party, part):

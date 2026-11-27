@@ -222,3 +222,12 @@ def test_a_hungry_meal_names_the_rule_that_kept_the_food_back(eel):
     eel.s["today"] = R.blank_today()
     line = Here(eel, "Peter").meal_lines()[0]
     assert "still hungry" in line and "kept back 40 grain" in line and "keep the seed grain" in line, line
+
+
+def test_a_second_weir_where_one_stands_says_how_to_add_to_it(eel):
+    """W-111 (bench's Fallowmere runs): "build weir" where one stands was refused without saying a weir grows by sections."""
+    b = next(b for b in eel.s["buildings"].values() if b.get("monument") == "weir")
+    place = eel.s["parcels"][b["parcel"]]["name"]
+    who = sorted(n for n, k in eel.s["know"].items() if "weir" in k)[0]
+    out = V.do(Here(eel, who), Mind(eel, who), {"do": "build", "what": "weir", "at": place, "with": ["Nigel"]})
+    assert "already" in out and "a wattle section" in out and "a timber section" in out, out
