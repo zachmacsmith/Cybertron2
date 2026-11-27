@@ -114,3 +114,19 @@ Six moments, the same situation in each arm, the model the only difference (quot
   late winter; dies on day 33 at Border Wood, starving, asking Eva "to share what she carries". Sonnet 5.5: cuts withies and builds
   the house by day 10 (beds included), then "food is short" from day 11; walks alone to Border Wood on day 13 and gathers there,
   starving, until he dies on day 16.
+
+## Fallowmere (rebuilt) to day 60: the three 5.5 models (27 Nov)
+
+- Opus 5.5 (12 alive at day 60, 5 births, a third generation): two homes made one community. The Ford became the food hub (its Byre
+  smokehouse and house full, about 480 kg, by day 57) and fed Fallowmere through its thin spells with packs of smoked fish carried a
+  day upriver (Alice, Joan, Hugh, Katherine); Fallowmere sent withies, an ox hide and labour back. Matchmaking across the homes is
+  deliberate (Maud: "children are what we need"; Walter asks whether Alice is unpaired, for Hugh; Tom tries with Amice on his last
+  day before turning elder: Hamon is born on day 59). Six lessons, with succession in mind (Geoffrey teaches repair "so the work goes
+  on after me"; Agnes teaches Walter hot-smoking; Walter learns wicker traps "so we can catch the salmon run at home"). Second autumn
+  run met with racks ready and every hand angling. Weak points: the oxen lost (strayed, one to wolves at Southmead) and the plough
+  team gone; Fallowmere's land "worked out" by day 45 with a blighted barley; no trip to the salt, stone, copper or mill site; the
+  second weir refused (a section was what the engine wanted; sent to stable); the founding pool nearly used up (Q-206, O-210).
+- Sonnet 5.5 (6 alive): reaped its first barley green and starved on days 15 to 18 (six dead, the young and three specialists);
+  rebuilt slowly around Joan and Roger; used about 70% of its work units; few lines passed to children.
+- Haiku 5.5 (1 alive): its two homes never visited each other, so no couple formed and no child was born; tended an empty weir most
+  days; starved in the first winter.
