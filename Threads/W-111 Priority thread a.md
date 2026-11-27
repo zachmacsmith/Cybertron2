@@ -50,6 +50,7 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - under it: [[Q-109 The hunting method 'drive'|The hunting method 'drive' (Q-109)]] (open)
 - under it: [[Q-110 The engine-runs-1 tag could not be pushed|The engine-runs-1 tag could not be pushed (Q-110)]] (open)
 - under it: [[Q-111 Whether a household's keep floor yields when its people are starving|Whether a household's keep floor yields when its people are starving (Q-111)]] (open)
+- under it: [[Q-112 D5-2 only partly met|D5-2 only partly met (Q-112)]] (open)
 - under it: [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]] (done)
 
 
@@ -70,6 +71,7 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - [[Q-109 The hunting method 'drive'|The hunting method 'drive' (Q-109)]]
 - [[Q-110 The engine-runs-1 tag could not be pushed|The engine-runs-1 tag could not be pushed (Q-110)]]
 - [[Q-111 Whether a household's keep floor yields when its people are starving|Whether a household's keep floor yields when its people are starving (Q-111)]]
+- [[Q-112 D5-2 only partly met|D5-2 only partly met (Q-112)]]
 - [[W-103 Signs and what people can know of the state of things|Signs and what people can know of the state of things (W-103)]]
 - [[W-106 Stage 5 of the wave, works|Stage 5 of the wave, works (W-106)]]
 - [[W-107 Stage 5b of the wave, the gaps closed|Stage 5b of the wave, the gaps closed (W-107)]]

@@ -24,4 +24,5 @@ updated: "2026-11-24"
 
 
 ## Mentioned by
+- [[Q-112 D5-2 only partly met|D5-2 only partly met (Q-112)]]
 - [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]]
