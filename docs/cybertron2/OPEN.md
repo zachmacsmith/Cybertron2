@@ -153,6 +153,7 @@ takes L-100 and up. Rows below L-60 keep their numbers.
 | Q-109 | **The hunting method 'drive' (D2-204, 9 Nov) shares its name with the herd act 'drive' (D2-127, 24 Oct); since the core prompt lets a craft be named alone in 'do', the act wins: Eelmouth refused a hunting drive, the Scattering drove a household's cattle into a wood. Rename one and refuse name clashes when the registries load** | | stable |
 | Q-110 | **The engine-runs-1 tag could not be pushed: this session's GitHub access refuses tag pushes (403); main at 34afb75f passed the full suite (935 passed, 18 skipped) and is the commit to pin** | | stable |
 | Q-111 | **Whether a household's keep floor yields when its people are starving (session bench, 25 Nov): the Meades kept 'at least 50 grain for the seed' and all three starved with 48 grain in the bins; World 0b's Annora the same ('so the 20 grain stays uneaten'). Today a floor holds to death unless the rule says 'unless'** | | stable |
+| Q-112 | **D5-2 only partly met (session bench, 27 Nov): 103 of 161 techniques have no 'does', among them 38 make rows that never say what the thing made is for (harness, wicker trap, snares, fishing rod, sack, barrel...); the registry check asks for 'does' only on some rows; prompts are already about 6,000 words a person (Q-102)** | | stable |
 
 ## Offers and promises
 
