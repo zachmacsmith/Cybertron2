@@ -231,3 +231,12 @@ def test_a_second_weir_where_one_stands_says_how_to_add_to_it(eel):
     who = sorted(n for n, k in eel.s["know"].items() if "weir" in k)[0]
     out = V.do(Here(eel, who), Mind(eel, who), {"do": "build", "what": "weir", "at": place, "with": ["Nigel"]})
     assert "already" in out and "a wattle section" in out and "a timber section" in out, out
+
+
+def test_a_too_heavy_reply_that_says_go_sets_off(eel):
+    """W-111 (bench's monoculture runs, 0 departures from 108 lighten calls): the interface's travel word is "go"; the lighten
+    reply's acts are read as the interface writes them, so {"do": "go", "to": ...} is the setting off, and a give stays a give."""
+    road = Here(eel, "Peter").roads()[0][1]
+    acts = R.lighten_acts(eel, "Peter", [{"do": "give", "to": "Nichola", "item": "timber", "qty": 5},
+                                         {"do": "go", "to": road}, {"do": "rest"}, "not an act"])
+    assert [v for _, v in acts] == ["give", "travel"], acts

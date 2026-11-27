@@ -91,6 +91,30 @@ def bot_plan(w, name, talk=None, kind="decision") -> dict:
     return out
 
 
+LIGHTEN = ("give", "leave", "move", "travel")
+
+
+def lighten_acts(w, name, raw) -> list:
+    """The acts of a too-heavy-to-set-off reply (D4-32), as [(act as written, its act once read)]: giving, leaving, moving goods and
+    setting off, read as the interface writes them ("go" is the travel act's word: W-111, bench's monoculture runs set off 0 of 108
+    times when the filter read the raw word), at most 8."""
+    out = []
+    for x in raw:
+        if not isinstance(x, dict):
+            continue
+        v = str(x.get("do", "")).strip().lower()
+        if SHAPES.on(w):
+            try:
+                v = str(SHAPES.normalize(Here(w, name), Mind(w, name), dict(x)).get("do") or "").lower()
+            except Exception:                                                  # noqa: BLE001 (unreadable: the act refuses itself below)
+                pass
+        if v in V.ALIASES and V.ALIASES[v](dict(x)) is not None:
+            v = "give"
+        if v in LIGHTEN:
+            out.append((x, v))
+    return out[:8]
+
+
 def bot_fuse(w, name, x) -> dict:
     """A scripted bot's answer to an urgent call: those inside defend and raise the alarm, neighbours come to help; on the road it
     takes what it finds, keeps to its choice at trouble, and goes on after a meeting (offering a trade)."""
@@ -1104,14 +1128,13 @@ def run(spec_path, out_dir, backend=None, days=None, workers=12, bots=False, see
                                        {n: (n,) for n in heavy}, workers, tally)
                 for n in heavy:
                     talk_log[n].append({"wave": "lighten", "prompt": texts[n], "reply": lr.get(n) or {}, "usage": (lm.get(n) or {}).get("usage")})
-                    acts = [x for x in ((lr.get(n) or {}).get("actions") or []) if isinstance(x, dict)
-                            and str(x.get("do", "")).lower() in ("give", "leave", "move", "travel")][:8]
-                    if not any(str(x.get("do", "")).lower() == "travel" for x in acts):
+                    acts = lighten_acts(w, n, (lr.get(n) or {}).get("actions") or [])
+                    if not any(v == "travel" for _, v in acts):
                         results[n].append(f"You did not set off for {heavy[n].get('to')}: too heavy to carry.")
-                    for x in acts:
+                    for x, v in acts:
                         res = V.do(Here(w, n), Mind(w, n), x)
                         results[n].append(res)
-                        if str(x.get("do", "")).lower() == "travel":
+                        if v == "travel":
                             break
             for n in names:
                 results[n] = [(f"{x} (listed {rep[n][x]} times; tried once, not again)" if x.startswith("Refused") else f"{x} (x{rep[n][x]})")
