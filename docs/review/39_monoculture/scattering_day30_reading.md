@@ -124,7 +124,7 @@ Six moments, the same situation in each arm, the model the only difference (quot
   day before turning elder: Hamon is born on day 59). Six lessons, with succession in mind (Geoffrey teaches repair "so the work goes
   on after me"; Agnes teaches Walter hot-smoking; Walter learns wicker traps "so we can catch the salmon run at home"). Second autumn
   run met with racks ready and every hand angling. Weak points: the oxen lost (strayed, one to wolves at Southmead) and the plough
-  team gone; Fallowmere's land "worked out" by day 45 with a blighted barley; no trip to the salt, stone, copper or mill site; the
+  team gone; Fallowmere's land "worked out" by day 45 with a blighted barley; no trip to the salt or copper (they never knew of them: Greenhythe and Stonebarrow lie outside the one-day ring each home knows (D4-47), and no prompt in any arm names them, so Maud's salt-boiling and Simon's smelting had nothing to work; a fault of the world's build, O-211); nobody went past the known ring in any arm; the
   second weir refused (a section was what the engine wanted; sent to stable); the founding pool nearly used up (Q-206, O-210).
 - Sonnet 5.5 (6 alive): reaped its first barley green and starved on days 15 to 18 (six dead, the young and three specialists);
   rebuilt slowly around Joan and Roger; used about 70% of its work units; few lines passed to children.
