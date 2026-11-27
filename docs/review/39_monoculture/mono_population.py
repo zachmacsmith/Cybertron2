@@ -16,7 +16,8 @@ from matplotlib.ticker import MaxNLocator  # noqa: E402
 HERE = os.path.dirname(os.path.abspath(__file__))
 MODELS = [("opus55", "Opus 5.5", "#7b61c9"), ("sonnet55", "Sonnet 5.5", "#2a78d6"), ("sonnet5", "Sonnet 5", "#e87ba4"),
           ("sonnet45", "Sonnet 4.5", "#eda100"), ("haiku55", "Haiku 5.5", "#eb6834"), ("haiku45", "Haiku 4.5", "#1baf7a")]
-WORLDS = [("m5", "The Scattering (4 homes, 16 founders)"), ("m1", "Fallowmere (1 village, 12 founders; paused at day 10)")]
+WORLDS = [("m5", "The Scattering (4 homes, 16 founders)"),
+          ("m1b", "Fallowmere, rebuilt (2 homes a day apart, 12 founders; D5-8 to D5-10)")]   # the first Fallowmere (m1_*, day 10) left out
 
 
 def series(run):
@@ -31,7 +32,7 @@ def series(run):
 
 
 def main(root="/home/user/mono1", out=os.path.join(HERE, "mono_population.png")):
-    fig, axes = plt.subplots(1, 2, figsize=(13.5, 5), gridspec_kw={"width_ratios": [1.6, 1]})
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5.2), gridspec_kw={"width_ratios": [1.2, 1]})
     for ax, (w, title) in zip(axes, WORLDS):
         top = 0
         ends = []
