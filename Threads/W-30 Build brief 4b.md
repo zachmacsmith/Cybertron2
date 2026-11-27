@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Build brief 4b (W-30)
 
-*waiting · 37.4 · touched 10 Nov (16 days ago)*
+*waiting · 37.4 · touched 10 Nov (17 days ago)*
 
 > **Next:** Zach on [[Q-41 Brief 4b as built, and its gate|Q-41]], the merge into ecology, a live run. (Was [[W-29 Writing up the 10 Nov wild-region live run|W-29]]: that number was taken by 37.2's region world in 6702cd7, which replaced this row)
 

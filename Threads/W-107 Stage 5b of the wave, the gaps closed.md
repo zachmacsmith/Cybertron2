@@ -7,7 +7,7 @@ updated: "2026-11-24"
 
 # Stage 5b of the wave, the gaps closed (W-107)
 
-*paused · 37.2 · touched 24 Nov (2 days ago)*
+*paused · 37.2 · touched 24 Nov (3 days ago)*
 
 > **Next:** frozen until [[W-111 Priority thread a|W-111]]; its fault parts moved into [[W-111 Priority thread a|W-111]]'s table, its feature parts wait
 

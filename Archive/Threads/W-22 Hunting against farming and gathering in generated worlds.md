@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Hunting against farming and gathering in generated worlds (W-22)
 
-*merged, by zach · 37.2 (session "Thicker economy exploration") · touched 10 Nov (16 days ago)*
+*merged, by zach · 37.2 (session "Thicker economy exploration") · touched 10 Nov (17 days ago)*
 
 > **Next:** Zach's go on the changes (02zzd table), then 37.4's code and 37.2's ecology (pressure, game near people), then a rerun
 

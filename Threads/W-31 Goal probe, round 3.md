@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Goal probe, round 3 (W-31)
 
-*active · 37.4 · touched 12 Nov (14 days ago)*
+*active · 37.4 · touched 12 Nov (15 days ago)*
 
 > **Next:** Zach on n = 3, and a memory wording that names the same 25 salt (to separate grading from the amount asked)
 

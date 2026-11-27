@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Nutrition worlds (W-69)
 
-*active · 37.2 · touched 22 Nov (4 days ago)*
+*active · 37.2 · touched 22 Nov (5 days ago)*
 
 > **Next:** after the first build (recipes shown with the batches, the gate check, the fishing bugs and the target rule): the runs world remade and its three live runs again, kept durably ([[L-147 Live runs kept durably as soon as they finish|L-147]])
 

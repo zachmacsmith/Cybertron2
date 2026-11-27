@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # The building clock's first stage read with bots (W-82)
 
-*done, by agent (provisional) · 37.2 · touched 22 Nov (4 days ago)*
+*done, by agent (provisional) · 37.2 · touched 22 Nov (5 days ago)*
 
 > **Next:** Zach: the note's 8 questions (houses, fittings and the weir to 1/15 first, fences and clearing held for their companions; cheaper crop protection; the weir's size; build acts under 2 units; keep the farming bot; the frontier world; the short live run; tool lives); 7 engine faults
 

@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # Build stage 4, signs, people and worlds (W-100)
 
-*done, by agent (provisional) · 37.2 · touched 23 Nov (3 days ago)*
+*done, by agent (provisional) · 37.2 · touched 23 Nov (4 days ago)*
 
 > **Next:** build; renders and checks; review by 37.2; merge; then live run 1 ([[D2-333 Zach's go for live run 1|D2-333]])
 

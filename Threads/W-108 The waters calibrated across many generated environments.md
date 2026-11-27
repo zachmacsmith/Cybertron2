@@ -7,7 +7,7 @@ updated: "2026-11-24"
 
 # The waters calibrated across many generated environments (W-108)
 
-*active · 37.2 · touched 24 Nov (2 days ago)*
+*active · 37.2 · touched 24 Nov (3 days ago)*
 
 > **Next:** both reads done (sweep.md, generality.md); the proposal waters_general.md with Zach ([[Q-98 One clock for the water's food before anything is sized|Q-98]], [[Q-99 How much of the waters made general comes before live run 2|Q-99]]); then 5b part 4's brief
 

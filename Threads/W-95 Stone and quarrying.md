@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # Stone and quarrying (W-95)
 
-*benched · 37.2 · touched 23 Nov (3 days ago)*
+*benched · 37.2 · touched 23 Nov (4 days ago)*
 
 ## What it is
 Zach, 23 Nov: 'flag quarrying and stone as a later benched thread, potentially connected to timber or its own thing. That economy and tools and supply chain isn't super thought out and developed.'

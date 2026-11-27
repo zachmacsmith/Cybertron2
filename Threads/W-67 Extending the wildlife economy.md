@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Extending the wildlife economy (W-67)
 
-*queued · 37.2 · touched 22 Nov (4 days ago)*
+*queued · 37.2 · touched 22 Nov (5 days ago)*
 
 > **Next:** after [[W-73 Fishing, hunting and their materials developed together|W-73]]: with the timber economy as one thread on the woods (exploration: proposals/woods_and_wild_next.md)
 

@@ -7,7 +7,7 @@ updated: "2026-11-21"
 
 # Signs of the river (W-72)
 
-*waiting · 37.2 · touched 21 Nov (5 days ago)*
+*waiting · 37.2 · touched 21 Nov (6 days ago)*
 
 > **Next:** Zach: the proposal's seven questions; then a brief with the fishing bugs ([[Q-79 Whether to fix the fishing bugs the live runs exposed|Q-79]]), the shallows stock and the gear materials ([[L-111 The hunting and resources build, a soon follow-up|L-111]])
 

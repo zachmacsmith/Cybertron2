@@ -7,7 +7,7 @@ updated: "2026-11-25"
 
 # Priority thread a (W-111)
 
-*active · stable · touched 25 Nov (1 day ago)*
+*active · stable · touched 25 Nov (2 days ago)*
 
 > **Next:** Zach: push the tag engine-runs-1 at 34afb75f ([[Q-110 The engine-runs-1 tag could not be pushed|Q-110]]; this session cannot push tags); open: [[Q-108 Vermin's sudden illness saturates in every world|Q-108]] vermin's illness, [[Q-105 Whether World 0b is reworked before it is the benchmark world|Q-105]] World 0b, [[Q-106 The lamprey's second fault|Q-106]] the lamprey's size, [[O-5 Reconcile the audits into the records|O-5]] the audits reconciled; bench's faults as they come
 

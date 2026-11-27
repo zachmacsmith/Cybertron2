@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Build briefs 2 and 3, the 20 dry test arms, the spring live run (W-2)
 
-*active · 37.4 · touched 9 Nov (17 days ago)*
+*active · 37.4 · touched 9 Nov (18 days ago)*
 
 > **Next:** Zach's answers to [[Q-37 Brief 2 as built, and what its gate found|Q-37]] and [[Q-38 Brief 3 as built, and its gate|Q-38]]; merging to `ecology` (Zach's go); the late-summer live run (needs Zach's go); brief 3's own live run if he allows one
 

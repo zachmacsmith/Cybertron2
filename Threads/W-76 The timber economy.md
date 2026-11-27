@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # The timber economy (W-76)
 
-*queued · 37.2 · touched 22 Nov (4 days ago)*
+*queued · 37.2 · touched 22 Nov (5 days ago)*
 
 > **Next:** scouting note done (02zzzi_timber/scouting.md: real ladder, engine gaps, leverage, candidate units T1 to T5, 15 questions); its own design wave after [[W-73 Fishing, hunting and their materials developed together|W-73]]; web figures from search summaries to check against the pages
 
