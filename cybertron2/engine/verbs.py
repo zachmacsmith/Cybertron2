@@ -3284,6 +3284,23 @@ from cybertron2.engine import iface as _IFC  # noqa: E402
 _IFC.check(VERB)
 
 
+def _tell_carry_on_the_road() -> None:
+    """The travel act says what one can carry, from the data (W-111, D5-2: the system prompt's carry line reached no model; the limit
+    was learnt only from refusals): on foot, a pack basket, a handcart on a track, a pack ox."""
+    from cybertron2.engine.data import HERDS, ITEMS, PHYSICS
+    foot = float(PHYSICS["carry"]["foot"])
+    bits = [f"a pack basket {float(ITEMS['pack']['carry']):g} kg more" if ITEMS.get("pack", {}).get("carry") else "",
+            f"a handcart {float(ITEMS['handcart']['carry']):g} kg more on a track" if ITEMS.get("handcart", {}).get("carry") else "",
+            f"a pack ox {float(HERDS['pack_ox']['carry']):g} kg" if HERDS.get("pack_ox", {}).get("carry") else ""]
+    line = f" On foot you carry at most {foot:g} kg; " + ", ".join(b for b in bits if b) + "."
+    for row in _IFACE.get("travel") or []:
+        if row.get("word") == "go" and "you carry at most" not in row["does"]:
+            row["does"] = row["does"].rstrip().rstrip(".") + "." + line
+
+
+_tell_carry_on_the_road()
+
+
 def _check_names() -> None:
     """No act and craft share a name (D2-353: every registry checked when it loads; W-111, Q-109: "drive" was both the herd act and
     the hunting drive, and the act won wherever a craft is named alone in "do")."""

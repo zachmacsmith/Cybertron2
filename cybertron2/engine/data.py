@@ -1374,6 +1374,23 @@ from cybertron2.engine import process as _PROC                          # noqa: 
 _PROC.register_techniques(TECHNIQUES)
 _PROC.register_fittings(FITTINGS)
 _PROC.tell_fire_risk(TECHNIQUES)                                          # the smokehouse's fire, in the manual (W-111)
+
+
+def _tell_carry(techniques, items) -> None:
+    """What a made thing that carries does, read from its item's `carry` (W-111, D5-2: the pack basket's line said only what it
+    took, so no one made one): 'make a pack basket: you carry 15 kg more on the road'."""
+    for t in techniques.values():
+        gives = t.get("gives")
+        if t.get("verb") != "make" or t.get("does") or not isinstance(gives, dict) or len(gives) != 1:
+            continue
+        item = next(iter(gives))
+        c = (items.get(item) or {}).get("carry")
+        if c:
+            what = str(t.get("label") or item).removeprefix("making ")
+            t["does"] = f"make {what}: you carry {c:g} kg more on the road" + (" (on a track)" if items[item].get("track") else "")
+
+
+_tell_carry(TECHNIQUES, ITEMS)
 # Stores and containers (u5; engine/stores.py, D2-244): the spaces' real capacities, the containers, the vermin goods
 from cybertron2.engine import stores as _STORES                         # noqa: E402
 _STORES.register_fittings(FITTINGS)

@@ -240,3 +240,13 @@ def test_a_too_heavy_reply_that_says_go_sets_off(eel):
     acts = R.lighten_acts(eel, "Peter", [{"do": "give", "to": "Nichola", "item": "timber", "qty": 5},
                                          {"do": "go", "to": road}, {"do": "rest"}, "not an act"])
     assert [v for _, v in acts] == ["give", "travel"], acts
+
+
+def test_the_carry_limits_and_what_a_pack_does_are_shown(eel):
+    """W-111 (bench's monoculture runs, D5-2): no arm made a pack basket in 60 days, its line saying only what it took, and the carry
+    limit reached no model. The go act's line and the carrying gear's lines say them, from the data."""
+    from cybertron2.engine import prompt as PR
+    from cybertron2.engine.data import ITEMS, PHYSICS
+    s = PR.system_prompt(Here(eel, "Peter"), Mind(eel, "Peter"))
+    assert f"On foot you carry at most {PHYSICS['carry']['foot']:g} kg" in s
+    assert f"make a pack basket: you carry {ITEMS['pack']['carry']:g} kg more on the road" in s
