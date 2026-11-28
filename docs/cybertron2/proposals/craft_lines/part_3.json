@@ -1,0 +1,528 @@
+{
+ "salt pan": {
+  "shown": true,
+  "does": "gather the salt dried in a saltmarsh's pans: salt to salt fish and meat with, and to make cheese",
+  "does_is_new": true,
+  "aware": "salt from the sun-dried pans of a saltmarsh",
+  "rough": "done on a saltmarsh with pans; there it is never refused, so a day can give nothing, for what the pans give follows the year",
+  "capable": "only skill helps: no tool does, and the pans never run out. Salt never spoils, but rats and mice take it from a loose floor; keep it in a chest",
+  "known": "lay salt by before a glut: salting fish or meat takes much of it at once, a cheese a little. Inland, salt comes from boiling brine at a brine pan",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES['salt pan']: at covers saltmarsh, draws salt, yield fixed, by_season (winter 0.0), no tools",
+   "cybertron2/engine/verbs.py _technique: yield kind fixed, q *= by_season ('what the season gives, never refused'); endless renewal not drawn down",
+   "cybertron2/engine/data.py RESOURCES['salt']: renewal endless",
+   "cybertron2/engine/data.py ITEMS['salt']: spoil 0.0; stores.py DRY and VERMIN include salt; CONTAINERS chest vermin rats 0.2, mice 0.15",
+   "cybertron2/engine/data.py TECHNIQUES['salt fish'], ['salt meat'], ['cheese']: salt as an input; process.py salt()",
+   "cybertron2/engine/data.py TECHNIQUES['boil salt']"
+  ],
+  "doubts": "a day in a season that gives 0.0 still costs the unit and counts as a failed try (KN.tried with got 0); intended by D4-106 ('never refused') but worth knowing"
+ },
+ "stalk": {
+  "shown": true,
+  "does": "go quietly after a beast that keeps to its paths, and take it with a weapon",
+  "does_is_new": false,
+  "aware": "creeping up on deer to take one with a weapon",
+  "rough": "after deer and other beasts that keep to their paths; bare-handed you will seldom take one, even when you come on it",
+  "capable": "slow: it covers little ground, so you meet fewer beasts than hunting at large, but take far more of those you meet. Ground hunted often grows wary and thin",
+  "known": "name the beast you are after to meet it more; knowing a kind well steadies the shot. A boar may turn on you. What you cannot carry is left",
+  "grounded_in": [
+   "cybertron2/wild/methods.py METHODS['stalk']: needs size medium/large, runs, home none; gear crude weapon 5.0; SWEEP stalk 0.4 (hunt the wild 1.0); TAKE_BASE stalk 0.06",
+   "cybertron2/engine/wild.py take_chance: take_base x skill x gear x (1 - flee) x familiarity; gear(): best weapon carried",
+   "cybertron2/engine/wild.py hunt: ground = sweep x units; pressure and wary raised on the ground hunted, lowering meetings (press, shy)",
+   "cybertron2/engine/wild.py hunt: 'looking for' focus 3.0 for the wanted kind, 0.4 for the rest; danger wound/kill (RESOURCES['wild boar'] danger); what cannot be carried is cut and left with the offal",
+   "cybertron2/wild/methods.py factor/raise_familiar: familiarity with a kind multiplies the take"
+  ],
+  "doubts": "the row's wear 0.3 (on every _take_row method) is never applied: wild.take/hunt do not wear the weapon, and verbs._technique wears only a `tools` row's tool or a 'chance' hunt's weapon, so a stalker's weapon never wears"
+ },
+ "twist cord": {
+  "shown": true,
+  "does": "twist nettle and bast stems into cord by hand: the cord that lines, snares, nets and sacks are made from",
+  "does_is_new": true,
+  "aware": "cord twisted by hand from nettles and bark fibre",
+  "rough": "needs only your hands and ground where nettles grow; it never takes the ground bare, but it is slow",
+  "capable": "no tool helps; only skill does. Cord keeps a long time, so twist it in slack days and store it against the nets or snares you mean to make",
+  "known": "spinning retted flax at a house makes cord much faster; nettle cord is for those without flax. A gill net wants far more cord than snares or a line",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES['twist cord']: no draws, yield fixed, by_season, no tools",
+   "cybertron2/engine/verbs.py _technique: fixed yield with no stock drawn (dk not in res: got = q)",
+   "cybertron2/engine/gear.py ITEMS['cord']: keep 2000 days",
+   "cybertron2/engine/gear.py RECIPES: hand line, set lines, snares, gill nets, dip net, sack take cord (gill nets cord 1, snares 0.005, hand line 0.02)",
+   "cybertron2/engine/data.py TECHNIQUES['dress and spin']: gives cord 0.125 a unit against twist cord's 0.04"
+  ],
+  "doubts": ""
+ },
+ "barrel": {
+  "shown": true,
+  "does": "make a barrel: in a store it holds salted fish and meat in brine, and dry goods, safe from damp, flies and most vermin",
+  "does_is_new": true,
+  "aware": "a cooper's barrel for keeping salted and dry goods",
+  "rough": "a cooper's work, of timber and withies; a failed try spoils all the timber, a heavy loss",
+  "capable": "it works only in a building's store, where goods are sorted into it by themselves, and it takes floor there; salting puts salt fish and meat in it, in brine",
+  "known": "a salting tub does the brine's work for less timber, but a barrel also keeps grain, meal and salt dry, and lasts many years before it rots",
+  "grounded_in": [
+   "cybertron2/engine/stores.py CONTAINERS['barrel']: suits SALTED + DRY, removes brine, flies, floor damp; vermin 0.05; per_space 4; portions() sorts goods into containers",
+   "cybertron2/engine/process.py salt(): salted goods go into a salting tub or barrel with room, in brine",
+   "cybertron2/engine/gear.py RECIPES['barrel'] (timber 7, withies 0.3, skilled, cooper) and ['salting tub'] (timber 2); LIVES barrel rot 10 years dry, salting tub 5",
+   "cybertron2/engine/verbs.py _make: a failed try spoils the materials"
+  ],
+  "doubts": ""
+ },
+ "basket": {
+  "shown": true,
+  "does": "make a basket: in a store it holds roots, nuts, fruit, eggs, cheese and cured goods, out of a heap and less to the floor's damp",
+  "does_is_new": true,
+  "aware": "a wicker basket for keeping food in the store",
+  "rough": "woven of withies, with practice; carried, a basket does nothing: it does its work standing in a building's store",
+  "capable": "goods are sorted into baskets by themselves, each taking some floor; roots keep better than in a heap, and dried or smoked goods better than loose",
+  "known": "rats and mice still reach what is in it; a chest keeps them off far better. Wicker rots in time and is made again",
+  "grounded_in": [
+   "cybertron2/engine/stores.py CONTAINERS['basket']: suits ROOTS, NUTS, FRUIT, egg, cheese, CURED; removes heap; half floor damp; vermin rats 0.8, mice 0.7; per_space 10",
+   "cybertron2/engine/stores.py factor(): heap x1.5 loose, floor damp x3 for cured goods, x1.5 in a basket",
+   "cybertron2/engine/gear.py ITEMS['basket'] (no carry), LIVES basket rot (None, 2.0); world.capacity reads only `carry`",
+   "cybertron2/engine/stores.py CONTAINERS['chest'] vermin rats 0.2, mice 0.15"
+  ],
+  "doubts": ""
+ },
+ "bedroll": {
+  "shown": true,
+  "does": "make a bedroll: sleeping out, you need less food against the cold and the cold harms you less",
+  "does_is_new": true,
+  "aware": "a hide roll to sleep in on the road",
+  "rough": "made of hide, by anyone; keep it in your hands, for it helps only on a night you sleep out",
+  "capable": "a tent does better, as does a place in another's tent; by a fire in the open it helps a little more. Each night out wears it",
+  "known": "it wears only on nights out, so one lasts a traveller well; a camp fallen to ruin shelters you no better than a bedroll",
+  "grounded_in": [
+   "cybertron2/engine/night.py _gear: tent first, a place in another's tent, then a bedroll carried; wear 1 a night",
+   "cybertron2/engine/data.py PHYSICS camping: out [1.5, 2.0, 1.0], bedroll [1.35, 1.75, 0.5], tent [1.2, 1.4, 0.0]; camping_fire bedroll 1.5, out 1.6",
+   "cybertron2/engine/needs.py food(): gear's food need and the cold's fall",
+   "cybertron2/engine/night.py: a damaged camp (level 2) is unsheltered with gear 'bedroll'",
+   "cybertron2/engine/data.py ITEMS['bedroll']: camp bedroll, life; gear.py TOOL_LIVES bedroll nights"
+  ],
+  "doubts": ""
+ },
+ "boil salt": {
+  "shown": true,
+  "does": "boil brine drawn from the spring beside a brine pan dry over a fire; the pan burns through with use and is mended",
+  "does_is_new": false,
+  "aware": "boiling brine from a salt spring into salt",
+  "rough": "done at a brine pan with a brine spring at or beside it, and firewood to hand; without the spring the pan is refused",
+  "capable": "each boiling wears the pan; burnt through, it gives half until it is mended with copper (mend the brine pan). It burns firewood, so keep a woodpile near",
+  "known": "salt never spoils: boil while wood is to hand and store it in a chest, away from rats. Mend the pan before a long run of boiling",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES['boil salt']: at fittings brine pan, inputs firewood; ['mend the brine pan']: yield mend, copper 0.25",
+   "cybertron2/engine/knowledge.py ready(): a fitting with `spring` needs a brine spring at or beside its building",
+   "cybertron2/engine/data.py FITTINGS['brine pan']: wear life 60, count act, mend 'mend the brine pan'; wear.py factor: a worn fitting works at half",
+   "cybertron2/engine/data.py ITEMS['salt']: spoil 0.0, vermin"
+  ],
+  "doubts": ""
+ },
+ "bone hook": {
+  "shown": true,
+  "does": "make bone hooks: the hooks a hand line or a set line is made with, and mended with",
+  "does_is_new": true,
+  "aware": "small hooks carved from bone, for fishing lines",
+  "rough": "carved from bone by anyone; one sitting makes several, so ask for them all together. With no bone to hand it is refused",
+  "capable": "a hook does no work alone and never wears: it is spent only in making a line or mending one. Copper hooks from a smith serve the same",
+  "known": "keep spares with your lines: mending a worn hand line takes a hook, a set line a handful. Hooks weigh almost nothing to carry",
+  "grounded_in": [
+   "cybertron2/engine/gear.py RECIPES['bone hook']: inputs bone, clock day, simple; RECIPES['hand line'], ['set lines'] hooks {bone hook, copper hook}",
+   "cybertron2/engine/clocks.py batch_of: several pieces an act (5 for a bone hook); verbs._make: 'the same unit would have made N'",
+   "cybertron2/engine/gear.py LIVES: no row for hooks (not pieced); LIVES hand line mend hooks 1, set line mend hooks 15",
+   "cybertron2/engine/gear.py ITEMS['bone hook'] weight 0.005"
+  ],
+  "doubts": "FAULT: nothing in the engine gives bone (no kind's taken goods, no technique's gives), so bone hooks can be made only from seeded bone (founders.py says as much: 'nothing gives bone yet')"
+ },
+ "bread": {
+  "shown": true,
+  "does": "bake flour into bread at a hearth: food that needs no fire to eat at its full worth, but goes stale soon",
+  "does_is_new": true,
+  "aware": "baking flour into loaves at a hearth",
+  "rough": "it needs milled flour, not hand-ground meal, and a little firewood, at a hearth; baking more than will be eaten soon wastes it",
+  "capable": "any amount bakes, up to a batch for the work, so bake full batches. Flour keeps far longer than bread: store flour and bake as it is wanted",
+  "known": "bread is the food to carry on the road or eat where no fire is lit. It draws rats and mice, and the floor's damp spoils it",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES['bread']: at fittings hearth, inputs flour and firewood, batch",
+   "cybertron2/engine/data.py ITEMS: bread (no cook, spoil 0.2638), flour (cook, raw 0.5, spoil 0.0292); night.py food worth: cook goods give raw without a lit fire",
+   "cybertron2/engine/data.py TECHNIQUES['grind'] gives meal; ['mill'], ['water mill'] give flour; FITTINGS['hand mill'] 'porridge, not bread'",
+   "cybertron2/engine/verbs.py _make: batch share, BATCH_LEAST; stores.py DRY and VERMIN include bread"
+  ],
+  "doubts": ""
+ },
+ "charcoal": {
+  "shown": true,
+  "does": "burn timber slowly in a wood into charcoal: a light, hot fuel that the smith smelts copper with",
+  "does_is_new": true,
+  "aware": "turning timber into charcoal for the smith's fire",
+  "rough": "done in a wood, with timber to hand; it takes much timber for one sack, so a failed burn is a heavy loss",
+  "capable": "any amount burns, up to a batch, so burn full ones. A sack holds far more heat for its weight than timber, though less than the timber that made it",
+  "known": "it is worth burning for a forge, where a sack does the work of many loads of timber; at a hearth wood goes further, and charcoal burns last",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES['charcoal']: at covers forest, inputs timber 5, gives charcoal 1, batch, woodsman",
+   "cybertron2/engine/data.py ITEMS: charcoal weight 20 heat 2.0; timber weight 25 heat 1.25",
+   "cybertron2/engine/data.py TECHNIQUES['smelt']: fuel charcoal 1 or timber 6",
+   "cybertron2/engine/data.py PHYSICS heat order [firewood, timber, charcoal]; forests.burn"
+  ],
+  "doubts": ""
+ },
+ "cheese": {
+  "shown": true,
+  "does": "make cheese from milk with a little salt in a cellar: milk that would spoil by morning turned into a food that keeps",
+  "does_is_new": true,
+  "aware": "turning milk and salt into cheese that keeps",
+  "rough": "done in a cellar, with milk and some salt to hand; milk left a night is lost, so make it the day you milk",
+  "capable": "any amount of milk makes cheese, up to a batch, so make full batches. It keeps best in a cellar, out of the summer's warmth; flies spoil it then",
+  "known": "a cheese gives a little more food than the milk that went into it, and needs no fire to eat; rats and mice take it wherever it lies",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES['cheese']: at fittings cellar, inputs milk 20, salt 0.6, gives cheese 3.3, batch, herder",
+   "cybertron2/engine/data.py ITEMS: milk spoil 1.0, food 0.256; cheese spoil 0.023, food 1.61, no cook, vermin",
+   "cybertron2/engine/stores.py WARM and FLIES include cheese; SPACES cellar removes warm; VERMIN includes cheese"
+  ],
+  "doubts": ""
+ },
+ "chest": {
+  "shown": true,
+  "does": "make a chest: in a store it holds dry, nut and cured goods off the floor's damp and away from most rats and mice",
+  "does_is_new": true,
+  "aware": "a carpenter's chest of boards for keeping goods",
+  "rough": "a carpenter's work, of timber; a failed try spoils the timber. It is heavy, and does its work standing in a building's store",
+  "capable": "it holds a great deal on little floor, and grain, meal, salt and dried goods are sorted into it by themselves. It never rots",
+  "known": "salted goods want a tub or barrel instead, and roots a basket; for dry goods only a barrel keeps vermin out better",
+  "grounded_in": [
+   "cybertron2/engine/stores.py CONTAINERS['chest']: holds 400, per_space 1, suits DRY + NUTS + CURED, removes floor damp, vermin rats 0.2, mice 0.15; TECHNIQUES['chest'] carpenter, timber 4",
+   "cybertron2/engine/stores.py ITEMS['chest'] weight 40; portions() sorts goods into containers",
+   "cybertron2/engine/gear.py LIVES: no row for chest (never rots)",
+   "cybertron2/engine/stores.py CONTAINERS barrel suits SALTED + DRY, vermin 0.05; basket suits ROOTS"
+  ],
+  "doubts": ""
+ },
+ "coin": {
+  "shown": true,
+  "does": "strike copper into coin at an anvil: a light, lasting thing to trade with, worth what others will give for it",
+  "does_is_new": true,
+  "aware": "copper struck into coins for trading",
+  "rough": "a smith's work at an anvil, from copper; a failed strike spoils the copper. Coin feeds no one and makes nothing",
+  "capable": "coin weighs nothing in your hands and never spoils, so it carries wealth on the road where goods would weigh you down",
+  "known": "it is worth only what neighbours will take it for: copper made into tools or hooks does work, coin only changes hands",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES['coin']: at fittings anvil, inputs copper 1, gives coin 10, smith",
+   "cybertron2/engine/data.py ITEMS['coin']: weight 0, spoil 0.0 ('copper coin, carried', D2-1, D2-28); world.load sums weight",
+   "grep: no handler reads 'coin' beyond signs.py (the sound of smithing)"
+  ],
+  "doubts": "coin has no use in the engine beyond being a good that can be given; its worth is only what agents make of it (as intended by D2-1, D2-28, presumably)"
+ },
+ "copper hook": {
+  "shown": true,
+  "does": "make copper hooks at an anvil: the hooks a hand line or a set line is made with, and mended with",
+  "does_is_new": true,
+  "aware": "small copper fish hooks made by a smith",
+  "rough": "a smith's skilled work at an anvil, from a little copper; one sitting makes a great many, so ask for them together",
+  "capable": "a copper hook does the same work as a bone one, in a line or a mending; it never wears until it is used",
+  "known": "make a stock in one go: hooks weigh almost nothing and never spoil, and a fisher who sets lines wants a great many",
+  "grounded_in": [
+   "cybertron2/engine/gear.py RECIPES['copper hook']: inputs copper 0.005, skilled, smith, at anvil",
+   "cybertron2/engine/clocks.py batch_of: 75 an act",
+   "cybertron2/engine/gear.py RECIPES['hand line'], ['set lines'] hooks {bone hook, copper hook} as equal alternatives; LIVES set line mend hooks 15",
+   "cybertron2/engine/gear.py ITEMS['copper hook'] weight 0.005, spoil 0"
+  ],
+  "doubts": ""
+ },
+ "copper tool": {
+  "shown": true,
+  "does": "make a copper hand tool at an anvil: felling, cutting, digging and field work go faster with it than with a crude tool, and it lasts far longer",
+  "does_is_new": true,
+  "aware": "a smith's copper tool, better than stone and wood",
+  "rough": "a smith's skilled work at an anvil, from copper and a little timber; a failed try spoils the copper",
+  "capable": "it counts only in your hands, and the best tool you carry is the one used; each act of work with it wears it a little",
+  "known": "it pays most at felling, where it does twice a crude tool's work; for making a cart or a plough any tool serves as well",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES tools tables: fell copper 2.0, crude 1.0; cut, mine, quarry, hoe, ditch, reap, hay, fence, wall copper 1.5",
+   "cybertron2/engine/world.py best_tool: the carried tool with the best multiplier; knowledge.shortfall: 'you need a tool in your hands'",
+   "cybertron2/engine/verbs.py _technique: wear on the tool by the row's wear",
+   "cybertron2/engine/gear.py TOOL_LIVES copper tool 980 acts, crude tool 280",
+   "cybertron2/engine/data.py TECHNIQUES['handcart'], ['wooden plough'] tools crude 1.0, copper 1.0"
+  ],
+  "doubts": ""
+ },
+ "creel": {
+  "shown": true,
+  "does": "make a creel: you carry 5 kg more on the road",
+  "does_is_new": false,
+  "aware": "a wicker fish basket worn on the back",
+  "rough": "woven of withies, with practice; it helps only when it is in your hands as you set out",
+  "capable": "it adds to what you carry on a journey, of anything, not only fish; a pack basket or a cart counts instead of it, not as well as it",
+  "known": "on a hunt it does not help bring the kill home: only a pack basket or a led ox does. Wicker rots in time and is made again",
+  "grounded_in": [
+   "cybertron2/engine/gear.py ITEMS['creel'] carry 5; LIVES creel rot (None, 4.0)",
+   "cybertron2/engine/world.py capacity: foot plus the best carry held (not added together)",
+   "cybertron2/engine/wild.py carry_of: on a hunt only the pack basket's carry and a led ox count"
+  ],
+  "doubts": "capable line: 'counts instead of it' means the best one held counts (world.capacity takes the max), so a creel with a pack basket adds nothing"
+ },
+ "crude tool": {
+  "shown": true,
+  "does": "make a crude hand tool of wood and stone: felling, cutting, digging, mining and field work go faster with it, and some cannot be done without one",
+  "does_is_new": true,
+  "aware": "a rough tool of wood and stone for work",
+  "rough": "anyone can make it from a little timber and stone; it counts only when it is in your hands, not in the store",
+  "capable": "each act of work with it wears it, and it wears out far sooner than a copper tool; cutting, mining and quarrying are refused without some tool",
+  "known": "make one before work that needs it: a cart or a plough cannot be made without a tool in hand, and there a crude one serves as well as copper",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES tools tables: bare hands 0.25 to 0.6 where allowed; cut, mine, quarry have no 'bare'",
+   "cybertron2/engine/knowledge.py shortfall: 'you need a tool in your hands ... take it into your hands (move)'",
+   "cybertron2/engine/verbs.py _technique: tool wear; gear.py TOOL_LIVES crude tool 280, copper tool 980",
+   "cybertron2/engine/data.py TECHNIQUES['handcart'], ['wooden plough'] tools crude 1.0, copper 1.0 (no bare)"
+  ],
+  "doubts": ""
+ },
+ "crude weapon": {
+  "shown": true,
+  "does": "make a crude weapon, a club or spear: a hunter with it in hand takes far more of what is met, and a fighter strikes harder",
+  "does_is_new": true,
+  "aware": "a club or rough spear for hunting and fighting",
+  "rough": "anyone can shape one from a little timber; it counts only in your hands. A stalk or a drive without one seldom takes anything",
+  "capable": "it helps most on a stalk or a hunting drive, much less at a den; only the best weapon you carry counts",
+  "known": "it is the cheapest gear for the most gain on a stalk; in a fight it adds to your strength but wears fast, so make another before it breaks",
+  "grounded_in": [
+   "cybertron2/wild/methods.py METHODS gear: hunt the wild 2.0, stalk 5.0, hunting drive 6.0, den work 1.25 (crude weapon)",
+   "cybertron2/engine/wild.py gear(): the best weapon carried, one at a time; take_chance",
+   "cybertron2/engine/settle.py: a fighter's strength + ITEMS weapon; wear fight_wear (PHYSICS combat fight_wear 4)",
+   "cybertron2/engine/world.py weapon(): read from hands"
+  ],
+  "doubts": "no wear on a hunt in the wild layer (see stalk's doubt), so a weapon wears only in fights and the older 'chance' hunt"
+ },
+ "dip net": {
+  "shown": true,
+  "does": "make a dip net: fishing at the edge, it takes far more of the fish running past",
+  "does_is_new": true,
+  "aware": "a hand net for scooping fish at the water's edge",
+  "rough": "made of withies and cord, with practice; carry it in your hands when you fish at the edge",
+  "capable": "it helps only with fish passing in a run: the shallows' own small fish come no easier to it",
+  "known": "it is worth carrying on the days fish run past the edge, and nothing else is needed; it rots in time and is made again",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES['fish by hand']: run True, run_gear dip net 3.0",
+   "cybertron2/engine/verbs.py _technique: rx = pinch x the run_gear held, used only for WL.run_take; the shallows draw is not multiplied",
+   "cybertron2/engine/gear.py LIVES dip net: count acts, rot (None, 2.0), mends"
+  ],
+  "doubts": "FAULT: the dip net's life is counted in acts (LIVES, mends True) but nothing wears it: verbs._technique reads it with sound_held and never applies wear, so it only rots and mend gear has nothing to restore"
+ },
+ "dress and spin": {
+  "shown": true,
+  "does": "dress retted flax and spin it into cord at a house: the cord that lines, snares, nets and sacks are made from",
+  "does_is_new": true,
+  "aware": "spinning flax fibre into cord and twine",
+  "rough": "it needs retted flax, not flax just pulled: ret it first in still water or on the grass. Done under a roof",
+  "capable": "any amount spins, up to a batch for the work, so spin full ones; retted flax keeps well, so it can wait for slack days",
+  "known": "it makes cord much faster than twisting nettles, so a household that grows flax is the one to make nets; cord keeps a long time",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES['dress and spin']: at building, inputs retted flax 1, gives cord 0.125, batch",
+   "cybertron2/engine/process.py TECHNIQUES['ret flax'] and PROCESSES['retting'] (flax to retted flax)",
+   "cybertron2/engine/gear.py ITEMS: retted flax keep 365, cord keep 2000",
+   "cybertron2/engine/data.py TECHNIQUES['twist cord'] base 0.04 a unit"
+  ],
+  "doubts": ""
+ },
+ "dry fish": {
+  "shown": true,
+  "does": "hang it on the rack at a hearth or a fire ring: dry after a night of the fire (outside, a dry night), at half the weight",
+  "does_is_new": false,
+  "aware": "drying fish on the rack by a fire",
+  "rough": "hang fresh fish at a hearth or fire ring; inside, the hearth is lit only when someone sleeps there and there is fuel",
+  "capable": "a fire ring's rack hangs outside: a wet night is lost, and the fish spoils as fresh while it waits. The rack is small; a done lot keeps its room",
+  "known": "take the dried fish down with move once it is done, or it holds the rack and, outside, spoils in the open; dried fish needs no fire to eat",
+  "grounded_in": [
+   "cybertron2/engine/process.py PROCESSES['hearth rack']: cond hearth; load(): inside only where the building has a hearth, else at the door",
+   "cybertron2/engine/process.py night(): inside ok = the building's fire lit; outside, not a wet night; a night not met is `out`",
+   "cybertron2/engine/night.py: a building's fire is lit only with sleepers there and fuel in its store or woodpile",
+   "cybertron2/engine/process.py decay(): a failed night at the input's rate; a done lot outside at the open's; held_kg and room(); take_down",
+   "cybertron2/engine/data.py ITEMS['dried fish']: no cook"
+  ],
+  "doubts": "the row's does is right but leaves out that a done lot stays on the rack until taken down with move (process.take_down), holding the rack's small room (process.held_kg, room) and, on a fire ring's rack outside, spoiling in the open (process.decay); the smokehouse rows' does say 'take the done lot down with move', these do not"
+ },
+ "dry fodder": {
+  "shown": true,
+  "does": "dry a green crop, reaped before it ripened, into hay: fodder that keeps, for herds to eat from the store when the grass runs short",
+  "does_is_new": true,
+  "aware": "drying green-cut crop into hay for the beasts",
+  "rough": "it needs a green crop: grain, rye or beans reaped before they ripened. Dry it soon, for green crop rots fast",
+  "capable": "any amount dries, up to a batch, so dry full ones; herds eat the most perishable fodder in the store first",
+  "known": "hay is bulky for its worth but keeps almost for ever; a pack ox on the road eats hay from your hands. A crop cut green gives little food",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES['dry fodder']: inputs green grain, green rye or green beans, gives hay, batch",
+   "cybertron2/engine/farm.py _reap: reaped green (progress < 1) gives the crop's green good, 'fodder, little food'",
+   "cybertron2/engine/data.py ITEMS: green grain spoil 0.37, fodder 0.8; hay weight 10, spoil 0.0007, fodder 1.0",
+   "cybertron2/engine/farm.py herd night: fodder from the holders' stores where the grass runs short, the perishable first",
+   "cybertron2/engine/herds.py: the pack ox's hay from the leader's hands"
+  ],
+  "doubts": ""
+ },
+ "dry meat": {
+  "shown": true,
+  "does": "hang it on the rack at a hearth or a fire ring: dry after a night of the fire (outside, a dry night), at half the weight",
+  "does_is_new": false,
+  "aware": "drying meat on the rack by a fire",
+  "rough": "hang fresh meat at a hearth or fire ring; inside, the hearth is lit only when someone sleeps there and there is fuel",
+  "capable": "a fire ring's rack hangs outside: a wet night is lost, and the meat spoils as fresh while it waits. The rack is small; a done lot keeps its room",
+  "known": "dried meat is light, keeps long out of the damp and needs no fire to eat: the way to keep a small kill. Take it down with move",
+  "grounded_in": [
+   "cybertron2/engine/process.py PROCESSES['hearth rack'] (meat to dried meat, ratio 0.5); load(); night(); decay(); take_down",
+   "cybertron2/engine/night.py: a building's fire lit only with sleepers and fuel",
+   "cybertron2/engine/data.py ITEMS['dried meat']: spoil 0.0069, no cook; stores.py CURED floor damp x3"
+  ],
+  "doubts": "the row's does is right but leaves out that a done lot stays on the rack until taken down with move (process.take_down), holding the rack's small room (process.held_kg, room) and, on a fire ring's rack outside, spoiling in the open (process.decay); the smokehouse rows' does say 'take the done lot down with move', these do not"
+ },
+ "fishing rod": {
+  "shown": true,
+  "does": "make a rod and line: you take more fish angling with it than with a hand line",
+  "does_is_new": true,
+  "aware": "a rod and line for angling",
+  "rough": "a straight withy is all it takes, with practice; without a rod or a hand line you cannot angle",
+  "capable": "each day's angling wears it, and broken it cannot be mended, only made again; it must be in your hands, and the best line you carry is used",
+  "known": "it outlasts a hand line, takes more fish and needs no hooks or cord, so it is the angler's first make; it rots in time even unused",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES['angle']: gear_x fishing rod 1.5, hand line 1.0; verbs._technique: the best held line, worn 1 a use",
+   "cybertron2/engine/knowledge.py shortfall: 'you have no line to fish with (a hand line, or a rod and line)'",
+   "cybertron2/engine/gear.py LIVES fishing rod: acts 210, rot (None, 3.0), mends False; hand line acts 56",
+   "cybertron2/engine/data.py TECHNIQUES['fishing rod']: inputs withies 0.1 only; learning.CLASS_OF practised"
+  ],
+  "doubts": "the rod is 'a rod and line' but takes only withies, no cord or hook, while a hand line needs both; a rod is cheaper and better in every way, which makes the hand line pointless except as mendable"
+ },
+ "gill nets": {
+  "shown": true,
+  "does": "make a gill net of twine with stone sinkers: set across open water at dusk, it takes fish until you take it up",
+  "does_is_new": true,
+  "aware": "a long net set across water to catch fish",
+  "rough": "it takes a great deal of cord, practised work and a roof over you; a failed try spoils all that cord",
+  "capable": "set it with the gill net way, one to a setting, in open water, never under ice; it wears by the nights it stands, and mend gear restores it",
+  "known": "a net rots fast left in the water: take it up between settings. Its cord is the dear part, so twist or spin cord well beforehand",
+  "grounded_in": [
+   "cybertron2/engine/gear.py RECIPES['gill nets']: cord 1, stone 0.1, at building, practised; verbs._make failure spoils the materials",
+   "cybertron2/engine/gear.py SET_GEAR, SET_MOST gill net 1; placed.lay: set in water, refused when iced",
+   "cybertron2/engine/gear.py LIVES gill net: count nights, rot (0.5 wet, 5.0 dry), mends; rot_night wet rate while set",
+   "cybertron2/wild/methods.py METHODS['gill net'] note"
+  ],
+  "doubts": ""
+ },
+ "grind": {
+  "shown": true,
+  "does": "grind grain into meal at a hand mill: meal makes porridge, not bread, and feeds more than the whole grain",
+  "does_is_new": true,
+  "aware": "grinding grain by hand into meal for porridge",
+  "rough": "done at a hand mill with grain to hand; meal is for porridge, and baking wants flour from millstones",
+  "capable": "any amount grinds, up to a batch, so grind full ones. Meal spoils much sooner than whole grain: grind only what will be eaten before long",
+  "known": "meal wants a lit fire to eat at its worth, as grain does, and eaten cold gives half; rats and mice take it, and the floor's damp spoils it",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES['grind']: at hand mill, grain to meal, batch; FITTINGS['hand mill'] 'porridge, not bread'",
+   "cybertron2/engine/data.py ITEMS: grain food 0.7 spoil 0.0013; meal food 1.0, cook, raw 0.5, spoil 0.0292, vermin",
+   "cybertron2/engine/data.py TECHNIQUES['bread'] inputs flour; ['mill'] at millstones gives flour",
+   "cybertron2/engine/stores.py DRY includes meal"
+  ],
+  "doubts": ""
+ },
+ "hand line": {
+  "shown": true,
+  "does": "make a hand line: with it you can angle for fish, and worn, it is mended with a hook",
+  "does_is_new": true,
+  "aware": "a fishing line with hooks, held in the hand",
+  "rough": "made of a little cord and hooks, bone or copper; with no hooks to hand it is refused",
+  "capable": "each day's angling wears it; worn out, mend gear puts half its life back for a hook. A rod, if you carry one, is used instead",
+  "known": "a rod takes more fish and lasts longer, but a hand line can be mended: keep hooks by you and it serves a long time",
+  "grounded_in": [
+   "cybertron2/engine/gear.py RECIPES['hand line']: cord 0.02, hooks bone or copper; LIVES hand line: acts 56, mend hooks 1",
+   "cybertron2/engine/gear.py MEND uses 0.5",
+   "cybertron2/engine/data.py TECHNIQUES['angle'] gear_x; verbs._technique: the best held line used and worn"
+  ],
+  "doubts": ""
+ },
+ "handcart": {
+  "shown": true,
+  "does": "make a handcart: you carry 115 kg more on the road (on a track)",
+  "does_is_new": false,
+  "aware": "a cart pushed by hand for loads on the road",
+  "rough": "a carpenter's work, of timber, with a tool in your hands; on a road without a track it is no help",
+  "capable": "it weighs nothing to you, but counts only on roads with a track; where there is none, a led pack ox carries a load instead",
+  "known": "it does not help on a hunt or about the village, only on journeys; it is the trader's tool between villages on a track",
+  "grounded_in": [
+   "cybertron2/engine/data.py TECHNIQUES['handcart']: tools crude 1.0, copper 1.0, carpenter; knowledge.shortfall tool in hands",
+   "cybertron2/engine/data.py ITEMS['handcart']: weight 0, carry 115, track",
+   "cybertron2/engine/world.py capacity: a track carry counts only on a road with a track; verbs._travel refusal 'a cart needs a road with a track'",
+   "cybertron2/engine/wild.py carry_of (pack and ox only); livelihoods.py trader fits track"
+  ],
+  "doubts": ""
+ },
+ "hard cure fish": {
+  "shown": true,
+  "does": "hang salted goods in a timber or stone smokehouse: done after 3 nights of a tended fire (hanging them lights and tends tonight's; tend it on the days after); take the done lot down with move",
+  "does_is_new": false,
+  "aware": "smoking salt fish slowly into a hard, lasting cure",
+  "rough": "hang salt fish, already salted, on smokehouse racks; a wattle smokehouse is refused: it needs timber or stone",
+  "capable": "tend the fire daily after hanging, with firewood in the store or at the door; a night it dies is lost, the fish waits. The fire can catch the house",
+  "known": "hard-cured fish needs no fire to eat and is much lighter than the salt fish that went in: good for the road. It shares racks with a keeping smoke",
+  "grounded_in": [
+   "cybertron2/engine/process.py PROCESSES['hard cure']: salt fish to hard-cured fish, ratio 0.4, nights 3, structures timber, stone; refuse_load",
+   "cybertron2/engine/process.py night(): lit only if tended today and fuel there (store, then woodpile at the door); _count out; catch() by PHYSICS smokehouse fire",
+   "cybertron2/engine/process.py tend(); room(): one set of racks shared by keeping smoke and hard cure",
+   "cybertron2/engine/data.py ITEMS['hard-cured fish']: no cook"
+  ],
+  "doubts": ""
+ },
+ "hard cure meat": {
+  "shown": true,
+  "does": "hang salted goods in a timber or stone smokehouse: done after 3 nights of a tended fire (hanging them lights and tends tonight's; tend it on the days after); take the done lot down with move",
+  "does_is_new": false,
+  "aware": "curing salt meat in smoke into bacon and ham",
+  "rough": "hang salt meat, already salted, on smokehouse racks; a wattle smokehouse is refused: it needs timber or stone",
+  "capable": "tend the fire daily after hanging, with firewood in the store or at the door; a night it dies is lost, the meat waits. The fire can catch the house",
+  "known": "hard-cured meat needs no fire to eat and keeps well out of brine, where salt meat keeps worse; a stone smokehouse is the least likely to burn",
+  "grounded_in": [
+   "cybertron2/engine/process.py PROCESSES['hard cure']: salt meat to hard-cured meat, ratio 0.85; refuse_load; night(); tend()",
+   "cybertron2/engine/data.py ITEMS: hard-cured meat spoil 0.0085, no cook; salt meat spoil 0.0085, cook",
+   "cybertron2/engine/stores.py SALTED out of brine x1.5 (salt meat only)",
+   "cybertron2/engine/process.py fire_risk_words / PHYSICS smokehouse fire: stone lowest"
+  ],
+  "doubts": ""
+ },
+ "harness": {
+  "shown": true,
+  "does": "make a harness: with one in hand you can lead an ox as a pack ox, and two let a yoked pair of oxen draw a plough",
+  "does_is_new": true,
+  "aware": "a harness for working oxen",
+  "rough": "a leatherworker's work, of hide and timber; a failed try spoils the hide. It is of no use without oxen",
+  "capable": "to lead a pack ox the harness must be in your hands; ploughing wants two and a plough, to hand or in the household's store. Each ploughing wears them",
+  "known": "on a hunt a led ox brings the kill home, but the game sees you sooner and flees more; on the road it carries far more than you",
+  "grounded_in": [
+   "cybertron2/engine/herds.py pack_ox: a harness in hands; verbs._travel and _technique 'lead' refusals",
+   "cybertron2/engine/data.py TECHNIQUES['plough']: animals oxen 2, uses wooden plough 1, harness 2; farm.team_shortfall via available(); farm wear 1/n a plough act",
+   "cybertron2/engine/wild.py hunt: LEAD seen and flee when an ox is led; carry_of adds the pack ox",
+   "cybertron2/engine/data.py HERDS pack_ox carry 100; world.capacity"
+  ],
+  "doubts": ""
+ },
+ "hot smoke fish": {
+  "shown": true,
+  "does": "smoke it over a fire in one go: done in the act, cooked",
+  "does_is_new": false,
+  "aware": "smoking fish hot over a fire, ready to eat",
+  "rough": "done at a hearth or fire ring with fresh fish and a little firewood, in one go; a failed try spoils the fish",
+  "capable": "it keeps the fish's food in less weight, eaten cold at its full worth, but it keeps only a little longer than fresh fish",
+  "known": "it is for eating in the next days, not for laying by: drying, salting or a keeping smoke keep far longer. Any amount smokes, up to a batch",
+  "grounded_in": [
+   "cybertron2/engine/process.py TECHNIQUES['hot smoke fish']: at hearth or fire ring, fish and firewood, gives hot-smoked fish 6.7 from 10, batch; PROCESSES['hot smoke'] lot False (verbs._make's plain path)",
+   "cybertron2/engine/data.py ITEMS: fish food 0.46 spoil 0.37 cook; hot-smoked fish food 0.69 spoil 0.2474, no cook; dried fish 0.0069, salt fish 0.0085, smoked fish 0.0292"
+  ],
+  "doubts": ""
+ },
+ "hot smoke meat": {
+  "shown": true,
+  "does": "smoke it over a fire in one go: done in the act, cooked",
+  "does_is_new": false,
+  "aware": "smoking meat hot over a fire, ready to eat",
+  "rough": "done at a hearth or fire ring with fresh meat and a little firewood, in one go; a failed try spoils the meat",
+  "capable": "it keeps the meat's food in less weight, eaten cold at its full worth, but it keeps hardly longer than fresh meat",
+  "known": "it is for eating in the next days, not for laying by: drying, salting or a keeping smoke keep far longer. Any amount smokes, up to a batch",
+  "grounded_in": [
+   "cybertron2/engine/process.py TECHNIQUES['hot smoke meat']: at hearth or fire ring, meat and firewood, gives hot-smoked meat 6.7 from 10, batch",
+   "cybertron2/engine/data.py ITEMS: meat food 0.6 spoil 0.2825 cook; hot-smoked meat food 0.9 spoil 0.2474, no cook"
+  ],
+  "doubts": "the row's manual ('cooked, keeping about a week') overstates a little: hot-smoked meat's base spoil 0.2474 against fresh meat's 0.2825 is barely slower"
+ }
+}

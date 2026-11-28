@@ -1,0 +1,486 @@
+{
+ "clear": {
+  "shown": true,
+  "does": "clear rough ground for a field: the work keeps between days and adds up across workers; when it is done the ground is a field, fallow and unbroken, and yours if nobody held it",
+  "does_is_new": true,
+  "aware": "turning meadow, pasture or scrub into a new field",
+  "rough": "Done on meadow, pasture or scrub with a tool in hand; bare hands go slowly. It takes many days before the ground is a field.",
+  "capable": "A better tool and practice clear more a day, and the tool wears. Others' work on the same ground adds to yours. Scrub takes far longer than grass.",
+  "known": "Cleared meadow starts richer than cleared scrub. Hoe or plough the new field before sowing. Clearing ground someone already holds makes it their field, not yours.",
+  "grounded_in": [
+   "cybertron2/engine/verbs.py _clear: progress kept on parcel 'clearing', done when CLEARING[cover] x size; cover becomes field, last_crop fallow, broken 0, fertility CLEARING['fertility'][cover] x base; claim 'cleared' if unheld, else shares",
+   "cybertron2/engine/data.py CLEARING (meadow and pasture less work than scrub; fertility meadow > pasture > scrub)",
+   "cybertron2/engine/verbs.py _technique: best_tool(t['tools']) multiplies the work, tool worn by t['wear']; world.py best_tool (bare hands where listed)",
+   "cybertron2/engine/verbs.py _skill_mult: KN.skill (practice) x yield_mult (hunger)"
+  ],
+  "doubts": "On finishing, _clear sets the parcel's own crop to None: a crop sown on that turf before it was cleared is lost without a word. Clearing (kind 'clear') is not in _technique's success list: practice: the kind is not in _technique's list of kinds that count as a success (got is 0), so each act counts as a failure in KN.tried; harmless for a basic craft (known to all), but it slows a non-basic one's rise."
+ },
+ "clear for building": {
+  "shown": true,
+  "does": "clear open ground or scrub for building: the work keeps and adds up across workers; when it is done it is built ground, farmland no longer, and yours if nobody held it",
+  "does_is_new": true,
+  "aware": "making ground ready to build houses on",
+  "rough": "Done with a tool in hand on field, pasture, meadow or scrub; refused while a crop stands there. Bare hands go slowly.",
+  "capable": "A better tool and practice clear more a day, and the tool wears. Others' work adds to yours. Scrub, with its roots, takes far longer than grass.",
+  "known": "Built ground takes houses but never a crop or grazing again: its grass, crop and holdings end with the clearing. Clear only what you mean to build on.",
+  "grounded_in": [
+   "cybertron2/engine/verbs.py _clear_built: CLEARING['built'][cover] x size; cover built, crop and shares None, grass S and K 0, claim if unheld",
+   "cybertron2/engine/knowledge.py ready: clear_built refused while a crop stands",
+   "cybertron2/engine/verbs.py _technique: best_tool(t['tools']) multiplies the work, tool worn by t['wear']; world.py best_tool (bare hands where listed)",
+   "cybertron2/engine/verbs.py _skill_mult: KN.skill (practice) x yield_mult (hunger)"
+  ],
+  "doubts": "Kind 'clear_built' is not in _technique's success list: practice: the kind is not in _technique's list of kinds that count as a success (got is 0), so each act counts as a failure in KN.tried; harmless for a basic craft (known to all), but it slows a non-basic one's rise."
+ },
+ "clear the leat": {
+  "shown": true,
+  "does": "clear the mill leat of silt and weed: a choked leat leaves the water mill grinding less from the same work until it is cleared",
+  "does_is_new": true,
+  "aware": "keeping a water mill's channel clear so it runs",
+  "rough": "Done at a water wheel; it needs no materials. The leat silts with time, not with use, so even an idle mill needs it.",
+  "capable": "Clearing it before it is choked is not wasted: it starts the reckoning afresh. Either a choked leat or worn millstones slows the grinding, so see to both.",
+  "known": "The leat silts by the year and the stones wear by the grain put through, so they fall due at different times: keep a reckoning of each.",
+  "grounded_in": [
+   "cybertron2/engine/verbs.py _technique kind 'mend': WE.mend",
+   "cybertron2/engine/wear.py is_worn: the water wheel's wear is {years} (time), millstones' {life, count inputs}; factor 0.5 if any worked fitting is worn; worked() follows 'needs' (wheel to millstones); mend resets used and since, 'seen to, though it was not yet worn'",
+   "cybertron2/engine/data.py FITTINGS['water wheel'] wear {years, mend: clear the leat}"
+  ],
+  "doubts": "Mending is never refused when the fitting is not worn; it resets the clock, which is what the capable line relies on. Where PHYSICS labour.wear is off nothing wears and this craft does nothing. Kind 'mend': practice: the kind is not in _technique's list of kinds that count as a success (got is 0), so each act counts as a failure in KN.tried; harmless for a basic craft (known to all), but it slows a non-basic one's rise."
+ },
+ "dig a strip": {
+  "shown": true,
+  "does": "break the turf of a strip of meadow or pasture you hold, so flax sown there takes as on a field; the meadow stays a meadow",
+  "does_is_new": true,
+  "aware": "breaking turf for a small flax patch",
+  "rough": "Only on meadow or pasture you or yours hold. Sow flax seed on it after; seed thrown on unbroken turf mostly comes to nothing.",
+  "capable": "Practice breaks more a day, up to the largest strip a holding may have; past that it is refused. Sow no more than a strip's worth of flax seed there.",
+  "known": "The dug turf waits for the seed and is used up by the sowing. Flax sown thicker than a strip becomes the main crop, and takes the turf's loss.",
+  "grounded_in": [
+   "cybertron2/engine/strips.py dig: strip_dug up to the largest CROPS strip, refused when dug; ready: meadow or pasture held",
+   "cybertron2/engine/strips.py sow: strip_dug used by the strip's area; turf factor where not dug; is_strip by the sowing's size",
+   "cybertron2/engine/farm.py _sow: a main crop on turf takes f['turf']"
+  ],
+  "doubts": "Kind 'dig_strip' is not in _technique's success list: practice: the kind is not in _technique's list of kinds that count as a success (got is 0), so each act counts as a failure in KN.tried; harmless for a basic craft (known to all), but it slows a non-basic one's rise."
+ },
+ "ditch": {
+  "shown": true,
+  "does": "ditch and bank wet ground: crew work, anyone may dig, led by one who knows how",
+  "does_is_new": false,
+  "aware": "draining wet ground so a field bears fully",
+  "rough": "Only on wet ground. A day's digging holds only if someone who knows how works on the ditches that same day; otherwise it is lost.",
+  "capable": "A tool and practice dig more, and the tool wears. The more of the field ditched, the nearer it bears to good ground. Finished ditches want mending each season.",
+  "known": "Unmended through a season, finished ditches fall in by a share and must be dug again. Once whole and kept for the season, more work is refused.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py _works: pending units, 'led' if the worker is capable or known; mending once done (kept)",
+   "cybertron2/engine/farm.py _works_night: pending counted only if led; at a new season unkept works drop to three quarters",
+   "cybertron2/engine/farm.py ground_mult: wet ground's penalty lifted by the share done; ready: refused if not wet or whole and kept",
+   "cybertron2/engine/verbs.py _technique: best_tool(t['tools']) multiplies the work, tool worn by t['wear']; world.py best_tool (bare hands where listed)"
+  ],
+  "doubts": "The interface shows 'needs others with you' for crew rows (iface._needs_words), but a ditch needs no others: one person who knows how can dig alone and it holds. Kind 'works': practice: the kind is not in _technique's list of kinds that count as a success (got is 0), so each act counts as a failure in KN.tried; harmless for a basic craft (known to all), but it slows a non-basic one's rise."
+ },
+ "dress millstones": {
+  "shown": true,
+  "does": "recut the furrows of worn millstones: worn stones grind less from the same work until they are dressed",
+  "does_is_new": true,
+  "aware": "recutting millstones so they grind well again",
+  "rough": "Done at the millstones; it needs no materials. They wear by the grain put through them, so a busy mill needs it sooner.",
+  "capable": "Dressing stones not yet worn is not wasted: it starts their wear afresh. At a water mill a choked leat slows the grinding too, whatever the stones.",
+  "known": "Worn stones take the full work for a lesser grist, so every day ground on them is part lost: dress them before a heavy grinding, not after.",
+  "grounded_in": [
+   "cybertron2/engine/wear.py is_worn, factor, use (count 'inputs'), mend",
+   "cybertron2/engine/data.py FITTINGS['millstones'] wear {life, count inputs, mend}",
+   "cybertron2/engine/verbs.py _technique kind 'mend'"
+  ],
+  "doubts": "Kind 'mend': practice: the kind is not in _technique's list of kinds that count as a success (got is 0), so each act counts as a failure in KN.tried; harmless for a basic craft (known to all), but it slows a non-basic one's rise."
+ },
+ "fence": {
+  "shown": true,
+  "does": "put a fence round a parcel, timber going in with the work; when it is finished, with its gate shut, it keeps beasts in and out",
+  "does_is_new": true,
+  "aware": "a fence round a field holding beasts in or out",
+  "rough": "Needs timber to hand as you work; a tool helps. It holds nothing until finished, and where a wall stands it is refused.",
+  "capable": "Anyone's work counts and adds up over days. Once standing, work on it is mending: unmended through a year it grows gappy, then falls, and gappy lets beasts through.",
+  "known": "A fallen fence is rebuilt from what still stands, so mend it before it goes. It keeps out large raiders by night, but small beasts slip through any fence.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py _fence: timber consumed in proportion to the work; built fence: mend",
+   "cybertron2/engine/herds.py _fences: finished at night (level 2, gate shut); a year unmended loses a level; mending raises a gappy one",
+   "cybertron2/engine/herds.py through: FENCES through by level",
+   "cybertron2/engine/farm.py _fence: a fallen fence restarts at FENCES['wood']['kept'] of its build",
+   "cybertron2/engine/wild.py _fenced: tiny and small kinds pass any fence",
+   "cybertron2/engine/farm.py ready: refused where the other kind stands",
+   "cybertron2/engine/verbs.py _technique: best_tool(t['tools']) multiplies the work, tool worn by t['wear']; world.py best_tool (bare hands where listed)"
+  ],
+  "doubts": ""
+ },
+ "guard the field": {
+  "shown": true,
+  "does": "sit up by a field all night to scare beasts off, with a fire, clappers, a horn or the dog; you lose the night's sleep",
+  "does_is_new": false,
+  "aware": "sitting up all night to keep beasts off crops",
+  "rough": "Needs something to scare with: wood for a fire, clappers or a horn to hand, or a dog at home. You will be tired tomorrow.",
+  "capable": "Name the scare, else the first you have is used, and a fire burns its wood. A watch lasts one night; hungry or bold beasts turn less.",
+  "known": "Some beasts grow used to a scare used night after night, so change it. Watching the gap they come in by turns them sooner. Herded beasts count as watched.",
+  "grounded_in": [
+   "cybertron2/engine/wild.py pick_scare: named by 'looking for', else the first held (SCARES order: fire first); refused with none",
+   "cybertron2/engine/wild.py watch: fire burns its wood; night_watch set (labour.py watch_tired)",
+   "cybertron2/engine/wild.py _answer: habituate, bold",
+   "cybertron2/engine/wild.py attempt (night raids): a watch at the gap turns them there; a herd watched today counts as scare 'herding'",
+   "cybertron2/wild/methods.py SCARES"
+  ],
+  "doubts": "Fault: the aliases that name a scare ('watch the field with a horn', 'set the dog on them', 'watch the field (dog)') resolve to the method with no 'looking for', so pick_scare takes the first scare at hand (wood for a fire first, burning it), not the one the words name."
+ },
+ "herd": {
+  "shown": true,
+  "does": "watch a herd on its grazing for the day: herded beasts do not wander, and a herder holds far more head together than beasts left alone",
+  "does_is_new": true,
+  "aware": "watching the beasts so they keep together",
+  "rough": "Done where the beasts are. Unnamed, it is yours or your household's; name another's herd to watch it. Once watched enough today, it is refused.",
+  "capable": "Left alone a big herd breaks into groups that stray into crops and onto the roads; each herder holds a good number together, so a large herd wants more.",
+  "known": "A herd watched by day also counts as watched when raiders come for it that night. A ripe crop near pulls even fed beasts far: herd them then.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py act 'herd': watched, herders n and by",
+   "cybertron2/engine/farm.py _herd_on: unnamed only one's own or nobody's (D2-305)",
+   "cybertron2/engine/farm.py herd_capacity (HERDS capacity herder vs unherded)",
+   "cybertron2/engine/herds.py held, wander (a herded herd takes no steps), split, drawn",
+   "cybertron2/engine/farm.py ready: refused when watched today within capacity",
+   "cybertron2/engine/wild.py attempt: scare 'herding'"
+  ],
+  "doubts": ""
+ },
+ "hoe": {
+  "shown": true,
+  "does": "break a field's soil with a hoe, turning up stones: broken ground sown bears more; over a standing crop it turns the crop under",
+  "does_is_new": true,
+  "aware": "breaking up field soil by hand for sowing",
+  "rough": "Done on a field, best with a tool in hand. Hoeing where a crop stands turns it under, ripe or green, and it is gone.",
+  "capable": "A better tool and practice break more, and the tool wears. Break unsown ground and sow it: broken soil bears more. The stones turned up are yours.",
+  "known": "Turning under a failed or unwanted crop frees the ground for seed and feeds the soil a little, the more the further it grew. A plough breaks far more.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py _break: broken plots, stone created (D2-56); refused when all broken",
+   "cybertron2/engine/farm.py _turn_under: any crop with area_left, fertility + turned_under x progress, ground broken",
+   "cybertron2/engine/farm.py _sow and crop_base: break_gain on the broken share",
+   "cybertron2/engine/data.py TECHNIQUES plough plots vs hoe plots",
+   "cybertron2/engine/verbs.py _technique: best_tool(t['tools']) multiplies the work, tool worn by t['wear']; world.py best_tool (bare hands where listed)"
+  ],
+  "doubts": "Display fault seen in a probe (bare hands or a crude tool, skill 1): 'You hoed 0 of a plot of Long Field, turning up 0 stone' (farm._break uses show(), which rounds a small share to 0; show_fine would not)."
+ },
+ "manure": {
+  "shown": true,
+  "does": "spread dung on a field's plots: the soil comes back toward its best, the more the poorer it is, never past what that ground can be",
+  "does_is_new": true,
+  "aware": "spreading dung to feed tired soil",
+  "rough": "Done on a field, with dung to hand; gather it where beasts stand. Soil already good gains little from it.",
+  "capable": "Practice covers more ground each go. On a large holding each go lifts the whole soil less, so spread often. Beasts in stalls keep more dung for you.",
+  "known": "Poor land stays poor: dung lifts a soil only toward what that ground can be. Beans after grain, or a rest, restore it too; dung serves ground you cannot rest.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py act 'manure': plots = min(holding, y.plots x m); manure_gain toward level x base, by plots of the holding",
+   "cybertron2/engine/farm.py base (D4-112)",
+   "cybertron2/engine/data.py TECHNIQUES 'dung' (gathered on pasture, meadow, field)",
+   "cybertron2/engine/farm.py _herds: dung on the parcel, kept x FITTINGS['stalls']['dung']",
+   "cybertron2/engine/farm.py soil_step (beans restores), fallow_gain"
+  ],
+  "doubts": "Fault: the row's dung (inputs) is checked by KN.shortfall but never consumed; a probe (test_cybertron2_plot_shares world, 5 dung in hand) manured Long Field and still held 5 dung. _technique consumes no t['inputs'] for work, and farm.act's manure branch does not either."
+ },
+ "mend the brine pan": {
+  "shown": true,
+  "does": "patch and reset a burnt-through brine pan: a worn pan boils less salt from the same work until it is mended",
+  "does_is_new": true,
+  "aware": "patching the salt pan when it burns through",
+  "rough": "Done at the brine pan, with a little copper in your own hands; copper in a store is not reached. It wears with each boiling.",
+  "capable": "Mending a pan not yet burnt through is not wasted: it starts its wear afresh. Count your boilings and mend it before it fails.",
+  "known": "Keep copper by you for it: a worn pan takes the full work for less salt, so every boiling on it is part lost.",
+  "grounded_in": [
+   "cybertron2/engine/verbs.py _technique kind 'mend': y['inputs'] checked against here.carried() (hands only), destroyed from hands",
+   "cybertron2/engine/wear.py is_worn (count 'act'), factor, mend",
+   "cybertron2/engine/data.py FITTINGS['brine pan'] wear"
+  ],
+  "doubts": "The mend kind's materials are taken from the hands only, unlike every other work input (stores too); the refusal says 'in hand', so it is consistent, but it differs from repair and fencing. Kind 'mend': practice: the kind is not in _technique's list of kinds that count as a success (got is 0), so each act counts as a failure in KN.tried; harmless for a basic craft (known to all), but it slows a non-basic one's rise."
+ },
+ "milk": {
+  "shown": true,
+  "does": "milk the cows in milk of a herd: the milk is yours, and those one milker leaves, another may milk the same day",
+  "does_is_new": true,
+  "aware": "drawing milk from cows that have calved",
+  "rough": "Only where a cow in milk is; unnamed, only your own or your household's herd. Milk does not keep long.",
+  "capable": "Practice draws more from each cow. A cow comes into milk when she calves, which needs a bull with fed cows; she dries off with time, faster when hungry.",
+  "known": "Milk spoils fast: drink it, or make cheese with salt. Kill a cow in milk and her milk goes with her; a hungry winter dries the herd.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py act 'milk': n of in_milk less milked today, x each x m; milked by",
+   "cybertron2/engine/farm.py _herd_on role cows",
+   "cybertron2/engine/farm.py _herds: in_milk falls by in_milk_share, x hungry_milk when hungry; a calf (bull with fed cows) adds one in milk",
+   "cybertron2/engine/farm.py _slaughter: in_milk cut with a cow",
+   "cybertron2/engine/data.py ITEMS milk spoil; TECHNIQUES cheese (milk, salt)"
+  ],
+  "doubts": "Milking is a trade craft (not basic): at rough the line promises 'about half the time it works, and it takes more', but the work handler rolls no failure and takes nothing extra for any work craft (_technique; only make and build use TRY)."
+ },
+ "open the gate": {
+  "shown": true,
+  "does": "open a gate in a fence and leave it standing open: beasts pass freely in and out until it is shut, and it is noticed",
+  "does_is_new": true,
+  "aware": "letting beasts through a fence",
+  "rough": "Only where a fence stands whole enough to have a gate, and the gate is shut. It takes no work.",
+  "capable": "An open gate lets a herd wander through as if no fence stood, in or out, until someone shuts it.",
+  "known": "Who left it open is marked with the gate, and the land's holders are concerned in it: open another's gate only with cause.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py _gate: gate open, opened {day, by}, event salience 0.45 with the holders concerned",
+   "cybertron2/engine/farm.py ready: no fence or already open refused",
+   "cybertron2/engine/herds.py through: 1 with the gate open",
+   "cybertron2/engine/data.py TECHNIQUES units 0"
+  ],
+  "doubts": "An open gate does not count against wild raiders: wild._fenced reads the fence's level only, not its gate, so a field with its gate open keeps out a boar as if shut (herds.through does read the gate)."
+ },
+ "pest work": {
+  "shown": true,
+  "does": "go over a crop and take off what is eating it; name the pest with \"looking for\", else the worst there",
+  "does_is_new": false,
+  "aware": "picking pests off a growing crop",
+  "rough": "Done on a growing crop, or on meadow grass for moles. Name the pest, else the worst there is taken.",
+  "capable": "Slugs come out at dusk: a tallow light in hand lets you work on into the dark and take more, and burns down. The good lasts only some days.",
+  "known": "The grey spiny grubs on beans are ladybird young that eat the fly: name them and you kill your helpers. Beasts are no pests: watch the field for those.",
+  "grounded_in": [
+   "cybertron2/engine/wild.py pest: named by 'looking for' (methods.LOAD_NAMES), else the worst load that harms this ground's crop or grass, never the ladybirds unasked; raiders refused toward guard the field",
+   "cybertron2/engine/wild.py guard: cut until days, night work by a tallow light (LIGHT night_work), light destroyed; thin",
+   "cybertron2/wild/kinds.py LOADS guard rows; aphids eaten_by ladybirds"
+  ],
+  "doubts": "Fault: the aliases that name a pest or a way ('pick slugs at dusk', 'top the beans', 'clear the grubs off the beans', 'kill the grubs') carry no 'looking for', so they act on whatever pest is worst there, not the one named. And the name 'grubs' (LOAD_NAMES) means the ladybirds, so 'looking for: grubs' thins the ladybirds, a help to the fly. The row's needs.on_crop is read nowhere."
+ },
+ "plough": {
+  "shown": true,
+  "does": "plough a field with a yoked pair of oxen, a plough and harness: it breaks far more ground than a hoe, turns up stones, and turns under any standing crop",
+  "does_is_new": true,
+  "aware": "breaking a field with oxen and a plough",
+  "rough": "Needs a yoked pair of oxen you may use here, a wooden plough and harness to hand. Ploughing a sown field turns its crop under.",
+  "capable": "Practice breaks more a day. The plough wears by the ground broken, the harness by each day's work; others' oxen may be used, but it is seen.",
+  "known": "Plough unsown ground before sowing: broken soil bears more. A spare harness and plough keep the team working when one wears out; harness is made from timber and hide.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py team_shortfall: animals oxen and uses (plough, harness) via KN.available",
+   "cybertron2/engine/farm.py _break: plough wears by plots, harness 1/n a day; stone; turn under",
+   "cybertron2/engine/farm.py beasts_note: others' oxen seen (D4-114)",
+   "cybertron2/engine/data.py TECHNIQUES plough plots; harness inputs timber and hide",
+   "cybertron2/engine/verbs.py _skill_mult: KN.skill (practice) x yield_mult (hunger)"
+  ],
+  "doubts": "A trade craft at rough: the interface's 'about half the time it works' is not applied to work (see milk)."
+ },
+ "pull flax": {
+  "shown": true,
+  "does": "pull a ripe strip of flax by the root: you get its straw, with seed rippled from it, and the strip is done when all is pulled",
+  "does_is_new": true,
+  "aware": "harvesting flax by pulling it up whole",
+  "rough": "Only a ripe strip of flax of yours or your household's; an unripe one is refused.",
+  "capable": "Practice pulls more a day. Flax left standing past ripeness rots. Pulling the whole strip lets its ground's soil take its step.",
+  "known": "Ret the straw before it is spun. Keep back the rippled seed for next year's strip; sown thicker than a strip, flax becomes a field's main crop.",
+  "grounded_in": [
+   "cybertron2/engine/strips.py pull: PULL plots x m, flax and seed (SEED_BACK); soil_step by the strip's share when pulled",
+   "cybertron2/engine/strips.py _ripe_strip refusals",
+   "cybertron2/engine/strips.py night: rot past the window",
+   "cybertron2/engine/data.py TECHNIQUES 'ret flax' input flax",
+   "cybertron2/engine/strips.py is_strip"
+  ],
+  "doubts": ""
+ },
+ "reap": {
+  "shown": true,
+  "does": "reap a standing crop: ripe, it gives its grain or beans, with straw for fodder from grain and rye; cut green, it gives green fodder",
+  "does_is_new": true,
+  "aware": "cutting a ripe crop to bring in the harvest",
+  "rough": "Done where a crop stands, best with a tool in hand. Cut before it is ripe and you get green fodder, little food.",
+  "capable": "A better tool and practice cut more a day, and the tool wears. Weeding beforehand raises what it gives. Left past its time it rots night by night.",
+  "known": "A crop is nobody's until reaped: whoever reaps another's plots takes the grain, and is seen. A blighted crop gives nothing. Keep grain from vermin.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py _reap: green cut (progress < 1) gives CROPS green at f['green']; straw if CROPS straw; refused if failed and shown",
+   "cybertron2/engine/farm.py crop_left: weeding, rot",
+   "cybertron2/engine/farm.py _crops: rot past ripe_day + window",
+   "cybertron2/engine/farm.py _reap docstring (D2-172); cybertron2/engine/verbs.py note via FM.against",
+   "cybertron2/engine/data.py ITEMS grain vermin, straw fodder",
+   "cybertron2/engine/verbs.py _technique: best_tool(t['tools']) multiplies the work, tool worn by t['wear']; world.py best_tool (bare hands where listed)"
+  ],
+  "doubts": ""
+ },
+ "reline oven": {
+  "shown": true,
+  "does": "reline a cracked stone oven: a cracked oven bakes less from the same work until it is relined",
+  "does_is_new": true,
+  "aware": "mending a cracked oven so it bakes well",
+  "rough": "Done at the oven, with stone in your own hands; stone in the store is not reached. It cracks with use, a little each baking.",
+  "capable": "Relining an oven not yet cracked is not wasted: it starts its wear afresh. Count the bakings and reline it before it fails.",
+  "known": "A cracked oven takes the full work for less bread, so reline it first. A hoe or plough turns up stone from the fields.",
+  "grounded_in": [
+   "cybertron2/engine/verbs.py _technique kind 'mend': inputs from here.carried()",
+   "cybertron2/engine/wear.py is_worn (count 'act'), factor, mend",
+   "cybertron2/engine/data.py FITTINGS['oven'] wear",
+   "cybertron2/engine/farm.py _break: stone created"
+  ],
+  "doubts": "Kind 'mend': practice: the kind is not in _technique's list of kinds that count as a success (got is 0), so each act counts as a failure in KN.tried; harmless for a basic craft (known to all), but it slows a non-basic one's rise."
+ },
+ "repair": {
+  "shown": true,
+  "does": "mend a building's damage: its stuff goes in when the mending starts, then the work, until it is a step sounder; a sound building is refused",
+  "does_is_new": true,
+  "aware": "mending a damaged house or building",
+  "rough": "Needs its stuff, timber or stone as it is built, to hand or in its store. Mending stone is walling, which you must know.",
+  "capable": "The work keeps between days until done; practice does more each time. A worn house lets in damp, a holed one lets foxes and rats in, shut or not.",
+  "known": "Storms, frost and neglect wear buildings, and unmended damage worsens: mend early. A weir is mended a section at a time.",
+  "grounded_in": [
+   "cybertron2/engine/verbs.py _repair: materials (PHYSICS wear mend by structure, or BL.repair_need) at the start, units_left, a level up",
+   "cybertron2/engine/verbs.py _technique: _mason for stone structure",
+   "cybertron2/engine/knowledge.py ready: sound refused",
+   "cybertron2/engine/wild.py gaps_pass: gaps by level and structure",
+   "cybertron2/engine/data.py PHYSICS wear (weather, unmended, damp)",
+   "cybertron2/engine/verbs.py _weir_mend",
+   "cybertron2/engine/verbs.py _skill_mult: KN.skill (practice) x yield_mult (hunger)"
+  ],
+  "doubts": ""
+ },
+ "select seed": {
+  "shown": true,
+  "does": "go through a ripe crop marking the best ears for seed: once you know it fully, the crops you sow ripen sooner",
+  "does_is_new": true,
+  "aware": "choosing the best ears for next year's seed",
+  "rough": "Needs a ripe crop in a field; once you have been through a crop, going through it again is refused.",
+  "capable": "It is the knowing that pays, not the marking: practise on every ripe crop you can until you know it fully.",
+  "known": "A sooner crop can beat the frost or let another sowing into the year. The marked ears change nothing; it is your own sowings that gain.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py act 'select': sets crop selected_by only; _why refusals",
+   "cybertron2/engine/farm.py _sow: KN.level(mind, 'select seed') == 'known' shortens grow days by PHYSICS seed_selection",
+   "cybertron2/engine/farm.py grow_night, frost_kills"
+  ],
+  "doubts": "Fault or gap: the act's only effect is selected_by, which nothing reads but its own refusal; the gain is the sower's level of the craft (any sowing, of any seed). Kind 'select' is not in _technique's success list, so each go counts as a failure in KN.tried and the rise to known (where the gain is) takes twice the goes. A trade craft at rough: the interface's odds are not applied to work (see milk)."
+ },
+ "shut": {
+  "shown": true,
+  "does": "shut up your house, store and hens for the night",
+  "does_is_new": false,
+  "aware": "shutting up house, store and hens against night raiders",
+  "rough": "Done on built ground, for tonight only; it shuts every house of yours that has a store. Do it each evening.",
+  "capable": "A shut door keeps out most of what comes for hens or grain; left open, much gets in. A dog at home turns raiders too.",
+  "known": "Shutting is no help to a holed house: beasts small enough come through its gaps anyway, so mend the walls. A cat in the store keeps vermin down.",
+  "grounded_in": [
+   "cybertron2/engine/wild.py shut: set_wild shut for each home with a stock, today",
+   "cybertron2/engine/wild.py _gets_in: gaps 0.9, shut 0.02, else 0.6",
+   "cybertron2/engine/wild.py attempt: scare 'dog' for items and hens",
+   "cybertron2/engine/wild.py gaps_pass",
+   "cybertron2/engine/wild.py _stops (STORE_STOPS: cat in store)"
+  ],
+  "doubts": ""
+ },
+ "shut the gate": {
+  "shown": true,
+  "does": "shut a gate in a fence: the fence holds beasts in, and keeps them out, as well as it stands",
+  "does_is_new": true,
+  "aware": "closing a field gate to keep beasts in",
+  "rough": "Only where a fence stands and its gate is open. It takes no work.",
+  "capable": "A shut gate holds as well as its fence: a gappy fence still lets some through, shut or not.",
+  "known": "Beasts that strayed come home at dusk only at the fence's odds while the gate round home is shut; a hungry herd stays out after food.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py _gate: gate shut, event",
+   "cybertron2/engine/farm.py ready: no fence or already shut refused",
+   "cybertron2/engine/herds.py through by level",
+   "cybertron2/engine/herds.py home_at_dusk: through(home) when shut; hungry stays out"
+  ],
+  "doubts": ""
+ },
+ "slaughter": {
+  "shown": true,
+  "does": "kill a beast of a herd: its meat, hide and tallow come to you, in your hands or the store you work for, and the herd is one fewer",
+  "does_is_new": true,
+  "aware": "killing a beast for meat, hide and tallow",
+  "rough": "Say which beast, cow, ox, bull or calf, or which herd; unnamed it is refused. Name another's herd and you kill theirs, seen.",
+  "capable": "Named by herd alone, a calf goes first. Fresh meat spoils fast: salt, smoke or dry it soon, or eat it. A cow in milk takes her milk with her.",
+  "known": "Hide makes harness, packs and bedding; tallow makes lights for night work. Keep the cows and a bull: without them the herd bears no calves.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py _herd_on consume: refused unnamed (D2-304), a named herd returned whoever holds it",
+   "cybertron2/engine/farm.py _slaughter: young first, gives created to out, in_milk cut",
+   "cybertron2/engine/verbs.py _out",
+   "cybertron2/engine/verbs.py note via _against (herd)",
+   "cybertron2/engine/data.py ITEMS meat decay; TECHNIQUES salt meat, smoke meat, dry meat, harness, pack, bedroll, make tallow lights",
+   "cybertron2/engine/farm.py _herds: births need bulls and cows"
+  ],
+  "doubts": "The row's argument says 'the beast (else the young first)', but with neither a beast nor a herd named the act is refused; 'else the young first' holds only when the herd is named."
+ },
+ "sow": {
+  "shown": true,
+  "does": "sow seed broadcast on your plots of a field, then the unclaimed plots: it grows into a crop to weed and reap",
+  "does_is_new": true,
+  "aware": "throwing seed on ground to grow a crop",
+  "rough": "Say which seed. Ground with another crop standing must be reaped or turned under first. Seed thrown on unbroken turf mostly comes to nothing.",
+  "capable": "Sow on hoed or ploughed ground for more; tired soil gives less. The same crop twice running fails more often. Seed in cold ground lies, a little lost each night.",
+  "known": "A master sower's crops bear more. Beans after grain rest the soil. A small sowing of flax seed goes into a strip beside the main crop.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py _sow: item required; another crop refused; turf factor off a field; cold soil words",
+   "cybertron2/engine/farm.py crop_base: break_gain, fertility, ground, skill_yield (master_yield x master_share)",
+   "cybertron2/engine/farm.py fail_chance (D2-53)",
+   "cybertron2/engine/farm.py grow_night: lying, lie_loss",
+   "cybertron2/engine/farm.py soil_step (beans takes 0, restores)",
+   "cybertron2/engine/strips.py is_strip, sow"
+  ],
+  "doubts": ""
+ },
+ "tend the smoke": {
+  "shown": true,
+  "does": "feed and bank a smokehouse fire for the night: only a tended night counts toward what hangs there; untended, the fire dies and what hangs spoils",
+  "does_is_new": true,
+  "aware": "keeping a smokehouse fire going overnight",
+  "rough": "Only where something hangs smoking, once a day. Firewood must be there: with too little for the night the fire dies anyway.",
+  "capable": "Firewood in your hands goes on if the store is short. Tend it every day until the lot is done, then take it down.",
+  "known": "Each night it burns, the fire may catch the smokehouse and what hangs in it, a wattle one most: build it of timber or stone, apart from the houses.",
+  "grounded_in": [
+   "cybertron2/engine/process.py tend: refusals; fuel from hands when short; light",
+   "cybertron2/engine/process.py night: lit only if tended today and fuel enough; _count (a night not met marked out, the lot spoils at its input's decay); catch by structure",
+   "cybertron2/engine/process.py catch: spreads to the parcel's other buildings",
+   "cybertron2/engine/data.py FITTINGS['smoke racks'] apart"
+  ],
+  "doubts": ""
+ },
+ "terrace": {
+  "shown": true,
+  "does": "terrace hill ground: crew work, anyone may dig, led by one who knows how",
+  "does_is_new": false,
+  "aware": "building terraces so hill ground bears fully",
+  "rough": "Only on hill ground, with stone to hand. A day's work holds only if someone who knows how works on it that day.",
+  "capable": "A tool and practice do more, and the tool wears. The more terraced, the nearer the field bears to good ground. Finished terraces want mending each season, and stone.",
+  "known": "Unmended through a season, finished terraces fall in by a share. Stones a hoe or plough turns up serve. Once whole and kept for the season, more work is refused.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py _works: stone consumed by the work (mending too); led",
+   "cybertron2/engine/farm.py _works_night: decay",
+   "cybertron2/engine/farm.py ground_mult",
+   "cybertron2/engine/farm.py ready",
+   "cybertron2/engine/farm.py _break: stone",
+   "cybertron2/engine/verbs.py _technique: best_tool(t['tools']) multiplies the work, tool worn by t['wear']; world.py best_tool (bare hands where listed)"
+  ],
+  "doubts": "As ditch: 'needs others with you' is shown but no others are needed. Kind 'works': practice: the kind is not in _technique's list of kinds that count as a success (got is 0), so each act counts as a failure in KN.tried; harmless for a basic craft (known to all), but it slows a non-basic one's rise."
+ },
+ "wall": {
+  "shown": true,
+  "does": "wall a parcel round in dry stone: crew work, anyone may work on it, led by one who knows how",
+  "does_is_new": false,
+  "aware": "a dry-stone wall round a field, holding beasts best",
+  "rough": "Needs stone to hand, going in with the work. A day's work holds only if someone who knows walling works on it that day.",
+  "capable": "A tool and practice lay more, and the tool wears. A finished wall holds beasts far better than a fence, keeps most raiders out, and does not rot.",
+  "known": "Walling is the mason's craft too: building or mending in stone needs it. Where a fence stands the wall is refused. A finished wall wants no yearly mending.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py _fence: stone consumed; led by FENCES['stone']['led'] (wall) at capable or known",
+   "cybertron2/engine/herds.py _fences: stone 'decays' false",
+   "cybertron2/engine/herds.py through and cybertron2/engine/wild.py _fenced: FENCES stone through",
+   "cybertron2/engine/verbs.py _mason",
+   "cybertron2/engine/farm.py ready",
+   "cybertron2/engine/verbs.py _technique: best_tool(t['tools']) multiplies the work, tool worn by t['wear']; world.py best_tool (bare hands where listed)"
+  ],
+  "doubts": "A finished wall never loses a level (FENCES stone decays false), yet farm.ready lets work on it as mending until a quarter of its build is put in each year: that work and its stone change nothing. As ditch: 'needs others with you' is shown but no others are needed."
+ },
+ "weed": {
+  "shown": true,
+  "does": "weed a growing crop: a cleaner crop bears more when reaped, up to as clean as weeding makes it",
+  "does_is_new": true,
+  "aware": "pulling weeds so a crop bears more",
+  "rough": "Done on a growing crop; it needs no tool. Weeding a ripe crop does it no good, and the day is wasted.",
+  "capable": "Practice weeds more ground each go. Each weeding gains less than the last, and a large crop takes many goes to come clean.",
+  "known": "Past clean it gains nothing: stop and spend the day elsewhere. A crop withered by blight is refused; a strip beside the main crop is never weeded.",
+  "grounded_in": [
+   "cybertron2/engine/farm.py act 'tend': weeded += m; ripe and clean words",
+   "cybertron2/engine/farm.py weed_gain (saturating by weeding a plot)",
+   "cybertron2/engine/farm.py crop_left",
+   "cybertron2/engine/farm.py _why: failed and shown refused",
+   "cybertron2/engine/farm.py target: the holding's main crop record (strips not reached)"
+  ],
+  "doubts": "Weeding a ripe crop is not refused (farm.ready and _why allow it): the act runs and says it did no good. knowledge.ready's own refusals ('ripe: past weeding') apply only off the farm path and never for a field."
+ }
+}
