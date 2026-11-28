@@ -130,3 +130,19 @@ Six moments, the same situation in each arm, the model the only difference (quot
   rebuilt slowly around Joan and Roger; used about 70% of its work units; few lines passed to children.
 - Haiku 5.5 (1 alive): its two homes never visited each other, so no couple formed and no child was born; tended an empty weir most
   days; starved in the first winter.
+
+## Household rules in the Fallowmere runs, days 0 to 59 (28 Nov)
+
+| | Opus 5.5 | Sonnet 5.5 | Haiku 5.5 |
+|---|---|---|---|
+| Rules set (of them "do with units left over") | 160 (133) | 2 | 14 |
+| Rules dropped | 64 | 0 | 9 |
+| Own fallbacks set in a reply | 117 | 28 | 275 |
+| Work acts done by a rule or fallback | 14% | 8% | 28% |
+| Rules set in the evening (of all) | 100 of 160 | 1 of 2 | 6 of 14 |
+
+Opus's rules are mostly standing fallbacks retargeted each evening from the day's yields (a picked-over Common, a fished-out Water,
+a move to The Ford); the meal rules (keep floors, what is eaten first) are set on day 0 and revised only at the turn of the season
+(days 26 to 40). Rules are set by the head alone (Maud 44, Geoffrey 26) and are rarely talked over: about 7% of evening replies
+mention one; what the evening talks over is yields, stores, who goes where, deaths and matches. Haiku 5.5's fallbacks are routine
+(firewood, cord, berries every day); Sonnet 5.5 hardly uses the book.
