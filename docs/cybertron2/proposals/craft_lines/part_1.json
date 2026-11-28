@@ -1,0 +1,502 @@
+{
+ "for": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('for') is None",
+   "data.py TECHNIQUES['for']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "gather on the way": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('gather on the way') is None",
+   "data.py TECHNIQUES['gather on the way']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "hidden: buried": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('hidden: buried') is None",
+   "data.py TECHNIQUES['hidden: buried']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "hidden: under brush": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('hidden: under brush') is None",
+   "data.py TECHNIQUES['hidden: under brush']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "how: fine": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('how: fine') is None",
+   "data.py TECHNIQUES['how: fine']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own; its row's does carries numbers (materials x1.5, work x2) that the interface also generates from TIERS"
+ },
+ "how: grand": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('how: grand') is None",
+   "data.py TECHNIQUES['how: grand']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own; its row's does carries numbers (materials x4, work x8) as TIERS does"
+ },
+ "how: rich": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('how: rich') is None",
+   "data.py TECHNIQUES['how: rich']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own; its row's does carries numbers (materials x2.5, work x4) as TIERS does"
+ },
+ "hunt alone": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('hunt alone') is None",
+   "data.py TECHNIQUES['hunt alone']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "hunt only with": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('hunt only with') is None",
+   "data.py TECHNIQUES['hunt only with']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "hunt with": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('hunt with') is None",
+   "data.py TECHNIQUES['hunt with']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "lead": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('lead') is None",
+   "data.py TECHNIQUES['lead']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "lead on the hunt": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('lead on the hunt') is None",
+   "data.py TECHNIQUES['lead on the hunt']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "looking for": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('looking for') is None",
+   "data.py TECHNIQUES['looking for']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "meeting": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('meeting') is None",
+   "data.py TECHNIQUES['meeting']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "method: cairn": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('method: cairn') is None",
+   "data.py TECHNIQUES['method: cairn']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own; not the cairn monument (MONUMENTS['cairn']): this one covers a body at once with its stone (verbs._bury), and the word 'cairn' alone resolves to the monument first (knowledge.resolve takes an exact key before an alias)"
+ },
+ "method: dibble": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('method: dibble') is None",
+   "data.py TECHNIQUES['method: dibble']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "method: shallow": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('method: shallow') is None",
+   "data.py TECHNIQUES['method: shallow']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "on trouble": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('on trouble') is None",
+   "data.py TECHNIQUES['on trouble']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "range: far": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('range: far') is None",
+   "data.py TECHNIQUES['range: far']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "range: near": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('range: near') is None",
+   "data.py TECHNIQUES['range: near']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "range: the wood around": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('range: the wood around') is None",
+   "data.py TECHNIQUES['range: the wood around']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "searching": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('searching') is None",
+   "data.py TECHNIQUES['searching']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "stop at": {
+  "shown": false,
+  "does": "",
+  "does_is_new": false,
+  "aware": "",
+  "rough": "",
+  "capable": "",
+  "known": "",
+  "grounded_in": [
+   "cybertron2/engine/shapes.py: shape_of('stop at') is None",
+   "data.py TECHNIQUES['stop at']['modifies']"
+  ],
+  "doubts": "a way (modifier), not a craft: shapes.shape_of is None; it is said in the ways line of the crafts it modifies (iface.ways_for, iface._craft_ways), never as a craft line of its own"
+ },
+ "anvil": {
+  "shown": true,
+  "does": "fit an anvil and bellows in a building with a hearth: a smithy, where copper is smelted and worked into tools, hooks and coin",
+  "does_is_new": true,
+  "aware": "a smith's anvil and bellows, for working copper",
+  "rough": "it goes on the ground floor of a building that already has a hearth; a try that goes wrong spoils the stone and hide",
+  "capable": "the hearth is a mason's work, so a smithy wants a mason before a smith; once begun, carry the work on over days with no more materials",
+  "known": "it never wears out, unlike a brine pan or an oven; those who cannot get into the building cannot smith there, so its holder decides who works it",
+  "grounded_in": [
+   "data.py FITTINGS['anvil'] (needs hearth, heavy, trade smith, no wear)",
+   "verbs.py _fitting: needs check, heavy ground-floor check, TRY chance spoils materials",
+   "verbs.py _fitting_work: work carried on with no more materials, counts when finished",
+   "data.py FITTINGS['hearth'] trade mason",
+   "data.py TECHNIQUES smelt, copper tool, coin at fittings anvil; gear.py TECHNIQUES['copper hook'] at anvil",
+   "here.py fittings(): only buildings the agent can enter",
+   "wear.py is_worn: no wear row, never worn"
+  ],
+  "doubts": "FAULT: 'needs a hearth' appears at no level: iface._needs_words reads the row's requires, and FITTINGS needs is not carried into TECHNIQUES. FAULT: the rough line reads 'a rough idea: no materials' because build rows have no inputs (knowledge.craft_parts), though the build takes materials. the capable line (iface.craft_line, blueprint branch) gives no odds, yet a fitting's start fails 1 in 4 at capable and spoils its materials (verbs._fitting, TRY). the TECHNIQUES row has no does (data.py:849 builds it from the FITTINGS/BLUEPRINTS/MONUMENTS row and carries only about as hint), so DOES falls back to the label."
+ },
+ "beds": {
+  "shown": true,
+  "does": "put beds in a house: whoever sleeps in a bed is housed; one without a bed lies on the floor, as in a damaged house",
+  "does_is_new": true,
+  "aware": "beds, so people sleep housed, not on the floor",
+  "rough": "in a finished building with free floor, each bed taking floor of its own; a try gone wrong spoils the timber and straw",
+  "capable": "ask for several at once and as many go in as the free floor takes; two children share a bed, and a baby sleeps in its mother's",
+  "known": "household members take the beds at home first, eldest first; guests need a bed free; a building with beds counts as a house, and none go in a smokehouse",
+  "grounded_in": [
+   "night.py sleeping_places: housed only in a bed, members at home first (STAGE_ORDER elder first), guests need a free bed, else the floor",
+   "night.py night(): floor sleepers take PHYSICS beds['floor'] ('damaged')",
+   "data.py PHYSICS beds: child 0.5, infant 0.0; night.py sleeping_places: an infant sleeps where its mother does",
+   "verbs.py _fitting: per bed, n capped by free floor; beds refused in a smokehouse (apart)",
+   "world.py dwellings(): buildings with beds; perceive.describe counts houses by beds"
+  ],
+  "doubts": "basic: everyone knows it at known (knowledge.level), so its rough and capable lines are almost never shown. FAULT: the rough line reads 'a rough idea: no materials' because build rows have no inputs (knowledge.craft_parts), though the build takes materials. the TECHNIQUES row has no does (data.py:849 builds it from the FITTINGS/BLUEPRINTS/MONUMENTS row and carries only about as hint), so DOES falls back to the label."
+ },
+ "bins": {
+  "shown": true,
+  "does": "fit bins in a building: grain, meal, salt, nuts and cured goods kept off the damp floor, and less of them taken by rats and mice",
+  "does_is_new": true,
+  "aware": "bins to keep dry goods off the damp floor",
+  "rough": "dry and cured goods only, not fresh meat, fish or roots; in a finished building with free floor; a bad try spoils the timber",
+  "capable": "goods are put where they keep best without your sorting; salted fish and meat do not go in bins, but in a salting tub or barrel",
+  "known": "bins keep off the damp, less well the mice: a chest guards better; in a gappy or holed building the store spoils faster, and failing, as the open",
+  "grounded_in": [
+   "stores.py SPACES['bins']: suits DRY + NUTS + CURED, removes floor damp, vermin rats 0.5 mice 0.4",
+   "stores.py portions: each good to the place it keeps best (factor, exposure, order), the book's keep rules first",
+   "stores.py CONTAINERS chest (rats 0.2, mice 0.15), salting tub and barrel suit SALTED",
+   "stores.py rates: PHYSICS wear damp by level (gappy, holed); level 1 or less spoils as the open",
+   "verbs.py _fitting: free floor check, TRY chance"
+  ],
+  "doubts": "basic: everyone knows it at known (knowledge.level), so its rough and capable lines are almost never shown. FITTINGS['bins'] holds {'food': 60} is replaced by 300 kg at load (stores.register_fittings); buildings.py's module docstring still says 'bins 60 food, a cellar 40 food'. FAULT: the rough line reads 'a rough idea: no materials' because build rows have no inputs (knowledge.craft_parts), though the build takes materials. the TECHNIQUES row has no does (data.py:849 builds it from the FITTINGS/BLUEPRINTS/MONUMENTS row and carries only about as hint), so DOES falls back to the label."
+ },
+ "brine pan": {
+  "shown": true,
+  "does": "fit a brine pan over a furnace in a building at or beside a brine spring: salt is boiled there from the brine; it burns through with use and is mended",
+  "does_is_new": true,
+  "aware": "a salter's pan for boiling brine into salt",
+  "rough": "it goes only in a building at or beside a brine spring, on the ground floor; a try gone wrong spoils its copper and stone",
+  "capable": "each boiling wears it; worn, it boils half as much for the same work until mended, with a little copper, by anyone who can get in",
+  "known": "boiling is seen and smelt from about, so others know when salt is made; a worn pan wastes the same work on half the salt, so mend it first",
+  "grounded_in": [
+   "data.py FITTINGS['brine pan']: spring brine, heavy, trade salter, wear life by act, mend 'mend the brine pan'",
+   "verbs.py _fitting: here.near_spring check (keeping.near_spring: the parcel or one beside it), heavy check, TRY chance",
+   "wear.py use/factor: each act counts, a worn fitting takes and gives half; verbs.py _make applies it",
+   "data.py TECHNIQUES['mend the brine pan']: basic, copper, at the pan; here.fittings needs entry",
+   "signs.py: steam and smell at the pan, the salter's fire heard, white crusts on its rim (salt_n, boiled)"
+  ],
+  "doubts": "FITTINGS alias 'salt pan' names the pan in build, while TECHNIQUES['salt pan'] is the saltmarsh gather; livelihoods.py salter's 'capable' list names 'salt pan' (the gather, not the pan). FAULT: the rough line reads 'a rough idea: no materials' because build rows have no inputs (knowledge.craft_parts), though the build takes materials. the capable line (iface.craft_line, blueprint branch) gives no odds, yet a fitting's start fails 1 in 4 at capable and spoils its materials (verbs._fitting, TRY). The about text is shown as HINT. the TECHNIQUES row has no does (data.py:849 builds it from the FITTINGS/BLUEPRINTS/MONUMENTS row and carries only about as hint), so DOES falls back to the label."
+ },
+ "cairn": {
+  "shown": true,
+  "does": "raise a cairn of stones: a monument with no room, on which lines can be painted or cut, read by those who attend to it",
+  "does_is_new": true,
+  "aware": "a heap of stones raised to mark a place",
+  "rough": "it stands anywhere but in water, taking a little building ground where there is some; a cairn over a grave is burying, not this",
+  "capable": "begun, it is raised over days with no more stone; built finely, richly or grandly it costs more stone and work and is seen from further off",
+  "known": "lines are painted, or cut with a tool in hand, and cutting into its stone needs a mason's walling; describe it in your words as you raise it",
+  "grounded_in": [
+   "data.py MONUMENTS['cairn'] (stone, basic); SPACE monument_ground; LINES places monument",
+   "verbs.py _monument: refused in water, _ground_check only where there is ground, describe, tiers via _how",
+   "verbs.py _build_work: carried on with no more materials",
+   "signs.py tier signs (D2-171) and TIER_LOOK cairn",
+   "verbs.py _write/_write_how: carving needs a tool in hand; carving in stone calls _mason (walling)",
+   "perceive.py: lines read by who worked, wrote or attended there (buildings.read)",
+   "verbs.py _bury: the burial cairn is work bury with method cairn"
+  ],
+  "doubts": "Two cairns: this monument and the burial cairn (work bury, method: cairn); a monument cairn raised beside a grave does not cover the body (things.py cairn flag is set only by _bury). basic: everyone knows it at known (knowledge.level), so its rough and capable lines are almost never shown. FAULT: the rough line reads 'a rough idea: no materials' because build rows have no inputs (knowledge.craft_parts), though the build takes materials. FAULT: the rough line promises 'about half the time it works', but a new building, camp or monument never fails: verbs._new_building/_monument roll no chance, they only take more materials (TRY inputs). the TECHNIQUES row has no does (data.py:849 builds it from the FITTINGS/BLUEPRINTS/MONUMENTS row and carries only about as hint), so DOES falls back to the label."
+ },
+ "camp": {
+  "shown": true,
+  "does": "put up a camp anywhere but on water: a lean-to of branches round a fire ring, with beds, shelter and a fire away from a house; it keeps little and does not last",
+  "does_is_new": true,
+  "aware": "a lean-to and fire, to sleep sheltered away from home",
+  "rough": "anywhere but on water, with room if on building ground; it takes no store or hearth, and keeps only a little food or fuel",
+  "capable": "its fire burns fuel kept in it or piled at its side; a downpour or gale can put it out, less often for the ring, and the night turns cold",
+  "known": "only partly housed, worse than a house for a birth; no room is added and nothing written on it; it sags before it falls: build again then",
+  "grounded_in": [
+   "data.py BLUEPRINTS['camp']: fittings beds and fire ring, lasts; SPACE camp_floor, camp_store",
+   "verbs.py _new_building camp branch: refused on water, ground check where there is ground",
+   "verbs.py _fitting: a camp takes only beds and a fire ring; _add_room refuses a camp; _writing_site refuses a camp",
+   "buildings.py fits/room_for: a camp keeps camp_store weight",
+   "night.py night(): a camp's fire burns its store then the pile at its door; fire_goes_out with the ring",
+   "needs.py food: a camp in the cold with no fire or a fire gone out is as out",
+   "life.py birth: a camp is partly housed",
+   "night.py: a camp falls in after lasts_until (not in levels worlds); signs.py: 'sagging' sign two days before"
+  ],
+  "doubts": "A camp takes any number of extra beds (verbs._fitting gives a camp free floor 99), though it is made for four; the comment there says a lean-to keeps 10 weight, but SPACE camp_store is 30. In levels worlds it costs PHYSICS wear camp_build and has no fixed life, while the capable line shows the blueprint's materials. 'sags before it falls' holds only outside levels worlds. 'about half the time it works' at rough is false: a camp never fails. basic: everyone knows it at known (knowledge.level), so its rough and capable lines are almost never shown. FAULT: the rough line reads 'a rough idea: no materials' because build rows have no inputs (knowledge.craft_parts), though the build takes materials. The generated line says '1 units of work'. The about text is shown as HINT. the TECHNIQUES row has no does (data.py:849 builds it from the FITTINGS/BLUEPRINTS/MONUMENTS row and carries only about as hint), so DOES falls back to the label."
+ },
+ "carved post": {
+  "shown": true,
+  "does": "set up a carved post: a timber monument with no room, on which lines are painted or carved, read by those who attend to it",
+  "does_is_new": true,
+  "aware": "a carved wooden post set up to mark a place",
+  "rough": "anywhere but in water; on building ground it needs a free space; the timber comes from your hands, then a store you may draw on",
+  "capable": "begun, it goes up over days with no more timber; built finely, richly or grandly, it takes more timber and work and is noticed further off",
+  "known": "carving a line into it needs a tool in your hands, and wears it; painting needs none; the post weathers and breaks like any timber building",
+  "grounded_in": [
+   "data.py MONUMENTS['carved post'] (timber, basic)",
+   "verbs.py _monument: refused in water, _ground_check where there is ground; _consume: hands first, then stores one may take",
+   "verbs.py _build_work: no more materials once begun; signs.py tier signs and TIER_LOOK post",
+   "verbs.py _write: carving needs a tool (best_tool) and wears it (LINES carve_wear); paint needs none",
+   "night.py: breaks and wear by structure for every finished building, a monument among them"
+  ],
+  "doubts": "basic: everyone knows it at known (knowledge.level), so its rough and capable lines are almost never shown. FAULT: the rough line reads 'a rough idea: no materials' because build rows have no inputs (knowledge.craft_parts), though the build takes materials. FAULT: the rough line promises 'about half the time it works', but a new building, camp or monument never fails: verbs._new_building/_monument roll no chance, they only take more materials (TRY inputs). the TECHNIQUES row has no does (data.py:849 builds it from the FITTINGS/BLUEPRINTS/MONUMENTS row and carries only about as hint), so DOES falls back to the label."
+ },
+ "cellar": {
+  "shown": true,
+  "does": "dig a cellar under a building: food kept cool below the floor, out of the summer's heat and the frost; grain, meal, salt and cured goods take its damp",
+  "does_is_new": true,
+  "aware": "a cool store dug under the floor for food",
+  "rough": "a mason's work under a finished building's ground floor; dry goods spoil in its damp, so keep them in bins or on a granary floor",
+  "capable": "it takes no floor and grows with the ground-floor rooms above it; one who knows stone walling can make it without having learned cellars",
+  "known": "the summer does not hasten fish, meat, milk, cheese or eggs there, nor frost the roots; cheese is made at one; vermin reach it as the open floor",
+  "grounded_in": [
+   "data.py FITTINGS['cellar']: trade mason, spaces 0, heavy, by footprint",
+   "stores.py SPACES['cellar']: by footprint, removes warm and frost, adds cellar damp, vermin 1.0; _cap by BL.footprint",
+   "stores.py factor: cellar damp on DRY and CURED goods; rate: WARM goods not hastened in summer, roots not frosted, in a cellar",
+   "verbs.py _lvl_for: a mason's fitting not learned is built at one's walling (_mason)",
+   "data.py TECHNIQUES['cheese'] at fittings cellar"
+  ],
+  "doubts": "buildings.py's docstring says a cellar holds 40 food a space; stores.SPACES has 30 kg (the line shows 30). FAULT: the rough line reads 'a rough idea: no materials' because build rows have no inputs (knowledge.craft_parts), though the build takes materials. the capable line (iface.craft_line, blueprint branch) gives no odds, yet a fitting's start fails 1 in 4 at capable and spoils its materials (verbs._fitting, TRY). the TECHNIQUES row has no does (data.py:849 builds it from the FITTINGS/BLUEPRINTS/MONUMENTS row and carries only about as hint), so DOES falls back to the label."
+ },
+ "fire ring": {
+  "shown": true,
+  "does": "set a ring of stones for a fire: warmth and cooking where people sleep, burning fuel from the store or the woodpile at the door, and a rack to dry meat and fish",
+  "does_is_new": true,
+  "aware": "a ring of stones for an open fire",
+  "rough": "in a finished building with free floor; its fire is lit only when people sleep there, with fuel in the store or at the door",
+  "capable": "on cold nights it half-warms a house at most; a lit fire cooks the food; with no hearth its drying rack hangs outside and dries only on dry nights",
+  "known": "in a camp it keeps the fire in better through downpour and gale; unlike a hearth it needs no mason, but the larger the room, the less it warms",
+  "grounded_in": [
+   "data.py FITTINGS['fire ring'] (fire, basic)",
+   "night.py night(): fires lit only with sleepers, burning the store then the pile at the door; warm by ring_spaces over the floor, at most 0.5 without a hearth",
+   "night.py: hearth (cooking) is any lit FIRE fitting; eaten_worth",
+   "process.py FITTINGS['fire ring'] hearth rack; load(): outside the door with no hearth; _night: outside, a dry night",
+   "night.py fire_goes_out: ring_keeps for a camp's fire",
+   "data.py FITTINGS['hearth'] trade mason"
+  ],
+  "doubts": "FITTINGS does says it 'burns timber'; the fire burns firewood, timber or charcoal by PHYSICS heat order. basic: everyone knows it at known (knowledge.level), so its rough and capable lines are almost never shown. FAULT: the rough line reads 'a rough idea: no materials' because build rows have no inputs (knowledge.craft_parts), though the build takes materials. the TECHNIQUES row has no does (data.py:849 builds it from the FITTINGS/BLUEPRINTS/MONUMENTS row and carries only about as hint), so DOES falls back to the label."
+ },
+ "granary": {
+  "shown": true,
+  "does": "lay a granary floor: grain, rye, oats and beans kept raised and dry, off the damp, with less taken by rats and mice than on the open floor",
+  "does_is_new": true,
+  "aware": "a raised floor to keep grain dry",
+  "rough": "grain, rye, oats and beans only, in a finished building with floor enough free; a try gone wrong spoils the timber",
+  "capable": "goods go where they keep best, so grain fills any bins first, as vermin reach them less, and the granary floor takes the rest",
+  "known": "an owl hole in a store building nobody sleeps in may draw a barn owl against the mice; grain in a cellar takes its damp, so keep it out",
+  "grounded_in": [
+   "stores.py SPACES['granary']: suits grain, rye, beans, oats; removes floor damp; vermin 0.6; by space",
+   "stores.py _rank/portions: bins (rats 0.5) before the granary (0.6) for grain, both free of damp",
+   "wild.py (around line 2939): a barn owl takes an empty owl hole in a building nobody sleeps in",
+   "stores.py factor: cellar damp on DRY goods",
+   "verbs.py _fitting: free floor check, TRY chance"
+  ],
+  "doubts": "FITTINGS does names grain, rye and beans; SPACES also takes oats. Bins outrank the granary for grain, so a granary only fills once the bins are full. basic: everyone knows it at known (knowledge.level), so its rough and capable lines are almost never shown. FAULT: the rough line reads 'a rough idea: no materials' because build rows have no inputs (knowledge.craft_parts), though the build takes materials. the TECHNIQUES row has no does (data.py:849 builds it from the FITTINGS/BLUEPRINTS/MONUMENTS row and carries only about as hint), so DOES falls back to the label."
+ }
+}
