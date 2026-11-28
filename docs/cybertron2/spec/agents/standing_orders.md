@@ -7,6 +7,10 @@ Routine work runs on standing orders the agent sets, until it changes them. Refl
 ## Decided
 
 - D4-16: routine work runs on standing orders the agent sets; reflexes, fallbacks and policies come later.
+- D6-1: a household's or a person's rules hold as written, a keep floor included, even when its people go hungry or starve: the
+  engine never breaks a rule to save a life. The rules are theirs to change; a hungry meal's morning line names the rule that kept
+  the food back and what it kept.
+- D6-1: A household's or a person's rules hold as written, a keep floor included, even when its people go hungry or starve: the engine never breaks a rule to save a life; the rules are theirs, and they decide whether to change them. A hungry meal names the rule that kept the food back and what it kept, so they can
 
 ## Mechanics
 
@@ -24,4 +28,4 @@ Routine work runs on standing orders the agent sets, until it changes them. Refl
 
 38.06 §4-§6; 38.07 §5.
 
-*Current as of 23 Oct 2026: D4-16.*
+*Current as of 28 Nov 2026: D4-16, D6-1.*
