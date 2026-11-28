@@ -2,7 +2,6 @@
 
 ## Open
 - [[Q-112 D5-2 only partly met|D5-2 only partly met (Q-112)]] (open)
-- [[Q-111 Whether a household's keep floor yields when its people are starving|Whether a household's keep floor yields when its people are starving (Q-111)]] (open)
 - [[Q-110 The engine-runs-1 tag could not be pushed|The engine-runs-1 tag could not be pushed (Q-110)]] (open)
 - [[Q-109 The hunting method 'drive'|The hunting method 'drive' (Q-109)]] (open)
 - [[Q-108 Vermin's sudden illness saturates in every world|Vermin's sudden illness saturates in every world (Q-108)]] (open)
@@ -60,7 +59,8 @@
 - [[Q-RR3 The human player's first interface|The human player's first interface (Q-RR3)]] (open)
 - [[Q-RR5 A replay test with shuffled completion order of model calls|A replay test with shuffled completion order of model calls (Q-RR5)]] (open)
 
-## Closed (63)
+## Closed (64)
+- [[Q-111 Whether a household's keep floor yields when its people are starving|Whether a household's keep floor yields when its people are starving (Q-111)]]
 - [[Q-107 Which worlds the stable engine's acceptance and the comparative runs…|Which worlds the stable engine's acceptance and the comparative runs… (Q-107)]]
 - [[Q-104 Merging this thread's fixes to main|Merging this thread's fixes to main (Q-104)]]
 - [[Q-98 One clock for the water's food before anything is sized|One clock for the water's food before anything is sized (Q-98)]]

@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # Behaviour steered by defaults, examples and wording (W-84)
 
-*waiting · 37.2 · touched 23 Nov (4 days ago)*
+*waiting · 37.2 · touched 23 Nov (5 days ago)*
 
 > **Next:** the A/B replays it holds ([[L-177 AB prompt replay|L-177]]'s conditional-rule example)
 

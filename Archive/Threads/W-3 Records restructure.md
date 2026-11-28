@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Records restructure (W-3)
 
-*dropped, by zach · 37.2 (session "Thicker economy exploration") · touched 9 Nov (18 days ago)*
+*dropped, by zach · 37.2 (session "Thicker economy exploration") · touched 9 Nov (19 days ago)*
 
 ## What it is
 Records restructure: WORK.md, OPEN.md's kinds, CLAUDE.md's rule, hygiene's stale checks, the sorting draft (02zz)

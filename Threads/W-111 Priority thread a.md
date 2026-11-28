@@ -7,7 +7,7 @@ updated: "2026-11-25"
 
 # Priority thread a (W-111)
 
-*active · stable · touched 25 Nov (2 days ago)*
+*active · stable · touched 25 Nov (3 days ago)*
 
 > **Next:** Zach: push the tag engine-runs-1 at 34afb75f ([[Q-110 The engine-runs-1 tag could not be pushed|Q-110]]; this session cannot push tags); open: [[Q-108 Vermin's sudden illness saturates in every world|Q-108]] vermin's illness, [[Q-105 Whether World 0b is reworked before it is the benchmark world|Q-105]] World 0b, [[Q-106 The lamprey's second fault|Q-106]] the lamprey's size, [[O-5 Reconcile the audits into the records|O-5]] the audits reconciled; bench's faults as they come
 
@@ -26,6 +26,7 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - under it: [[D2-351 What a person is shown follows what they have learnt|What a person is shown follows what they have learnt (D2-351)]] (live)
 - under it: [[D2-352 Familiarity and the interface|Familiarity and the interface (D2-352)]] (live)
 - under it: [[D2-356 A technique's name, what it does, what it needs and its working hints…|A technique's name, what it does, what it needs and its working hints… (D2-356)]] (live)
+- under it: [[D6-1 A household's or a person's rules hold as written, a keep floor…|A household's or a person's rules hold as written, a keep floor… (D6-1)]] (live)
 - under it: [[L-178 Wording bugs|Wording bugs (L-178)]] (closed)
 - under it: [[L-179 Every take's line says 'food worth about 1 meal' at the least|Every take's line says 'food worth about 1 meal' at the least (L-179)]] (closed)
 - under it: [[L-185 The farmer's seed lines|The farmer's seed lines (L-185)]] (open)
@@ -49,7 +50,7 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - under it: [[Q-108 Vermin's sudden illness saturates in every world|Vermin's sudden illness saturates in every world (Q-108)]] (open)
 - under it: [[Q-109 The hunting method 'drive'|The hunting method 'drive' (Q-109)]] (open)
 - under it: [[Q-110 The engine-runs-1 tag could not be pushed|The engine-runs-1 tag could not be pushed (Q-110)]] (open)
-- under it: [[Q-111 Whether a household's keep floor yields when its people are starving|Whether a household's keep floor yields when its people are starving (Q-111)]] (open)
+- under it: [[Q-111 Whether a household's keep floor yields when its people are starving|Whether a household's keep floor yields when its people are starving (Q-111)]] (closed)
 - under it: [[Q-112 D5-2 only partly met|D5-2 only partly met (Q-112)]] (open)
 - under it: [[W-109 The prompt's interface restored|The prompt's interface restored (W-109)]] (done)
 
@@ -59,6 +60,7 @@ done 24 Nov: the gate at a run's start, the old water worlds' traps, the lamprey
 - [[D2-351 What a person is shown follows what they have learnt|What a person is shown follows what they have learnt (D2-351)]]
 - [[D2-352 Familiarity and the interface|Familiarity and the interface (D2-352)]]
 - [[D2-356 A technique's name, what it does, what it needs and its working hints…|A technique's name, what it does, what it needs and its working hints… (D2-356)]]
+- [[D6-1 A household's or a person's rules hold as written, a keep floor…|A household's or a person's rules hold as written, a keep floor… (D6-1)]]
 - [[Q-100 Old water worlds|Old water worlds (Q-100)]]
 - [[Q-101 The two priority threads' scope|The two priority threads' scope (Q-101)]]
 - [[Q-102 The interface's size|The interface's size (Q-102)]]

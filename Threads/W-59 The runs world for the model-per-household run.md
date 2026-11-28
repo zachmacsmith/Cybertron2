@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # The runs world for the model-per-household run (W-59)
 
-*waiting · 37.2 · touched 20 Nov (7 days ago)*
+*waiting · 37.2 · touched 20 Nov (8 days ago)*
 
 > **Next:** Zach to confirm [[Q-60 The water worlds' people, and the runs world for the…|Q-60]]'s relayed answers, then record them
 

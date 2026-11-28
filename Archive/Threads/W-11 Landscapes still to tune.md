@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Landscapes still to tune (W-11)
 
-*merged, by zach · 37.2 · touched 3 Nov (24 days ago)*
+*merged, by zach · 37.2 · touched 3 Nov (25 days ago)*
 
 ## What it is
 Landscapes still to tune (OPEN [[L-100 Landscapes still to tune|L-100]]); the generator's `_spread` reach ([[L-51 landgen.physical._spread reaches farther than its steps|L-51]])

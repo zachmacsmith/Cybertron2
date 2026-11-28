@@ -7,7 +7,7 @@ updated: "2026-11-24"
 
 # The prompt's interface restored (W-109)
 
-*done, by agent (provisional) · 37.2 · touched 24 Nov (3 days ago)*
+*done, by agent (provisional) · 37.2 · touched 24 Nov (4 days ago)*
 
 > **Next:** the registry and renderer builder on w109-interface (brief iface_brief.md); a regression audit of the wave (wave_regressions.md); then 37.2 reviews, replays and merges
 

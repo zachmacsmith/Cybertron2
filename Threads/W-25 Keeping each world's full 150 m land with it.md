@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Keeping each world's full 150 m land with it (W-25)
 
-*waiting · 37.2 (generator) with 37.4 (engine, record, publish) · touched 20 Nov (7 days ago)*
+*waiting · 37.2 (generator) with 37.4 (engine, record, publish) · touched 20 Nov (8 days ago)*
 
 > **Next:** Zach on the how (tile size, past runs); 37.2's generator part; 37.4's engine and record part
 

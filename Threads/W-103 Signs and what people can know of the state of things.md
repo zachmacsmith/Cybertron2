@@ -7,7 +7,7 @@ updated: "2026-11-24"
 
 # Signs and what people can know of the state of things (W-103)
 
-*active · 37.2 · touched 24 Nov (3 days ago)*
+*active · 37.2 · touched 24 Nov (4 days ago)*
 
 > **Next:** survey and design written (c101c75d); 37.2 reviewed the counts; eight design questions and seven survey questions with Zach; nothing built
 

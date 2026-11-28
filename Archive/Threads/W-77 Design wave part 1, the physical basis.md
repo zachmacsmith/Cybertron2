@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # Design wave part 1, the physical basis (W-77)
 
-*done, by agent (provisional) · 37.2 · touched 22 Nov (5 days ago)*
+*done, by agent (provisional) · 37.2 · touched 22 Nov (6 days ago)*
 
 > **Next:** Zach: the note's six questions (bulk goods to handling units with recipes in real kg; fuel a night at real weight; the keeping curve for every shelf life; night-counted lives at 1/11.4; carrying building materials, real carry limits; field walls where the land gives stone); 28 inconsistencies in §5.4 for the build
 

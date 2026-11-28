@@ -7,7 +7,7 @@ updated: "2026-11-22"
 
 # Gates checked and recipes shown (W-75)
 
-*dropped, by agent (provisional) · 37.2 · touched 22 Nov (5 days ago)*
+*dropped, by agent (provisional) · 37.2 · touched 22 Nov (6 days ago)*
 
 ## What it is
 Zach, 22 Nov: whatever next proposal or thread I implement, fold the batch fix into that; I give my go ahead for all of them (the batch data change [[O-2 Make the eleven bulk processes take up to their batch|O-2]], the gate check, recipes shown, and writing the trying-and-learning proposal). From the crafts evaluation's top three choices ([[W-74 The crafts and techniques design evaluated|W-74]]). Built on branch w75-gates-recipes.

@@ -7,7 +7,7 @@ updated: "2026-11-23"
 
 # Fishing, hunting and their materials developed together (W-73)
 
-*waiting · 37.2 · touched 23 Nov (4 days ago)*
+*waiting · 37.2 · touched 23 Nov (5 days ago)*
 
 > **Next:** the build: [[W-105 The founders' seeded lines for every built livelihood|W-105]] (the livelihoods' lines), [[W-106 Stage 5 of the wave, works|W-106]] (stage 5), [[W-107 Stage 5b of the wave, the gaps closed|W-107]] (stage 5b), then live run 2 ([[D2-345 Zach's go for stage 5|D2-345]])
 

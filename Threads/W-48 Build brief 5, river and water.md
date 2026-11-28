@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # Build brief 5, river and water (W-48)
 
-*active · 37.4 (37.2 the brief, its data and its worlds: W-47) · touched 16 Nov (11 days ago)*
+*active · 37.4 (37.2 the brief, its data and its worlds: W-47) · touched 16 Nov (12 days ago)*
 
 > **Next:** Zach's answers (OPEN [[Q-53 Merging the water work|Q-53]]: the one-batch rule, the merge, a live run); 37.2's salmon calibration, river.yaml's climate, the remake
 

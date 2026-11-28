@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # How carrying works in the live runs (W-71)
 
-*done · 37.2 · touched 20 Nov (7 days ago)*
+*done · 37.2 · touched 20 Nov (8 days ago)*
 
 ## What it is
 Zach, 20 Nov: check how often their weight is refused; maybe seed more transport infra; they almost always carry things by hand between villages. An agent measures it on the published runs; note 02zzv_carrying_in_runs.md.

@@ -7,7 +7,7 @@ updated: "2026-11-20"
 
 # The audit of work started and left, and the triage of open asks and… (W-63)
 
-*active · 37.2 · touched 20 Nov (7 days ago)*
+*active · 37.2 · touched 20 Nov (8 days ago)*
 
 > **Next:** Zach's answers to the four explained asks ([[Q-58 The calibration worlds|Q-58]], [[Q-51 Brief 5 (river and water)|Q-51]], [[Q-53 Merging the water work|Q-53]] a and b, [[Q-46 Brief 4c as built|Q-46]] d and e); 37.4's own pass ([[Q-42 The peoples benchmark's design before any run|Q-42]], [[Q-43 Fixes before a second peoples run|Q-43]], its 13 threads)
 
