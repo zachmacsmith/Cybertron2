@@ -1038,6 +1038,36 @@ def keeps(w, bid) -> list:
     return out
 
 
+def holding(w, name, cid, item) -> list:
+    """The household's keep rules that hold a good back in a store from `name` tonight, as [(rule, qty)], as `held` reads them
+    (without its record of one's own rule going against the household's): for the meal line to say which rule kept what (W-111)."""
+    c = w.s["containers"].get(cid) or {}
+    hh = w.household_of(name)
+    if c.get("kind") != "stock" or not hh or not _holds(w, hh, c["of"]):
+        return []
+    node = w.s["buildings"][c["of"]]["node"]
+    out = []
+    for r in household_rules(w, hh):
+        if r["rule"] != "keep" or r.get("at least") in (None, ""):
+            continue
+        gs = goods_of(w, _voice(w, hh), r.get("goods")) if _voice(w, hh) else []
+        if not (item in gs or "*" in gs):
+            continue
+        if r.get("in"):
+            tg = target(w, hh, node, r.get("in"), gs)
+            if tg.get("bid") not in (None, c["of"]):
+                continue
+        if not _applies(w, hh, node, r, name, who=name):
+            continue
+        if any(x["rule"] in ("first", "share") and item in goods_of(w, name, x.get("goods")) for x in own_rules(w, name)):
+            continue
+        have = float(w.goods(cid).get(item, 0.0))
+        q = have if r["at least"] == "all" else min(have, float(r["at least"]))
+        if q > 1e-9:
+            out.append((r, q))
+    return out
+
+
 def held(w, name, cid, item) -> float:
     """What of a good in a store is not eaten, drawn or used (moments 3, 4): the floor the household's `keep` rules set ("at least"),
     while their conditions hold; one's own rule for the good comes before (going against the household's, recorded)."""

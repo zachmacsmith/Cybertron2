@@ -1466,8 +1466,13 @@ def _monument(here, mind, a, party, pid, what):
         from cybertron2.engine import parties as PT, wild as WL
         if not here.river_parcel(pid):
             raise Refused(f"{d['label'][2:]} is built across a river: at a place of water on a river here")
-        if any(WL.is_weir(b) and b["parcel"] == pid for b in here.buildings().values()):
-            raise Refused(f"there is a weir across {par['name']} already")
+        have = next((b for b in here.buildings().values() if WL.is_weir(b) and b["parcel"] == pid), None)
+        if have is not None:                                                  # what one may build at it instead, from the parts' words
+            from cybertron2.wild import gear as GR                            # (W-111: Fallowmere's "second weir" was refused unexplained)
+            full = len(WL.sections(have)) - 1 >= GR.most_added()
+            raise Refused(f"there is a weir across {par['name']} already" + (
+                f": to add to it, build {_and_or(sorted(set(WEIR_PART_WORDS.values())))} at it" if not full else
+                f"; it has all its sections, but you can build {WEIR_PART_WORDS['footing']} or {WEIR_PART_WORDS['upgrade']} at it"))
         for x in PT._names(a.get("with")):
             n_ = here.person(x)                                            # a living person here (at the node)
             if n_ and n_ != here.name and n_ not in crew:
@@ -1625,6 +1630,11 @@ WEIR_PARTS = {"weir section": "section", "a weir section": "section", "timber se
               "upgrade the weir": "upgrade", "timber upgrade": "upgrade", "rebuild a section in timber": "upgrade"}
 WEIR_PART_WORDS = {"timber": "a timber section", "wattle": "a wattle section", "footing": "a stone footing",
                    "upgrade": "a section rebuilt in timber"}
+
+
+def _and_or(xs) -> str:
+    xs = list(xs)
+    return xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " or " + xs[-1]
 
 
 def _weir_part(here, mind, a, party, part):
@@ -3272,6 +3282,23 @@ assert set(HANDLERS) == set(VERB)
 # Every act, craft and way carries its interface (D2-350): one without it is a build error, raised here at load (W-109).
 from cybertron2.engine import iface as _IFC  # noqa: E402
 _IFC.check(VERB)
+
+
+def _tell_carry_on_the_road() -> None:
+    """The travel act says what one can carry, from the data (W-111, D5-2: the system prompt's carry line reached no model; the limit
+    was learnt only from refusals): on foot, a pack basket, a handcart on a track, a pack ox."""
+    from cybertron2.engine.data import HERDS, ITEMS, PHYSICS
+    foot = float(PHYSICS["carry"]["foot"])
+    bits = [f"a pack basket {float(ITEMS['pack']['carry']):g} kg more" if ITEMS.get("pack", {}).get("carry") else "",
+            f"a handcart {float(ITEMS['handcart']['carry']):g} kg more on a track" if ITEMS.get("handcart", {}).get("carry") else "",
+            f"a pack ox {float(HERDS['pack_ox']['carry']):g} kg" if HERDS.get("pack_ox", {}).get("carry") else ""]
+    line = f" On foot you carry at most {foot:g} kg; " + ", ".join(b for b in bits if b) + "."
+    for row in _IFACE.get("travel") or []:
+        if row.get("word") == "go" and "you carry at most" not in row["does"]:
+            row["does"] = row["does"].rstrip().rstrip(".") + "." + line
+
+
+_tell_carry_on_the_road()
 
 
 def _check_names() -> None:

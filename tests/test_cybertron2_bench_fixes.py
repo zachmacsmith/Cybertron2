@@ -195,3 +195,70 @@ def test_the_registries_refuse_a_shared_name_and_a_way_of_no_craft(monkeypatch):
     monkeypatch.setitem(D.TECHNIQUES, "travel", {"verb": "gather"})
     with pytest.raises(RuntimeError, match="share a name"):
         V._check_names()
+
+
+def test_the_arrival_view_counts_the_others_not_oneself(eel):
+    """W-111 (bench's 200-day runs): a lone traveller at an empty place read "one person about the place" while "Here today: nobody
+    else" stood beside it; the count is of the others there."""
+    from cybertron2.engine import layout as LY
+    node = eel.s["people"]["Peter"]["at"]
+    for n in list(eel.present(node)):
+        if n != "Peter":
+            eel.s["people"][n]["at"] = None
+    assert not any("about the place" in x for x in LY.overview(eel, node, viewer="Peter"))
+    assert not any("about the place" in x for x in Here(eel, "Peter").overview())
+
+
+def test_a_hungry_meal_names_the_rule_that_kept_the_food_back(eel):
+    """W-111 (bench's Scattering arm): the Meades starved behind "keep at least 50 grain" with 48 in the bins, told each morning
+    "nothing more"; the meal line names the household's rule and what it kept back, at or under its floor too."""
+    from cybertron2.engine import night as N
+    _short_marsh(eel, food=0.0)
+    home = Here(eel, "Peter").homes_here()[0]
+    eel.s["containers"][eel.s["buildings"][home]["stock"]]["goods"]["grain"] = 40.0
+    BK.act(Here(eel, "Peter"), {"rule": "keep", "goods": "grain", "at least": 50, "words": "keep the seed grain"})
+    N.night(eel)
+    eel.s["day"] += 1
+    eel.s["today"] = R.blank_today()
+    line = Here(eel, "Peter").meal_lines()[0]
+    assert "still hungry" in line and "kept back 40 grain" in line and "keep the seed grain" in line, line
+
+
+def test_a_second_weir_where_one_stands_says_how_to_add_to_it(eel):
+    """W-111 (bench's Fallowmere runs): "build weir" where one stands was refused without saying a weir grows by sections."""
+    b = next(b for b in eel.s["buildings"].values() if b.get("monument") == "weir")
+    place = eel.s["parcels"][b["parcel"]]["name"]
+    who = sorted(n for n, k in eel.s["know"].items() if "weir" in k)[0]
+    out = V.do(Here(eel, who), Mind(eel, who), {"do": "build", "what": "weir", "at": place, "with": ["Nigel"]})
+    assert "already" in out and "a wattle section" in out and "a timber section" in out, out
+
+
+def test_a_too_heavy_reply_that_says_go_sets_off(eel):
+    """W-111 (bench's monoculture runs, 0 departures from 108 lighten calls): the interface's travel word is "go"; the lighten
+    reply's acts are read as the interface writes them, so {"do": "go", "to": ...} is the setting off, and a give stays a give."""
+    road = Here(eel, "Peter").roads()[0][1]
+    acts = R.lighten_acts(eel, "Peter", [{"do": "give", "to": "Nichola", "item": "timber", "qty": 5},
+                                         {"do": "go", "to": road}, {"do": "rest"}, "not an act"])
+    assert [v for _, v in acts] == ["give", "travel"], acts
+
+
+def test_the_carry_limits_and_what_a_pack_does_are_shown(eel):
+    """W-111 (bench's monoculture runs, D5-2): no arm made a pack basket in 60 days, its line saying only what it took, and the carry
+    limit reached no model. The go act's line and the carrying gear's lines say them, from the data."""
+    from cybertron2.engine import prompt as PR
+    from cybertron2.engine.data import ITEMS, PHYSICS
+    s = PR.system_prompt(Here(eel, "Peter"), Mind(eel, "Peter"))
+    assert f"On foot you carry at most {PHYSICS['carry']['foot']:g} kg" in s
+    assert f"make a pack basket: you carry {ITEMS['pack']['carry']:g} kg more on the road" in s
+
+
+def test_the_smoke_act_says_it_lights_the_fire_and_mending_names_what_is_made_again():
+    """W-111 (bench's Fallowmere runs: 71 refusals of 'already tended' after hanging fish; rods taken for lines and mended)."""
+    from cybertron2.engine import gear as GE
+    from cybertron2.engine.data import TECHNIQUES
+    assert "lights and tends tonight's fire" in TECHNIQUES["smoke fish"]["does"]
+    hint = TECHNIQUES["mend gear"]["hint"]
+    for i, x in GE.LIVES.items():
+        if x.get("count"):
+            assert (GE.plural(i) in hint.split(";")[0]) == bool(x.get("mends")), (i, hint)
+    assert "fishing rods" in hint.split(";")[1] and "made again" in hint

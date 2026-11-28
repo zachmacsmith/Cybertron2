@@ -120,9 +120,11 @@ TECHNIQUES = {
 }
 # What doing each does, in interface terms (W-109; D2-350): the world's figures (keeping times, firewood a kg) stay in `manual` for
 # the old prompt and in the engine's own results ("the fire ... wants about 0.6 bundles of firewood"), never in the interface.
-_KS_DOES = ("hang it on the racks of a smokehouse: done after 1 night of a tended fire (tend it daily; it burns firewood from the "
-            "smokehouse's store or the woodpile at its door); a lot that misses its fire waits; take the done lot down with move")
-_HC_DOES = ("hang salted goods in a timber or stone smokehouse: done after 3 nights of a tended fire; take the done lot down with move")
+_KS_DOES = ("hang it on the racks of a smokehouse: done after 1 night of a tended fire (hanging it lights and tends tonight's fire; "
+            "tend it on the days after; it burns firewood from the smokehouse's store or the woodpile at its door); a lot that misses its "
+            "fire waits; take the done lot down with move")
+_HC_DOES = ("hang salted goods in a timber or stone smokehouse: done after 3 nights of a tended fire (hanging them lights and tends "
+            "tonight's; tend it on the days after); take the done lot down with move")
 for _k, _v in {"smoke fish": _KS_DOES, "smoke meat": _KS_DOES, "hard cure fish": _HC_DOES, "hard cure meat": _HC_DOES,
                "hot smoke fish": "smoke it over a fire in one go: done in the act, cooked",
                "hot smoke meat": "smoke it over a fire in one go: done in the act, cooked",

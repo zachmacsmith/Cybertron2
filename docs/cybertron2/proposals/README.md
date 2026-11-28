@@ -467,3 +467,4 @@ Newest first. Ideas decided or rejected in conversation before 23 Oct are backfi
 | 22 Nov | making durable things at a real share of a year's work; a unit 2 hours | accepted in principle: D2-275, D2-276 | [building_clock.md](building_clock.md) |
 | 22 Nov | stores in the book of standing rules | accepted in part: D2-274 | [store_rules.md](store_rules.md) |
 | 22 Nov | a grammar of acting: few verbs, the thing as target, techniques as the how | exploration | [verb_grammar.md](verb_grammar.md) |
+| 28 Nov | a rule's floor holds even when its people starve; the hungry meal line names the rule | accepted: D6-1 (retrospective to ecc4efde) | [stable_engine_for_runs.md](stable_engine_for_runs.md) |

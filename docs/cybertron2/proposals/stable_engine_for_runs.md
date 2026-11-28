@@ -114,6 +114,8 @@ The engine's interface (`prompt.py`, `core.py`, `shapes.py`, `view.py`, `verbs.p
   worlds' traps; the lamprey's spawners kept at the history's end; the founders' lines by the runs and by village (D2-349); the
   signs' bug fixes (D2-346); M7 firing; the engine tag in the run record (§6). The fault table checked:
   `docs/review/40_stable_engine/fault_table.md`; a first acceptance pass: `acceptance.md` there.
+- **28 Nov 2026:** Zach decided (D6-1, closing Q-111): a rule's floor holds even when its people starve, the rules being theirs to
+  change; built as the hungry meal line naming the rule and what it kept (ecc4efde, retrospectively to his word).
 
 ## Sources
 

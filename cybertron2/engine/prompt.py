@@ -11,6 +11,7 @@ from cybertron2.engine import buildings as BL, forests as FO, agreements as AG, 
 from cybertron2.engine import packs as PK
 from cybertron2.engine.data import BLUEPRINTS, FITTINGS, FUSE, HERDS, ITEMS, MODIFIERS, MONUMENTS, ROOMS, SPACE, TECHNIQUES, TIERS
 from cybertron2.engine.here import CONDITION, STAGES, show
+from cybertron2.engine.world import show_fine
 
 SCHEMA = {
     "type": "object",
@@ -990,7 +991,7 @@ def talk_prompt(here, mind, heard, also, offers, opened, cards, sent=0) -> str:
 
 
 def lighten_prompt(here, mind, a: dict, did: list) -> str:
-    goods = ", ".join(f"{show(q)} {i} ({show(q * ITEMS[i]['weight'])} weight)" for i, q in sorted(here.carried().items()) if q > 0.05)
+    goods = ", ".join(f"{show_fine(q)} {i} ({show(q * ITEMS[i]['weight'])} weight)" for i, q in sorted(here.carried().items()) if q > 0.05)   # not "0 stone" (W-111)
     L = ["## Setting off", "Today so far: " + (" ".join(x for x in did if not x.startswith(PC.SPEECH)) or "nothing"),
          f"You meant to set off for {a.get('to')} tonight, but you carry {math.ceil(here.load() * 10 - 1e-9) / 10:g} weight and you can carry "
          f"{here.capacity():g}: set down at least {math.ceil((here.load() - here.capacity()) * 10 - 1e-9) / 10:g}. You carry: {goods}.",

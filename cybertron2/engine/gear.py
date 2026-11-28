@@ -150,7 +150,11 @@ def register_techniques(techniques) -> None:
             if f in r:
                 row[f] = r[f]
         techniques[k] = row
-    techniques["mend gear"] = {"verb": "make", "label": "mending gear", "hint": "traps, nets, lines", "basic": True,
+    mended = [plural(i) for i, x in sorted(LIVES.items()) if x.get("mends")]      # what mends and what is made again, from LIVES
+    remade = [plural(i) for i, x in sorted(LIVES.items()) if x.get("count") and not x.get("mends")]   # the taking gear that wears out
+    techniques["mend gear"] = {"verb": "make", "label": "mending gear", "basic": True,                 # and is made again (W-111: rods
+                                                                                                       # read as lines, mended)
+                               "hint": ", ".join(mended) + ("; " + " and ".join(remade) + " are made again, not mended" if remade else ""),
                                "aliases": ["mend", "mend traps", "mend the traps", "mend nets", "mend the net", "mend the nets", "mend lines"],
                                "mend_gear": True, "units": 1, "gives": "", "inputs": {}, "tags": ["craft", "fishing"],
                                "does": "mend the worn gear in your hands, one kind an act: half its full uses back, a tenth of its "
