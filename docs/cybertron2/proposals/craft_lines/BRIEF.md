@@ -70,6 +70,6 @@ yields or seasons stated as facts of the world, no em dashes, no engine jargon (
 
 - Read and write only: do not edit any engine code, data or tests; do not commit or push.
 - Write your part's JSON to `docs/cybertron2/proposals/craft_lines/part_<N>.json` (valid JSON, every key in your dump present).
-- Your dump (each row, its shape and the items it uses or makes) is
-  `/tmp/claude-0/-home-user-Cybertron2/df278c3e-a1b9-5111-bdc7-1f21061b0653/scratchpad/crafts_part<N>.json`.
+- Your dump (each row, its shape and the items it uses or makes) was a scratch file `crafts_part<N>.json` made from TECHNIQUES
+  and ITEMS at the time (not kept).
 - When done, reply with: how many crafts written, how many `does` new, and the doubts worth Zach's attention (faults first).
