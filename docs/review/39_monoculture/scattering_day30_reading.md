@@ -146,3 +146,21 @@ a move to The Ford); the meal rules (keep floors, what is eaten first) are set o
 (days 26 to 40). Rules are set by the head alone (Maud 44, Geoffrey 26) and are rarely talked over: about 7% of evening replies
 mention one; what the evening talks over is yields, stores, who goes where, deaths and matches. Haiku 5.5's fallbacks are routine
 (firewood, cord, berries every day); Sonnet 5.5 hardly uses the book.
+
+## Refused acts in the Fallowmere runs, days 0 to 59 (28 Nov)
+
+A refused act costs no units (the fallback takes them). Opus 5.5 470 refused work acts (0.7 a turn), Sonnet 5.5 218, Haiku 5.5 229.
+
+| Kind (share of each arm's refusals) | Opus 5.5 | Sonnet 5.5 | Haiku 5.5 |
+|---|---|---|---|
+| A chore the state did not call for (a sound house, nothing done on the racks, no crop) | 28% | 23% | 28% |
+| Missing gear or input (no line, no traps in hand, no fish to smoke, too little fuel) | 25% | 16% | 27% |
+| Done already: by the person's own act or someone else | 15% | 9% | 17% |
+| Misread how an act works (ownership on racks, goods already in store, where an act is done) | 11% | 9% | 9% |
+| The land or water gave out (fished out, grazed short, no willow) | 7% | 21% | 4% |
+| Other, and too heavy to set off | 11% | 19% | 13% |
+
+Most of Opus's "done already" is its own: hanging fish lights the smoke fire, and the smoker then tends it again (Alice on 15
+days); the act's line does not say so (sent to stable). Failures repeat: a refusal is in that evening's prompt but rarely in the next
+morning's, and 43 person-refusal pairs recur on 3 or more days (Robert "no line to fish with" on 10 days of the eel run, mending
+rods that are only made again). Refusals per turn rise from 0.43 (days 0 to 9) to about 0.7 for the rest.
