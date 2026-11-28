@@ -250,3 +250,15 @@ def test_the_carry_limits_and_what_a_pack_does_are_shown(eel):
     s = PR.system_prompt(Here(eel, "Peter"), Mind(eel, "Peter"))
     assert f"On foot you carry at most {PHYSICS['carry']['foot']:g} kg" in s
     assert f"make a pack basket: you carry {ITEMS['pack']['carry']:g} kg more on the road" in s
+
+
+def test_the_smoke_act_says_it_lights_the_fire_and_mending_names_what_is_made_again():
+    """W-111 (bench's Fallowmere runs: 71 refusals of 'already tended' after hanging fish; rods taken for lines and mended)."""
+    from cybertron2.engine import gear as GE
+    from cybertron2.engine.data import TECHNIQUES
+    assert "lights and tends tonight's fire" in TECHNIQUES["smoke fish"]["does"]
+    hint = TECHNIQUES["mend gear"]["hint"]
+    for i, x in GE.LIVES.items():
+        if x.get("count"):
+            assert (GE.plural(i) in hint.split(";")[0]) == bool(x.get("mends")), (i, hint)
+    assert "fishing rods" in hint.split(";")[1] and "made again" in hint
